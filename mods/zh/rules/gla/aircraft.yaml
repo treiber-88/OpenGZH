@@ -1,0 +1,172 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  GLAJetCargoPlane:
+    DisplayName: OBJECT:CargoPlane
+    EditorSorting: VEHICLE
+    Side: GLA
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: C130AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT FORCEATTACKABLE IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 40 40 40 40
+    Locomotor: SET_NORMAL B52Locomotor
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 40.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ParticlesAttachedToAnimatedBones: Yes
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVCargoPln
+          Animation: UVCargoPln.UVCargoPln
+          AnimationMode: LOOP
+          ParticleSysBone:
+          - Engine01 JetBlackTrail
+          - Engine02 JetBlackTrail
+          - Engine03 JetBlackTrail
+          - Engine04 JetBlackTrail
+        ConditionState:
+          DAMAGED:
+            Model: UVCargoPln_D
+            Animation: UVCargoPln_D.UVCargoPln_D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Propeller03 JetBlackTrailThin
+            - Propeller04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+            - Smoke03 JetSmokeLarge
+          REALLYDAMAGED:
+            Model: UVCargoPln_D
+            Animation: UVCargoPln_D.UVCargoPln_D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Propeller03 JetBlackTrailThin
+            - Propeller04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+            - Smoke03 JetSmokeLarge
+          RUBBLE:
+            Model: UVCargoPln_D1
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Smoke03 JetFireLarge
+            - Smoke04 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+            - Smoke03 JetSmokeLarge
+            - Smoke04 JetSmokeLarge
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVCargoPln_A2
+          Animation: UVCargoPln_A2.UVCargoPln_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST
+        ConditionState:
+          DOOR_1_OPENING:
+            Model: UVCargoPln_A2
+            Animation: UVCargoPln_A2.UVCargoPln_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+          DOOR_1_CLOSING:
+            Model: UVCargoPln_A2
+            Animation: UVCargoPln_A2.UVCargoPln_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1000.0
+        InitialHealth: 1000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 4
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 300
+        PutInContainer: AmericaParachute
+        DeliveryDistance: 150
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE FORCEATTACKABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponDaisyCutter
+        OCL: SUPERWEAPON_DaisyCutter
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_08:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponParadropAmerica
+        UpgradeOCL: [SCIENCE_Paradrop3 SUPERWEAPON_Paradrop3, SCIENCE_Paradrop2 SUPERWEAPON_Paradrop2]
+        OCL: SUPERWEAPON_Paradrop1
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_09:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponCarpetBomb
+        OCL: SUPERWEAPON_CarpetBomb
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_12:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+    SourceFile: Data/INI/Object/GLAAir.ini

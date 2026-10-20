@@ -1,0 +1,507 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Upgrades:
+  Upgrade_Nationalism:
+    DisplayName: UPGRADE:Nationalism
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SSNationalism
+    ResearchSound: RedGuardVoiceUpgradeNationalism
+  Upgrade_Fanaticism:
+    DisplayName: UPGRADE:Fanaticism
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SSNationalism
+    ResearchSound: RedGuardVoiceUpgradePatriotism
+  Upgrade_AmericaRadar:
+    DisplayName: UPGRADE:Radar
+    Type: OBJECT
+    BuildTime: 10.0
+    BuildCost: 500
+    ButtonImage: SARadarUpgrade
+    ResearchSound: NoSound
+    AcademyClassify: ACT_UPGRADE_RADAR
+  Upgrade_AmericaAdvancedControlRods:
+    DisplayName: UPGRADE:ControlRods
+    Type: OBJECT
+    BuildTime: 30.0
+    BuildCost: 500
+    ButtonImage: SSControlRods
+  SupW_Upgrade_AmericaAdvancedControlRods:
+    DisplayName: UPGRADE:ControlRods
+    Type: OBJECT
+    BuildTime: 30.0
+    BuildCost: 500
+    ButtonImage: SACntrlRds
+  Upgrade_AmericaSupplyLines:
+    DisplayName: UPGRADE:SupplyLines
+    BuildTime: 30.0
+    BuildCost: 800
+    ResearchSound: ChinookVoiceUpgradeSupplyLines
+    ButtonImage: SAsupplyline
+  Upgrade_AmericaRangerFlashBangGrenade:
+    DisplayName: UPGRADE:RangerFlashBangGrenade
+    BuildTime: 30.0
+    BuildCost: 800
+    ButtonImage: SSFlashbang
+    ResearchSound: RangerVoiceUpgradeFlashBangGrenades
+  Upgrade_AmericaTOWMissile:
+    DisplayName: UPGRADE:TOWMissile
+    BuildTime: 30.0
+    BuildCost: 800
+    ButtonImage: SSTowMissiles
+    ResearchSound: HumveeVoiceUpgradeTowMissiles
+  Upgrade_ComancheRocketPods:
+    DisplayName: UPGRADE:ComancheRocketPods
+    Type: PLAYER
+    BuildTime: 40.0
+    BuildCost: 800
+    ButtonImage: SSCommancheMissiles
+    ResearchSound: ComancheVoiceUpgradeRocketPods
+  Upgrade_AmericaLaserMissiles:
+    DisplayName: UPGRADE:AmericaLaserMissiles
+    BuildTime: 40.0
+    BuildCost: 1500
+    ButtonImage: SSPlaneLaserMissiles
+    ResearchSound: RaptorVoiceUpgradeLaserGuidedMissiles
+  Upgrade_AmericaCountermeasures:
+    DisplayName: UPGRADE:AmericaCountermeasures
+    BuildTime: 40.0
+    BuildCost: 1000
+    ButtonImage: SAFlares
+    ResearchSound: RaptorVoiceUpgradeCounterMeasures
+  Upgrade_AmericaBunkerBusters:
+    DisplayName: UPGRADE:AmericaBunkerBusters
+    BuildTime: 40.0
+    BuildCost: 1500
+    ButtonImage: SABunkerBust
+    ResearchSound: AuroraVoiceUpgradeBunkerBuster
+  Upgrade_AmericaAdvancedTraining:
+    DisplayName: UPGRADE:AdvancedTraining
+    BuildTime: 60.0
+    BuildCost: 1500
+    ButtonImage: SSAdvancedTraining
+    ResearchSound: RangerVoiceUpgradeAdvancedTraining
+  Upgrade_AmericaDroneArmor:
+    DisplayName: UPGRADE:AmericaDroneArmor
+    BuildTime: 40.0
+    BuildCost: 500
+    ButtonImage: SSScoutArmor
+    ResearchSound: CrusaderTankVoiceUpgradeDroneArmor
+  Upgrade_AmericaCompositeArmor:
+    DisplayName: UPGRADE:CompositeArmor
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SSCompositeArmor
+    ResearchSound: CrusaderTankVoiceUpgradeCompositeArmor
+  Upgrade_InfantryCaptureBuilding:
+    DisplayName: UPGRADE:RangerCaptureBuilding
+    BuildTime: 30.0
+    BuildCost: 1000
+    ButtonImage: SSCaptureBuilding
+  Upgrade_AmericaMOAB:
+    DisplayName: UPGRADE:AmericaMOAB
+    BuildTime: 60.0
+    BuildCost: 4000
+    ButtonImage: SAMOAB
+  Upgrade_AmericaChemicalSuits:
+    DisplayName: UPGRADE:ChemicalSuits
+    BuildTime: 60.0
+    BuildCost: 1000
+    ButtonImage: SAChemsuit
+    ResearchSound: RangerVoiceUpgradeChemSuits
+  Upgrade_AmericaSentryDroneGun:
+    DisplayName: UPGRADE:AmericaSentryDroneGun
+    BuildTime: 30.0
+    BuildCost: 1000
+    ButtonImage: SASentryUpgr
+  Upgrade_AmericaScoutDrone:
+    DisplayName: UPGRADE:ScoutDrone
+    Type: OBJECT
+    BuildTime: 5.0
+    BuildCost: 100
+    ButtonImage: SAScout
+    ResearchSound: ScoutDroneVoiceCreate
+  Upgrade_AmericaBattleDrone:
+    DisplayName: UPGRADE:BattleDrone
+    Type: OBJECT
+    BuildTime: 5.0
+    BuildCost: 300
+    ButtonImage: SABattleDrone
+    ResearchSound: BattleDroneVoiceCreate
+  Upgrade_AmericaHellfireDrone:
+    DisplayName: UPGRADE:HellfireDrone
+    Type: OBJECT
+    BuildTime: 5.0
+    BuildCost: 500
+    ButtonImage: SAHellfire
+    ResearchSound: HellfireDroneVoiceCreate
+  Upgrade_ChinaMines:
+    DisplayName: UPGRADE:Mines
+    Type: OBJECT
+    BuildTime: 20.0
+    BuildCost: 600
+    ButtonImage: SSMineBunker
+    ResearchSound: MineFieldPlaced
+  Upgrade_ChinaEMPMines:
+    DisplayName: UPGRADE:EMPMine
+    Type: OBJECT
+    BuildTime: 25.0
+    BuildCost: 500
+    ButtonImage: SNEMPMine
+    ResearchSound: MineFieldPlaced
+  Upgrade_ChinaRadar:
+    DisplayName: UPGRADE:Radar
+    Type: OBJECT
+    BuildTime: 20.0
+    BuildCost: 500
+    ButtonImage: SARadarUpgrade
+    AcademyClassify: ACT_UPGRADE_RADAR
+  Upgrade_ChinaBlackNapalm:
+    DisplayName: UPGRADE:BlackNapalm
+    BuildTime: 45.0
+    BuildCost: 2000
+    ButtonImage: SSBlackNapalm
+    ResearchSound: DragonTankVoiceUpgradeBlackNapalm
+  Upgrade_ChinaChainGuns:
+    DisplayName: UPGRADE:ChainGuns
+    BuildTime: 45.0
+    BuildCost: 1500
+    ButtonImage: SSGattling
+    ResearchSound: GattlingTankVoiceUpgrade
+  Upgrade_ChinaAircraftArmor:
+    DisplayName: UPGRADE:AircraftArmor
+    BuildTime: 40.0
+    BuildCost: 1000
+    ButtonImage: SSMigArmor
+    ResearchSound: MigVoiceUpgradeMigArmor
+  Upgrade_ChinaTacticalNukeMig:
+    DisplayName: UPGRADE:TacticalNukeMig
+    BuildTime: 40.0
+    BuildCost: 2000
+    ButtonImage: SSMigNuke
+  Upgrade_ChinaSubliminalMessaging:
+    DisplayName: UPGRADE:SubliminalMessaging
+    BuildTime: 40.0
+    BuildCost: 500
+    ButtonImage: SSSobMsge
+    ResearchSound: POWTruckChinaVoiceUpgradeSubliminal
+  Upgrade_ChinaSatelliteHackOne:
+    DisplayName: UPGRADE:SatelliteHackOne
+    BuildTime: 20.0
+    BuildCost: 1000
+    ButtonImage: SNIntCntup01
+    UnitSpecificSound: CIAIntelligenceActivate
+  Upgrade_ChinaSatelliteHackTwo:
+    DisplayName: UPGRADE:SatelliteHackTwo
+    BuildTime: 20.0
+    BuildCost: 2500
+    ButtonImage: SNIntCntup02
+    UnitSpecificSound: CIAIntelligenceActivate
+  Upgrade_GLARadar:
+    DisplayName: UPGRADE:Radar
+    Type: OBJECT
+    BuildTime: 10.0
+    BuildCost: 500
+    ButtonImage: SARadarUpgrade
+    AcademyClassify: ACT_UPGRADE_RADAR
+  Upgrade_ChinaUraniumShells:
+    DisplayName: UPGRADE:UraniumShells
+    BuildTime: 60.0
+    BuildCost: 2500
+    ButtonImage: SSDepletedU_Shell
+    ResearchSound: BattleMasterTankVoiceUpgradeDepleted
+  Upgrade_ChinaNeutronShells:
+    DisplayName: UPGRADE:NeutronShells
+    BuildTime: 60.0
+    BuildCost: 2500
+    ButtonImage: SNNeutShell
+  Upgrade_ChinaNuclearTanks:
+    DisplayName: UPGRADE:NuclearTanks
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SSNukeTank
+    ResearchSound: BattleMasterTankVoiceUpgradeNuclear
+  Upgrade_GLAWorkerFakeCommandSet:
+    Type: OBJECT
+    BuildTime: 0.0
+    BuildCost: 0
+    ButtonImage: SUFakeToggle
+  Upgrade_GLAWorkerRealCommandSet:
+    Type: OBJECT
+    BuildTime: 0.0
+    BuildCost: 0
+    ButtonImage: SUWorker
+  Upgrade_BecomeRealGLACommandCenter:
+    DisplayName: UPGRADE:BecomeRealGLACommandCenter
+    Type: OBJECT
+    BuildTime: 30.0
+    BuildCost: 1500
+    ButtonImage: SUFakeUpgrade
+  Upgrade_BecomeRealGLABarracks:
+    DisplayName: UPGRADE:BecomeRealGLABarracks
+    Type: OBJECT
+    BuildTime: 10.0
+    BuildCost: 375
+    ButtonImage: SUFakeUpgrade
+  Upgrade_BecomeRealGLASupplyStash:
+    DisplayName: UPGRADE:BecomeRealGLASupplyStash
+    Type: OBJECT
+    BuildTime: 10.0
+    BuildCost: 1125
+    ButtonImage: SUFakeUpgrade
+  Upgrade_BecomeRealGLAArmsDealer:
+    DisplayName: UPGRADE:BecomeRealGLAArmsDealer
+    Type: OBJECT
+    BuildTime: 10.0
+    BuildCost: 1875
+    ButtonImage: SUFakeUpgrade
+  Upgrade_BecomeRealGLABlackMarket:
+    DisplayName: UPGRADE:BecomeRealGLABlackMarket
+    Type: OBJECT
+    BuildTime: 20.0
+    BuildCost: 1875
+    ButtonImage: SUFakeUpgrade
+  Upgrade_CashBounty:
+    DisplayName: UPGRADE:CashBounty
+    Type: PLAYER
+    BuildTime: 0.0
+    BuildCost: 0
+    ButtonImage: SSCashBounty
+    ResearchSound: RebelVoiceUpgradeCashBounty
+  Upgrade_GLAWorkerShoes:
+    DisplayName: UPGRADE:WorkerShoes
+    Type: PLAYER
+    BuildTime: 10.0
+    BuildCost: 1000
+    ButtonImage: SUShoes
+    ResearchSound: WorkerVoiceUpgradeShoes
+  Upgrade_GLAFortifiedStructure:
+    DisplayName: UPGRADE:FortifiedStructure
+    BuildTime: 30.0
+    BuildCost: 1000
+    ButtonImage: SUEliteGrd
+  Upgrade_GLAInfantryRebelBoobyTrapAttack:
+    DisplayName: UPGRADE:BoobyTrap
+    BuildTime: 30.0
+    BuildCost: 1000
+    ButtonImage: SSTNT
+    ResearchSound: RebelVoiceUpgradeBoobyTrap
+  Upgrade_GLAScorpionRocket:
+    DisplayName: UPGRADE:ScorpionRocket
+    BuildTime: 30.0
+    BuildCost: 1000
+    ButtonImage: SSScorpionRocketBuild
+    ResearchSound: ScorpionTankVoiceUpgradeRocket
+  Upgrade_GLARadarVanScan:
+    DisplayName: UPGRADE:RadarVanScan
+    BuildTime: 20.0
+    BuildCost: 500
+    ButtonImage: SSRadarVanScan
+    ResearchSound: RadarVanVoiceUpgradeRadarScan
+  Upgrade_GLAAnthraxBeta:
+    DisplayName: UPGRADE:AnthraxBeta
+    BuildTime: 30.0
+    BuildCost: 2500
+    ButtonImage: SSAnthraxBeta
+    ResearchSound: ToxinTractorVoiceUpgradeAnthrax
+  Upgrade_GLAToxinShells:
+    DisplayName: UPGRADE:ToxinShells
+    BuildTime: 30.0
+    BuildCost: 1000
+    ButtonImage: SSToxinShells
+    ResearchSound: ScorpionTankVoiceUpgradeToxin
+  Upgrade_GLACamouflage:
+    DisplayName: UPGRADE:Camouflage
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SSCamoflage
+    ResearchSound: RebelVoiceUpgradeCamouflage
+  Upgrade_GLAAPRockets:
+    DisplayName: UPGRADE:APRockets
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SSAPRockets
+    ResearchSound: RocketBuggyVoiceUpgradeAPRockets
+  Upgrade_GLAJunkRepair:
+    DisplayName: UPGRADE:JunkRepair
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SSJunkRepair
+    ResearchSound: ScorpionTankVoiceUpgradeJunkRepair
+  Upgrade_GLAAPBullets:
+    DisplayName: UPGRADE:APBullets
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SSAPShells
+    ResearchSound: RebelVoiceUpgradeAPBullets
+  Upgrade_GLABuggyAmmo:
+    DisplayName: UPGRADE:BuggyAmmo
+    BuildTime: 30.0
+    BuildCost: 1200
+    ButtonImage: SSBuggyRockets
+    ResearchSound: RocketBuggyVoiceUpgradeAmmo
+  Upgrade_GLACamoNetting:
+    DisplayName: UPGRADE:CamoNetting
+    Type: OBJECT
+    BuildTime: 5.0
+    BuildCost: 500
+    ButtonImage: SUcamo
+    ResearchSound: RPGTrooperVoiceUpgradeCamoNetting
+  Upgrade_GLABombTruckHighExplosiveBomb:
+    DisplayName: UPGRADE:HighExplosiveBomb
+    Type: OBJECT
+    BuildTime: 5.0
+    BuildCost: 500
+    ButtonImage: SSExplosiveBombTruck
+    ResearchSound: BombTruckVoiceUpgradeHiEx
+  Upgrade_GLABombTruckBioBomb:
+    DisplayName: UPGRADE:BioBomb
+    Type: OBJECT
+    BuildTime: 5.0
+    BuildCost: 500
+    ButtonImage: SSBioBombTruck
+    ResearchSound: BombTruckVoiceUpgradeBioBomb
+  Upgrade_GLAArmTheMob:
+    DisplayName: UPGRADE:ArmTheMob
+    BuildTime: 30.0
+    BuildCost: 1000
+    ButtonImage: SSArmMob
+    ResearchSound: [AngryMobVoiceUpgradeArmTheMobCrowd, AngryMobVoiceUpgradeArmTheMob]
+  Upgrade_ChinaOverlordGattlingCannon:
+    DisplayName: UPGRADE:OverlordGattlingCannon
+    Type: OBJECT
+    BuildTime: 20.0
+    BuildCost: 1200
+    ButtonImage: SSOLGattling
+    ResearchSound: OverlordTankGattlingCannonVoiceCreate
+    UnitSpecificSound: OverlordExpansion
+  Upgrade_ChinaOverlordPropagandaTower:
+    DisplayName: UPGRADE:OverlordPropagandaTower
+    Type: OBJECT
+    BuildTime: 10.0
+    BuildCost: 500
+    ButtonImage: SSOLSpeaker
+    ResearchSound: OverlordTankPropagandaTowerVoiceCreate
+    UnitSpecificSound: OverlordExpansion
+  Upgrade_ChinaOverlordBattleBunker:
+    DisplayName: UPGRADE:OverlordBattleBunker
+    Type: OBJECT
+    BuildTime: 15.0
+    BuildCost: 400
+    ButtonImage: SSOLBunker
+    ResearchSound: OverlordTankBunkerVoiceCreate
+    UnitSpecificSound: OverlordExpansion
+  Upgrade_CostReduction:
+    DisplayName: UPGRADE:CostReduction
+    Type: OBJECT
+    BuildTime: 10.0
+    BuildCost: 500
+  Upgrade_HelixNapalmBomb:
+    DisplayName: UPGRADE:ChinaHelixNapalmBomb
+    Type: OBJECT
+    BuildTime: 20.0
+    BuildCost: 800
+    ButtonImage: SNHelixUp04
+    ResearchSound: HelixVoiceUpgradeNapalmBomb
+    UnitSpecificSound: OverlordExpansion
+  Upgrade_ChinaHelixGattlingCannon:
+    DisplayName: UPGRADE:HelixGattlingCannon
+    Type: OBJECT
+    BuildTime: 20.0
+    BuildCost: 1200
+    ButtonImage: SNHelixUp01
+    ResearchSound: HelixVoiceUpgradeGattlingCannon
+    UnitSpecificSound: OverlordExpansion
+  Upgrade_ChinaHelixPropagandaTower:
+    DisplayName: UPGRADE:HelixPropagandaTower
+    Type: OBJECT
+    BuildTime: 10.0
+    BuildCost: 500
+    ButtonImage: SNHelixUp02
+    ResearchSound: HelixVoiceUpgradeSpeakerTower
+    UnitSpecificSound: OverlordExpansion
+  Upgrade_ChinaHelixBattleBunker:
+    DisplayName: UPGRADE:HelixBattleBunker
+    Type: OBJECT
+    BuildTime: 15.0
+    BuildCost: 400
+    ButtonImage: SNHelixUp03
+    ResearchSound: HelixVoiceUpgradeBunker
+    UnitSpecificSound: OverlordExpansion
+  Upgrade_Infa_ChinaHelixBattleBunker:
+    DisplayName: UPGRADE:HelixBattleBunker
+    Type: OBJECT
+    BuildTime: 20.0
+    BuildCost: 500
+    ButtonImage: SNHelixUp03
+    ResearchSound: HelixVoiceUpgradeBunker
+    UnitSpecificSound: OverlordExpansion
+  Chem_Upgrade_GLAAnthraxGamma:
+    DisplayName: UPGRADE:AnthraxGamma
+    BuildTime: 60.0
+    BuildCost: 1500
+    ButtonImage: SUAnthraxGamma
+    ResearchSound: ToxinTractorVoiceUpgradeGamma
+  Tank_Upgrade_ChinaTankAutoLoader:
+    DisplayName: UPGRADE:TankAutoLoader
+    BuildTime: 60.0
+    BuildCost: 2500
+    ButtonImage: SSAutoloader
+    ResearchSound: BattleMasterTankVoiceUpgradeAutoLoader
+  SupW_Upgrade_AmericaPointDefenseDrone:
+    DisplayName: UPGRADE:PointDefenseDrone
+    Type: OBJECT
+    BuildTime: 5.0
+    BuildCost: 500
+    ButtonImage: SABattleDrone
+    ResearchSound: BattleDroneVoiceCreate
+  GC_Slth_Upgrade_GLAQuadCannonSnipe:
+    DisplayName: UPGRADE:QuadCannonSnipe
+    BuildTime: 5.0
+    BuildCost: 500
+    ButtonImage: SUSnipBull
+  Demo_Upgrade_GLADemoTrapHighExplosiveBomb:
+    DisplayName: UPGRADE:HighExplosiveTrap
+    BuildTime: 5.0
+    BuildCost: 500
+    ButtonImage: SUAdvDeTrap
+  Nuke_Upgrade_ChinaWGUraniumShells:
+    DisplayName: UPGRADE:WGUraniumShells
+    BuildTime: 60.0
+    BuildCost: 2500
+    ButtonImage: SNUrShells
+    ResearchSound: BattleMasterTankVoiceUpgradeWeaponsGrade
+  Upgrade_ChinaIsotopeStability:
+    DisplayName: UPGRADE:IsotopeStability
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SNIsoStab
+  Nuke_Upgrade_ChinaFusionReactors:
+    DisplayName: UPGRADE:FusionReactors
+    BuildTime: 60.0
+    BuildCost: 2000
+    ButtonImage: SNAdvReactor
+    ResearchSound: BattleMasterTankVoiceUpgradeFusion
+  Nuke_Upgrade_HelixNukeBomb:
+    DisplayName: UPGRADE:ChinaHelixNukeBomb
+    Type: OBJECT
+    BuildTime: 20.0
+    BuildCost: 800
+    ButtonImage: SNHelixUp05
+    ResearchSound: HelixVoiceUpgradeNuclearBomb
+    UnitSpecificSound: OverlordExpansion
+  Demo_Upgrade_SuicideBomb:
+    DisplayName: UPGRADE:Demo_SuicideBomb
+    BuildTime: 30.0
+    BuildCost: 2000
+    ButtonImage: SUSuicideAttk
+  AirF_Upgrade_StealthComanche:
+    DisplayName: UPGRADE:AirF_StealthComanche
+    BuildTime: 30.0
+    BuildCost: 1500
+    ButtonImage: SASteaUpg
+  RocketBuggyToxinUpgrade:
+    BuildTime: 60.0
+    BuildCost: 1000

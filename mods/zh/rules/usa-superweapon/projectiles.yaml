@@ -1,0 +1,68 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  SupW_TomahawkMissile:
+    DisplayName: OBJECT:TomahawkMissile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE BALLISTIC_MISSILE
+    Locomotor: SET_NORMAL SCUDStormMissileLocomotor
+    Geometry: Cylinder
+    GeometryMajorRadius: 8.0
+    GeometryHeight: 4.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ArmorSet:
+      Conditions: None
+      Armor: BallisticMissileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: AVTomahawk_M
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 200.0
+        InitialHealth: 100.0
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+        FX: WeaponFX_TomahawkMissileDetonation
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 00
+        IgnitionDelay: 0
+        IgnitionFX: FX_TomahawkIgnition
+        InitialVelocity: 50
+        DistanceToTravelBeforeTurning: 80
+        DistanceToTargetBeforeDiving: 100
+        DistanceToTargetForLock: 10
+      ModuleTag_08:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponScudStorm
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini

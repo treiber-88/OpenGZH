@@ -1,0 +1,139 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MusicTracks:
+  Track1:
+    Filename: USA_09.mp3
+  Track2:
+    Filename: GLA_09.mp3
+  Track3:
+    Filename: CHI_09.mp3
+  Load_USA:
+    Filename: USA_08.mp3
+  Load_China:
+    Filename: Chi_03.mp3
+  Load_GLA:
+    Filename: GLA_02.mp3
+  Silence: {}
+  Game_Silent:
+    Filename: Silence60.mp3
+  Game_CHI_01:
+    Filename: CHI_01.mp3
+  Game_CHI_02:
+    Filename: CHI_02.mp3
+  Game_CHI_03:
+    Filename: CHI_03.mp3
+  Game_CHI_04:
+    Filename: CHI_04.mp3
+  Game_CHI_05:
+    Filename: CHI_05.mp3
+  Game_CHI_06:
+    Filename: CHI_06.mp3
+  Game_CHI_07:
+    Filename: CHI_07.mp3
+  Game_CHI_08:
+    Filename: CHI_08.mp3
+  Game_CHI_09:
+    Filename: CHI_10.mp3
+  Game_CHI_10:
+    Filename: CHI_11.mp3
+  Game_GLA_01:
+    Filename: GLA_01.mp3
+  Game_GLA_02:
+    Filename: GLA_02.mp3
+  Game_GLA_03:
+    Filename: GLA_03.mp3
+  Game_GLA_04:
+    Filename: GLA_04.mp3
+  Game_GLA_05:
+    Filename: GLA_05.mp3
+  Game_GLA_06:
+    Filename: GLA_06.mp3
+  Game_GLA_07:
+    Filename: GLA_07.mp3
+  Game_GLA_08:
+    Filename: GLA_08.mp3
+  Game_GLA_09:
+    Filename: GLA_09.mp3
+  Game_GLA_10:
+    Filename: GLA_10.mp3
+  Game_GLA_11:
+    Filename: GLA_11.mp3
+  Game_USA_01:
+    Filename: USA_01.mp3
+  Game_USA_02:
+    Filename: USA_02.mp3
+  Game_USA_03:
+    Filename: USA_03.mp3
+  Game_USA_04:
+    Filename: USA_04.mp3
+  Game_USA_05:
+    Filename: USA_05.mp3
+  Game_USA_06:
+    Filename: USA_06.mp3
+  Game_USA_07:
+    Filename: USA_07.mp3
+  Game_USA_08:
+    Filename: USA_08.mp3
+  Game_USA_09:
+    Filename: USA_09.mp3
+  Game_USA_10:
+    Filename: USA_10.mp3
+  Game_USA_11:
+    Filename: USA_11.mp3
+  End_USA:
+    Filename: End_USA.mp3
+  End_USA_Failure:
+    Filename: End_USAf.mp3
+  End_Chi:
+    Filename: End_Chi.mp3
+  End_Chi_Failure:
+    Filename: End_Chif.mp3
+  End_GLA:
+    Filename: End_GLA.mp3
+  End_GLA_Failure:
+    Filename: End_GLAf.mp3
+  Credits:
+    Filename: End_Credits.mp3
+  Cin_China01:
+    Filename: C_Chi01.mp3
+  Cin_China01b:
+    Filename: C_Chi01b.mp3
+  Cin_China01c:
+    Filename: C_Chi01c.mp3
+  Cin_China02b:
+    Filename: C_Chi02b.mp3
+  Cin_China03:
+    Filename: C_Chi03.mp3
+  Cin_China04:
+    Filename: C_Chi04.mp3
+  Cin_China05:
+    Filename: GLA_09.mp3
+  Cin_China06b:
+    Filename: C_Chi06b.mp3
+  Cin_China07:
+    Filename: C_Chi07b.mp3
+  Cin_GLA01:
+    Filename: C_GLA03.mp3
+  Cin_GLA02:
+    Filename: C_GLA02.mp3
+  Cin_GLA03:
+    Filename: C_GLA03.mp3
+  Cin_USA02:
+    Filename: C_USA02.mp3
+  Cin_USA03:
+    Filename: C_USA03.mp3
+  Cin_USA_04:
+    Filename: C_USA04.mp3
+  Cin_USA_05_Test:
+    Filename: USA05Test.mp3
+  Shell:
+    Filename: USA_11.mp3
+  Cin_XChina01:
+    Filename: C_Chix01.mp3
+  Score_China:
+    Filename: Chi_03.mp3
+  Score_USA:
+    Filename: USA_08.mp3
+  Score_GLA:
+    Filename: GLA_02.mp3

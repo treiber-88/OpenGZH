@@ -1,0 +1,1092 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  AmericaVehicleTomahawkHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTomahawk_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 10.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  ChinaVehicleNukeCannonHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: NVNukeCn_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 10.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaJetRaptorHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVRaptor_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 2.0
+        AllowBouncing: No
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaJetA10Hulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVWarthog_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 2.0
+        AllowBouncing: No
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  SpectreHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVSGunship_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 2.0
+        AllowBouncing: No
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaJetStealthHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVStealth_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 2.0
+        AllowBouncing: No
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaJetAuroraHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVAurora_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 2.0
+        AllowBouncing: No
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  ChinaJetMIGHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NVMIG_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 2.0
+        AllowBouncing: No
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadTankHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: GXMammoth_CH
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  InfernoCannonHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NVInferno_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadChinaSupplyTruckHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NVSSupplyTK_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadChinaGattlingTankHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NVGattTank_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkDelayVariance: 1500
+        SinkRate: 2
+        DestructionDelay: 12000
+        DestructionDelayVariance: 4000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadChinaECMTankHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NVBanshee_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkDelayVariance: 1500
+        SinkRate: 2
+        DestructionDelay: 12000
+        DestructionDelayVariance: 4000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaVehicleAmbulanceDeadHull:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVAmbulance_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkDelayVariance: 1500
+        SinkRate: 2
+        DestructionDelay: 12000
+        DestructionDelayVariance: 4000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadSCUDLauncherHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVScudLchr_d1
+        ConditionState:
+          WEAPONSET_CRATEUPGRADE_ONE:
+            Model: UVScudLchr_d1
+            Turret: TURRETUP01
+            TurretPitch: TURRETEL01
+            ShowSubObject: TURRETUP01
+            HideSubObject: TURRET TURRETUP02
+          WEAPONSET_CRATEUPGRADE_TWO:
+            Model: UVScudLchr_d1
+            Turret: TURRETUP02
+            TurretPitch: TURRETEL02
+            ShowSubObject: TURRETUP02
+            HideSubObject: TURRET TURRETUP01
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadToxinTractorHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVToxinTrk_d1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadQuadCannonHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVQuadCann_d1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadBombTruckHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVBmbTruk_d1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadTechnicalVanHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVTECHVAN_d1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadTechnicalJeepHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVTECHJEEP_d1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadTechnicalTruckHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVTECHTRCK_d1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadRocketBuggyHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVRockBug_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadCombatBikeHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UVComBike_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadCrusaderHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVLeopard_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadLaserTankHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVLaserTnk_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadPaladinHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVPaladin_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadAvengerHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVAVNGER_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadMarauderHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: UVMarauder_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 12000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadBattleBusHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: UVBattBus_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 12000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadScorpionHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: UVLiteTank_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 12000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DestroyedMilitiaTank:
+    EditorSorting: DEBRIS
+    KindOf: NONE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CVTank_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 10000
+        MaxLifetime: 15000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 4000
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadRadarVanHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: UVRadarVan_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  ChinaDeadDozerHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: nvconstdoz_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaDeadDozerHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: avconstdoz_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaScoutDroneHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVScoutDr_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 10.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaBattleDroneHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVBattleDr_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 10.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaJetCargoHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVCargoPln_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: No
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 500
+        MaxLifetime: 1500
+      ModuleTag_05:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaVehicleSentryDroneHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVSENTRY_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 10.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini
+  DeadGLAToxicSupplyTruckHulk:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CVToxSpplyTk_D1
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 100.0
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1500
+        MaxLifetime: 1600
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 2
+        DestructionDelay: 8000
+    SourceFile: Data/INI/Object/Hulk.ini

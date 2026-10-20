@@ -1,0 +1,2503 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  ChinaJetMIG_CinematicVersion:
+    SelectPortrait: SNMig_L
+    ButtonImage: SNMig
+    UpgradeCameo1: Upgrade_ChinaAircraftArmor
+    UpgradeCameo2: Upgrade_ChinaBlackNapalm
+    DisplayName: OBJECT:MIG
+    EditorSorting: VEHICLE
+    Side: China
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300.0
+    BuildCost: 1200
+    BuildTime: 15
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: ChinaJetMIGCommandSet
+    VoiceSelect: MigVoiceSelect
+    VoiceMove: MigVoiceMove
+    VoiceAttack: MigVoiceAttack
+    VoiceAttackAir: MigVoiceAttackAir
+    VoiceGuard: MigVoiceAirPatrol
+    SoundMoveLoop: MigAmbientLoop
+    SoundAmbient: NoSound
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL MIGLocomotor, SET_TAXIING BasicJetTaxiLocomotor]
+    Geometry: Box
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 14.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 5.0
+    Shadow: [SHADOW_VOLUME, SHADOW_VOLUME]
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: ChinaAirfield
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY NapalmMissileWeapon
+      AutoChooseSources: PRIMARY NONE
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY BlackNapalmMissileWeapon
+      AutoChooseSources: PRIMARY NONE
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: MigVoiceCreate
+      Afterburner: RaptorAfterburner
+      VoiceGarrison: MigVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NVMIG
+          HideSubObject: BurnerFX01 BurnerFX02
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ShowSubObject: BurnerFX01 BurnerFX02
+            ParticleSysBone:
+            - Exhaust01 JetExhaust
+            - Exhaust02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED:
+            Model: NVMIG_D
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          RUBBLE:
+            Model: NVMIG_D
+          REALLYDAMAGED JETEXHAUST:
+            Model: NVMIG_D
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: NVMIG_D
+            ShowSubObject: BurnerFX01 BurnerFX02
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: NVMIG_D
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_MIGDeathFinalBlowUp_CinematicVersion
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_MigDeathInitial
+        OCLInitialDeath: OCL_MIGDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        OCLSecondary: OCL_MIGDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        OCLHitGround: OCL_MIGDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp_CinematicVersion
+        OCLFinalBlowUp: OCL_MIGDeathFinalBlowUp_CinematicVersion
+      ModuleTag_04:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ReturnToBaseIdleTime: 10000
+      ModuleTag_08:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+      ModuleTag_10:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_ChinaAircraftArmor
+        AddMaxHealth: 40.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  ChinaInfantryParadeRedGuard:
+    DisplayName: OBJECT:Redguard
+    Side: China
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 200
+    BuildCost: 225
+    BuildTime: 10.0
+    ExperienceValue: 5 5 10 20
+    ExperienceRequired: 0 20 40 80
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: ChinaInfantryRedguardCommandSet
+    VoiceSelect: RedGuardVoiceSelect
+    VoiceMove: RedGuardVoiceMove
+    VoiceAttack: RedGuardVoiceAttack
+    VoiceGroupSelect: BattleCrySound
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SCORE PARACHUTABLE
+    Locomotor: SET_NORMAL ParadeRedguardLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY RedguardMachineGun, SECONDARY None, TERTIARY RedguardBayonet]
+      AutoChooseSources: TERTIARY None
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: ChinaBarracks
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NICNSC_SKN
+          IdleAnimation: [NICNSC_SKL.NICNSC_STA 0 35, NICNSC_SKL.NICNSC_IDA, NICNSC_SKL.NICNSC_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: NICNSC_SKL.NICNSC_STB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandDamaged
+          FIRING_A:
+            Animation: NICNSC_SKL.NICNSC_ATA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Firing
+            Aliases: [BETWEEN_FIRING_SHOTS_A, RELOADING_A]
+          USING_WEAPON_A REALLYDAMAGED:
+            Animation: NICNSC_SKL.NICNSC_ATC
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringDamaged
+          PREATTACK_C:
+            Animation: NICNSC_SKL.NICNSC_ATB1
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Stab
+            Aliases: [PREATTACK_C MOVING, PREATTACK_C FIRING_C, PREATTACK_C BETWEEN_FIRING_SHOTS_C]
+          FIRING_C:
+            Animation: NICNSC_SKL.NICNSC_ATB2
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_Stab
+            Aliases: [BETWEEN_FIRING_SHOTS_C, RELOADING_C]
+          FREEFALL:
+            Animation: NICNSC_SKL.NICNSC_POP
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: NICNSC_SKL.NICNSC_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+          MOVING:
+            Animation: NICNSC_SKL.NICNSC_MAR 12
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING]
+          MOVING REALLYDAMAGED:
+            Animation: NICNSC_SKL.NICNSC_RNB
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_RunDamaged
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING REALLYDAMAGED]
+          UNPACKING:
+            Animation: NICNSC_SKL.NICNSC_FDP1
+            AnimationMode: ONCE
+            Aliases: [UNPACKING REALLYDAMAGED]
+          RAISING_FLAG:
+            Animation: NICNSC_SKL.NICNSC_FDP2
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Raising
+            Aliases: [RAISING_FLAG REALLYDAMAGED]
+          PACKING:
+            Animation: NICNSC_SKL.NICNSC_FDP1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_Packing
+            Aliases: [PACKING REALLYDAMAGED]
+          DYING:
+            Animation: [NICNSC_SKL.NICNSC_DTA, NICNSC_SKL.NICNSC_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: NICNSC_SKL.NICNSC_ATDE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: NICNSC_SKL.NICNSC_ATDE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: NICNSC_SKL.NICNSC_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Firing TRANS_FiringDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2AC
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_Firing:
+            Animation: NICNSC_SKL.NICNSC_SA2AA
+            AnimationMode: ONCE
+          TRANS_Firing TRANS_Stand:
+            Animation: NICNSC_SKL.NICNSC_AA2SA
+            AnimationMode: ONCE
+          TRANS_StandDamaged TRANS_FiringDamaged:
+            Animation: NICNSC_SKL.NICNSC_ATCST
+            AnimationMode: ONCE
+          TRANS_FiringDamaged TRANS_StandDamaged:
+            Animation: NICNSC_SKL.NICNSC_ATCED
+            AnimationMode: ONCE
+          TRANS_StandDamaged TRANS_RunDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2AC
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2 2
+          TRANS_RunDamaged TRANS_StandDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2AC
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2 2
+            Flags: START_FRAME_LAST
+          TRANS_Stand TRANS_StandDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2SA
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 4 5
+            Flags: START_FRAME_LAST
+          TRANS_Falling TRANS_Chute:
+            Animation: NICNSC_SKL.NICNSC_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: NICNSC_SKL.NICNSC_PTD
+            AnimationMode: ONCE
+          TRANS_Raising TRANS_Packing:
+            Animation: NICNSC_SKL.NICNSC_FDP2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+          TRANS_Dying TRANS_Flailing:
+            Animation: NICNSC_SKL.NICNSC_ATDE1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 90.0
+        InitialHealth: 90.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+        ScienceRequired: SCIENCE_RedGuardTraining
+      ModuleTag_04:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RedGuardDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RedGuardDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_15:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityRedGuardCaptureBuilding
+        UpdateModuleStartsAttack: Yes
+        InitiateSound: RedGuardVoiceCapture
+      ModuleTag_16:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityRedGuardCaptureBuilding
+        StartAbilityRange: 5.0
+        UnpackTime: 3000
+        PreparationTime: 10000
+        PackTime: 2000
+        DoCaptureFX: Yes
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaInfantryParadeRedGuard:
+    DisplayName: OBJECT:Redguard
+    Side: China
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 200
+    BuildCost: 225
+    BuildTime: 10.0
+    ExperienceValue: 5 5 10 20
+    ExperienceRequired: 0 20 40 80
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: ChinaInfantryRedguardCommandSet
+    VoiceSelect: RedGuardVoiceSelect
+    VoiceMove: RedGuardVoiceMove
+    VoiceAttack: RedGuardVoiceAttack
+    VoiceGroupSelect: BattleCrySound
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SCORE PARACHUTABLE
+    Locomotor: SET_NORMAL CINE_ParadeRedguardLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY RedguardMachineGun, SECONDARY None, TERTIARY RedguardBayonet]
+      AutoChooseSources: TERTIARY None
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: ChinaBarracks
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NICNSC_SKN
+          IdleAnimation: [NICNSC_SKL.NICNSC_STA 0 35, NICNSC_SKL.NICNSC_IDA, NICNSC_SKL.NICNSC_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: NICNSC_SKL.NICNSC_STB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Stand
+          FIRING_A:
+            Animation: NICNSC_SKL.NICNSC_ATA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Firing
+            Aliases: [BETWEEN_FIRING_SHOTS_A, RELOADING_A]
+          FIRING_A REALLYDAMAGED:
+            Animation: NICNSC_SKL.NICNSC_ATC
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringDamaged
+            Aliases: [BETWEEN_FIRING_SHOTS_A REALLYDAMAGED, RELOADING_A REALLYDAMAGED]
+          PREATTACK_C:
+            Animation: NICNSC_SKL.NICNSC_ATB1
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Stab
+            Aliases: [PREATTACK_C MOVING, PREATTACK_C FIRING_C, PREATTACK_C BETWEEN_FIRING_SHOTS_C]
+          FIRING_C:
+            Animation: NICNSC_SKL.NICNSC_ATB2
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_Stab
+            Aliases: [BETWEEN_FIRING_SHOTS_C, RELOADING_C]
+          FREEFALL:
+            Animation: NICNSC_SKL.NICNSC_POP
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: NICNSC_SKL.NICNSC_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+          MOVING:
+            Animation: NICNSC_SKL.NICNSC_MAR 12
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            Aliases:
+            - MOVING FIRING_A
+            - MOVING BETWEEN_FIRING_SHOTS_A
+            - MOVING RELOADING_A
+            - MOVING FIRING_B
+            - MOVING BETWEEN_FIRING_SHOTS_B
+            - MOVING RELOADING_B
+            - MOVING FIRING_C
+            - MOVING BETWEEN_FIRING_SHOTS_C
+            - MOVING RELOADING_C
+          MOVING REALLYDAMAGED:
+            Animation: NICNSC_SKL.NICNSC_RNB
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            Aliases:
+            - MOVING FIRING_A REALLYDAMAGED
+            - MOVING BETWEEN_FIRING_SHOTS_A REALLYDAMAGED
+            - MOVING RELOADING_A REALLYDAMAGED
+            - MOVING FIRING_B REALLYDAMAGED
+            - MOVING BETWEEN_FIRING_SHOTS_B REALLYDAMAGED
+            - MOVING RELOADING_B REALLYDAMAGED
+            - MOVING FIRING_C REALLYDAMAGED
+            - MOVING BETWEEN_FIRING_SHOTS_C REALLYDAMAGED
+            - MOVING RELOADING_C REALLYDAMAGED
+          UNPACKING:
+            Animation: NICNSC_SKL.NICNSC_FDP1
+            AnimationMode: ONCE
+            Aliases: [UNPACKING REALLYDAMAGED]
+          RAISING_FLAG:
+            Animation: NICNSC_SKL.NICNSC_FDP2
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Raising
+            Aliases: [RAISING_FLAG REALLYDAMAGED]
+          PACKING:
+            Animation: NICNSC_SKL.NICNSC_FDP1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_Packing
+            Aliases: [PACKING REALLYDAMAGED]
+          DYING:
+            Animation: [NICNSC_SKL.NICNSC_DTA, NICNSC_SKL.NICNSC_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: NICNSC_SKL.NICNSC_ATDE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: NICNSC_SKL.NICNSC_ATDE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: NICNSC_SKL.NICNSC_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Firing TRANS_FiringDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2AC
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_Firing:
+            Animation: NICNSC_SKL.NICNSC_SA2AA
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 40 40
+          TRANS_Firing TRANS_Stand:
+            Animation: NICNSC_SKL.NICNSC_AA2SA
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_Stand TRANS_FiringDamaged:
+            Animation: NICNSC_SKL.NICNSC_ATCST
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 40 40
+          TRANS_FiringDamaged TRANS_Stand:
+            Animation: NICNSC_SKL.NICNSC_ATCED
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: NICNSC_SKL.NICNSC_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: NICNSC_SKL.NICNSC_PTD
+            AnimationMode: ONCE
+          TRANS_Raising TRANS_Packing:
+            Animation: NICNSC_SKL.NICNSC_FDP2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+          TRANS_Dying TRANS_Flailing:
+            Animation: NICNSC_SKL.NICNSC_ATDE1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 90.0
+        InitialHealth: 90.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+        ScienceRequired: SCIENCE_RedGuardTraining
+      ModuleTag_04:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RedGuardDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RedGuardDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_15:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityRedGuardCaptureBuilding
+        UpdateModuleStartsAttack: Yes
+        InitiateSound: RedGuardVoiceCapture
+      ModuleTag_16:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityRedGuardCaptureBuilding
+        StartAbilityRange: 5.0
+        UnpackTime: 3000
+        PreparationTime: 10000
+        PackTime: 2000
+        DoCaptureFX: Yes
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaTankBattleMaster:
+    SelectPortrait: SNBattlemaster_L
+    ButtonImage: SNBattlemaster
+    UpgradeCameo1: Upgrade_Nationalism
+    UpgradeCameo2: Upgrade_ChinaUraniumShells
+    UpgradeCameo3: Upgrade_ChinaNuclearTanks
+    DisplayName: OBJECT:BattleMaster
+    Side: China
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 800
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 300
+    ExperienceValue: 100 100 200 400
+    ExperienceRequired: 0 200 300 600
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaVehicleBattleMasterCommandSet
+    VoiceSelect: BattleMasterTankVoiceSelect
+    VoiceMove: BattleMasterTankVoiceMove
+    VoiceGuard: BattleMasterTankVoiceMove
+    VoiceAttack: BattleMasterTankVoiceAttack
+    SoundMoveStart: BattleMasterTankMoveStart
+    SoundMoveStartDamaged: BattleMasterTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor:
+    - SET_NORMAL CINE_BattleMasterLocomotor
+    - SET_NORMAL_UPGRADED NuclearBattleMasterLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 13.0
+    GeometryMinorRadius: 9.0
+    GeometryHeight: 10
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY BattleMasterTankGun
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: BattleMasterTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      VoiceCrush: BattleMasterTankVoiceCrush
+      VoiceEnter: BattleMasterTankVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.1
+        TreadPivotSpeedFraction: 0.6
+        DefaultConditionState:
+          Model: CINE_BttlMstr
+          Turret: Turret01
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponRecoilBone: PRIMARY Barrel
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WeaponLaunchBone: PRIMARY Muzzle
+        ConditionState:
+          REALLYDAMAGED:
+            Model: NVBtMstr_D
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          RUBBLE:
+            Model: NVBtMstr_D
+            Turret: Turret01
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 400.0
+        InitialHealth: 400.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 120
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 40.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: NuclearTankDeathWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_07:
+        Module: Behavior
+        Class: LocomotorSetUpgrade
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_08:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_10:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_12:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 25
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        OCL: FINAL OCL_ChinaTankBattleMasterDebris
+        FX: FINAL FX_BattleMasterExplosionOneFinal
+      ModuleTag_13:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaTankOverlord:
+    SelectPortrait: SNOverlord_L
+    ButtonImage: SNOverlord
+    UpgradeCameo1: Upgrade_ChinaUraniumShells
+    UpgradeCameo2: Upgrade_ChinaNuclearTanks
+    DisplayName: OBJECT:Overlord
+    Side: China
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 1800
+    BuildTime: 20.0
+    VisionRange: 150
+    ShroudClearingRange: 200
+    ExperienceValue: 200 200 400 600
+    ExperienceRequired: 0 400 600 1200
+    IsTrainable: Yes
+    CrusherLevel: 3
+    CrushableLevel: 3
+    CommandSet: ChinaTankOverlordDefaultCommandSet
+    VoiceSelect: OverlordTankVoiceSelect
+    SoundMoveStart: OverlordTankMoveStart
+    SoundMoveStartDamaged: OverlordTankMoveStart
+    VoiceMove: OverlordTankVoiceMove
+    VoiceGuard: OverlordTankVoiceMove
+    VoiceAttack: OverlordTankVoiceAttack
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE HUGE_VEHICLE
+    Locomotor: [SET_NORMAL CINE_OverlordLocomotor, SET_NORMAL_UPGRADED NuclearOverlordLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 26.0
+    GeometryMinorRadius: 13.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY OverlordTankGun
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: [ChinaWarFactory, ChinaPropagandaCenter]
+    UnitSpecificSounds:
+      VoiceCreate: OverlordTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: OverlordTankTurretMoveLoop
+      VoiceCrush: OverlordTankVoiceCrush
+      VoiceEnter: OverlordTankVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DOverlordTankDraw
+        TrackMarks: EXTnkTrack.tga
+        OkToChangeModelColor: Yes
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        ConditionState:
+          NONE:
+            Model: NVOvrlrd
+            Animation: NVOvrlrd.NVOvrlrd
+            AnimationMode: LOOP
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          REALLYDAMAGED:
+            Model: NVOvrlrd_d
+            Animation: NVOvrlrd_d.NVOvrlrd_d
+            AnimationMode: LOOP
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          RUBBLE:
+            Model: NVOvrlrd_d
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1100.0
+        InitialHealth: 1100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: TransportAIUpdate
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 60
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: NuclearTankDeathWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_05:
+        Module: Behavior
+        Class: LocomotorSetUpgrade
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_06:
+        Module: Behavior
+        Class: OverlordContain
+        Slots: 1
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: PORTABLE_STRUCTURE
+        PassengersAllowedToFire: Yes
+        PassengersInTurret: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_OverlordGattlingCannon
+        TriggeredBy: Upgrade_ChinaOverlordGattlingCannon
+        ConflictsWith: Upgrade_ChinaOverlordPropagandaTower Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_08:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_OverlordPropagandaTower
+        TriggeredBy: Upgrade_ChinaOverlordPropagandaTower
+        ConflictsWith: Upgrade_ChinaOverlordGattlingCannon Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_09:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_OverlordBattleBunker
+        TriggeredBy: Upgrade_ChinaOverlordBattleBunker
+        ConflictsWith: Upgrade_ChinaOverlordGattlingCannon Upgrade_ChinaOverlordPropagandaTower
+      ModuleTag_10:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_11:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        CommandSet: ChinaTankOverlordGattlingCannonCommandSet
+        TriggeredBy: Upgrade_ChinaOverlordGattlingCannon
+        ConflictsWith: Upgrade_ChinaOverlordPropagandaTower Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_12:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        CommandSet: ChinaTankOverlordPropagandaTowerCommandSet
+        TriggeredBy: Upgrade_ChinaOverlordPropagandaTower
+        ConflictsWith: Upgrade_ChinaOverlordGattlingCannon Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_13:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        CommandSet: ChinaTankOverlordBattleBunkerCommandSet
+        TriggeredBy: Upgrade_ChinaOverlordBattleBunker
+        ConflictsWith: Upgrade_ChinaOverlordGattlingCannon Upgrade_ChinaOverlordPropagandaTower
+      ModuleTag_14:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_16:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ProbabilityModifier: 25
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        OCL: FINAL OCL_ChinaTankOverlordDebris
+        FX: FINAL FX_OverlordExplosionOneFinal
+      ModuleTag_17:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_18:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_OverlordDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaVehicleInfernoCannon:
+    SelectPortrait: SNInferno_L
+    ButtonImage: SNInferno
+    UpgradeCameo1: Upgrade_ChinaBlackNapalm
+    DisplayName: OBJECT:InfernoCannon
+    Side: China
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 900
+    BuildTime: 15.0
+    VisionRange: 300
+    ShroudClearingRange: 300
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaVehicleInfernoCannonCommandSet
+    VoiceSelect: InfernoCannonVoiceSelect
+    VoiceMove: InfernoCannonVoiceMove
+    VoiceGuard: InfernoCannonVoiceMove
+    VoiceAttack: InfernoCannonVoiceAttack
+    SoundMoveStart: InfernoCannonMoveStart
+    SoundMoveStartDamaged: InfernoCannonMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL CINE_InfernoLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY InfernoCannonGun
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: [ChinaWarFactory, ChinaPropagandaCenter]
+    UnitSpecificSounds:
+      VoiceCreate: InfernoCannonVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceCrush: InfernoCannonVoiceCrush
+      VoiceEnter: InfernoCannonVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        ConditionState:
+          NONE:
+            Model: NVInferno
+            Turret: Turret
+            TurretPitch: TurretEL
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          RUBBLE REALLYDAMAGED:
+            Model: NVInferno_D
+            Turret: Turret
+            TurretPitch: TurretEL
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+        ScienceRequired: SCIENCE_ArtilleryTraining
+      ModuleTag_04:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No NotWhileAttacking
+        Turret:
+          TurretTurnRate: 100
+          TurretPitchRate: 100
+          AllowsPitch: Yes
+          FirePitch: 45
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_07:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_08:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 50
+        DestructionDelay: 2000
+        DestructionDelayVariance: 300
+        FX: [INITIAL FX_CrusaderCatchFire, FINAL FX_GenericTankDeathExplosion]
+        OCL: FINAL OCL_InfernoCannonDeathEffect
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:-7 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_10:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_11:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaVehicleNukeLauncher:
+    SelectPortrait: SNNukeCannon_L
+    ButtonImage: SNNukeCannon
+    DisplayName: OBJECT:NukeLauncher
+    Side: China
+    EditorSorting: VEHICLE
+    TransportSlotCount: 10
+    BuildCost: 1600
+    BuildTime: 20.0
+    VisionRange: 180
+    ShroudClearingRange: 350
+    ExperienceValue: 50 100 200 400
+    ExperienceRequired: 0 400 600 1000
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaVehicleNukeCannonCommandSet
+    VoiceSelect: NukeCannonVoiceSelect
+    VoiceMove: NukeCannonVoiceMove
+    VoiceGuard: NukeCannonVoiceMove
+    VoiceAttack: NukeCannonVoiceAttack
+    SoundMoveStart: NukeCannonMoveStart
+    SoundMoveStartDamaged: NukeCannonMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL ChinaNukeCannonLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 32.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 17.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY CINE_NukeCannonGun
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: [ChinaWarFactory, ChinaPropagandaCenter]
+      Science: SCIENCE_NukeLauncher
+    UnitSpecificSounds:
+      VoiceCreate: NukeCannonVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NukeCannonTurretMoveLoop
+      VoiceEnter: NukeCannonVoiceMove
+      Deploy: NukeCannonDeploy
+      Undeploy: NukeCannonUnDeploy
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        InitialRecoilSpeed: 120
+        MaxRecoilDistance: 8
+        RecoilSettleSpeed: 6
+        OkToChangeModelColor: Yes
+        ExtraPublicBone: Turret01
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 4.0
+        DefaultConditionState:
+          Model: NVNukeCn
+          WeaponLaunchBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponRecoilBone: PRIMARY Barrel
+          HideSubObject: TURRET01
+          ShowSubObject: TURRETFRONT TURRETBACK
+          Turret: Turret01
+          TurretPitch: TurretEL
+        ConditionState:
+          RUBBLE:
+            Model: NVNukeCn_D
+            WeaponLaunchBone: PRIMARY Muzzle
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponRecoilBone: PRIMARY Barrel
+            HideSubObject: TURRET01
+            ShowSubObject: TURRETFRONT TURRETBACK
+            Turret: Turret01
+            TurretPitch: TurretEL
+          MOVING:
+            Animation: NVNukeCn.NVNukeCn
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+            Aliases: [MOVING BETWEEN_FIRING_SHOTS_A, BETWEEN_FIRING_SHOTS_A]
+          REALLYDAMAGED MOVING:
+            Model: NVNukeCn_D
+            Animation: NVNukeCn_D.NVNukeCn_D
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+            Aliases: [REALLYDAMAGED MOVING BETWEEN_FIRING_SHOTS_A]
+          UNPACKING:
+            Animation: NVNukeCn.NVNukeCn
+            AnimationMode: MANUAL
+            Aliases: [UNPACKING BETWEEN_FIRING_SHOTS_A]
+          REALLYDAMAGED UNPACKING:
+            Model: NVNukeCn_D
+            Animation: NVNukeCn_D.NVNukeCn_D
+            AnimationMode: MANUAL
+            Aliases: [REALLYDAMAGED UNPACKING BETWEEN_FIRING_SHOTS_A]
+          PACKING:
+            Animation: NVNukeCn.NVNukeCn
+            AnimationMode: MANUAL
+            Aliases: [PACKING BETWEEN_FIRING_SHOTS_A]
+          REALLYDAMAGED PACKING:
+            Model: NVNukeCn_D
+            Animation: NVNukeCn_D.NVNukeCn_D
+            AnimationMode: MANUAL
+            Aliases: [REALLYDAMAGED PACKING BETWEEN_FIRING_SHOTS_A]
+          DEPLOYED:
+            Animation: NVNukeCn.NVNukeCn
+            AnimationMode: ONCE
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_FIRING_A
+            HideSubObject: TURRETFRONT TURRETBACK
+            ShowSubObject: TURRET01
+            Aliases:
+            - DEPLOYED FIRING_A
+            - DEPLOYED BETWEEN_FIRING_SHOTS_A
+            - DEPLOYED RELOADING_A
+            - DEPLOYED MOVING
+          DEPLOYED REALLYDAMAGED:
+            Model: NVNukeCn_D
+            Animation: NVNukeCn_D.NVNukeCn_D
+            AnimationMode: ONCE
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_FIRING_A
+            HideSubObject: TURRETFRONT TURRETBACK
+            ShowSubObject: TURRET01
+            Aliases:
+            - DEPLOYED REALLYDAMAGED FIRING_A
+            - DEPLOYED REALLYDAMAGED BETWEEN_FIRING_SHOTS_A
+            - DEPLOYED REALLYDAMAGED RELOADING_A
+            - DEPLOYED REALLYDAMAGED MOVING
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 240.0
+        InitialHealth: 240.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+        ScienceRequired: SCIENCE_ArtilleryTraining
+      ModuleTag_04:
+        Module: Behavior
+        Class: DeployStyleAIUpdate
+        AutoAcquireEnemiesWhenIdle: No
+        PackTime: 3333
+        UnpackTime: 3333
+        TurretsFunctionOnlyWhenDeployed: Yes
+        TurretsMustCenterBeforePacking: Yes
+        ManualDeployAnimations: Yes
+        Turret:
+          TurretTurnRate: 80
+          TurretPitchRate: 80
+          FirePitch: 0
+          AllowsPitch: Yes
+          RecenterTime: 5000
+          ControlledWeaponSlots: PRIMARY
+          NaturalTurretAngle: 0
+          InitiallyDisabled: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 500
+        DestructionDelayVariance: 100
+        FX:
+        - INITIAL FX_BattleMasterExplosionOneFinal
+        - FINAL FX_ChinaVehicleNukeCannonDeathExplosion
+        OCL:
+        - INITIAL OCL_RadiationFieldSmall
+        - MIDPOINT OCL_ChinaVehicleNukeCannonDie
+        - FINAL OCL_RadiationFieldSmall
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_09:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_10:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_NukeCannonDamageTransition'
+      ModuleTag_11:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaVehicleTroopCrawlerEmpty:
+    DisplayName: OBJECT:TroopCrawler
+    Side: China
+    EditorSorting: VEHICLE
+    TransportSlotCount: 0
+    BuildCost: 700
+    BuildTime: 1.0
+    VisionRange: 150
+    ShroudClearingRange: 150
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaTroopCrawlerCommandSet
+    VoiceSelect: TroopCrawlerVoiceSelect
+    VoiceMove: TroopCrawlerVoiceMove
+    VoiceGuard: TroopCrawlerVoiceMove
+    VoiceAttack: TroopCrawlerVoiceAttack
+    SoundMoveStart: TroopCrawlerMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS TRANSPORT VEHICLE SCORE
+    Locomotor: SET_NORMAL CINE_TroopCrawlerLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 22.0
+    GeometryMinorRadius: 9.0
+    GeometryHeight: 13.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY TroopCrawlerAssault
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: TroopCrawlerVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      VoiceUnload: TroopCrawlerVoiceUnload
+      VoiceEnter: TroopCrawlerVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack.tga
+        ConditionState:
+          NONE:
+            Model: NVTCrawler
+          REALLYDAMAGED:
+            Model: NVTCrawler_D
+          RUBBLE:
+            Model: NVTCrawler_D
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 200.0
+        InitialHealth: 200.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        Turret:
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 5
+        ModifierBonusPerOverkillPercent: 20%
+        DestructionDelay: 0
+        DestructionDelayVariance: 200
+        FX: FINAL FX_BuggyNewDeathExplosion
+        OCL: FINAL OCL_FinalTroopCrawlerDebris
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 10
+        HealthRegen%PerSec: 10
+        DamagePercentToUnits: 10%
+        AllowInsideKindOf: INFANTRY
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaInfantryRedguard:
+    SelectPortrait: SNRedGuard_L
+    ButtonImage: SNRedGuard_L
+    UpgradeCameo1: Upgrade_Nationalism
+    DisplayName: OBJECT:Redguard
+    Side: China
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 200
+    BuildCost: 300
+    BuildTime: 10.0
+    ExperienceValue: 5 5 10 20
+    ExperienceRequired: 0 20 40 80
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: ChinaInfantryRedguardCommandSet
+    VoiceSelect: RedGuardVoiceSelect
+    VoiceMove: RedGuardVoiceMove
+    VoiceGuard: RedGuardVoiceMove
+    VoiceAttack: RedGuardVoiceAttack
+    VoiceGroupSelect: BattleCrySound
+    VoiceFear: RedGuardVoiceFear
+    VoiceTaskComplete: RedGuardVoiceCaptureComplete
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SCORE PARACHUTABLE
+    Locomotor: SET_NORMAL CINE_RedguardLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 7.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY RedguardMachineGun, SECONDARY None, TERTIARY RedguardBayonet]
+      AutoChooseSources: [PRIMARY None, SECONDARY None, TERTIARY None]
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: ChinaBarracks
+    UnitSpecificSounds:
+      VoiceGarrison: RedGuardVoiceGarrison
+      VoiceCreate: RedGuardVoiceCreate
+      VoiceSubdue: RedGuardVoiceSubdue
+      VoiceEnter: RedGuardVoiceMove
+      VoiceEnterHostile: RedGuardVoiceMove
+      VoiceGetHealed: RedGuardVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NICNSC_SKN
+          IdleAnimation: [NICNSC_SKL.NICNSC_STA 0 35, NICNSC_SKL.NICNSC_IDA, NICNSC_SKL.NICNSC_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: NICNSC_SKL.NICNSC_STB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandDamaged
+          FIRING_A:
+            Animation: NICNSC_SKL.NICNSC_ATA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Firing
+            Aliases: [BETWEEN_FIRING_SHOTS_A, RELOADING_A]
+          FIRING_A REALLYDAMAGED:
+            Animation: NICNSC_SKL.NICNSC_ATC
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringDamaged
+            Aliases: [BETWEEN_FIRING_SHOTS_A REALLYDAMAGED, RELOADING_A REALLYDAMAGED]
+          PREATTACK_C:
+            Animation: NICNSC_SKL.NICNSC_ATB1
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Stab
+            Aliases: [PREATTACK_C MOVING, PREATTACK_C FIRING_C, PREATTACK_C BETWEEN_FIRING_SHOTS_C]
+          FIRING_C:
+            Animation: NICNSC_SKL.NICNSC_ATB2
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_Stab
+            Aliases: [BETWEEN_FIRING_SHOTS_C, RELOADING_C]
+          FREEFALL:
+            Animation: NICNSC_SKL.NICNSC_POP
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: NICNSC_SKL.NICNSC_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+          MOVING:
+            Animation: NICNSC_SKL.NICNSC_RNA 48
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            Aliases: [MOVING ATTACKING]
+          MOVING REALLYDAMAGED:
+            Animation: NICNSC_SKL.NICNSC_RNB 28
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: [TRANS_RunDamaged, None]
+            Aliases: [MOVING ATTACKING REALLYDAMAGED]
+          UNPACKING:
+            Model: NICNSC_F_SKN
+            Animation: NICNSC_F_SKL.NICNSC_F_FDP1
+            AnimationMode: ONCE
+            Aliases: [UNPACKING REALLYDAMAGED]
+          RAISING_FLAG:
+            Model: NICNSC_F_SKN
+            Animation: NICNSC_F_SKL.NICNSC_F_FDP2
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Raising
+            Aliases: [RAISING_FLAG REALLYDAMAGED]
+          PACKING:
+            Model: NICNSC_F_SKN
+            Animation: NICNSC_F_SKL.NICNSC_F_FDP1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_Packing
+            Aliases: [PACKING REALLYDAMAGED]
+          DYING:
+            Animation: [NICNSC_SKL.NICNSC_DTA, NICNSC_SKL.NICNSC_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: NICNSC_SKL.NICNSC_ATDE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: NICNSC_SKL.NICNSC_ATDE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: NICNSC_SKL.NICNSC_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Firing TRANS_FiringDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2AC
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_Firing:
+            Animation: NICNSC_SKL.NICNSC_SA2AA
+            AnimationMode: ONCE
+          TRANS_Firing TRANS_Stand:
+            Animation: NICNSC_SKL.NICNSC_AA2SA
+            AnimationMode: ONCE
+          TRANS_StandDamaged TRANS_FiringDamaged:
+            Animation: NICNSC_SKL.NICNSC_ATCST
+            AnimationMode: ONCE
+          TRANS_FiringDamaged TRANS_StandDamaged:
+            Animation: NICNSC_SKL.NICNSC_ATCED
+            AnimationMode: ONCE
+          TRANS_StandDamaged TRANS_RunDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2AC
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2 2
+          TRANS_RunDamaged TRANS_StandDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2AC
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2 2
+            Flags: START_FRAME_LAST
+          TRANS_Stand TRANS_StandDamaged:
+            Animation: NICNSC_SKL.NICNSC_AA2SA
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 4 5
+            Flags: START_FRAME_LAST
+          TRANS_Falling TRANS_Chute:
+            Animation: NICNSC_SKL.NICNSC_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: NICNSC_SKL.NICNSC_PTD
+            AnimationMode: ONCE
+          TRANS_Raising TRANS_Packing:
+            Model: NICNSC_F_SKN
+            Animation: NICNSC_F_SKL.NICNSC_F_FDP2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+          TRANS_Dying TRANS_Flailing:
+            Animation: NICNSC_SKL.NICNSC_ATDE1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+        ScienceRequired: SCIENCE_RedGuardTraining
+      ModuleTag_04:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_06:
+        Module: Behavior
+        Class: HordeUpdate
+        RubOffRadius: 60
+        UpdateRate: 1000
+        Radius: 30
+        KindOf: INFANTRY
+        AlliesOnly: Yes
+        ExactMatch: No
+        Count: 5
+        Action: HORDE
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_10:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RedGuardDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RedGuardDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_15:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_16:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityRedGuardCaptureBuilding
+        UpdateModuleStartsAttack: Yes
+        StartsPaused: Yes
+        InitiateSound: RedGuardVoiceCapture
+      ModuleTag_17:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityRedGuardCaptureBuilding
+        StartAbilityRange: 5.0
+        UnpackTime: 3000
+        PreparationTime: 10000
+        PackTime: 2000
+        DoCaptureFX: Yes
+      ModuleTag_18:
+        Module: Behavior
+        Class: UnpauseSpecialPowerUpgrade
+        SpecialPowerTemplate: SpecialAbilityRedGuardCaptureBuilding
+        TriggeredBy: Upgrade_InfantryCaptureBuilding
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaJetMIG:
+    SelectPortrait: SNMig_L
+    ButtonImage: SNMig
+    UpgradeCameo1: Upgrade_ChinaAircraftArmor
+    UpgradeCameo2: Upgrade_ChinaBlackNapalm
+    DisplayName: OBJECT:MIG
+    EditorSorting: VEHICLE
+    Side: China
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300.0
+    BuildCost: 1000
+    BuildTime: 10
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: ChinaJetMIGCommandSet
+    VoiceSelect: MigVoiceSelect
+    VoiceMove: MigVoiceMove
+    VoiceAttack: MigVoiceAttack
+    VoiceAttackAir: MigVoiceAttackAir
+    VoiceGuard: MigVoiceAirPatrol
+    SoundMoveLoop: NoSound
+    SoundAmbient: MigAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL CINE_MIGLocomotor, SET_TAXIING CINE_BasicJetTaxiLocomotor]
+    Geometry: Box
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 14.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 5.0
+    Shadow: [SHADOW_VOLUME, SHADOW_VOLUME]
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: ChinaAirfield
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY NapalmMissileWeapon
+      AutoChooseSources: PRIMARY NONE
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY BlackNapalmMissileWeapon
+      AutoChooseSources: PRIMARY NONE
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: MigVoiceCreate
+      Afterburner: RaptorAfterburner
+      VoiceGarrison: MigVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NVMIG
+          HideSubObject: BurnerFX01 BurnerFX02
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ShowSubObject: BurnerFX01 BurnerFX02
+            ParticleSysBone:
+            - Exhaust01 JetExhaust
+            - Exhaust02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED:
+            Model: NVMIG_D
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          RUBBLE:
+            Model: NVMIG_D
+          REALLYDAMAGED JETEXHAUST:
+            Model: NVMIG_D
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: NVMIG_D
+            ShowSubObject: BurnerFX01 BurnerFX02
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: NVMIG_D
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_MIGDeathFinalBlowUp_CinematicVersion
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_MigDeathInitial
+        OCLInitialDeath: OCL_MIGDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        OCLSecondary: OCL_MIGDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        OCLHitGround: OCL_MIGDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp_CinematicVersion
+        OCLFinalBlowUp: OCL_MIGDeathFinalBlowUp_CinematicVersion
+      ModuleTag_04:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ReturnToBaseIdleTime: 10000
+      ModuleTag_08:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+      ModuleTag_10:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_ChinaAircraftArmor
+        AddMaxHealth: 40.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaTankDragon:
+    SelectPortrait: SNDragonTank_L
+    ButtonImage: SNDragonTank
+    UpgradeCameo1: Upgrade_ChinaBlackNapalm
+    DisplayName: OBJECT:Dragon
+    Side: China
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 800
+    BuildTime: 10.0
+    VisionRange: 100
+    ShroudClearingRange: 200
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 150 300
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaTankDragonCommandSet
+    VoiceSelect: DragonTankVoiceSelect
+    VoiceMove: DragonTankVoiceMove
+    VoiceGuard: DragonTankVoiceMove
+    VoiceAttack: DragonTankVoiceAttack
+    SoundMoveStart: DragonTankMoveStart
+    SoundMoveStartDamaged: DragonTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL CINE_DragonLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    WeaponSet:
+    - Conditions: None
+      Weapon: [PRIMARY DragonTankFlameWeapon, SECONDARY DragonTankFireWallWeapon]
+      AutoChooseSources: SECONDARY NONE
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY DragonTankFlameWeaponUpgraded, SECONDARY DragonTankFireWallWeaponUpgraded]
+      AutoChooseSources: SECONDARY NONE
+    ArmorSet:
+      Conditions: None
+      Armor: DragonTankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: DragonTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      VoiceEnter: DragonTankVoiceMove
+      VoiceFlameLocation: DragonTankVoiceFireStorm
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        DefaultConditionState:
+          Model: NVDragon
+          Turret: Turret
+          TurretPitch: TURRETEL
+          WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+          WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+        ConditionState:
+          REALLYDAMAGED:
+            Model: NVDragon_D
+            Turret: Turret
+            TurretPitch: TURRETEL
+            WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+            WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+          RUBBLE:
+            Model: NVDragon_D
+            Turret: Turret
+            TurretPitch: TURRETEL
+            WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+            WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 280.0
+        InitialHealth: 280.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 120
+          TurretPitchRate: 120
+          TurretFireAngleSweep: [PRIMARY 10, SECONDARY 60]
+          TurretSweepSpeedModifier: [PRIMARY 0.5, SECONDARY 2.0]
+          ControlledWeaponSlots: PRIMARY SECONDARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_09:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_10:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 500
+        DestructionDelayVariance: 500
+        FX: [INITIAL FX_BattleMasterExplosionOneFinal, FINAL FX_DragonTankDeathExplosionFinal]
+        OCL: FINAL OCL_DragonDebris
+      ModuleTag_12:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_13:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem2: Bone:Smoke RandomBone:Yes Psys:DragonTransitionFire
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_DragonDamageTransition'
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaInfantryBlackLotus:
+    SelectPortrait: SNBlkLotus_L2
+    ButtonImage: SNBlkLotus2
+    DisplayName: OBJECT:BlackLotus
+    Side: China
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 300
+    BuildCost: 1500
+    BuildTime: 20.0
+    MaxSimultaneousOfType: 1
+    CommandSet: [ChinaInfantryBlackLotusCommandSet, ChinaInfantryBlackLotusCommandSet]
+    ExperienceValue: 50 100 150 400
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: Yes
+    CrushableLevel: 2
+    VoiceSelect: BlackLotusVoiceSelect
+    VoiceMove: BlackLotusVoiceMove
+    VoiceAttack: NoSound
+    VoiceGuard: BlackLotusVoiceMove
+    VoiceFear: BlackLotusVoiceFear
+    VoiceTaskComplete: BlackLotusVoiceCaptureComplete
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE
+    Locomotor: [SET_NORMAL CINE_BlackLotusLocomotor, SET_FREEFALL FreeFallLocomotor]
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: [ChinaBarracks, ChinaPropagandaCenter]
+    UnitSpecificSounds:
+      VoiceCreate: BlackLotusVoiceCreate
+      VoiceGarrison: BlackLotusVoiceMove
+      VoiceEnter: BlackLotusVoiceMove
+      VoiceEnterHostile: BlackLotusVoiceMove
+      VoiceStealCashComplete: BlackLotusVoiceCashComplete
+      VoiceDisableVehicleComplete: BlackLotusVoiceDisableComplete
+      VoiceCaptureBuildingComplete: BlackLotusVoiceCaptureComplete
+      VoiceGetHealed: BlackLotusVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NIHERO_SKN
+          IdleAnimation: [NIHERO_SKL.NIHERO_STA 0 17, NIHERO_SKL.NIHero_IDA, NIHERO_SKL.NIHero_IDB]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: [NIHERO_SKL.NIHERO_ISTA 0 30, NIHERO_SKL.NIHero_IIDA]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandInjured
+          MOVING:
+            Animation: NIHero_SKL.NIHero_RNA 20
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING UNPACKING]
+          MOVING REALLYDAMAGED:
+            Animation: NIHero_SKL.NIHero_IRNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING UNPACKING REALLYDAMAGED]
+          UNPACKING:
+            Animation: NIHero_SKL.NIHero_ATA1
+            AnimationMode: ONCE
+            Aliases: [UNPACKING FIRING_A]
+          FIRING_A:
+            Animation: NIHero_SKL.NIHero_ATA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringA
+          PACKING:
+            Animation: NIHero_SKL.NIHero_ATA3
+            AnimationMode: ONCE
+            Aliases: [FIRING_A PACKING]
+          UNPACKING REALLYDAMAGED:
+            Animation: NIHero_SKL.NIHero_IATA1
+            AnimationMode: ONCE
+            Aliases: [UNPACKING FIRING_A REALLYDAMAGED]
+          FIRING_A REALLYDAMAGED:
+            Animation: NIHero_SKL.NIHero_IATA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringAInjured
+          PACKING REALLYDAMAGED:
+            Animation: NIHero_SKL.NIHero_IATA3
+            AnimationMode: ONCE
+            Aliases: [FIRING_A PACKING REALLYDAMAGED]
+          DYING:
+            Animation: [NIHero_SKL.NIHero_DTA, NIHero_SKL.NIHero_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: NIHero_SKL.NIHero_ADTF2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: NIHero_SKL.NIHero_ADTF3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: NIHERO_SKL.NIHERO_CHA
+            AnimationMode: ONCE
+          SPECIAL_CHEERING REALLYDAMAGED:
+            Animation: NIHERO_SKL.NIHERO_ICHA
+            AnimationMode: ONCE
+          FREEFALL:
+            Animation: NIHero_SKL.NIHero_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: NIHero_SKL.NIHero_PHG
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+        TransitionState:
+          TRANS_Stand TRANS_StandInjured:
+            Animation: NIHero_SKL.NIHero_ISTAHIT
+            AnimationMode: ONCE
+          TRANS_FiringA TRANS_FiringAInjured:
+            Animation: NIHero_SKL.NIHero_IATAHIT
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: NIHero_SKL.NIHero_ADTF1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: NIHero_SKL.NIHero_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: NIHero_SKL.NIHero_PTD
+            AnimationMode: ONCE
+          TRANS_Chute TRANS_StandInjured:
+            Animation: NIHero_SKL.NIHero_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_04:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 2500
+        StealthForbiddenConditions: USING_ABILITY
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+        EnemyDetectionEvaEvent: EnemyBlackLotusDetected
+        OwnDetectionEvaEvent: OwnBlackLotusDetected
+      ModuleTag_08:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityBlackLotusCaptureBuilding
+        UpdateModuleStartsAttack: Yes
+        InitiateSound: BlackLotusVoiceHackBuilding
+      ModuleTag_09:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityBlackLotusCaptureBuilding
+        StartAbilityRange: 150.0
+        UnpackTime: 6730
+        PackTime: 2800
+        PreparationTime: 6000
+        SpecialObject: BinaryDataStream
+        DoCaptureFX: Yes
+        PackSound: BlackLotusPack
+        UnpackSound: BlackLotusUnpack
+        TriggerSound: BlackLotusTrigger
+        PrepSoundLoop: BlackLotusPrepLoop
+      ModuleTag_10:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityBlackLotusDisableVehicleHack
+        UpdateModuleStartsAttack: Yes
+        InitiateSound: BlackLotusVoiceHackVehicle
+      ModuleTag_11:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityBlackLotusDisableVehicleHack
+        StartAbilityRange: 150.0
+        UnpackTime: 6730
+        PackTime: 2800
+        PreparationTime: 2000
+        EffectDuration: 30000
+        DisableFXParticleSystem: DisabledEffectBinaryShower0
+        SpecialObject: BinaryDataStream
+        PackSound: BlackLotusPack
+        UnpackSound: BlackLotusUnpack
+        TriggerSound: BlackLotusTrigger
+        PrepSoundLoop: BlackLotusPrepLoop
+      ModuleTag_12:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityBlackLotusStealCashHack
+        UpdateModuleStartsAttack: Yes
+        InitiateSound: BlackLotusVoiceHackCash
+      ModuleTag_13:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityBlackLotusStealCashHack
+        StartAbilityRange: 150.0
+        UnpackTime: 6730
+        PackTime: 5800
+        PreparationTime: 6000
+        EffectValue: 1000
+        SpecialObject: BinaryDataStream
+        PackSound: BlackLotusPack
+        UnpackSound: BlackLotusUnpack
+        TriggerSound: BlackLotusTrigger
+        PrepSoundLoop: BlackLotusPrepLoop
+      ModuleTag_14:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_BlackLotusDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_BlackLotusDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireFemale
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_17:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini
+  CINE_ChinaAmbassador:
+    Buildable: No
+    DisplayName: OBJECT:Ambassador
+    Side: China
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 150
+    ExperienceValue: 50 100 150 400
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: Yes
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE
+    Locomotor: SET_NORMAL CINE_BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet: {}
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NIAMBSDR_SKN
+          IdleAnimation:
+          - NIAMBSDR_SKL.NIAMBSDR_STA
+          - NIAMBSDR_SKL.NIAMBSDR_STA
+          - NIAMBSDR_SKL.NIAMBSDR_STA
+          - NIAMBSDR_SKL.NIAMBSDR_STA
+          - NIAMBSDR_SKL.NIAMBSDR_STA
+          - NIAMBSDR_SKL.NIAMBSDR_STA
+          - NIAMBSDR_SKL.NIAMBSDR_STA
+          - NIAMBSDR_SKL.NIAMBSDR_IDA
+          - NIAMBSDR_SKL.NIAMBSDR_IDB
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: NIAMBSDR_SKL.NIAMBSDR_RNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: NIAMBSDR_SKL.NIAMBSDR_RNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [NIAMBSDR_SKL.NIAMBSDR_DTA, NIAMBSDR_SKL.NIAMBSDR_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_RedGuardDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/ChinaCINEUnit.ini

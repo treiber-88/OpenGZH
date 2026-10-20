@@ -1,0 +1,73 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Infa_ChinaHelixBattleBunker:
+    SelectPortrait: SNBunker_L
+    ButtonImage: SNBunker
+    PlacementViewAngle: -45
+    Side: ChinaInfantryGeneral
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 6.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceUnload: OverlordTankVoiceUnload
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: CHASSISBONE
+        ConditionState:
+          NONE:
+            Model: NVHELIX_B
+          REALLYDAMAGED:
+            Model: NVHELIX_BD
+            ParticleSysBone:
+            - Smoke01 SmolderingSmoke
+            - Smoke02 SmolderingSmoke
+            - Flame01 SmolderingFire
+            - Flame01 SmolderingFlameCore
+            - Spark01 LiveWireSparks
+          NIGHT:
+            Model: NVHELIX_B
+          NIGHT REALLYDAMAGED:
+            Model: NVHELIX_BD
+            ParticleSysBone:
+            - Smoke01 SmolderingSmoke
+            - Smoke02 SmolderingSmoke
+            - Flame01 SmolderingFire
+            - Flame01 SmolderingFlameCore
+            - Spark01 LiveWireSparks
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_29:
+        Module: Behavior
+        Class: HelixContain
+        Slots: 8
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: INFANTRY
+        ForbidInsideKindOf: AIRCRAFT
+        ExitDelay: 100
+        NumberOfExitPaths: 1
+        PassengersAllowedToFire: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/InfantryGeneral.ini

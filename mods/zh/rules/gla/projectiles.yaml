@@ -1,0 +1,283 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  CINE_BShipWeaponDetonationObject:
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: PROJECTILE
+    Modules:
+      ModuleTag_01:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1
+        MaxLifetime: 1
+      ModuleTag_03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 1
+        FX: INITIAL WeaponFX_BattleshipTargetExplode
+        Weapon: FINAL CINE_u02_BattleshipTargetDamagedWeapon
+    SourceFile: Data/INI/Object/AmericaMiscUnit.ini
+  BlackMarketNuke:
+    DisplayName: OBJECT:BlackMarketNuke
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 12.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber_B
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: BlackMarketNukeWeapon
+        StartsActive: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 1.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponBlackMarketNuke
+      ModuleTag_08:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_NukeGLA
+        OrientToObject: No
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  AnthraxBomb:
+    DisplayName: OBJECT:AnthraxBomb
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    SoundFallingFromPlane: DaisyCutterWeapon
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber_B
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: AnthraxBombWeapon
+        StartsActive: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_Gamma:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: AnthraxGammaBombWeapon
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 40.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponAnthraxBomb
+      ModuleTag_08:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxBomb
+        StartsActive: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_GammaFX:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxGammaBomb
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  AnthraxBombGamma:
+    DisplayName: OBJECT:AnthraxBomb
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    SoundFallingFromPlane: DaisyCutterWeapon
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber_B
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_Gamma:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: AnthraxGammaBombWeapon
+        StartsActive: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 40.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponAnthraxBomb
+      ModuleTag_08:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_GammaFX:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxGammaBomb
+        StartsActive: Yes
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  BoobyTrap:
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 25.0
+    ShroudClearingRange: 25
+    RadarPriority: NOT_ON_RADAR
+    KindOf: BOOBY_TRAP NO_COLLIDE MINE
+    Geometry: CYLINDER
+    GeometryMajorRadius: 8.0
+    GeometryHeight: 8.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      StickyBombCreated: BoobyTrapInstall
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: HighlanderBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5
+      ModuleTag_03:
+        Module: Behavior
+        Class: StickyBombUpdate
+        GeometryBasedDamageWeapon: BoobyTrapDetonationWeapon
+        GeometryBasedDamageFX: FX_BoobyTrapExplosion
+      ModuleTag_04:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 0
+        StealthForbiddenConditions: NONE
+        FriendlyOpacityMin: 50.0%
+        InnateStealth: Yes
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  DemoTrapDetonationObject:
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: PROJECTILE
+    Modules:
+      ModuleTag_01:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1
+        MaxLifetime: 1
+      ModuleTag_03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 1
+        FX: INITIAL WeaponFX_DemoTrapDetonation
+        Weapon: FINAL DemoTrapDetonationWeapon
+    SourceFile: Data/INI/Object/WeaponObjects.ini

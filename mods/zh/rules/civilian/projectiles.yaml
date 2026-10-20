@@ -1,0 +1,3722 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  MOAB:
+    DisplayName: OBJECT:DaisyCutterBomb
+    EditorSorting: SYSTEM
+    TransportSlotCount: 10
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    SoundFallingFromPlane: DaisyCutterWeapon
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 12.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: PMMoab
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_06:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_08:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 5.0
+        TargetHeightIncludesStructures: Yes
+      ModuleTag_09:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponMOAB
+      ModuleTag_10:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: MOABDetonationWeapon
+        StartsActive: Yes
+      ModuleTag_11:
+        Module: Behavior
+        Class: SmartBombTargetHomingUpdate
+        CourseCorrectionScalar: 0.99
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  MOABGas:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 150.0
+        AerodynamicFriction: 7
+        ForwardFriction: 200
+      ModuleTag_03:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 40.0
+        TargetHeightIncludesStructures: Yes
+        DestroyAttachedParticlesAtHeight: 41.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 1000
+        DestructionDelayVariance: 100
+        FX: [INITIAL FX_MOABIgnite, FINAL FX_MOABFinalExplosion]
+        Weapon: [MIDPOINT MOABFlameWeapon, FINAL MOABDetonationWeapon]
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  AvengerPointDefenseLaserBeam:
+    KindOf: IMMOBILE INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser4.tga
+        NumBeams: 4
+        InnerBeamWidth: 0.005
+        InnerColor: R:255 G:180 B:100 A:120
+        OuterBeamWidth: 10
+        OuterColor: R:100 G:100 B:100 A:60
+        Tile: Yes
+        ScrollRate: -2500
+        Segments: 1
+        SegmentOverlapRatio: 0
+        TilingScalar: -3
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: PaladinPointDefenseLaserFlare
+        TargetParticleSystem: AvengerDestroySmoke
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 95
+        MaxLifetime: 95
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  AvengerLaserBeam:
+    KindOf: IMMOBILE INERT
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser4.tga
+        NumBeams: 4
+        InnerBeamWidth: 0.005
+        InnerColor: R:100 G:0 B:0 A:100
+        OuterBeamWidth: 15
+        OuterColor: R:100 G:0 B:0 A:0
+        Tile: Yes
+        ScrollRate: -2500
+        Segments: 1
+        SegmentOverlapRatio: 0
+        TilingScalar: -3
+      ModuleTag_07:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: PaladinPointDefenseLaserFlare
+        TargetParticleSystem: AvengerStarburst
+        PunchThroughScalar: 1.3
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 205
+        MaxLifetime: 205
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  AvengerTargetingLaserBeam:
+    KindOf: IMMOBILE INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser4.tga
+        NumBeams: 4
+        InnerBeamWidth: 5
+        InnerColor: R:50 G:50 B:255 A:50
+        OuterBeamWidth: 1
+        OuterColor: R:255 G:0 B:126 A:150
+        Tile: Yes
+        ScrollRate: -2500
+        Segments: 1
+        SegmentOverlapRatio: 0
+        TilingScalar: -3
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: GenericBlueLaserFlare
+        TargetParticleSystem: GenericBlueLaserFlare
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 210
+        MaxLifetime: 210
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  MicrowaveDisableStream:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXSineWave.tga
+        Tile: Yes
+        TilingScalar: .5
+        ScrollRate: -10
+        NumBeams: 1
+        InnerBeamWidth: 8
+        InnerColor: R:100 G:200 B:100 A:50
+        OuterBeamWidth: 5.0
+        OuterColor: R:96 G:255 B:96 A:5
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: GenericGreenLaserFlare
+        TargetParticleSystem: HackFlare
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 126
+        MaxLifetime: 126
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ECMDisableStream:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser4.tga
+        NumBeams: 3
+        InnerBeamWidth: 1
+        InnerColor: R:5 G:25 B:5 A:100
+        OuterBeamWidth: 50
+        OuterColor: R:10 G:100 B:10 A:75
+        Tile: Yes
+        ScrollRate: 35
+        Segments: 1
+        SegmentOverlapRatio: 1
+        TilingScalar: 0.05
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: GenericGreenLaserFlare
+        TargetParticleSystem: GenericGreenLaserFlare
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 210
+        MaxLifetime: 640
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SpectreHowitzerShell:
+    DisplayName: OBJECT:Missile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Cylinder
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 4.0
+    GeometryIsSmall: Yes
+    Scale: 0.6
+    Shadow: SHADOW_DECAL
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: AVSpectreShell1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 1.0
+        TargetHeightIncludesStructures: No
+        OnlyWhenMovingDown: Yes
+        InitialDelay: 1000
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+        FX: FX_NukeGLA
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_09:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_10:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  HumveeMissile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL RocketBuggyMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVRockBug_m
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 1000
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 3
+        IgnitionFX: FX_HumveeMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  PatriotMissile:
+    DisplayName: OBJECT:PatriotMissile
+    EditorSorting: VEHICLE
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    KindOf: CAN_CAST_REFLECTIONS PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL PatriotMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVRaptor_M
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 10000
+        InitialVelocity: 50
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 5
+        DistanceToTargetForLock: 100
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  RaptorJetMissile:
+    DisplayName: OBJECT:Missile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL RaptorJetMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVRaptor_M
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      ModuleTag_99:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_AmericaLaserMissiles
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_08:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 10000
+        InitialVelocity: 75
+        IgnitionDelay: 30
+        IgnitionFX: FX_JetMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  StealthJetMissile:
+    DisplayName: OBJECT:Missile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL StealthJetMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVStealth_M
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      ModuleTag_99:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_AmericaLaserMissiles
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_04:
+        Module: Behavior
+        Class: BunkerBusterBehavior
+        UpgradeRequired: Upgrade_AmericaBunkerBusters
+        DetonationFX: FX_BunkerBusterExplosion
+        CrashThroughBunkerFX: WeaponFX_BunkerBusterIntialImpact
+        CrashThroughBunkerFXFrequency: 571
+        SeismicEffectRadius: 200
+        SeismicEffectMagnitude: 5
+        ShockwaveWeaponTemplate: BunkerBusterShockwaveWeaponSmall
+        OccupantDamageWeaponTemplate: BunkerBusterAntiTunnelGarrisonWeaponWithABigName
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_08:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 10000
+        InitialVelocity: 75
+        IgnitionDelay: 30
+        IgnitionFX: FX_JetMissileIgnition
+        DetonateCallsKill: Yes
+        KillSelfDelay: 2000
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ChinaStandardMine:
+    DisplayName: OBJECT:StructureMine
+    EditorSorting: MISC_MAN_MADE
+    KindOf: STICK_TO_TERRAIN_SLOPE IMMOBILE MINE NO_HEAL_ICON
+    Geometry: CYLINDER
+    GeometryMajorRadius: 30.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: MineArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: EXAMineGroup
+            ParticleSysBone:
+            - Mine01 MineFX
+            - Mine02 MineFX
+            - Mine03 MineFX
+            - Mine04 MineFX
+            - Mine05 MineFX
+            - Mine06 MineFX
+            - Mine07 MineFX
+            - Mine08 MineFX
+          RUBBLE:
+            Model: None
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 0
+        StealthForbiddenConditions: NONE
+        FriendlyOpacityMin: 0.0%
+        FriendlyOpacityMax: 0.0%
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: No
+      ModuleTag_04:
+        Module: Behavior
+        Class: MinefieldBehavior
+        DetonationWeapon: StructureMineWeapon
+        DetonatedBy: ENEMIES NEUTRAL
+        RepeatDetonateMoveThresh: 5.0
+        NumVirtualMines: 8
+        Regenerates: Yes
+        StopsRegenAfterCreatorDies: Yes
+        DegenPercentPerSecondAfterCreatorDies: 3.33%
+      ModuleTag_05:
+        Module: Behavior
+        Class: AutoHealBehavior
+        StartsActive: Yes
+        HealingAmount: 2
+        HealingDelay: 5000
+        StartHealingDelay: 15000
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ChinaEMPMine:
+    DisplayName: OBJECT:StructureEMPMine
+    EditorSorting: MISC_MAN_MADE
+    KindOf: STICK_TO_TERRAIN_SLOPE IMMOBILE MINE NO_HEAL_ICON
+    Geometry: CYLINDER
+    GeometryMajorRadius: 30.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: MineArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: EXAMineGroup
+            ParticleSysBone:
+            - Mine01 MineFXPurple
+            - Mine02 MineFXPurple
+            - Mine03 MineFXPurple
+            - Mine04 MineFXPurple
+            - Mine05 MineFXPurple
+            - Mine06 MineFXPurple
+            - Mine07 MineFXPurple
+            - Mine08 MineFXPurple
+          RUBBLE:
+            Model: None
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 0
+        StealthForbiddenConditions: NONE
+        FriendlyOpacityMin: 0.0%
+        FriendlyOpacityMax: 0.0%
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: No
+      ModuleTag_04:
+        Module: Behavior
+        Class: MinefieldBehavior
+        DetonationWeapon: NeutronMineWeapon
+        DetonatedBy: ENEMIES NEUTRAL
+        RepeatDetonateMoveThresh: 5.0
+        NumVirtualMines: 8
+        Regenerates: Yes
+        StopsRegenAfterCreatorDies: Yes
+        DegenPercentPerSecondAfterCreatorDies: 3.33%
+      ModuleTag_05:
+        Module: Behavior
+        Class: AutoHealBehavior
+        StartsActive: Yes
+        HealingAmount: 2
+        HealingDelay: 5000
+        StartHealingDelay: 15000
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  NeutronBlastObject:
+    DisplayName: OBJECT:NeutronMissile
+    KindOf: UNATTACKABLE
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    TransportSlotCount: 10
+    Geometry: CYLINDER
+    GeometryMajorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 99999999.0
+        InitialHealth: 99999999.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 100.0
+        TargetHeightIncludesStructures: No
+        OnlyWhenMovingDown: No
+        SnapToGroundOnDeath: Yes
+        InitialDelay: 0
+      ModuleTag_06:
+        Module: Behavior
+        Class: NeutronBlastBehavior
+        BlastRadius: 20
+        AffectAirborne: No
+        AffectAllies: No
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ChinaClusterMine:
+    DisplayName: OBJECT:ClusterMine
+    EditorSorting: MISC_MAN_MADE
+    KindOf: STICK_TO_TERRAIN_SLOPE IMMOBILE MINE NO_HEAL_ICON
+    Geometry: CYLINDER
+    GeometryMajorRadius: 30.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: MineArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: EXAMineGroup
+            ParticleSysBone:
+            - Mine01 MineFX
+            - Mine02 MineFX
+            - Mine03 MineFX
+            - Mine04 MineFX
+            - Mine05 MineFX
+            - Mine06 MineFX
+            - Mine07 MineFX
+            - Mine08 MineFX
+          RUBBLE:
+            Model: None
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 0
+        StealthForbiddenConditions: NONE
+        FriendlyOpacityMin: 0.0%
+        FriendlyOpacityMax: 0.0%
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: No
+      ModuleTag_04:
+        Module: Behavior
+        Class: MinefieldBehavior
+        DetonationWeapon: ClusterMineWeapon
+        DetonatedBy: ENEMIES NEUTRAL
+        ScootFromStartingPointTime: 1000
+        RepeatDetonateMoveThresh: 5.0
+        NumVirtualMines: 8
+        Regenerates: No
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  DaisyCutterBomb:
+    DisplayName: OBJECT:DaisyCutterBomb
+    EditorSorting: SYSTEM
+    TransportSlotCount: 10
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    SoundFallingFromPlane: DaisyCutterWeapon
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 12.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber_B
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_DaisyCutterExplode
+      ModuleTag_04:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_DaisyCutterExplode
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_06:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_08:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 50.0
+        TargetHeightIncludesStructures: Yes
+      ModuleTag_09:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponDaisyCutter
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  DaisyCutterGas:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 150.0
+        AerodynamicFriction: 7
+        ForwardFriction: 200
+      ModuleTag_03:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 40.0
+        TargetHeightIncludesStructures: Yes
+        DestroyAttachedParticlesAtHeight: 41.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 1000
+        DestructionDelayVariance: 100
+        FX: [INITIAL FX_DaisyCutterIgnite, FINAL FX_DaisyCutterFinalExplosion]
+        Weapon: [MIDPOINT DaisyCutterFlameWeapon, FINAL DaisyCutterDetonationWeapon]
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  NeutronMissile:
+    DisplayName: OBJECT:NeutronMissile
+    KindOf: UNATTACKABLE
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    TransportSlotCount: 10
+    Geometry: CYLINDER
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 60.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NBNRocket
+          DAMAGED REALLYDAMAGED RUBBLE:
+            Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 99999999.0
+        InitialHealth: 99999999.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: NeutronMissileUpdate
+        DistanceToTravelBeforeTurning: 300
+        MaxTurnRate: 7200
+        ForwardDamping: 0.1
+        RelativeSpeed: 2.0
+        LaunchFX: FX_NeutronMissileLaunch
+        IgnitionFX: FX_NeutronMissileIgnition
+        TargetFromDirectlyAbove: 500
+        SpecialAccelFactor: 1
+        SpecialSpeedTime: 1500
+        SpecialSpeedHeight: 160
+        SpecialJitterDistance: 0.4
+        DeliveryDecalRadius: 210
+        DeliveryDecal:
+          Texture: SCCNuclearMissile_China
+          Style: SHADOW_ALPHA_DECAL
+          OpacityMin: 25%
+          OpacityMax: 50%
+          OpacityThrobTime: 500
+          Color: R:255 G:0 B:0 A:255
+          OnlyVisibleToOwningPlayer: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 100.0
+        TargetHeightIncludesStructures: No
+        OnlyWhenMovingDown: Yes
+        SnapToGroundOnDeath: Yes
+        InitialDelay: 1000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponNeutronMissile
+      ModuleTag_06:
+        Module: Behavior
+        Class: NeutronMissileSlowDeathBehavior
+        DestructionDelay: 3501
+        ScorchMarkSize: 320
+        FXList: FX_Nuke
+        Blast1Enabled: Yes
+        Blast1Delay: 580
+        Blast1ScorchDelay: 100
+        Blast1InnerRadius: 60.0
+        Blast1OuterRadius: 60.0
+        Blast1MaxDamage: 0.0
+        Blast1MinDamage: 0.0
+        Blast1ToppleSpeed: 0.5
+        Blast1PushForce: 10.0
+        Blast2Enabled: Yes
+        Blast2Delay: 660
+        Blast2ScorchDelay: 180
+        Blast2InnerRadius: 90.0
+        Blast2OuterRadius: 90.0
+        Blast2MaxDamage: 0.0
+        Blast2MinDamage: 0.0
+        Blast2ToppleSpeed: 0.45
+        Blast2PushForce: 8.0
+        Blast3Enabled: Yes
+        Blast3Delay: 720
+        Blast3ScorchDelay: 260
+        Blast3InnerRadius: 120.0
+        Blast3OuterRadius: 120.0
+        Blast3MaxDamage: 0.0
+        Blast3MinDamage: 0.0
+        Blast3ToppleSpeed: 0.42
+        Blast3PushForce: 6.0
+        Blast4Enabled: Yes
+        Blast4Delay: 850
+        Blast4ScorchDelay: 340
+        Blast4InnerRadius: 150.0
+        Blast4OuterRadius: 150.0
+        Blast4MaxDamage: 0.0
+        Blast4MinDamage: 0.0
+        Blast4ToppleSpeed: 0.40
+        Blast4PushForce: 6.0
+        Blast5Enabled: Yes
+        Blast5Delay: 1000
+        Blast5ScorchDelay: 420
+        Blast5InnerRadius: 180.0
+        Blast5OuterRadius: 180.0
+        Blast5MaxDamage: 0.0
+        Blast5MinDamage: 0.0
+        Blast5ToppleSpeed: 0.38
+        Blast5PushForce: 6.0
+        Blast6Enabled: Yes
+        Blast6Delay: 1180
+        Blast6ScorchDelay: 500
+        Blast6InnerRadius: 60.0
+        Blast6OuterRadius: 210.0
+        Blast6MaxDamage: 3500.0
+        Blast6MinDamage: 300.0
+        Blast6ToppleSpeed: 0.35
+        Blast6PushForce: 4.0
+        Blast7Enabled: Yes
+        Blast7Delay: 999999
+        Blast7ScorchDelay: 620
+        Blast7OuterRadius: 210.0
+        Blast8Enabled: Yes
+        Blast8Delay: 999999
+        Blast8ScorchDelay: 700
+        Blast8OuterRadius: 210.0
+        Blast9Enabled: Yes
+        Blast9Delay: 999999
+        Blast9ScorchDelay: 800
+        Blast9OuterRadius: 210.0
+        OCL: MIDPOINT OCL_NukeRadiationField
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  CargoTruckNuke:
+    DisplayName: OBJECT:NeutronMissile
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 60.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 99999999.0
+        InitialHealth: 99999999.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+      ModuleTag_03:
+        Module: Behavior
+        Class: NeutronMissileSlowDeathBehavior
+        DestructionDelay: 3501
+        ScorchMarkSize: 320
+        FXList: FX_Nuke
+        Blast1Enabled: Yes
+        Blast1Delay: 580
+        Blast1ScorchDelay: 100
+        Blast1InnerRadius: 60.0
+        Blast1OuterRadius: 60.0
+        Blast1MaxDamage: 0.0
+        Blast1MinDamage: 0.0
+        Blast1ToppleSpeed: 0.5
+        Blast1PushForce: 10.0
+        Blast2Enabled: Yes
+        Blast2Delay: 660
+        Blast2ScorchDelay: 180
+        Blast2InnerRadius: 90.0
+        Blast2OuterRadius: 90.0
+        Blast2MaxDamage: 0.0
+        Blast2MinDamage: 0.0
+        Blast2ToppleSpeed: 0.45
+        Blast2PushForce: 8.0
+        Blast3Enabled: Yes
+        Blast3Delay: 720
+        Blast3ScorchDelay: 260
+        Blast3InnerRadius: 120.0
+        Blast3OuterRadius: 120.0
+        Blast3MaxDamage: 0.0
+        Blast3MinDamage: 0.0
+        Blast3ToppleSpeed: 0.42
+        Blast3PushForce: 6.0
+        Blast4Enabled: Yes
+        Blast4Delay: 850
+        Blast4ScorchDelay: 340
+        Blast4InnerRadius: 150.0
+        Blast4OuterRadius: 150.0
+        Blast4MaxDamage: 0.0
+        Blast4MinDamage: 0.0
+        Blast4ToppleSpeed: 0.40
+        Blast4PushForce: 6.0
+        Blast5Enabled: Yes
+        Blast5Delay: 1000
+        Blast5ScorchDelay: 420
+        Blast5InnerRadius: 180.0
+        Blast5OuterRadius: 180.0
+        Blast5MaxDamage: 0.0
+        Blast5MinDamage: 0.0
+        Blast5ToppleSpeed: 0.38
+        Blast5PushForce: 6.0
+        Blast6Enabled: Yes
+        Blast6Delay: 1180
+        Blast6ScorchDelay: 500
+        Blast6InnerRadius: 60.0
+        Blast6OuterRadius: 210.0
+        Blast6MaxDamage: 3500.0
+        Blast6MinDamage: 200.0
+        Blast6ToppleSpeed: 0.35
+        Blast6PushForce: 4.0
+        Blast7Enabled: Yes
+        Blast7Delay: 999999
+        Blast7ScorchDelay: 620
+        Blast7OuterRadius: 210.0
+        Blast8Enabled: Yes
+        Blast8Delay: 999999
+        Blast8ScorchDelay: 700
+        Blast8OuterRadius: 210.0
+        Blast9Enabled: Yes
+        Blast9Delay: 999999
+        Blast9ScorchDelay: 800
+        Blast9OuterRadius: 210.0
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ScudStormMissile:
+    KindOf: PROJECTILE
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    TransportSlotCount: 10
+    Locomotor: SET_NORMAL SCUDStormMissileLocomotor
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 30.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UBScudStrm_M
+        ConditionState:
+          DAMAGED REALLYDAMAGED RUBBLE:
+            Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 10000.0
+        InitialHealth: 10000.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 0
+        InitialVelocity: 0
+        IgnitionFX: FX_ScudStormIgnition
+        DistanceToTravelBeforeTurning: 500
+        DistanceToTargetBeforeDiving: 200
+      ModuleTag_05:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 15.0
+        TargetHeightIncludesStructures: Yes
+        OnlyWhenMovingDown: Yes
+        SnapToGroundOnDeath: Yes
+        InitialDelay: 1000
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponScudStorm
+      ModuleTag_08:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ScudStormDamageWeapon
+        StartsActive: Yes
+        ConflictsWith: Upgrade_GLAAnthraxBeta
+      ModuleTag_09:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ScudStormDamageWeaponUpgraded
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAAnthraxBeta
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  NapalmMissile:
+    DisplayName: OBJECT:Missile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    TransportSlotCount: 1
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL NapalmMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVRaptor_M
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 10000
+        InitialVelocity: 75
+        IgnitionDelay: 30
+        IgnitionFX: FX_NapalmMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  StingerMissile:
+    DisplayName: OBJECT:StingerMissile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    TransportSlotCount: 1
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL StingerMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVRockBug_m
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 5000
+        InitialVelocity: 200
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 5
+        IgnitionFX: None
+        DistanceToTargetForLock: 100
+      Upgrade_01:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPRockets
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ComancheAntiTankMissile:
+    DisplayName: OBJECT:Prop
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    TransportSlotCount: 1
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL ComancheAntiTankMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVRockBug_m
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 1000
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 10
+        IgnitionFX: FX_BuggyMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ComancheRocketPodRocket:
+    DisplayName: OBJECT:Prop
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL ComancheRocketPodLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVRockBug_m
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 1000
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 10
+        IgnitionFX: FX_BuggyMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  RocketBuggyMissile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL RocketBuggyMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVRockBug_m
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      ModuleTag_04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ToxinShellWeapon
+        StartsActive: No
+        TriggeredBy: RocketBuggyToxinUpgrade
+        ConflictsWith: Upgrade_GLAAnthraxBeta Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ToxinShellWeaponUpgraded
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAAnthraxBeta RocketBuggyToxinUpgrade
+        RequiresAllTriggers: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag99:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_ToxinShellWeaponGamma
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma RocketBuggyToxinUpgrade
+        RequiresAllTriggers: Yes
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 1800
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 3
+        IgnitionFX: FX_BuggyMissileIgnition
+        DistanceScatterWhenJammed: 100
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPRockets
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SCUDMissile:
+    DisplayName: OBJECT:SCUDMissile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE BALLISTIC_MISSILE
+    Locomotor: SET_NORMAL SCUDMissileLocomotor
+    Geometry: Cylinder
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 4.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ArmorSet:
+      Conditions: None
+      Armor: BallisticMissileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVScudLchr_M
+        ConditionState:
+          REALLYDAMAGED:
+            Model: UVScudLchr_DM
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+          REALLYDAMAGED JAMMED:
+            Model: UVScudLchr_DM
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 5000
+        IgnitionDelay: 0
+        InitialVelocity: 50
+        DistanceToTravelBeforeTurning: 200
+        DistanceToTargetBeforeDiving: 200
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPRockets
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SCUDMissilePlusOne:
+    ReskinOf: SCUDMissile
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVScudLchr_B
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SCUDMissilePlusTwo:
+    ReskinOf: SCUDMissile
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVScudLchr_C
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  TomahawkMissile:
+    DisplayName: OBJECT:TomahawkMissile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE BALLISTIC_MISSILE
+    Locomotor: SET_NORMAL TomahawkMissileLocomotor
+    Geometry: Cylinder
+    GeometryMajorRadius: 8.0
+    GeometryHeight: 4.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ArmorSet:
+      Conditions: None
+      Armor: BallisticMissileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVTomahawk_M
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 200.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 400
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+        FX: WeaponFX_TomahawkMissileDetonation
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 4000
+        IgnitionDelay: 0
+        IgnitionFX: FX_TomahawkIgnition
+        InitialVelocity: 50
+        DistanceToTravelBeforeTurning: 80
+        DistanceToTargetBeforeDiving: 100
+        DistanceToTargetForLock: 10
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  StrategyCenterArtilleryShell:
+    DisplayName: OBJECT:Missile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL NuclearCannonShellLocomotor
+    Geometry: Cylinder
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 4.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NVNUKECN_B
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 4000
+        IgnitionDelay: 0
+        IgnitionFX: FX_BuggyMissileIgnition
+        InitialVelocity: 20
+        DistanceToTravelBeforeTurning: 40
+        DistanceToTargetBeforeDiving: 50
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  MissileDefenderMissile:
+    DisplayName: OBJECT:RangerTeamMissile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL MissileDefenderMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: ExMsslTm
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 3000
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 3
+        IgnitionFX: FX_BuggyMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  TunnelDefenderMissile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL TunnelDefenderMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: EXStinger01
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPRockets
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 1250
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 20
+        IgnitionFX: FX_BuggyMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  TechnicalRPGMissile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL TechnicalRPGMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: EXStinger01
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 1000
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 20
+        IgnitionFX: FX_BuggyMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  TankHunterMissile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL TankHunterMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: EXStinger01
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 1250
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 20
+        IgnitionFX: FX_BuggyMissileIgnition
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ToxinTruckStreamProjectile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL ToxinTruckStreamLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 500
+        InitialVelocity: 120
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+        GarrisonHitKillRequiredKindOf: INFANTRY
+        GarrisonHitKillForbiddenKindOf: NONE
+        GarrisonHitKillCount: 2
+        GarrisonHitKillFX: FX_ToxinStreamGarrisonBuildingHit
+      ModuleTag_06:
+        Module: Behavior
+        Class: BoneFXUpdate
+        PristineParticleSystem1: bone:NULL OnlyOnce:Yes 0 0 PSys:ToxinTrail01
+      ModuleTag_07:
+        Module: Behavior
+        Class: BoneFXDamage
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ToxinTruckStreamProjectileUpgraded:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL ToxinTruckStreamLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 500
+        InitialVelocity: 120
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+        GarrisonHitKillRequiredKindOf: INFANTRY
+        GarrisonHitKillForbiddenKindOf: NONE
+        GarrisonHitKillCount: 2
+        GarrisonHitKillFX: FX_ToxinStreamUpgradedGarrisonBuildingHit
+      ModuleTag_06:
+        Module: Behavior
+        Class: BoneFXUpdate
+        PristineParticleSystem1: bone:NULL OnlyOnce:Yes 0 0 PSys:AnthraxTrail01
+      ModuleTag_07:
+        Module: Behavior
+        Class: BoneFXDamage
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ToxinTruckProjectileStream:
+    KindOf: INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DProjectileStreamDraw
+        Texture: EXToxinStream.tga
+        Width: 1.5
+        TileFactor: 2.0
+        ScrollRate: 6.0
+        MaxSegments: 14
+      ModuleTag_02:
+        Module: Behavior
+        Class: ProjectileStreamUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ToxinTruckProjectileStreamUpgraded:
+    KindOf: INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DProjectileStreamDraw
+        Texture: EXAnthraxStream.tga
+        Width: 1.5
+        TileFactor: 2.0
+        ScrollRate: 6.0
+        MaxSegments: 14
+      ModuleTag_02:
+        Module: Behavior
+        Class: ProjectileStreamUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ToxinTruckSprayProjectile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL ToxinTruckDribbleLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 1
+        InitialVelocity: 1
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 0
+        DistanceToTargetForLock: 0
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  CleanupHazardProjectileStream:
+    KindOf: INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DProjectileStreamDraw
+        Texture: EXCleanupStream.tga
+        Width: 1.5
+        TileFactor: 2.0
+        ScrollRate: 6.0
+        MaxSegments: 14
+      ModuleTag_02:
+        Module: Behavior
+        Class: ProjectileStreamUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  CleanupStreamProjectile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL ToxinTruckStreamLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 600
+        InitialVelocity: 120
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+      ModuleTag_06:
+        Module: Behavior
+        Class: BoneFXUpdate
+        PristineParticleSystem1: bone:NULL OnlyOnce:Yes 0 0 PSys:CleanupTrail01
+      ModuleTag_07:
+        Module: Behavior
+        Class: BoneFXDamage
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  BioHazardCleanupStreamProjectile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL FasterToxinTruckStreamLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 500
+        InitialVelocity: 120
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+      ModuleTag_06:
+        Module: Behavior
+        Class: BoneFXUpdate
+        PristineParticleSystem1: bone:NULL OnlyOnce:Yes 0 0 PSys:CleanupTrail01
+      ModuleTag_07:
+        Module: Behavior
+        Class: BoneFXDamage
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  DragonTankFlameProjectile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL DragonTankFlameLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NULL
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 350
+        DetonateOnNoFuel: Yes
+        InitialVelocity: 120
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+        GarrisonHitKillRequiredKindOf: INFANTRY
+        GarrisonHitKillForbiddenKindOf: NONE
+        GarrisonHitKillCount: 2
+        GarrisonHitKillFX: FX_DragonFlameGarrisonBuildingHit
+        DistanceToTargetForLock: 0
+      ModuleTag_06:
+        Module: Behavior
+        Class: BoneFXUpdate
+        PristineParticleSystem1: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail01
+        PristineParticleSystem2: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail02
+        PristineParticleSystem3: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail03
+        PristineParticleSystem4: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail04
+        PristineParticleSystem5: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail06
+        PristineParticleSystem6: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerSmoke01
+      ModuleTag_07:
+        Module: Behavior
+        Class: BoneFXDamage
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  FlamethrowerProjectileStream:
+    KindOf: INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DProjectileStreamDraw
+        Texture: EXfthrowerStream.tga
+        Width: 1.5
+        TileFactor: 3.0
+        ScrollRate: 2.0
+        MaxSegments: 4
+      ModuleTag_02:
+        Module: Behavior
+        Class: ProjectileStreamUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  DragonTankFlameProjectileUpgraded:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL DragonTankFlameLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NULL
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 350
+        DetonateOnNoFuel: Yes
+        InitialVelocity: 120
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+        GarrisonHitKillRequiredKindOf: INFANTRY
+        GarrisonHitKillForbiddenKindOf: NONE
+        GarrisonHitKillCount: 2
+        GarrisonHitKillFX: FX_DragonFlameGarrisonBuildingHit
+        DistanceToTargetForLock: 0
+      ModuleTag_06:
+        Module: Behavior
+        Class: BoneFXUpdate
+        PristineParticleSystem1: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail01Upgraded
+        PristineParticleSystem2: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail02Upgraded
+        PristineParticleSystem3: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail03Upgraded
+        PristineParticleSystem4: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail04Upgraded
+        PristineParticleSystem5: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerTrail06Upgraded
+        PristineParticleSystem6: bone:NULL OnlyOnce:Yes 0 0 PSys:FlameThrowerSmoke01
+      ModuleTag_07:
+        Module: Behavior
+        Class: BoneFXDamage
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  FlamethrowerProjectileStreamUpgraded:
+    KindOf: INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DProjectileStreamDraw
+        Texture: EXfthrowerStreamUpgraded.tga
+        Width: 1.5
+        TileFactor: 3.0
+        ScrollRate: 2.0
+        MaxSegments: 4
+      ModuleTag_02:
+        Module: Behavior
+        Class: ProjectileStreamUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  PointDefenseLaserBeam:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser4.tga
+        NumBeams: 4
+        InnerBeamWidth: 0.005
+        InnerColor: R:255 G:0 B:180 A:120
+        OuterBeamWidth: 10
+        OuterColor: R:100 G:0 B:100 A:100
+        Tile: Yes
+        ScrollRate: -2500
+        Segments: 1
+        SegmentOverlapRatio: 0
+        TilingScalar: -3
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: PaladinPointDefenseLaserFlare
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 95
+        MaxLifetime: 95
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  LaserBeam:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser.tga
+        NumBeams: 3
+        InnerBeamWidth: 0.4
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 1.2
+        OuterColor: R:255 G:0 B:0 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: GenericLaserFlare
+        TargetParticleSystem: GenericLaserFlare
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ParticleUplinkCannon_MediumConnectorLaser:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser.tga
+        NumBeams: 4
+        InnerBeamWidth: 0.4
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 1.2
+        OuterColor: R:0 G:0 B:255 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ParticleUplinkCannon_IntenseConnectorLaser:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser.tga
+        NumBeams: 5
+        InnerBeamWidth: 0.6
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 2.0
+        OuterColor: R:0 G:0 B:255 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ParticleUplinkCannon_OrbitalLaser:
+    VisionRange: 100
+    ShroudClearingRange: 120
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXNoise02.tga
+        NumBeams: 12
+        Tile: Yes
+        ScrollRate: -1.75
+        TilingScalar: 0.15
+        InnerBeamWidth: 0.6
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 26.0
+        OuterColor: R:0 G:0 B:255 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SupW_ParticleUplinkCannon_MediumConnectorLaser:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser.tga
+        NumBeams: 4
+        InnerBeamWidth: 0.4
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 1.2
+        OuterColor: R:255 G:0 B:255 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SupW_ParticleUplinkCannon_IntenseConnectorLaser:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser.tga
+        NumBeams: 5
+        InnerBeamWidth: 0.6
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 2.0
+        OuterColor: R:255 G:0 B:255 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SupW_ParticleUplinkCannon_OrbitalLaser:
+    VisionRange: 100
+    ShroudClearingRange: 120
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXNoise02.tga
+        NumBeams: 12
+        Tile: Yes
+        ScrollRate: -1.75
+        TilingScalar: 0.15
+        InnerBeamWidth: 0.6
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 26.0
+        OuterColor: R:255 G:0 B:255 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  BinaryDataStream:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXBinaryStream32.tga
+        NumBeams: 1
+        InnerBeamWidth: 4
+        InnerColor: R:0 G:255 B:0 A:180
+        Tile: Yes
+        ScrollRate: -0.25
+        Segments: 20
+        ArcHeight: 30.0
+        SegmentOverlapRatio: 0.0000
+        TilingScalar: 0.25
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ScorpionMissile:
+    DisplayName: OBJECT:Missile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL ScorpionMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVScorpion_m
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ToxinShellWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAToxinShells
+        ConflictsWith: Upgrade_GLAAnthraxBeta Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ToxinShellWeaponUpgraded
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAAnthraxBeta Upgrade_GLAToxinShells
+        RequiresAllTriggers: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag99:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_ToxinShellWeaponGamma
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma Upgrade_GLAToxinShells
+        RequiresAllTriggers: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 4000
+        InitialVelocity: 150
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 30
+        IgnitionFX: FX_JetMissileIgnition
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPRockets
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  RangerFlashBangGrenade:
+    DisplayName: OBJECT:FlashBangGrenade
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NVMBuggy_m
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_05:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        FirstHeight: 50
+        SecondHeight: 150
+        FirstPercentIndent: 30%
+        SecondPercentIndent: 70%
+        GarrisonHitKillRequiredKindOf: INFANTRY
+        GarrisonHitKillForbiddenKindOf: NONE
+        GarrisonHitKillCount: 10
+        GarrisonHitKillFX: FX_FlashBangGarrisonBuildingHit
+        FlightPathAdjustDistPerSecond: 0
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ScorpionTankShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ToxinShellWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAToxinShells
+        ConflictsWith: Upgrade_GLAAnthraxBeta Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ToxinShellWeaponUpgraded
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAAnthraxBeta Upgrade_GLAToxinShells
+        RequiresAllTriggers: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag99:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_ToxinShellWeaponGamma
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma Upgrade_GLAToxinShells
+        RequiresAllTriggers: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        DetonateCallsKill: Yes
+        FirstHeight: 10
+        SecondHeight: 10
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+      ModuleTag_08:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ScorpionTankGunFXWeapon
+        StartsActive: Yes
+        ConflictsWith: Upgrade_GLAToxinShells
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  MarauderTankShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag99:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_ToxinShellWeaponGamma
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma Upgrade_GLAToxinShells
+        RequiresAllTriggers: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ToxinShellWeaponUpgraded
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAAnthraxBeta Upgrade_GLAToxinShells
+        RequiresAllTriggers: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ToxinShellWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAToxinShells
+        ConflictsWith: Upgrade_GLAAnthraxBeta Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_06:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        DetonateCallsKill: Yes
+        FirstHeight: 10
+        SecondHeight: 10
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  GenericTankShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        FirstHeight: 10
+        SecondHeight: 10
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  BattleMasterTankShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        FirstHeight: 10
+        SecondHeight: 10
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+      ModuleTag_06:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_ChinaUraniumShells
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  OverlordTankShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        FirstHeight: 10
+        SecondHeight: 10
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+      ModuleTag_06:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_ChinaUraniumShells
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  NukeCannonShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    SoundAmbient: NukeCannonIncomingWhistle
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        FirstHeight: 50
+        SecondHeight: 150
+        FirstPercentIndent: 30%
+        SecondPercentIndent: 70%
+        FlightPathAdjustDistPerSecond: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  NeutronCannonShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    SoundAmbient: NukeCannonIncomingWhistle
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        FirstHeight: 50
+        SecondHeight: 150
+        FirstPercentIndent: 30%
+        SecondPercentIndent: 70%
+        FlightPathAdjustDistPerSecond: 0
+        DetonateCallsKill: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+      ModuleTag_06:
+        Module: Behavior
+        Class: NeutronBlastBehavior
+        BlastRadius: 70
+        AffectAirborne: No
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  InfernoTankShell:
+    SoundAmbient: InfernoCannonIncomingWhistle
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+            ParticleSysBone: None InfernoTrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_09:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        DetonateCallsKill: Yes
+        FirstHeight: 50
+        SecondHeight: 150
+        FirstPercentIndent: 20%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 10
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 1.0
+        TargetHeightIncludesStructures: Yes
+        OnlyWhenMovingDown: Yes
+        InitialDelay: 1000
+      ModuleTag_07:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: SmallFireFieldCreationWeapon
+        StartsActive: Yes
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  InfernoTankShellUpgraded:
+    SoundAmbient: InfernoCannonIncomingWhistle
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+            ParticleSysBone: None InfernoTrailUpgraded
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_09:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        DetonateCallsKill: Yes
+        FirstHeight: 50
+        SecondHeight: 150
+        FirstPercentIndent: 20%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 10
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 1.0
+        TargetHeightIncludesStructures: Yes
+        OnlyWhenMovingDown: Yes
+        InitialDelay: 1000
+      ModuleTag_08:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: SmallFireFieldUpgradedCreationWeapon
+        StartsActive: Yes
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  GLAAngryMobRockProjectileObject:
+    DisplayName: OBJECT:GLARock
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: Mob_Rock
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        TumbleRandomly: Yes
+        DetonateCallsKill: Yes
+        FirstHeight: 10
+        SecondHeight: 10
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.1
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  GLAAngryMobMolotovCocktailProjectileObject:
+    DisplayName: OBJECT:GLARock
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: Mob_Botl
+            ParticleSysBone: BONE_FX MolotovBurningRag
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        TumbleRandomly: Yes
+        DetonateCallsKill: Yes
+        FirstHeight: 30
+        SecondHeight: 30
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.1
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  NapalmBomb:
+    DisplayName: OBJECT:Missile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    TransportSlotCount: 1
+    KindOf: PRELOAD NO_COLLIDE UNATTACKABLE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    Scale: 0.7
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber_B
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 0.1
+        ForwardFriction: 0.1
+        CenterOfMassOffset: 0.13
+      ModuleTag_10:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 1.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_11:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: NapalmBombWeapon
+        StartsActive: Yes
+        ConflictsWith: Upgrade_ChinaBlackNapalm
+      ModuleTag_12:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: BlackNapalmBombWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  LeafletContainer:
+    DisplayName: OBJECT:DaisyCutterBomb
+    EditorSorting: SYSTEM
+    TransportSlotCount: 10
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    SoundFallingFromPlane: LeafletDrop
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    Geometry: Sphere
+    GeometryIsSmall: No
+    GeometryMajorRadius: 30.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_06:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 22
+        CenterOfMassOffset: 2
+      ModuleTag_08:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 5.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_09:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponLeafletDrop
+      ModuleTag_11:
+        Module: Behavior
+        Class: LeafletDropBehavior
+        DisabledDuration: 20000
+        Delay: 2500
+        AffectRadius: 110.0
+        LeafletFXParticleSystem: LeafletParticles1
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  CruiseMissile:
+    DisplayName: OBJECT:CruiseMissile
+    KindOf: UNATTACKABLE
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    TransportSlotCount: 10
+    Geometry: CYLINDER
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 60.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NBNRocket
+          DAMAGED REALLYDAMAGED RUBBLE:
+            Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 99999999.0
+        InitialHealth: 99999999.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: NeutronMissileUpdate
+        DistanceToTravelBeforeTurning: 200
+        MaxTurnRate: 7200
+        ForwardDamping: 0.1
+        RelativeSpeed: 2.0
+        LaunchFX: FX_NeutronMissileLaunch
+        IgnitionFX: FX_NeutronMissileIgnition
+        TargetFromDirectlyAbove: 10
+        SpecialAccelFactor: 1
+        SpecialSpeedTime: 1500
+        SpecialSpeedHeight: 160
+        SpecialJitterDistance: 0.4
+        DeliveryDecalRadius: 210
+        DeliveryDecal:
+          Texture: SCCNuclearMissile_China
+          Style: SHADOW_ALPHA_DECAL
+          OpacityMin: 25%
+          OpacityMax: 50%
+          OpacityThrobTime: 500
+          Color: R:0 G:0 B:255 A:255
+          OnlyVisibleToOwningPlayer: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 10.0
+        TargetHeightIncludesStructures: No
+        OnlyWhenMovingDown: Yes
+        SnapToGroundOnDeath: Yes
+        InitialDelay: 1000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SupW_CruiseMissile
+      ModuleTag_09:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: MOABDetonationWeapon
+        StartsActive: Yes
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SupW_AuroraFuelAirBomb:
+    DisplayName: OBJECT:FuelAirBomb
+    EditorSorting: SYSTEM
+    TransportSlotCount: 10
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL AuroraBombLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 12.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXCarptBmb
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: SupW_OCL_FuelAirBomb
+      ModuleTag_04:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: AirF_FX_AuroraBombExplode
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_06:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 0
+        IgnitionDelay: 0
+        InitialVelocity: 0
+        DistanceToTravelBeforeTurning: 0
+        DistanceToTargetBeforeDiving: 0
+      ModuleTag_07:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 15.0
+        TargetHeightIncludesStructures: Yes
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  SupW_AuroraFuelAirGas:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 150.0
+        AerodynamicFriction: 7
+        ForwardFriction: 200
+      ModuleTag_03:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 15.0
+        TargetHeightIncludesStructures: Yes
+        DestroyAttachedParticlesAtHeight: 16.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 1000
+        DestructionDelayVariance: 100
+        FX: [INITIAL AirF_FX_AuroraBombIgnite, FINAL FX_DaisyCutterFinalExplosion]
+        Weapon: [MIDPOINT DaisyCutterFlameWeapon, FINAL SupW_FuelBombDetonationWeapon]
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  PatriotMissileEMP:
+    DisplayName: OBJECT:PatriotMissile
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    KindOf: CAN_CAST_REFLECTIONS PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL PatriotMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVRaptor_M
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+        FX: FINAL WeaponFX_EMPRocketDetonation
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FINAL WeaponFX_EMPRocketDetonation
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 10000
+        InitialVelocity: 50
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 5
+        DistanceToTargetForLock: 100
+      ModuleTag_09:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ScudStormDamageWeapon
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  PatriotMissileEMPHelper:
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1.0
+        AerodynamicFriction: 1
+        ForwardFriction: 22
+        CenterOfMassOffset: 0
+      ModuleTag_04:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 5.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: EMPUpdate
+        DisabledDuration: 5000
+        Lifetime: 500
+        StartFadeTime: 300
+        StartScale: 0.01
+        TargetScaleMin: 6.00
+        TargetScaleMax: 7.00
+        StartColor: R:0 G:255 B:255
+        EndColor: R:0 G:128 B:128
+        EffectRadius: 10
+        DisableFXParticleSystem: EMPSparks
+        DoesNotAffectMyOwnBuildings: Yes
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  NukeBomb:
+    DisplayName: OBJECT:Missile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    TransportSlotCount: 1
+    KindOf: PRELOAD NO_COLLIDE UNATTACKABLE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    Scale: 0.7
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber_B
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 0.1
+        ForwardFriction: 0.1
+        CenterOfMassOffset: 0.13
+      ModuleTag_10:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 10.0
+        TargetHeightIncludesStructures: No
+      ModuleTag998:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: HelixNukeBombDetonationWeaponWithAnEvenLongerName
+        DeathTypes: ALL
+        StartsActive: Yes
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  USSBenderGunShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    Scale: 1.2
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        FirstHeight: 110
+        SecondHeight: 110
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  MiGFirestorm:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1
+        MaxLifetime: 1
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: FirestormSmallCreationWeapon
+        StartsActive: Yes
+        ConflictsWith: Upgrade_ChinaBlackNapalm
+      ModuleTag_06:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: BlackNapalmFirestormSmallCreationWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+    SourceFile: Data/INI/Object/WeaponObjects.ini

@@ -1,0 +1,2295 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Boss_VehicleDozer:
+    SelectPortrait: SACDozer_L
+    ButtonImage: SACDozer
+    DisplayName: OBJECT:Dozer
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 5
+    BuildCost: 1000
+    BuildTime: 5.0
+    VisionRange: 200
+    ShroudClearingRange: 200
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: Boss_AmericaDozerCommandSet
+    VoiceSelect: DozerChinaVoiceSelect
+    VoiceMove: DozerChinaVoiceMove
+    VoiceEnter: DozerChinaVoiceMove
+    VoiceTaskComplete: DozerChinaVoiceBuildComplete
+    SoundMoveStart: DozerChinaMoveStart
+    SoundMoveStartDamaged: DozerChinaMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD VEHICLE SCORE SELECTABLE CAN_CAST_REFLECTIONS DOZER
+    Locomotor: SET_NORMAL AmericaVehicleDozerLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY None
+    - Conditions: MINE_CLEARING_DETAIL
+      Weapon: PRIMARY DozerMineDisarmingWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: DozerArmor
+      DamageFX: TankDamageFX
+    UnitSpecificSounds:
+      VoiceCreate: DozerChinaVoiceCreate
+      VoiceCrush: DozerChinaVoiceCrush
+      VoiceNoBuild: DozerChinaVoiceBuildNot
+      VoiceRepair: DozerChinaVoiceRepair
+      VoiceDisarm: DozerChinaVoiceClearMine
+      VoiceEnter: DozerChinaVoiceMove
+      VoiceBuildResponse: DozerChinaVoiceBuild
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack2.tga
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        LeftFrontTireBone: TIRE01
+        RightFrontTireBone: TIRE02
+        LeftRearTireBone: TIRE03
+        RightRearTireBone: TIRE04
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 0
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVCONSTDOZ_A
+          ParticleSysBone: EXHAUSTFX01 DozerSmokeLight
+          WaitForStateToFinishIfPossible: TRANS_DIGGING
+        ConditionState:
+          PREATTACK_A:
+            Animation: AVCONSTDOZ_A.AVCONSTDOZ_A
+            AnimationMode: ONCE
+            ParticleSysBone: [EXHAUSTFX01 DozerSmokeHeavy, DIRTFX01 DozerDirtFall]
+            TransitionKey: TRANS_DIGGING
+          MOVING:
+            ParticleSysBone: EXHAUSTFX01 DozerSmokeHeavy
+            WaitForStateToFinishIfPossible: TRANS_DIGGING
+          REALLYDAMAGED RUBBLE:
+            Model: AVCONSTDOZ_AD
+            ParticleSysBone: EXHAUSTFX01 DozerSmokeHeavy
+            WaitForStateToFinishIfPossible: TRANS_DIGGING_DAMAGED
+          PREATTACK_A REALLYDAMAGED RUBBLE:
+            Model: AVCONSTDOZ_AD
+            Animation: AVCONSTDOZ_AD.AVCONSTDOZ_AD
+            AnimationMode: ONCE
+            ParticleSysBone: EXHAUSTFX01 DozerSmokeHeavy
+            TransitionKey: TRANS_DIGGING_DAMAGED
+          MOVING REALLYDAMAGED RUBBLE:
+            Model: AVCONSTDOZ_AD
+            ParticleSysBone: EXHAUSTFX01 DozerSmokeHeavy
+            WaitForStateToFinishIfPossible: TRANS_DIGGING_DAMAGED
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 250.0
+        InitialHealth: 250.0
+        SubdualDamageCap: 500
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: DozerAIUpdate
+        RepairHealthPercentPerSecond: 2%
+        BoredTime: 5000
+        BoredRange: 150
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: No
+        ExtraRequiredKindOf: MINE
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 100
+        DestructionDelay: 1500
+        DestructionDelayVariance: 600
+        FX: [INITIAL FX_CrusaderCatchFire, FINAL FX_BattleMasterExplosionOneFinal]
+        OCL: FINAL OCL_AmericaDozerExplode
+      ModuleTag_CratesChange:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_23:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_24:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_VehicleSupplyTruck:
+    SelectPortrait: SNSupplyTruck_L
+    ButtonImage: SNSupplyTruck
+    DisplayName: OBJECT:SupplyTruck
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 2
+    BuildCost: 600
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 300
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaSupplyTruckCommandSet
+    VoiceSelect: SupplyTruckVoiceSelect
+    VoiceMove: SupplyTruckVoiceMove
+    VoiceAttack: NoSound
+    SoundMoveStart: SupplyTruckMoveStart
+    SoundMoveStartDamaged: SupplyTruckMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_CAST_REFLECTIONS VEHICLE HARVESTER SCORE
+    Locomotor: SET_NORMAL SupplyTruckLocomotor
+    ExperienceValue: 50 50 50 50
+    Geometry: BOX
+    GeometryMajorRadius: 17.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 14.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    Prerequisites:
+      Object: Boss_SupplyCenter
+    ArmorSet:
+      Conditions: None
+      Armor: TruckArmor
+      DamageFX: TankDamageFX
+    UnitSpecificSounds:
+      VoiceCreate: SupplyTruckVoiceCreate
+      TruckLandingSound: NoSound
+      TruckPowerslideSound: NoSound
+      VoiceSupply: SupplyTruckVoiceSupply
+      VoiceCrush: SupplyTruckVoiceCrush
+      VoiceEnter: SupplyTruckVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack.tga
+        LeftFrontTireBone: Tire01
+        RightFrontTireBone: Tire02
+        MidLeftRearTireBone: Tire03
+        MidRightRearTireBone: Tire04
+        LeftRearTireBone: Tire05
+        RightRearTireBone: Tire06
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 2.5
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        PowerslideSpray: RocketBuggyDirtPowerSlide
+        DefaultConditionState:
+          Model: NVSSUPPLYTK
+          HideSubObject: Cargo01
+        ConditionState:
+          REALLYDAMAGED:
+            Model: NVSSUPPLYTK_D
+          RUBBLE:
+            Model: NVSSUPPLYTK_D
+          CARRYING:
+            ShowSubObject: Cargo01
+          REALLYDAMAGED CARRYING:
+            Model: NVSSUPPLYTK_D
+            ShowSubObject: Cargo01
+          RUBBLE CARRYING:
+            Model: NVSSUPPLYTK_D
+            ShowSubObject: Cargo01
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+        SubdualDamageCap: 600
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: SupplyTruckAIUpdate
+        MaxBoxes: 4
+        SupplyCenterActionDelay: 400
+        SupplyWarehouseActionDelay: 1000
+        SupplyWarehouseScanDistance: 700
+        SuppliesDepletedVoice: SupplyTruckVoiceSuppliesDepleted
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        FX: FINAL FX_SupplyTruckExplosionOneFinal
+        OCL: FINAL OCL_ChinaSupplyTruckDeathEffect
+      ModuleTag_06:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_07:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_ChinaSupplyTruck_CrushEffect
+      ModuleTag_08:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_NukeCannonDamageTransition'
+      ModuleTag_10:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_11:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_12:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_VehicleTomahawk:
+    SelectPortrait: SACTomahawk_L
+    ButtonImage: SACTomahawk
+    UpgradeCameo1: Upgrade_AmericaScoutDrone
+    UpgradeCameo2: Upgrade_AmericaBattleDrone
+    UpgradeCameo3: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo4: Upgrade_AmericaHellfireDrone
+    DisplayName: OBJECT:Tomahawk
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 1200
+    BuildTime: 20.0
+    VisionRange: 180
+    ShroudClearingRange: 200
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 200 400 800
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: AmericaVehicleTomahawkCommandSet
+    VoiceSelect: TomahawkVoiceSelect
+    VoiceMove: TomahawkVoiceMove
+    VoiceGuard: TomahawkVoiceMove
+    VoiceAttack: TomahawkVoiceAttack
+    SoundMoveStart: TomahawkMoveStart
+    SoundMoveStartDamaged: TomahawkMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE DONT_AUTO_CRUSH_INFANTRY CAN_ATTACK CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL TomahawkLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    Prerequisites:
+      Object: Boss_WarFactory
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY TomahawkMissileWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: TruckArmor
+      DamageFX: TankDamageFX
+    UnitSpecificSounds:
+      VoiceCreate: TomahawkVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoopLoud
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      VoiceCrush: TomahawkVoiceCrush
+      VoiceEnter: TomahawkVoiceMove
+      VoiceBombard: TomahawkVoiceAttack
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        ProjectileBoneFeedbackEnabledSlots: PRIMARY
+        TrackMarks: EXTnkTrack.tga
+        DefaultConditionState:
+          Model: AVTomahawk
+          Turret: TURRET
+          TurretPitch: TURRETEL
+          WeaponLaunchBone: PRIMARY WeaponA
+          WeaponHideShowBone: PRIMARY MISSILE
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVTomahawk_D
+            Aliases: [RUBBLE]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 180.0
+        InitialHealth: 180.0
+        SubdualDamageCap: 360
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No NotWhileAttacking
+        Turret:
+          TurretTurnRate: 60
+          TurretPitchRate: 60
+          FirePitch: 70
+          AllowsPitch: Yes
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 500
+        DestructionDelayVariance: 100
+        FX: [INITIAL FX_GenericTankDeathEffect, FINAL FX_AmericaVehicleTomahawkDeathExplosion]
+        OCL: MIDPOINT OCL_AmericaVehicleTomahawkDie
+      ModuleTag_06:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanBattleDrone
+        TriggeredBy: Upgrade_AmericaBattleDrone
+        ConflictsWith: Upgrade_AmericaScoutDrone Upgrade_AmericaHellfireDrone
+      ModuleTag_07:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanScoutDrone
+        TriggeredBy: Upgrade_AmericaScoutDrone
+        ConflictsWith: Upgrade_AmericaBattleDrone Upgrade_AmericaHellfireDrone
+      ModuleTag_15:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanHellfireDrone
+        TriggeredBy: Upgrade_AmericaHellfireDrone
+        ConflictsWith: Upgrade_AmericaBattleDrone Upgrade_AmericaScoutDrone
+      ModuleTag_08:
+        Module: Behavior
+        Class: ProductionUpdate
+        MaxQueueEntries: 1
+      ModuleTag_09:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_10:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_11:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_12:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_13:
+        Module: Behavior
+        Class: EjectPilotDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ExemptStatus: HIJACKED
+        VeterancyLevels: ALL -REGULAR
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+      ModuleTag_14:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_TankPaladin:
+    SelectPortrait: [SAPaladin_L, SAsentry_L]
+    ButtonImage: [SAPaladin, SAsentry]
+    UpgradeCameo1: [Upgrade_AmericaBattleDrone, Upgrade_AmericaSentryDroneGun]
+    UpgradeCameo2: Upgrade_AmericaScoutDrone
+    UpgradeCameo3: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo4: Upgrade_AmericaCompositeArmor
+    UpgradeCameo5: Upgrade_AmericaHallfireDrone
+    DisplayName: ['OBJECT:Paladin', 'OBJECT:SentryDrone']
+    Side: [Boss, Boss]
+    EditorSorting: [VEHICLE, VEHICLE]
+    TransportSlotCount: [3, 1]
+    BuildCost: [1100, 800]
+    BuildTime: [12.0, 10.0]
+    VisionRange: [150, 180]
+    ShroudClearingRange: [300, 350]
+    ExperienceValue: [100 100 200 400, 50 50 100 150]
+    ExperienceRequired: [0 200 300 600, 0 100 150 300]
+    IsTrainable: [Yes, No]
+    CrusherLevel: [2, 0]
+    CrushableLevel: [2, 2]
+    CommandSet: [AmericaTankPaladinCommandSet, AmericaVehicleSentryDroneCommandSet]
+    VoiceSelect: [PaladinTankVoiceSelect, SentryDroneVoiceSelect]
+    VoiceMove: [PaladinTankVoiceMove, SentryDroneVoiceMove]
+    VoiceGuard: [PaladinTankVoiceMove, SentryDroneVoiceMove]
+    VoiceAttack: [PaladinTankVoiceAttack, SentryDroneVoiceMove]
+    SoundMoveStart: [PaladinTankMoveStart, NoSound]
+    SoundMoveStartDamaged: [PaladinTankMoveStart, NoSound]
+    RadarPriority: [UNIT, UNIT]
+    KindOf:
+    - PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    - PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS VEHICLE SCORE ATTACK_NEEDS_LINE_OF_SIGHT DRONE
+    Locomotor: [SET_NORMAL CrusaderLocomotor, SET_NORMAL SentryLocomotor]
+    Object: Boss_VehicleSentryDrone
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 11.5
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY PaladinTankGun
+    - Conditions: None
+      Weapon: PRIMARY None
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY SentryDroneGun
+    ArmorSet:
+    - Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    - Conditions: None
+      Armor: HumveeArmor
+      DamageFX: TruckDamageFX
+    Prerequisites:
+    - Object: Boss_WarFactory
+      Science: SCIENCE_PaladinTank
+    - Object: Boss_WarFactory
+    UnitSpecificSounds:
+    - VoiceCreate: PaladinTankVoiceCreate
+      TurretMoveLoop: TurretMoveLoop
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      VoiceCrush: PaladinTankVoiceCrush
+      VoiceEnter: PaladinTankVoiceMove
+    - VoiceCreate: NoSound
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceEnter: NoSound
+      Deploy: NoSound
+      Undeploy: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        ExtraPublicBone: Laser
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 4.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: AVPaladin
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY TurretMS
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY TurretFX
+            WeaponLaunchBone: PRIMARY TurretMS
+          REALLYDAMAGED:
+            Model: AVSENTRY_D
+            Turret: TURRET01
+            WeaponFireFXBone: PRIMARY TurretMS
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY TurretFX
+            WeaponLaunchBone: PRIMARY TurretMS
+            Animation: AVSENTRY_D.AVSENTRY_D
+            AnimationMode: LOOP
+            HideSubObject: TURRETUP09
+          RUBBLE:
+            Model: AVSENTRY_D1
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY TurretMS
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY TurretFX
+            WeaponLaunchBone: PRIMARY TurretMS
+            HideSubObject: TURRETUP09
+            Aliases: [RUBBLE WEAPONSET_PLAYER_UPGRADE]
+          WEAPONSET_PLAYER_UPGRADE:
+            Model: AVSENTRY
+            Animation: AVSENTRY.AVSENTRY
+            AnimationMode: LOOP
+            ShowSubObject: TURRETUP09
+          WEAPONSET_PLAYER_UPGRADE REALLYDAMAGED:
+            Model: AVSENTRY_D
+            Animation: AVSENTRY_D.AVSENTRY_D
+            AnimationMode: LOOP
+            ShowSubObject: TURRETUP09
+        InitialRecoilSpeed: 10
+        MaxRecoilDistance: 1.5
+        RecoilSettleSpeed: 3
+        TreadDebrisLeft: SentryDroneTrackDebrisDirtLeft
+        TreadDebrisRight: SentryDroneTrackDebrisDirtRight
+        DefaultConditionState:
+          Model: AVSENTRY
+          Animation: AVSENTRY.AVSENTRY
+          AnimationMode: LOOP
+          Turret: TURRET01
+          HideSubObject: TURRETUP09
+          WeaponFireFXBone: PRIMARY TurretFX
+          WeaponMuzzleFlash: PRIMARY TurretFX
+          WeaponRecoilBone: PRIMARY TurretUp
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+        SubdualDamageCap: 1000
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 180
+          ControlledWeaponSlots: PRIMARY
+        TriggeredBy: Upgrade_AmericaSentryDroneGun
+      ModuleTag_04:
+        Module: Behavior
+        Class: DeployStyleAIUpdate
+        Mass: 50.0
+        AutoAcquireEnemiesWhenIdle: Yes Stealthed
+        PackTime: 1000
+        UnpackTime: 1000
+        TurretsFunctionOnlyWhenDeployed: Yes
+        TurretsMustCenterBeforePacking: Yes
+        Turret:
+          TurretTurnRate: 180
+          TurretPitchRate: 180
+          FirePitch: 0
+          AllowsPitch: No
+          RecenterTime: 1000
+          ControlledWeaponSlots: PRIMARY
+          NaturalTurretAngle: 0
+          InitiallyDisabled: No
+          MinIdleScanInterval: 250
+          MaxIdleScanInterval: 250
+          MinIdleScanAngle: 0
+          MaxIdleScanAngle: 360
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 50
+        DestructionDelay: 500
+        DestructionDelayVariance: 100
+        FX: [INITIAL FX_GenericTankDeathEffect, FINAL FX_GenericTankDeathExplosion]
+        OCL: FINAL OCL_PaladinTankDeathEffect
+        Mass: 50.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: StealthUpdate
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 50
+        DestructionDelay: 2000
+        DestructionDelayVariance: 300
+        FX: [INITIAL FX_CrusaderCatchFire, FINAL FX_GenericTankDeathExplosion]
+        OCL: FINAL OCL_PaladinTankDeathEffect
+        StealthDelay: 2000
+        StealthForbiddenConditions: FIRING_PRIMARY MOVING
+        HintDetectableConditions: IS_FIRING_WEAPON
+        FriendlyOpacityMin: 50.0%
+        FriendlyOpacityMax: 100.0%
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        WeaponTemplate: PaladinPointDefenseLaser
+        PrimaryTargetTypes: BALLISTIC_MISSILE SMALL_MISSILE
+        SecondaryTargetTypes: INFANTRY
+        ScanRate: 500
+        ScanRange: 120.0
+        PredictTargetVelocityFactor: 3.0
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 500
+        DestructionDelayVariance: 100
+        FX: [INITIAL FX_GenericTankDeathEffect, FINAL FX_AmericaVehicleTomahawkDeathExplosion]
+        OCL: MIDPOINT OCL_AmericaVehicleSentryDroneDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: DestroyDie
+        UpgradeObject: OCL_AmericanBattleDrone
+        TriggeredBy: Upgrade_AmericaBattleDrone
+        ConflictsWith: Upgrade_AmericaScoutDrone Upgrade_AmericaHellfireDrone
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        UpgradeObject: OCL_AmericanScoutDrone
+        TriggeredBy: Upgrade_AmericaScoutDrone
+        ConflictsWith: Upgrade_AmericaBattleDrone Upgrade_AmericaHellfireDrone
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_19:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanHellfireDrone
+        TriggeredBy: Upgrade_AmericaHellfireDrone
+        ConflictsWith: Upgrade_AmericaBattleDrone Upgrade_AmericaScoutDrone
+        End: Upgrade_AmericaHallfireDrone
+        Geometry: BOX
+        GeometryMajorRadius: 15.0
+        GeometryMinorRadius: 10.0
+        GeometryHeight: 10.0
+        GeometryIsSmall: Yes
+        Shadow: SHADOW_VOLUME
+        ShadowSizeX: 45
+        Modules:
+          ModuleTag_10:
+            Module: Behavior
+            Class: ProductionUpdate
+            MaxQueueEntries: 1
+          ModuleTag_11:
+            Module: Behavior
+            Class: ExperienceScalarUpgrade
+            TriggeredBy: Upgrade_AmericaAdvancedTraining
+            AddXPScalar: 1.0
+          ModuleTag_12:
+            Module: Behavior
+            Class: TransitionDamageFX
+            ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+            ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+          ModuleTag_13:
+            Module: Behavior
+            Class: FXListDie
+            DeathTypes: NONE +CRUSHED +SPLATTED
+            DeathFX: FX_CarCrush
+          ModuleTag_14:
+            Module: Behavior
+            Class: CreateObjectDie
+            DeathTypes: NONE +CRUSHED +SPLATTED
+            CreationList: OCL_CrusaderTank_CrushEffect
+          ModuleTag_15:
+            Module: Behavior
+            Class: DestroyDie
+            DeathTypes: NONE +CRUSHED +SPLATTED
+          ModuleTag_16:
+            Module: Behavior
+            Class: CreateCrateDie
+            CrateData: SalvageCrateData
+          ModuleTag_17:
+            Module: Behavior
+            Class: EjectPilotDie
+            DeathTypes: ALL -CRUSHED -SPLATTED
+            ExemptStatus: HIJACKED
+            GroundCreationList: OCL_EjectPilotOnGround
+            AirCreationList: OCL_EjectPilotViaParachute
+            VeterancyLevels: ALL -REGULAR
+          ModuleTag_18:
+            Module: Behavior
+            Class: MaxHealthUpgrade
+            TriggeredBy: Upgrade_AmericaCompositeArmor
+            AddMaxHealth: 100.0
+            ChangeType: ADD_CURRENT_HEALTH_TOO
+          ModuleTag_21:
+            Module: Behavior
+            Class: FlammableUpdate
+            AflameDuration: 5000
+            AflameDamageAmount: 3
+            AflameDamageDelay: 500
+      ModuleTag_CratesChange:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_10:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_11:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_12:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 900
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_TankAvenger:
+    SelectPortrait: SAAvnger_L
+    ButtonImage: SAAvnger
+    UpgradeCameo1: Upgrade_AmericaBattleDrone
+    UpgradeCameo2: Upgrade_AmericaScoutDrone
+    UpgradeCameo3: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo4: Upgrade_AmericaCompositeArmor
+    UpgradeCameo5: Upgrade_AmericaHallfireDrone
+    DisplayName: OBJECT:Avenger
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 2000
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 300
+    ExperienceValue: 100 100 200 400
+    ExperienceRequired: 0 200 300 600
+    IsTrainable: No
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: AmericaTankAvengerCommandSet
+    VoiceSelect: AvengerVoiceSelect
+    VoiceMove: AvengerVoiceMove
+    VoiceGuard: AvengerVoiceMove
+    VoiceAttack: AvengerVoiceAttack
+    SoundMoveStart: PaladinTankMoveStart
+    SoundMoveStartDamaged: PaladinTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL AvengerLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY AvengerTargetDesignator
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Boss_WarFactory
+    UnitSpecificSounds:
+      VoiceCreate: AvengerVoiceCreate
+      TurretMoveLoop: NoSound
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      VoiceCrush: NoSound
+      VoiceEnter: AvengerVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DOverlordTruckDraw
+        ExtraPublicBone: [TurretFX03, LazerSpot01, LazerSpot02]
+        TrackMarks: EXTireTrack.tga
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        PowerslideSpray: RocketBuggyDirtPowerSlide
+        LeftFrontTireBone: Tire01
+        RightFrontTireBone: Tire02
+        LeftRearTireBone: Tire03
+        RightRearTireBone: Tire04
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 0.0
+        DefaultConditionState:
+          Model: AVAVNGER
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVAVNGER_D
+          RUBBLE:
+            Model: AVAVNGER_D
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 500.0
+        InitialHealth: 500.0
+        SubdualDamageCap: 1000
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 50
+        DestructionDelay: 500
+        DestructionDelayVariance: 100
+        FX: [INITIAL FX_GenericTankDeathEffect, FINAL FX_GenericTankDeathExplosion]
+        OCL: FINAL OCL_AvengerTankDeathEffect
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 50
+        DestructionDelay: 2000
+        DestructionDelayVariance: 300
+        FX: [INITIAL FX_CrusaderCatchFire, FINAL FX_GenericTankDeathExplosion]
+        OCL: FINAL OCL_AvengerTankDeathEffect
+      ModuleTag_Laser_One:
+        Module: Behavior
+        Class: PointDefenseLaserUpdate
+        WeaponTemplate: AvengerPointDefenseLaserOne
+        PrimaryTargetTypes: BALLISTIC_MISSILE SMALL_MISSILE
+        ScanRate: 0
+        ScanRange: 200.0
+        PredictTargetVelocityFactor: 1.0
+      ModuleTag_Laser_Two:
+        Module: Behavior
+        Class: PointDefenseLaserUpdate
+        WeaponTemplate: AvengerPointDefenseLaserTwo
+        PrimaryTargetTypes: BALLISTIC_MISSILE SMALL_MISSILE
+        ScanRate: 0
+        ScanRange: 200.0
+        PredictTargetVelocityFactor: 1.0
+      ModuleTag_OverlordContain:
+        Module: Behavior
+        Class: OverlordContain
+        Slots: 1
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: PORTABLE_STRUCTURE
+        PassengersAllowedToFire: Yes
+        PayloadTemplateName: AmericaTankAvengerLaserTurret
+        ExperienceSinkForRider: Yes
+      ModuleTag_08:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanBattleDrone
+        TriggeredBy: Upgrade_AmericaBattleDrone
+        ConflictsWith: Upgrade_AmericaScoutDrone Upgrade_AmericaHellfireDrone
+      ModuleTag_09:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanScoutDrone
+        TriggeredBy: Upgrade_AmericaScoutDrone
+        ConflictsWith: Upgrade_AmericaBattleDrone Upgrade_AmericaHellfireDrone
+      ModuleTag_19:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanHellfireDrone
+        TriggeredBy: Upgrade_AmericaHellfireDrone
+        ConflictsWith: Upgrade_AmericaBattleDrone Upgrade_AmericaScoutDrone
+      ModuleTag_10:
+        Module: Behavior
+        Class: ProductionUpdate
+        MaxQueueEntries: 1
+      ModuleTag_11:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_12:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_13:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_14:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_15:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_16:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_17:
+        Module: Behavior
+        Class: EjectPilotDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ExemptStatus: HIJACKED
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+        VeterancyLevels: ALL -REGULAR
+      ModuleTag_22:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_23:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_AmericaCompositeArmor
+        AddMaxHealth: 100.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_TankOverlord:
+    SelectPortrait: SNOverlord_L
+    ButtonImage: SNOverlord
+    UpgradeCameo1: Upgrade_ChinaUraniumShells
+    UpgradeCameo2: Upgrade_ChinaNuclearTanks
+    UpgradeCameo3: Upgrade_ChinaOverlordBattleBunker
+    UpgradeCameo4: Upgrade_ChinaOverlordGattlingCannon
+    UpgradeCameo5: Upgrade_ChinaOverlordPropagandaTower
+    DisplayName: OBJECT:Overlord
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 2000
+    BuildTime: 20.0
+    VisionRange: 150
+    ShroudClearingRange: 200
+    ExperienceValue: 200 200 400 600
+    ExperienceRequired: 0 400 600 1200
+    IsTrainable: Yes
+    CrusherLevel: 3
+    CrushableLevel: 3
+    CommandSet: ChinaTankOverlordDefaultCommandSet
+    VoiceSelect: OverlordTankVoiceSelect
+    SoundMoveStart: OverlordTankMoveStart
+    SoundMoveStartDamaged: OverlordTankMoveStart
+    VoiceMove: OverlordTankVoiceMove
+    VoiceGuard: OverlordTankVoiceMove
+    VoiceAttack: OverlordTankVoiceAttack
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE HUGE_VEHICLE
+    Locomotor: [SET_NORMAL OverlordLocomotor, SET_NORMAL_UPGRADED NuclearOverlordLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 26.0
+    GeometryMinorRadius: 13.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY OverlordTankGun
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY OverlordTankGun, SECONDARY GattlingBuildingGunAirDummy]
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Boss_WarFactory
+    UnitSpecificSounds:
+      VoiceCreate: OverlordTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: OverlordTankTurretMoveLoop
+      VoiceCrush: OverlordTankVoiceCrush
+      VoiceEnter: OverlordTankVoiceMove
+      VoiceUnload: OverlordTankVoiceUnload
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DOverlordTankDraw
+        TrackMarks: EXTnkTrack.tga
+        OkToChangeModelColor: Yes
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        ConditionState:
+          NONE:
+            Model: NVOvrlrd
+            Animation: NVOvrlrd.NVOvrlrd
+            AnimationMode: LOOP
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          REALLYDAMAGED:
+            Model: NVOvrlrd_d
+            Animation: NVOvrlrd_d.NVOvrlrd_d
+            AnimationMode: LOOP
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          RUBBLE:
+            Model: NVOvrlrd_d
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1100.0
+        InitialHealth: 1100.0
+        SubdualDamageCap: 2200
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: TransportAIUpdate
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 60
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: NuclearTankDeathWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_05:
+        Module: Behavior
+        Class: LocomotorSetUpgrade
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_06:
+        Module: Behavior
+        Class: OverlordContain
+        Slots: 1
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: PORTABLE_STRUCTURE
+        PassengersAllowedToFire: Yes
+        PassengersInTurret: Yes
+        ExperienceSinkForRider: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_OverlordGattlingCannon
+        TriggeredBy: Upgrade_ChinaOverlordGattlingCannon
+        ConflictsWith: Upgrade_ChinaOverlordPropagandaTower Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_WeaponSetUpgrade01:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaOverlordGattlingCannon
+        ConflictsWith: Upgrade_ChinaOverlordPropagandaTower Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_08:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_OverlordPropagandaTower
+        TriggeredBy: Upgrade_ChinaOverlordPropagandaTower
+        ConflictsWith: Upgrade_ChinaOverlordGattlingCannon Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_09:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_OverlordBattleBunker
+        TriggeredBy: Upgrade_ChinaOverlordBattleBunker
+        ConflictsWith: Upgrade_ChinaOverlordGattlingCannon Upgrade_ChinaOverlordPropagandaTower
+      ModuleTag_10:
+        Module: Behavior
+        Class: ProductionUpdate
+        MaxQueueEntries: 1
+      ModuleTag_11:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        CommandSet: ChinaTankOverlordGattlingCannonCommandSet
+        TriggeredBy: Upgrade_ChinaOverlordGattlingCannon
+        ConflictsWith: Upgrade_ChinaOverlordPropagandaTower Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_12:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        CommandSet: ChinaTankOverlordPropagandaTowerCommandSet
+        TriggeredBy: Upgrade_ChinaOverlordPropagandaTower
+        ConflictsWith: Upgrade_ChinaOverlordGattlingCannon Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_13:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        CommandSet: ChinaTankOverlordBattleBunkerCommandSet
+        TriggeredBy: Upgrade_ChinaOverlordBattleBunker
+        ConflictsWith: Upgrade_ChinaOverlordGattlingCannon Upgrade_ChinaOverlordPropagandaTower
+      ModuleTag_14:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_16:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ProbabilityModifier: 25
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        OCL: FINAL OCL_ChinaTankOverlordDebris
+        FX: FINAL FX_OverlordExplosionOneFinal
+      ModuleTag_17:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_18:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_OverlordDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_AmericaCompositeArmor
+        AddMaxHealth: 100.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_TankDragon:
+    SelectPortrait: SNDragonTank_L
+    ButtonImage: SNDragonTank
+    UpgradeCameo1: Upgrade_ChinaBlackNapalm
+    UpgradeCameo2: Upgrade_AmericaCompositeArmor
+    DisplayName: OBJECT:Dragon
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 800
+    BuildTime: 10.0
+    VisionRange: 100
+    ShroudClearingRange: 200
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 150 300
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaTankDragonCommandSet
+    VoiceSelect: DragonTankVoiceSelect
+    VoiceMove: DragonTankVoiceMove
+    VoiceGuard: DragonTankVoiceMove
+    VoiceAttack: DragonTankVoiceAttack
+    SoundMoveStart: DragonTankMoveStart
+    SoundMoveStartDamaged: DragonTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL DragonLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 11.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: [PRIMARY DragonTankFlameWeapon, SECONDARY DragonTankFireWallWeapon]
+      AutoChooseSources: SECONDARY NONE
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY DragonTankFlameWeaponUpgraded, SECONDARY DragonTankFireWallWeaponUpgraded]
+      AutoChooseSources: SECONDARY NONE
+      WeaponLockSharedAcrossSets: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: DragonTankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Boss_WarFactory
+    UnitSpecificSounds:
+      VoiceCreate: DragonTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      VoiceEnter: DragonTankVoiceMove
+      VoiceFlameLocation: DragonTankVoiceFireStorm
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        DefaultConditionState:
+          Model: NVDragon
+          Turret: Turret
+          TurretPitch: TURRETEL
+          WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+          WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+        ConditionState:
+          REALLYDAMAGED:
+            Model: NVDragon_D
+            Turret: Turret
+            TurretPitch: TURRETEL
+            WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+            WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+          RUBBLE:
+            Model: NVDragon_D
+            Turret: Turret
+            TurretPitch: TURRETEL
+            WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+            WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 280.0
+        InitialHealth: 280.0
+        SubdualDamageCap: 560
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 120
+          TurretPitchRate: 120
+          AllowsPitch: Yes
+          MinPhysicalPitch: -15
+          TurretFireAngleSweep: [PRIMARY 10, SECONDARY 60]
+          TurretSweepSpeedModifier: [PRIMARY 0.5, SECONDARY 2.0]
+          ControlledWeaponSlots: PRIMARY SECONDARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_09:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_10:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 500
+        DestructionDelayVariance: 500
+        FX: [INITIAL FX_BattleMasterExplosionOneFinal, FINAL FX_DragonTankDeathExplosionFinal]
+        OCL: FINAL OCL_DragonDebris
+      ModuleTag_12:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_13:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem2: Bone:Smoke RandomBone:Yes Psys:DragonTransitionFire
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_DragonDamageTransition'
+      ModuleTag_14:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_AmericaCompositeArmor
+        AddMaxHealth: 100.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_TankGattling:
+    SelectPortrait: SNGatlingTank_L
+    ButtonImage: SNGatlingTank
+    UpgradeCameo1: Upgrade_ChinaChainGuns
+    UpgradeCameo2: Upgrade_AmericaCompositeArmor
+    DisplayName: OBJECT:GattlingTank
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 800
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 360
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 150 300
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaVehicleGattlingTankCommandSet
+    VoiceSelect: GattlingTankVoiceSelect
+    VoiceMove: GattlingTankVoiceMove
+    VoiceGuard: GattlingTankVoiceMove
+    VoiceAttack: GattlingTankVoiceAttack
+    SoundMoveStart: GattlingTankMoveStart
+    SoundMoveStartDamaged: GattlingTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL GattlingTankLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY GattlingTankGun, SECONDARY GattlingTankGunAir]
+      PreferredAgainst: PRIMARY AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: AntiAirVehicle
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Boss_WarFactory
+    UnitSpecificSounds:
+      VoiceCreate: GattlingTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoopLoud
+      VoiceCrush: GattlingTankVoiceCrush
+      VoiceEnter: GattlingTankVoiceMove
+      VoiceRapidFire: GattlingTankVoiceRapid
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        DefaultConditionState:
+          Model: NVGattTank
+          Animation: NVGattTank.NVGattTank
+          AnimationMode: MANUAL
+          Turret: TURRET01
+          TurretPitch: TURRETEL01
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+        ConditionState:
+          REALLYDAMAGED RUBBLE:
+            Model: NVGattTank_D
+          ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.5 0.5
+          CONTINUOUS_FIRE_SLOW ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.8 0.8
+          CONTINUOUS_FIRE_MEAN ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 1.5 1.5
+          CONTINUOUS_FIRE_FAST ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            ParticleSysBone: Muzzle01 GattlingMuzzleSmoke
+            AnimationSpeedFactorRange: 3.0 3.0
+          REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.5 0.5
+          CONTINUOUS_FIRE_SLOW REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.8 0.8
+          CONTINUOUS_FIRE_MEAN REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 1.5 1.5
+          CONTINUOUS_FIRE_FAST REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            ParticleSysBone: Muzzle01 GattlingMuzzleSmoke
+            AnimationSpeedFactorRange: 3.0 3.0
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+        SubdualDamageCap: 600
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        MoodAttackCheckRate: 250
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 180
+          TurretPitchRate: 180
+          AllowsPitch: Yes
+          FiresWhileTurning: Yes
+          NaturalTurretPitch: 45
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 40.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ProbabilityModifier: 19
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        SinkRate: 0.5
+        OCL: FINAL OCL_ChinaTankGattlingDebris
+        FX: FINAL FX_GattlingExplosionOneFinal
+      ModuleTag_06:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_07:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_ChinaChainGuns
+      ModuleTag_23:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_AmericaCompositeArmor
+        AddMaxHealth: 100.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_VehicleRocketBuggy:
+    SelectPortrait: SURocketBuggy_L
+    ButtonImage: SURocketBuggy
+    UpgradeCameo1: Upgrade_GLABuggyAmmo
+    UpgradeCameo2: Upgrade_GLAAPRockets
+    UpgradeCameo3: Upgrade_GLAJunkRepair
+    DisplayName: OBJECT:RocketBuggy
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 900
+    BuildTime: 10.0
+    VisionRange: 180
+    ShroudClearingRange: 300
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 200 400 800
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: GLAVehicleRocketBuggyCommandSet
+    VoiceSelect: RocketBuggyVoiceSelect
+    VoiceMove: RocketBuggyVoiceMove
+    VoiceAttack: RocketBuggyVoiceAttack
+    SoundMoveStart: RocketBuggyMoveStart
+    SoundMoveStartDamaged: RocketBuggyMoveStart
+    VoiceGuard: RocketBuggyVoiceMove
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK DONT_AUTO_CRUSH_INFANTRY ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SALVAGER SCORE
+    Locomotor: SET_NORMAL RocketBuggyLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 13.0
+    GeometryMinorRadius: 9.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY BuggyRocketWeapon
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY BuggyRocketWeaponUpgraded
+    ArmorSet:
+      Conditions: None
+      Armor: TruckArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Boss_WarFactory
+    UnitSpecificSounds:
+      VoiceCreate: RocketBuggyVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      TruckLandingSound: RocketBuggyLand
+      TruckPowerslideSound: RocketBuggyPowerslide
+      VoiceCrush: RocketBuggyVoiceCrush
+      VoiceEnter: RocketBuggyVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack.tga
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        PowerslideSpray: RocketBuggyDirtPowerSlide
+        LeftFrontTireBone: Tire01
+        RightFrontTireBone: Tire02
+        LeftRearTireBone: Tire03
+        RightRearTireBone: Tire04
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 2.5
+        DefaultConditionState:
+          Model: UVRockBug
+          Turret: Turret
+          ShowSubObject: Turret
+          HideSubObject: TurretUp01
+          WeaponFireFXBone: PRIMARY WeaponA
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          REALLYDAMAGED:
+            Model: UVRockBug_D
+            Turret: Turret
+            ShowSubObject: Turret
+            HideSubObject: TurretUp01
+            WeaponFireFXBone: PRIMARY WeaponA
+            WeaponLaunchBone: PRIMARY WeaponA
+          RUBBLE:
+            Model: UVRockBug_D
+            Turret: Turret
+            ShowSubObject: Turret
+            HideSubObject: TurretUp01
+            WeaponFireFXBone: PRIMARY WeaponA
+            WeaponLaunchBone: PRIMARY WeaponA
+          WEAPONSET_PLAYER_UPGRADE:
+            Model: UVRockBug
+            Turret: TurretUp01
+            ShowSubObject: TurretUp01
+            HideSubObject: Turret
+            WeaponFireFXBone: PRIMARY WeaponB
+            WeaponLaunchBone: PRIMARY WeaponB
+          WEAPONSET_PLAYER_UPGRADE REALLYDAMAGED:
+            Model: UVRockBug_D
+            Turret: TurretUp01
+            ShowSubObject: TurretUp01
+            HideSubObject: Turret
+            WeaponFireFXBone: PRIMARY WeaponB
+            WeaponLaunchBone: PRIMARY WeaponB
+          WEAPONSET_PLAYER_UPGRADE RUBBLE:
+            Model: UVRockBug_D
+            Turret: TurretUp01
+            ShowSubObject: TurretUp01
+            HideSubObject: Turret
+            WeaponFireFXBone: PRIMARY WeaponB
+            WeaponLaunchBone: PRIMARY WeaponB
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120
+        InitialHealth: 120
+        SubdualDamageCap: 240
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 90
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 5
+        ModifierBonusPerOverkillPercent: 20%
+        DestructionDelay: 0
+        FX: INITIAL FX_BuggyNewDeathExplosion
+        OCL: FINAL OCL_RocketBuggyAirDeathStart
+      ModuleTag_08:
+        Module: Behavior
+        Class: AutoHealBehavior
+        HealingAmount: 2
+        HealingDelay: 1000
+        TriggeredBy: Upgrade_GLAJunkRepair
+      ModuleTag_09:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_GLABuggyAmmo
+      ModuleTag_11:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_12:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_13:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_RocketBuggy_CrushEffect
+      ModuleTag_14:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_15:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/BossGeneral.ini
+  Boss_VehicleCombatBikeTerrorist:
+    SelectPortrait: SUComBike_L
+    ButtonImage: SUComBike
+    UpgradeCameo1: Upgrade_GLAJunkRepair
+    DisplayName: OBJECT:CombatBike
+    Side: Boss
+    EditorSorting: VEHICLE
+    TransportSlotCount: 1
+    BuildCost: 500
+    BuildTime: 8.0
+    VisionRange: 180
+    ShroudClearingRange: 300
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 200 400 800
+    IsTrainable: Yes
+    CrushableLevel: 2
+    CommandSet: GLAVehicleCombatBikeDefaultCommandSet
+    VoiceSelect: RocketBuggyVoiceSelect
+    VoiceAttack: RocketBuggyVoiceAttack
+    SoundMoveStart: CombatBikeMoveStart
+    SoundMoveStartDamaged: CombatBikeMoveStart
+    VoiceGuard: RocketBuggyVoiceMove
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK DONT_AUTO_CRUSH_INFANTRY ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SALVAGER SCORE CLIFF_JUMPER
+    Locomotor:
+    - SET_NORMAL CombatBikeGroundLocomotor CombatBikeCliffLocomotor
+    - SET_SLUGGISH CombatBikeTerroristGroundLocomotor CombatBikeTerroristCliffLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 11.0
+    GeometryMinorRadius: 2.5
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY NONE
+    - Conditions: WEAPON_RIDER2
+      Weapon: PRIMARY GLARebelBikerMachineGun
+    - Conditions: WEAPON_RIDER3
+      Weapon: PRIMARY TunnelDefenderBikerRocketWeapon
+    - Conditions: WEAPON_RIDER4
+      Weapon: [PRIMARY GLABikerKellSniperRifle, SECONDARY GLAJarmenKellVehiclePilotSniperRifle]
+      AutoChooseSources: SECONDARY NONE
+    - Conditions: WEAPON_RIDER5
+      Weapon: PRIMARY TerroristSuicideWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: TruckArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Boss_WarFactory
+    UnitSpecificSounds:
+      VoiceCreate: RocketBuggyVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      TruckLandingSound: RocketBuggyLand
+      TruckPowerslideSound: CombatBikeMoveStart
+      VoiceCrush: RocketBuggyVoiceCrush
+      VoiceEnter: RocketBuggyVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack03.tga
+        Dust: CombatBikeDust
+        DirtSpray: CombatBikeDirtSpray
+        PowerslideSpray: CombatBikeDirtPowerSlide
+        LeftFrontTireBone: Tire01
+        LeftRearTireBone: Tire00
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 2.5
+        DefaultConditionState:
+          Model: UVComBike
+          WeaponFireFXBone: PRIMARY Muzzle_B
+          WeaponLaunchBone: PRIMARY RocketFX03
+          WeaponMuzzleFlash: PRIMARY MuzzleFX_B
+          ParticleSysBone: SMOKE CombatBikeSmokeLight
+          Aliases: [RIDER1, RIDER1 MOVING, RIDER5, RIDER5 MOVING, RIDER6, RIDER6 MOVING, RIDER7, RIDER7 MOVING]
+        ConditionState:
+          REALLYDAMAGED:
+            Model: UVComBike_d
+            Aliases:
+            - RIDER1 REALLYDAMAGED
+            - RIDER1 MOVING REALLYDAMAGED
+            - RIDER5 REALLYDAMAGED
+            - RIDER5 MOVING REALLYDAMAGED
+            - RIDER6 REALLYDAMAGED
+            - RIDER6 MOVING REALLYDAMAGED
+            - RIDER7 REALLYDAMAGED
+            - RIDER7 MOVING REALLYDAMAGED
+          TOPPLED:
+            Model: UVComBike
+            Animation: UVComBike_F.UVComBike_F
+            AnimationMode: ONCE
+          TOPPLED REALLYDAMAGED:
+            Model: UVComBike_d
+            Animation: UVComBike_F.UVComBike_F
+            AnimationMode: ONCE
+          RIDER1 MOVING CENTER_TO_LEFT:
+            Model: UVComBike
+            Animation: UVComBike_A1.UVComBike_A1
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases:
+            - RIDER5 MOVING CENTER_TO_LEFT
+            - RIDER6 MOVING CENTER_TO_LEFT
+            - RIDER7 MOVING CENTER_TO_LEFT
+          RIDER1 MOVING CENTER_TO_LEFT REALLYDAMAGED:
+            Model: UVComBike_d
+            Animation: UVComBike_A1.UVComBike_A1
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases:
+            - RIDER5 MOVING CENTER_TO_LEFT REALLYDAMAGED
+            - RIDER6 MOVING CENTER_TO_LEFT REALLYDAMAGED
+            - RIDER7 MOVING CENTER_TO_LEFT REALLYDAMAGED
+          RIDER1 MOVING LEFT_TO_CENTER:
+            Model: UVComBike
+            Animation: UVComBike_A1.UVComBike_A1
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases:
+            - RIDER5 MOVING LEFT_TO_CENTER
+            - RIDER6 MOVING LEFT_TO_CENTER
+            - RIDER7 MOVING LEFT_TO_CENTER
+          RIDER1 MOVING LEFT_TO_CENTER REALLYDAMAGED:
+            Model: UVComBike_d
+            Animation: UVComBike_A1.UVComBike_A1
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases:
+            - RIDER5 MOVING LEFT_TO_CENTER REALLYDAMAGED
+            - RIDER6 MOVING LEFT_TO_CENTER REALLYDAMAGED
+            - RIDER7 MOVING LEFT_TO_CENTER REALLYDAMAGED
+          RIDER1 MOVING CENTER_TO_RIGHT:
+            Model: UVComBike
+            Animation: UVComBike_A2.UVComBike_A2
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases:
+            - RIDER5 MOVING CENTER_TO_RIGHT
+            - RIDER6 MOVING CENTER_TO_RIGHT
+            - RIDER7 MOVING CENTER_TO_RIGHT
+          RIDER1 MOVING CENTER_TO_RIGHT REALLYDAMAGED:
+            Model: UVComBike_d
+            Animation: UVComBike_A2.UVComBike_A2
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases:
+            - RIDER5 MOVING CENTER_TO_RIGHT REALLYDAMAGED
+            - RIDER6 MOVING CENTER_TO_RIGHT REALLYDAMAGED
+            - RIDER7 MOVING CENTER_TO_RIGHT REALLYDAMAGED
+          RIDER1 MOVING RIGHT_TO_CENTER:
+            Model: UVComBike
+            Animation: UVComBike_A2.UVComBike_A2
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases:
+            - RIDER5 MOVING RIGHT_TO_CENTER
+            - RIDER6 MOVING RIGHT_TO_CENTER
+            - RIDER7 MOVING RIGHT_TO_CENTER
+          RIDER1 MOVING RIGHT_TO_CENTER REALLYDAMAGED:
+            Model: UVComBike_d
+            Animation: UVComBike_A2.UVComBike_A2
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases:
+            - RIDER5 MOVING RIGHT_TO_CENTER REALLYDAMAGED
+            - RIDER6 MOVING RIGHT_TO_CENTER REALLYDAMAGED
+            - RIDER7 MOVING RIGHT_TO_CENTER REALLYDAMAGED
+          RIDER2:
+            Model: UVComBikeG
+            Aliases: [RIDER2 MOVING, RIDER4, RIDER4 MOVING]
+          RIDER2 REALLYDAMAGED:
+            Model: UVComBikeG_d
+            Aliases: [RIDER2 MOVING REALLYDAMAGED, RIDER4 REALLYDAMAGED, RIDER4 MOVING REALLYDAMAGED]
+          RIDER2 MOVING CENTER_TO_LEFT:
+            Model: UVComBikeG
+            Animation: UVComBikeG_A1.UVComBikeG_A1
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases: [RIDER4 MOVING CENTER_TO_LEFT]
+          RIDER2 MOVING CENTER_TO_LEFT REALLYDAMAGED:
+            Model: UVComBikeG_d
+            Animation: UVComBikeG_A1.UVComBikeG_A1
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases: [RIDER4 MOVING CENTER_TO_LEFT REALLYDAMAGED]
+          RIDER2 MOVING LEFT_TO_CENTER:
+            Model: UVComBikeG
+            Animation: UVComBikeG_A1.UVComBikeG_A1
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases: [RIDER4 MOVING LEFT_TO_CENTER]
+          RIDER2 MOVING LEFT_TO_CENTER REALLYDAMAGED:
+            Model: UVComBikeG_d
+            Animation: UVComBikeG_A1.UVComBikeG_A1
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases: [RIDER4 MOVING LEFT_TO_CENTER REALLYDAMAGED]
+          RIDER2 MOVING CENTER_TO_RIGHT:
+            Model: UVComBikeG
+            Animation: UVComBikeG_A2.UVComBikeG_A2
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases: [RIDER4 MOVING CENTER_TO_RIGHT]
+          RIDER2 MOVING CENTER_TO_RIGHT REALLYDAMAGED:
+            Model: UVComBikeG_d
+            Animation: UVComBikeG_A2.UVComBikeG_A2
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases: [RIDER4 MOVING CENTER_TO_RIGHT REALLYDAMAGED]
+          RIDER2 MOVING RIGHT_TO_CENTER:
+            Model: UVComBikeG
+            Animation: UVComBikeG_A2.UVComBikeG_A2
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases: [RIDER4 MOVING RIGHT_TO_CENTER]
+          RIDER2 MOVING RIGHT_TO_CENTER REALLYDAMAGED:
+            Model: UVComBikeG_d
+            Animation: UVComBikeG_A2.UVComBikeG_A2
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+            Aliases: [RIDER4 MOVING RIGHT_TO_CENTER REALLYDAMAGED]
+          RIDER3:
+            Model: UVComBikeTN
+            Aliases: [RIDER3 MOVING]
+          RIDER3 REALLYDAMAGED:
+            Model: UVComBikeTN_d
+            Aliases: [RIDER3 MOVING REALLYDAMAGED]
+          RIDER3 MOVING CENTER_TO_LEFT:
+            Model: UVComBikeTN
+            Animation: UVComBikeTN_A1.UVComBikeTN_A1
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+          RIDER3 MOVING CENTER_TO_LEFT REALLYDAMAGED:
+            Model: UVComBikeTN_d
+            Animation: UVComBikeTN_A1.UVComBikeTN_A1
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+          RIDER3 MOVING LEFT_TO_CENTER:
+            Model: UVComBikeTN
+            Animation: UVComBikeTN_A1.UVComBikeTN_A1
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+          RIDER3 MOVING LEFT_TO_CENTER REALLYDAMAGED:
+            Model: UVComBikeTN_d
+            Animation: UVComBikeTN_A1.UVComBikeTN_A1
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+          RIDER3 MOVING CENTER_TO_RIGHT:
+            Model: UVComBikeTN
+            Animation: UVComBikeTN_A2.UVComBikeTN_A2
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+          RIDER3 MOVING CENTER_TO_RIGHT REALLYDAMAGED:
+            Model: UVComBikeTN_d
+            Animation: UVComBikeTN_A2.UVComBikeTN_A2
+            AnimationMode: ONCE
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+          RIDER3 MOVING RIGHT_TO_CENTER:
+            Model: UVComBikeTN
+            Animation: UVComBikeTN_A2.UVComBikeTN_A2
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+          RIDER3 MOVING RIGHT_TO_CENTER REALLYDAMAGED:
+            Model: UVComBikeTN_d
+            Animation: UVComBikeTN_A2.UVComBikeTN_A2
+            AnimationMode: ONCE_BACKWARDS
+            ParticleSysBone: SMOKE CombatBikeSmokeHeavy
+      ModuleTag_Rider01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIWrkr_SKN
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          Aliases: [MOVING]
+        ConditionState:
+          RIDER1:
+            Model: UIWrkr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A5
+            AnimationMode: LOOP
+          RIDER1 MOVING:
+            Model: UIWrkr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A4
+            AnimationMode: LOOP
+          RIDER1 MOVING CENTER_TO_LEFT:
+            Model: UIWrkr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A1
+            AnimationMode: ONCE
+          RIDER1 MOVING LEFT_TO_CENTER:
+            Model: UIWrkr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A1
+            AnimationMode: ONCE_BACKWARDS
+          RIDER1 MOVING CENTER_TO_RIGHT:
+            Model: UIWrkr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A2
+            AnimationMode: ONCE
+          RIDER1 MOVING RIGHT_TO_CENTER:
+            Model: UIWrkr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A2
+            AnimationMode: ONCE_BACKWARDS
+          RIDER2:
+            Model: UIRGrd_SKN
+            Animation: UIRGrd_SKL.UIRGrd_CmBk_A5
+            AnimationMode: LOOP
+          RIDER2 MOVING:
+            Model: UIRGrd_SKN
+            Animation: UIRGrd_SKL.UIRGrd_CmBk_A4
+            AnimationMode: LOOP
+          RIDER2 MOVING CENTER_TO_LEFT:
+            Model: UIRGrd_SKN
+            Animation: UIRGrd_SKL.UIRGrd_CmBk_A1
+            AnimationMode: ONCE
+          RIDER2 MOVING LEFT_TO_CENTER:
+            Model: UIRGrd_SKN
+            Animation: UIRGrd_SKL.UIRGrd_CmBk_A1
+            AnimationMode: ONCE_BACKWARDS
+          RIDER2 MOVING CENTER_TO_RIGHT:
+            Model: UIRGrd_SKN
+            Animation: UIRGrd_SKL.UIRGrd_CmBk_A2
+            AnimationMode: ONCE
+          RIDER2 MOVING RIGHT_TO_CENTER:
+            Model: UIRGrd_SKN
+            Animation: UIRGrd_SKL.UIRGrd_CmBk_A2
+            AnimationMode: ONCE_BACKWARDS
+          RIDER3:
+            Model: UITunF_SKN2
+            Animation: UITunF_SKL.UITunF_CmBk_A5
+            AnimationMode: LOOP
+          RIDER3 MOVING:
+            Model: UITunF_SKN2
+            Animation: UITunF_SKL.UITunF_CmBk_A4
+            AnimationMode: LOOP
+          RIDER3 MOVING CENTER_TO_LEFT:
+            Model: UITunF_SKN2
+            Animation: UITunF_SKL.UITunF_CmBk_A1
+            AnimationMode: ONCE
+          RIDER3 MOVING LEFT_TO_CENTER:
+            Model: UITunF_SKN2
+            Animation: UITunF_SKL.UITunF_CmBk_A1
+            AnimationMode: ONCE_BACKWARDS
+          RIDER3 MOVING CENTER_TO_RIGHT:
+            Model: UITunF_SKN2
+            Animation: UITunF_SKL.UITunF_CmBk_A2
+            AnimationMode: ONCE
+          RIDER3 MOVING RIGHT_TO_CENTER:
+            Model: UITunF_SKN2
+            Animation: UITunF_SKL.UITunF_CmBk_A2
+            AnimationMode: ONCE_BACKWARDS
+          RIDER4:
+            Model: UIHERO_SKN
+            Animation: UIHERO_SKL.UIHERO_CmBk_A5
+            AnimationMode: LOOP
+          RIDER4 MOVING:
+            Model: UIHERO_SKN
+            Animation: UIHERO_SKL.UIHERO_CmBk_A4
+            AnimationMode: LOOP
+          RIDER4 MOVING CENTER_TO_LEFT:
+            Model: UIHERO_SKN
+            Animation: UIHERO_SKL.UIHERO_CmBk_A1
+            AnimationMode: ONCE
+          RIDER4 MOVING LEFT_TO_CENTER:
+            Model: UIHERO_SKN
+            Animation: UIHERO_SKL.UIHERO_CmBk_A1
+            AnimationMode: ONCE_BACKWARDS
+          RIDER4 MOVING CENTER_TO_RIGHT:
+            Model: UIHERO_SKN
+            Animation: UIHERO_SKL.UIHERO_CmBk_A2
+            AnimationMode: ONCE
+          RIDER4 MOVING RIGHT_TO_CENTER:
+            Model: UIHERO_SKN
+            Animation: UIHERO_SKL.UIHERO_CmBk_A2
+            AnimationMode: ONCE_BACKWARDS
+          RIDER5:
+            Model: UITRST_SKN
+            Animation: UITRST_SKL.UITER_CmBk_A5
+            AnimationMode: LOOP
+          RIDER5 MOVING:
+            Model: UITRST_SKN
+            Animation: UITRST_SKL.UITER_CmBk_A4
+            AnimationMode: LOOP
+          RIDER5 MOVING CENTER_TO_LEFT:
+            Model: UITRST_SKN
+            Animation: UITRST_SKL.UITER_CmBk_A1
+            AnimationMode: ONCE
+          RIDER5 MOVING LEFT_TO_CENTER:
+            Model: UITRST_SKN
+            Animation: UITRST_SKL.UITER_CmBk_A1
+            AnimationMode: ONCE_BACKWARDS
+          RIDER5 MOVING CENTER_TO_RIGHT:
+            Model: UITRST_SKN
+            Animation: UITRST_SKL.UITER_CmBk_A2
+            AnimationMode: ONCE
+          RIDER5 MOVING RIGHT_TO_CENTER:
+            Model: UITRST_SKN
+            Animation: UITRST_SKL.UITER_CmBk_A2
+            AnimationMode: ONCE_BACKWARDS
+          RIDER6:
+            Model: UIHJCK_SKN
+            Animation: UIHJCK_SKL.UIHJACK_CmBk_A5
+            AnimationMode: LOOP
+          RIDER6 MOVING:
+            Model: UIHJCK_SKN
+            Animation: UIHJCK_SKL.UIHJACK_CmBk_A4
+            AnimationMode: LOOP
+          RIDER6 MOVING CENTER_TO_LEFT:
+            Model: UIHJCK_SKN
+            Animation: UIHJCK_SKL.UIHJACK_CmBk_A1
+            AnimationMode: ONCE
+          RIDER6 MOVING LEFT_TO_CENTER:
+            Model: UIHJCK_SKN
+            Animation: UIHJCK_SKL.UIHJACK_CmBk_A1
+            AnimationMode: ONCE_BACKWARDS
+          RIDER6 MOVING CENTER_TO_RIGHT:
+            Model: UIHJCK_SKN
+            Animation: UIHJCK_SKL.UIHJACK_CmBk_A2
+            AnimationMode: ONCE
+          RIDER6 MOVING RIGHT_TO_CENTER:
+            Model: UIHJCK_SKN
+            Animation: UIHJCK_SKL.UIHJACK_CmBk_A2
+            AnimationMode: ONCE_BACKWARDS
+          RIDER7:
+            Model: UISabotr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A5
+            AnimationMode: LOOP
+          RIDER7 MOVING:
+            Model: UISabotr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A4
+            AnimationMode: LOOP
+          RIDER7 MOVING CENTER_TO_LEFT:
+            Model: UISabotr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A1
+            AnimationMode: ONCE
+          RIDER7 MOVING LEFT_TO_CENTER:
+            Model: UISabotr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A1
+            AnimationMode: ONCE_BACKWARDS
+          RIDER7 MOVING CENTER_TO_RIGHT:
+            Model: UISabotr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A2
+            AnimationMode: ONCE
+          RIDER7 MOVING RIGHT_TO_CENTER:
+            Model: UISabotr_SKN
+            Animation: UIWrkr_SKL.UIWrkr_CmBk_A2
+            AnimationMode: ONCE_BACKWARDS
+          TOPPLED:
+            Model: None
+            Aliases: [TOPPLED MOVING]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100
+        InitialHealth: 100
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+        Turret:
+          TurretTurnRate: 0
+          NaturalTurretAngle: 0
+          ControlledWeaponSlots: PRIMARY SECONDARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 15.0
+      DeathTag_04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ExemptStatus: STATUS_RIDER1 STATUS_RIDER2 STATUS_RIDER3 STATUS_RIDER4 STATUS_RIDER5 STATUS_RIDER6 STATUS_RIDER7
+        DeathTypes: ALL -CRUSHED -SPLATTED -TOPPLED
+        DestructionDelay: 0
+        FX: INITIAL FX_BuggyNewDeathExplosion
+        OCL: FINAL OCL_CombatBikeAirDeathStart
+      DeathTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        RequiredStatus: STATUS_RIDER1
+        DeathTypes: ALL -CRUSHED -SPLATTED -TOPPLED
+        DestructionDelay: 0
+        FX: INITIAL FX_BuggyNewDeathExplosion
+        OCL: [INITIAL OCL_WorkerFlyingOffBikeDeathStart, FINAL OCL_CombatBikeAirDeathStart]
+      DeathTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        RequiredStatus: STATUS_RIDER2
+        DeathTypes: ALL -CRUSHED -SPLATTED -TOPPLED
+        DestructionDelay: 0
+        FX: INITIAL FX_BuggyNewDeathExplosion
+        OCL: [INITIAL OCL_RebelFlyingOffBikeDeathStart, FINAL OCL_CombatBikeAirDeathStart]
+      DeathTag_07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        RequiredStatus: STATUS_RIDER3
+        DeathTypes: ALL -CRUSHED -SPLATTED -TOPPLED
+        DestructionDelay: 0
+        FX: INITIAL FX_BuggyNewDeathExplosion
+        OCL:
+        - INITIAL OCL_TunnelDefenderFlyingOffBikeDeathStart
+        - FINAL OCL_CombatBikeAirDeathStart
+      DeathTag_08:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        RequiredStatus: STATUS_RIDER4
+        DeathTypes: ALL -CRUSHED -SPLATTED -TOPPLED
+        DestructionDelay: 0
+        FX: INITIAL FX_BuggyNewDeathExplosion
+        OCL: [INITIAL OCL_JarmenKellFlyingOffBikeDeathStart, FINAL OCL_CombatBikeAirDeathStart]
+      DeathTag_09:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        RequiredStatus: STATUS_RIDER5
+        DeathTypes: ALL -CRUSHED -SPLATTED -TOPPLED
+        DestructionDelay: 0
+        FX: INITIAL FX_BuggyNewDeathExplosion
+        OCL: [INITIAL OCL_TerroristFlyingOffBikeDeathStart, FINAL OCL_CombatBikeAirDeathStart]
+      DeathTag_10:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        RequiredStatus: STATUS_RIDER6
+        DeathTypes: ALL -CRUSHED -SPLATTED -TOPPLED
+        DestructionDelay: 0
+        FX: INITIAL FX_BuggyNewDeathExplosion
+        OCL: [INITIAL OCL_HijackerFlyingOffBikeDeathStart, FINAL OCL_CombatBikeAirDeathStart]
+      ModuleTag_08:
+        Module: Behavior
+        Class: AutoHealBehavior
+        HealingAmount: 2
+        HealingDelay: 1000
+        TriggeredBy: Upgrade_GLAJunkRepair
+      ModuleTag_09:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_GLABuggyAmmo
+      ModuleTag_10:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +TOPPLED
+        CreationList: OCL_CombatBike_ToppledHulk
+      ModuleTag_11:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED +TOPPLED
+      ModuleTag_12:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_13:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_RocketBuggy_CrushEffect
+      ModuleTag_14:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_15:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_16:
+        Module: Behavior
+        Class: RiderChangeContain
+        Rider1: GLAInfantryWorker RIDER1 WEAPON_RIDER1 STATUS_RIDER1 GLAVehicleCombatBikeDefaultCommandSet SET_NORMAL
+        Rider2: GLAInfantryRebel RIDER2 WEAPON_RIDER2 STATUS_RIDER2 GLAVehicleCombatBikeDefaultCommandSet SET_NORMAL
+        Rider3: GLAInfantryTunnelDefender RIDER3 WEAPON_RIDER3 STATUS_RIDER3 GLAVehicleCombatBikeDefaultCommandSet SET_NORMAL
+        Rider4: GLAInfantryJarmenKell RIDER4 WEAPON_RIDER4 STATUS_RIDER4 GLAVehicleCombatBikeJarmenKellCommandSet SET_NORMAL
+        Rider5: GLAInfantryTerrorist RIDER5 WEAPON_RIDER5 STATUS_RIDER5 GLAVehicleCombatBikeDefaultCommandSet SET_SLUGGISH
+        Rider6: GLAInfantryHijacker RIDER6 WEAPON_RIDER6 STATUS_RIDER6 GLAVehicleCombatBikeDefaultCommandSet SET_NORMAL
+        Rider7: GLAInfantrySaboteur RIDER7 WEAPON_RIDER7 STATUS_RIDER7 GLAVehicleCombatBikeDefaultCommandSet SET_NORMAL
+        ScuttleDelay: 1500
+        ScuttleStatus: TOPPLED
+        Slots: 1
+        InitialPayload: GLAInfantryTerrorist 1
+        ScatterNearbyOnExit: No
+        HealthRegen%PerSec: 0
+        DamagePercentToUnits: 100%
+        BurnedDeathToUnits: No
+        AllowInsideKindOf: INFANTRY
+        ExitDelay: 250
+        NumberOfExitPaths: 1
+        GoAggressiveOnExit: Yes
+        DoorOpenTime: 0
+      ModuleTag_17:
+        Module: Behavior
+        Class: AnimationSteeringUpdate
+        MinTransitionTime: 300
+      ModuleTag_Death18:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        RequiredStatus: STATUS_RIDER5
+        DeathWeapon: SuicideBikeBomb
+        StartsActive: Yes
+        DeathTypes: NONE +SUICIDED +CRUSHED +SPLATTED +LASERED +BURNED +EXPLODED
+      ModuleTag_19:
+        Module: Behavior
+        Class: StealthUpdate
+        UseRiderStealth: Yes
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/BossGeneral.ini

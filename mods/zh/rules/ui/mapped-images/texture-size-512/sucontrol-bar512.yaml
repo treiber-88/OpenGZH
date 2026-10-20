@@ -1,0 +1,268 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  SUPowerPointR:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:485 Top:79 Right:491 Bottom:85
+    Status: NONE
+  SUPowerPointY:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:306 Top:74 Right:312 Bottom:80
+    Status: NONE
+  SUPowerPointG:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:298 Top:74 Right:304 Bottom:80
+    Status: NONE
+  SUUAttackI:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:485 Top:53 Right:507 Bottom:77
+    Status: NONE
+  SUUAttack:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:485 Top:27 Right:507 Bottom:51
+    Status: NONE
+  SUUAttackH:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:485 Top:1 Right:507 Bottom:25
+    Status: NONE
+  SUBeacon:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:441 Top:254 Right:475 Bottom:278
+    Status: NONE
+  SUChat:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:369 Top:254 Right:403 Bottom:278
+    Status: NONE
+  SUBeaconH:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:333 Top:254 Right:367 Bottom:278
+    Status: NONE
+  SUBeaconI:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:297 Top:254 Right:331 Bottom:278
+    Status: NONE
+  SUChatP:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:237 Right:134 Bottom:261
+    Status: NONE
+  SUOptions:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:172 Top:231 Right:206 Bottom:255
+    Status: NONE
+  SUOptionsH:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:136 Top:231 Right:170 Bottom:255
+    Status: NONE
+  SUBeaconP:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:405 Top:229 Right:439 Bottom:253
+    Status: NONE
+  SUOptionsI:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:475 Top:228 Right:509 Bottom:252
+    Status: NONE
+  SUChatH:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:369 Top:228 Right:403 Bottom:252
+    Status: NONE
+  SUChatI:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:333 Top:228 Right:367 Bottom:252
+    Status: NONE
+  SUOptionsP:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:297 Top:228 Right:331 Bottom:252
+    Status: NONE
+  SUWorkerE:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:261 Top:228 Right:295 Bottom:253
+    Status: NONE
+  SUWorkerI:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:225 Top:228 Right:259 Bottom:253
+    Status: NONE
+  SUWorkerH:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:210 Right:134 Bottom:235
+    Status: NONE
+  SUWorkerP:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:475 Top:201 Right:509 Bottom:226
+    Status: NONE
+  SUMaxMinPU:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:164 Top:203 Right:223 Bottom:229
+    Status: NONE
+  SUMaxMinP:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:414 Top:201 Right:473 Bottom:227
+    Status: NONE
+  SUMaxMinIU:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:353 Top:200 Right:412 Bottom:226
+    Status: NONE
+  SUMaxMinI:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:292 Top:200 Right:351 Bottom:226
+    Status: NONE
+  SUMaxMinHU:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:231 Top:200 Right:290 Bottom:226
+    Status: NONE
+  SUMaxMinH:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:353 Top:172 Right:412 Bottom:198
+    Status: NONE
+  SUMaxMin:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:292 Top:172 Right:351 Bottom:198
+    Status: NONE
+  SUMaxMinU:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:231 Top:172 Right:290 Bottom:198
+    Status: NONE
+  SUGeneral:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:164 Top:172 Right:229 Bottom:201
+    Status: NONE
+  SUGeneralP:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:445 Top:170 Right:510 Bottom:199
+    Status: NONE
+  SUGeneralI:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:231 Top:74 Right:296 Bottom:103
+    Status: NONE
+  SUGeneralH:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:164 Top:74 Right:229 Bottom:103
+    Status: NONE
+  SUExpBar:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:462 Top:1 Right:483 Bottom:108
+    Status: NONE
+  SUTraySmall:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:445 Top:112 Right:505 Bottom:168
+    Status: NONE
+  SUPowerBarY:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:164 Top:157 Right:443 Bottom:170
+    Status: NONE
+  SUPowerBarR:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:164 Top:142 Right:443 Bottom:155
+    Status: NONE
+  SUPowerBar:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:164 Top:127 Right:443 Bottom:140
+    Status: NONE
+  SUPowerBarG:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:164 Top:112 Right:443 Bottom:125
+    Status: NONE
+  SUTray:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:74 Right:162 Bottom:208
+    Status: NONE
+  SULogo:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:321 Top:1 Right:460 Bottom:110
+    Status: NONE
+  SUUAttackP:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:1 Right:319 Bottom:72
+    Status: NONE
+  GLALevelUP:
+    Texture: SUControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:98 Bottom:431
+    Status: NONE

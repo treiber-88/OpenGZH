@@ -1,0 +1,11 @@
+# Build output
+bin/
+obj/
+*.user
+.vs/
+
+# Original game data copied from a local Zero Hour install (copyrighted, never commit)
+content/
+
+# Per-user settings, logs and saves
+userdata/

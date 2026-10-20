@@ -1,0 +1,371 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Chem_ScudStormMissile:
+    KindOf: PROJECTILE
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    TransportSlotCount: 10
+    Locomotor: SET_NORMAL SCUDStormMissileLocomotor
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 30.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UBScudStrm_M
+        ConditionState:
+          DAMAGED REALLYDAMAGED RUBBLE:
+            Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 10000.0
+        InitialHealth: 10000.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 0
+        InitialVelocity: 0
+        IgnitionFX: FX_ScudStormIgnition
+        DistanceToTravelBeforeTurning: 500
+        DistanceToTargetBeforeDiving: 200
+      ModuleTag_05:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 15.0
+        TargetHeightIncludesStructures: Yes
+        OnlyWhenMovingDown: Yes
+        SnapToGroundOnDeath: Yes
+        InitialDelay: 1000
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponScudStorm
+      ModuleTag_08:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ScudStormDamageWeaponUpgraded
+        StartsActive: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_ScudStormDamageWeaponGamma
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_StingerMissile:
+    DisplayName: OBJECT:StingerMissile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    TransportSlotCount: 1
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL StingerMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVRockBug_m
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 5000
+        InitialVelocity: 200
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 5
+        IgnitionFX: None
+        DistanceToTargetForLock: 100
+      Upgrade_01:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPRockets
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_ToxinStreamProjectile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL ToxinTruckStreamLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 500
+        InitialVelocity: 120
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+        GarrisonHitKillRequiredKindOf: INFANTRY
+        GarrisonHitKillForbiddenKindOf: NONE
+        GarrisonHitKillCount: 2
+        GarrisonHitKillFX: FX_ToxinStreamGarrisonBuildingHit
+      ModuleTag_06:
+        Module: Behavior
+        Class: BoneFXUpdate
+        PristineParticleSystem1: bone:NULL OnlyOnce:Yes 0 0 PSys:GC_Chem_ToxinTrail01
+      ModuleTag_07:
+        Module: Behavior
+        Class: BoneFXDamage
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  GC_Chem_ScudStormMissile:
+    KindOf: PROJECTILE
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    TransportSlotCount: 10
+    Locomotor: SET_NORMAL SCUDStormMissileLocomotor
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 30.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UBScudStrm_M
+        ConditionState:
+          DAMAGED REALLYDAMAGED RUBBLE:
+            Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 10000.0
+        InitialHealth: 10000.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 0
+        InitialVelocity: 0
+        IgnitionFX: FX_ScudStormIgnition
+        DistanceToTravelBeforeTurning: 500
+        DistanceToTargetBeforeDiving: 200
+      ModuleTag_05:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 15.0
+        TargetHeightIncludesStructures: Yes
+        OnlyWhenMovingDown: Yes
+        SnapToGroundOnDeath: Yes
+        InitialDelay: 1000
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponScudStorm
+      ModuleTag_08:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ScudStormDamageWeaponUpgraded
+        StartsActive: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_ScudStormDamageWeaponGamma
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+    SourceFile: Data/INI/Object/GC_Chem_GLASystem.ini
+  GC_Chem_StingerMissile:
+    DisplayName: OBJECT:StingerMissile
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    TransportSlotCount: 1
+    KindOf: PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL StingerMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: UVRockBug_m
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_07:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 5000
+        InitialVelocity: 200
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 5
+        IgnitionFX: None
+        DistanceToTargetForLock: 100
+      Upgrade_01:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPRockets
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini
+  GC_Chem_ToxinStreamProjectile:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL ToxinTruckStreamLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 500
+        InitialVelocity: 120
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+        GarrisonHitKillRequiredKindOf: INFANTRY
+        GarrisonHitKillForbiddenKindOf: NONE
+        GarrisonHitKillCount: 2
+        GarrisonHitKillFX: FX_ToxinStreamGarrisonBuildingHit
+      ModuleTag_06:
+        Module: Behavior
+        Class: BoneFXUpdate
+        PristineParticleSystem1: bone:NULL OnlyOnce:Yes 0 0 PSys:GC_Chem_ToxinTrail01
+      ModuleTag_07:
+        Module: Behavior
+        Class: BoneFXDamage
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini

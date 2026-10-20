@@ -1,0 +1,57 @@
+# OpenGZH base game: Command & Conquer Generals Zero Hour.
+#
+# To make your own mod, copy this file to mods/<yourmod>/mod.yaml, set "Inherits: zh",
+# and list only your own packages and rules. Your files override the base game's.
+
+Id: zh
+Title: Command & Conquer Generals Zero Hour
+Version: "1.04"
+
+# Priority order: the FIRST package that contains a file wins.
+# This is the same order the original game used: loose files, then Zero Hour
+# archives (alphabetically), then the original Generals archives (alphabetically).
+# "{mod}" is this mod's folder. "folder@Prefix" mounts a folder under a virtual path.
+Packages:
+  - "{mod}/assets?"                       # OpenGZH additions (e.g. new shipyard art). "?" = optional
+  - content/zerohour/Data@Data
+  - content/zerohour/AudioEnglishZH.big
+  - content/zerohour/AudioZH.big
+  - content/zerohour/EnglishZH.big
+  - content/zerohour/Gensec.big
+  - content/zerohour/GensecZH.big
+  - content/zerohour/INIZH.big
+  - content/zerohour/MapsZH.big
+  - content/zerohour/Music.big
+  - content/zerohour/MusicZH.big
+  - content/zerohour/PatchZH.big
+  - content/zerohour/ShadersZH.big
+  - content/zerohour/SpeechEnglishZH.big
+  - content/zerohour/SpeechZH.big
+  - content/zerohour/TerrainZH.big
+  - content/zerohour/TexturesZH.big
+  - content/zerohour/W3DEnglishZH.big
+  - content/zerohour/W3DZH.big
+  - content/zerohour/WindowZH.big
+  - content/generals/Audio.big
+  - content/generals/AudioEnglish.big
+  - content/generals/English.big
+  - content/generals/gensec.big
+  - content/generals/INI.big
+  - content/generals/maps.big
+  - content/generals/Music.big
+  - content/generals/Patch.big
+  - content/generals/shaders.big
+  - content/generals/Speech.big
+  - content/generals/SpeechEnglish.big
+  - content/generals/Terrain.big
+  - content/generals/Textures.big
+  - content/generals/W3D.big
+  - content/generals/Window.big
+
+# Rules are YAML files in rules/. Each file is named after what it defines.
+# The base set is generated from the original INI data by:  OpenGZH.Tools import-rules
+# Patterns: "*" matches within a folder, "**/" matches any depth. A file matched twice loads once.
+Rules:
+  - rules/defaults/*.yaml     # base values every definition starts from
+  - rules/*.yaml              # weapons, locomotors, upgrades, sciences, ...
+  - rules/**/*.yaml           # objects by faction: usa/vehicles.yaml, china/infantry.yaml, ...

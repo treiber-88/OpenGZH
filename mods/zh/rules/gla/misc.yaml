@@ -1,0 +1,210 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  GLAPowerPlantWindmillBlade:
+    EditorSorting: DEBRIS
+    KindOf: IMMOBILE
+    Side: GLA
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: UBPwrPlant_D1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 10000
+        MaxLifetime: 15000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1000
+        SinkRate: 1
+        DestructionDelay: 2000
+    SourceFile: Data/INI/Object/FactionBuilding.ini
+  GLARocketBuggyFullDebris:
+    DisplayName: OBJECT:RocketBuggyDebris
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    RadarPriority: UNIT
+    KindOf: CAN_CAST_REFLECTIONS
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVRockBug_D1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_GLABuggyAmmo
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 500
+        DestructionDelayVariance: 1500
+        OCL: FINAL OCL_RocketBuggyAirDeath
+        FX: [INITIAL FX_RocketBuggyAirDeathGroundPart, FINAL FX_RocketBuggyAirDeathAirPart]
+    SourceFile: Data/INI/Object/GLAMiscUnit.ini
+  GLACombatBikeFullDebris:
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    RadarPriority: UNIT
+    KindOf: CAN_CAST_REFLECTIONS
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVComBike_D1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 500
+        DestructionDelayVariance: 1500
+        OCL: FINAL OCL_CombatBikeAirDeath
+        FX: [INITIAL FX_RocketBuggyAirDeathGroundPart, FINAL FX_RocketBuggyAirDeathAirPart]
+    SourceFile: Data/INI/Object/GLAMiscUnit.ini
+  GLACombatBikeToppledHulk:
+    Side: GLA
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    RadarPriority: UNIT
+    KindOf: CAN_CAST_REFLECTIONS
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UVComBike_D1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1
+        SinkRate: 1.0
+        DestructionDelay: 3000
+    SourceFile: Data/INI/Object/GLAMiscUnit.ini
+  RocketBuggyMissileDebris:
+    DisplayName: OBJECT:RocketBuggyDebris
+    EditorSorting: SYSTEM
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NVMBuggy_m
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 3
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 500
+        DestructionDelayVariance: 500
+        FX: [INITIAL FX_BuggyMissileDebris, FINAL WeaponFX_RocketBuggyMissileDetonation]
+    SourceFile: Data/INI/Object/GLAMiscUnit.ini

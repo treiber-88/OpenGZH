@@ -1,0 +1,29 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Boss_PatriotBinaryDataStream:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXBinaryStream32.tga
+        NumBeams: 1
+        InnerBeamWidth: 4
+        InnerColor: R:0 G:255 B:0 A:180
+        Tile: Yes
+        ScrollRate: -0.25
+        Segments: 20
+        ArcHeight: 30.0
+        SegmentOverlapRatio: 0.0000
+        TilingScalar: 0.25
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 600
+        MaxLifetime: 600
+    SourceFile: Data/INI/Object/BossGeneral.ini

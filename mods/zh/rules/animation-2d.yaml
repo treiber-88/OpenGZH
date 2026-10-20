@@ -1,0 +1,252 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Animations:
+  DefaultHeal:
+    AnimationMode: LOOP
+    AnimationDelay: 30
+    RandomizeStartFrame: Yes
+    NumberImages: 16
+    Image:
+    - SCPCross000
+    - SCPCross001
+    - SCPCross002
+    - SCPCross003
+    - SCPCross004
+    - SCPCross005
+    - SCPCross006
+    - SCPCross007
+    - SCPCross008
+    - SCPCross009
+    - SCPCross010
+    - SCPCross011
+    - SCPCross012
+    - SCPCross013
+    - SCPCross014
+    - SCPCross015
+  StructureHeal:
+    AnimationMode: PING_PONG
+    AnimationDelay: 60
+    RandomizeStartFrame: Yes
+    NumberImages: 10
+    Image:
+    - SCPWrench000
+    - SCPWrench001
+    - SCPWrench002
+    - SCPWrench003
+    - SCPWrench004
+    - SCPWrench005
+    - SCPWrench006
+    - SCPWrench007
+    - SCPWrench008
+    - SCPWrench009
+  VehicleHeal:
+    AnimationMode: PING_PONG
+    AnimationDelay: 60
+    RandomizeStartFrame: Yes
+    NumberImages: 10
+    Image:
+    - SCPWrench000
+    - SCPWrench001
+    - SCPWrench002
+    - SCPWrench003
+    - SCPWrench004
+    - SCPWrench005
+    - SCPWrench006
+    - SCPWrench007
+    - SCPWrench008
+    - SCPWrench009
+  MoneyPickUp:
+    AnimationMode: LOOP
+    AnimationDelay: 30
+    RandomizeStartFrame: No
+    NumberImages: 31
+    Image:
+    - SCPDollar000
+    - SCPDollar001
+    - SCPDollar002
+    - SCPDollar003
+    - SCPDollar004
+    - SCPDollar005
+    - SCPDollar006
+    - SCPDollar007
+    - SCPDollar008
+    - SCPDollar009
+    - SCPDollar010
+    - SCPDollar011
+    - SCPDollar012
+    - SCPDollar013
+    - SCPDollar014
+    - SCPDollar015
+    - SCPDollar016
+    - SCPDollar017
+    - SCPDollar018
+    - SCPDollar019
+    - SCPDollar020
+    - SCPDollar021
+    - SCPDollar022
+    - SCPDollar023
+    - SCPDollar024
+    - SCPDollar025
+    - SCPDollar026
+    - SCPDollar027
+    - SCPDollar028
+    - SCPDollar029
+    - SCPDollar030
+  LevelGainedAnimation:
+    AnimationMode: LOOP
+    AnimationDelay: 30
+    RandomizeStartFrame: No
+    NumberImages: 21
+    Image:
+    - SCPChev000
+    - SCPChev001
+    - SCPChev002
+    - SCPChev003
+    - SCPChev004
+    - SCPChev005
+    - SCPChev006
+    - SCPChev007
+    - SCPChev008
+    - SCPChev009
+    - SCPChev010
+    - SCPChev011
+    - SCPChev012
+    - SCPChev013
+    - SCPChev014
+    - SCPChev015
+    - SCPChev016
+    - SCPChev017
+    - SCPChev018
+    - SCPChev019
+    - SCPChev020
+  GetHealedAnimation:
+    AnimationMode: LOOP
+    AnimationDelay: 30
+    RandomizeStartFrame: No
+    NumberImages: 21
+    Image:
+    - SCPHeal000
+    - SCPHeal001
+    - SCPHeal002
+    - SCPHeal003
+    - SCPHeal004
+    - SCPHeal005
+    - SCPHeal006
+    - SCPHeal007
+    - SCPHeal008
+    - SCPHeal009
+    - SCPHeal010
+    - SCPHeal011
+    - SCPHeal012
+    - SCPHeal013
+    - SCPHeal014
+    - SCPHeal015
+    - SCPHeal016
+    - SCPHeal017
+    - SCPHeal018
+    - SCPHeal019
+    - SCPHeal020
+  BombTimed:
+    AnimationMode: ONCE
+    AnimationDelay: 1000
+    RandomizeStartFrame: No
+    NumberImages: 21
+    Image:
+    - SCPClock043
+    - SCPClock044
+    - SCPClock045
+    - SCPClock046
+    - SCPClock047
+    - SCPClock048
+    - SCPClock049
+    - SCPClock050
+    - SCPClock051
+    - SCPClock052
+    - SCPClock053
+    - SCPClock054
+    - SCPClock055
+    - SCPClock056
+    - SCPClock057
+    - SCPClock058
+    - SCPClock059
+    - SCPClock060
+    - SCPClock061
+    - SCPClock062
+    - SCPClock063
+  BombRemote:
+    AnimationMode: LOOP
+    AnimationDelay: 1000
+    RandomizeStartFrame: No
+    NumberImages: 2
+    Image: [SCPClock000, SCPClock001]
+  CarBomb:
+    AnimationMode: LOOP
+    AnimationDelay: 1000
+    RandomizeStartFrame: No
+    NumberImages: 2
+    Image: [SCPClock000, SCPClock001]
+  Disabled:
+    AnimationMode: LOOP
+    AnimationDelay: 66
+    RandomizeStartFrame: No
+    NumberImages: 16
+    Image:
+    - SCPLightning000
+    - SCPLightning001
+    - SCPLightning002
+    - SCPLightning003
+    - SCPLightning004
+    - SCPLightning005
+    - SCPLightning006
+    - SCPLightning007
+    - SCPLightning008
+    - SCPLightning009
+    - SCPLightning010
+    - SCPLightning011
+    - SCPLightning012
+    - SCPLightning013
+    - SCPLightning014
+    - SCPLightning015
+  AmmoFull:
+    AnimationMode: LOOP
+    AnimationDelay: 60
+    RandomizeStartFrame: No
+    NumberImages: 1
+    Image: SCPAmmoFull
+  AmmoEmpty:
+    AnimationMode: LOOP
+    AnimationDelay: 60
+    RandomizeStartFrame: No
+    NumberImages: 1
+    Image: SCPAmmoEmpty
+  Enthusiastic:
+    AnimationMode: PING_PONG
+    AnimationDelay: 100
+    RandomizeStartFrame: Yes
+    NumberImages: 9
+    Image:
+    - SCPCross003
+    - SCPCross004
+    - SCPCross005
+    - SCPCross006
+    - SCPCross007
+    - SCPCross008
+    - SCPCross009
+    - SCPCross010
+    - SCPCross011
+  Subliminal:
+    AnimationMode: PING_PONG
+    AnimationDelay: 100
+    RandomizeStartFrame: Yes
+    NumberImages: 9
+    Image:
+    - SCPCrossB003
+    - SCPCrossB004
+    - SCPCrossB005
+    - SCPCrossB006
+    - SCPCrossB007
+    - SCPCrossB008
+    - SCPCrossB009
+    - SCPCrossB010
+    - SCPCrossB011

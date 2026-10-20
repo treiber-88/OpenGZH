@@ -1,0 +1,564 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Infa_ChinaJetMIG:
+    SelectPortrait: SNMig_L
+    ButtonImage: SNMig
+    UpgradeCameo1: Upgrade_ChinaAircraftArmor
+    UpgradeCameo2: Upgrade_ChinaBlackNapalm
+    DisplayName: OBJECT:MIG
+    EditorSorting: VEHICLE
+    Side: ChinaInfantryGeneral
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 300.0
+    BuildCost: 1200
+    BuildTime: 10
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: ChinaJetMIGCommandSet
+    VoiceSelect: MigVoiceSelect
+    VoiceMove: MigVoiceMove
+    VoiceAttack: MigVoiceAttack
+    VoiceAttackAir: MigVoiceAttackAir
+    VoiceGuard: MigVoiceAirPatrol
+    SoundAmbient: MigAmbientLoop
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL MIGLocomotor, SET_TAXIING BasicJetTaxiLocomotor]
+    Geometry: Box
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 14.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 5.0
+    Shadow: [SHADOW_VOLUME, SHADOW_VOLUME]
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: Infa_ChinaAirfield
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY NapalmMissileWeapon
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY BlackNapalmMissileWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: MigVoiceCreate
+      Afterburner: RaptorAfterburner
+      VoiceGarrison: MigVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NVMIG
+          HideSubObject: BurnerFX01 BurnerFX02
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ShowSubObject: BurnerFX01 BurnerFX02
+            ParticleSysBone:
+            - Exhaust01 JetExhaust
+            - Exhaust02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED:
+            Model: NVMIG_D
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          RUBBLE:
+            Model: NVMIG_D
+          REALLYDAMAGED JETEXHAUST:
+            Model: NVMIG_D
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: NVMIG_D
+            ShowSubObject: BurnerFX01 BurnerFX02
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: NVMIG_D
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_MIGDeathFinalBlowUp
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_MigDeathInitial
+        OCLInitialDeath: OCL_MIGDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        OCLSecondary: OCL_MIGDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        OCLHitGround: OCL_MIGDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp
+        OCLFinalBlowUp: OCL_MIGDeathFinalBlowUp
+      ModuleTag_04:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ReturnToBaseIdleTime: 10000
+      ModuleTag_08:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+      ModuleTag_10:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_ChinaAircraftArmor
+        AddMaxHealth: 40.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+    SourceFile: Data/INI/Object/InfantryGeneral.ini
+  Infa_ChinaJetCargoPlane:
+    DisplayName: OBJECT:CargoPlane
+    EditorSorting: VEHICLE
+    Side: ChinaInfantryGeneral
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: C130AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT FORCEATTACKABLE IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 40 40 40 40
+    Locomotor: SET_NORMAL B52Locomotor
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 40.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: NVCargoPln
+          Animation: NVCargoPln.NVCargoPln
+          AnimationMode: LOOP
+          ParticleSysBone:
+          - Propeller01 JetBlackTrailThin
+          - Propeller02 JetBlackTrailThin
+          - Propeller03 JetBlackTrailThin
+          - Propeller04 JetBlackTrailThin
+          - WingTip01 JetContrailThin
+          - WingTip02 JetContrailThin
+        ConditionState:
+          DAMAGED:
+            Model: NVCargoPln_D
+            Animation: NVCargoPln_D.NVCargoPln_D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke03 JetFireLarge
+            - Propeller01 JetBlackTrailThin
+            - Propeller02 JetBlackTrailThin
+            - Propeller03 JetBlackTrailThin
+            - Propeller04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke03 JetSmokeLarge
+            - WingTip01 JetContrailThin
+            - WingTip02 JetContrailThin
+          REALLYDAMAGED:
+            Model: NVCargoPln_D
+            Animation: NVCargoPln_D.NVCargoPln_D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke03 JetFireLarge
+            - Smoke04 JetFireLarge
+            - Propeller03 JetBlackTrailThin
+            - Propeller04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke03 JetSmokeLarge
+            - Smoke04 JetSmokeLarge
+            - WingTip01 JetContrailThin
+            - WingTip02 JetContrailThin
+          RUBBLE:
+            Model: NVCargoPln_D1
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke06 JetFireLarge
+            - Smoke03 JetFireLarge
+            - Smoke04 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke06 JetSmokeLarge
+            - Smoke03 JetSmokeLarge
+            - Smoke04 JetSmokeLarge
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NVCargoPln_A2
+          Animation: NVCargoPln_A2.NVCargoPln_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST
+        ConditionState:
+          DOOR_1_OPENING:
+            Model: NVCargoPln_A2
+            Animation: NVCargoPln_A2.NVCargoPln_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+          DOOR_1_CLOSING:
+            Model: NVCargoPln_A2
+            Animation: NVCargoPln_A2.NVCargoPln_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1000.0
+        InitialHealth: 1000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 4
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 300
+        PutInContainer: AmericaParachute
+        DeliveryDistance: 150
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponDaisyCutter
+        OCL: SUPERWEAPON_DaisyCutter
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_08:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: Infa_SuperweaponInfantryParadrop
+        UpgradeOCL:
+        - SCIENCE_Paradrop3 Infa_SUPERWEAPON_Paradrop3
+        - SCIENCE_Paradrop2 Infa_SUPERWEAPON_Paradrop2
+        OCL: Infa_SUPERWEAPON_Paradrop1
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_09:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponCarpetBomb
+        OCL: SUPERWEAPON_CarpetBomb
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponClusterMines
+        OCL: SUPERWEAPON_ClusterMines
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_11:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponEMPPulse
+        OCL: SUPERWEAPON_EMPPulse
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_12:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_14:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+    SourceFile: Data/INI/Object/InfantryGeneral.ini
+  Infa_ChinaVehicleHelix:
+    SelectPortrait: SNHelix_L
+    ButtonImage: SNHelix
+    UpgradeCameo1: Upgrade_HelixNapalmBomb
+    UpgradeCameo2: Upgrade_ChinaBlackNapalm
+    UpgradeCameo3: Upgrade_Infa_ChinaHelixBattleBunker
+    DisplayName: OBJECT:Infa_Helix
+    EditorSorting: VEHICLE
+    Side: ChinaInfantryGeneral
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 600
+    BuildCost: 1500
+    BuildTime: 20.0
+    ExperienceValue: 50 100 150 200
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CommandSet: Infa_ChinaVehicleHelixCommandSet
+    VoiceSelect: HelixVoiceSelect
+    VoiceMove: HelixVoiceMove
+    VoiceAttack: HelixVoiceAttack
+    SoundAmbient: HelixAmbientLoop
+    SoundEnter: HumveeEnter
+    SoundExit: HumveeExit
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS SELECTABLE VEHICLE HUGE_VEHICLE TRANSPORT AIRCRAFT SCORE PRODUCED_AT_HELIPAD CAN_ATTACK
+    Locomotor: [SET_NORMAL HelixLocomotor, SET_TAXIING BasicHelicopterTaxiLocomotor]
+    Geometry: CYLINDER
+    GeometryMajorRadius: 35.0
+    GeometryHeight: 30.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: Infa_ChinaAirfield
+    ArmorSet:
+      Conditions: None
+      Armor: ChinookArmor
+      DamageFX: None
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY HelixMinigunWeapon
+      PreferredAgainst: PRIMARY INFANTRY
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY HelixMinigunWeapon
+      PreferredAgainst: PRIMARY INFANTRY
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+    UnitSpecificSounds:
+      VoiceCreate: HelixVoiceCreate
+      VoiceUnload: HelixVoiceUnload
+      VoiceGarrison: HelixVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DOverlordAircraftDraw
+        ParticlesAttachedToAnimatedBones: Yes
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: NVHELIX
+          Animation: NVHELIX.NVHELIX
+          AnimationMode: LOOP
+          WeaponFireFXBone: PRIMARY Muzzle03
+          WeaponMuzzleFlash: PRIMARY TurretFX03
+          HideSubObject: BombWing
+        ConditionState:
+          MOVING:
+            ParticleSysBone: [SMOKE01 HelixExhaust, SMOKE02 HelixExhaust]
+          REALLYDAMAGED:
+            Model: NVHELIX_d
+            Animation: NVHELIX_d.NVHELIX_d
+            AnimationMode: LOOP
+          REALLYDAMAGED MOVING:
+            Model: NVHELIX_d
+            Animation: NVHELIX_d.NVHELIX_d
+            AnimationMode: LOOP
+            ParticleSysBone: [SMOKE01 HelixExhaust, SMOKE02 HelixExhaust]
+          RUBBLE:
+            Model: NVHELIX_d
+            Animation: NVHELIX_d.NVHELIX_d
+            AnimationMode: LOOP
+          RUBBLE MOVING:
+            Model: NVHELIX_d
+            Animation: NVHELIX_d.NVHELIX_d
+            AnimationMode: LOOP
+            ParticleSysBone: [SMOKE01 HelixExhaust, SMOKE02 HelixExhaust]
+          RUBBLE SPECIAL_DAMAGED:
+            Model: NVHELIX_d
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_HelicopterStartDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuousDown
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_ComancheDamageTransition'
+      ModuleTag_07:
+        Module: Behavior
+        Class: ChinookAIUpdate
+        AutoAcquireEnemiesWhenIdle: Yes
+        RotorWashParticleSystem: HelixRotorWashRing
+      ModuleTag_09:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_10:
+        Module: Behavior
+        Class: HelicopterSlowDeathBehavior
+        DestructionDelay: 99999999
+        SpiralOrbitTurnRate: 80.0
+        SpiralOrbitForwardSpeed: 110.0
+        SpiralOrbitForwardSpeedDamping: .9999
+        MaxBraking: 210
+        SoundDeathLoop: HelixDamagedLoop
+        MinSelfSpin: 40
+        MaxSelfSpin: 120
+        SelfSpinUpdateDelay: 300
+        SelfSpinUpdateAmount: 5
+        FallHowFast: 8.0%
+        MinBladeFlyOffDelay: 1000
+        MaxBladeFlyOffDelay: 1000
+        AttachParticle: SootySmokeTrail
+        AttachParticleBone: Propeller02
+        BladeObjectName: HelixBlades
+        BladeBoneName: Propeller01
+        FXBlade: FX_HelicopterBladeExplosion
+        OCLBlade: OCL_HelicopterBladeExplosion
+        FXHitGround: FX_HelicopterHitGround
+        OCLHitGround: OCL_HelicopterHitGround
+        FXFinalBlowUp: FX_HelixHelicopterBlowUpBig
+        OCLFinalBlowUp: OCL_HelixBlades
+        DelayFromGroundToFinalDeath: 30
+        FinalRubbleObject: HelixRubbleHull
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_25:
+        Module: Behavior
+        Class: ProductionUpdate
+        MaxQueueEntries: 1
+      ModuleTag_24:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_Infa_HelixBattleBunker
+        TriggeredBy: Upgrade_Infa_ChinaHelixBattleBunker
+      ModuleTag_34:
+        Module: Behavior
+        Class: PassengersFireUpgrade
+        TriggeredBy: Upgrade_Infa_ChinaHelixBattleBunker
+      ModuleTag_29:
+        Module: Behavior
+        Class: HelixContain
+        Slots: 8
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: INFANTRY
+        ForbidInsideKindOf: AIRCRAFT
+        ExitDelay: 100
+        NumberOfExitPaths: 1
+        PassengersAllowedToFire: No
+      ModuleTag_30:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+      ModuleTag_32:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityHelixNapalmBomb
+        UpdateModuleStartsAttack: Yes
+        StartsPaused: Yes
+        InitiateSound: HelixVoiceAttack
+      ModuleTag_33:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityHelixNapalmBomb
+        StartAbilityRange: 3.0
+        PreparationTime: 0
+        SpecialObject: NapalmBomb
+        MaxSpecialObjects: 1
+        SpecialObjectsPersistWhenOwnerDies: Yes
+        SpecialObjectsPersistent: Yes
+        UniqueSpecialObjectTargets: No
+        UnpackTime: 500
+        FlipOwnerAfterUnpacking: No
+        FleeRangeAfterCompletion: 0.0
+        UnpackSound: NoSound
+        LoseStealthOnTrigger: No
+        ApproachRequiresLOS: No
+        NeedToFaceTarget: No
+        PersistentPrepTime: 100
+        PersistenceRequiresRecharge: Yes
+      ModuleTag_38:
+        Module: Behavior
+        Class: UnpauseSpecialPowerUpgrade
+        SpecialPowerTemplate: SpecialAbilityHelixNapalmBomb
+        TriggeredBy: Upgrade_HelixNapalmBomb
+      ModuleTag_39:
+        Module: Behavior
+        Class: SubObjectsUpgrade
+        TriggeredBy: Upgrade_HelixNapalmBomb
+        ShowSubObjects: BombWing
+      ModuleTag_28:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        CommandSet: Infa_ChinaHelixBombCommandSet
+        TriggeredBy: Upgrade_HelixNapalmBomb
+    SourceFile: Data/INI/Object/InfantryGeneral.ini

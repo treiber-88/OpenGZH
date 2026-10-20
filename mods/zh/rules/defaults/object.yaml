@@ -1,0 +1,83 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  DefaultThingTemplate:
+    PlacementViewAngle: 0
+    Buildable: Yes
+    Side: Civilian
+    EditorSorting: NONE
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    BuildCost: 0
+    BuildTime: 1
+    RefundValue: 0
+    EnergyProduction: 0
+    IsForbidden: No
+    IsBridge: No
+    IsPrerequisite: No
+    VoiceSelect: NoSound
+    VoiceMove: NoSound
+    VoiceAttack: NoSound
+    VoiceEnter: NoSound
+    VoiceFear: NoSound
+    VoiceSelectElite: NoSound
+    VoiceCreated: NoSound
+    VoiceTaskUnable: NoSound
+    VoiceTaskComplete: NoSound
+    VoiceMeetEnemy: NoSound
+    SoundMoveStart: NoSound
+    SoundMoveLoop: NoSound
+    SoundAmbient: NoSound
+    SoundCreated: NoSound
+    RadarPriority: INVALID
+    DisplayColor: R:100 G:100 B:100
+    KindOf: NONE
+    Scale: 1.0
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    Shadow: NONE
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY None, SECONDARY None, TERTIARY None]
+    ArmorSet:
+      Conditions: None
+      Armor: NoArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      WeaponUpgradeSound: NoSound
+    InheritableModule:
+      Modules:
+        ModuleTag_DefaultAutoHealBehavior:
+          Module: Behavior
+          Class: AutoHealBehavior
+          HealingAmount: 10
+          HealingDelay: 1000
+          TriggeredBy: Upgrade_Veterancy_ELITE Upgrade_Veterancy_HEROIC
+          StartHealingDelay: 5000
+    OverrideableByLikeKind:
+      Modules:
+        ModuleTag_DefaultStealthUpdate:
+          Module: Behavior
+          Class: StealthUpdate
+          StealthDelay: 2000
+          StealthForbiddenConditions: FIRING_PRIMARY FIRING_SECONDARY FIRING_TERTIARY RIDERS_ATTACKING
+          FriendlyOpacityMin: 50.0%
+          FriendlyOpacityMax: 100.0%
+          InnateStealth: No
+          OrderIdleEnemiesToAttackMeUponReveal: Yes
+          GrantedBySpecialPower: Yes
+    Modules:
+      ModuleTag_DefaultInactiveBody:
+        Module: Body
+        Class: InactiveBody
+      ModuleTag_DefaultDestroyDie:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_DefaultW3DDefaultDraw:
+        Module: Draw
+        Class: W3DDefaultDraw

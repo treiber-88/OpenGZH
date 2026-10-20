@@ -1,0 +1,178 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  LoadPageHuge:
+    Texture: loadpage.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:1024 Bottom:768
+    Status: NONE
+  SCCAttack:
+    Texture: SCCAttack.tga
+    TextureWidth: 32
+    TextureHeight: 32
+    Coords: Left:0 Top:0 Right:31 Bottom:31
+    Status: NONE
+  InGameUIAmericaBase:
+    Texture: COB2_Background.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:123 Right:799 Bottom:255
+    Status: NONE
+  InGameUIAmericaTop:
+    Texture: COB2_Frame.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:115 Right:799 Bottom:255
+    Status: NONE
+  InGameUIAmericaBaseSmall:
+    Texture: COB2_BackgroundSM.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:180 Right:799 Bottom:255
+    Status: NONE
+  InGameUIAmericaTopSmall:
+    Texture: COB2_FrameSM.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:174 Right:799 Bottom:255
+    Status: NONE
+  InGameUIChinaTop:
+    Texture: China2_Frame.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:115 Right:799 Bottom:255
+    Status: NONE
+  InGameUIChinaBase:
+    Texture: China2_Background.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:123 Right:799 Bottom:255
+    Status: NONE
+  InGameUIChinaTopSmall:
+    Texture: China2_FrameSM.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:174 Right:799 Bottom:255
+    Status: NONE
+  InGameUIChinaBaseSmall:
+    Texture: China2_BackgroundSM.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:180 Right:799 Bottom:255
+    Status: NONE
+  InGameUIGLATop:
+    Texture: GLA2_Frame.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:115 Right:799 Bottom:255
+    Status: NONE
+  InGameUIGLABase:
+    Texture: GLA2_Background.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:123 Right:799 Bottom:255
+    Status: NONE
+  InGameUIGLATopSmall:
+    Texture: GLA2_FrameSM.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:174 Right:799 Bottom:255
+    Status: NONE
+  InGameUIGLABaseSmall:
+    Texture: GLA2_BackgroundSM.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:180 Right:799 Bottom:255
+    Status: NONE
+  MainMenuBlackBorder:
+    Texture: MainMenuBlackBorder.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  America_ScoreScreen:
+    Texture: America_ScoreScreen.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  GLA_ScoreScreen:
+    Texture: GLA_ScoreScreen.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  China_ScoreScreen:
+    Texture: China_ScoreScreen.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MutiPlayer_ScoreScreen:
+    Texture: MutiPlayer_ScoreScreen.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MainMenuBackdrop:
+    Texture: MainMenuBackdrop.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  GeneralsChallengeMap:
+    Texture: GeneralsChallengeMapInterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:715 Bottom:479
+    Status: NONE
+  USAMissionDemoLoadScreen:
+    Texture: USAMissionDemoLoadScreen.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  GeneralsChallengeWinLoss:
+    Texture: GC_WinLoss_Background.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MDSkirmishLoadB:
+    Texture: Mp_Loaduserinterface_00b.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  WarSchoolWindow:
+    Texture: WarSchoolBar.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:681 Bottom:159
+    Status: NONE
+  GCBackgroundMinSpec:
+    Texture: ChallengeBackgroundMinSpec.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MissionLoad_China:
+    Texture: MissionLoad_China.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MissionLoad_GLA:
+    Texture: MissionLoad_GLA.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MissionLoad_USA:
+    Texture: MissionLoad_USA.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE

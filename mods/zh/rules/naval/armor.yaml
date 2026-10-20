@@ -1,0 +1,22 @@
+# OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
+# Shared by the ships of every faction (rules/<faction>/ships.yaml).
+
+Armor:
+  # Like vehicle armor, but tougher against small arms and weak against armor piercing shells.
+  NavalArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 25%
+    - GATTLING 25%
+    - SNIPER 0%
+    - POISON 0%
+    - RADIATION 25%
+    - FLAME 50%
+    - ARMOR_PIERCING 120%
+    - CRUSH 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - HAZARD_CLEANUP 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%

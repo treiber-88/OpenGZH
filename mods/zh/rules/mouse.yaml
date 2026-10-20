@@ -1,0 +1,137 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Mouse:
+  TooltipFontName: Arial
+  TooltipFontSize: 8
+  TooltipFontIsBold: No
+  TooltipAnimateBackground: No
+  TooltipFillTime: 250
+  TooltipDelayTime: 800
+  TooltipTextColor: R:220 G:220 B:220 A:255
+  TooltipHighlightColor: R:255 G:255 B:0 A:255
+  TooltipShadowColor: R:0 G:0 B:0 A:255
+  TooltipBorderColor: R:60 G:60 B:155 A:255
+  TooltipBackgroundColor: R:20 G:20 B:20 A:255
+  TooltipWidth: 20
+  UseTooltipAltTextColor: No
+  UseTooltipAltBackColor: Yes
+  AdjustTooltipAltColor: Yes
+  OrthoCamera: Yes
+  OrthoZoom: 0.5
+  DragTolerance: 25
+  DragTolerance3D: 25
+  DragToleranceMS: 250
+MouseCursors:
+  Normal:
+    Texture: SCCPointer
+    Image: SCCPointer
+  Arrow:
+    Texture: SCCPointer
+    Image: SCCPointer
+  Scroll:
+    Texture: SCCScroll
+    Image: SCCScroll
+    Directions: 8
+  Target:
+    Texture: SCCAttack
+    Image: SCCAttack
+  Move:
+    Image: SCCMove
+    Texture: SCCMove
+  AttackMove:
+    Image: SCCAttMov
+    Texture: SCCAttMov
+  AttackObj:
+    Image: SCCAttack
+    Texture: SCCAttack
+  ForceAttackObj:
+    Image: SCCAttack
+    Texture: SCCAttack
+  ForceAttackGround:
+    Image: SCCAttack
+    Texture: SCCAttack
+  Select:
+    Image: SCCSelect
+    Texture: SCCSelect
+  GenericInvalid:
+    Texture: SCCNoAction
+    Image: SCCNoAction
+  EnterFriendly:
+    Image: SCCEnter
+    Texture: SCCEnter
+  EnterAggressive:
+    Image: SCCExit
+    Texture: SCCExit
+  CaptureBuilding:
+    Texture: SCCHostile2
+    Image: SCCHostile2
+  SnipeVehicle:
+    Image: SCCSniper
+    Texture: SCCSniper
+  FireBomb:
+    Image: SCCHostile
+    Texture: SCCHostile
+  Defector:
+    Image: SCCFriendly
+    Texture: SCCFriendly
+  LaserGuidedMissiles:
+    Image: SCCHostile
+    Texture: SCCHostile
+  TankHunterTNTAttack:
+    Image: SCCTNTAttack
+    Texture: SCCTNTAttack
+  StabAttack:
+    Image: SCCKnifeAttack
+    Texture: SCCKnifeAttack
+  Hack:
+    Image: SCCCashHack
+    Texture: SCCCashHack
+  StabAttackInvalid:
+    Image: SCCNoKnife
+    Texture: SCCNoKnife
+  PlaceRemoteCharge:
+    Image: SCCRemoteChg
+    Texture: SCCRemoteChg
+  PlaceTimedCharge:
+    Image: SCCTimedChg
+    Texture: SCCTimedChg
+  PlaceChargeInvalid:
+    Image: SCCNoBomb
+    Texture: SCCNoBomb
+  SetRallyPoint:
+    Image: SCCRallyPnt
+    Texture: SCCRallyPnt
+  Dock:
+    Image: SCCEnter
+    Texture: SCCEnter
+  GetRepaired:
+    Image: SCCEnter
+    Texture: SCCEnter
+  GetHealed:
+    Image: SCCEnter
+    Texture: SCCEnter
+  DoRepair:
+    Image: SCCRepair
+    Texture: SCCRepair
+  ResumeConstruction:
+    Image: SCCResumeC
+    Texture: SCCResumeC
+  FireFlame:
+    Image: SCCHostile
+    Texture: SCCHostile
+  PlaceBeacon:
+    Image: SCCPlaceBeacon
+    Texture: SCCPlaceBeacon
+  DisguiseAsVehicle:
+    Image: SCCHostile3
+    Texture: SCCHostile3
+  Waypoint:
+    Image: SCCWaypoint
+    Texture: SCCWaypoint
+  OutRange:
+    Image: SCCAttack
+    Texture: SCCAttack
+  ParticleUplinkCannon:
+    Image: SCCSDIUplink
+    Texture: SCCSDIUplink

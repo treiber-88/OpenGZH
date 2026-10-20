@@ -1,0 +1,694 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Roads:
+  TwoLane:
+    Texture: TRTwoLane.tga
+    RoadWidth: 35.0
+    RoadWidthInTexture: 0.9
+  TwoLaneDark:
+    Texture: TRTwoLane5.tga
+    RoadWidth: 35.0
+    RoadWidthInTexture: 0.9
+  TwoLaneDarkDotted:
+    Texture: TRTwoLane6.tga
+    RoadWidth: 35.0
+    RoadWidthInTexture: 0.9
+  TwoLaneOld:
+    Texture: TRTwoLane3.tga
+    RoadWidth: 60.0
+    RoadWidthInTexture: 0.9
+  TwoLaneOld2:
+    Texture: TRTwoLane2.tga
+    RoadWidth: 60.0
+    RoadWidthInTexture: 0.9
+  TwoLaneOld2Snow:
+    Texture: TRTwoLane2S.tga
+    RoadWidth: 60.0
+    RoadWidthInTexture: 0.9
+  TwoLaneOld3:
+    Texture: TRTwoLane4.tga
+    RoadWidth: 60.0
+    RoadWidthInTexture: 0.9
+  TwoLaneOld3Snow:
+    Texture: TRTwoLane4S.tga
+    RoadWidth: 60.0
+    RoadWidthInTexture: 0.9
+  FourLane:
+    Texture: TRFourLane.tga
+    RoadWidth: 60.0
+    RoadWidthInTexture: 0.9
+  FourLaneDark:
+    Texture: TRFourLane2.tga
+    RoadWidth: 60.0
+    RoadWidthInTexture: 0.9
+  Cobblestone:
+    Texture: TRCobbRoad.tga
+    RoadWidth: 30.0
+    RoadWidthInTexture: 0.9
+  GrassStrip:
+    Texture: TRGrassStrip.tga
+    RoadWidth: 8
+    RoadWidthInTexture: 0.9
+  GrassStripSnow:
+    Texture: TRGrassStripS.tga
+    RoadWidth: 8
+    RoadWidthInTexture: 0.9
+  Sidewalk:
+    Texture: TRSidewalk.tga
+    RoadWidth: 8
+    RoadWidthInTexture: 0.9
+  Sidewalk2:
+    Texture: TRSidewalk2.tga
+    RoadWidth: 16
+    RoadWidthInTexture: 0.9
+  Sidewalk3:
+    Texture: TRSidewalk3.tga
+    RoadWidth: 22
+    RoadWidthInTexture: 0.9
+  Sidewalk4:
+    Texture: TRSidewalk4.tga
+    RoadWidth: 28
+    RoadWidthInTexture: 0.9
+  DirtRoad:
+    Texture: TRDirtRoad.tga
+    RoadWidth: 52
+    RoadWidthInTexture: .95
+  DirtRoad2:
+    Texture: TRDirtRoad2.tga
+    RoadWidth: 33
+    RoadWidthInTexture: .95
+  DirtRoad3:
+    Texture: TRDirtRoad3.tga
+    RoadWidth: 33
+    RoadWidthInTexture: .95
+  DirtRoad4:
+    Texture: TRDirtRoad4.tga
+    RoadWidth: 52
+    RoadWidthInTexture: .95
+  DirtRoad5:
+    Texture: TRDirtRoad6.tga
+    RoadWidth: 52
+    RoadWidthInTexture: .95
+  DirtRoadTracks:
+    Texture: TRDirtRoad7.tga
+    RoadWidth: 52
+    RoadWidthInTexture: .95
+  DirtRoadTracks2:
+    Texture: TRDirtRoad8.tga
+    RoadWidth: 52
+    RoadWidthInTexture: .95
+  DirtRoadTracks3:
+    Texture: TRDirtRoad9.tga
+    RoadWidth: 52
+    RoadWidthInTexture: .95
+  DirtRoadSnow:
+    Texture: TRDirtRoad5.tga
+    RoadWidth: 60
+    RoadWidthInTexture: .95
+  ParkingLines:
+    Texture: TRParkingLines.tga
+    RoadWidth: 35
+    RoadWidthInTexture: .95
+  ParkLinesDiag:
+    Texture: TRParkLinesDiag.tga
+    RoadWidth: 35
+    RoadWidthInTexture: .95
+  SandRoad1:
+    Texture: TRSandRoad.tga
+    RoadWidth: 33
+    RoadWidthInTexture: .95
+  DirtPath1:
+    Texture: TRDirtPath.tga
+    RoadWidth: 10
+    RoadWidthInTexture: .95
+  DirtPath2:
+    Texture: TRDirtPath2.tga
+    RoadWidth: 10
+    RoadWidthInTexture: .95
+  GravelRoad:
+    Texture: TRGravelRoad.tga
+    RoadWidth: 33
+    RoadWidthInTexture: .95
+  GravelRoadSnow:
+    Texture: TRGravelRoadS.tga
+    RoadWidth: 33
+    RoadWidthInTexture: .95
+  DirtPath2Leaves:
+    Texture: TRDirtPath3.tga
+    RoadWidth: 10
+    RoadWidthInTexture: .95
+  TrainTrack:
+    Texture: TRTrainTrack.tga
+    RoadWidth: 35
+    RoadWidthInTexture: .95
+  TrainTrack2:
+    Texture: TRTrainTrack2.tga
+    RoadWidth: 35
+    RoadWidthInTexture: .95
+  TrainTrack3:
+    Texture: TRTrainTrack3.tga
+    RoadWidth: 35
+    RoadWidthInTexture: .95
+  ArrowLong:
+    Texture: TRArrowLng.tga
+    RoadWidth: 10
+    RoadWidthInTexture: 3
+  ArrowBiDirectional:
+    Texture: TRArrowBiDir.tga
+    RoadWidth: 10
+    RoadWidthInTexture: 3
+  ArrowLarge:
+    Texture: TRArrow.tga
+    RoadWidth: 10
+    RoadWidthInTexture: 3
+  WordYield:
+    Texture: TRWdYield.tga
+    RoadWidth: 8
+    RoadWidthInTexture: 3
+  WordCaution:
+    Texture: TRWdCaution.tga
+    RoadWidth: 10
+    RoadWidthInTexture: 3
+  WordStopHere:
+    Texture: TRWdStopHere.tga
+    RoadWidth: 10
+    RoadWidthInTexture: 3
+  NoSymbol:
+    Texture: TRNoSymbol.tga
+    RoadWidth: 10
+    RoadWidthInTexture: 3
+  StreetHoleCover:
+    Texture: TRStrtHoleCvr.tga
+    RoadWidth: 10
+    RoadWidthInTexture: 3
+  CircleCross:
+    Texture: TRCircleCross.tga
+    RoadWidth: 10
+    RoadWidthInTexture: 3
+  Helipad:
+    Texture: TRHelipad.tga
+    RoadWidth: 15
+    RoadWidthInTexture: 3
+  ParkSpace:
+    Texture: TRParkSpace.tga
+    RoadWidth: 15
+    RoadWidthInTexture: 3
+  Cross:
+    Texture: TRCross.tga
+    RoadWidth: 15
+    RoadWidthInTexture: 3
+  SingleWhiteLine:
+    Texture: TRSingleWhite.tga
+    RoadWidth: 20
+    RoadWidthInTexture: .9
+  CautionStrip:
+    Texture: TRCautionStrip.tga
+    RoadWidth: 20
+    RoadWidthInTexture: .9
+  ThickLine:
+    Texture: TRThickLine.tga
+    RoadWidth: 20
+    RoadWidthInTexture: .9
+  DashedLineWhite:
+    Texture: TRDashedWhite.tga
+    RoadWidth: 20
+    RoadWidthInTexture: .9
+  CautionArea:
+    Texture: TRCautionArea.tga
+    RoadWidth: 20
+    RoadWidthInTexture: .9
+  CautionAreaYellow:
+    Texture: TRCautionAreaY.tga
+    RoadWidth: 20
+    RoadWidthInTexture: .9
+  CrossWalk:
+    Texture: TRCrossWalk.tga
+    RoadWidth: 20
+    RoadWidthInTexture: .9
+  CrossWalkYellow:
+    Texture: TRCrossWalkY.tga
+    RoadWidth: 20
+    RoadWidthInTexture: .9
+  DryCracks01:
+    Texture: TRCrackEarth01.tga
+    RoadWidth: 40
+    RoadWidthInTexture: 3
+  DryCracks02:
+    Texture: TRCrackEarth02.tga
+    RoadWidth: 40
+    RoadWidthInTexture: 3
+  DryCracks03:
+    Texture: TRCrackEarth03.tga
+    RoadWidth: 40
+    RoadWidthInTexture: 3
+  DryCracks04:
+    Texture: TRCrackEarth04.tga
+    RoadWidth: 40
+    RoadWidthInTexture: 3
+  Cracks:
+    Texture: TRCracks.tga
+    RoadWidth: 40
+    RoadWidthInTexture: 3
+  CobbleStones:
+    Texture: TRCobbleStones.tga
+    RoadWidth: 40
+    RoadWidthInTexture: 3
+Bridges:
+  IronSectionalDoublewide:
+    BridgeScale: 0.85
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: TBDoubWide
+    Texture: TBDoubWide.tga
+    BridgeModelNameDamaged: TBDoubWide_d
+    TextureDamaged: TBDoubWide_d.tga
+    BridgeModelNameReallyDamaged: TBDoubWide_e
+    TextureReallyDamaged: TBDoubWide_e.tga
+    BridgeModelNameBroken: TBDoubWide_r
+    TextureBroken: TBDoubWide_r.tga
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  IronSectionalDoublewide2:
+    BridgeScale: 2.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: TBDoubWide
+    Texture: TBDoubWide.tga
+    BridgeModelNameDamaged: TBDoubWide_d
+    TextureDamaged: TBDoubWide_d.tga
+    BridgeModelNameReallyDamaged: TBDoubWide_e
+    TextureReallyDamaged: TBDoubWide_e.tga
+    BridgeModelNameBroken: TBDoubWide_r
+    TextureBroken: TBDoubWide_r.tga
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  WoodenSectional:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgWds
+    Texture: CBBridgeWds.tga
+    BridgeModelNameDamaged: CBBridgWds_d
+    TextureDamaged: CBBridgeWds_d.tga
+    BridgeModelNameReallyDamaged: CBBridgWds_e
+    TextureReallyDamaged: CBBridgeWds_e.tga
+    BridgeModelNameBroken: CBBridgWds_r
+    TextureBroken: CBBridgeWds_r.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  Industrial:
+    BridgeScale: 0.85
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgeIn
+    Texture: CBBridgeIn.tga
+    BridgeModelNameDamaged: CBBridgeIn_d
+    TextureDamaged: CBBridgeIn_d.tga
+    BridgeModelNameReallyDamaged: CBBridgeIn_e
+    TextureReallyDamaged: CBBridgeIn_e.tga
+    BridgeModelNameBroken: CBBridgeIn_r
+    TextureBroken: CBBridgeIn_r.tga
+    TowerObjectNameFromLeft: IndustrialBridgeTower01
+    TowerObjectNameFromRight: IndustrialBridgeTower01
+    TowerObjectNameToLeft: IndustrialBridgeTower01
+    TowerObjectNameToRight: IndustrialBridgeTower01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  Concrete:
+    BridgeScale: 0.85
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgeSt
+    Texture: CBBridgeSt.tga
+    BridgeModelNameDamaged: CBBridgeSt_d
+    TextureDamaged: CBBridgeSt_d.tga
+    BridgeModelNameReallyDamaged: CBBridgeSt_e
+    TextureReallyDamaged: CBBridgeSt_e.tga
+    BridgeModelNameBroken: CBBridgeSt_r
+    TextureBroken: CBBridgeSt_r.tga
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+    TransitionEffectsHeight: 0.0
+    NumFXPerType: 32
+    DamagedToSound: BridgeDamaged
+    RepairedToSound: BridgeRepaired
+    TransitionToOCL:
+    - Transition:Damage ToState:DAMAGED EffectNum:1 OCL:OCL_BridgeDamaged01
+    - Transition:Damage ToState:REALLYDAMAGED EffectNum:1 OCL:OCL_BridgeDamaged01
+    - Transition:Damage ToState:RUBBLE EffectNum:1 OCL:OCL_BridgeDamaged01
+    - Transition:Repair ToState:PRISTINE EffectNum:1 OCL:OCL_BridgeRepaired01
+    - Transition:Repair ToState:DAMAGED EffectNum:1 OCL:OCL_BridgeRepaired01
+    - Transition:Repair ToState:REALLYDAMAGED EffectNum:1 OCL:OCL_BridgeRepaired01
+    TransitionToFX:
+    - Transition:Damage ToState:DAMAGED EffectNum:1 FX:FX_BridgeDamaged01
+    - Transition:Damage ToState:REALLYDAMAGED EffectNum:1 FX:FX_BridgeDamaged01
+    - Transition:Damage ToState:RUBBLE EffectNum:1 FX:FX_BridgeDamaged01
+    - Transition:Repair ToState:PRISTINE EffectNum:1 FX:FX_BridgeRepaired01
+    - Transition:Repair ToState:DAMAGED EffectNum:1 FX:FX_BridgeRepaired01
+    - Transition:Repair ToState:REALLYDAMAGED EffectNum:1 FX:FX_BridgeRepaired01
+  ConcreteWide:
+    BridgeScale: .67
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBWBrdgSt
+    Texture: CBWBrdgeSt.tga
+    BridgeModelNameDamaged: CBWBrdgSt_d
+    TextureDamaged: CBWBrdgeSt.tga
+    BridgeModelNameReallyDamaged: CBWBrdgSt_e
+    TextureReallyDamaged: CBWBrdgeSt_.tga
+    BridgeModelNameBroken: CBWBrdgSt_r
+    TextureBroken: CBWBrdgeSt_r.tga
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+    TransitionEffectsHeight: 0.0
+    NumFXPerType: 32
+    DamagedToSound: BridgeDamaged
+    RepairedToSound: BridgeRepaired
+    TransitionToOCL:
+    - Transition:Damage ToState:DAMAGED EffectNum:1 OCL:OCL_BridgeDamaged01
+    - Transition:Damage ToState:REALLYDAMAGED EffectNum:1 OCL:OCL_BridgeDamaged01
+    - Transition:Damage ToState:RUBBLE EffectNum:1 OCL:OCL_BridgeDamaged01
+    - Transition:Repair ToState:PRISTINE EffectNum:1 OCL:OCL_BridgeRepaired01
+    - Transition:Repair ToState:DAMAGED EffectNum:1 OCL:OCL_BridgeRepaired01
+    - Transition:Repair ToState:REALLYDAMAGED EffectNum:1 OCL:OCL_BridgeRepaired01
+    TransitionToFX:
+    - Transition:Damage ToState:DAMAGED EffectNum:1 FX:FX_BridgeDamaged01
+    - Transition:Damage ToState:REALLYDAMAGED EffectNum:1 FX:FX_BridgeDamaged01
+    - Transition:Damage ToState:RUBBLE EffectNum:1 FX:FX_BridgeDamaged01
+    - Transition:Repair ToState:PRISTINE EffectNum:1 FX:FX_BridgeRepaired01
+    - Transition:Repair ToState:DAMAGED EffectNum:1 FX:FX_BridgeRepaired01
+    - Transition:Repair ToState:REALLYDAMAGED EffectNum:1 FX:FX_BridgeRepaired01
+  ConcreteTwoLane:
+    BridgeScale: 1
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgSm
+    Texture: CBBridgeSm.tga
+    BridgeModelNameDamaged: CBBridgSm_d
+    TextureDamaged: CBBridgeSm_d.tga
+    BridgeModelNameReallyDamaged: CBBridgSm_e
+    TextureReallyDamaged: CBBridgeSm_e.tga
+    BridgeModelNameBroken: CBBridgSm_r
+    TextureBroken: CBBridgeSm_r.tga
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  ConcreteFourLane:
+    BridgeScale: 0.9
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgSt2
+    Texture: CBBridgeSt5.tga
+    BridgeModelNameDamaged: CBBridgSm_d
+    TextureDamaged: CBBridgeSm_d.tga
+    BridgeModelNameReallyDamaged: CBBridgSm_e
+    TextureReallyDamaged: CBBridgeSm_e.tga
+    BridgeModelNameBroken: CBBridgSm_r
+    TextureBroken: CBBridgeSm_r.tga
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  ConcreteOneLane:
+    BridgeScale: 1
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgSm
+    Texture: CBBridgeSm.tga
+    BridgeModelNameDamaged: CBBridgSm_d
+    TextureDamaged: CBBridgeSm_d.tga
+    BridgeModelNameReallyDamaged: CBBridgSm_e
+    TextureReallyDamaged: CBBridgeSm_e.tga
+    BridgeModelNameBroken: CBBridgSm_r
+    TextureBroken: CBBridgeSm_r.tga
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridge:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgeArc
+    Texture: CBBridgeArc4.tga
+    BridgeModelNameDamaged: CBBridgeArc_D
+    TextureDamaged: CBBridgeArc4_D.tga
+    BridgeModelNameReallyDamaged: CBBridgeArc_E
+    TextureReallyDamaged: CBBridgeArc4_E.tga
+    BridgeModelNameBroken: CBBridgeArc_R
+    TextureBroken: CBBridgeArc4_R.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeWRailing:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgeArc02
+    Texture: CBBridgeArc02.tga
+    BridgeModelNameDamaged: CBBridgeArc_D
+    TextureDamaged: CBBridgeArc4_D.tga
+    BridgeModelNameReallyDamaged: CBBridgeArc_E
+    TextureReallyDamaged: CBBridgeArc4_E.tga
+    BridgeModelNameBroken: CBBridgeArc_R
+    TextureBroken: CBBridgeArc4_R.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeFourLane:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgeArc
+    Texture: CBBridgeArc.tga
+    BridgeModelNameDamaged: CBBridgeArc_D
+    TextureDamaged: CBBridgeArc_D.tga
+    BridgeModelNameReallyDamaged: CBBridgeArc_E
+    TextureReallyDamaged: CBBridgeArc_E.tga
+    BridgeModelNameBroken: CBBridgeArc_R
+    TextureBroken: CBBridgeArc_R.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeFourLaneWIDE:
+    BridgeScale: .68
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBWBrdgeArc
+    Texture: CBWBrdgeArc2.tga
+    BridgeModelNameDamaged: CBWBrdgeArc_D
+    TextureDamaged: CBWBrdgeArc2.tga
+    BridgeModelNameReallyDamaged: CBWBrdgeArc_E
+    TextureReallyDamaged: CBWBrdgeArc2_R.tga
+    BridgeModelNameBroken: CBWBrdgeArc_R
+    TextureBroken: CBWBrdgeArc2_R.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeTwoLane:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgeArc
+    Texture: CBBridgeArc2.tga
+    BridgeModelNameDamaged: CBBridgeArc_D
+    TextureDamaged: CBBridgeArc2_D.tga
+    BridgeModelNameReallyDamaged: CBBridgeArc_E
+    TextureReallyDamaged: CBBridgeArc2_E.tga
+    BridgeModelNameBroken: CBBridgeArc_R
+    TextureBroken: CBBridgeArc2_R.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeAsphalt:
+    BridgeScale: .9
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgeArc3
+    Texture: CBBridgeArc3.tga
+    BridgeModelNameDamaged: CBBridgeArc3_D
+    TextureDamaged: CBBridgeArc3_D.tga
+    BridgeModelNameReallyDamaged: CBBridgeArc3_E
+    TextureReallyDamaged: CBBridgeArc3_E.tga
+    BridgeModelNameBroken: CBBridgeArc3_R
+    TextureBroken: CBBridgeArc3_R.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeSNOW:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBBridgeArc
+    Texture: CBBridgeArc_S.tga
+    BridgeModelNameDamaged: CBBridgeArc_D
+    TextureDamaged: CBBridgeArc_DS.tga
+    BridgeModelNameReallyDamaged: CBBridgeArc_E
+    TextureReallyDamaged: CBBridgeArc_ES.tga
+    BridgeModelNameBroken: CBBridgeArc_R
+    TextureBroken: CBBridgeArc_RS.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeWide:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBWBrdgeArc
+    Texture: CBWBrdgeArc.tga
+    BridgeModelNameDamaged: CBWBrdgeArc_D
+    TextureDamaged: CBWBrdgeArc.tga
+    BridgeModelNameReallyDamaged: CBWBrdgeArc_E
+    TextureReallyDamaged: CBWBrdgeArc_R.tga
+    BridgeModelNameBroken: CBWBrdgeArc_R
+    TextureBroken: CBWBrdgeArc_R.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeWideSNOW:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBWBrdgeArc
+    Texture: CBWBrdgeArc_S.tga
+    BridgeModelNameDamaged: CBWBrdgeArc_D
+    TextureDamaged: CBWBrdgeArc_S.tga
+    BridgeModelNameReallyDamaged: CBWBrdgeArc_E
+    TextureReallyDamaged: CBWBrdgeArc_RS.tga
+    BridgeModelNameBroken: CBWBrdgeArc_R
+    TextureBroken: CBWBrdgeArc_RS.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanBridgeWideSNOWDeep:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBWBrdgeLArc
+    Texture: CBWBrdgeArc_S.tga
+    BridgeModelNameDamaged: CBWBrdgeLArc_D
+    TextureDamaged: CBWBrdgeArc_S.tga
+    BridgeModelNameReallyDamaged: CBWBrdgeLArc_E
+    TextureReallyDamaged: CBWBrdgeArc_RS.tga
+    BridgeModelNameBroken: CBWBrdgeLArc_R
+    TextureBroken: CBWBrdgeArc_RS.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  KandaharBridge:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBWBridgeKH
+    Texture: CBWBridgeKH.tga
+    BridgeModelNameDamaged: CBWBridgeKH_D
+    TextureDamaged: CBWBridgeKH.tga
+    BridgeModelNameReallyDamaged: CBWBridgeKH_E
+    TextureReallyDamaged: CBWBridgeKH_R.tga
+    BridgeModelNameBroken: CBWBridgeKH_R
+    TextureBroken: CBWBridgeKH_R.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  Tampico:
+    BridgeScale: 1.0
+    RadarColor: R:192 G:192 B:192
+    BridgeModelName: CBTampico
+    Texture: CBTampico.tga
+    BridgeModelNameDamaged: CBTampico_D
+    TextureDamaged: CBTampico.tga
+    BridgeModelNameReallyDamaged: CBTampico_E
+    TextureReallyDamaged: CBTampico_D.tga
+    BridgeModelNameBroken: CBTampico_R
+    TextureBroken: CBTampico_D.tga
+    TowerObjectNameFromLeft: EuropeanTowerBridge01
+    TowerObjectNameFromRight: EuropeanTowerBridge01
+    TowerObjectNameToLeft: EuropeanTowerBridge01
+    TowerObjectNameToRight: EuropeanTowerBridge01
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  EuropeanLandmarkBridge:
+    RadarColor: R:192 G:192 B:192
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  TsingMaLandmarkBridge:
+    RadarColor: R:192 G:192 B:192
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  MonumentTrainBridge:
+    RadarColor: R:192 G:192 B:192
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  MonumentTrainBridgeHigh:
+    RadarColor: R:192 G:192 B:192
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  AsianFloodBridge:
+    RadarColor: R:192 G:192 B:192
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01
+  SpecialEffectsTrainCrashObject:
+    RadarColor: R:192 G:192 B:192
+    TowerObjectNameFromLeft: BridgeTowerConcreteLeft01
+    TowerObjectNameFromRight: BridgeTowerConcreteLeft02
+    TowerObjectNameToLeft: BridgeTowerConcreteRight01
+    TowerObjectNameToRight: BridgeTowerConcreteRight02
+    ScaffoldObjectName: BridgeScaffold01
+    ScaffoldSupportObjectName: BridgeScaffoldSupport01

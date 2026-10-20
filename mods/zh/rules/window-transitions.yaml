@@ -1,0 +1,1296 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+WindowTransitions:
+  MainMenuFade:
+    FireOnce: YES
+    Window:
+      WinName: MainMenu.wnd:MainMenuRuler
+      Style: WINFADE
+      FrameDelay: 0
+  MainMenuDefaultMenuLogoFade:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:Logo
+      Style: WINFADE
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSinglePlayer
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:ButtonMultiplayer
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonLoadReplay
+      Style: BUTTONFLASH
+      FrameDelay: 7
+    - WinName: MainMenu.wnd:ButtonOptions
+      Style: BUTTONFLASH
+      FrameDelay: 8
+    - WinName: MainMenu.wnd:ButtonCredits
+      Style: BUTTONFLASH
+      FrameDelay: 9
+    - WinName: MainMenu.wnd:ButtonExit
+      Style: BUTTONFLASH
+      FrameDelay: 10
+  MainMenuDefaultMenu:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSinglePlayer
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:ButtonMultiplayer
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonLoadReplay
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonOptions
+      Style: BUTTONFLASH
+      FrameDelay: 8
+    - WinName: MainMenu.wnd:ButtonCredits
+      Style: BUTTONFLASH
+      FrameDelay: 9
+    - WinName: MainMenu.wnd:ButtonExit
+      Style: BUTTONFLASH
+      FrameDelay: 10
+  MainMenuDefaultMenuBack:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSinglePlayer
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonMultiplayer
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonLoadReplay
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonOptions
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonCredits
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonExit
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuSinglePlayerMenu:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: BUTTONFLASH
+      FrameDelay: 7
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: BUTTONFLASH
+      FrameDelay: 8
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: BUTTONFLASH
+      FrameDelay: 9
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 9
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 8
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 7
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 6
+  MainMenuSinglePlayerMenuBack:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 2
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 3
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 4
+  MainMenuSinglePlayerMenuBackSkirmish:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:Logo
+      Style: WINFADE
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 1
+  MainMenuSinglePlayerMenuBackTraining:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:Logo
+      Style: WINFADE
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 1
+  MainMenuDifficultyMenuTrainingBack:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionTrainingMedium
+      Style: MAINMENUSCALEUP
+      FrameDelay: 2
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuSinglePlayerTrainingMenuFromDiff:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: BUTTONFLASH
+      FrameDelay: 7
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: BUTTONFLASH
+      FrameDelay: 8
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: BUTTONFLASH
+      FrameDelay: 9
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 5
+  MainMenuSinglePlayerMenuBackGLA:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 1
+  MainMenuSinglePlayerMenuBackChina:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 1
+  MainMenuSinglePlayerMenuBackUS:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 1
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 1
+  MainMenuLoadReplayMenu:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder3
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonLoadGame
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:ButtonReplay
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonLoadReplayBack
+      Style: BUTTONFLASH
+      FrameDelay: 7
+  MainMenuLoadReplayMenuBack:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder3
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonLoadGame
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonReplay
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonLoadReplayBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuLoadReplayMenuBackTransition:
+    Window:
+    - WinName: MainMenu.wnd:Logo
+      Style: WINFADE
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder3
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonLoadGame
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonReplay
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonLoadReplayBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuMultiPlayerMenu:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder1
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonOnline
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:ButtonNetwork
+      Style: BUTTONFLASH
+      FrameDelay: 11
+    - WinName: MainMenu.wnd:ButtonMultiBack
+      Style: BUTTONFLASH
+      FrameDelay: 12
+  MainMenuMultiPlayerMenuTransitionToNext:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:Logo
+      Style: WINFADE
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder1
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonOnline
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonNetwork
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonMultiBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuMultiPlayerMenuReverse:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder1
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonOnline
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonNetwork
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonMultiBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuDifficultyMenu:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: BUTTONFLASH
+      FrameDelay: 11
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: BUTTONFLASH
+      FrameDelay: 12
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: BUTTONFLASH
+      FrameDelay: 13
+  MainMenuDifficultyMenuBack:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuDifficultyMenuUS:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionUSMedium
+      Style: MAINMENUSCALEUP
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:StaticTextSelectDifficulty
+      Style: TYPETEXT
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: BUTTONFLASH
+      FrameDelay: 11
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: BUTTONFLASH
+      FrameDelay: 12
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: BUTTONFLASH
+      FrameDelay: 13
+  MainMenuDifficultyMenuUSBack:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionUSMedium
+      Style: MAINMENUSCALEUP
+      FrameDelay: 2
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuSinglePlayerUSAMenuFromDiff:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: BUTTONFLASH
+      FrameDelay: 7
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: BUTTONFLASH
+      FrameDelay: 8
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: BUTTONFLASH
+      FrameDelay: 9
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 5
+  MainMenuDifficultyMenuChina:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionChinaMedium
+      Style: MAINMENUSCALEUP
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:StaticTextSelectDifficulty
+      Style: TYPETEXT
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: BUTTONFLASH
+      FrameDelay: 11
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: BUTTONFLASH
+      FrameDelay: 12
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: BUTTONFLASH
+      FrameDelay: 13
+  MainMenuDifficultyMenuChinaBack:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionChinaMedium
+      Style: MAINMENUSCALEUP
+      FrameDelay: 2
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuSinglePlayerChinaMenuFromDiff:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: BUTTONFLASH
+      FrameDelay: 7
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: BUTTONFLASH
+      FrameDelay: 8
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: BUTTONFLASH
+      FrameDelay: 9
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: WINSCALEUP
+      FrameDelay: 5
+  MainMenuDifficultyMenuGLA:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionGLAMedium
+      Style: MAINMENUSCALEUP
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:StaticTextSelectDifficulty
+      Style: TYPETEXT
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: BUTTONFLASH
+      FrameDelay: 11
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: BUTTONFLASH
+      FrameDelay: 12
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: BUTTONFLASH
+      FrameDelay: 13
+  MainMenuDifficultyMenuTraining:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionTrainingMedium
+      Style: MAINMENUSCALEUP
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:StaticTextSelectDifficulty
+      Style: TYPETEXT
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: BUTTONFLASH
+      FrameDelay: 11
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: BUTTONFLASH
+      FrameDelay: 12
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: BUTTONFLASH
+      FrameDelay: 13
+  MainMenuDifficultyMenuGLABack:
+    Window:
+    - WinName: MainMenu.wnd:MapBorder4
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:WinFactionGLAMedium
+      Style: MAINMENUSCALEUP
+      FrameDelay: 2
+    - WinName: MainMenu.wnd:WinFactionGLA
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonEasy
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonMedium
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonHard
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonDiffBack
+      Style: FLASH
+      FrameDelay: 0
+  MainMenuSinglePlayerGLAMenuFromDiff:
+    FireOnce: YES
+    Window:
+    - WinName: MainMenu.wnd:MapBorder
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:ButtonChallenge
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:ButtonChina
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: MainMenu.wnd:ButtonGLA
+      Style: BUTTONFLASH
+      FrameDelay: 7
+    - WinName: MainMenu.wnd:ButtonUSA
+      Style: BUTTONFLASH
+      FrameDelay: 8
+    - WinName: MainMenu.wnd:ButtonSkirmish
+      Style: BUTTONFLASH
+      FrameDelay: 9
+    - WinName: MainMenu.wnd:ButtonSingleBack
+      Style: BUTTONFLASH
+      FrameDelay: 10
+    - WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionTraining
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionUS
+      Style: WINSCALEUP
+      FrameDelay: 5
+    - WinName: MainMenu.wnd:WinFactionChina
+      Style: WINSCALEUP
+      FrameDelay: 5
+  MainMenuFactionSkirmish:
+    Window:
+      WinName: MainMenu.wnd:WinFactionSkirmish
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+  MainMenuFactionTraining:
+    Window:
+      WinName: MainMenu.wnd:WinFactionTraining
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+  MainMenuFactionUS:
+    Window:
+      WinName: MainMenu.wnd:WinFactionUS
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+  MainMenuFactionChina:
+    Window:
+      WinName: MainMenu.wnd:WinFactionChina
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+  MainMenuFactionGLA:
+    Window:
+      WinName: MainMenu.wnd:WinFactionGLA
+      Style: MAINMENUMEDIUMSCALEUP
+      FrameDelay: 0
+  FadeWholeScreen:
+    FireOnce: YES
+    Window:
+      Style: SCREENFADE
+      FrameDelay: 0
+  ScoreScreenShow:
+    FireOnce: YES
+    Window:
+    - WinName: ScoreScreen.wnd:StaticTextPlayerName
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt
+      Style: TEXTONFRAME
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost
+      Style: TEXTONFRAME
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed
+      Style: TEXTONFRAME
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsConstructed
+      Style: TEXTONFRAME
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost
+      Style: TEXTONFRAME
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed
+      Style: TEXTONFRAME
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextSuppliesCollected
+      Style: TEXTONFRAME
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:CameoUnitsCreated
+      Style: SCORESCALEUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:CameoUnitsLost
+      Style: SCORESCALEUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:CameoUnitsDestroyed
+      Style: SCORESCALEUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:CameoBuildingCreated
+      Style: SCORESCALEUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:CameoBuildingLost
+      Style: SCORESCALEUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:CameoBuildingDestroyed
+      Style: SCORESCALEUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:CameoSuppliesCollected
+      Style: SCORESCALEUP
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsBuilt1
+      Style: COUNTUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextPlayer1
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt1
+      Style: COUNTUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost1
+      Style: COUNTUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed1
+      Style: COUNTUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed1
+      Style: COUNTUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost1
+      Style: COUNTUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextResources1
+      Style: COUNTUP
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsBuilt0
+      Style: COUNTUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextPlayer0
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt0
+      Style: COUNTUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost0
+      Style: COUNTUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed0
+      Style: COUNTUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed0
+      Style: COUNTUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost0
+      Style: COUNTUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextResources0
+      Style: COUNTUP
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsBuilt2
+      Style: COUNTUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextPlayer2
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt2
+      Style: COUNTUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost2
+      Style: COUNTUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed2
+      Style: COUNTUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed2
+      Style: COUNTUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost2
+      Style: COUNTUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextResources2
+      Style: COUNTUP
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsBuilt3
+      Style: COUNTUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextPlayer3
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt3
+      Style: COUNTUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost3
+      Style: COUNTUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed3
+      Style: COUNTUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed3
+      Style: COUNTUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost3
+      Style: COUNTUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextResources3
+      Style: COUNTUP
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsBuilt4
+      Style: COUNTUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextPlayer4
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt4
+      Style: COUNTUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost4
+      Style: COUNTUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed4
+      Style: COUNTUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed4
+      Style: COUNTUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost4
+      Style: COUNTUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextResources4
+      Style: COUNTUP
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsBuilt5
+      Style: COUNTUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextPlayer5
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt5
+      Style: COUNTUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost5
+      Style: COUNTUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed5
+      Style: COUNTUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed5
+      Style: COUNTUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost5
+      Style: COUNTUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextResources5
+      Style: COUNTUP
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsBuilt6
+      Style: COUNTUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextPlayer6
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt6
+      Style: COUNTUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost6
+      Style: COUNTUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed6
+      Style: COUNTUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed6
+      Style: COUNTUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost6
+      Style: COUNTUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextResources6
+      Style: COUNTUP
+      FrameDelay: 48
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsBuilt7
+      Style: COUNTUP
+      FrameDelay: 24
+    - WinName: ScoreScreen.wnd:StaticTextPlayer7
+      Style: TEXTONFRAME
+      FrameDelay: 0
+    - WinName: ScoreScreen.wnd:StaticTextUnitsBuilt7
+      Style: COUNTUP
+      FrameDelay: 1
+    - WinName: ScoreScreen.wnd:StaticTextUnitsLost7
+      Style: COUNTUP
+      FrameDelay: 8
+    - WinName: ScoreScreen.wnd:StaticTextUnitsDestroyed7
+      Style: COUNTUP
+      FrameDelay: 16
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsDestroyed7
+      Style: COUNTUP
+      FrameDelay: 40
+    - WinName: ScoreScreen.wnd:StaticTextBuildingsLost7
+      Style: COUNTUP
+      FrameDelay: 32
+    - WinName: ScoreScreen.wnd:StaticTextResources7
+      Style: COUNTUP
+      FrameDelay: 48
+  LanLobbyFade:
+    FireOnce: Yes
+    Window:
+      WinName: LanLobbyMenu.wnd:GadgetParent
+      Style: FULLFADE
+      FrameDelay: 0
+  LanGameOptionsFade:
+    FireOnce: Yes
+    Window:
+      WinName: LanGameOptionsMenu.wnd:GadgetParent
+      Style: FULLFADE
+      FrameDelay: 0
+  GameSpyGameOptionsMenuFade:
+    FireOnce: Yes
+    Window:
+      WinName: GameSpyGameOptionsMenu.wnd:FadeParent
+      Style: FULLFADE
+      FrameDelay: 0
+  GameSpyLoginProfileFade:
+    FireOnce: Yes
+    Window:
+      WinName: GameSpyLoginProfile.wnd:GadgetParent
+      Style: FULLFADE
+      FrameDelay: 0
+  NetworkDirectConnectFade:
+    FireOnce: Yes
+    Window:
+      WinName: NetworkDirectConnect.wnd:GadgetParent
+      Style: FULLFADE
+      FrameDelay: 0
+  SkirmishGameOptionsMenuFade:
+    FireOnce: Yes
+    Window:
+      WinName: SkirmishGameOptionsMenu.wnd:SubParent
+      Style: FULLFADE
+      FrameDelay: 0
+  ChallengeMenuFade:
+    FireOnce: Yes
+    Window:
+      WinName: ChallengeMenu.wnd:GadgetParent
+      Style: FULLFADE
+      FrameDelay: 0
+  SaveLoadMenuFade:
+    FireOnce: Yes
+    Window:
+      WinName: SaveLoad.wnd:SaveLoadMenu
+      Style: FULLFADE
+      FrameDelay: 0
+  WOLCustomLobbyFade:
+    FireOnce: Yes
+    Window:
+      WinName: WOLCustomLobby.wnd:GadgetParent
+      Style: FULLFADE
+      FrameDelay: 0
+  WOLQuickMatchMenuFade:
+    FireOnce: Yes
+    Window:
+      WinName: WOLQuickMatchMenu.wnd:SubParent
+      Style: FULLFADE
+      FrameDelay: 0
+  ReplayMenuFade:
+    FireOnce: Yes
+    Window:
+      WinName: ReplayMenu.wnd:GadgetParent
+      Style: FULLFADE
+      FrameDelay: 0
+  WOLWelcomeMenuFade:
+    FireOnce: Yes
+    Window:
+      WinName: WOLWelcomeMenu.wnd:GadgetParent
+      Style: FULLFADE
+      FrameDelay: 0
+  GenExpFade:
+    FireOnce: Yes
+    Window:
+      WinName: GeneralsExpPoints.wnd:GenExpParent
+      Style: WINFADE
+      FrameDelay: 0
+  QuitNoSave:
+    FireOnce: YES
+    Window:
+    - WinName: QuitNoSave.wnd:QuitMenuParent
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitNoSave.wnd:ButtonOptions
+      Style: BUTTONFLASH
+      FrameDelay: 4
+    - WinName: QuitNoSave.wnd:ButtonRestart
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: QuitNoSave.wnd:ButtonExit
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: QuitNoSave.wnd:ButtonReturn
+      Style: BUTTONFLASH
+      FrameDelay: 7
+  QuitNoSaveBack:
+    FireOnce: YES
+    Window:
+    - WinName: QuitNoSave.wnd:QuitMenuParent
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: QuitNoSave.wnd:ButtonOptions
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitNoSave.wnd:ButtonRestart
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitNoSave.wnd:ButtonExit
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitNoSave.wnd:ButtonReturn
+      Style: FLASH
+      FrameDelay: 0
+  QuitFull:
+    FireOnce: YES
+    Window:
+    - WinName: QuitMenu.wnd:QuitMenuParent
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitMenu.wnd:ButtonSaveLoad
+      Style: BUTTONFLASH
+      FrameDelay: 3
+    - WinName: QuitMenu.wnd:ButtonOptions
+      Style: BUTTONFLASH
+      FrameDelay: 4
+    - WinName: QuitMenu.wnd:ButtonRestart
+      Style: BUTTONFLASH
+      FrameDelay: 5
+    - WinName: QuitMenu.wnd:ButtonExit
+      Style: BUTTONFLASH
+      FrameDelay: 6
+    - WinName: QuitMenu.wnd:ButtonReturn
+      Style: BUTTONFLASH
+      FrameDelay: 7
+  QuitFullBack:
+    FireOnce: YES
+    Window:
+    - WinName: QuitMenu.wnd:QuitMenuParent
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: MainMenu.wnd:MapBorder2
+      Style: REVERSESOUND
+      FrameDelay: 0
+    - WinName: QuitMenu.wnd:ButtonSaveLoad
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitMenu.wnd:ButtonOptions
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitMenu.wnd:ButtonRestart
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitMenu.wnd:ButtonExit
+      Style: FLASH
+      FrameDelay: 0
+    - WinName: QuitMenu.wnd:ButtonReturn
+      Style: FLASH
+      FrameDelay: 0
+  ControlBarArrow:
+    FireOnce: YES
+    Window:
+      Style: CONTROLBARARROW
+      FrameDelay: 0

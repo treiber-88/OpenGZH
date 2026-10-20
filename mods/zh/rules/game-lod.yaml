@@ -1,0 +1,90 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+StaticGameLODs:
+  Low:
+    MinimumFPS: 10
+    MinimumProcessorFps: 0
+    SampleCount2D: 6
+    SampleCount3D: 24
+    StreamCount: 2
+    MaxParticleCount: 500
+    UseShadowVolumes: No
+    UseShadowDecals: No
+    UseCloudMap: No
+    UseLightMap: No
+    ShowSoftWaterEdge: No
+    MaxTankTrackEdges: 30
+    MaxTankTrackOpaqueEdges: 15
+    MaxTankTrackFadeDelay: 5000
+    UseBuildupScaffolds: No
+    UseTreeSway: No
+    UseEmissiveNightMaterials: No
+    TextureReductionFactor: 1
+  Medium:
+    MinimumFPS: 15
+    MinimumProcessorFps: 20
+    SampleCount2D: 6
+    SampleCount3D: 24
+    StreamCount: 2
+    MaxParticleCount: 1500
+    UseShadowVolumes: No
+    UseShadowDecals: Yes
+    UseCloudMap: Yes
+    UseLightMap: Yes
+    ShowSoftWaterEdge: Yes
+    MaxTankTrackEdges: 100
+    MaxTankTrackOpaqueEdges: 25
+    MaxTankTrackFadeDelay: 30000
+    UseBuildupScaffolds: Yes
+    UseTreeSway: Yes
+    UseEmissiveNightMaterials: Yes
+    TextureReductionFactor: 0
+  High:
+    MinimumFPS: 25
+    MinimumProcessorFps: 29
+    SampleCount2D: 6
+    SampleCount3D: 24
+    StreamCount: 2
+    MaxParticleCount: 3000
+    UseShadowVolumes: Yes
+    UseShadowDecals: Yes
+    UseCloudMap: Yes
+    UseLightMap: Yes
+    ShowSoftWaterEdge: Yes
+    MaxTankTrackEdges: 100
+    MaxTankTrackOpaqueEdges: 25
+    MaxTankTrackFadeDelay: 60000
+    UseBuildupScaffolds: Yes
+    UseTreeSway: Yes
+    UseEmissiveNightMaterials: Yes
+    TextureReductionFactor: 0
+DynamicGameLODs:
+  VeryHigh:
+    MinimumFPS: 25
+    ParticleSkipMask: 0
+    DebrisSkipMask: 0
+    SlowDeathScale: 1.0
+    MinParticlePriority: WEAPON_EXPLOSION
+    MinParticleSkipPriority: CRITICAL
+  High:
+    MinimumFPS: 20
+    ParticleSkipMask: 0
+    DebrisSkipMask: 0
+    SlowDeathScale: 1.0
+    MinParticlePriority: UNIT_DAMAGE_FX
+    MinParticleSkipPriority: CRITICAL
+  Medium:
+    MinimumFPS: 10
+    ParticleSkipMask: 1
+    DebrisSkipMask: 0
+    SlowDeathScale: 1.0
+    MinParticlePriority: WEAPON_TRAIL
+    MinParticleSkipPriority: CRITICAL
+  Low:
+    MinimumFPS: 0
+    ParticleSkipMask: 3
+    DebrisSkipMask: 0
+    SlowDeathScale: 1.0
+    MinParticlePriority: AREA_EFFECT
+    MinParticleSkipPriority: CRITICAL

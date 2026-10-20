@@ -1,0 +1,1606 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Infa_ChinaTankGattling:
+    SelectPortrait: SNGatlingTank_L
+    ButtonImage: SNGatlingTank
+    UpgradeCameo1: Upgrade_ChinaChainGuns
+    DisplayName: OBJECT:GattlingTank
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 800
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 360
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 150 300
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: Tank_ChinaVehicleGattlingTankCommandSet
+    VoiceSelect: GattlingTankVoiceSelect
+    VoiceMove: GattlingTankVoiceMove
+    VoiceGuard: GattlingTankVoiceMove
+    VoiceAttack: GattlingTankVoiceAttack
+    SoundMoveStart: GattlingTankMoveStart
+    SoundMoveStartDamaged: GattlingTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL GattlingTankLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY GattlingTankGun, SECONDARY GattlingTankGunAir]
+      PreferredAgainst: PRIMARY AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: AntiAirVehicle
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Infa_ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: GattlingTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoopLoud
+      VoiceCrush: GattlingTankVoiceCrush
+      VoiceEnter: GattlingTankVoiceMove
+      VoiceRapidFire: GattlingTankVoiceRapid
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        DefaultConditionState:
+          Model: NVGattTank
+          Animation: NVGattTank.NVGattTank
+          AnimationMode: MANUAL
+          Turret: TURRET01
+          TurretPitch: TURRETEL01
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+        ConditionState:
+          REALLYDAMAGED RUBBLE:
+            Model: NVGattTank_D
+          ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.5 0.5
+          CONTINUOUS_FIRE_SLOW ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.8 0.8
+          CONTINUOUS_FIRE_MEAN ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 1.5 1.5
+          CONTINUOUS_FIRE_FAST ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            ParticleSysBone: Muzzle01 GattlingMuzzleSmoke
+            AnimationSpeedFactorRange: 3.0 3.0
+          REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.5 0.5
+          CONTINUOUS_FIRE_SLOW REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.8 0.8
+          CONTINUOUS_FIRE_MEAN REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 1.5 1.5
+          CONTINUOUS_FIRE_FAST REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            ParticleSysBone: Muzzle01 GattlingMuzzleSmoke
+            AnimationSpeedFactorRange: 3.0 3.0
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+        SubdualDamageCap: 600
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        MoodAttackCheckRate: 250
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 180
+          TurretPitchRate: 180
+          AllowsPitch: Yes
+          FiresWhileTurning: Yes
+          NaturalTurretPitch: 45
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 40.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ProbabilityModifier: 19
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        SinkRate: 0.5
+        OCL: FINAL OCL_ChinaTankGattlingDebris
+        FX: FINAL FX_GattlingExplosionOneFinal
+      ModuleTag_23:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+      ModuleTag_06:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_07:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_ChinaChainGuns
+    SourceFile: Data/INI/Object/InfantryGeneral.ini
+  Tank_ChinaTankBattleMaster:
+    SelectPortrait: SNBattlemaster_L
+    ButtonImage: SNBattlemaster
+    UpgradeCameo1: Upgrade_Nationalism
+    UpgradeCameo2: Upgrade_ChinaUraniumShells
+    UpgradeCameo3: Upgrade_ChinaNuclearTanks
+    UpgradeCameo4: Tank_Upgrade_ChinaTankAutoLoader
+    DisplayName: OBJECT:BattleMaster
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 700
+    BuildTime: 12.0
+    VisionRange: 150
+    ShroudClearingRange: 300
+    ExperienceValue: 100 100 200 400
+    ExperienceRequired: 0 200 300 600
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: Tank_ChinaVehicleBattleMasterCommandSet
+    VoiceSelect: BattleMasterTankVoiceSelect
+    VoiceMove: BattleMasterTankVoiceMove
+    VoiceGuard: BattleMasterTankVoiceMove
+    VoiceAttack: BattleMasterTankVoiceAttack
+    SoundMoveStart: BattleMasterTankMoveStart
+    SoundMoveStartDamaged: BattleMasterTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor:
+    - SET_NORMAL BattleMasterLocomotor
+    - SET_NORMAL_UPGRADED NuclearBattleMasterLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 13.0
+    GeometryMinorRadius: 9.0
+    GeometryHeight: 10
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY BattleMasterTankGun
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY Tank_BattleMasterTankGun
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Tank_ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: BattleMasterTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      VoiceCrush: BattleMasterTankVoiceCrush
+      VoiceEnter: BattleMasterTankVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        DefaultConditionState:
+          Model: NVBtMstr
+          Turret: Turret01
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponRecoilBone: PRIMARY Barrel
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WeaponLaunchBone: PRIMARY Muzzle
+        ConditionState:
+          REALLYDAMAGED:
+            Model: NVBtMstr_D
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          RUBBLE:
+            Model: NVBtMstr_D
+            Turret: Turret01
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 400.0
+        InitialHealth: 400.0
+        SubdualDamageCap: 800
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_14:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 120
+          ControlledWeaponSlots: PRIMARY
+      ModuleVet_01:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: ELITE
+        ScienceRequired: SCIENCE_BattlemasterTraining
+      ModuleTag_04:
+        Module: Behavior
+        Class: HordeUpdate
+        RubOffRadius: 150
+        UpdateRate: 1000
+        Radius: 75
+        KindOf: VEHICLE
+        AlliesOnly: Yes
+        ExactMatch: Yes
+        Count: 5
+        Action: HORDE
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 40.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: NuclearTankDeathWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_07:
+        Module: Behavior
+        Class: LocomotorSetUpgrade
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_17:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Tank_Upgrade_ChinaTankAutoLoader
+      ModuleTag_08:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_10:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_11:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_12:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 25
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        OCL: FINAL OCL_ChinaTankBattleMasterDebris
+        FX: FINAL FX_BattleMasterExplosionOneFinal
+      ModuleTag_13:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/TankGeneral.ini
+  Tank_ChinaTankEmperor:
+    SelectPortrait: SNEmpTank_L
+    ButtonImage: SNEmpTank
+    UpgradeCameo1: Upgrade_ChinaUraniumShells
+    UpgradeCameo2: Upgrade_ChinaNuclearTanks
+    UpgradeCameo3: Upgrade_ChinaOverlordGattlingCannon
+    UpgradeCameo4: Upgrade_ChinaOverlordPropagandaTower
+    DisplayName: OBJECT:Tank_Overlord
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 1900
+    BuildTime: 20.0
+    VisionRange: 150
+    ShroudClearingRange: 200
+    ExperienceValue: 200 200 400 600
+    ExperienceRequired: 0 400 600 1200
+    IsTrainable: Yes
+    CrusherLevel: 3
+    CrushableLevel: 3
+    CommandSet: Tank_ChinaTankEmperorDefaultCommandSet
+    VoiceSelect: EmperorTankVoiceSelect
+    SoundMoveStart: OverlordTankMoveStart
+    SoundMoveStartDamaged: OverlordTankMoveStart
+    VoiceMove: EmperorTankVoiceMove
+    VoiceGuard: EmperorTankVoiceMove
+    VoiceAttack: OverlordTankVoiceAttack
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE HUGE_VEHICLE
+    Locomotor: [SET_NORMAL OverlordLocomotor, SET_NORMAL_UPGRADED NuclearOverlordLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 26.0
+    GeometryMinorRadius: 13.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY OverlordTankGun
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY OverlordTankGun, SECONDARY GattlingBuildingGunAirDummy]
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: [Tank_ChinaWarFactory, Tank_ChinaPropagandaCenter]
+    UnitSpecificSounds:
+      VoiceCreate: OverlordTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: OverlordTankTurretMoveLoop
+      VoiceCrush: OverlordTankVoiceCrush
+      VoiceEnter: EmperorTankVoiceMove
+      VoiceUnload: OverlordTankVoiceUnload
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DOverlordTankDraw
+        TrackMarks: EXTnkTrack.tga
+        OkToChangeModelColor: Yes
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        ConditionState:
+          NONE:
+            Model: NVOvrlrdT
+            Animation: NVOvrlrdT.NVOvrlrdT
+            AnimationMode: LOOP
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          REALLYDAMAGED:
+            Model: NVOvrlrdT_D
+            Animation: NVOvrlrdT_D.NVOvrlrdT_D
+            AnimationMode: LOOP
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+          RUBBLE:
+            Model: NVOvrlrdT_D1
+            Turret: Turret01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponRecoilBone: PRIMARY Barrel
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            WeaponLaunchBone: PRIMARY Muzzle
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1100.0
+        InitialHealth: 1100.0
+        SubdualDamageCap: 2200
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_23:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+      ModuleTag_03:
+        Module: Behavior
+        Class: TransportAIUpdate
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 60
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: NuclearTankDeathWeapon
+        StartsActive: No
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_05:
+        Module: Behavior
+        Class: LocomotorSetUpgrade
+        TriggeredBy: Upgrade_ChinaNuclearTanks
+      ModuleTag_06:
+        Module: Behavior
+        Class: OverlordContain
+        Slots: 1
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: PORTABLE_STRUCTURE
+        PassengersAllowedToFire: Yes
+        PassengersInTurret: Yes
+        ExperienceSinkForRider: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_OverlordGattlingCannon
+        TriggeredBy: Upgrade_ChinaOverlordGattlingCannon
+      ModuleTag_WeaponSetUpgrade01:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaOverlordGattlingCannon
+      ModuleTag_10:
+        Module: Behavior
+        Class: ProductionUpdate
+        MaxQueueEntries: 2
+      ModuleTag_11:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        CommandSet: Tank_ChinaTankOverlordGattlingCannonCommandSet
+        TriggeredBy: Upgrade_ChinaOverlordGattlingCannon
+        ConflictsWith: Upgrade_ChinaOverlordPropagandaTower Upgrade_ChinaOverlordBattleBunker
+      ModuleTag_14:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModulePropaganda_04:
+        Module: Behavior
+        Class: PropagandaTowerBehavior
+        Radius: 150.0
+        DelayBetweenUpdates: 2000
+        HealPercentEachSecond: 1%
+        PulseFX: FX_OverlordPropagandaTowerPropagandaPulse
+        UpgradeRequired: Upgrade_ChinaOverlordPropagandaTower
+        UpgradedHealPercentEachSecond: 2%
+        UpgradedPulseFX: FX_OverlordPropagandaTowerSubliminalPulse
+        AffectsSelf: Yes
+      ModuleTag_16:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ProbabilityModifier: 25
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        OCL: FINAL OCL_ChinaTankOverlordDebris
+        FX: FINAL FX_OverlordExplosionOneFinal
+      ModuleTag_17:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_18:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_OverlordDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/TankGeneral.ini
+  Tank_ChinaTankDragon:
+    SelectPortrait: SNDragonTank_L
+    ButtonImage: SNDragonTank
+    UpgradeCameo1: Upgrade_ChinaBlackNapalm
+    DisplayName: OBJECT:Dragon
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 700
+    BuildTime: 10.0
+    VisionRange: 100
+    ShroudClearingRange: 200
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 150 300
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaTankDragonCommandSet
+    VoiceSelect: DragonTankVoiceSelect
+    VoiceMove: DragonTankVoiceMove
+    VoiceGuard: DragonTankVoiceMove
+    VoiceAttack: DragonTankVoiceAttack
+    SoundMoveStart: DragonTankMoveStart
+    SoundMoveStartDamaged: DragonTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL DragonLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 11.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: [PRIMARY DragonTankFlameWeapon, SECONDARY DragonTankFireWallWeapon]
+      AutoChooseSources: SECONDARY NONE
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY DragonTankFlameWeaponUpgraded, SECONDARY DragonTankFireWallWeaponUpgraded]
+      AutoChooseSources: SECONDARY NONE
+      WeaponLockSharedAcrossSets: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: DragonTankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Tank_ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: DragonTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      VoiceEnter: DragonTankVoiceMove
+      VoiceFlameLocation: DragonTankVoiceFireStorm
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        DefaultConditionState:
+          Model: NVDragon
+          Turret: Turret
+          TurretPitch: TURRETEL
+          WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+          WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+        ConditionState:
+          REALLYDAMAGED:
+            Model: NVDragon_D
+            Turret: Turret
+            TurretPitch: TURRETEL
+            WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+            WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+          RUBBLE:
+            Model: NVDragon_D
+            Turret: Turret
+            TurretPitch: TURRETEL
+            WeaponFireFXBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+            WeaponLaunchBone: [PRIMARY WeaponA, SECONDARY WeaponA]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 280.0
+        InitialHealth: 280.0
+        SubdualDamageCap: 560
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_14:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 120
+          TurretPitchRate: 120
+          AllowsPitch: Yes
+          MinPhysicalPitch: -15
+          TurretFireAngleSweep: [PRIMARY 10, SECONDARY 60]
+          TurretSweepSpeedModifier: [PRIMARY 0.5, SECONDARY 2.0]
+          ControlledWeaponSlots: PRIMARY SECONDARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ChinaBlackNapalm
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_09:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_10:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 500
+        DestructionDelayVariance: 500
+        FX: [INITIAL FX_BattleMasterExplosionOneFinal, FINAL FX_DragonTankDeathExplosionFinal]
+        OCL: FINAL OCL_DragonDebris
+      ModuleTag_12:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_13:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem2: Bone:Smoke RandomBone:Yes Psys:DragonTransitionFire
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_DragonDamageTransition'
+    SourceFile: Data/INI/Object/TankGeneral.ini
+  Tank_ChinaVehicleTroopCrawler:
+    SelectPortrait: SNTransport_L
+    ButtonImage: SNTransport
+    DisplayName: OBJECT:TroopCrawler
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 8
+    BuildCost: 1400
+    BuildTime: 15.0
+    VisionRange: 175
+    ShroudClearingRange: 400
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaTroopCrawlerCommandSet
+    VoiceSelect: TroopCrawlerVoiceSelect
+    VoiceMove: TroopCrawlerVoiceMove
+    VoiceGuard: TroopCrawlerVoiceMove
+    VoiceAttack: TroopCrawlerVoiceAttack
+    SoundMoveStart: TroopCrawlerMoveStart
+    SoundMoveStartDamaged: TroopCrawlerMoveStart
+    SoundEnter: HumveeEnter
+    SoundExit: HumveeExit
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS TRANSPORT VEHICLE SCORE
+    Locomotor: SET_NORMAL TroopCrawlerLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 22.0
+    GeometryMinorRadius: 9.0
+    GeometryHeight: 13.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY TroopCrawlerAssault
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Tank_ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: TroopCrawlerVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      TruckLandingSound: NoSound
+      TruckPowerslideSound: NoSound
+      VoiceCrush: TroopCrawlerVoiceCrush
+      VoiceUnload: TroopCrawlerVoiceUnload
+      VoiceEnter: TroopCrawlerVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack.tga
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        LeftFrontTireBone: Wheel01
+        RightFrontTireBone: Wheel08
+        LeftRearTireBone: Wheel03
+        RightRearTireBone: Wheel05
+        MidLeftFrontTireBone: Wheel02
+        MidRightFrontTireBone: Wheel07
+        MidLeftRearTireBone: Wheel04
+        MidRightRearTireBone: Wheel06
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 0
+        ConditionState:
+          NONE:
+            Model: NVTCrawler
+          REALLYDAMAGED RUBBLE:
+            Model: NVTCrawler_D
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 240.0
+        InitialHealth: 240.0
+        SubdualDamageCap: 480
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 900
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: No
+        PingSound: IRPing
+        LoudPingSound: IRPingLoud
+        IRParticleSysName: IRDetectSonar
+        IRBrightParticleSysName: IRDetectSonarBright
+        IRGridParticleSysName: IRDetectGrid
+        IRBeaconParticleSysName: IRLenzflare
+        IRParticleSysBone: IRFX
+      ModuleTag_NewAI:
+        Module: Behavior
+        Class: AssaultTransportAIUpdate
+        MembersGetHealedAtLifeRatio: 0.5
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 8
+        InitialPayload: Tank_ChinaInfantryRedguard 8
+        ScatterNearbyOnExit: No
+        HealthRegen%PerSec: 10
+        DamagePercentToUnits: 10%
+        AllowInsideKindOf: INFANTRY
+        ExitDelay: 250
+        NumberOfExitPaths: 3
+        GoAggressiveOnExit: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 1
+        FX: FINAL FX_SupplyTruckExplosionOneFinal
+        OCL: FINAL OCL_FinalTroopCrawlerDebris
+      ModuleTag_08:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_NukeCannonDamageTransition'
+      ModuleTag_09:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_10:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_11:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_12:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/TankGeneral.ini
+  Tank_ChinaTankGattling:
+    SelectPortrait: SNGatlingTank_L
+    ButtonImage: SNGatlingTank
+    UpgradeCameo1: Upgrade_ChinaChainGuns
+    DisplayName: OBJECT:GattlingTank
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 700
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 360
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 80 200 300
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: Tank_ChinaVehicleGattlingTankCommandSet
+    VoiceSelect: GattlingTankVoiceSelect
+    VoiceMove: GattlingTankVoiceMove
+    VoiceGuard: GattlingTankVoiceMove
+    VoiceAttack: GattlingTankVoiceAttack
+    SoundMoveStart: GattlingTankMoveStart
+    SoundMoveStartDamaged: GattlingTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL GattlingTankLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY GattlingTankGun, SECONDARY GattlingTankGunAir]
+      PreferredAgainst: PRIMARY AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: AntiAirVehicle
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Tank_ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: GattlingTankVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoopLoud
+      VoiceCrush: GattlingTankVoiceCrush
+      VoiceEnter: GattlingTankVoiceMove
+      VoiceRapidFire: GattlingTankVoiceRapid
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        DefaultConditionState:
+          Model: NVGattTank
+          Animation: NVGattTank.NVGattTank
+          AnimationMode: MANUAL
+          Turret: TURRET01
+          TurretPitch: TURRETEL01
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+        ConditionState:
+          REALLYDAMAGED RUBBLE:
+            Model: NVGattTank_D
+          ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.5 0.5
+          CONTINUOUS_FIRE_SLOW ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.8 0.8
+          CONTINUOUS_FIRE_MEAN ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 1.5 1.5
+          CONTINUOUS_FIRE_FAST ATTACKING:
+            Model: NVGattTank
+            Animation: NVGattTank.NVGattTank
+            AnimationMode: LOOP
+            ParticleSysBone: Muzzle01 GattlingMuzzleSmoke
+            AnimationSpeedFactorRange: 3.0 3.0
+          REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.5 0.5
+          CONTINUOUS_FIRE_SLOW REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.8 0.8
+          CONTINUOUS_FIRE_MEAN REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 1.5 1.5
+          CONTINUOUS_FIRE_FAST REALLYDAMAGED ATTACKING:
+            Model: NVGattTank_D
+            Animation: NVGattTank_D.NVGattTank_D
+            AnimationMode: LOOP
+            ParticleSysBone: Muzzle01 GattlingMuzzleSmoke
+            AnimationSpeedFactorRange: 3.0 3.0
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+        SubdualDamageCap: 600
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        MoodAttackCheckRate: 250
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 180
+          TurretPitchRate: 180
+          AllowsPitch: Yes
+          FiresWhileTurning: Yes
+          NaturalTurretPitch: 45
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 40.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ProbabilityModifier: 19
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        SinkRate: 0.5
+        OCL: FINAL OCL_ChinaTankGattlingDebris
+        FX: FINAL FX_GattlingExplosionOneFinal
+      ModuleTag_23:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+      ModuleTag_06:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_07:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_ChinaChainGuns
+    SourceFile: Data/INI/Object/TankGeneral.ini
+  Tank_ChinaVehicleSupplyTruck:
+    SelectPortrait: SNSupplyTruck_L
+    ButtonImage: SNSupplyTruck
+    DisplayName: OBJECT:SupplyTruck
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 2
+    BuildCost: 600
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 300
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaSupplyTruckCommandSet
+    VoiceSelect: SupplyTruckVoiceSelect
+    VoiceMove: SupplyTruckVoiceMove
+    VoiceAttack: NoSound
+    SoundMoveStart: SupplyTruckMoveStart
+    SoundMoveStartDamaged: SupplyTruckMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_CAST_REFLECTIONS VEHICLE HARVESTER SCORE
+    Locomotor: SET_NORMAL SupplyTruckLocomotor
+    ExperienceValue: 50 50 50 50
+    Geometry: BOX
+    GeometryMajorRadius: 17.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 14.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    Prerequisites:
+      Object: Tank_ChinaSupplyCenter
+    ArmorSet:
+      Conditions: None
+      Armor: TruckArmor
+      DamageFX: TankDamageFX
+    UnitSpecificSounds:
+      VoiceCreate: SupplyTruckVoiceCreate
+      TruckLandingSound: NoSound
+      TruckPowerslideSound: NoSound
+      VoiceSupply: SupplyTruckVoiceSupply
+      VoiceCrush: SupplyTruckVoiceCrush
+      VoiceEnter: SupplyTruckVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack.tga
+        LeftFrontTireBone: Tire01
+        RightFrontTireBone: Tire02
+        MidLeftRearTireBone: Tire03
+        MidRightRearTireBone: Tire04
+        LeftRearTireBone: Tire05
+        RightRearTireBone: Tire06
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 2.5
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        PowerslideSpray: RocketBuggyDirtPowerSlide
+        DefaultConditionState:
+          Model: NVSSUPPLYTK
+          HideSubObject: Cargo01
+        ConditionState:
+          REALLYDAMAGED:
+            Model: NVSSUPPLYTK_D
+          RUBBLE:
+            Model: NVSSUPPLYTK_D
+          CARRYING:
+            ShowSubObject: Cargo01
+          REALLYDAMAGED CARRYING:
+            Model: NVSSUPPLYTK_D
+            ShowSubObject: Cargo01
+          RUBBLE CARRYING:
+            Model: NVSSUPPLYTK_D
+            ShowSubObject: Cargo01
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+        SubdualDamageCap: 600
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: SupplyTruckAIUpdate
+        MaxBoxes: 4
+        SupplyCenterActionDelay: 400
+        SupplyWarehouseActionDelay: 1000
+        SupplyWarehouseScanDistance: 700
+        SuppliesDepletedVoice: SupplyTruckVoiceSuppliesDepleted
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        FX: FINAL FX_SupplyTruckExplosionOneFinal
+        OCL: FINAL OCL_ChinaSupplyTruckDeathEffect
+      ModuleTag_06:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_07:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_ChinaSupplyTruck_CrushEffect
+      ModuleTag_08:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_NukeCannonDamageTransition'
+      ModuleTag_10:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_11:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_12:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+    SourceFile: Data/INI/Object/TankGeneral.ini
+  Tank_ChinaVehicleDozer:
+    SelectPortrait: SNDozer_L
+    ButtonImage: SNDozer
+    DisplayName: OBJECT:Dozer
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 5
+    BuildCost: 1000
+    BuildTime: 5.0
+    VisionRange: 150
+    ShroudClearingRange: 300
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: Tank_ChinaDozerCommandSet
+    VoiceSelect: DozerChinaVoiceSelect
+    VoiceMove: DozerChinaVoiceMove
+    VoiceEnter: DozerChinaVoiceMove
+    VoiceTaskComplete: DozerChinaVoiceBuildComplete
+    SoundMoveStart: DozerChinaMoveStart
+    SoundMoveStartDamaged: DozerChinaMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD VEHICLE SCORE SELECTABLE CAN_CAST_REFLECTIONS DOZER
+    Locomotor: SET_NORMAL ChinaVehicleDozerLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 17.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: NO
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY None
+    - Conditions: MINE_CLEARING_DETAIL
+      Weapon: PRIMARY DozerMineDisarmingWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: DozerArmor
+      DamageFX: TankDamageFX
+    UnitSpecificSounds:
+      VoiceCreate: DozerChinaVoiceCreate
+      VoiceCrush: DozerChinaVoiceCrush
+      VoiceNoBuild: DozerChinaVoiceBuildNot
+      VoiceRepair: DozerChinaVoiceRepair
+      VoiceDisarm: DozerChinaVoiceClearMine
+      VoiceEnter: DozerChinaVoiceMove
+      VoiceBuildResponse: DozerChinaVoiceBuild
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        DefaultConditionState:
+          Model: NVCONSTDOZ_A
+          ParticleSysBone: EXHAUST01 DozerSmokeLight
+        ConditionState:
+          MOVING:
+            ParticleSysBone: EXHAUST01 DozerSmokeHeavy
+          FIRING_A MOVING PREATTACK_A:
+            Model: NVCONSTDOZ_A
+            Animation: NVCONSTDOZ_A.NVCONSTDOZ_A
+            AnimationMode: ONCE
+            ParticleSysBone: [EXHAUST01 DozerSmokeHeavy, DIRTFX01 DozerDirtFall]
+            Aliases: [ATTACKING FIRING_A MOVING]
+          REALLYDAMAGED RUBBLE:
+            Model: NVCONSTDOZ_AD
+          MOVING REALLYDAMAGED RUBBLE:
+            Model: NVCONSTDOZ_AD
+            ParticleSysBone: EXHAUST01 DozerSmokeHeavy
+          FIRING_A MOVING PREATTACK_A REALLYDAMAGED RUBBLE:
+            Model: NVCONSTDOZ_AD
+            Animation: NVCONSTDOZ_AD.NVCONSTDOZ_AD
+            AnimationMode: ONCE
+            ParticleSysBone: [EXHAUST01 DozerSmokeHeavy, DIRTFX01 DozerDirtFall]
+            Aliases: [ATTACKING FIRING_A MOVING REALLYDAMAGED RUBBLE]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 250.0
+        InitialHealth: 250.0
+        SubdualDamageCap: 500
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: DozerAIUpdate
+        RepairHealthPercentPerSecond: 2%
+        BoredTime: 5000
+        BoredRange: 150
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: No
+        ExtraRequiredKindOf: MINE
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 100
+        DestructionDelay: 1500
+        DestructionDelayVariance: 600
+        FX: [INITIAL FX_CrusaderCatchFire, FINAL FX_BattleMasterExplosionOneFinal]
+        OCL: FINAL OCL_ChinaDozerExplode
+      ModuleTag_09:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_23:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+    SourceFile: Data/INI/Object/TankGeneral.ini
+  Tank_ChinaTankECM:
+    SelectPortrait: SNbanshee_L
+    ButtonImage: SNbanshee
+    DisplayName: OBJECT:ECMTank
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 800
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 360
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 150 300
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: Tank_ChinaVehicleECMTankCommandSet
+    VoiceSelect: FrequencyJammerVoiceSelect
+    VoiceMove: FrequencyJammerVoiceMove
+    VoiceGuard: FrequencyJammerVoiceMove
+    VoiceAttack: FrequencyJammerVoiceAttack
+    SoundMoveStart: MicrowaveTankMoveStart
+    SoundMoveStartDamaged: MicrowaveTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE CANNOT_RETALIATE
+    Locomotor: SET_NORMAL GattlingTankLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 15.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY ECMTankVehicleDisabler
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: [Tank_ChinaWarFactory, Tank_ChinaPropagandaCenter]
+    UnitSpecificSounds:
+      VoiceCreate: FrequencyJammerVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoopLoud
+      VoiceCrush: NoSound
+      VoiceEnter: FrequencyJammerVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        OkToChangeModelColor: Yes
+        ExtraPublicBone: WEAPONA01
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 4.0
+        DefaultConditionState:
+          Model: NVBANSHEE
+          Turret: TURRET01
+        ConditionState:
+          REALLYDAMAGED:
+            Model: NVBANSHEE_D
+          RUBBLE:
+            Model: NVBANSHEE_D1
+            Turret: None
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+        SubdualDamageCap: 600
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          ControlledWeaponSlots: PRIMARY
+          TurretTurnRate: 180
+          FiresWhileTurning: No
+          MinIdleScanInterval: 0
+          MaxIdleScanInterval: 0
+          RecenterTime: 0
+          MinIdleScanAngle: 180
+          MaxIdleScanAngle: 180
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 40.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ProbabilityModifier: 19
+        DestructionDelay: 200
+        DestructionDelayVariance: 100
+        SinkRate: 0.5
+        OCL: FINAL OCL_ChinaTankECMDebris
+        FX: FINAL FX_GattlingExplosionOneFinal
+      ModuleTag_06:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_07:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_23:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: ECMTankMissileJammer
+        ExclusiveWeaponDelay: 1000
+      ModuleTag_24:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+    SourceFile: Data/INI/Object/TankGeneral.ini
+  Tank_ChinaVehicleListeningOutpost:
+    SelectPortrait: NVLOutpost_L
+    ButtonImage: NVLOutpost
+    DisplayName: OBJECT:ListeningOutpost
+    Side: ChinaTankGeneral
+    EditorSorting: VEHICLE
+    TransportSlotCount: 8
+    BuildCost: 950
+    BuildTime: 15.0
+    VisionRange: 250
+    ShroudClearingRange: 500
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: ChinaListeningOutpostCommandSet
+    VoiceSelect: ListeningOutpostVoiceSelect
+    VoiceMove: ListeningOutpostVoiceMove
+    VoiceGuard: ListeningOutpostVoiceMove
+    VoiceAttack: ListeningOutpostVoiceAttack
+    SoundMoveStart: RadarVanMoveStart
+    SoundMoveStartDamaged: RadarVanMoveStart
+    SoundEnter: HumveeEnter
+    SoundExit: HumveeExit
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS TRANSPORT VEHICLE SCORE REVEALS_ENEMY_PATHS CANNOT_RETALIATE
+    Locomotor: SET_NORMAL ListeningOutpostLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 9.0
+    GeometryHeight: 13.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY ListeningOutpostUpgradedDummyWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: Tank_ChinaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: ListeningOutpostVoiceCreate
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      TruckLandingSound: NoSound
+      TruckPowerslideSound: NoSound
+      VoiceCrush: NoSound
+      VoiceUnload: NoSound
+      VoiceEnter: ListeningOutpostVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        ExtraPublicBone: IRFX
+        TrackMarks: EXTireTrack.tga
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        LeftFrontTireBone: TIRE01
+        RightFrontTireBone: TIRE02
+        LeftRearTireBone: TIRE03
+        RightRearTireBone: TIRE04
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 0
+        ConditionState:
+          NONE:
+            Model: NVLOUTPOST
+          REALLYDAMAGED:
+            Model: NVLOUTPOST_D
+          RUBBLE:
+            Model: NVLOUTPOST_D1
+            HideSubObject: TURRET01
+      ModuleTag_33:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NVLOUTPOST_B
+            Animation: NVLOUTPOST_B.NVLOUTPOST_B
+            AnimationMode: LOOP
+            TransitionKey: Trans_Deployed
+          REALLYDAMAGED:
+            Model: NVLOUTPOST_BD
+            Animation: NVLOUTPOST_BD.NVLOUTPOST_BD
+            AnimationMode: LOOP
+            TransitionKey: Trans_Deployed_ReallyDamaged
+          MOVING:
+            Model: NVLOUTPOST_A
+            Animation: NVLOUTPOST_A.NVLOUTPOST_A
+            AnimationMode: LOOP
+            TransitionKey: Trans_Moving
+          REALLYDAMAGED MOVING:
+            Model: NVLOUTPOST_AD
+            Animation: NVLOUTPOST_AD.NVLOUTPOST_AD
+            AnimationMode: LOOP
+            TransitionKey: Trans_Moving_ReallyDamaged
+          RUBBLE:
+            Model: NONE
+            Aliases: [RUBBLE MOVING]
+        TransitionState:
+          Trans_Moving Trans_Deployed:
+            Model: NVLOUTPOST_C
+            Animation: NVLOUTPOST_C.NVLOUTPOST_C
+            AnimationMode: ONCE
+          Trans_Moving_ReallyDamaged Trans_Deployed_ReallyDamaged:
+            Model: NVLOUTPOST_CD
+            Animation: NVLOUTPOST_CD.NVLOUTPOST_CD
+            AnimationMode: ONCE
+          Trans_Deployed Trans_Moving:
+            Model: NVLOUTPOST_C
+            Animation: NVLOUTPOST_C.NVLOUTPOST_C
+            AnimationMode: ONCE_BACKWARDS
+          Trans_Deployed_ReallyDamaged Trans_Moving_ReallyDamaged:
+            Model: NVLOUTPOST_CD
+            Animation: NVLOUTPOST_CD.NVLOUTPOST_CD
+            AnimationMode: ONCE_BACKWARDS
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 240.0
+        InitialHealth: 240.0
+        SubdualDamageCap: 480
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 900
+        DetectionRange: 300
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: No
+        IRGridParticleSysName: IRDetectGrid
+        IRBeaconParticleSysName: IRLenzflare
+        IRParticleSysBone: IRFX
+      ModuleTag_NewAI:
+        Module: Behavior
+        Class: AssaultTransportAIUpdate
+        MembersGetHealedAtLifeRatio: 0.5
+      ModuleTag_04:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 2000
+        StealthForbiddenConditions: MOVING RIDERS_ATTACKING
+        FriendlyOpacityMin: 50.0%
+        FriendlyOpacityMax: 100.0%
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 90.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransportContain
+        PassengersAllowedToFire: Yes
+        Slots: 2
+        InitialPayload: Tank_ChinaInfantryTankHunter 2
+        ScatterNearbyOnExit: No
+        HealthRegen%PerSec: 10
+        DamagePercentToUnits: 10%
+        AllowInsideKindOf: INFANTRY
+        ExitDelay: 250
+        NumberOfExitPaths: 3
+        GoAggressiveOnExit: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DestructionDelay: 1789
+        FX: [INITIAL FX_SupplyTruckExplosionOneFinal, FINAL FX_SupplyTruckExplosionOneFinal]
+        OCL: [INITIAL OCL_InitialListeningOutpostDebris, FINAL OCL_FinalListeningOutpostDebris]
+      ModuleTag_08:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_NukeCannonDamageTransition'
+      ModuleTag_09:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_10:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_11:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_12:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/TankGeneral.ini

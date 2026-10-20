@@ -1,0 +1,291 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Lazr_SpectreGunshipGattlingCannon:
+    Side: AmericaLaserGeneral
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 3.0
+    GeometryIsSmall: No
+    Shadow: NONE
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY SpectreGattlingGun
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceRapidFire: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: CHASIS
+        DefaultConditionState:
+          Model: AVSGUNSHIP_GUN
+          TurretPitch: TURRETEL01
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+        Turret:
+          ControlledWeaponSlots: PRIMARY
+          TurretTurnRate: 160
+          TurretPitchRate: 160
+          AllowsPitch: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/LaserGeneral.ini
+  Lazr_SpectreGunshipHowitzer:
+    Side: AmericaLaserGeneral
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 13.0
+    GeometryMinorRadius: 13.0
+    GeometryHeight: 8.0
+    GeometryIsSmall: No
+    Shadow: NONE
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY SpectreHowitzerGun
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceRapidFire: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVSGUNSHIP_GHOW
+          TurretPitch: TURRETEL01
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 60
+          TurretPitchRate: 60
+          AllowsPitch: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_06:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        CanDetectWhileContained: Yes
+    SourceFile: Data/INI/Object/LaserGeneral.ini
+  Lazr_AmericaTankAvengerLaserTurret:
+    SelectPortrait: SNPropSpeaker_L
+    ButtonImage: SNPropSpeaker
+    UpgradeCameo1: Upgrade_Nationalism
+    UpgradeCameo2: Upgrade_ChinaUraniumShells
+    UpgradeCameo3: Upgrade_ChinaNuclearTanks
+    UpgradeCameo5: Upgrade_ChinaOverlordPropagandaTower
+    PlacementViewAngle: -45
+    Side: AmericaLaserGeneral
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 0
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 6.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY Lazr_CrusaderTankGun, SECONDARY AvengerAirLaserTwo]
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        ExtraPublicBone: [TurretFX01, TurretFX02, TURRET01, TURRETEL, TURRETEL01]
+        AttachToBoneInContainer: FIREPOINT01
+        DefaultConditionState:
+          Model: AVAVNGER_G
+          Turret: TURRET01
+          TurretPitch: TURRETEL01
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVAVNGER_GD
+            Turret: TURRET01
+            TurretPitch: TURRETEL01
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        MoodAttackCheckRate: 500
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 180
+          TurretPitchRate: 180
+          AllowsPitch: Yes
+          NaturalTurretPitch: 45
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/LaserGeneral.ini
+  Lazr_HowitzerLaserBeam:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser.tga
+        NumBeams: 3
+        InnerBeamWidth: 0.4
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 1.2
+        OuterColor: R:255 G:0 B:0 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: GenericLaserFlare
+        TargetParticleSystem: GenericLaserFlare
+    SourceFile: Data/INI/Object/LaserGeneral.ini
+  Lazr_CrusaderLaserBeam:
+    KindOf: IMMOBILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser4.tga
+        NumBeams: 5
+        InnerBeamWidth: 0.005
+        InnerColor: R:100 G:0 B:0 A:100
+        OuterBeamWidth: 15
+        OuterColor: R:100 G:0 B:0 A:0
+        Tile: Yes
+        ScrollRate: -2500
+        Segments: 1
+        SegmentOverlapRatio: 0
+        TilingScalar: -3
+      ModuleTag_07:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: PaladinPointDefenseLaserFlare
+        TargetParticleSystem: GenericRedLaserFlare
+        PunchThroughScalar: 1.3
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 205
+        MaxLifetime: 205
+    SourceFile: Data/INI/Object/LaserGeneral.ini
+  Lazr_PaladinLaserBeam:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser4.tga
+        NumBeams: 5
+        InnerBeamWidth: 0.005
+        InnerColor: R:100 G:0 B:0 A:100
+        OuterBeamWidth: 15
+        OuterColor: R:100 G:0 B:0 A:0
+        Tile: Yes
+        ScrollRate: -2500
+        Segments: 1
+        SegmentOverlapRatio: 0
+        TilingScalar: -3
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: GenericBlueLaserFlare
+        TargetParticleSystem: GenericBlueLaserFlare
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 95
+        MaxLifetime: 95
+    SourceFile: Data/INI/Object/LaserGeneral.ini
+  Lazr_PatriotLaserBeam:
+    KindOf: IMMOBILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser4.tga
+        NumBeams: 5
+        InnerBeamWidth: 0.005
+        InnerColor: R:100 G:0 B:0 A:100
+        OuterBeamWidth: 15
+        OuterColor: R:100 G:0 B:0 A:0
+        Tile: Yes
+        ScrollRate: -2500
+        Segments: 1
+        SegmentOverlapRatio: 0
+        TilingScalar: -3
+      ModuleTag_07:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: PaladinPointDefenseLaserFlare
+        TargetParticleSystem: GenericRedLaserFlare
+        PunchThroughScalar: 1.3
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 205
+        MaxLifetime: 205
+    SourceFile: Data/INI/Object/LaserGeneral.ini

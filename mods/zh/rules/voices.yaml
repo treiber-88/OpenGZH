@@ -1,0 +1,3943 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+AudioEvents:
+  RangerVoiceSelect:
+    Sounds: iransea iranseb iransec iransee iransef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceCreate:
+    Sounds: iranseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  RangerVoiceMove:
+    Sounds: iranmoa iranmob iranmoc iranmod iranmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceAttack:
+    Sounds: iranata iranatb iranatc iranatd iranate iranatf iranatg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceCapture:
+    Sounds: irancaa irancab irancac irancad irancae
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceCaptureComplete:
+    Sounds: irancoa irancob irancoc irancod
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  RangerVoiceClearBuilding:
+    Sounds: irancla iranclb iranclc irancl
+    Control: random
+    Limit: 1
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceSubdue:
+    Sounds: iransba iransbb iransbc iransbd
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceGarrison:
+    Sounds: irangaa irangab irangac irangad
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceSurrender:
+    Sounds: iransua iransub iransuc
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world shrouded everyone
+  RangerVoiceFear:
+    Sounds: iranfea iranfeb iranfec iranfed iranfee iranfef iranfeg
+    Control: random
+    Volume: 100
+    MinVolume: 90
+    Type: world shrouded player
+  RangerVoiceBaseAttack:
+    Sounds: iranbaa iranbab iranbac iranbad
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  RangerVoiceUpgradeFlashBangGrenades:
+    Sounds: iranu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceDie:
+    Sounds: irandia irandib irandic irandid irandie irandif irandig irandih irandii irandij irandik irandil
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    VolumeShift: -20
+    Volume: 100
+    Type: world voice everyone
+  RangerVoiceBuildingStolen:
+    Sounds: iranbsa iranbsb iranbsc
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  RangerVoiceModeFlashBang:
+    Sounds: iranmfa iranmfb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  RangerVoiceModeGun:
+    Sounds: iranmga iranmgb iranmgc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  RangerVoiceLaugh:
+    Sounds: iranlaa iranlab iranlac
+    Control: random
+    Volume: 100
+    Type: world shrouded player
+  MissileDefenderVoiceSelect:
+    Sounds: imisseb imissec imissed imissee imissef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MissileDefenderVoiceCreate:
+    Sounds: imissea
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  MissileDefenderVoiceMove:
+    Sounds: imismoa imismob imismoc imismod imismoe imismof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MissileDefenderVoiceAttack:
+    Sounds: imisata imisatb imisatc imisatd imisate imisatf imisatg imisath
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MissileDefenderVoiceGarrison:
+    Sounds: imisgaa imisgab imisgac imisgad
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MissileDefenderVoiceModeLaser:
+    Sounds: imismla imismlb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  MissileDefenderVoiceAttackLaser:
+    Sounds: imisa2a imisa2b imisa2c imisa2d
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MissileDefenderVoiceFear:
+    Sounds: imisfea imisfeb imisfec
+    Control: random
+    Volume: 100
+    MinVolume: 90
+    Type: world shrouded player
+  MissileDefenderVoiceSurrender:
+    Sounds: imissua imissuc
+    Control: random
+    Volume: 100
+    MinVolume: 90
+    Type: world shrouded everyone
+  MissileDefenderVoiceDie:
+    Sounds: imisdia imisdib imisdic imisdid imisdie imisdif imisdig imisdih imisdii imisdij
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 90
+    VolumeShift: -20
+    Type: world voice shrouded everyone
+  CrusaderTankVoiceSelect:
+    Sounds: vcrusea vcruseb vcrusec vcrused vcrusee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CrusaderTankVoiceCreate:
+    Sounds: vcrusef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  CrusaderTankVoiceMove:
+    Sounds: vcrumoa vcrumob vcrumoc vcrumod vcrumoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CrusaderTankVoiceAttack:
+    Sounds: vcruata vcruatb vcruatc vcruatd vcruate vcruatf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CrusaderTankVoiceCrush:
+    Sounds: vcrucra vcrucrb vcrucrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CrusaderTankVoiceUpgradeCompositeArmor:
+    Sounds: vcruu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CrusaderTankVoiceDrone:
+    Sounds: vcrudra vcrudrb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TomahawkVoiceSelect:
+    Sounds: vtomseb vtomsec vtomsed vtomsee vtomsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TomahawkVoiceCreate:
+    Sounds: vtomsea
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  TomahawkVoiceMove:
+    Sounds: vtommoa vtommob vtommoc vtommod vtommoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TomahawkVoiceAttack:
+    Sounds: vtomata vtomatb vtomatc vtomatd vtomate vtomatf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TomahawkVoiceCrush:
+    Sounds: vtomcra vtomcrb vtomcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TomahawkVoiceDrone:
+    Sounds: vtomdra vtomdrb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TomahawkVoiceUpgradeWaypointTargeting:
+    Sounds: vtomu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TomahawkVoiceModeWaypoint:
+    Sounds: vtommwa vtommwb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  RaptorVoiceSelect:
+    Sounds: vrapsea vrapseb vrapsec vrapsed vrapsee vrapsef
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  RaptorVoiceCreate:
+    Sounds: vrapseg
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  RaptorVoiceMove:
+    Sounds: vrapmoa vrapmob vrapmoc vrapmod vrapmoe
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  RaptorVoiceAttackAir:
+    Sounds: vrapata vrapatb vrapatc vrapatd vrapate
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  RaptorVoiceAttack:
+    Sounds: vrapa2a vrapa2b vrapa2c vrapa2d vrapa2e vrapa2f
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  RaptorVoiceLowFuel:
+    Sounds: vrapfub
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  RaptorVoiceUpgradeFuel:
+    Sounds: vrapu1
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  RaptorVoiceUpgradeLaserGuidedMissiles:
+    Sounds: vrapu2
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  RaptorVoiceAirPatrol:
+    Sounds: vrappaa vrappab vrappac
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  RaptorVoiceFalling:
+    Sounds: vrapfaa vrapfab vrapfac vrapfad
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  ComancheVoiceSelect:
+    Sounds: vcomsea vcomseb vcomsed vcomsee
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ComancheVoiceCreate:
+    Sounds: vcomsef
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ComancheVoiceMove:
+    Sounds: vcommoa vcommob vcommoc vcommod vcommoe
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ComancheVoiceAttack:
+    Sounds: vcomata vcomatb vcomatc vcomatd vcomate vcomatf vcomatg vcomath
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ComancheVoiceAttackRocket:
+    Sounds: vcoma2a vcoma2b vcoma2b vcoma2c vcoma2d
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ComancheVoiceUpgradeRocketPods:
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Sounds: vcomu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ComancheVoiceFalling:
+    Sounds: vcomfaa vcomfab vcomfac vcomfad vcomfae
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  ComancheVoiceModeRocketPods:
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Sounds: vcoma2e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  ComancheVoiceDie:
+    Sounds: vcomfaa vcomfab vcomfac vcomfad vcomfae
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  ChinookVoiceSelect:
+    Sounds: vchisea vchiseb vchisec vchised vchisee vchisef
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ChinookVoiceCreate:
+    Sounds: vchiseg
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ChinookVoiceMove:
+    Sounds: vchimoa vchimob vchimoc vchimod vchimoe vchimof
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ChinookVoiceAttack:
+    Sounds: vchidra vchidrb vchidrc vchidrd vchidre
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ChinookVoiceCombatDrop:
+    Sounds: vchidra vchidrb vchidrc vchidrd vchidre
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ChinookVoiceUnload:
+    Sounds: vchiuna vchiunb vchiunc vchiund
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ChinookVoiceSupply:
+    Sounds: vchispa vchispb vchispc
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ChinookVoiceSuppliesDepleted:
+    Sounds: vchisda vchisdb vchisdc
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  ChinookVoiceFalling:
+    Sounds: vchifac vchifad vchifae vchifaf
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  AuroraBomberVoiceSelect:
+    Sounds: vaursea vaurseb vaursec vaursed vaursee vaursef
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AuroraBomberVoiceCreate:
+    Sounds: vaurseg
+    Attack:
+    - gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f gradio1g
+    - gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  AuroraBomberVoiceMove:
+    Sounds: vaurmoa vaurmob vaurmoc vaurmod vaurmoe vaurmof
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AuroraBomberVoiceAttack:
+    Sounds: vaurata vauratb vauratc vauratd vaurate
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AuroraBomberVoiceSuperSonic:
+    Sounds: vaurspa vaurspb vaurspc vaurspd vaurspe
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AuroraBomberVoiceModeSuperSonic:
+    Sounds: vaurmsa vaurmsb vaurmsc
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  AuroraBomberVoiceLowFuel:
+    Sounds: vaurfub
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  AuroraBomberVoiceFalling:
+    Sounds: vaurfaa vaurfab vaurfac
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  AuroraBomberVoiceUpgradeBuster:
+    Sounds: vauru1a
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  AmbulanceVoiceSelect:
+    Sounds: vambsea vambseb vambsec vambsed vambsee vambsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AmbulanceVoiceCreate:
+    Sounds: vambseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  AmbulanceVoiceMove:
+    Sounds: vambmoa vambmob vambmoc vambmod vambmoe vambmof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AmbulanceVoiceHeal:
+    Sounds: vambhea vambheb vambhec vambhed vambhee vambhef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AmbulanceVoiceDetox:
+    Sounds: vambdea vambdeb vambdec vambded
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AmbulanceVoiceModeDetox:
+    Sounds: ''
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  AmbulanceVoiceDrone:
+    Sounds: vambdra vambdrb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AmbulanceVoiceCrush:
+    Sounds: vambcra vambcrb vambcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HumveeVoiceSelect:
+    Sounds: vhumsea vhumseb vhumsef vhulsec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HumveeVoiceCreate:
+    Sounds: vhumseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  HumveeVoiceMove:
+    Sounds: vhummoa vhummob vhummod vhummoe vhummof vhulmob vhulmoa
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HumveeVoiceAttack:
+    Sounds: vhumata vhumatb vhumatc vhumatd vhumate vhumatf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HumveeVoiceAttackTOW:
+    Sounds: vhuma2a vhuma2b vhuma2c vhuma2d vhuma2e vhula2a vhula2b vhula2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HumveeVoiceDrone:
+    Sounds: vhumdra vhumdrb vhumdrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HumveeVoiceCrush:
+    Sounds: vhumcra vhumcrb vhumcrc vhumcrd
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HumveeVoiceUpgradeTowMissiles:
+    Sounds: vhumu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HumveeVoiceUnload:
+    Sounds: vhumuna vhumunb vhumhunc vhumund
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ColonelBurtonVoiceSelect:
+    Sounds: icolsea icolseb icolsec icolsee icolsef icolseg icolseh
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ColonelBurtonVoiceCreate:
+    Sounds: icolsei
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ColonelBurtonVoiceMove:
+    Sounds: icolmoa icolmob icolmoc icolmod icolmoe icolclb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ColonelBurtonVoiceAttack:
+    Sounds: icolata icolatb icolatc icolatd icolate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ColonelBurtonVoiceAttackKnife:
+    Sounds: icola2a icola2b icola2c icola2d icola2e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ColonelBurtonVoiceClimb:
+    Sounds: icolcla icolclb icolclc icolcld
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ColonelBurtonVoiceGarrison:
+    Sounds: icolgaa icolgab icolgac
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ColonelBurtonVoiceFear:
+    Sounds: icolfea icolfeb icolfec icolfed icolfee
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  ColonelBurtonVoiceDie:
+    Sounds: icoldia icoldib icoldic icoldid icoldie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 100
+    MinVolume: 80
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  ColonelBurtonVoiceModeKnife:
+    Sounds: icolmka
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  ColonelBurtonVoiceModeTimedCharge:
+    Sounds: icolmtb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  ColonelBurtonVoiceModeRemoteCharge:
+    Sounds: icolmra
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  ColonelBurtonVoicePlantTimedCharge:
+    Sounds: icola3a icola3b icola3c icola3d icola3e icola3f
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ColonelBurtonVoicePlantRemoteCharge:
+    Sounds: icola3a icola3b icola3c icola3d icola3e icola3f
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerUSAVoiceSelect:
+    Sounds: vdousea vdouseb vdousec vdoused vdousee vdousef vdouseg vdouseh vdousei
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerUSAVoiceCreate:
+    Sounds: vdousej
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  DozerUSAVoiceMove:
+    Sounds: vdoumoa vdoumob vdoumoc vdoumoe vdoumof vdoumog
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerUSAVoiceCrush:
+    Sounds: vdoucra vdoucrb vdoucrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerUSAVoiceBuild:
+    Sounds: vdoubua vdoubub vdoubuc vdoubud vdoubue
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerUSAVoiceBuildNot:
+    Sounds: vdounoa vdounob vdounoc vdounod
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerUSAVoiceRepair:
+    Sounds: vdourea vdoureb vdourec vdoured vdouree
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerUSAVoiceBuildComplete:
+    Sounds: vdoucoa vdoucob vdoucoc
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Priority: high
+    Type: world player global
+  DozerUSAVoiceClearMine:
+    Sounds: vdoucla vdouclb vdouclc vdoucld vdoucle
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PaladinTankVoiceSelect:
+    Sounds: vpalsea vpalseb vpalsec vpalsed vpalsee vpalsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PaladinTankVoiceCreate:
+    Sounds: vpalseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  PaladinTankVoiceMove:
+    Sounds: vpalmoa vpalmob vpalmoc vpalmod vpalmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PaladinTankVoiceAttack:
+    Sounds: vpalata vpalatb vpalatc vpalatd vpalate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PaladinTankVoiceCrush:
+    Sounds: vpalcra vpalcrb vpalcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PaladinTankVoiceDrone:
+    Sounds: vpaldra vpaldrb vpaldrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PathfinderVoiceSelect:
+    Sounds: ipatsea ipatseb ipatsec ipatsed ipatsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PathfinderVoiceCreate:
+    Sounds: ipatsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  PathfinderVoiceMove:
+    Sounds: ipatmoa ipatmob ipatmoc ipatmod ipatmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PathfinderVoiceAttack:
+    Sounds: ipatata ipatatb ipatatc ipatatd ipatate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PathfinderVoiceSurrender:
+    Sounds: ipatsua ipatsub ipatsuc
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded everyone
+  PathfinderVoiceGarrison:
+    Sounds: ipatgaa ipatgab ipatgac ipatgad
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PathfinderVoiceFear:
+    Sounds: ipatfea ipatfeb ipatfec ipatfed ipatfee
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  PathfinderVoiceDie:
+    Sounds: ipatdia ipatdib ipatdic ipatdid ipatdie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 90
+    VolumeShift: -20
+    Type: world shrouded everyone
+  StealthFighterVoiceSelect:
+    Sounds: vstesea vsteseb vstesec vstesed vstesee vstesef
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  StealthFighterVoiceCreate:
+    Sounds: vstesea
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  StealthFighterVoiceMove:
+    Sounds: vstemoa vstemob vstemoc vstemod vstemoe
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  StealthFighterVoiceAttackAir:
+    Sounds: vstea2a vstea2b vstea2c vstea2d vstea2e
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  StealthFighterVoiceAttack:
+    Sounds: vsteata vsteatb vsteatc vsteatd vsteate
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  StealthFighterVoiceLowFuel:
+    Sounds: vstefub vstefuc
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 120
+    MinVolume: 110
+    Priority: high
+    Type: world player global
+  StealthFighterVoiceAirPatrol:
+    Sounds: vstepaa vstepab
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  StealthFighterVoiceFalling:
+    Sounds: vstefaa vstefab vstefac
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  PilotVoiceSelect:
+    Sounds: ipilsea ipilseb ipilsec ipilsed ipilsee ipilsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PilotVoiceMove:
+    Sounds: ipilmoa ipilmob ipilmoc ipilmod ipilmoe ipilmof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PilotVoiceEnter:
+    Sounds: ipilena ipilenb ipilenc ipilend ipilene
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  PilotVoiceEject:
+    Sounds: ipileja
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  PilotVoiceFear:
+    Sounds: ipilfea ipilfeb ipilfec ipilfed ipilfee
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  PilotVoiceSurrender:
+    Sounds: ipilsua ipilsub ipilsuc
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded everyone
+  PilotVoiceDie:
+    Sounds: ipildia ipildib ipildic ipildid ipildie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 90
+    Type: world shrouded everyone
+  POWTruckUSAVoiceSelect:
+    Sounds: vpousea vpouseb vpousec vpoused vpousee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckUSAVoiceCreate:
+    Sounds: vpousef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  POWTruckUSAVoiceMove:
+    Sounds: vpoumoa vpoumob vpoumoc vpoumod vpoumoe vpoumof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckUSAVoicePickup:
+    Sounds: vpoupia vvpoupib vpoupic vpoupid vpoupie
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckUSAVoiceReturn:
+    Sounds: vpourea vpoureb vpourec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckUSAVoiceCrush:
+    Sounds: vpoucra vpoucrb vpoucrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceSelect:
+    Sounds: iredsea iredseb iredsec iredsed iredsee iredsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceCreate:
+    Sounds: iredseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  RedGuardVoiceMove:
+    Sounds: iredmoa iredmob iredmoc iredmod iredmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceAttack:
+    Sounds: iredata iredatb iredatc iredatd iredate iredatf iredatg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceAttackBayonet:
+    Sounds: iredata iredatc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceSubdue:
+    Sounds: iredsba iredsbb iredsbc iredsbd iredsbe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceCapture:
+    Sounds: iredcaa iredcab iredcac iredcad iredcae
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceCaptureComplete:
+    Sounds: iredcoa iredcoc iredcod iredcoe
+    Priority: high
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  RedGuardVoiceGarrison:
+    Sounds: iredgaa iredgab iredgac iredgad iredgae
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceUpgradeNationalism:
+    Sounds: iredu2
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceUpgradeStunBullets:
+    Sounds: iredu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceModeGun:
+    Sounds: iredmga iredmgb iredmgc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  RedGuardVoiceBaseAttack:
+    Sounds: iredbaa iredbab iredbac iredbad
+    Control: random
+    Priority: high
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  RedGuardVoiceLaugh:
+    Sounds: iredla iredlab iredlac
+    Control: random
+    Priority: high
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  Cin_RedGuardVoiceLaugh:
+    Sounds: iredlab
+    Control: random
+    Priority: high
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  RedGuardVoiceBuildingStolen:
+    Sounds: iredbsa iredbsb iredbsc
+    Control: random
+    Priority: high
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  RedGuardVoiceSurrender:
+    Sounds: iredsua iredsub iredsuc iredsud iredsue
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded everyone
+  RedGuardVoiceFear:
+    Sounds: iredfea iredfeb iredfec iredfed iredfee
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  RedGuardVoiceDie:
+    Sounds: ireddia ireddib ireddic ireddid ireddie ireddif ireddig ireddih ireddii ireddij ireddik ireddil
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    VolumeShift: -20
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  TankHunterVoiceSelect:
+    Sounds: itansea itanseb itansec itansed itansee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TankHunterVoiceCreate:
+    Sounds: itansef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  TankHunterVoiceMove:
+    Sounds: itanmoa itanmob itanmoc itanmod itanmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TankHunterVoiceGarrison:
+    Sounds: itanmoa itanmob itanmoc itanmod itanmoe
+    Control: random
+    Volume: 80
+    Type: ui voice player
+  TankHunterVoiceAttack:
+    Sounds: itanata itanatb itanatc itanatd itanate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TankHunterVoiceTNT:
+    Sounds: itana2a itana2b itana2c itana2d
+    Control: random
+    Volume: 80
+    Type: ui voice player
+  TankHunterVoiceSurrender:
+    Sounds: itansua itansub itansuc
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded everyone
+  TankHunterVoiceFear:
+    Sounds: itanfea itanfeb itanfec itanfed itanfee
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  TankHunterVoiceDie:
+    Sounds: itandia itandib itandic itandid itandie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    VolumeShift: -20
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  BattleMasterTankVoiceSelect:
+    Sounds: vbatsea vbatseb vbatsec vbatsed vbatsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleMasterTankVoiceCreate:
+    Sounds: vbatsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  BattleMasterTankVoiceMove:
+    Sounds: vbatmoa vbatmob vbatmoc vbatmod vbatmoe vbatmof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleMasterTankVoiceAttack:
+    Sounds: vbatata vbatatb vbatatc vbatatd vbatate vbatatf vbatcrb vbatcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleMasterTankVoiceUpgradeNuclear:
+    Sounds: vbatu2
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleMasterTankVoiceUpgradeDepleted:
+    Sounds: vbatu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleMasterTankVoiceCrush:
+    Sounds: vbatcra vbatcrb vbatcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  InfernoCannonVoiceSelect:
+    Sounds: vinfsea vinfseb vinfsec vinfsed vinfsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  InfernoCannonVoiceCreate:
+    Sounds: vinfsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  InfernoCannonVoiceMove:
+    Sounds: vinfmoa vinfmob vinfmoc vinfmod vinfmoe vinfmof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  InfernoCannonVoiceAttack:
+    Sounds: vinfata vinfatb vinfatc vinfatd vinfate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  InfernoCannonVoiceCrush:
+    Sounds: vinfcra vinfcrb vinfcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MigVoiceSelect:
+    Sounds: vmigsea vmigseb vmigsec vmigsed vmigsee
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MigVoiceCreate:
+    Sounds: vmigsef
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  MigVoiceMove:
+    Sounds: vmigmoa vmigmob vmigmoc vmigmod vmigmoe
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MigVoiceAttackAir:
+    Sounds: vmigata vmigatb vmigatc vmigatd vmigate
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MigVoiceAttack:
+    Sounds: vmiga2a vmiga2b vmiga2c vmiga2d vmiga2e
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MigVoiceUpgradeMigArmor:
+    Sounds: vmigu1
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MigVoiceLowFuel:
+    Sounds: vmigfua vmigfub vmigfuc
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  MigVoiceAirPatrol:
+    Sounds: vmigpaa vmigpab vmigpac
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MigVoiceFalling:
+    Sounds: vmigfaa vmigfab vmigfac vmigfac vmigfad vmigfae
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  DragonTankVoiceSelect:
+    Sounds: vdrasea vdraseb vdrasec vdrased vdrasee vdrasef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DragonTankVoiceCreate:
+    Sounds: vdraseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  DragonTankVoiceMove:
+    Sounds: vdramoa vdramob vdramoc vdramod vdramoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DragonTankVoiceAttack:
+    Sounds: vdraata vdraatb vdraatc vdraatd vdraate vdraatf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DragonTankVoiceCrush:
+    Sounds: vdramoa vdramob vdramoc vdramod vdramoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DragonTankVoiceFireStorm:
+    Sounds: vdraa2a vdraa2b vdraa2c vdraa2d
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DragonTankVoiceModeFireStorm:
+    Sounds: ''
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  DragonTankVoiceUpgradeBlackNapalm:
+    Sounds: vdrau1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HackerVoiceSelect:
+    Sounds: ihacsea ihacseb ihacsec ihacsed ihacsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HackerVoiceCreate:
+    Sounds: ihacsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  HackerVoiceMove:
+    Sounds: ihacmoa ihacmob ihacmoc ihacmod ihacmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HackerVoiceGarrison:
+    Sounds: ihacmoa ihacmob ihacmoc ihacmod ihacmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HackerVoiceHack:
+    Sounds: ihacata ihacatb ihacatc ihacatd ihacate ihacatf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HackerVoiceModeHack:
+    Sounds: ihacmha ihacmhb ihacmhc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  HackerVoiceHackComplete:
+    Sounds: ihaccoa
+    Control: random
+    Priority: high
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  HackerVoiceModeInternet:
+    Sounds: ihaca2a ihaca2b ihaca2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  HackerVoiceSurrender:
+    Sounds: ihacsua ihacsub
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded everyone
+  HackerVoiceFear:
+    Sounds: ihacfea ihacfeb ihacfec ihacfed
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  HackerVoiceDie:
+    Sounds: ihacdia ihacdib ihacdic ihacdid ihacdie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    VolumeShift: -20
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  TroopCrawlerVoiceSelect:
+    Sounds: vtrosea vtroseb vtrosec vtrosed vtrosee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TroopCrawlerVoiceCreate:
+    Sounds: vtrosef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  TroopCrawlerVoiceMove:
+    Sounds: vtromoa vtromob vtromoc vtromod vtromoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TroopCrawlerVoiceAttack:
+    Sounds: vtroata vtroatb vtroatc vtroatd vtroate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TroopCrawlerVoiceCrush:
+    Sounds: vtrocra vtrocrb vtrocrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TroopCrawlerVoiceUnload:
+    Sounds: vtrouna vtrounb vtrounc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TroopCrawlerVoiceAssault:
+    Sounds: vtroata vtroatb vtroatc vtroatd vtroate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TroopCrawlerVoiceModeAssault:
+    Sounds: vtromaa vtromab
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  OverlordTankVoiceSelect:
+    Sounds: vovesea voveseb vovesec vovesee vovesef voveseg vovecra
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  OverlordTankVoiceCreate:
+    Sounds: vovesed
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  OverlordTankVoiceMove:
+    Sounds: vovemoa vovemob vovemoc vovemod vovemoe vovemof vovemog
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  OverlordTankVoiceAttack:
+    Sounds: voveata voveatb voveatc voveate voveatf voveatg vovecrb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  OverlordTankVoiceCrush:
+    Sounds: vovecra vovecrb vovecrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  OverlordTankVoiceUnload:
+    Sounds: voveunb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  OverlordTankVoiceModeBunker:
+    Sounds: voveu1a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  OverlordTankVoiceModeSpeakerTower:
+    Sounds: voveu2a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  OverlordTankVoiceModeGattling:
+    Sounds: voveu3a
+    Control: random
+    Volume: 90
+    Priority: high
+    Type: ui voice player
+    Limit: 1
+  OverlordTankBunkerVoiceCreate:
+    Sounds: voveu1b
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  OverlordTankGattlingCannonVoiceCreate:
+    Sounds: voveu3b
+    Control: random
+    Volume: 80
+    Priority: high
+    Type: ui voice player
+  OverlordTankPropagandaTowerVoiceCreate:
+    Sounds: voveu2b
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  GattlingTankVoiceSelect:
+    Sounds: vgatsea vgatseb vgatsed vgatsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  GattlingTankVoiceCreate:
+    Sounds: vgatsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  GattlingTankVoiceMove:
+    Sounds: vgatmoa vgatmob vgatmoc vgatmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  GattlingTankVoiceAttack:
+    Sounds: vgatata vgatatb vgatatc vgatatd vgatate
+    Control: random
+    Volume: 80
+    Type: ui voice player
+  GattlingTankVoiceCrush:
+    Sounds: vgatcra vgatcrb vgatcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  GattlingTankVoiceUpgrade:
+    Sounds: vgatu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  GattlingTankVoiceRapid:
+    Sounds: vgatraa vgatrab vgatrac
+    Control: random
+    Volume: 110
+    Type: world player
+    Limit: 1
+  BlackLotusVoiceSelect:
+    Sounds: iblasea iblaseb iblasec iblased iblasee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BlackLotusVoiceCreate:
+    Sounds: iblasef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  BlackLotusVoiceMove:
+    Sounds: iblamoa iblamob iblamoc iblamod iblamoe iblamof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BlackLotusVoiceModeBuilding:
+    Sounds: iblamba iblambb iblambc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  CINE_U03_BlackLotusVoiceModeBuilding:
+    Sounds: iblambc iblambc iblambc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  BlackLotusVoiceHackBuilding:
+    Sounds: iblahaa iblahab iblahac iblahad iblahae iblahaf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BlackLotusVoiceCaptureComplete:
+    Sounds: iblacoa
+    Priority: high
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  BlackLotusVoiceModeVehicle:
+    Sounds: iblamva iblamvb iblamvc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  BlackLotusVoiceHackVehicle:
+    Sounds: iblah2a iblah2b iblah2c iblah2d iblah2e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BlackLotusVoiceDisableComplete:
+    Sounds: iblac2a
+    Priority: high
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  BlackLotusVoiceModeCash:
+    Sounds: iblamma iblammb iblammc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  BlackLotusVoiceHackCash:
+    Sounds: iblah3a iblah3d
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BlackLotusVoiceCashComplete:
+    Sounds: iblah3e
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  BlackLotusVoiceFear:
+    Sounds: iblafea iblafeb iblafec iblafed
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  BlackLotusVoiceDie:
+    Sounds: ibladia ibladib ibladic ibladid ibladie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    VolumeShift: -20
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  SupplyTruckVoiceSelect:
+    Sounds: vsupsea vsupseb vsupsec vsupsed vsupsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SupplyTruckVoiceCreate:
+    Sounds: vsupsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  SupplyTruckVoiceMove:
+    Sounds: vsupmoa vsupmob vsupmoc vsupmod vsupmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SupplyTruckVoiceSupply:
+    Sounds: vsupspa vsupspb vsupspc vsupspd vsupspe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SupplyTruckVoiceSuppliesDepleted:
+    Sounds: vsupsda vsupsdb vsupsdc vsupsdd
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Priority: high
+    Type: world global player
+  SupplyTruckVoiceCrush:
+    Sounds: vsupcra vsupcrb vsupcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerChinaVoiceSelect:
+    Sounds: vdocsea vdocseb vdocsec vdocsed vdocsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerChinaVoiceCreate:
+    Sounds: vdocsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  DozerChinaVoiceMove:
+    Sounds: vdocmoa vdocmob vdocmoc vdocmod vdocmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerChinaVoiceBuild:
+    Sounds: vdocbua vdocbub vdocbuc vdocbud vdocbuf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerChinaVoiceBuildNot:
+    Sounds: vdocnoa vdocnob vdocnoc vdocnod
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerChinaVoiceBuildComplete:
+    Sounds: vdoccoa vdoccob vdoccoc vdoccod
+    Control: random
+    Priority: high
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  DozerChinaVoiceRepair:
+    Sounds: vdocrea vdocreb vdocrec vdocred
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerChinaVoiceCrush:
+    Sounds: vdoccra vdoccrb vdoccrc vdoccrd
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DozerChinaVoiceClearMine:
+    Sounds: vdoccla vdocclb vdocdlc vdoccld
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  NukeCannonVoiceSelect:
+    Sounds: vnuksea vnukseb vnuksed vnuksee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  NukeCannonVoiceCreate:
+    Sounds: vnuksef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  NukeCannonVoiceMove:
+    Sounds: vnukmob vnukmoc vnukmod vnukmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  NukeCannonVoiceAttack:
+    Sounds: vnukata vnukatb vnukatc vnukatd vnukate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  NukeCannonVoiceDeploy:
+    Sounds: vnukdea vnukdeb vnukdec
+    Control: random
+    Volume: 80
+    Type: ui voice player
+  NukeCannonVoiceUnDeploy:
+    Sounds: vnukd2a vnukd2b vnuk2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  NukeCannonVoiceCrush:
+    Sounds: vnukmoc vnukmoe
+    Control: random
+    Volume: 80
+    Type: ui voice player
+  POWTruckChinaVoiceSelect:
+    Sounds: vpocsed vpocsee vpocred
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckChinaVoiceCreate:
+    Sounds: vpocsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  POWTruckChinaVoiceMove:
+    Sounds: vpocmoa vpocmoc vpocmoe vpocpia vpocpid
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckChinaVoicePickup:
+    Sounds: vpocpib vpocpic vpocpie
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckChinaVoiceReturn:
+    Sounds: vpocrea vpocreb vpocrec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckChinaVoiceUpgradeSubliminal:
+    Sounds: vpocu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckChinaVoiceCrush:
+    Sounds: vpoccra vpoccrb vpoccrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceSelect:
+    Sounds: irebsea irebseb irebsec irebsed irebsee irebsef irebseg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceCreate:
+    Sounds: irebseh
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  RebelVoiceMove:
+    Sounds: irebmoa irebmob irebmoc irebmod irebmoe irebmof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceAttack:
+    Sounds: irebata irebatb irebatc irebatd irebate irebatf irebatg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceCapture:
+    Sounds: irebcaa irebcab irebcac irebcad irebcae irebcaf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceCaptureComplete:
+    Sounds: irebcoa irebcob
+    Priority: high
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  RebelVoiceSubdue:
+    Sounds: irebsba irebsbb irebsbc irebsbd
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceGarrison:
+    Sounds: irebgaa irebgab irebgac irebgad irebgae
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceLaugh:
+    Sounds: ireblaa ireblab ireblac
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceSurrender:
+    Sounds: irebsua irebsub irebsuc irebsud irebsue
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded everyone
+  RebelVoiceFear:
+    Sounds: irebfea irebfeb irebfec irebfed irebfee irebfef
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  RebelVoiceBaseAttack:
+    Sounds: irebbaa irebbab irebbac irebbad
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  RebelVoiceBuildingStolen:
+    Sounds: irebbsa irebbsb irebbsc
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world global player
+  RebelVoiceModeTranquilizers:
+    Sounds: irebmta irebmtb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  RebelVoiceModeGun:
+    Sounds: irebmga irebmgb irebmgc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  RebelVoiceUpgradeAPBullets:
+    Sounds: irebu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceUpgradeCamouflage:
+    Sounds: irebu2
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceUpgradeTranqDarts:
+    Sounds: irebmtc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceDie:
+    Sounds: irebdia irebdib irebdic irebdid irebdie irebdif irebdig irebdih irebdii irebdij
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 90
+    VolumeShift: -20
+    Type: world shrouded everyone
+  RebelVoiceModeBoobyTrap:
+    Sounds: irebu5a irebu5b irebu5c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceBoobyTrapInstall:
+    Sounds: ireba2a ireba2b ireba2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TerroristVoiceSelect:
+    Sounds: itersea iterseb itersec itersee itersef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TerroristVoiceCreate:
+    Sounds: iterseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  TerroristVoiceMove:
+    Sounds: itermoa itermob itermoc itermoe itermof itermog
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TerroristVoiceAttack:
+    Sounds: iterata iteratb iteratc iteratd iterate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TerroristVoiceEnter:
+    Sounds: itermoa itermob itermoc itermoe itermof itermog
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TerroristVoiceEnterHostile:
+    Sounds: itera2a itera2b itera2c itera2d itera2e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TerroristVoiceFear:
+    Sounds: iterfea iterfeb iterfec iterfed
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  TerroristVoiceDie:
+    Sounds: iterdia iterdib iterdic iterdid iterdie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 90
+    VolumeShift: -20
+    Type: world voice shrouded everyone
+  CarBombVoiceSelect:
+    Sounds: vcarsea vcarseb vcarsec vcarsed vcarsee vcarsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CarBombVoiceMove:
+    Sounds: vcarmoa vcarmob vcarmoc vcarmod vcarmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CarBombVoiceAttack:
+    Sounds: vcarata vcaratb vcaratc vcaratd vcarate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScorpionTankVoiceSelect:
+    Sounds: vscosea vscoseb vscosec vscosed vscosee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScorpionTankVoiceCreate:
+    Sounds: vscosef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ScorpionTankVoiceMove:
+    Sounds: vscomoa vscomob vscomoc vscomod vscomoe vscomof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScorpionTankVoiceAttack:
+    Sounds: vscoata vscoatb vscoatc vscoatd vscoate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScorpionTankVoiceAttackRocket:
+    Sounds: vscoa2a vsco2b vscoa2c vscoa2d vscoa2e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScorpionTankVoiceModeRocket:
+    Sounds: vscomra vscomrb vscomrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  ScorpionTankVoiceUpgradeRocket:
+    Sounds: vscou1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScorpionTankVoiceUpgradeToxin:
+    Sounds: vscou2
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScorpionTankVoiceUpgradeJunkRepair:
+    Sounds: vscou3
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScorpionTankVoiceCrush:
+    Sounds: vscocra vscocrb vscocrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RocketBuggyVoiceSelect:
+    Sounds: vrocsea vrocseb vrocsec vrocsed vrocsee vrocsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RocketBuggyVoiceCreate:
+    Sounds: vrocseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  RocketBuggyVoiceMove:
+    Sounds: vrocmoa vrocmob vrocmoc vrocmod vrocmoe vrocmof vroccrb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RocketBuggyVoiceAttack:
+    Sounds: vrocata vrocatb vrocatc vrocatd vrocate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RocketBuggyVoiceUpgradeAmmo:
+    Sounds: vrocu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RocketBuggyVoiceUpgradeAPRockets:
+    Sounds: vrocu2
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RocketBuggyVoiceCrush:
+    Sounds: vroccra vroccrb vroccrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RadarVanVoiceSelect:
+    Sounds: vradsea vradseb vradsec vradsed vradsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RadarVanVoiceCreate:
+    Sounds: vradsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  RadarVanVoiceMove:
+    Sounds: vradmoa vradmob vradmoc vradmod
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RadarVanVoiceCrush:
+    Sounds: vradcra vradcrb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RadarVanVoiceUpgradeRadarScan:
+    Sounds: vradmoe
+    Volume: 90
+    Type: ui voice player
+  ToxinTractorVoiceSelect:
+    Sounds: vtoxsea vtoxseb vtoxsec vtoxsed vtoxsee vtoxsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ToxinTractorVoiceCreate:
+    Sounds: vtoxseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ToxinTractorVoiceMove:
+    Sounds: vtoxmoa vtoxmob vtoxmoc vtoxmod vtoxmoe vtoxmof vtoxmog vtoxmoh
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ToxinTractorVoiceAttack:
+    Sounds: vtoxata vtoxatb vtoxatc vtoxatd vtoxate vtoxatf vtoxatg
+    Control: random
+    Volume: 80
+    Type: ui voice player
+  ToxinTractorVoiceAttackContam:
+    Sounds: vtoxa2a vtoxa2b vtoxa2c vtoxa2d vtoxa2e vtoxa2f
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ToxinTractorVoiceModeContam:
+    Sounds: ''
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  ToxinTractorVoiceUpgradeAnthrax:
+    Sounds: vtoxu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ToxinTractorVoiceCrush:
+    Sounds: vtoxcra vtoxcrb vtoxcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TechnicalVoiceSelect:
+    Sounds: vtecsea vtecseb vtecsec vtecsed vtecsee vtecsef
+    Control: random
+    Volume: 80
+    Type: ui voice player
+  TechnicalVoiceCreate:
+    Sounds: vtecath
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  TechnicalVoiceMove:
+    Sounds: vtecmoa vtecmob vtecmoc vtecmod vtecmoe vteccrb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TechnicalVoiceAttack:
+    Sounds: vtecata vtecatc vtecatd vtecate vtecatf vtecatg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TechnicalVoiceSalvage:
+    Sounds: vtecsaa vtecsab vtecsac vtecsad vtecsae vtecatb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TechnicalVoiceUnload:
+    Sounds: vtecuna vtecunb vtecunc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TechnicalVoiceCrush:
+    Sounds: vtecmoa vtecmob vtecmoc vtecmod vtecmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  TechnicalVoiceDie:
+    Sounds: vtecdia vtecdib vtecdic vtecdid
+    Control: random
+    Priority: high
+    Limit: 2
+    VolumeShift: -15
+    PitchShift: -5 5
+    Volume: 65
+    Type: world shrouded everyone
+  BombTruckVoiceSelect:
+    Sounds: vbomsea vbomseb vbomsec vbomsed vbomsee vbomsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BombTruckVoiceCreate:
+    Sounds: vbomseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  BombTruckVoiceMove:
+    Sounds: vbommoa vbommob vbommoc vbommod vbommoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BombTruckVoiceAttack:
+    Sounds: vbomata vbomatb vbomatc vbomatd vbomate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BombTruckVoiceDisguise:
+    Sounds: vbomdsa vbomdsb vbomdsc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BombTruckVoiceModeDisguise:
+    Sounds: vbommda vbommdb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  BombTruckVoiceModeHiEx:
+    Sounds: vbommha
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  BombTruckVoiceModeBioBomb:
+    Sounds: vbommba
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  BombTruckVoiceUpgradeHiEx:
+    Sounds: vbomu2
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BombTruckVoiceUpgradeBioBomb:
+    Sounds: vbomu1
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  QuadCannonVoiceSelect:
+    Sounds: vquasea vquaseb vquasec vquased vquasef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  QuadCannonVoiceCreate:
+    Sounds: vquasee
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  QuadCannonVoiceMove:
+    Sounds: vquamoa vquamob vquamoc vquamod vquamoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  QuadCannonVoiceAttack:
+    Sounds: vquaata vquaatb vquaatc vquaatd vquaate vquacrb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  QuadCannonVoiceAttackAir:
+    Sounds: vquaa2a vquaa2b vquaa2c vquaa2d vquaa2e vquaa2f
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  QuadCannonVoiceSalvage:
+    Sounds: vquasaa vquasab vquasac
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  QuadCannonVoiceCrush:
+    Sounds: vquaacra vquacrb vquacrc vquacrd
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceSelect:
+    Sounds: iworsea iworseb iworsec iworsed iworsee iworsef iworseg iworsei
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceCreate:
+    Sounds: iworseh
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  WorkerVoiceMove:
+    Sounds: iwormoa iwormob iwormoc iwormod iwormoe iwormof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceMoveUpgraded:
+    Sounds: iwormoa iwormob iwormoc iwormoe iwormof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceGarrison:
+    Sounds: iworga iworgab iworgac
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceBuild:
+    Sounds: iworbua iworbub iworbuc iworbud iworbue iworbuf iworbug
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceBuildNot:
+    Sounds: iwornoa iwornob iwornoc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceBuildComplete:
+    Sounds: iworcoa iworcob iworcoc iworcod
+    Control: random
+    Priority: high
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  WorkerVoiceSuppliesDepleted:
+    Sounds: iworsda iworsdb iworsdc
+    Control: random
+    Priority: high
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  WorkerVoiceRepair:
+    Sounds: iworre iworreb iworrec iworred iworree iworref
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceFortify:
+    Sounds: iworfoa iworfob iworfoc iworfod iworfoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceClearMine:
+    Sounds: iworcla iworclb iworclc iworcld iworcle iworclf iworclg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceSupply:
+    Sounds: iworspa iworspb iworspc iworspd
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceUpgradeShoes:
+    Sounds: iworu1c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  WorkerVoiceFear:
+    Sounds: iworfea iworfeb iworfec iworfed iworfee iworfef
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  WorkerVoiceSurrender:
+    Sounds: iworsua iworsub iworsuc iworsud
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 100
+    MinVolume: 80
+    Type: world voice shrouded everyone
+  WorkerVoiceDie:
+    Sounds: iwordia iwordib iwordic iwordid iwordie iwordif iwordig iwordih
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 90
+    VolumeShift: -20
+    Type: world voice shrouded everyone
+  HijackerVoiceSelect:
+    Sounds: ihijsea ihijseb ihijsec ihijsed ihijsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HijackerVoiceCreate:
+    Sounds: ihijsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  HijackerVoiceMove:
+    Sounds: ihijmoa ihijmob ihijmoc ihijmod ihijmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HijackerVoiceGarrison:
+    Sounds: ihijmoa ihijmob ihijmoc ihijmod ihijmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HijackerVoiceAttack:
+    Sounds: ihijata ihijatb ihijtc ihijatd ihijate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HijackerVoiceEnter:
+    Sounds: ihijmoa ihijmob ihijmoc ihijmod ihijmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HijackerVoiceEnterHostile:
+    Sounds: ihijata ihijatb ihijatc ihijatd ihijate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HijackerVoiceFear:
+    Sounds: ihijfea ihijfeb ihijfec ihijfed
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  HijackerVoiceDie:
+    Sounds: ihijdia ihijdib ihijdic ihijdid ihijdie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 90
+    VolumeShift: -20
+    Type: world voice shrouded everyone
+  HijackDriver:
+    Sounds: ihijhia ihijhib ihijhic
+    Attack: ihijweaa
+    Control: random
+    Volume: 110
+    MinRange: 200
+    MaxRange: 800
+    MinVolume: 80
+    Type: world shrouded everyone
+  HijackerVoiceSurrender:
+    Sounds: ihijfed
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded everyone
+  JarmenKellVoiceSelect:
+    Sounds: ijarsea ijarseb ijarsed ijarsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  JarmenKellVoiceCreate:
+    Sounds: ijarsec
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  JarmenKellVoiceMove:
+    Sounds: ijarmoa ijarmob ijarmoc ijarmod ijarmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  JarmenKellVoiceAttack:
+    Sounds: ijarata ijaratb ijaratc ijaratd ijarate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  JarmenKellVoiceSnipe:
+    Sounds: ijara2a ijara2b ijara2c ijara2d ijara2e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  JarmenKellVoiceModeSnipe:
+    Sounds: ijarsef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  JarmenKellVoiceFear:
+    Sounds: ijarfea ijarfeb ijarfec ijarfec ijarfed ijarfee
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  JarmenKellVoiceGarrison:
+    Sounds: ijargaa ijargab ijargac
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  JarmenKellVoiceDie:
+    Sounds: ijardia ijardib ijardic ijardid ijardie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    PitchShift: -10 10
+    Volume: 90
+    VolumeShift: -20
+    Type: world voice shrouded everyone
+  ScudLauncherVoiceSelect:
+    Sounds: vscusea vscuseb vscusec vscused vscusee vscusef
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScudLauncherVoiceCreate:
+    Sounds: vscuseg
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ScudLauncherVoiceMove:
+    Sounds: vscumoa vscumob vscumoc vscumod vscumoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScudLauncherVoiceAttack:
+    Sounds: vscuata vscuatb vscuatc vscuatd vscuate vscuatf vscuatg vscuath
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ScudLauncherVoiceModeAnthrax:
+    Sounds: vscumaa
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  ScudLauncherVoiceModeHiEx:
+    Sounds: vscumha
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  ScudLauncherVoiceCrush:
+    Sounds: vscucra vscucrb vscucrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MarauderTankVoiceSelect:
+    Sounds: vmarsea vmarseb vmarsec vmarsed vmarsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MarauderTankVoiceCreate:
+    Sounds: vmarsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  MarauderTankVoiceMove:
+    Sounds: vmarmoa vmarmob vmarmoc vmarmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MarauderTankVoiceAttack:
+    Sounds: vmarata vmaratb vmaratc vmaratd vmarate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MarauderTankVoiceSalvage:
+    Sounds: vmarsaa vmarsab vmarsac
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MarauderTankVoiceCrush:
+    Sounds: vmarcra vmarcrb vmarcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckGLAVoiceSelect:
+    Sounds: vpogsea vpogseb vpogsec vpogsed vpogsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckGLAVoiceCreate:
+    Sounds: vpogsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  POWTruckGLAVoiceMove:
+    Sounds: vpogmoa vpogmob vpogmoc vpogmod vpogmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckGLAVoicePickup:
+    Sounds: vpogpia vpogpib vpogpic vpogpid vpogpie
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckGLAVoiceReturn:
+    Sounds: vpogrea vpogreb vpogrec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWTruckGLAVoiceCrush:
+    Sounds: vpogcra vpogcrb vpogcrc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RPGTrooperVoiceSelect:
+    Sounds: irpgsea irpgseb irpgsec irpgsee irpgseg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RPGTrooperVoiceCreate:
+    Sounds: irpgsef
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  RPGTrooperVoiceGarrison:
+    Sounds: irpggaa irpggab irpggac
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RPGTrooperVoiceMove:
+    Sounds: irpgmoa irpgmob irpgmoc irpgmod irpgmoe irpgmof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RPGTrooperVoiceAttack:
+    Sounds: irpgata irpgatb irpgatc irpgatd irpgate irpgatf irpgatg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RPGTrooperVoiceSurrender:
+    Sounds: irpgsua irpgsub irpgsuc
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded everyone
+  RPGTrooperVoiceFear:
+    Sounds: irpgfea irpgfeb irpgfec irpgfed irpgfee
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  RPGTrooperVoiceDie:
+    Sounds: irpgdia irpgdib irpgdic irpgdid irpgdie irpgdif irpgdig irpgdih irpgdii irpgdij
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    VolumeShift: -20
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  AngryMobVoiceUpgradeArmTheMob:
+    Sounds: iangu1c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AngryMobVoiceUpgradeArmTheMobCrowd:
+    Sounds: iangupg
+    Limit: 1
+    Volume: 70
+    Type: ui voice player
+  AngryMobVoiceSelect:
+    Sounds: iangsela iangselb iangselc iangseld
+    Control: random
+    Volume: 80
+    MinRange: 150
+    MinVolume: 70
+    Type: world global player
+  AngryMobVoiceCreate:
+    Sounds: iangsela iangselb iangselc iangseld
+    Control: random
+    MinRange: 300
+    MaxRange: 2000
+    Volume: 90
+    MinVolume: 80
+    Type: world global player
+  AngryMobVoiceMove:
+    Sounds: iangmova iangmovb iangmovc iangmovd iangmove
+    Control: random
+    MinRange: 100
+    Volume: 80
+    MinVolume: 70
+    Type: world global player
+  AngryMobVoiceAttack:
+    Sounds: iangatta iangattb iangattc iangattd iangmovf
+    Control: random
+    MinRange: 100
+    Volume: 80
+    MinVolume: 70
+    Type: world global player
+  StingerSoldierVoiceSelect:
+    Sounds: ''
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  StingerSoldierVoiceMove:
+    Sounds: ''
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  StingerSoldierVoiceAttack:
+    Sounds: ''
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  StingerSoldierVoiceDie:
+    Sounds: irpgdia irpgdib irpgdic irpgdid irpgdie irpgdif irpgdig irpgdih irpgdii irpgdij
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  ConvoyTruckVoiceSelect:
+    Sounds: vconsea vconseb vconsec vconsed vconsee vconsef vconseg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ConvoyTruckVoiceMove:
+    Sounds: vconmoa vconmob vconmoc vconmod vconmoe vconmof vconmog
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  StrategyCenter_HoldTheLineAnnouncement:
+    Sounds: bholdthe
+    Priority: critical
+    Volume: 100
+    MinVolume: 90
+    MinRange: 1000
+    MaxRange: 100000
+    Type: world everyone
+  StrategyCenter_BombardmentPlanAnnouncement:
+    Sounds: bbombard
+    Priority: critical
+    Volume: 100
+    MinVolume: 90
+    MinRange: 1000
+    MaxRange: 100000
+    Type: world everyone
+  StrategyCenter_SearchAndDestroyAnnouncement:
+    Sounds: bsearcha
+    Priority: critical
+    Volume: 100
+    MinVolume: 90
+    MinRange: 1000
+    MaxRange: 100000
+    Type: world everyone
+  StealthDiscoveredSound: {}
+  StealthNeutralizedSound: {}
+  MisGLA02RebelTake:
+    Sounds: irebcaf
+    Priority: high
+    Volume: 110
+    MinVolume: 100
+    Type: world global everyone
+  MisGLA03Civ101:
+    Sounds: mg3ci101
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ201:
+    Sounds: mg3ci201
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ301:
+    Sounds: mg3ci301
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ401:
+    Sounds: mg3ci401
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ501:
+    Sounds: mg3ci501
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ102:
+    Sounds: mg3ci102
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ202:
+    Sounds: mg3ci202
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ302:
+    Sounds: mg3ci302
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ103:
+    Sounds: mg3ci103
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ203:
+    Sounds: mg3ci203
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ303:
+    Sounds: mg3ci303
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ104:
+    Sounds: mg3ci104
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ204:
+    Sounds: mg3ci204
+    Priority: high
+    Volume: 50
+    MinVolume: 40
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ304:
+    Sounds: mg3ci304
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ105:
+    Sounds: mg3ci105
+    Priority: high
+    Volume: 80
+    MinVolume: 60
+    VolumeShift: -15
+    Type: world global everyone
+  MisGLA03Civ205:
+    Sounds: mg3ci205
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ305:
+    Sounds: mg3ci305
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ106:
+    Sounds: mg3ci106
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ206:
+    Sounds: mg3ci206
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ306:
+    Sounds: mg3ci306
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ107:
+    Sounds: mg3ci107
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ207:
+    Sounds: mg3ci207
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ307:
+    Sounds: mg3ci307
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ108:
+    Sounds: mg3ci108
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ109:
+    Sounds: mg3ci109
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03Civ308:
+    Sounds: mg3ci308
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03RedGuard101:
+    Sounds: mg3re101
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03RedGuard201:
+    Sounds: mg3re201
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03RedGuard301:
+    Sounds: mg3re301
+    Priority: high
+    Volume: 70
+    MinVolume: 50
+    VolumeShift: -20
+    Type: world global everyone
+  MisGLA03RebelCapturedBuilding:
+    Sounds: irebcoa
+    Priority: high
+    Control: random
+    Volume: 90
+    MinVolume: 80
+    Type: world player global
+  MisGLA04AngryMob01:
+    Sounds: mg4ang01
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob02:
+    Sounds: mg4ang02
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob03:
+    Sounds: mg4ang03
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob04:
+    Sounds: mg4ang04
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob05:
+    Sounds: mg4ang05
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob06:
+    Sounds: mg4ang06
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob07:
+    Sounds: mg4ang07
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisGLA04AngryMob08:
+    Sounds: mg4ang08
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob09:
+    Sounds: mg4ang09
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisGLA04AngryMob10:
+    Sounds: mg4ang10
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob11:
+    Sounds: mg4ang11
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisGLA04AngryMob12:
+    Sounds: mg4ang12
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob13:
+    Sounds: mg4ang13
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob14:
+    Sounds: mg4ang14
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob15:
+    Sounds: mg4ang15
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob16:
+    Sounds: mg4ang16
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob17:
+    Sounds: mg4ang17
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob18:
+    Sounds: mg4ang18
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob19:
+    Sounds: mg4ang19
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob20:
+    Sounds: mg4ang20
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob21:
+    Sounds: mg4ang21
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob22:
+    Sounds: mg4ang22
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisGLA04AngryMob23:
+    Sounds: mg4ang23
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob24:
+    Sounds: mg4ang24
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob25:
+    Sounds: mg4ang25
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob26:
+    Sounds: mg4ang26
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob27:
+    Sounds: mg4ang27
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob28:
+    Sounds: mg4ang28
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob29:
+    Sounds: mg4ang29
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob30:
+    Sounds: mg4ang30
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob31:
+    Sounds: mg4ang31
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA04AngryMob32:
+    Sounds: mg4ang32
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    VolumeShift: -10
+    Type: world global everyone
+  MisGLA08Ground01:
+    Sounds: mg8gro01
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisGLA08Ground02:
+    Sounds: mg8gro02
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisGLA08Ground03:
+    Sounds: mg8gro03
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisGLA08Ground04:
+    Sounds: mg8gro04
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisGLA08Ground05:
+    Sounds: mg8gro05
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  MisChi01BombTruck101:
+    Sounds: mc1tr101
+    Priority: high
+    Volume: 90
+    MinVolume: 60
+    Type: world global everyone
+  CIAAgentVoiceSelect:
+    Sounds: iciasea iciaseb iciasec iciased iciasee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CIAAgentVoiceMove:
+    Sounds: iciamoa iciamob iciamoc iciamod iciamoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CIAAgentVoiceAttack:
+    Sounds: iciaata iciaatb iciaatc iciaatd iciaate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CIAAgentVoiceDie:
+    Sounds: iciadia iciadib iciadic iciadid iciadie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  CIAAgentVoiceModeTimedCharge:
+    Sounds: ''
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  CIAAgentVoiceModeRemoteCharge:
+    Sounds: ''
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  CIAAgentVoicePlantTimedCharge:
+    Sounds: iciaata iciaatb iciaatc iciaatd iciaate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CIAAgentVoicePlantRemoteCharge:
+    Sounds: iciaata iciaatb iciaatc iciaatd iciaate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWVoiceSelect:
+    Sounds: ipowsea ipowseb ipowsec ipowsed ipowsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWVoiceMove:
+    Sounds: ipowmoa ipowmob ipowmoc ipowmod ipowmoe ipowmof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  POWVoiceDie:
+    Sounds: ipowdia ipowdib ipowdic ipowdid ipowdie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  SaboteurVoiceSelect:
+    Sounds: isabseb isabsec isabsed isabsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SaboteurVoiceCreate:
+    Sounds: isabsea
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SaboteurVoiceMove:
+    Sounds: isabmoa isabmob isabmoc isabmod isabmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SaboteurVoiceAttack:
+    Sounds: isabata isabatb isabatc isabatd isabate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SaboteurVoiceFear:
+    Sounds: isabfea isabfeb isabfec isabfed
+    Control: random
+    Volume: 100
+    MinVolume: 80
+    Type: world shrouded player
+  SaboteurVoiceDie:
+    Sounds: isabdia isabdib isabdic isabdid isabdie
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  AvengerVoiceSelect:
+    Sounds: vavesea vaveseb vavesec vavesee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AvengerVoiceCreate:
+    Sounds: vavesed
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  AvengerVoiceMove:
+    Sounds: vavemoa vavemob vavemoc vavemod vavemoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AvengerVoiceAttack:
+    Sounds: vaveata vaveatb vaveatc vaveatd vaveate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AvengerVoicePaint:
+    Sounds: vavepaa vavepab vavepac vavepad vavepae
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleBusVoiceSelect:
+    Sounds: vbussea vbusseb vbussec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleBusVoiceCreate:
+    Sounds: vbussed
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  BattleBusVoiceMove:
+    Sounds: vbusmoa vbusmob vbusmoc vbusmod
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleBusVoiceAttack:
+    Sounds: vbusata vbusatb vbusatc vbusatd vbusate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleBusVoiceUnload:
+    Sounds: vbusuna vbusunb vbusunc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleBusVoiceRam:
+    Sounds: vbusraa vbusrab vbusrac
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CombatCycleVoiceSelect:
+    Sounds: vcycsea vcycseb vcycsec vcycsed vcycsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CombatCycleVoiceCreate:
+    Sounds: vcycmob
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  CombatCycleVoiceMove:
+    Sounds: vcycmoa vcycmod vcycmoe vcycmof vcycmog
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CombatCycleVoiceAttack:
+    Sounds: vcycata vcycatb vcycatc vcycatd vcycate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CombatCycleVoiceDie:
+    Sounds: vcycdia vcycdib vcycdic vcycdid vcycdie vcycdif vcycdig vcycdih vcycdii vcycdij
+    Control: random
+    Priority: LOW
+    Limit: 3
+    Volume: 90
+    PitchShift: -10 10
+    Type: world shrouded everyone
+  FrequencyJammerVoiceSelect:
+    Sounds: vfreseb vfresec vfresed vfresee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  FrequencyJammerVoiceCreate:
+    Sounds: vfresea
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  FrequencyJammerVoiceMove:
+    Sounds: vfremoa vfremob vfremoc vfremod vfremoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  FrequencyJammerVoiceAttack:
+    Sounds: vfreata vfreatb vfreatc vfreatd vfreate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceSelect:
+    Sounds: vhelsea vhelseb vhelsec vhelsed vhelsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceCreate:
+    Sounds: vhelath
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  HelixVoiceMove:
+    Sounds: vhelmoa vhelmob vhelmoc vhelmod vhelmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceAttack:
+    Sounds: vhelata vhelatb vhelatc vhelate vhelatf vhelatg
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceUnload:
+    Sounds: vhelunb vheluna vhelunc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceModeBunker:
+    Sounds: vhelu1a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  HelixVoiceModeSpeakerTower:
+    Sounds: vhelu1b
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  HelixVoiceModeGattling:
+    Sounds: vhelu1c
+    Control: random
+    Volume: 90
+    Priority: high
+    Type: ui voice player
+    Limit: 1
+  HelixVoiceModeNapalmBomb:
+    Sounds: vhelu1d
+    Control: random
+    Volume: 90
+    Priority: high
+    Type: ui voice player
+    Limit: 1
+  HelixVoiceModeNuclearBomb:
+    Sounds: vhelu1e
+    Control: random
+    Volume: 90
+    Priority: high
+    Type: ui voice player
+    Limit: 1
+  HelixBunkerVoiceCreate:
+    Sounds: vhelu2a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixSpeakerTowerVoiceCreate:
+    Sounds: vhelu2b
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixGattlingVoiceCreate:
+    Sounds: vhelu2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixNapalmBombVoiceCreate:
+    Sounds: vhelu2d
+    Control: random
+    Volume: 80
+    Priority: high
+    Type: ui voice player
+  HelixNuclearBombVoiceCreate:
+    Sounds: vhelu2e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ListeningOutpostVoiceSelect:
+    Sounds: vlissea vlisseb vlissec vlissed
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ListeningOutpostVoiceCreate:
+    Sounds: vlissee
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ListeningOutpostVoiceMove:
+    Sounds: vlismoa vlismob vlismoc vlismod vlismoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ListeningOutpostVoiceAttack:
+    Sounds: vlisata vlisatb vlisatc vlisatd vlisate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ListeningOutpostVoiceDeploy:
+    Sounds: vlisdea vlisdeb vlisdec vlisded
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ListeningOutpostVoiceUndeploy:
+    Sounds: vlisd2a vlisd2b vlisd2c vlisd2d
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MicrowaveTankVoiceSelect:
+    Sounds: vmicseb vmicsec vmicsed vmicsee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MicrowaveTankVoiceCreate:
+    Sounds: vmicsea
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  MicrowaveTankVoiceMove:
+    Sounds: vmicmoa vmicmob vmicmoc vmicmod vmicmoe
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  MicrowaveTankVoiceAttack:
+    Sounds: vmicata vmicatb vmicatc vmicatd vmicate vmicatf
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleshipVoiceSelect:
+    Sounds: vshisea vshiseb vshisec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleshipVoiceMove:
+    Sounds: vshimoa vshimob vshimoc vshimod
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleshipVoiceAttack:
+    Sounds: vshiata vshiatb vshiatc vshiatd vshiate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AircraftCarrierVoiceSelect:
+    Sounds: vairsea vairseb vairsec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AircraftCarrierVoiceMove:
+    Sounds: vairmoa vairmob
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AircraftCarrierVoiceAttack:
+    Sounds: vairata vairatb vairatc vairatd vairate
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SpectreGunshipVoiceSelect:
+    Sounds: vspesea vspeseb vspesec vspesed vspesee vspesef
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 100
+    Type: ui voice player
+  SpectreGunshipVoiceMove:
+    Sounds: vspemoa vspemob vspemoc vspemod vspemoe
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 100
+    Type: ui voice player
+  SpectreGunshipVoiceAttack:
+    Sounds: vspeata vspeatb vspeatc vspeatd vspeate
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 100
+    Type: ui voice player
+  SpectreGunshipVoiceArrive:
+    Sounds: vspeara vspearb vspearc
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 100
+    Type: ui voice player
+  SpectreGunshipVoiceDepart:
+    Sounds: vspedea vspedeb vspedec
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 100
+    Type: ui voice player
+  SUVVoiceSelect:
+    Sounds: vconsec vconsef vconmob
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SUVVoiceMove:
+    Sounds: vconmoa vconmoc vconmod vconmof
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedGuardVoiceUpgradePatriotism:
+    Sounds: iredu3c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ChinookVoiceUpgradeSupplyLines:
+    Sounds: vchiu1c
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RaptorVoiceUpgradeCounterMeasures:
+    Sounds: vrapu3a
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  AuroraVoiceUpgradeBunkerBuster:
+    Sounds: vauru1a
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  RangerVoiceUpgradeAdvancedTraining:
+    Sounds: iranu4a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CrusaderTankVoiceUpgradeDroneArmor:
+    Sounds: vcruu3b
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RangerVoiceUpgradeChemSuits:
+    Sounds: iranu2b
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceUpgradeCashBounty:
+    Sounds: irebu4a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RebelVoiceUpgradeBoobyTrap:
+    Sounds: irebu3a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RPGTrooperVoiceUpgradeCamoNetting:
+    Sounds: irpgu1c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceUpgradeNapalmBomb:
+    Sounds: vhelu2d
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceUpgradeGattlingCannon:
+    Sounds: vhelu2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceUpgradeSpeakerTower:
+    Sounds: vhelu2b
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceUpgradeBunker:
+    Sounds: vhelu2a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ToxinTractorVoiceUpgradeGamma:
+    Sounds: vtoxu2b
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleMasterTankVoiceUpgradeAutoLoader:
+    Sounds: vbatu3a
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleMasterTankVoiceUpgradeWeaponsGrade:
+    Sounds: vbatu5c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BattleMasterTankVoiceUpgradeFusion:
+    Sounds: vbatu4c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  HelixVoiceUpgradeNuclearBomb:
+    Sounds: vhelu2e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  KingRaptorVoiceSelect:
+    Sounds: vrapsea vrapseb vrapsec vrapsed vrapsee vrapsef vrakseb vraksec vraksed
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  KingRaptorVoiceCreate:
+    Sounds: vraksea
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  FuelAirAuroraVoiceSelect:
+    Sounds: vaursea vaurseb vaursec vaursed vaursee vaursef vaufsea vaufseb
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  FuelAirAuroraVoiceCreate:
+    Sounds: vaufsea
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  FuelAirAuroraVoiceAttack:
+    Sounds: vaurata vauratb vauratc vauratd vaurate vaufata vaufatb vaufatc
+    Control: random
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Volume: 90
+    Type: ui voice player
+  CombatChinookVoiceSelect:
+    Sounds: vchisea vchiseb vchisec vchised vchisee vchisef vchcseb vchcsec
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  CombatChinookVoiceCreate:
+    Sounds: vchcsea
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  CombatChinookVoiceAttack:
+    Sounds: vchcata vchcatb vchcatc vchcatd vchcate
+    Attack: gradio1a gradio1b gradio1c gradio1d gradio1e gradio1f
+    Decay: gradio3a gradio3b gradio3c gradio3d gradio3e
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  LaserCrusaderVoiceSelect:
+    Sounds: vcrusea vcruseb vcrusec vcrused vcrusee vcrlseb vcrlsec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  LaserCrusaderVoiceCreate:
+    Sounds: vcrlsea
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  LaserCrusaderVoiceAttack:
+    Sounds: vcruata vcruatb vcruatc vcruatd vcruate vcruatf vcrlata vcrlatb vcrlatc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AssaultTroopCrawlerVoiceSelect:
+    Sounds: vtrosea vtroseb vtrosec vtrosed vtrosee vtrasea vtrasec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  AssaultTroopCrawlerVoiceCreate:
+    Sounds: vtraseb
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  AssaultTroopCrawlerVoiceAttack:
+    Sounds: vtroata vtroatb vtroatc vtroatd vtroate vtraata vtraatb vtraatc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SuperHackerVoiceSelect:
+    Sounds: ihacsea ihacseb ihacsec ihacsed ihacsee ihasseb ihassec ihassed
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SuperHackerVoiceCreate:
+    Sounds: ihassea
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  SuperHackerVoiceHackBuilding:
+    Sounds: ihasata ihasatb ihasatc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SuperHackerVoiceCaptureComplete:
+    Sounds: ihascoa ihascob ihascoc
+    Priority: high
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  SuperHackerVoiceHackVehicle:
+    Sounds: ihasa2a ihasa2b ihasa2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  SuperHackerVoiceDisableComplete:
+    Sounds: ihasc2a ihasc2b ihasc2c
+    Priority: high
+    Control: random
+    Volume: 120
+    MinVolume: 110
+    Type: world player global
+  ToxinRebelVoiceSelect:
+    Sounds: irebsea irebseb irebsec irebsed irebsee irebsef irebseg irbtsea irbtsec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ToxinRebelVoiceCreate:
+    Sounds: irbtseb
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ToxinRebelVoiceAttack:
+    Sounds: irebata irebatb irebatc irebatd irebate irebatf irebatg irbtata irbtatb irbtatc irbtatd
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedMinigunnerVoiceSelect:
+    Sounds: iredsea iredseb iredsec iredsed iredsee iredsef iremsea iremsec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  RedMinigunnerVoiceCreate:
+    Sounds: iremseb
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  RedMinigunnerVoiceAttack:
+    Sounds: iredata iredatb iredatc iredatd iredate iredatf iredatg iremata irematb irematc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ToxinRPGTrooperVoiceSelect:
+    Sounds: irpgsea irpgseb irpgsec irpgsee irpgseg irptseb irptsec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  ToxinRPGTrooperVoiceCreate:
+    Sounds: irptsea
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  ToxinRPGTrooperVoiceAttack:
+    Sounds: irpgata irpgatb irpgatc irpgatd irpgate irpgatf irpgatg irptata irptatb irptatc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DemoRebelVoiceSelect:
+    Sounds: irebsea irebseb irebsec irebsed irebsee irebsef irebseg irbdseb
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DemoRebelVoiceCreate:
+    Sounds: irbdsea
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  DemoRebelVoiceMove:
+    Sounds: irebmoa irebmob irebmoc irebmod irebmoe irebmof irbdmoa
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DemoRebelVoiceModeDemo:
+    Sounds: irbdmda irbdmdb irbdmdc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  DemoRebelVoiceAttackDemo:
+    Sounds: irbda2a irbda2b irbda2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  DemoKellVoiceSelect:
+    Sounds: ijarsea ijarseb ijarsed ijarsee ijadsea ijadsec
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  DemoKellVoiceCreate:
+    Sounds: ijadseb
+    Control: random
+    Volume: 110
+    MinVolume: 100
+    Priority: high
+    Type: world global player
+  DemoKellVoiceModeDemo:
+    Sounds: ijadmda ijadmdb ijadmdc
+    Control: random
+    Volume: 90
+    Type: ui voice player
+    Limit: 1
+  DemoKellVoiceAttackDemo:
+    Sounds: ijada2a ijada2b ijada2c
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  BossGenTankHunterVoiceSelect:
+    Sounds: itansea itanseb itansec itansee
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  EmperorTankVoiceSelect:
+    Sounds: voveseb vovesec vovesee voveseg vovecra
+    Control: random
+    Volume: 90
+    Type: ui voice player
+  EmperorTankVoiceMove:
+    Sounds: vovemob vovemoc vovemod vovemoe vovemof vovemog
+    Control: random
+    Volume: 90
+    Type: ui voice player

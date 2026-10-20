@@ -1,0 +1,1798 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  GenericTracer:
+    KindOf: DRAWABLE_ONLY
+    EditorSorting: SYSTEM
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTracerDraw
+    SourceFile: Data/INI/Object/System.ini
+  GenericRope:
+    KindOf: DRAWABLE_ONLY
+    EditorSorting: SYSTEM
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DRopeDraw
+    SourceFile: Data/INI/Object/System.ini
+  EMPPulseEffectSpheroid:
+    KindOf: NO_COLLIDE
+    EditorSorting: SYSTEM
+    Geometry: SPHERE
+    GeometryMajorRadius: 30.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          None:
+            Model: EXEMPSphere
+            Animation: EXEMPSphere.EXEMPSphere
+      ModuleTag_02:
+        Module: Behavior
+        Class: EMPUpdate
+        DisabledDuration: 30000
+        Lifetime: 3000
+        StartFadeTime: 300
+        StartScale: 0.01
+        TargetScaleMin: 3.00
+        TargetScaleMax: 4.00
+        StartColor: R:32 G:64 B:255
+        EndColor: R:0 G:0 B:0
+        DoesNotAffectMyOwnBuildings: No
+        DisableFXParticleSystem: EMPSparks
+    SourceFile: Data/INI/Object/System.ini
+  MOABEffectSpheroid:
+    KindOf: NO_COLLIDE
+    EditorSorting: SYSTEM
+    Geometry: SPHERE
+    GeometryMajorRadius: 30.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_02:
+        Module: Behavior
+        Class: EMPUpdate
+        DisabledDuration: 30000
+        Lifetime: 3000
+        StartFadeTime: 300
+        StartScale: 0.01
+        TargetScaleMin: 6.00
+        TargetScaleMax: 7.00
+        StartColor: R:32 G:64 B:255
+        EndColor: R:0 G:0 B:0
+        DoesNotAffectMyOwnBuildings: No
+        DisableFXParticleSystem: EMPSparks
+    SourceFile: Data/INI/Object/System.ini
+  EMPMineEffectSpheroid:
+    KindOf: NO_COLLIDE
+    EditorSorting: SYSTEM
+    Geometry: SPHERE
+    GeometryMajorRadius: 10.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          None:
+            Model: None
+      ModuleTag_02:
+        Module: Behavior
+        Class: EMPUpdate
+        DisabledDuration: 5000
+        Lifetime: 500
+        StartFadeTime: 300
+        StartScale: 0.01
+        TargetScaleMin: 6.00
+        TargetScaleMax: 7.00
+        StartColor: R:0 G:255 B:255
+        EndColor: R:0 G:128 B:128
+        EffectRadius: 10
+        DisableFXParticleSystem: EMPSparks
+        DoesNotAffect: ALLIES
+        DoesNotAffectMyOwnBuildings: Yes
+    SourceFile: Data/INI/Object/System.ini
+  RallyPointMarker:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: SCMRally
+          Animation: SCMRally.SCMRally
+          AnimationMode: LOOP
+    SourceFile: Data/INI/Object/System.ini
+  WaypointNode:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: SCMRally
+          Animation: SCMRally.SCMRally
+          AnimationMode: LOOP
+    SourceFile: Data/INI/Object/System.ini
+  WaypointLine:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser.tga
+        NumBeams: 1
+        InnerBeamWidth: 1.0
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 1.0
+        OuterColor: R:255 G:0 B:0 A:150
+    SourceFile: Data/INI/Object/System.ini
+  VerticalArrow:
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE INERT
+    Locomotor: SET_NORMAL ArrowLocomotor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: SCMArrow
+          Animation: SCMArrow.SCMArrow
+          AnimationMode: LOOP
+          AnimationSpeedFactorRange: 0.5 0.5
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+    SourceFile: Data/INI/Object/System.ini
+  HorizontalArrow:
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE INERT
+    Locomotor: SET_NORMAL ArrowLocomotor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: SCMHArrow
+          Animation: SCMHArrow.SCMHArrow
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+    SourceFile: Data/INI/Object/System.ini
+  LockonCursor:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Scale: 0.5
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: SCMHArrow
+    SourceFile: Data/INI/Object/System.ini
+  MoveHint:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: SCMoveHint
+    SourceFile: Data/INI/Object/System.ini
+  AttackHint:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: SCAttckHnt
+    SourceFile: Data/INI/Object/System.ini
+  SpySatellitePing:
+    VisionRange: 300.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE INERT
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: DynamicShroudClearingRangeUpdate
+        FinalVision: 0.0
+        ShrinkDelay: 10000
+        ShrinkTime: 5000
+        GrowDelay: 0
+        GrowTime: 1000
+        GrowInterval: 10
+        ChangeInterval: 80
+        GridDecalTemplate:
+          Texture: EXGrid
+          Style: SHADOW_ADDITIVE_DECAL
+          OpacityMin: 50%
+          OpacityMax: 100%
+          OpacityThrobTime: 500
+          Color: R:32 G:64 B:128 A:0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 13000
+        MaxLifetime: 13000
+      ModuleTag_04:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+    SourceFile: Data/INI/Object/System.ini
+  GPSScrambler_InvisibleMarker:
+    VisionRange: 0.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE
+    Modules:
+      ModuleTag_NOTREALLYADRAW:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: [None GPSMicrowaveScambler, None GPSRotisserie, None gpsScrambleCloud]
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: GrantStealthBehavior
+        StartRadius: 20.0
+        FinalRadius: 100.0
+        RadiusGrowRate: 10.0
+        RadiusParticleSystemName: ParticleUplinkCannon_LaserBaseReadyToFire
+        KindOf: VEHICLE INFANTRY
+    SourceFile: Data/INI/Object/System.ini
+  RepairVehiclesInArea_InvisibleMarker_Level1:
+    VisionRange: 0.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE
+    Modules:
+      ModuleTag_NOTREALLYADRAW:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: [None GPSRotisserie, None RepairCloud]
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: AutoHealBehavior
+        HealingAmount: 100
+        HealingDelay: 1
+        Radius: 100.0f
+        StartsActive: Yes
+        KindOf: VEHICLE
+        SingleBurst: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+    SourceFile: Data/INI/Object/System.ini
+  RepairVehiclesInArea_InvisibleMarker_Level2:
+    VisionRange: 0.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE
+    Modules:
+      ModuleTag_NOTREALLYADRAW:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: [None GPSRotisserie, None RepairCloud]
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: AutoHealBehavior
+        HealingAmount: 200
+        HealingDelay: 1
+        Radius: 100.0f
+        StartsActive: Yes
+        KindOf: VEHICLE
+        SingleBurst: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+    SourceFile: Data/INI/Object/System.ini
+  RepairVehiclesInArea_InvisibleMarker_Level3:
+    VisionRange: 0.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE
+    Modules:
+      ModuleTag_NOTREALLYADRAW:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: [None GPSRotisserie, None RepairCloud]
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: AutoHealBehavior
+        HealingAmount: 300
+        HealingDelay: 1
+        Radius: 100.0f
+        StartsActive: Yes
+        KindOf: VEHICLE
+        SingleBurst: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+    SourceFile: Data/INI/Object/System.ini
+  Frenzy_InvisibleMarker_Level1:
+    VisionRange: 0.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE INERT
+    Modules:
+      ModuleTag_NOTREALLYADRAW:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: None FrenzyCloud
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: WeaponBonusUpdate
+        RequiredAffectKindOf: CAN_ATTACK
+        ForbiddenAffectKindOf: STRUCTURE
+        BonusDuration: 10000
+        BonusDelay: 100000
+        BonusRange: 200
+        BonusConditionType: FRENZY_ONE
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 1
+        MaxLifetime: 1
+    SourceFile: Data/INI/Object/System.ini
+  Frenzy_InvisibleMarker_Level2:
+    VisionRange: 0.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE INERT
+    Modules:
+      ModuleTag_NOTREALLYADRAW:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: None FrenzyCloud
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: WeaponBonusUpdate
+        RequiredAffectKindOf: CAN_ATTACK
+        ForbiddenAffectKindOf: STRUCTURE
+        BonusDuration: 20000
+        BonusDelay: 100000
+        BonusRange: 200
+        BonusConditionType: FRENZY_TWO
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 1
+        MaxLifetime: 1
+    SourceFile: Data/INI/Object/System.ini
+  Frenzy_InvisibleMarker_Level3:
+    VisionRange: 0.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE INERT
+    Modules:
+      ModuleTag_NOTREALLYADRAW:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: None FrenzyCloud
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: WeaponBonusUpdate
+        RequiredAffectKindOf: CAN_ATTACK
+        ForbiddenAffectKindOf: STRUCTURE
+        BonusDuration: 30000
+        BonusDelay: 100000
+        BonusRange: 200
+        BonusConditionType: FRENZY_THREE
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 1
+        MaxLifetime: 1
+    SourceFile: Data/INI/Object/System.ini
+  RadarVanPing:
+    VisionRange: 150.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE INERT
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: DynamicShroudClearingRangeUpdate
+        FinalVision: 0.0
+        ShrinkDelay: 7500
+        ShrinkTime: 2500
+        ChangeInterval: 50
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 10000
+        MaxLifetime: 10000
+      ModuleTag_04:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+    SourceFile: Data/INI/Object/System.ini
+  SuperweaponPing:
+    ShroudClearingRange: 150.0
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE INERT
+    Geometry: BOX
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 3.0
+    GeometryIsSmall: No
+    Shadow: NONE
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+      ModuleTag_02:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 10000
+        MaxLifetime: 10000
+    SourceFile: Data/INI/Object/System.ini
+  SelectIcon:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: SCSelect
+    SourceFile: Data/INI/Object/System.ini
+  AIMarkTile:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AIPathTile
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 5000
+        MaxLifetime: 5000
+    SourceFile: Data/INI/Object/System.ini
+  AIPathTile:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Scale: 0.33
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AIPathTile
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 5000
+        MaxLifetime: 5000
+    SourceFile: Data/INI/Object/System.ini
+  AISearchOpenTile:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AISearchOTile
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 5000
+        MaxLifetime: 5000
+    SourceFile: Data/INI/Object/System.ini
+  AISearchClosedTile:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AISearchCTile
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 5000
+        MaxLifetime: 5000
+    SourceFile: Data/INI/Object/System.ini
+  AICliffTile:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AICliffTile
+    SourceFile: Data/INI/Object/System.ini
+  AIWaterTile:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AIWaterTile
+    SourceFile: Data/INI/Object/System.ini
+  AIBlockTile:
+    EditorSorting: SYSTEM
+    KindOf: DRAWABLE_ONLY
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AIBlockTile
+    SourceFile: Data/INI/Object/System.ini
+  GenericDebris:
+    EditorSorting: SYSTEM
+    KindOf: UNATTACKABLE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDebrisDraw
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        AllowBouncing: Yes
+        KillWhenRestingOnGround: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1000
+        SinkRate: 1
+        DestructionDelay: 2000
+    SourceFile: Data/INI/Object/System.ini
+  BridgeScaffold01:
+    EditorSorting: SYSTEM
+    KindOf: NONE
+    Geometry: BOX
+    GeometryMajorRadius: 37.0
+    GeometryMinorRadius: 58.0
+    GeometryHeight: 70.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CBBridScaf01_T
+      ModuleTag_02:
+        Module: Behavior
+        Class: BridgeScaffoldBehavior
+    SourceFile: Data/INI/Object/System.ini
+  BridgeScaffoldSupport01:
+    EditorSorting: SYSTEM
+    KindOf: NONE
+    Geometry: BOX
+    GeometryMajorRadius: 37.0
+    GeometryMinorRadius: 58.0
+    GeometryHeight: 53.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CBBridScaf01_B
+      ModuleTag_02:
+        Module: Behavior
+        Class: BridgeScaffoldBehavior
+    SourceFile: Data/INI/Object/System.ini
+  BridgeScaffold02:
+    EditorSorting: SYSTEM
+    KindOf: NONE
+    Geometry: BOX
+    GeometryMajorRadius: 37.0
+    GeometryMinorRadius: 58.0
+    GeometryHeight: 70.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CBBridScaf02_T
+      ModuleTag_02:
+        Module: Behavior
+        Class: BridgeScaffoldBehavior
+    SourceFile: Data/INI/Object/System.ini
+  BridgeScaffoldSupport02:
+    EditorSorting: SYSTEM
+    KindOf: NONE
+    Geometry: BOX
+    GeometryMajorRadius: 37.0
+    GeometryMinorRadius: 58.0
+    GeometryHeight: 30.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CBBridScaf02_B
+      ModuleTag_02:
+        Module: Behavior
+        Class: BridgeScaffoldBehavior
+    SourceFile: Data/INI/Object/System.ini
+  WaveGuide:
+    EditorSorting: SYSTEM
+    KindOf: WAVEGUIDE
+    Locomotor: SET_NORMAL WaterWaveLocomotor
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: WaveGuideUpdate
+        WaveDelay: 750
+        YSize: 650.0
+        LinearWaveSpacing: 15.0
+        WaveBendMagnitude: 500.0
+        WaterVelocity: 2.7
+        PreferredHeight: 37.3
+        ShorelineEffectDistance: 5.0
+        DamageRadius: 25.0
+        DamageAmount: 99999
+        ToppleForce: 0.25
+        RandomSplashSound: WaveRandomSplash
+        RandomSplashSoundFrequency: 50
+        BridgeParticle: WaveHitBridge01
+        BridgeParticleAngleFudge: -95.0
+        LoopingSound: DamBreakWaveLoop
+    SourceFile: Data/INI/Object/System.ini
+  WaveGuideGLA01:
+    EditorSorting: SYSTEM
+    KindOf: WAVEGUIDE
+    Locomotor: SET_NORMAL WaterWaveLocomotor
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: WaveGuideUpdate
+        WaveDelay: 750
+        YSize: 650.0
+        LinearWaveSpacing: 15.0
+        WaveBendMagnitude: 500.0
+        WaterVelocity: 1.0
+        PreferredHeight: 35.0
+        ShorelineEffectDistance: 5.0
+        DamageRadius: 25.0
+        DamageAmount: 99999
+        ToppleForce: 0.25
+        RandomSplashSound: WaveRandomSplash
+        RandomSplashSoundFrequency: 50
+        BridgeParticle: WaveHitBridge01
+        BridgeParticleAngleFudge: -95.0
+        LoopingSound: DamBreakWaveLoop
+    SourceFile: Data/INI/Object/System.ini
+  NukeTestObject:
+    EditorSorting: SYSTEM
+    KindOf: SELECTABLE IMMOBILE
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: SCAttckHnt
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_Nuke
+    SourceFile: Data/INI/Object/System.ini
+  FirestormTestObject:
+    EditorSorting: SYSTEM
+    KindOf: SELECTABLE IMMOBILE
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: SCAttckHnt
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_FireStorm
+    SourceFile: Data/INI/Object/System.ini
+  WaterWaveBridge:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE
+    Geometry: BOX
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    Shadow: NONE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CMFldBrdg_A
+          Animation: CMFldBrdg_A.CMFldBrdg_A
+          AnimationMode: ONCE
+          Flags: START_FRAME_FIRST
+    SourceFile: Data/INI/Object/System.ini
+  FirestormSmall:
+    DisplayName: OBJECT:FireStorm
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE NO_COLLIDE
+    SoundAmbient: FireStormLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: InactiveBody
+      ModuleTag_03:
+        Module: Behavior
+        Class: FirestormDynamicGeometryInfoUpdate
+        InitialDelay: 800
+        InitialHeight: 10.0
+        InitialMajorRadius: 1.0
+        FinalHeight: 10.0
+        FinalMajorRadius: 90.0
+        TransitionTime: 3000
+        ReverseAtTransitionTime: Yes
+        ScorchSize: 100.0
+        ParticleOffsetZ: 0.1
+        ParticleSystem1: FireStormMain
+        ParticleSystem2: FireStormMainRing
+        FXList: FX_FireStorm
+        DelayBetweenDamageFrames: 500
+        DamageAmount: 100.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 6000
+        MaxLifetime: 6000
+    SourceFile: Data/INI/Object/System.ini
+  BlackNapalmFirestormSmall:
+    DisplayName: OBJECT:FireStorm
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE NO_COLLIDE
+    SoundAmbient: FireStormLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: InactiveBody
+      ModuleTag_03:
+        Module: Behavior
+        Class: FirestormDynamicGeometryInfoUpdate
+        InitialDelay: 800
+        InitialHeight: 10.0
+        InitialMajorRadius: 1.0
+        FinalHeight: 10.0
+        FinalMajorRadius: 90.0
+        TransitionTime: 3000
+        ReverseAtTransitionTime: Yes
+        ScorchSize: 100.0
+        ParticleOffsetZ: 0.1
+        ParticleSystem1: FireStormMainUpgraded
+        ParticleSystem2: FireStormMainRingUpgraded
+        FXList: FX_BlackNapalmFireStorm
+        DelayBetweenDamageFrames: 500
+        DamageAmount: 150.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 6000
+        MaxLifetime: 6000
+    SourceFile: Data/INI/Object/System.ini
+  FireWallSegment:
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE UNATTACKABLE
+    Locomotor: SET_NORMAL InchForwardLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+          ParticleSysBone: None FireWallSegmentSystem
+      ModuleTag_02:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: WanderAIUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: FireWallSegmentWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 4000
+        MaxLifetime: 4000
+    SourceFile: Data/INI/Object/System.ini
+  FireWallSegmentUpgraded:
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE UNATTACKABLE
+    Locomotor: SET_NORMAL InchForwardLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+          ParticleSysBone: None FireWallSegmentUpgradedSystem
+      ModuleTag_02:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: WanderAIUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: FireWallSegmentUpgradedWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 4000
+        MaxLifetime: 4000
+    SourceFile: Data/INI/Object/System.ini
+  FireFieldSmall:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE NO_COLLIDE
+    Geometry: CYLINDER
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+          ParticleSysBone: [None InfernoCannonFire, None InfernoCannonFlare, None InfernoCannonRing]
+      ModuleTag_02:
+        Module: Body
+        Class: InactiveBody
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: SmallFireFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 2500
+        MaxLifetime: 2500
+    SourceFile: Data/INI/Object/System.ini
+  FireFieldUpgradedSmall:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE NO_COLLIDE
+    Geometry: CYLINDER
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+          ParticleSysBone:
+          - None InfernoCannonFireUpgraded
+          - None InfernoCannonFlareUpgraded
+          - None InfernoCannonRingUpgraded
+      ModuleTag_02:
+        Module: Body
+        Class: InactiveBody
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: SmallFireFieldWeaponUpgraded
+      ModuleTag_04:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 2500
+        MaxLifetime: 2500
+    SourceFile: Data/INI/Object/System.ini
+  PoisonFieldLarge:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: ToxicPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 70.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: LargePoisonFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 45000
+        MaxLifetime: 45000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_ToxicPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  PoisonFieldMedium:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: ToxicPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 40.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: MediumPoisonFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 30000
+        MaxLifetime: 30000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_ToxicPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  PoisonFieldSmall:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: ToxicPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 6.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: SmallPoisonFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 10000
+        MaxLifetime: 10000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_ToxicPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  PoisonFieldUpgradedLarge:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 70.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: LargePoisonFieldWeaponUpgraded
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 45000
+        MaxLifetime: 45000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  PoisonFieldUpgradedMedium:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 40.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: MediumPoisonFieldWeaponUpgraded
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 30000
+        MaxLifetime: 30000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  PoisonFieldUpgradedSmall:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: SmallPoisonFieldWeaponUpgraded
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 10000
+        MaxLifetime: 10000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  PoisonFieldAnthraxBomb:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 150.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: AnthraxBombPoisonFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 60000
+        MaxLifetime: 60000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  PoisonFieldAnthraxGammaBomb:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 150.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: AnthraxGammaBombPoisonFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 60000
+        MaxLifetime: 60000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  RadiationFieldLarge:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD INERT NO_COLLIDE
+    SoundAmbient: RadiationPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 100.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 150.0
+        InitialHealth: 150.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: LargeRadiationFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 30000
+        MaxLifetime: 30000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_RadiationPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  RadiationFieldMedium:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD INERT NO_COLLIDE
+    SoundAmbient: RadiationPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 25.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: MediumRadiationFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 30000
+        MaxLifetime: 30000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_RadiationPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  RadiationFieldSmall:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD INERT NO_COLLIDE
+    SoundAmbient: RadiationPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: SmallRadiationFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 2500
+        MaxLifetime: 2500
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_RadiationPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  NukeRadiationFieldWeapon:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD INERT NO_COLLIDE
+    SoundAmbient: RadiationPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 100.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 150.0
+        InitialHealth: 150.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: NukeRadiationFieldWeapon
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 30000
+        MaxLifetime: 30000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_RadiationPoolDie
+    SourceFile: Data/INI/Object/System.ini
+  ParticleFXTestObject:
+    EditorSorting: SYSTEM
+    KindOf: SELECTABLE IMMOBILE
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: SCAttckHnt
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL
+        DeathFX: FX_ParticleTestFX
+    SourceFile: Data/INI/Object/System.ini
+  GarrisonGun:
+    EditorSorting: SYSTEM
+    KindOf: SELECTABLE IMMOBILE
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXGunBrrl
+        ConditionState:
+          FIRING_A:
+            Model: EXGunBrrl
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+        ConditionState:
+          FIRING_A:
+            Model: EXMzlFlash
+      ModuleTag_03:
+        Module: Body
+        Class: InactiveBody
+    SourceFile: Data/INI/Object/System.ini
+  CivilianVehicleTrainGuide:
+    DisplayName: OBJECT:TrainGuide
+    EditorSorting: SYSTEM
+    Modules:
+      ModuleTag_01:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/System.ini
+  VisionObject:
+    ShroudClearingRange: 100
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE REVEAL_TO_ALL INERT
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1
+        InitialHealth: 1
+    SourceFile: Data/INI/Object/System.ini
+  BaikonurRocketDetonation:
+    VisionRange: 1000
+    ShroudClearingRange: 1000
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE IMMOBILE UNATTACKABLE
+    Geometry: CYLINDER
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 60.0
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_03:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponLaunchBaikonurRocket
+      ModuleTag_08:
+        Module: Behavior
+        Class: NeutronMissileSlowDeathBehavior
+        DestructionDelay: 3501
+        ScorchMarkSize: 320
+        FXList: FX_BaikonurNuke
+        Blast1Enabled: Yes
+        Blast1Delay: 580
+        Blast1ScorchDelay: 100
+        Blast1InnerRadius: 60.0
+        Blast1OuterRadius: 60.0
+        Blast1MaxDamage: 0.0
+        Blast1MinDamage: 0.0
+        Blast1ToppleSpeed: 0.5
+        Blast1PushForce: 10.0
+        Blast2Enabled: Yes
+        Blast2Delay: 660
+        Blast2ScorchDelay: 180
+        Blast2InnerRadius: 90.0
+        Blast2OuterRadius: 90.0
+        Blast2MaxDamage: 0.0
+        Blast2MinDamage: 0.0
+        Blast2ToppleSpeed: 0.45
+        Blast2PushForce: 8.0
+        Blast3Enabled: Yes
+        Blast3Delay: 720
+        Blast3ScorchDelay: 260
+        Blast3InnerRadius: 120.0
+        Blast3OuterRadius: 120.0
+        Blast3MaxDamage: 0.0
+        Blast3MinDamage: 0.0
+        Blast3ToppleSpeed: 0.42
+        Blast3PushForce: 6.0
+        Blast4Enabled: Yes
+        Blast4Delay: 850
+        Blast4ScorchDelay: 340
+        Blast4InnerRadius: 150.0
+        Blast4OuterRadius: 150.0
+        Blast4MaxDamage: 0.0
+        Blast4MinDamage: 0.0
+        Blast4ToppleSpeed: 0.40
+        Blast4PushForce: 6.0
+        Blast5Enabled: Yes
+        Blast5Delay: 1000
+        Blast5ScorchDelay: 420
+        Blast5InnerRadius: 180.0
+        Blast5OuterRadius: 180.0
+        Blast5MaxDamage: 0.0
+        Blast5MinDamage: 0.0
+        Blast5ToppleSpeed: 0.38
+        Blast5PushForce: 6.0
+        Blast6Enabled: Yes
+        Blast6Delay: 1180
+        Blast6ScorchDelay: 500
+        Blast6InnerRadius: 60.0
+        Blast6OuterRadius: 210.0
+        Blast6MaxDamage: 3500.0
+        Blast6MinDamage: 300.0
+        Blast6ToppleSpeed: 0.35
+        Blast6PushForce: 4.0
+        Blast7Enabled: Yes
+        Blast7Delay: 999999
+        Blast7ScorchDelay: 620
+        Blast7OuterRadius: 210.0
+        Blast8Enabled: Yes
+        Blast8Delay: 999999
+        Blast8ScorchDelay: 700
+        Blast8OuterRadius: 210.0
+        Blast9Enabled: Yes
+        Blast9Delay: 999999
+        Blast9ScorchDelay: 800
+        Blast9OuterRadius: 210.0
+        OCL: MIDPOINT OCL_PoisonFieldLarge
+    SourceFile: Data/INI/Object/System.ini
+  ParticleUplinkCannonTrailRemnant:
+    EditorSorting: SYSTEM
+    KindOf: NO_COLLIDE UNATTACKABLE IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_02:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: ParticleUplinkCannonBeamTrailRemnantWeapon
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 4000
+        MaxLifetime: 4000
+    SourceFile: Data/INI/Object/System.ini
+  EMPPatriotEffectSpheroid:
+    KindOf: NO_COLLIDE
+    EditorSorting: SYSTEM
+    Geometry: SPHERE
+    GeometryMajorRadius: 10.0
+    GeometryIsSmall: No
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          None:
+            Model: EXEMPSphere
+            Animation: EXEMPSphere.EXEMPSphere
+      ModuleTag_02:
+        Module: Behavior
+        Class: EMPUpdate
+        DisabledDuration: 10000
+        Lifetime: 500
+        StartFadeTime: 100
+        StartScale: 0.01
+        TargetScaleMin: 2.00
+        TargetScaleMax: 3.00
+        StartColor: R:0 G:255 B:255
+        EndColor: R:0 G:128 B:128
+        EffectRadius: 10
+        DisableFXParticleSystem: EMPSparks
+        DoesNotAffectMyOwnBuildings: Yes
+    SourceFile: Data/INI/Object/System.ini

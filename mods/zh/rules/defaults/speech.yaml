@@ -1,0 +1,7 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+DialogEvents:
+  DefaultDialog:
+    Volume: 100
+    Type: ui everyone

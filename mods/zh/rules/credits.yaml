@@ -1,0 +1,516 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Credits:
+  ScrollRate: 2
+  ScrollRateEveryFrames: 1
+  ScrollDown: NO
+  TitleColor: R:161 G:179 B:255 A:255
+  MinorTitleColor: R:161 G:179 B:255 A:255
+  NormalColor: R:209 G:218 B:255 A:255
+  Style:
+  - MINORTITLE
+  - MINORTITLE
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - TITLE
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - TITLE
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - TITLE
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  - MINORTITLE
+  - NORMAL
+  Text:
+  - CREDITS:DevelopmentTitle
+  - CREDITS:DevelopmentTitle2
+  - CREDITS:EAPacificDevTeam
+  - CREDITS:EAPacificDevTeam2
+  - CREDITS:EAPacificDevTeam3
+  - CREDITS:ExecutiveProducer
+  - '"Mark Skaggs"'
+  - CREDITS:SeniorProducer
+  - '"Harvard Bonin"'
+  - CREDITS:DevelopmentDirector
+  - '"John Salwitz"'
+  - CREDITS:TechnicalDirection
+  - '"Jeff Brown"'
+  - CREDITS:AssociateProducers
+  - '"Jill Donald"'
+  - CREDITS:AssistantProducer
+  - '"Amir Rahimi"'
+  - CREDITS:ProductionAssistance
+  - '"Amer Ajami"'
+  - '"Jeff Charvat"'
+  - '"Richard Donnelly"'
+  - '"Dan Elggren"'
+  - '"Frank Hsu"'
+  - '"Rade Stojsavljevic"'
+  - '"Mike Verdu"'
+  - CREDITS:Engineers
+  - '"Steve Copeland"'
+  - '"Mark Lorenzen"'
+  - '"Kris Morness"'
+  - '"Graham Smallwood"'
+  - '"Gary Strawn"'
+  - CREDITS:AdditionalEngineering
+  - '"John Ahlquist"'
+  - '"Ian Barkley-Yeung"'
+  - '"Scott Bowen"'
+  - '"Martin Hoffesommer"'
+  - '"Robert Minsk"'
+  - '"Daniel Teh"'
+  - '"Mark Wilczynski"'
+  - CREDITS:Designers
+  - '"Eric Beaumont"'
+  - '"Jason Bender"'
+  - '"John Comes"'
+  - '"Joe Gernert"'
+  - '"Randy Greenback"'
+  - '"Adam Isgreen"'
+  - '"Mike Lightner"'
+  - '"Todd Owens"'
+  - '"Chris Rubyor"'
+  - '"Kevin Saunders"'
+  - '"Jeff Stewart"'
+  - CREDITS:LeadArtists
+  - '"Jose Albanil"'
+  - '"Eric Kearns"'
+  - CREDITS:Artists
+  - '"Samm Ivri"'
+  - '"In Sun Kang"'
+  - '"Steve Moore"'
+  - CREDITS:AdditionalArt
+  - '"Richard Kriegler"'
+  - '"Boon Lee"'
+  - '"Tse-cheng Lo"'
+  - '"Kich Ma"'
+  - '"Bjorn Muller"'
+  - '"David Pursley"'
+  - '"Richard Smith"'
+  - CREDITS:CinematicCutSceneDirector
+  - '"David Wainstain"'
+  - CREDITS:CinematicCutSceneArtists
+  - '"Greg Black"'
+  - '"Eric Hardin"'
+  - CREDITS:DirectorofAudio
+  - '"Mical Pedriana"'
+  - CREDITS:SoundDesignandVoiceDirection
+  - '"David Fries"'
+  - CREDITS:Composer1
+  - '"Bill Brown and Mikael Sandgren of Soundelux Design Music Group"'
+  - CREDITS:ScriptWriters
+  - '"Danny Bilson"'
+  - '"Paul DeMeo"'
+  - CREDITS:EngineeringInterns
+  - '"Chris Brue"'
+  - '"Jake Warmerdam"'
+  - CREDITS:AdditionalDesign
+  - '"Dustin Browder"'
+  - '"John Lee"'
+  - CREDITS:QualityAssurance
+  - CREDITS:QADirector
+  - '"Evan Birkby"'
+  - CREDITS:SrTestLead
+  - '"Adam Hayes"'
+  - CREDITS:AssistantMultiplayerTestLead
+  - '"Will Townsend"'
+  - CREDITS:TestAnalysts
+  - '"Justin Anderson"'
+  - '"Adam Colman"'
+  - '"Jim Corbin"'
+  - '"Scott Fallier"'
+  - '"Timothy Fox"'
+  - '"Roger Hantz"'
+  - '"Steven Hoey"'
+  - '"Jason Krzewski"'
+  - '"Pei Lee"'
+  - '"Jake Nannery"'
+  - '"RA. Pearson"'
+  - '"Khen Prel"'
+  - '"Sean Shimoda"'
+  - '"Gavin Simon"'
+  - '"Brian Tibbetts"'
+  - '"Michael Wale"'
+  - '"Larry Webber"'
+  - '"Brett Yagi"'
+  - CREDITS:TiburonAdditionalQualityAssurance
+  - '"Eric Zala"'
+  - '"Paulo Baier"'
+  - '"Alex Plachowski"'
+  - '"Ryan Ferwerda"'
+  - '"Matt Christman"'
+  - '"Mark Schneidmiller"'
+  - '"John Thompson"'
+  - '"Gary Ware"'
+  - CREDITS:LOCALIZATION
+  - CREDITS:DirectorofProductLocalization
+  - '"Thilo W. Huebner"'
+  - CREDITS:LocalizationAssistance
+  - '"Laffy Taylor"'
+  - '"Lea Milic"'
+  - CREDITS:LocalizationBrazil
+  - '"Carlos Cassemiro"'
+  - '"Mateus Andrade"'
+  - CREDITS:TranslationServices
+  - CREDITS:QuotedTraducoes
+  - CREDITS:LocalisationFrance
+  - CREDITS:TranslationCoordinator
+  - CREDITS:StephaneTachon
+  - CREDITS:Translations
+  - '"Around the Word"'
+  - CREDITS:LTCoordinator
+  - '"Lionel Berrodier"'
+  - CREDITS:LanguageTester
+  - CREDITS:ClementDuval
+  - CREDITS:LocalisationGermany
+  - CREDITS:LocalisationCoordinator
+  - '"Britta Dohmen"'
+  - '"Bettina Bachon"'
+  - CREDITS:Translations
+  - CREDITS:RobertBock
+  - '"Elmar Seeberger"'
+  - CREDITS:RecordingStudio
+  - '"Toneworx GmbH, Hamburg"'
+  - CREDITS:LTCoordinator
+  - '"Horst Baumann"'
+  - CREDITS:LanguageTester
+  - '"Thorsten Schaak"'
+  - CREDITS:EAItalyLocalization
+  - CREDITS:LocalisationManager
+  - '"Alessandro Tajana"'
+  - CREDITS:TranslationCoordinator
+  - '"Andrea Santambrogio"'
+  - CREDITS:Translations
+  - '"Synthesis International S.r.l."'
+  - CREDITS:LTCoordinator
+  - '"Fausto Ceccarelli"'
+  - CREDITS:LanguageTester
+  - '"Antonio Vaccarino"'
+  - CREDITS:LocalisationPoland
+  - '"Kasia Gryglewska-Cebrat"'
+  - '"Jamusz Mrzigod"'
+  - CREDITS:SpanishLocalizationTeam
+  - CREDITS:JoseLuisRovira
+  - '"Alvaro Corral"'
+  - '"Antonio Yago"'
+  - CREDITS:LocalizationChinese
+  - CREDITS:LocalisationManager
+  - '"Maxwell Peng"'
+  - CREDITS:Translations
+  - '"Betty Chang"'
+  - '"Kiwi Lee"'
+  - '"Titus Ou"'
+  - CREDITS:Marketing
+  - CREDITS:NorthAmericaMarketingPartners
+  - '"Frank Gibeau"'
+  - '"Chip Lange"'
+  - '"Mike Maser"'
+  - '"Craig Owens"'
+  - '"Tim McDowd"'
+  - CREDITS:ManagingDirectorEurope
+  - '"Gerhard Florin"'
+  - CREDITS:EuropeanMarketingPartners
+  - '"Jonathan Bunney"'
+  - '"Peter Larsen"'
+  - '"Simon Bull"'
+  - CREDITS:AsiaPacificPresidentandCoach
+  - '"Nigel Sandiford"'
+  - CREDITS:AsiaPacificMarketingPartners
+  - '"Peter Pembroke"'
+  - '"Savannah Hahn"'
+  - '"Michael Kim"'
+  - '"Jamie Mckinlay"'
+  - '"Claire Gobey"'
+  - '"Jenny Hsia"'
+  - '"Liam Mccallum"'
+  - '"Mike Wynands"'
+  - '"Chongho Lee"'
+  - CREDITS:GamingCommunityPartners
+  - '"Mike Murphy"'
+  - '"Glenn Burtis"'
+  - '"Elmar Seeberger"'
+  - CREDITS:UliLachelet
+  - CREDITS:JorgLindner
+  - CREDITS:PackagingProjectManager
+  - '"Angela Santos"'
+  - CREDITS:PackagingDesign
+  - '"Ayzenberg"'
+  - CREDITS:Documentation
+  - '"Steve Olson"'
+  - CREDITS:DocumentationLayout
+  - '"Chris Held"'
+  - CREDITS:DocumentationEditor
+  - '"Dan Davis"'
+  - CREDITS:NACustomerQualityControl
+  - '"Travis Alger"'
+  - '"Rick Arroyo"'
+  - '"Anthony Barbagallo"'
+  - '"Jackson Chin"'
+  - '"Jason Collins"'
+  - '"Benjamin Crick"'
+  - '"Tiffany Exner"'
+  - '"Chris Ford"'
+  - '"Eron Garcia"'
+  - '"Jason Gorski"'
+  - '"Richard Horan"'
+  - '"Darryl Jenkins"'
+  - '"Dave Kaplan"'
+  - '"Jennifer King"'
+  - '"Dave Knudson"'
+  - '"Joseph Lee"'
+  - '"Russell Medeiros"'
+  - '"Anthony Ramos"'
+  - '"Adam Rivera"'
+  - '"Kyle Robertson"'
+  - '"Simon Steel"'
+  - '"Rob Stiasny"'
+  - '"Peter Wang"'
+  - CREDITS:VoiceActors
+  - '"Ivan Allen"'
+  - '"Michael Bell"'
+  - '"Greg Berger"'
+  - '"Dave Boat"'
+  - '"Steven Blum"'
+  - '"Sean Donnellan"'
+  - '"Chad Einbinder"'
+  - '"Jeanie Elias"'
+  - '"Bill Farmer"'
+  - '"David Fries"'
+  - '"Brian George"'
+  - '"Kim Mai Guest"'
+  - '"Peter Jessop"'
+  - '"Masasa"'
+  - '"Paul Mercier"'
+  - '"Andrew Morgado"'
+  - '"Darren Norris"'
+  - '"Mical Pedriana"'
+  - '"Neil Ross"'
+  - '"Gustavo Rex"'
+  - '"James Sie"'
+  - '"Lauren Tom"'
+  - '"Jim Ward"'
+  - '"Michael Yama"'
+  - CREDITS:CameoPhotos
+  - CREDITS:Casting
+  - CREDITS:Wardrobe
+  - CREDITS:HairandMakeUp
+  - CREDITS:CameoPhotoshootStudio
+  - CREDITS:Models
+  - '"Jacob Dass"'
+  - '"T. R. Devitt"'
+  - '"Jaime Guintu"'
+  - '"Majid Kathib"'
+  - '"Nabille Lalaoua"'
+  - '"Robert Lee"'
+  - '"Sunil Malhotra"'
+  - '"James Peak"'
+  - '"Hans Raith"'
+  - '"Karina Thomas"'
+  - '"Pamela Woon"'
+  - '"John Yang"'
+  - CREDITS:NewsReporterVideos
+  - CREDITS:Producer
+  - '"Robert Benjamin"'
+  - CREDITS:VisualEffectsandEditing
+  - '"Robert Baily"'
+  - CREDITS:Writer
+  - '"Paul DeMeo"'
+  - CREDITS:Studio
+  - '"Out West Studio"'
+  - CREDITS:Actors
+  - '"Julian Stone as James Seabury"'
+  - '"Catherine Dao as Sun Mei Ying"'
+  - '"Mike Saad as Omar Bin Ghazali"'
+  - CREDITS:CinematicIntroandFinaleMovies
+  - CREDITS:ExternalMultiplayMapCreators
+  - '"Bryan Hansen"'
+  - '"Edwin Huisman"'
+  - CREDITS:EADevelopmentExecutives
+  - CREDITS:GeneralManager
+  - '"John Batter"'
+  - CREDITS:EAWorldwideDevelopmentExecutives
+  - '"Don Mattrick"'
+  - '"Paul Lee"'
+  - '"Bruce McMillan"'
+  - CREDITS:SpecialThanks
+  - CREDITS:SpecialThanx1
+  - CREDITS:SpecialThanx2
+  - CREDITS:SpecialThanx3
+  - CREDITS:SpecialThanx4
+  - CREDITS:SpecialThanx5
+  - CREDITS:SpecialThanx6Line1
+  - CREDITS:SpecialThanx7
+  - CREDITS:SpecialThanx8
+  - CREDITS:SpecialThanx9
+  - CREDITS:SpecialThanx10
+  - CREDITS:SpecialThanx11
+  - CREDITS:SpecialThanx12
+  - CREDITS:SpecialThanx13
+  - CREDITS:SpecialThanx14
+  - CREDITS:SpecialThanx15
+  - CREDITS:SpecialThanx16
+  - CREDITS:SpecialThanx17
+  - CREDITS:SpecialThanx18
+  - CREDITS:SpecialThanx19
+  - CREDITS:SpecialThanx20
+  - CREDITS:SpecialThanx21
+  - CREDITS:SpecialThanx22
+  - CREDITS:SpecialThanx23
+  - CREDITS:SpecialThanx24
+  - CREDITS:SpecialThanx25
+  - CREDITS:SpecialThanx26
+  - CREDITS:SpecialThanx27
+  - CREDITS:SpecialThanx28
+  - CREDITS:SpecialThanx29
+  - CREDITS:SpecialThanx30Line1
+  - CREDITS:SpecialThanx31
+  - CREDITS:SpecialThanx32Line1
+  - CREDITS:SpecialThanx33
+  Blank: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']

@@ -1,0 +1,187 @@
+# OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
+#
+# The USA Shipyard: built by dozers on a shoreline, produces the ships in rules/usa/ships.yaml.
+#
+# Placement: KindOf SHIPYARD makes the building straddle the shore. Its footprint must cover both
+# land and water, and the ship launch point (UnitCreatePoint) must be on water.
+# Orientation convention: the model's +X side faces the water, the -X side is on land.
+#
+# ART: there is no shipyard art in the original game. Until the new model exists the building
+# uses the original concrete pier "PMDock01" as a stand-in. When the shipyard art is ready,
+# replace "PMDock01" below with the new model names (see docs/shipyard-art.md).
+
+Objects:
+  AmericaShipyard:
+    SelectPortrait: SACWeaponsfact_L      # stand-in until the shipyard portrait exists
+    ButtonImage: SACWeaponsfact           # stand-in until the shipyard button exists
+    PlacementViewAngle: 0
+    DisplayName: OBJECT:AmericaShipyard
+    Side: America
+    EditorSorting: STRUCTURE
+    BuildCost: 1500
+    BuildTime: 25.0
+    EnergyProduction: -1
+    CommandSet: AmericaShipyardCommandSet
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    ExperienceValue: 200 200 200 200
+    SoundOnDamaged: BuildingDamagedStateLight
+    SoundOnReallyDamaged: BuildingDestroy
+    RadarPriority: STRUCTURE
+    KindOf: PRELOAD STRUCTURE SELECTABLE IMMOBILE SCORE CAPTURABLE FS_FACTORY AUTO_RALLYPOINT MP_COUNT_FOR_VICTORY SHIPYARD
+    Geometry: BOX
+    GeometryMajorRadius: 55.0
+    GeometryMinorRadius: 60.0
+    GeometryHeight: 35.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    BuildCompletion: PLACED_BY_PLAYER
+    Prerequisites:
+      Object: AmericaSupplyCenter AirF_AmericaSupplyCenter Lazr_AmericaSupplyCenter SupW_AmericaSupplyCenter
+    ArmorSet:
+      Conditions: None
+      Armor: StructureArmor
+      DamageFX: StructureDamageFXNoShake
+    UnitSpecificSounds:
+      UnderConstruction: UnderConstructionLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: PMDock01                 # stand-in: replace with ABShipyard
+        ConditionState:
+          DAMAGED:
+            Model: PMDock01               # stand-in: replace with ABShipyard_D
+          REALLYDAMAGED RUBBLE:
+            Model: PMDock01               # stand-in: replace with ABShipyard_E
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 2000.0
+        InitialHealth: 2000.0
+        SubdualDamageCap: 2200
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 100
+      ModuleTag_03:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_04:
+        Module: Behavior
+        Class: DefaultProductionExitUpdate
+        UnitCreatePoint: 'X:90.0 Y:0.0 Z:0.0'
+        NaturalRallyPoint: 'X:170.0 Y:0.0 Z:0.0'
+      ModuleTag_05:
+        Module: Behavior
+        Class: BaseRegenerateUpdate
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem2: Bone:None RandomBone:No PSys:StructureTransitionMediumExplosion
+      ModuleTag_07:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_LargeStructureDebris
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_StructureMediumDeath
+      ModuleTag_10:
+        Module: Behavior
+        Class: DestroyDie
+
+  # Each USA general builds the same shipyard under their own side.
+  AirF_AmericaShipyard:
+    ReskinOf: AmericaShipyard
+    Side: AmericaAirForceGeneral
+    Prerequisites:
+      Object: AirF_AmericaSupplyCenter
+  Lazr_AmericaShipyard:
+    ReskinOf: AmericaShipyard
+    Side: AmericaLaserGeneral
+    Prerequisites:
+      Object: Lazr_AmericaSupplyCenter
+  SupW_AmericaShipyard:
+    ReskinOf: AmericaShipyard
+    Side: AmericaSuperWeaponGeneral
+    Prerequisites:
+      Object: SupW_AmericaSupplyCenter
+
+CommandSets:
+  AmericaShipyardCommandSet:
+    1: Command_ConstructAmericaShipPTBoat
+    2: Command_ConstructAmericaShipBattleship
+    3: Command_ConstructAmericaShipAircraftCarrier
+    13: Command_SetRallyPoint
+    14: Command_Sell
+
+  # Add the shipyard to every USA dozer (slot 12 is free in all of them).
+  AmericaDozerCommandSet:
+    12: Command_ConstructAmericaShipyard
+  AirF_AmericaDozerCommandSet:
+    12: AirF_Command_ConstructAmericaShipyard
+  Lazr_AmericaDozerCommandSet:
+    12: Lazr_Command_ConstructAmericaShipyard
+  SupW_AmericaDozerCommandSet:
+    12: SupW_Command_ConstructAmericaShipyard
+
+CommandButtons:
+  Command_ConstructAmericaShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: AmericaShipyard
+    TextLabel: CONTROLBAR:ConstructAmericaShipyard
+    ButtonImage: SACWeaponsfact           # stand-in until the shipyard button exists
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipUSABuildShipyard
+  AirF_Command_ConstructAmericaShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: AirF_AmericaShipyard
+    TextLabel: CONTROLBAR:ConstructAmericaShipyard
+    ButtonImage: SACWeaponsfact
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipUSABuildShipyard
+  Lazr_Command_ConstructAmericaShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: Lazr_AmericaShipyard
+    TextLabel: CONTROLBAR:ConstructAmericaShipyard
+    ButtonImage: SACWeaponsfact
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipUSABuildShipyard
+  SupW_Command_ConstructAmericaShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: SupW_AmericaShipyard
+    TextLabel: CONTROLBAR:ConstructAmericaShipyard
+    ButtonImage: SACWeaponsfact
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipUSABuildShipyard
+
+  Command_ConstructAmericaShipPTBoat:
+    Command: UNIT_BUILD
+    Object: AmericaShipPTBoat
+    TextLabel: CONTROLBAR:ConstructAmericaShipPTBoat
+    ButtonImage: SAHummer                 # stand-in until a PT boat button exists
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipUSABuildPTBoat
+  Command_ConstructAmericaShipBattleship:
+    Command: UNIT_BUILD
+    Object: AmericaShipBattleship
+    TextLabel: CONTROLBAR:ConstructAmericaShipBattleship
+    ButtonImage: SABattleship
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipUSABuildBattleship
+  Command_ConstructAmericaShipAircraftCarrier:
+    Command: UNIT_BUILD
+    Object: AmericaShipAircraftCarrier
+    TextLabel: CONTROLBAR:ConstructAmericaShipAircraftCarrier
+    ButtonImage: SACRaptor                # stand-in: the original carrier has no cameo
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipUSABuildAircraftCarrier

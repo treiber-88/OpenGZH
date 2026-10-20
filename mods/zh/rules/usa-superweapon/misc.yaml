@@ -1,0 +1,336 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  SupW_PointDefenseDroneLaserBeam:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXLaser.tga
+        NumBeams: 3
+        InnerBeamWidth: 0.4
+        InnerColor: R:255 G:255 B:255 A:250
+        OuterBeamWidth: 1.2
+        OuterColor: R:255 G:0 B:255 A:150
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+        MuzzleParticleSystem: PaladinPointDefenseLaserFlare
+        TargetParticleSystem: GenericLaserFlare
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 95
+        MaxLifetime: 95
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_NeutronMissile:
+    DisplayName: OBJECT:NeutronMissile
+    KindOf: UNATTACKABLE
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    TransportSlotCount: 10
+    Geometry: CYLINDER
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 60.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: ABNukeMissle
+          DAMAGED REALLYDAMAGED RUBBLE:
+            Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 99999999.0
+        InitialHealth: 99999999.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: NeutronMissileUpdate
+        DistanceToTravelBeforeTurning: 500
+        MaxTurnRate: 9000
+        ForwardDamping: 0.1
+        RelativeSpeed: 2.0
+        LaunchFX: FX_NeutronMissileLaunch
+        IgnitionFX: FX_NeutronMissileIgnition
+        TargetFromDirectlyAbove: 500
+        SpecialAccelFactor: 1
+        SpecialSpeedTime: 1500
+        SpecialSpeedHeight: 160
+        SpecialJitterDistance: 0.4
+        DeliveryDecalRadius: 210
+        DeliveryDecal:
+          Texture: SCCNuclearMissile_China
+          Style: SHADOW_ALPHA_DECAL
+          OpacityMin: 25%
+          OpacityMax: 50%
+          OpacityThrobTime: 500
+          Color: R:255 G:0 B:0 A:255
+          OnlyVisibleToOwningPlayer: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 100.0
+        TargetHeightIncludesStructures: No
+        OnlyWhenMovingDown: Yes
+        SnapToGroundOnDeath: Yes
+        InitialDelay: 1000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SupW_SuperweaponNeutronMissile
+      ModuleTag_06:
+        Module: Behavior
+        Class: NeutronMissileSlowDeathBehavior
+        DestructionDelay: 3501
+        ScorchMarkSize: 320
+        FXList: SupW_FX_Nuke
+        Blast1Enabled: Yes
+        Blast1Delay: 580
+        Blast1ScorchDelay: 100
+        Blast1InnerRadius: 60.0
+        Blast1OuterRadius: 60.0
+        Blast1MaxDamage: 0.0
+        Blast1MinDamage: 0.0
+        Blast1ToppleSpeed: 0.5
+        Blast1PushForce: 10.0
+        Blast2Enabled: Yes
+        Blast2Delay: 660
+        Blast2ScorchDelay: 180
+        Blast2InnerRadius: 90.0
+        Blast2OuterRadius: 90.0
+        Blast2MaxDamage: 0.0
+        Blast2MinDamage: 0.0
+        Blast2ToppleSpeed: 0.45
+        Blast2PushForce: 8.0
+        Blast3Enabled: Yes
+        Blast3Delay: 720
+        Blast3ScorchDelay: 260
+        Blast3InnerRadius: 120.0
+        Blast3OuterRadius: 120.0
+        Blast3MaxDamage: 0.0
+        Blast3MinDamage: 0.0
+        Blast3ToppleSpeed: 0.42
+        Blast3PushForce: 6.0
+        Blast4Enabled: Yes
+        Blast4Delay: 850
+        Blast4ScorchDelay: 340
+        Blast4InnerRadius: 150.0
+        Blast4OuterRadius: 150.0
+        Blast4MaxDamage: 0.0
+        Blast4MinDamage: 0.0
+        Blast4ToppleSpeed: 0.40
+        Blast4PushForce: 6.0
+        Blast5Enabled: Yes
+        Blast5Delay: 1000
+        Blast5ScorchDelay: 420
+        Blast5InnerRadius: 180.0
+        Blast5OuterRadius: 180.0
+        Blast5MaxDamage: 0.0
+        Blast5MinDamage: 0.0
+        Blast5ToppleSpeed: 0.38
+        Blast5PushForce: 6.0
+        Blast6Enabled: Yes
+        Blast6Delay: 1180
+        Blast6ScorchDelay: 500
+        Blast6InnerRadius: 60.0
+        Blast6OuterRadius: 210.0
+        Blast6MaxDamage: 3500.0
+        Blast6MinDamage: 300.0
+        Blast6ToppleSpeed: 0.35
+        Blast6PushForce: 4.0
+        Blast7Enabled: Yes
+        Blast7Delay: 999999
+        Blast7ScorchDelay: 620
+        Blast7OuterRadius: 210.0
+        Blast8Enabled: Yes
+        Blast8Delay: 999999
+        Blast8ScorchDelay: 700
+        Blast8OuterRadius: 210.0
+        Blast9Enabled: Yes
+        Blast9Delay: 999999
+        Blast9ScorchDelay: 800
+        Blast9OuterRadius: 210.0
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_SpectreGunshipGattlingCannon:
+    Side: AmericaSuperWeaponGeneral
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 3.0
+    GeometryIsSmall: No
+    Shadow: NONE
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY SpectreGattlingGun
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceRapidFire: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: CHASIS
+        DefaultConditionState:
+          Model: AVSGUNSHIP_GUN
+          TurretPitch: TURRETEL01
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+        Turret:
+          ControlledWeaponSlots: PRIMARY
+          TurretTurnRate: 160
+          TurretPitchRate: 160
+          AllowsPitch: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_SpectreGunshipHowitzer:
+    Side: AmericaSuperWeaponGeneral
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 13.0
+    GeometryMinorRadius: 13.0
+    GeometryHeight: 8.0
+    GeometryIsSmall: No
+    Shadow: NONE
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY SpectreHowitzerGun
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceRapidFire: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVSGUNSHIP_GHOW
+          TurretPitch: TURRETEL01
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 60
+          TurretPitchRate: 60
+          AllowsPitch: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_06:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        CanDetectWhileContained: Yes
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaTankAvengerLaserTurret:
+    SelectPortrait: SNPropSpeaker_L
+    ButtonImage: SNPropSpeaker
+    UpgradeCameo1: Upgrade_Nationalism
+    UpgradeCameo2: Upgrade_ChinaUraniumShells
+    UpgradeCameo3: Upgrade_ChinaNuclearTanks
+    UpgradeCameo5: Upgrade_ChinaOverlordPropagandaTower
+    PlacementViewAngle: -45
+    Side: AmericaSuperWeaponGeneral
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 0
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 6.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY AvengerAirLaserOne, SECONDARY AvengerAirLaserTwo]
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        ExtraPublicBone: [TurretFX01, TurretFX02, TURRET01, TURRETEL, TURRETEL01]
+        AttachToBoneInContainer: FIREPOINT01
+        DefaultConditionState:
+          Model: AVAVNGER_G
+          Turret: TURRET01
+          TurretPitch: TURRETEL01
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVAVNGER_GD
+            Turret: TURRET01
+            TurretPitch: TURRETEL01
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        MoodAttackCheckRate: 500
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 180
+          TurretPitchRate: 180
+          AllowsPitch: Yes
+          NaturalTurretPitch: 45
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini

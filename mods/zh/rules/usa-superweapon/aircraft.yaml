@@ -1,0 +1,1897 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  SupW_AmericaJetSpectreGunship:
+    DisplayName: OBJECT:SpectreGunship
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    ExperienceValue: [50 100 150 400, 40 40 40 40]
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: No
+    VoiceSelect: SpectreGunshipVoiceSelect
+    VoiceAttack: SpectreGunshipVoiceAttack
+    VoiceMove: SpectreGunshipVoiceMove
+    SoundAmbient: SpectreGunshipAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_ATTACK VEHICLE AIRCRAFT SCORE SELECTABLE EMP_HARDENED
+    Locomotor: [SET_PANIC SpectreGunshipTransitLocomotor, SET_NORMAL SpectreGunshipOrbitLocomotor]
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 40.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: SupW_AmericaAirfield
+    ArmorSet:
+    - Conditions: None
+      Armor: SpectreGunshipArmor
+      DamageFX: None
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresSpectreGunshipArmor
+      DamageFX: None
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY SpectreHowitzerGun
+    UnitSpecificSounds:
+      Afterburner: SpectreGunshipAfterburnerLoop
+      HowitzerFire: SpectreHowitzerWeapon
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DOverlordAircraftDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVSGunship
+          WeaponFireFXBone: [PRIMARY MUZZLE, SECONDARY MUZZLE]
+          WeaponMuzzleFlash: [PRIMARY MUZZLEFX, SECONDARY MUZZLEFX]
+        ConditionState:
+          DOOR_1_OPENING:
+            Model: AVSGunship
+            Animation: AVSGunship.AVSGunship
+            AnimationMode: ONCE
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone: [WingTip01 SpectreContrail, WingTip02 SpectreContrail]
+          DOOR_1_CLOSING:
+            Model: AVSGunship
+            Animation: AVSGunship.AVSGunship
+            AnimationMode: ONCE_BACKWARDS
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone:
+            - WingTip01 JetContrailThin
+            - WingTip02 JetContrailThin
+            - Engine01 SpectreAfterburnerTrail
+            - Engine02 SpectreAfterburnerTrail
+            - Engine01 SpectreEngineFlare
+            - Engine02 SpectreEngineFlare
+          DOOR_1_OPENING DAMAGED:
+            Model: AVSGunship_D
+            Animation: AVSGunship_D.AVSGunship_D
+            AnimationMode: ONCE
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone:
+            - WingTip01 SpectreContrail
+            - WingTip02 SpectreContrail
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          DOOR_1_CLOSING DAMAGED:
+            Model: AVSGunship_D
+            Animation: AVSGunship_D.AVSGunship_D
+            AnimationMode: ONCE_BACKWARDS
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone:
+            - WingTip01 JetContrailThin
+            - WingTip02 JetContrailThin
+            - Engine01 SpectreAfterburnerTrail
+            - Engine02 SpectreAfterburnerTrail
+            - Engine01 SpectreEngineFlare
+            - Engine02 SpectreEngineFlare
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          DOOR_1_OPENING REALLYDAMAGED:
+            Model: AVSGunship_D
+            Animation: AVSGunship_D.AVSGunship_D
+            AnimationMode: ONCE
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone:
+            - WingTip01 SpectreContrail
+            - WingTip02 SpectreContrail
+            - Smoke01 SpectreGunshipFireLarge
+            - Smoke02 SpectreGunshipFireLarge
+            - Smoke03 SpectreGunshipFireLarge
+            - Smoke04 SpectreGunshipFireLarge
+            - Smoke05 SpectreGunshipFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 SpectreSmokeLarge
+            - Smoke03 JetSmokeLarge
+            - Smoke04 SpectreSmokeLarge
+          DOOR_1_CLOSING REALLYDAMAGED:
+            Model: AVSGunship_D
+            Animation: AVSGunship_D.AVSGunship_D
+            AnimationMode: ONCE_BACKWARDS
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone:
+            - WingTip01 JetContrailThin
+            - WingTip02 JetContrailThin
+            - Engine01 SpectreAfterburnerTrail
+            - Engine02 SpectreAfterburnerTrail
+            - Engine01 SpectreEngineFlare
+            - Engine02 SpectreEngineFlare
+            - Smoke01 SpectreGunshipFireLarge
+            - Smoke02 SpectreGunshipFireLarge
+            - Smoke03 SpectreGunshipFireLarge
+            - Smoke04 SpectreGunshipFireLarge
+            - Smoke05 SpectreGunshipFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 SpectreSmokeLarge
+            - Smoke03 JetSmokeLarge
+            - Smoke04 SpectreSmokeLarge
+          RUBBLE:
+            Model: AVSGunship_D1
+            ParticleSysBone:
+            - Smoke01 SpectreGunshipFireLarge
+            - Smoke05 SpectreGunshipFireLarge
+            - Smoke03 SpectreGunshipFireLarge
+            - Smoke04 SpectreGunshipFireLarge
+            - Smoke01 SpectreSmokeLarge
+            - Smoke03 SpectreSmokeLarge
+            - Smoke02 SpectreSmokeLarge
+            - Smoke05 SpectreSmokeLarge
+            Aliases:
+            - REALLYDAMAGED RUBBLE
+            - REALLYDAMAGED RUBBLE DOOR_1_CLOSING
+            - REALLYDAMAGED RUBBLE DOOR_1_OPENING
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 600.0
+        InitialHealth: 600.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 99999999
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_SpectreGunshipExplosionLight
+        OCLInitialDeath: None
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_spectreDeathExplosion
+        OCLSecondary: None
+        FXHitGround: FX_spectreGunshipDeathExplosion
+        OCLHitGround: OCL_A10DeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        OCLFinalBlowUp: OCL_SpectreDeathFinalBlowUp
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: AIUpdateInterface
+        ForbidPlayerCommands: Yes
+      ModuleTag_32:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SuperweaponSpectreGunship
+        UpdateModuleStartsAttack: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: SpectreGunshipUpdate
+        GattlingStrafeFXParticleSystem: SpectreGattlingArmsSmoke
+        SpecialPowerTemplate: SuperweaponSpectreGunship
+        HowitzerWeaponTemplate: SpectreHowitzerGun
+        GattlingTemplateName: SpectreGunshipGattlingCannon
+        RandomOffsetForHowitzer: 20
+        TargetingReticleRadius: 25
+        OrbitInsertionSlope: 0.7
+        GunshipOrbitRadius: 250
+        HowitzerFiringRate: 300
+        HowitzerFollowLag: 400
+        StrafingIncrement: 20
+        AttackAreaRadius: 200
+        OrbitTime: 15000
+        AttackAreaDecal:
+          Texture: SCCSpecTarg
+          Style: SHADOW_ALPHA_DECAL
+          OpacityMin: 25%
+          OpacityMax: 50%
+          OpacityThrobTime: 1500
+          Color: R:127 G:177 B:222 A:255
+          OnlyVisibleToOwningPlayer: Yes
+        TargetingReticleDecal:
+          Texture: SCCSpecRet
+          Style: SHADOW_ALPHA_DECAL
+          OpacityMin: 50%
+          OpacityMax: 100%
+          OpacityThrobTime: 300
+          Color: R:127 G:177 B:222 A:255
+          OnlyVisibleToOwningPlayer: Yes
+      ModuleTag_09:
+        Module: Behavior
+        Class: HelixContain
+        Slots: 1
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: PORTABLE_STRUCTURE
+        PassengersAllowedToFire: Yes
+        ShouldDrawPips: No
+      ModuleTag_08:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_11:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 4
+        VolleyArcAngle: 90.0
+        VolleyVelocityFactor: 2.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 5
+        ReloadTime: 0
+        EvasionRate: 30%
+        ReactionLaunchLatency: 0
+        MissileDecoyDelay: 200
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaJetRaptor:
+    SelectPortrait: SACRaptor_L
+    ButtonImage: SACRaptor
+    UpgradeCameo1: Upgrade_AmericaLaserMissiles
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo3: Upgrade_AmericaCountermeasures
+    DisplayName: OBJECT:Raptor
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 400
+    BuildCost: 1400
+    BuildTime: 20
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: AmericaJetRaptorCommandSet
+    VoiceSelect: RaptorVoiceSelect
+    VoiceMove: RaptorVoiceMove
+    VoiceAttack: RaptorVoiceAttack
+    VoiceAttackAir: RaptorVoiceAttackAir
+    VoiceGuard: RaptorVoiceAirPatrol
+    SoundAmbient: RaptorAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL RaptorJetLocomotor, SET_TAXIING BasicJetTaxiLocomotor]
+    Geometry: Box
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 14.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 5.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: SupW_AmericaAirfield
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY RaptorJetMissileWeapon
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: RaptorVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceLowFuel: RaptorVoiceLowFuel
+      VoiceGarrison: RaptorVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVRaptor
+          HideSubObject: BurnerFX01 BurnerFX02
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ParticleSysBone:
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX01 BurnerFX02
+          REALLYDAMAGED:
+            Model: AVRaptor_D
+            ParticleSysBone: [Smoke01 JetSmoke, Engine01 JetEngineDamagedSmoke]
+          REALLYDAMAGED JETEXHAUST:
+            Model: AVRaptor_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: AVRaptor_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            ShowSubObject: BurnerFX01 BurnerFX02
+          RUBBLE:
+            Model: AVRaptor_D1B
+            HideSubObject: None
+            ShowSubObject: None
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: AVRaptor_D1B
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_10:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 3
+        VolleyArcAngle: 90.0
+        VolleyVelocityFactor: 1.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 3
+        ReloadTime: 0
+        EvasionRate: 30%
+        ReactionLaunchLatency: 0
+        MissileDecoyDelay: 200
+      ModuleTag_04:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_RaptorDeathFinalBlowUp
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_RaptorDeathInitial
+        OCLInitialDeath: OCL_RaptorDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        OCLSecondary: OCL_RaptorDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        OCLHitGround: OCL_RaptorDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp
+        OCLFinalBlowUp: OCL_RaptorDeathFinalBlowUp
+      ModuleTag_06:
+        Module: Behavior
+        Class: EjectPilotDie
+        ExemptStatus: HIJACKED
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+        VeterancyLevels: ALL -REGULAR
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+      ModuleTag_09:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ParkingOffset: 3
+        ReturnToBaseIdleTime: 10000
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaJetB52:
+    DisplayName: OBJECT:B52
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: B52AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 50 50 50 50
+    Locomotor: SET_NORMAL B52Locomotor
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 60.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: TankDamageFX
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber
+          ParticleSysBone:
+          - Engine00 JetBlackTrailThin
+          - Engine02 JetBlackTrailThin
+          - Engine03 JetBlackTrailThin
+          - Engine04 JetBlackTrailThin
+          - WingTip01 JetContrailThin
+          - WingTip02 JetContrailThin
+        ConditionState:
+          DAMAGED:
+            Model: AVBomber_D
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Engine00 JetBlackTrailThin
+            - Engine02 JetBlackTrailThin
+            - Engine03 JetBlackTrailThin
+            - Engine04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          REALLYDAMAGED:
+            Model: AVBomber_D
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Engine00 JetBlackTrailThin
+            - Engine02 JetBlackTrailThin
+            - Engine03 JetBlackTrailThin
+            - Engine04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          RUBBLE:
+            Model: AVBomber_D1
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVBomber_A2U
+          Animation: AVBomber_A2K.AVBomber_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST MAINTAIN_FRAME_ACROSS_STATES
+        ConditionState:
+          DOOR_1_OPENING:
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST MAINTAIN_FRAME_ACROSS_STATES
+          DOOR_1_CLOSING:
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST MAINTAIN_FRAME_ACROSS_STATES
+          REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST MAINTAIN_FRAME_ACROSS_STATES
+          DOOR_1_OPENING REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST MAINTAIN_FRAME_ACROSS_STATES
+          DOOR_1_CLOSING REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST MAINTAIN_FRAME_ACROSS_STATES
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1000.0
+        InitialHealth: 1000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponDaisyCutter
+        OCL: SUPERWEAPON_DaisyCutter
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponParadropAmerica
+        UpgradeOCL: [SCIENCE_Paradrop3 SUPERWEAPON_Paradrop3, SCIENCE_Paradrop2 SUPERWEAPON_Paradrop2]
+        OCL: SUPERWEAPON_Paradrop1
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponCarpetBomb
+        OCL: SUPERWEAPON_CarpetBomb
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 4
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 300
+        PutInContainer: AmericaParachute
+        DeliveryDistance: 150
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_11:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_12:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 4
+        VolleyArcAngle: 90.0
+        VolleyVelocityFactor: 2.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 5
+        ReloadTime: 0
+        EvasionRate: 30%
+        ReactionLaunchLatency: 0
+        MissileDecoyDelay: 200
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaJetAurora:
+    SelectPortrait: SAFulArAurora_L
+    ButtonImage: SAFulArAurora
+    UpgradeCameo1: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo2: Upgrade_AmericaCountermeasures
+    DisplayName: OBJECT:SupW_Aurora
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 180.0
+    ShroudClearingRange: 600
+    BuildCost: 2000
+    BuildTime: 30.0
+    ExperienceValue: 200 200 400 400
+    ExperienceRequired: 0 200 400 800
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: SupW_AmericaJetAuroraCommandSet
+    VoiceSelect: AuroraBomberVoiceSelect
+    VoiceMove: AuroraBomberVoiceMove
+    VoiceGuard: AuroraBomberVoiceMove
+    VoiceAttack: AuroraBomberVoiceAttack
+    SoundAmbient: AuroraBomberAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor:
+    - SET_NORMAL AuroraJetLocomotor
+    - SET_SUPERSONIC AuroraJetSupersonicLocomotor
+    - SET_SLUGGISH AuroraJetSluggishLocomotor
+    - SET_TAXIING BasicJetTaxiLocomotor
+    Geometry: Box
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 14.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 5.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: [SupW_AmericaAirfield, SupW_AmericaStrategyCenter]
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY SupW_AuroraFuelBombWeapon
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: AuroraBomberVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceLowFuel: AuroraBomberVoiceLowFuel
+      VoiceGarrison: AuroraBomberVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVAuroraSW
+          HideSubObject: BurnerFX03 BurnerFX04
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ParticleSysBone:
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX03 BurnerFX04
+          REALLYDAMAGED:
+            Model: AVAuroraSW_D
+            ParticleSysBone: [Smoke01 JetSmoke, Engine01 JetEngineDamagedSmoke]
+          REALLYDAMAGED JETEXHAUST:
+            Model: AVAuroraSW_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: AVAuroraSW_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            ShowSubObject: BurnerFX03 BurnerFX04
+          RUBBLE:
+            Model: AVAurora_D1
+            HideSubObject: None
+            ShowSubObject: None
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: AVAurora_D1
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 80.0
+        InitialHealth: 80.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_AuroraDeathFinalBlowUp
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_AuroraDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp
+        OCLFinalBlowUp: OCL_AuroraDeathFinalBlowUp
+      ModuleTag_04:
+        Module: Behavior
+        Class: EjectPilotDie
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+        ExemptStatus: HIJACKED
+        VeterancyLevels: ALL -REGULAR
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        SneakyOffsetWhenAttacking: -20.0
+        AttackLocomotorType: SET_SUPERSONIC
+        AttackLocomotorPersistTime: 100
+        AttackersMissPersistTime: 2000
+        ReturnForAmmoLocomotorType: SET_SLUGGISH
+        ReturnToBaseIdleTime: 10000
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_10:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 2
+        VolleyArcAngle: 60.0
+        VolleyVelocityFactor: 2.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 3
+        ReloadTime: 0
+        EvasionRate: 30%
+        ReactionLaunchLatency: 0
+        MissileDecoyDelay: 200
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaJetStealthFighter:
+    SelectPortrait: SAStealth_L
+    ButtonImage: SAStealth
+    UpgradeCameo1: Upgrade_AmericaLaserMissiles
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo3: Upgrade_AmericaCountermeasures
+    UpgradeCameo4: Upgrade_AmericaBunkerBusters
+    DisplayName: OBJECT:StealthFighter
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 180.0
+    ShroudClearingRange: 300.0
+    BuildCost: 1600
+    BuildTime: 25.0
+    ExperienceValue: 100 100 200 300
+    ExperienceRequired: 0 200 300 600
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: AmericaJetStealthFighterCommandSet
+    VoiceSelect: StealthFighterVoiceSelect
+    VoiceMove: StealthFighterVoiceMove
+    VoiceAttack: StealthFighterVoiceAttack
+    VoiceAttackAir: StealthFighterVoiceAttackAir
+    VoiceGuard: StealthFighterVoiceAirPatrol
+    SoundAmbient: StealthFighterAmbientLoop
+    SoundAmbientRubble: NoSound
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    RadarPriority: LOCAL_UNIT_ONLY
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL StealthJetLocomotor, SET_TAXIING BasicJetTaxiLocomotor]
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 7.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: SupW_AmericaAirfield
+      Science: SCIENCE_StealthFighter
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY StealthJetMissileWeapon
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: StealthFighterVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceLowFuel: AuroraBomberVoiceLowFuel
+      VoiceGarrison: StealthFighterVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVStealth
+          HideSubObject: BurnerFX03 BurnerFX04
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ParticleSysBone:
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX03 BurnerFX04
+          REALLYDAMAGED:
+            Model: AVStealth_D
+            ParticleSysBone: [Smoke01 JetSmoke, Engine01 JetEngineDamagedSmoke]
+          REALLYDAMAGED JETEXHAUST:
+            Model: AVStealth_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: AVStealth_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX03 BurnerFX04
+          RUBBLE:
+            Model: AVStealth_D1
+            HideSubObject: None
+            ShowSubObject: None
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: AVStealth_D1
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_StealthDeathFinalBlowUp
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_StealthFighterDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp
+        OCLFinalBlowUp: OCL_StealthDeathFinalBlowUp
+      ModuleTag_04:
+        Module: Behavior
+        Class: EjectPilotDie
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+        ExemptStatus: HIJACKED
+        VeterancyLevels: ALL -REGULAR
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ReturnToBaseIdleTime: 10000
+      ModuleTag_08:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 1500
+        StealthForbiddenConditions: FIRING_PRIMARY
+        FriendlyOpacityMin: 50.0%
+        FriendlyOpacityMax: 100.0%
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_10:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 2
+        VolleyArcAngle: 60.0
+        VolleyVelocityFactor: 2.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 3
+        ReloadTime: 0
+        EvasionRate: 30%
+        ReactionLaunchLatency: 0
+        MissileDecoyDelay: 200
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaVehicleComanche:
+    SelectPortrait: SACCommanche_L
+    ButtonImage: SACCommanche
+    UpgradeCameo1: Upgrade_ComancheRocketPods
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo3: Upgrade_AmericaCountermeasures
+    DisplayName: OBJECT:Comanche
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 600
+    BuildCost: 1800
+    BuildTime: 20
+    ExperienceValue: 50 50 100 200
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CommandSet: SupW_AmericaVehicleComancheCommandSet
+    VoiceSelect: ComancheVoiceSelect
+    VoiceMove: ComancheVoiceMove
+    VoiceGuard: ComancheVoiceMove
+    VoiceAttack: ComancheVoiceAttack
+    SoundAmbient: ComancheAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT PRODUCED_AT_HELIPAD
+    Locomotor: [SET_NORMAL ComancheLocomotor, SET_TAXIING BasicHelicopterTaxiLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 25.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: SupW_AmericaAirfield
+    WeaponSet:
+    - Conditions: None
+      Weapon:
+      - PRIMARY Comanche20mmCannonWeapon
+      - SECONDARY ComancheAntiTankMissileWeapon
+      - TERTIARY NONE
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY VEHICLE STRUCTURE]
+      AutoChooseSources:
+      - PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - SECONDARY FROM_PLAYER FROM_SCRIPT FROM_AI
+    - Conditions: PLAYER_UPGRADE
+      Weapon:
+      - PRIMARY Comanche20mmCannonWeapon
+      - SECONDARY ComancheAntiTankMissileWeapon
+      - TERTIARY ComancheRocketPodWeapon
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY VEHICLE STRUCTURE]
+      AutoChooseSources:
+      - PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - SECONDARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - TERTIARY NONE
+    ArmorSet:
+    - Conditions: None
+      Armor: ComancheArmor
+      DamageFX: None
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresComancheArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: ComancheVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceGarrison: ComancheVoiceMove
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceFireRocketPods: ComancheVoiceAttackRocket
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVComanche
+          HideSubObject: MissileUpgrade
+          Animation: AVComanche.AVComanche
+          AnimationMode: LOOP
+          WeaponMuzzleFlash: PRIMARY TurretFX
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponLaunchBone: SECONDARY Muzzle
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVComanche_d
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+          WEAPONSET_PLAYER_UPGRADE:
+            ShowSubObject: MissileUpgrade
+            Animation: AVComanche.AVComanche
+            AnimationMode: LOOP
+            WeaponFireFXBone: TERTIARY WeaponB
+            WeaponLaunchBone: TERTIARY WeaponB
+          WEAPONSET_PLAYER_UPGRADE REALLYDAMAGED:
+            Model: AVComanche_d
+            ShowSubObject: MissileUpgrade
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+            WeaponFireFXBone: TERTIARY WeaponB
+            WeaponLaunchBone: TERTIARY WeaponB
+          RUBBLE:
+            Model: AVComanche_d
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+          RUBBLE SPECIAL_DAMAGED:
+            Model: AVComanche_d
+            HideSubObject: AVComanche_Prop
+      ModuleTag_02:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ComancheRocketPods
+      ModuleTag_03:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_04:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 220.0
+        InitialHealth: 220.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_ComancheStartDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        MinHeight: 5
+        NeedsRunway: No
+        KeepsParkingSpaceWhenAirborne: No
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 0
+          TurretPitchRate: 0
+          ControlledWeaponSlots: PRIMARY SECONDARY
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: HelicopterSlowDeathBehavior
+        DestructionDelay: 99999999
+        SpiralOrbitTurnRate: 140.0
+        SpiralOrbitForwardSpeed: 350.0
+        SpiralOrbitForwardSpeedDamping: .9999
+        MaxBraking: 190
+        SoundDeathLoop: ComancheDamagedLoop
+        MinSelfSpin: 100
+        MaxSelfSpin: 300
+        SelfSpinUpdateDelay: 100
+        SelfSpinUpdateAmount: 10
+        FallHowFast: 12.0%
+        MinBladeFlyOffDelay: 1500
+        MaxBladeFlyOffDelay: 1500
+        AttachParticle: SootySmokeTrail
+        AttachParticleBone: Propeller02
+        BladeObjectName: ComancheBlades
+        BladeBoneName: Propeller01
+        OCLEjectPilot: OCL_EjectPilotViaParachute
+        FXBlade: FX_HelicopterBladeExplosion
+        OCLBlade: OCL_HelicopterBladeExplosion
+        FXHitGround: FX_HelicopterHitGround
+        OCLHitGround: OCL_HelicopterHitGround
+        FXFinalBlowUp: FX_GroundedHelicopterBlowUp
+        OCLFinalBlowUp: OCL_GroundedHelicopterBlowUp
+        DelayFromGroundToFinalDeath: 1500
+        FinalRubbleObject: ComancheRubbleHull
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuousDown
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_ComancheDamageTransition'
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_10:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 2
+        VolleyArcAngle: 60.0
+        VolleyVelocityFactor: 2.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 3
+        ReloadTime: 4000
+        EvasionRate: 30%
+        ReactionLaunchLatency: 0
+        MissileDecoyDelay: 200
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaJetA10Thunderbolt:
+    SelectPortrait: SAWarthog_L
+    ButtonImage: SAWarthog
+    DisplayName: OBJECT:A10Thunderbolt
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    ExperienceValue: [50 100 150 400, 40 40 40 40]
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: Yes
+    SoundAmbient: A10ThunderboltAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE AIRCRAFT SCORE IGNORED_IN_GUI EMP_HARDENED
+    Locomotor: SET_NORMAL A10ThunderboltLocomotor
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: SupW_AmericaAirfield
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY A10ThunderboltVulcan
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      StartDive: A10ThunderboltDive
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ExtraPublicBone: [WeaponA01, WeaponA02, WeaponA03, WeaponA04, WeaponA05, WeaponA06]
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVWarthog
+          WeaponMuzzleFlash: PRIMARY MuzzleFX01
+          WeaponFireFXBone: PRIMARY Muzzle01
+          ParticleSysBone:
+          - Engine01 JetBlackTrailThin
+          - Engine02 JetBlackTrailThin
+          - Wingtip01 JetContrailThin
+          - Wingtip02 JetContrailThin
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVWarthog_D
+            WeaponMuzzleFlash: PRIMARY MuzzleFX01
+            WeaponFireFXBone: PRIMARY Muzzle01
+            Aliases: [RUBBLE]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 600.0
+        InitialHealth: 600.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 99999999
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_JetDeathInitial
+        OCLInitialDeath: None
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        OCLSecondary: None
+        FXHitGround: FX_JetDeathHitGround
+        OCLHitGround: OCL_A10DeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp
+        OCLFinalBlowUp: OCL_A10DeathFinalBlowUp
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponA10ThunderboltMissileStrike
+        UpgradeOCL:
+        - SCIENCE_A10ThunderboltMissileStrike3 SUPERWEAPON_A10ThunderboltMissileStrike3
+        - SCIENCE_A10ThunderboltMissileStrike2 SUPERWEAPON_A10ThunderboltMissileStrike2
+        OCL: SUPERWEAPON_A10ThunderboltMissileStrike1
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_10:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 3
+        VolleyArcAngle: 90.0
+        VolleyVelocityFactor: 2.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 3
+        ReloadTime: 0
+        EvasionRate: 30%
+        ReactionLaunchLatency: 0
+        MissileDecoyDelay: 200
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaVehicleChinook:
+    SelectPortrait: SAChinook_L
+    ButtonImage: SAChinook
+    DisplayName: OBJECT:Chinook
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 600
+    BuildCost: 1200
+    BuildTime: 10.0
+    ExperienceValue: 50 50 50 50
+    IsTrainable: No
+    CommandSet: SupW_AmericaVehicleChinookCommandSet
+    VoiceSelect: ChinookVoiceSelect
+    VoiceMove: ChinookVoiceMove
+    VoiceAttack: ChinookVoiceAttack
+    SoundAmbient: ChinookAmbientLoop
+    SoundAmbientRubble: NoSound
+    SoundEnter: HumveeEnter
+    SoundExit: HumveeExit
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS SELECTABLE VEHICLE TRANSPORT AIRCRAFT HARVESTER SCORE PRODUCED_AT_HELIPAD
+    Locomotor: [SET_NORMAL ChinookLocomotor, SET_TAXIING BasicHelicopterTaxiLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: SupW_AmericaSupplyCenter
+    ArmorSet:
+      Conditions: None
+      Armor: ChinookArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: ChinookVoiceCreate
+      VoiceSupply: ChinookVoiceSupply
+      VoiceUnload: ChinookVoiceUnload
+      VoiceCombatDrop: ChinookVoiceCombatDrop
+      VoiceClearBuilding: RangerVoiceClearBuilding
+      VoiceGarrison: ChinookVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ExtraPublicBone: [RopeStart, RopeEnd]
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVChinook
+          Animation: AVChinook.AVChinook
+          AnimationMode: LOOP
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVChinook_d
+            Animation: AVChinook_d.AVChinook_d
+            AnimationMode: LOOP
+          RUBBLE:
+            Model: AVChinook_d
+            Animation: AVChinook_d.AVChinook_d
+            AnimationMode: LOOP
+          RUBBLE SPECIAL_DAMAGED:
+            Model: AVChinook_d
+            HideSubObject: [Props01, Props02]
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: None
+            TransitionKey: TRANS_Empty
+            WaitForStateToFinishIfPossible: TRANS_Unloading
+          DYING:
+            Model: None
+            Aliases: [RUBBLE, CARRYING RUBBLE, DOCKING RUBBLE, DOCKING CARRYING RUBBLE]
+          CARRYING:
+            Model: AVChinook_A
+            Animation: AVChinook_A.AVChinook_A
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Full
+            WaitForStateToFinishIfPossible: TRANS_PickingUp
+          DOCKING:
+            Model: AVChinook_A1MSH
+            Animation: AVChinook_A1SK.AVChinook_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+            AnimationSpeedFactorRange: .75 .75
+            TransitionKey: TRANS_PickingUp
+            WaitForStateToFinishIfPossible: TRANS_Unloading
+          DOCKING CARRYING:
+            Model: AVChinook_A1MSH
+            Animation: AVChinook_A1SK.AVChinook_A1
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.75 2.75
+            TransitionKey: TRANS_Unloading
+            WaitForStateToFinishIfPossible: TRANS_PickingUp
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_HelicopterStartDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuousDown
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_ComancheDamageTransition'
+      ModuleTag_07:
+        Module: Behavior
+        Class: ChinookAIUpdate
+        MaxBoxes: 8
+        SupplyCenterActionDelay: 3000
+        SupplyWarehouseActionDelay: 1250
+        SupplyWarehouseScanDistance: 700
+        SuppliesDepletedVoice: ChinookVoiceSuppliesDepleted
+        NumRopes: 4
+        PerRopeDelayMin: 900
+        PerRopeDelayMax: 1500
+        RopeWidth: 0.5
+        RopeColor: R:0 G:0 B:0
+        RopeWobbleLen: 10
+        RopeWobbleAmplitude: 0.25
+        RopeWobbleRate: 180
+        RopeFinalHeight: 10
+        RappelSpeed: 30
+        MinDropHeight: 40
+        UpgradedSupplyBoost: 60
+      ModuleTag_08:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 8
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: INFANTRY VEHICLE
+        ForbidInsideKindOf: AIRCRAFT HUGE_VEHICLE
+        ExitDelay: 100
+        NumberOfExitPaths: 1
+      ModuleTag_09:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_10:
+        Module: Behavior
+        Class: HelicopterSlowDeathBehavior
+        DestructionDelay: 99999999
+        SpiralOrbitTurnRate: 140.0
+        SpiralOrbitForwardSpeed: 350.0
+        SpiralOrbitForwardSpeedDamping: .9999
+        MaxBraking: 190
+        SoundDeathLoop: ComancheDamagedLoop
+        MinSelfSpin: 100
+        MaxSelfSpin: 300
+        SelfSpinUpdateDelay: 100
+        SelfSpinUpdateAmount: 10
+        FallHowFast: 12.0%
+        MinBladeFlyOffDelay: 1500
+        MaxBladeFlyOffDelay: 1500
+        AttachParticle: SootySmokeTrail
+        AttachParticleBone: Propeller02
+        BladeObjectName: ComancheBlades
+        BladeBoneName: Propeller01
+        FXBlade: FX_HelicopterBladeExplosion
+        OCLBlade: OCL_HelicopterBladeExplosion
+        FXHitGround: FX_HelicopterHitGround
+        OCLHitGround: OCL_HelicopterHitGround
+        FXFinalBlowUp: FX_GroundedHelicopterBlowUp
+        OCLFinalBlowUp: OCL_GroundedHelicopterBlowUp
+        DelayFromGroundToFinalDeath: 30
+        FinalRubbleObject: ChinookRubbleHull
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaJetCargoPlane:
+    DisplayName: OBJECT:CargoPlane
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: C130AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT FORCEATTACKABLE IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 40 40 40 40
+    Locomotor: SET_NORMAL B52Locomotor
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 40.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: TankDamageFX
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVCargoPln
+          Animation: AVCargoPln.AVCargoPln
+          AnimationMode: LOOP
+          ParticleSysBone:
+          - Propeller01 JetBlackTrailThin
+          - Propeller02 JetBlackTrailThin
+          - Propeller03 JetBlackTrailThin
+          - Propeller04 JetBlackTrailThin
+          - WingTip01 JetContrailThin
+          - WingTip02 JetContrailThin
+        ConditionState:
+          DAMAGED:
+            Model: AVCargoPln_D
+            Animation: AVCargoPln_D.AVCargoPln_D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Propeller03 JetBlackTrailThin
+            - Propeller04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          REALLYDAMAGED:
+            Model: AVCargoPln_D
+            Animation: AVCargoPln_D.AVCargoPln_D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Smoke03 JetFireLarge
+            - Smoke05 JetFireLarge
+            - Propeller03 JetBlackTrailThin
+            - Propeller04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+            - Smoke03 JetSmokeLarge
+            - Smoke05 JetSmokeLarge
+          RUBBLE:
+            Model: AVCargoPln_D1
+            Animation: AVCargoPln_D.AVCargoPln_D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke06 JetFireLarge
+            - Smoke03 JetFireLarge
+            - Smoke05 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke06 JetSmokeLarge
+            - Smoke03 JetSmokeLarge
+            - Smoke05 JetSmokeLarge
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVCargoPln_A2
+          Animation: AVCargoPln_A2.AVCargoPln_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST
+        ConditionState:
+          DOOR_1_OPENING:
+            Model: AVCargoPln_A2
+            Animation: AVCargoPln_A2.AVCargoPln_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+          DOOR_1_CLOSING:
+            Model: AVCargoPln_A2
+            Animation: AVCargoPln_A2.AVCargoPln_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1000.0
+        InitialHealth: 1000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponDaisyCutter
+        OCL: SUPERWEAPON_DaisyCutter
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponParadropAmerica
+        UpgradeOCL: [SCIENCE_Paradrop3 SUPERWEAPON_Paradrop3, SCIENCE_Paradrop2 SUPERWEAPON_Paradrop2]
+        OCL: SUPERWEAPON_Paradrop1
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponCarpetBomb
+        OCL: SUPERWEAPON_CarpetBomb
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_08:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponCrateDrop
+        OCL: SUPERWEAPON_CrateDrop
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_09:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 4
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 1000
+        PutInContainer: AmericaParachute
+        DeliveryDistance: 150
+      ModuleTag_10:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_11:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_13:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 4
+        VolleyArcAngle: 90.0
+        VolleyVelocityFactor: 2.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 5
+        ReloadTime: 0
+        EvasionRate: 30%
+        ReactionLaunchLatency: 0
+        MissileDecoyDelay: 200
+      ModuleTag_17:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini
+  SupW_AmericaJetB3:
+    DisplayName: OBJECT:B52
+    EditorSorting: VEHICLE
+    Side: AmericaSuperWeaponGeneral
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: B3BomberAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 50 50 50 50
+    Locomotor: SET_NORMAL B3Locomotor
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 60.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: TankDamageFX
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVB3bmbr
+          ParticleSysBone:
+          - Engine01 JetBlackTrailThin
+          - Engine02 JetBlackTrailThin
+          - WingTip01 JetContrailThin
+          - WingTip02 JetContrailThin
+          - WingTip03 JetContrailThin
+          - WingTip04 JetContrailThin
+        ConditionState:
+          DAMAGED:
+            Model: AVB3bmbr_D
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Engine01 JetBlackTrailThin
+            - Engine02 JetBlackTrailThin
+            - Engine03 JetBlackTrailThin
+            - Engine04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          REALLYDAMAGED:
+            Model: AVB3bmbr_D
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Engine01 JetBlackTrailThin
+            - Engine02 JetBlackTrailThin
+            - Engine03 JetBlackTrailThin
+            - Engine04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          RUBBLE:
+            Model: AVB3bmbr_D1
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1000.0
+        InitialHealth: 1000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponDaisyCutter
+        OCL: SUPERWEAPON_DaisyCutter
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponMOAB
+        OCL: SUPERWEAPON_MOAB
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 4
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 300
+        PutInContainer: AmericaParachute
+        DeliveryDistance: 150
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_11:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaCountermeasures
+      ModuleTag_12:
+        Module: Behavior
+        Class: CountermeasuresBehavior
+        TriggeredBy: Upgrade_AmericaCountermeasures
+        FlareTemplateName: CountermeasureFlare
+        FlareBoneBaseName: Flare
+        VolleySize: 4
+        VolleyArcAngle: 90.0
+        VolleyVelocityFactor: 2.0
+        DelayBetweenVolleys: 1000
+        NumberOfVolleys: 5
+        ReloadTime: 0
+        EvasionRate: 30%
+        ReactionLaunchLatency: 100
+        MissileDecoyDelay: 200
+    SourceFile: Data/INI/Object/SuperWeaponGeneral.ini

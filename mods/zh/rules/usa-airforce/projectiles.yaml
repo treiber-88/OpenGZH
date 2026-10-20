@@ -1,0 +1,91 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  AirF_CountermeasureFlare:
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL CountermeasureFlareLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: None CountermeasureFlareParticleSys
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5
+      ModuleTag_04:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_05:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+    SourceFile: Data/INI/Object/AirforceGeneral.ini
+  AirF_PatriotMissile:
+    DisplayName: OBJECT:PatriotMissile
+    EditorSorting: VEHICLE
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    KindOf: CAN_CAST_REFLECTIONS PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL PatriotMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVRaptor_M
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 10000
+        InitialVelocity: 50
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 5
+        DistanceToTargetForLock: 100
+    SourceFile: Data/INI/Object/AirforceGeneral.ini

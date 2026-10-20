@@ -1,0 +1,47 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  GC_Slth_JarmenKellBullet:
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL ToxinTruckStreamLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+        AllowCollideForce: No
+      ModuleTag_05:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 1000
+        InitialVelocity: 1000
+        IgnitionDelay: 0
+        DistanceToTravelBeforeTurning: 2
+        GarrisonHitKillRequiredKindOf: INFANTRY
+        GarrisonHitKillForbiddenKindOf: NONE
+        GarrisonHitKillCount: 1
+    SourceFile: Data/INI/Object/GC_Slth_GLASystem.ini

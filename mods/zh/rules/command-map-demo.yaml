@@ -1,0 +1,104 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+CommandMaps:
+  CHEAT_RUNSCRIPT1:
+    Key: KEY_F1
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_RUNSCRIPT2:
+    Key: KEY_F2
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_RUNSCRIPT3:
+    Key: KEY_F3
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_RUNSCRIPT4:
+    Key: KEY_F4
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_RUNSCRIPT5:
+    Key: KEY_F5
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_RUNSCRIPT6:
+    Key: KEY_F6
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_RUNSCRIPT7:
+    Key: KEY_F7
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_RUNSCRIPT8:
+    Key: KEY_F8
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_RUNSCRIPT9:
+    Key: KEY_F9
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_TOGGLE_SPECIAL_POWER_DELAYS:
+    Key: KEY_S
+    Transition: Down
+    Modifiers: CTRL
+    UseableIn: GAME
+  CHEAT_SWITCH_TEAMS:
+    Key: KEY_SPACE
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_KILL_SELECTION:
+    Key: KEY_X
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_TOGGLE_HAND_OF_GOD_MODE:
+    Key: KEY_G
+    Transition: DOWN
+    Modifiers: ALT
+    UseableIn: GAME
+  CHEAT_INSTANT_BUILD:
+    Key: KEY_F
+    Transition: DOWN
+    Modifiers: ALT
+    UseableIn: GAME
+  CHEAT_DESHROUD:
+    Key: KEY_R
+    Transition: Down
+    Modifiers: CTRL
+    UseableIn: GAME
+  CHEAT_ADD_CASH:
+    Key: KEY_EQUAL
+    Transition: DOWN
+    Modifiers: CTRL
+    UseableIn: GAME
+  CHEAT_GIVE_ALL_SCIENCES:
+    Key: KEY_K
+    Transition: DOWN
+    Modifiers: SHIFT_ALT_CTRL
+    UseableIn: GAME
+  CHEAT_GIVE_SCIENCEPURCHASEPOINTS:
+    Key: KEY_P
+    Transition: DOWN
+    Modifiers: SHIFT_CTRL
+    UseableIn: GAME
+  CHEAT_SHOW_HEALTH:
+    Key: KEY_H
+    Transition: DOWN
+    Modifiers: ALT
+    UseableIn: GAME
+  CHEAT_TOGGLE_MESSAGE_TEXT:
+    Key: KEY_T
+    Transition: DOWN
+    Modifiers: ALT
+    UseableIn: GAME

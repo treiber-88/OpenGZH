@@ -1,0 +1,1198 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  PowerBarYellow:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:501 Top:77 Right:503 Bottom:83
+    Status: NONE
+  PowerBarGreen:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:77 Right:499 Bottom:83
+    Status: NONE
+  PowerBarRedEndL:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:506 Top:73 Right:508 Bottom:79
+    Status: NONE
+  PowerBarRed:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:507 Top:65 Right:509 Bottom:71
+    Status: NONE
+  GenExpBar1:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:73 Right:504 Bottom:75
+    Status: NONE
+  PowerBarGreenEndR:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:502 Top:65 Right:505 Bottom:71
+    Status: NONE
+  PowerBarRedEndR:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:61 Right:500 Bottom:67
+    Status: NONE
+  PowerBarYellowEndL:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:507 Top:57 Right:510 Bottom:63
+    Status: NONE
+  PowerBarYellowEndR:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:502 Top:57 Right:505 Bottom:63
+    Status: NONE
+  PowerBarGreenEndL:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:53 Right:500 Bottom:59
+    Status: NONE
+  GenExpBarBottom1:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:504 Top:52 Right:511 Bottom:55
+    Status: NONE
+  GenExpBarTop1:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:504 Top:47 Right:511 Bottom:50
+    Status: NONE
+  SCVETER1:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:46 Right:502 Bottom:51
+    Status: NONE
+  SCVETER2:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:36 Right:502 Bottom:44
+    Status: NONE
+  SCPAmmoFull:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:504 Top:35 Right:509 Bottom:45
+    Status: NONE
+  SCPAmmoEmpty:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:504 Top:23 Right:509 Bottom:33
+    Status: NONE
+  SCVETER3:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:23 Right:502 Bottom:34
+    Status: NONE
+  SCPPipFull:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:504 Top:9 Right:509 Bottom:21
+    Status: NONE
+  SCPPipEmpty:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:9 Right:502 Bottom:21
+    Status: NONE
+  PowerBarSlider:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:497 Top:1 Right:508 Bottom:7
+    Status: NONE
+  HeroReticle:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:496 Top:86 Right:509 Bottom:99
+    Status: NONE
+  SCPChev016:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:454 Top:477 Right:486 Bottom:509
+    Status: NONE
+  SCPChev017:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:420 Top:463 Right:452 Bottom:495
+    Status: NONE
+  SCPChev018:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:386 Top:463 Right:418 Bottom:495
+    Status: NONE
+  SCPChev019:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:352 Top:463 Right:384 Bottom:495
+    Status: NONE
+  SCPChev020:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:318 Top:463 Right:350 Bottom:495
+    Status: NONE
+  SCPCross000:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:284 Top:463 Right:316 Bottom:495
+    Status: NONE
+  SCPCross001:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:443 Right:495 Bottom:475
+    Status: NONE
+  SCPCross002:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:409 Right:495 Bottom:441
+    Status: NONE
+  SCPCross003:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:375 Right:495 Bottom:407
+    Status: NONE
+  SCPCross004:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:341 Right:495 Bottom:373
+    Status: NONE
+  SCPCross005:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:307 Right:495 Bottom:339
+    Status: NONE
+  SCPCross006:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:273 Right:495 Bottom:305
+    Status: NONE
+  SCPCross007:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:239 Right:495 Bottom:271
+    Status: NONE
+  SCPCross008:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:205 Right:495 Bottom:237
+    Status: NONE
+  SCPCross009:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:171 Right:495 Bottom:203
+    Status: NONE
+  SCPCross010:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:137 Right:495 Bottom:169
+    Status: NONE
+  SCPCross011:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:103 Right:495 Bottom:135
+    Status: NONE
+  SCPCross012:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:69 Right:495 Bottom:101
+    Status: NONE
+  SCPCross013:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:35 Right:495 Bottom:67
+    Status: NONE
+  SCPCross014:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:1 Right:495 Bottom:33
+    Status: NONE
+  ExperienceBar:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:117 Top:463 Right:282 Bottom:479
+    Status: NONE
+  SCTempDefaultInventory:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:59 Top:463 Right:115 Bottom:511
+    Status: NONE
+  SCTempDefaultCommand:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:463 Right:57 Bottom:511
+    Status: NONE
+  SCPClock063:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:397 Top:397 Right:461 Bottom:461
+    Status: NONE
+  SCPClock062:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:397 Right:395 Bottom:461
+    Status: NONE
+  SCPClock061:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:265 Top:397 Right:329 Bottom:461
+    Status: NONE
+  SCPClock060:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:199 Top:397 Right:263 Bottom:461
+    Status: NONE
+  SCPClock059:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:133 Top:397 Right:197 Bottom:461
+    Status: NONE
+  SCPClock058:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:67 Top:397 Right:131 Bottom:461
+    Status: NONE
+  SCPClock057:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:397 Right:65 Bottom:461
+    Status: NONE
+  SCPClock056:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:397 Top:331 Right:461 Bottom:395
+    Status: NONE
+  SCPClock055:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:331 Right:395 Bottom:395
+    Status: NONE
+  SCPClock054:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:265 Top:331 Right:329 Bottom:395
+    Status: NONE
+  SCPClock053:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:199 Top:331 Right:263 Bottom:395
+    Status: NONE
+  SCPClock052:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:133 Top:331 Right:197 Bottom:395
+    Status: NONE
+  SCPClock051:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:67 Top:331 Right:131 Bottom:395
+    Status: NONE
+  SCPClock050:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:331 Right:65 Bottom:395
+    Status: NONE
+  SCPClock049:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:397 Top:265 Right:461 Bottom:329
+    Status: NONE
+  SCPClock048:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:265 Right:395 Bottom:329
+    Status: NONE
+  SCPClock047:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:265 Top:265 Right:329 Bottom:329
+    Status: NONE
+  SCPClock046:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:199 Top:265 Right:263 Bottom:329
+    Status: NONE
+  SCPClock045:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:133 Top:265 Right:197 Bottom:329
+    Status: NONE
+  SCPClock044:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:67 Top:265 Right:131 Bottom:329
+    Status: NONE
+  SCPClock043:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:265 Right:65 Bottom:329
+    Status: NONE
+  SCPClock001:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:397 Top:199 Right:461 Bottom:263
+    Status: NONE
+  SCPClock000:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:199 Right:395 Bottom:263
+    Status: NONE
+  SCPDollar017:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:265 Top:199 Right:329 Bottom:263
+    Status: NONE
+  SCPDollar018:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:199 Top:199 Right:263 Bottom:263
+    Status: NONE
+  SCPDollar019:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:133 Top:199 Right:197 Bottom:263
+    Status: NONE
+  SCPDollar020:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:67 Top:199 Right:131 Bottom:263
+    Status: NONE
+  SCPDollar021:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:199 Right:65 Bottom:263
+    Status: NONE
+  SCPDollar022:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:397 Top:133 Right:461 Bottom:197
+    Status: NONE
+  SCPDollar023:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:133 Right:395 Bottom:197
+    Status: NONE
+  SCPDollar024:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:265 Top:133 Right:329 Bottom:197
+    Status: NONE
+  SCPDollar025:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:199 Top:133 Right:263 Bottom:197
+    Status: NONE
+  SCPDollar026:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:133 Top:133 Right:197 Bottom:197
+    Status: NONE
+  SCPDollar027:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:67 Top:133 Right:131 Bottom:197
+    Status: NONE
+  SCPDollar028:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:133 Right:65 Bottom:197
+    Status: NONE
+  SCPDollar029:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:397 Top:67 Right:461 Bottom:131
+    Status: NONE
+  SCPDollar030:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:67 Right:395 Bottom:131
+    Status: NONE
+  SCPDollar012:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:265 Top:67 Right:329 Bottom:131
+    Status: NONE
+  SCPDollar011:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:199 Top:67 Right:263 Bottom:131
+    Status: NONE
+  SCPDollar010:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:133 Top:67 Right:197 Bottom:131
+    Status: NONE
+  SCPDollar009:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:67 Top:67 Right:131 Bottom:131
+    Status: NONE
+  SCPDollar007:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:67 Right:65 Bottom:131
+    Status: NONE
+  SCPDollar006:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:397 Top:1 Right:461 Bottom:65
+    Status: NONE
+  SCPDollar005:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:1 Right:395 Bottom:65
+    Status: NONE
+  SCPDollar004:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:265 Top:1 Right:329 Bottom:65
+    Status: NONE
+  SCPDollar003:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:199 Top:1 Right:263 Bottom:65
+    Status: NONE
+  SCPDollar002:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:133 Top:1 Right:197 Bottom:65
+    Status: NONE
+  SCPDollar001:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:67 Top:1 Right:131 Bottom:65
+    Status: NONE
+  SCPDollar008:
+    Texture: SCGameUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:65 Bottom:65
+    Status: NONE
+  SNPStar015:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:171 Top:295 Right:203 Bottom:327
+    Status: NONE
+  SNPStar014:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:137 Top:295 Right:169 Bottom:327
+    Status: NONE
+  SNPStar013:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:103 Top:295 Right:135 Bottom:327
+    Status: NONE
+  SNPStar012:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:69 Top:295 Right:101 Bottom:327
+    Status: NONE
+  SNPStar011:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:35 Top:295 Right:67 Bottom:327
+    Status: NONE
+  SNPStar010:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:33 Bottom:327
+    Status: NONE
+  SNPStar009:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:287 Right:509 Bottom:319
+    Status: NONE
+  SNPStar008:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:443 Top:287 Right:475 Bottom:319
+    Status: NONE
+  SNPStar007:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:409 Top:287 Right:441 Bottom:319
+    Status: NONE
+  SNPStar006:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:375 Top:287 Right:407 Bottom:319
+    Status: NONE
+  SNPStar005:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:341 Top:287 Right:373 Bottom:319
+    Status: NONE
+  SNPStar004:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:287 Right:339 Bottom:319
+    Status: NONE
+  SNPStar003:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:273 Top:287 Right:305 Bottom:319
+    Status: NONE
+  SNPStar002:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:239 Top:271 Right:271 Bottom:303
+    Status: NONE
+  SNPStar001:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:205 Top:271 Right:237 Bottom:303
+    Status: NONE
+  SNPStar000:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:171 Top:261 Right:203 Bottom:293
+    Status: NONE
+  SCPCrossB015:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:137 Top:261 Right:169 Bottom:293
+    Status: NONE
+  SCPCrossB014:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:103 Top:261 Right:135 Bottom:293
+    Status: NONE
+  SCPCrossB013:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:69 Top:261 Right:101 Bottom:293
+    Status: NONE
+  SCPCrossB012:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:35 Top:261 Right:67 Bottom:293
+    Status: NONE
+  SCPCrossB011:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:261 Right:33 Bottom:293
+    Status: NONE
+  SCPCrossB010:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:253 Right:509 Bottom:285
+    Status: NONE
+  SCPCrossB009:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:443 Top:253 Right:475 Bottom:285
+    Status: NONE
+  SCPCrossB008:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:409 Top:253 Right:441 Bottom:285
+    Status: NONE
+  SCPCrossB007:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:375 Top:253 Right:407 Bottom:285
+    Status: NONE
+  SCPCrossB006:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:341 Top:253 Right:373 Bottom:285
+    Status: NONE
+  SCPCrossB005:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:253 Right:339 Bottom:285
+    Status: NONE
+  SCPCrossB004:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:273 Top:253 Right:305 Bottom:285
+    Status: NONE
+  SCPCrossB003:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:239 Top:237 Right:271 Bottom:269
+    Status: NONE
+  SCPCrossB002:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:205 Top:237 Right:237 Bottom:269
+    Status: NONE
+  SCPCrossB001:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:171 Top:227 Right:203 Bottom:259
+    Status: NONE
+  SCPCrossB000:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:137 Top:227 Right:169 Bottom:259
+    Status: NONE
+  SCPCross015:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:103 Top:227 Right:135 Bottom:259
+    Status: NONE
+  SNPStar020:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:69 Top:227 Right:101 Bottom:259
+    Status: NONE
+  SNPStar019:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:35 Top:227 Right:67 Bottom:259
+    Status: NONE
+  SNPStar018:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:227 Right:33 Bottom:259
+    Status: NONE
+  SCPChev000:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:219 Right:509 Bottom:251
+    Status: NONE
+  SCPChev001:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:443 Top:219 Right:475 Bottom:251
+    Status: NONE
+  SCPChev002:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:409 Top:219 Right:441 Bottom:251
+    Status: NONE
+  SCPChev003:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:375 Top:219 Right:407 Bottom:251
+    Status: NONE
+  SCPChev004:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:341 Top:219 Right:373 Bottom:251
+    Status: NONE
+  SCPChev005:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:219 Right:339 Bottom:251
+    Status: NONE
+  SCPChev006:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:273 Top:219 Right:305 Bottom:251
+    Status: NONE
+  SNPStar016:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:239 Top:203 Right:271 Bottom:235
+    Status: NONE
+  SNPStar017:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:205 Top:203 Right:237 Bottom:235
+    Status: NONE
+  SCPLightning015:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:171 Top:193 Right:203 Bottom:225
+    Status: NONE
+  SCPLightning014:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:137 Top:193 Right:169 Bottom:225
+    Status: NONE
+  SCPLightning013:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:103 Top:193 Right:135 Bottom:225
+    Status: NONE
+  SCPLightning012:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:69 Top:193 Right:101 Bottom:225
+    Status: NONE
+  SCPLightning011:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:35 Top:193 Right:67 Bottom:225
+    Status: NONE
+  SCPLightning010:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:193 Right:33 Bottom:225
+    Status: NONE
+  SCPLightning009:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:185 Right:509 Bottom:217
+    Status: NONE
+  SCPLightning008:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:443 Top:185 Right:475 Bottom:217
+    Status: NONE
+  SCPLightning007:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:409 Top:185 Right:441 Bottom:217
+    Status: NONE
+  SCPLightning006:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:375 Top:185 Right:407 Bottom:217
+    Status: NONE
+  SCPLightning005:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:341 Top:185 Right:373 Bottom:217
+    Status: NONE
+  SCPLightning004:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:185 Right:339 Bottom:217
+    Status: NONE
+  SCPLightning003:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:273 Top:185 Right:305 Bottom:217
+    Status: NONE
+  SCPLightning002:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:239 Top:169 Right:271 Bottom:201
+    Status: NONE
+  SCPLightning001:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:205 Top:169 Right:237 Bottom:201
+    Status: NONE
+  SCPLightning000:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:171 Top:159 Right:203 Bottom:191
+    Status: NONE
+  SCPHeal020:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:137 Top:159 Right:169 Bottom:191
+    Status: NONE
+  SCPHeal019:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:103 Top:159 Right:135 Bottom:191
+    Status: NONE
+  SCPHeal018:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:69 Top:159 Right:101 Bottom:191
+    Status: NONE
+  SCPHeal017:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:35 Top:159 Right:67 Bottom:191
+    Status: NONE
+  SCPHeal016:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:159 Right:33 Bottom:191
+    Status: NONE
+  SCPHeal015:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:151 Right:509 Bottom:183
+    Status: NONE
+  SCPHeal014:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:443 Top:151 Right:475 Bottom:183
+    Status: NONE
+  SCPHeal013:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:409 Top:151 Right:441 Bottom:183
+    Status: NONE
+  SCPHeal012:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:375 Top:151 Right:407 Bottom:183
+    Status: NONE
+  SCPHeal011:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:341 Top:151 Right:373 Bottom:183
+    Status: NONE
+  SCPHeal010:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:151 Right:339 Bottom:183
+    Status: NONE
+  SCPHeal009:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:273 Top:151 Right:305 Bottom:183
+    Status: NONE
+  SCPHeal008:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:239 Top:135 Right:271 Bottom:167
+    Status: NONE
+  SCPHeal007:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:205 Top:135 Right:237 Bottom:167
+    Status: NONE
+  SCPHeal006:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:171 Top:125 Right:203 Bottom:157
+    Status: NONE
+  SCPHeal005:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:137 Top:125 Right:169 Bottom:157
+    Status: NONE
+  SCPHeal004:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:103 Top:125 Right:135 Bottom:157
+    Status: NONE
+  SCPHeal003:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:69 Top:125 Right:101 Bottom:157
+    Status: NONE
+  SCPHeal002:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:35 Top:125 Right:67 Bottom:157
+    Status: NONE
+  SCPHeal001:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:125 Right:33 Bottom:157
+    Status: NONE
+  SCPHeal000:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:471 Top:117 Right:503 Bottom:149
+    Status: NONE
+  SCPChev007:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:437 Top:117 Right:469 Bottom:149
+    Status: NONE
+  SCPChev008:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:403 Top:117 Right:435 Bottom:149
+    Status: NONE
+  SCPChev009:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:369 Top:117 Right:401 Bottom:149
+    Status: NONE
+  SCPChev010:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:335 Top:117 Right:367 Bottom:149
+    Status: NONE
+  SCPChev011:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:301 Top:117 Right:333 Bottom:149
+    Status: NONE
+  SCPChev012:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:267 Top:101 Right:299 Bottom:133
+    Status: NONE
+  SCPChev013:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:233 Top:101 Right:265 Bottom:133
+    Status: NONE
+  SCPChev014:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:267 Top:67 Right:299 Bottom:99
+    Status: NONE
+  SCPChev015:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:233 Top:67 Right:265 Bottom:99
+    Status: NONE
+  SCPWrench000:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:175 Top:67 Right:231 Bottom:123
+    Status: NONE
+  SCPWrench008:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:117 Top:67 Right:173 Bottom:123
+    Status: NONE
+  SCPWrench007:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:59 Top:67 Right:115 Bottom:123
+    Status: NONE
+  SCPWrench006:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:67 Right:57 Bottom:123
+    Status: NONE
+  SCPWrench005:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:447 Top:59 Right:503 Bottom:115
+    Status: NONE
+  SCPWrench004:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:389 Top:59 Right:445 Bottom:115
+    Status: NONE
+  SCPWrench009:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:59 Right:387 Bottom:115
+    Status: NONE
+  SCPWrench003:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:447 Top:1 Right:503 Bottom:57
+    Status: NONE
+  SCPWrench002:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:389 Top:1 Right:445 Bottom:57
+    Status: NONE
+  SCPWrench001:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:331 Top:1 Right:387 Bottom:57
+    Status: NONE
+  SCPDollar000:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:265 Top:1 Right:329 Bottom:65
+    Status: NONE
+  SCPDollar013:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:199 Top:1 Right:263 Bottom:65
+    Status: NONE
+  SCPDollar014:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:133 Top:1 Right:197 Bottom:65
+    Status: NONE
+  SCPDollar015:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:67 Top:1 Right:131 Bottom:65
+    Status: NONE
+  SCPDollar016:
+    Texture: SCGameUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:65 Bottom:65
+    Status: NONE

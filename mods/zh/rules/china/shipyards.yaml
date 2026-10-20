@@ -1,0 +1,169 @@
+# OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
+#
+# The China Shipyard: built by dozers on a shoreline, produces the ships in rules/china/ships.yaml.
+# Placement and orientation work like the USA Shipyard (see rules/usa/shipyards.yaml):
+# footprint on land and water, +X faces the water, ships launch at UnitCreatePoint.
+#
+# ART: no shipyard art exists in the original game; "PMDock01" (an original concrete pier) is a
+# stand-in until the new China shipyard model (NBShipyard) exists. See docs/shipyard-art.md.
+
+Objects:
+  ChinaShipyard:
+    SelectPortrait: SNWarFact_L           # stand-in until the shipyard portrait exists
+    ButtonImage: SNWarFact                # stand-in until the shipyard button exists
+    PlacementViewAngle: 0
+    DisplayName: OBJECT:ChinaShipyard
+    Side: China
+    EditorSorting: STRUCTURE
+    BuildCost: 1500
+    BuildTime: 25.0
+    EnergyProduction: -1
+    CommandSet: ChinaShipyardCommandSet
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    ExperienceValue: 200 200 200 200
+    SoundOnDamaged: BuildingDamagedStateLight
+    SoundOnReallyDamaged: BuildingDestroy
+    RadarPriority: STRUCTURE
+    KindOf: PRELOAD STRUCTURE SELECTABLE IMMOBILE SCORE CAPTURABLE FS_FACTORY AUTO_RALLYPOINT MP_COUNT_FOR_VICTORY SHIPYARD
+    Geometry: BOX
+    GeometryMajorRadius: 55.0
+    GeometryMinorRadius: 60.0
+    GeometryHeight: 35.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    BuildCompletion: PLACED_BY_PLAYER
+    Prerequisites:
+      Object: ChinaSupplyCenter Tank_ChinaSupplyCenter Infa_ChinaSupplyCenter Nuke_ChinaSupplyCenter
+    ArmorSet:
+      Conditions: None
+      Armor: StructureArmor
+      DamageFX: StructureDamageFXNoShake
+    UnitSpecificSounds:
+      UnderConstruction: UnderConstructionLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: PMDock01                 # stand-in: replace with NBShipyard
+        ConditionState:
+          DAMAGED:
+            Model: PMDock01               # stand-in: replace with NBShipyard_D
+          REALLYDAMAGED RUBBLE:
+            Model: PMDock01               # stand-in: replace with NBShipyard_E
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 2000.0
+        InitialHealth: 2000.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_04:
+        Module: Behavior
+        Class: DefaultProductionExitUpdate
+        UnitCreatePoint: 'X:90.0 Y:0.0 Z:0.0'
+        NaturalRallyPoint: 'X:170.0 Y:0.0 Z:0.0'
+      ModuleTag_05:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem2: Bone:None RandomBone:No PSys:StructureTransitionMediumExplosion
+      ModuleTag_06:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      ModuleTag_07:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_LargeStructureDebris
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_StructureMediumDeath
+      ModuleTag_09:
+        Module: Behavior
+        Class: DestroyDie
+
+  Tank_ChinaShipyard:
+    ReskinOf: ChinaShipyard
+    Side: ChinaTankGeneral
+    Prerequisites:
+      Object: Tank_ChinaSupplyCenter
+  Infa_ChinaShipyard:
+    ReskinOf: ChinaShipyard
+    Side: ChinaInfantryGeneral
+    Prerequisites:
+      Object: Infa_ChinaSupplyCenter
+  Nuke_ChinaShipyard:
+    ReskinOf: ChinaShipyard
+    Side: ChinaNukeGeneral
+    Prerequisites:
+      Object: Nuke_ChinaSupplyCenter
+
+CommandSets:
+  ChinaShipyardCommandSet:
+    1: Command_ConstructChinaShipPatrolJunk
+    2: Command_ConstructChinaShipGunboat
+    13: Command_SetRallyPoint
+    14: Command_Sell
+
+  # Add the shipyard to every China dozer (slot 13 is free in all of them).
+  ChinaDozerCommandSet:
+    13: Command_ConstructChinaShipyard
+  Tank_ChinaDozerCommandSet:
+    13: Tank_Command_ConstructChinaShipyard
+  Infa_ChinaDozerCommandSet:
+    13: Infa_Command_ConstructChinaShipyard
+  Nuke_ChinaDozerCommandSet:
+    13: Nuke_Command_ConstructChinaShipyard
+
+CommandButtons:
+  Command_ConstructChinaShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: ChinaShipyard
+    TextLabel: CONTROLBAR:ConstructChinaShipyard
+    ButtonImage: SNWarFact
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipChinaBuildShipyard
+  Tank_Command_ConstructChinaShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: Tank_ChinaShipyard
+    TextLabel: CONTROLBAR:ConstructChinaShipyard
+    ButtonImage: SNWarFact
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipChinaBuildShipyard
+  Infa_Command_ConstructChinaShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: Infa_ChinaShipyard
+    TextLabel: CONTROLBAR:ConstructChinaShipyard
+    ButtonImage: SNWarFact
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipChinaBuildShipyard
+  Nuke_Command_ConstructChinaShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: Nuke_ChinaShipyard
+    TextLabel: CONTROLBAR:ConstructChinaShipyard
+    ButtonImage: SNWarFact
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipChinaBuildShipyard
+
+  Command_ConstructChinaShipPatrolJunk:
+    Command: UNIT_BUILD
+    Object: ChinaShipPatrolJunk
+    TextLabel: CONTROLBAR:ConstructChinaShipPatrolJunk
+    ButtonImage: SNGatlingTank            # stand-in until a junk button exists
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipChinaBuildPatrolJunk
+  Command_ConstructChinaShipGunboat:
+    Command: UNIT_BUILD
+    Object: ChinaShipGunboat
+    TextLabel: CONTROLBAR:ConstructChinaShipGunboat
+    ButtonImage: SNBattlemaster           # stand-in until a gunboat button exists
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipChinaBuildGunboat

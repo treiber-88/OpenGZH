@@ -1,0 +1,1337 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+EvaEvents:
+  LowPower:
+    Priority: 2
+    TimeBetweenChecksMS: 120000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_LowPower
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_LowPower
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_LowPower
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_LowPower
+    - Side: China
+      Sounds: EvaChina_LowPower
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_LowPower
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_LowPower
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_LowPower
+    - Side: Boss
+      Sounds: EvaChina_LowPower
+    - Side: GLA
+      Sounds: EvaGLA_LowPower
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_LowPower
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_LowPower
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_LowPower
+  InsufficientFunds:
+    Priority: 3
+    TimeBetweenChecksMS: 0
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_InsufficientFunds
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_InsufficientFunds
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_InsufficientFunds
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_InsufficientFunds
+    - Side: China
+      Sounds: EvaChina_InsufficientFunds
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_InsufficientFunds
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_InsufficientFunds
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_InsufficientFunds
+    - Side: Boss
+      Sounds: EvaChina_InsufficientFunds
+    - Side: GLA
+      Sounds: EvaGLA_InsufficientFunds
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_InsufficientFunds
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_InsufficientFunds
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_InsufficientFunds
+  SuperweaponDetected_Own_ParticleCannon: {}
+  SuperweaponDetected_Own_Nuke: {}
+  SuperweaponDetected_Own_ScudStorm: {}
+  SuperweaponDetected_Ally_ParticleCannon: {}
+  SuperweaponDetected_Ally_Nuke: {}
+  SuperweaponDetected_Ally_ScudStorm: {}
+  SuperweaponDetected_Enemy_ParticleCannon:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_DetectedParticleCannon
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_DetectedParticleCannon
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_DetectedParticleCannon
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_DetectedParticleCannon
+    - Side: China
+      Sounds: EvaChina_DetectedParticleCannon
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_DetectedParticleCannon
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_DetectedParticleCannon
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_DetectedParticleCannon
+    - Side: Boss
+      Sounds: EvaChina_DetectedParticleCannon
+    - Side: GLA
+      Sounds: EvaGLA_DetectedParticleCannon
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_DetectedParticleCannon
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_DetectedParticleCannon
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_DetectedParticleCannon
+  SuperweaponDetected_Enemy_Nuke:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_DetectedNuke
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_DetectedNuke
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_DetectedNuke
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_DetectedNuke
+    - Side: China
+      Sounds: EvaChina_DetectedNuke
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_DetectedNuke
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_DetectedNuke
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_DetectedNuke
+    - Side: Boss
+      Sounds: EvaChina_DetectedNuke
+    - Side: GLA
+      Sounds: EvaGLA_DetectedNuke
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_DetectedNuke
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_DetectedNuke
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_DetectedNuke
+  SuperweaponDetected_Enemy_ScudStorm:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_DetectedScudStorm
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_DetectedScudStorm
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_DetectedScudStorm
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_DetectedScudStorm
+    - Side: China
+      Sounds: EvaChina_DetectedScudStorm
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_DetectedScudStorm
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_DetectedScudStorm
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_DetectedScudStorm
+    - Side: Boss
+      Sounds: EvaChina_DetectedScudStorm
+    - Side: GLA
+      Sounds: EvaGLA_DetectedScudStorm
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_DetectedScudStorm
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_DetectedScudStorm
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_DetectedScudStorm
+  SuperweaponLaunched_Own_ParticleCannon:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_ParticleCannonLaunchedOurs
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_ParticleCannonLaunchedOurs
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_ParticleCannonLaunchedOurs
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_ParticleCannonLaunchedOurs
+    - Side: China
+      Sounds: EvaChina_ParticleCannonLaunchedOurs
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_ParticleCannonLaunchedOurs
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_ParticleCannonLaunchedOurs
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_ParticleCannonLaunchedOurs
+    - Side: Boss
+      Sounds: EvaChina_ParticleCannonLaunchedOurs
+    - Side: GLA
+      Sounds: EvaGLA_ParticleCannonLaunchedOurs
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_ParticleCannonLaunchedOurs
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_ParticleCannonLaunchedOurs
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_ParticleCannonLaunchedOurs
+  SuperweaponLaunched_Own_Nuke:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_NuclearMissileLaunchedOurs
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_NuclearMissileLaunchedOurs
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_NuclearMissileLaunchedOurs
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_NuclearMissileLaunchedOurs
+    - Side: China
+      Sounds: EvaChina_NuclearMissileLaunchedOurs
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_NuclearMissileLaunchedOurs
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_NuclearMissileLaunchedOurs
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_NuclearMissileLaunchedOurs
+    - Side: Boss
+      Sounds: EvaChina_NuclearMissileLaunchedOurs
+    - Side: GLA
+      Sounds: EvaGLA_NuclearMissileLaunchedOurs
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_NuclearMissileLaunchedOurs
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_NuclearMissileLaunchedOurs
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_NuclearMissileLaunchedOurs
+  SuperweaponLaunched_Own_ScudStorm:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_ScudStormLaunchedOurs
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_ScudStormLaunchedOurs
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_ScudStormLaunchedOurs
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_ScudStormLaunchedOurs
+    - Side: China
+      Sounds: EvaChina_ScudStormLaunchedOurs
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_ScudStormLaunchedOurs
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_ScudStormLaunchedOurs
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_ScudStormLaunchedOurs
+    - Side: Boss
+      Sounds: EvaChina_ScudStormLaunchedOurs
+    - Side: GLA
+      Sounds: EvaGLA_ScudStormLaunchedOurs
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_ScudStormLaunchedOurs
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_ScudStormLaunchedOurs
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_ScudStormLaunchedOurs
+  SuperweaponLaunched_Ally_ParticleCannon:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_ParticleCannonLaunchedAlly
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_ParticleCannonLaunchedAlly
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_ParticleCannonLaunchedAlly
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_ParticleCannonLaunchedAlly
+    - Side: China
+      Sounds: EvaChina_ParticleCannonLaunchedAlly
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_ParticleCannonLaunchedAlly
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_ParticleCannonLaunchedAlly
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_ParticleCannonLaunchedAlly
+    - Side: Boss
+      Sounds: EvaChina_ParticleCannonLaunchedAlly
+    - Side: GLA
+      Sounds: EvaGLA_ParticleCannonLaunchedAlly
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_ParticleCannonLaunchedAlly
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_ParticleCannonLaunchedAlly
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_ParticleCannonLaunchedAlly
+  SuperweaponLaunched_Ally_Nuke:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_NuclearMissileLaunchedAlly
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_NuclearMissileLaunchedAlly
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_NuclearMissileLaunchedAlly
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_NuclearMissileLaunchedAlly
+    - Side: China
+      Sounds: EvaChina_NuclearMissileLaunchedAlly
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_NuclearMissileLaunchedAlly
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_NuclearMissileLaunchedAlly
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_NuclearMissileLaunchedAlly
+    - Side: Boss
+      Sounds: EvaChina_NuclearMissileLaunchedAlly
+    - Side: GLA
+      Sounds: EvaGLA_NuclearMissileLaunchedAlly
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_NuclearMissileLaunchedAlly
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_NuclearMissileLaunchedAlly
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_NuclearMissileLaunchedAlly
+  SuperweaponLaunched_Ally_ScudStorm:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_ScudStormLaunchedAlly
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_ScudStormLaunchedAlly
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_ScudStormLaunchedAlly
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_ScudStormLaunchedAlly
+    - Side: China
+      Sounds: EvaChina_ScudStormLaunchedAlly
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_ScudStormLaunchedAlly
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_ScudStormLaunchedAlly
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_ScudStormLaunchedAlly
+    - Side: Boss
+      Sounds: EvaChina_ScudStormLaunchedAlly
+    - Side: GLA
+      Sounds: EvaGLA_ScudStormLaunchedAlly
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_ScudStormLaunchedAlly
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_ScudStormLaunchedAlly
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_ScudStormLaunchedAlly
+  SuperweaponLaunched_Enemy_ParticleCannon:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_LaunchedParticleCannon
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_LaunchedParticleCannon
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_LaunchedParticleCannon
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_LaunchedParticleCannon
+    - Side: China
+      Sounds: EvaChina_LaunchedParticleCannon
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_LaunchedParticleCannon
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_LaunchedParticleCannon
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_LaunchedParticleCannon
+    - Side: Boss
+      Sounds: EvaChina_LaunchedParticleCannon
+    - Side: GLA
+      Sounds: EvaGLA_LaunchedParticleCannon
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_LaunchedParticleCannon
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_LaunchedParticleCannon
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_LaunchedParticleCannon
+  SuperweaponLaunched_Enemy_Nuke:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_LaunchedNuke
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_LaunchedNuke
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_LaunchedNuke
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_LaunchedNuke
+    - Side: China
+      Sounds: EvaChina_LaunchedNuke
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_LaunchedNuke
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_LaunchedNuke
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_LaunchedNuke
+    - Side: Boss
+      Sounds: EvaChina_LaunchedNuke
+    - Side: GLA
+      Sounds: EvaGLA_LaunchedNuke
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_LaunchedNuke
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_LaunchedNuke
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_LaunchedNuke
+  SuperweaponLaunched_Enemy_ScudStorm:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_LaunchedScudStorm
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_LaunchedScudStorm
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_LaunchedScudStorm
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_LaunchedScudStorm
+    - Side: China
+      Sounds: EvaChina_LaunchedScudStorm
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_LaunchedScudStorm
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_LaunchedScudStorm
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_LaunchedScudStorm
+    - Side: Boss
+      Sounds: EvaChina_LaunchedScudStorm
+    - Side: GLA
+      Sounds: EvaGLA_LaunchedScudStorm
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_LaunchedScudStorm
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_LaunchedScudStorm
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_LaunchedScudStorm
+  SuperweaponReady_Own_ParticleCannon:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_ParticleCannonReady
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_ParticleCannonReady
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_ParticleCannonReady
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_ParticleCannonReady
+    - Side: China
+      Sounds: EvaChina_ParticleCannonReady
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_ParticleCannonReady
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_ParticleCannonReady
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_ParticleCannonReady
+    - Side: Boss
+      Sounds: EvaChina_ParticleCannonReady
+    - Side: GLA
+      Sounds: EvaGLA_ParticleCannonReady
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_ParticleCannonReady
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_ParticleCannonReady
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_ParticleCannonReady
+  SuperweaponReady_Own_Nuke:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_NuclearMissileReady
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_NuclearMissileReady
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_NuclearMissileReady
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_NuclearMissileReady
+    - Side: China
+      Sounds: EvaChina_NuclearMissileReady
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_NuclearMissileReady
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_NuclearMissileReady
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_NuclearMissileReady
+    - Side: Boss
+      Sounds: EvaChina_NuclearMissileReady
+    - Side: GLA
+      Sounds: EvaGLA_NuclearMissileReady
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_NuclearMissileReady
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_NuclearMissileReady
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_NuclearMissileReady
+  SuperweaponReady_Own_ScudStorm:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_ScudStormReady
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_ScudStormReady
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_ScudStormReady
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_ScudStormReady
+    - Side: China
+      Sounds: EvaChina_ScudStormReady
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_ScudStormReady
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_ScudStormReady
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_ScudStormReady
+    - Side: Boss
+      Sounds: EvaChina_ScudStormReady
+    - Side: GLA
+      Sounds: EvaGLA_ScudStormReady
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_ScudStormReady
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_ScudStormReady
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_ScudStormReady
+  SuperweaponReady_Ally_ParticleCannon:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: NoSound
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: NoSound
+    - Side: AmericaLaserGeneral
+      Sounds: NoSound
+    - Side: AmericaAirForceGeneral
+      Sounds: NoSound
+    - Side: China
+      Sounds: NoSound
+    - Side: ChinaTankGeneral
+      Sounds: NoSound
+    - Side: ChinaInfantryGeneral
+      Sounds: NoSound
+    - Side: ChinaNukeGeneral
+      Sounds: NoSound
+    - Side: Boss
+      Sounds: NoSound
+    - Side: GLA
+      Sounds: NoSound
+    - Side: GLAToxinGeneral
+      Sounds: NoSound
+    - Side: GLADemolitionGeneral
+      Sounds: NoSound
+    - Side: GLAStealthGeneral
+      Sounds: NoSound
+  SuperweaponReady_Ally_Nuke:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: NoSound
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: NoSound
+    - Side: AmericaLaserGeneral
+      Sounds: NoSound
+    - Side: AmericaAirForceGeneral
+      Sounds: NoSound
+    - Side: China
+      Sounds: NoSound
+    - Side: ChinaTankGeneral
+      Sounds: NoSound
+    - Side: ChinaInfantryGeneral
+      Sounds: NoSound
+    - Side: ChinaNukeGeneral
+      Sounds: NoSound
+    - Side: Boss
+      Sounds: NoSound
+    - Side: GLA
+      Sounds: NoSound
+    - Side: GLAToxinGeneral
+      Sounds: NoSound
+    - Side: GLADemolitionGeneral
+      Sounds: NoSound
+    - Side: GLAStealthGeneral
+      Sounds: NoSound
+  SuperweaponReady_Ally_ScudStorm:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: NoSound
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: NoSound
+    - Side: AmericaLaserGeneral
+      Sounds: NoSound
+    - Side: AmericaAirForceGeneral
+      Sounds: NoSound
+    - Side: China
+      Sounds: NoSound
+    - Side: ChinaTankGeneral
+      Sounds: NoSound
+    - Side: ChinaInfantryGeneral
+      Sounds: NoSound
+    - Side: ChinaNukeGeneral
+      Sounds: NoSound
+    - Side: Boss
+      Sounds: NoSound
+    - Side: GLA
+      Sounds: NoSound
+    - Side: GLAToxinGeneral
+      Sounds: NoSound
+    - Side: GLADemolitionGeneral
+      Sounds: NoSound
+    - Side: GLAStealthGeneral
+      Sounds: NoSound
+  SuperweaponReady_Enemy_ParticleCannon:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: NoSound
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: NoSound
+    - Side: AmericaLaserGeneral
+      Sounds: NoSound
+    - Side: AmericaAirForceGeneral
+      Sounds: NoSound
+    - Side: China
+      Sounds: NoSound
+    - Side: ChinaTankGeneral
+      Sounds: NoSound
+    - Side: ChinaInfantryGeneral
+      Sounds: NoSound
+    - Side: ChinaNukeGeneral
+      Sounds: NoSound
+    - Side: Boss
+      Sounds: NoSound
+    - Side: GLA
+      Sounds: NoSound
+    - Side: GLAToxinGeneral
+      Sounds: NoSound
+    - Side: GLADemolitionGeneral
+      Sounds: NoSound
+    - Side: GLAStealthGeneral
+      Sounds: NoSound
+  SuperweaponReady_Enemy_Nuke:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: NoSound
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: NoSound
+    - Side: AmericaLaserGeneral
+      Sounds: NoSound
+    - Side: AmericaAirForceGeneral
+      Sounds: NoSound
+    - Side: China
+      Sounds: NoSound
+    - Side: ChinaTankGeneral
+      Sounds: NoSound
+    - Side: ChinaInfantryGeneral
+      Sounds: NoSound
+    - Side: ChinaNukeGeneral
+      Sounds: NoSound
+    - Side: Boss
+      Sounds: NoSound
+    - Side: GLA
+      Sounds: NoSound
+    - Side: GLAToxinGeneral
+      Sounds: NoSound
+    - Side: GLADemolitionGeneral
+      Sounds: NoSound
+    - Side: GLAStealthGeneral
+      Sounds: NoSound
+  SuperweaponReady_Enemy_ScudStorm:
+    Priority: 4
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: NoSound
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: NoSound
+    - Side: AmericaLaserGeneral
+      Sounds: NoSound
+    - Side: AmericaAirForceGeneral
+      Sounds: NoSound
+    - Side: China
+      Sounds: NoSound
+    - Side: ChinaTankGeneral
+      Sounds: NoSound
+    - Side: ChinaInfantryGeneral
+      Sounds: NoSound
+    - Side: ChinaNukeGeneral
+      Sounds: NoSound
+    - Side: Boss
+      Sounds: NoSound
+    - Side: GLA
+      Sounds: NoSound
+    - Side: GLAToxinGeneral
+      Sounds: NoSound
+    - Side: GLADemolitionGeneral
+      Sounds: NoSound
+    - Side: GLAStealthGeneral
+      Sounds: NoSound
+  BuildingLost:
+    Priority: 8
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: NoSound
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: NoSound
+    - Side: AmericaLaserGeneral
+      Sounds: NoSound
+    - Side: AmericaAirForceGeneral
+      Sounds: NoSound
+    - Side: China
+      Sounds: NoSound
+    - Side: ChinaTankGeneral
+      Sounds: NoSound
+    - Side: ChinaInfantryGeneral
+      Sounds: NoSound
+    - Side: ChinaNukeGeneral
+      Sounds: NoSound
+    - Side: Boss
+      Sounds: NoSound
+    - Side: GLA
+      Sounds: NoSound
+    - Side: GLAToxinGeneral
+      Sounds: NoSound
+    - Side: GLADemolitionGeneral
+      Sounds: NoSound
+    - Side: GLAStealthGeneral
+      Sounds: NoSound
+  BaseUnderAttack:
+    Priority: 7
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: RangerVoiceBaseAttack
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: RangerVoiceBaseAttack
+    - Side: AmericaLaserGeneral
+      Sounds: RangerVoiceBaseAttack
+    - Side: AmericaAirForceGeneral
+      Sounds: RangerVoiceBaseAttack
+    - Side: China
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: ChinaTankGeneral
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: ChinaInfantryGeneral
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: ChinaNukeGeneral
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: Boss
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: GLA
+      Sounds: RebelVoiceBaseAttack
+    - Side: GLAToxinGeneral
+      Sounds: RebelVoiceBaseAttack
+    - Side: GLADemolitionGeneral
+      Sounds: RebelVoiceBaseAttack
+    - Side: GLAStealthGeneral
+      Sounds: RebelVoiceBaseAttack
+  AllyUnderAttack:
+    Priority: 6
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_AllyUnderAttack
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_AllyUnderAttack
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_AllyUnderAttack
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_AllyUnderAttack
+    - Side: China
+      Sounds: EvaChina_AllyUnderAttack
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_AllyUnderAttack
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_AllyUnderAttack
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_AllyUnderAttack
+    - Side: Boss
+      Sounds: EvaChina_AllyUnderAttack
+    - Side: GLA
+      Sounds: EvaGLA_AllyUnderAttack
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_AllyUnderAttack
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_AllyUnderAttack
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_AllyUnderAttack
+  BeaconDetected:
+    Priority: 2
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: -1
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_BeaconDetected
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_BeaconDetected
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_BeaconDetected
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_BeaconDetected
+    - Side: China
+      Sounds: EvaChina_BeaconDetected
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_BeaconDetected
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_BeaconDetected
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_BeaconDetected
+    - Side: Boss
+      Sounds: EvaChina_BeaconDetected
+    - Side: GLA
+      Sounds: EvaGLA_BeaconDetected
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_BeaconDetected
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_BeaconDetected
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_BeaconDetected
+  EnemyBlackLotusDetected:
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_BlackLotusEnemy
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_BlackLotusEnemy
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_BlackLotusEnemy
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_BlackLotusEnemy
+    - Side: China
+      Sounds: EvaChina_BlackLotusEnemy
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_BlackLotusEnemy
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_BlackLotusEnemy
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_BlackLotusEnemy
+    - Side: Boss
+      Sounds: EvaChina_BlackLotusEnemy
+    - Side: GLA
+      Sounds: EvaGLA_BlackLotusEnemy
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_BlackLotusEnemy
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_BlackLotusEnemy
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_BlackLotusEnemy
+  EnemyJarmenKellDetected:
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_JarmenKellEnemy
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_JarmenKellEnemy
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_JarmenKellEnemy
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_JarmenKellEnemy
+    - Side: China
+      Sounds: EvaChina_JarmenKellEnemy
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_JarmenKellEnemy
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_JarmenKellEnemy
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_JarmenKellEnemy
+    - Side: Boss
+      Sounds: EvaChina_JarmenKellEnemy
+    - Side: GLA
+      Sounds: EvaGLA_JarmenKellEnemy
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_JarmenKellEnemy
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_JarmenKellEnemy
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_JarmenKellEnemy
+  EnemyColonelBurtonDetected:
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_ColonelBurtonEnemy
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_ColonelBurtonEnemy
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_ColonelBurtonEnemy
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_ColonelBurtonEnemy
+    - Side: China
+      Sounds: EvaChina_ColonelBurtonEnemy
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_ColonelBurtonEnemy
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_ColonelBurtonEnemy
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_ColonelBurtonEnemy
+    - Side: Boss
+      Sounds: EvaChina_ColonelBurtonEnemy
+    - Side: GLA
+      Sounds: EvaGLA_ColonelBurtonEnemy
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_ColonelBurtonEnemy
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_ColonelBurtonEnemy
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_ColonelBurtonEnemy
+  OwnBlackLotusDetected:
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_BlackLotusOurs
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_BlackLotusOurs
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_BlackLotusOurs
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_BlackLotusOurs
+    - Side: China
+      Sounds: EvaChina_BlackLotusOurs
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_BlackLotusOurs
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_BlackLotusOurs
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_BlackLotusOurs
+    - Side: Boss
+      Sounds: EvaChina_BlackLotusOurs
+    - Side: GLA
+      Sounds: EvaGLA_BlackLotusOurs
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_BlackLotusOurs
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_BlackLotusOurs
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_BlackLotusOurs
+  OwnJarmenKellDetected:
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_JarmenKellOurs
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_JarmenKellOurs
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_JarmenKellOurs
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_JarmenKellOurs
+    - Side: China
+      Sounds: EvaChina_JarmenKellOurs
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_JarmenKellOurs
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_JarmenKellOurs
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_JarmenKellOurs
+    - Side: Boss
+      Sounds: EvaChina_JarmenKellOurs
+    - Side: GLA
+      Sounds: EvaGLA_JarmenKellOurs
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_JarmenKellOurs
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_JarmenKellOurs
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_JarmenKellOurs
+  OwnColonelBurtonDetected:
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_ColonelBurtonOurs
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_ColonelBurtonOurs
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_ColonelBurtonOurs
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_ColonelBurtonOurs
+    - Side: China
+      Sounds: EvaChina_ColonelBurtonOurs
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_ColonelBurtonOurs
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_ColonelBurtonOurs
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_ColonelBurtonOurs
+    - Side: Boss
+      Sounds: EvaChina_ColonelBurtonOurs
+    - Side: GLA
+      Sounds: EvaGLA_ColonelBurtonOurs
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_ColonelBurtonOurs
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_ColonelBurtonOurs
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_ColonelBurtonOurs
+  UnitLost:
+    Priority: 1
+    TimeBetweenChecksMS: 15000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_UnitLost
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_UnitLost
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_UnitLost
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_UnitLost
+    - Side: China
+      Sounds: EvaChina_UnitLost
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_UnitLost
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_UnitLost
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_UnitLost
+    - Side: Boss
+      Sounds: EvaChina_UnitLost
+    - Side: GLA
+      Sounds: EvaGLA_UnitLost
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_UnitLost
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_UnitLost
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_UnitLost
+  GeneralLevelUp:
+    Priority: 4
+    TimeBetweenChecksMS: 1000
+    ExpirationTimeMS: 1000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_GeneralLevelUp
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_GeneralLevelUp
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_GeneralLevelUp
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_GeneralLevelUp
+    - Side: China
+      Sounds: EvaChina_GeneralLevelUp
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_GeneralLevelUp
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_GeneralLevelUp
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_GeneralLevelUp
+    - Side: Boss
+      Sounds: EvaChina_GeneralLevelUp
+    - Side: GLA
+      Sounds: EvaGLA_GeneralLevelUp
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_GeneralLevelUp
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_GeneralLevelUp
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_GeneralLevelUp
+  VehicleStolen:
+    Priority: 4
+    TimeBetweenChecksMS: 5000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_VehicleStolen
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_VehicleStolen
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_VehicleStolen
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_VehicleStolen
+    - Side: China
+      Sounds: EvaChina_VehicleStolen
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_VehicleStolen
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_VehicleStolen
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_VehicleStolen
+    - Side: Boss
+      Sounds: EvaChina_VehicleStolen
+    - Side: GLA
+      Sounds: EvaGLA_VehicleStolen
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_VehicleStolen
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_VehicleStolen
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_VehicleStolen
+  BuildingStolen:
+    Priority: 4
+    TimeBetweenChecksMS: 0
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: RangerVoiceBuildingStolen
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: RangerVoiceBuildingStolen
+    - Side: AmericaLaserGeneral
+      Sounds: RangerVoiceBuildingStolen
+    - Side: AmericaAirForceGeneral
+      Sounds: RangerVoiceBuildingStolen
+    - Side: China
+      Sounds: RedGuardVoiceBuildingStolen
+    - Side: ChinaTankGeneral
+      Sounds: RedGuardVoiceBuildingStolen
+    - Side: ChinaInfantryGeneral
+      Sounds: RedGuardVoiceBuildingStolen
+    - Side: ChinaNukeGeneral
+      Sounds: RedGuardVoiceBuildingStolen
+    - Side: Boss
+      Sounds: RangerVoiceBuildingStolen
+    - Side: GLA
+      Sounds: RebelVoiceBuildingStolen
+    - Side: GLAToxinGeneral
+      Sounds: RebelVoiceBuildingStolen
+    - Side: GLADemolitionGeneral
+      Sounds: RebelVoiceBuildingStolen
+    - Side: GLAStealthGeneral
+      Sounds: RebelVoiceBuildingStolen
+  BuildingBeingStolen:
+    Priority: 4
+    TimeBetweenChecksMS: 0
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_BuildingBeingCaptured
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_BuildingBeingCaptured
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_BuildingBeingCaptured
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_BuildingBeingCaptured
+    - Side: China
+      Sounds: EvaChina_BuildingBeingCaptured
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_BuildingBeingCaptured
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_BuildingBeingCaptured
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_BuildingBeingCaptured
+    - Side: Boss
+      Sounds: EvaChina_BuildingBeingCaptured
+    - Side: GLA
+      Sounds: EvaGLA_BuildingBeingCaptured
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_BuildingBeingCaptured
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_BuildingBeingCaptured
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_BuildingBeingCaptured
+  BuildingSabotaged:
+    Priority: 4
+    TimeBetweenChecksMS: 0
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: RangerVoiceBaseAttack
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: RangerVoiceBaseAttack
+    - Side: AmericaLaserGeneral
+      Sounds: RangerVoiceBaseAttack
+    - Side: AmericaAirForceGeneral
+      Sounds: RangerVoiceBaseAttack
+    - Side: China
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: ChinaTankGeneral
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: ChinaInfantryGeneral
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: ChinaNukeGeneral
+      Sounds: RedGuardVoiceBaseAttack
+    - Side: Boss
+      Sounds: RangerVoiceBaseAttack
+    - Side: GLA
+      Sounds: RebelVoiceBaseAttack
+    - Side: GLAToxinGeneral
+      Sounds: RebelVoiceBaseAttack
+    - Side: GLADemolitionGeneral
+      Sounds: RebelVoiceBaseAttack
+    - Side: GLAStealthGeneral
+      Sounds: RebelVoiceBaseAttack
+  CashStolen:
+    Priority: 4
+    TimeBetweenChecksMS: 5000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_CashStolen
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_CashStolen
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_CashStolen
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_CashStolen
+    - Side: China
+      Sounds: EvaChina_CashStolen
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_CashStolen
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_CashStolen
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_CashStolen
+    - Side: Boss
+      Sounds: EvaChina_CashStolen
+    - Side: GLA
+      Sounds: EvaGLA_CashStolen
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_CashStolen
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_CashStolen
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_CashStolen
+  UpgradeComplete:
+    Priority: 3
+    TimeBetweenChecksMS: 500
+    ExpirationTimeMS: 500
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_UpgradeComplete
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_UpgradeComplete
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_UpgradeComplete
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_UpgradeComplete
+    - Side: China
+      Sounds: EvaChina_UpgradeComplete
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_UpgradeComplete
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_UpgradeComplete
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_UpgradeComplete
+    - Side: Boss
+      Sounds: EvaChina_UpgradeComplete
+    - Side: GLA
+      Sounds: EvaGLA_UpgradeComplete
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_UpgradeComplete
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_UpgradeComplete
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_UpgradeComplete
+  SuperweaponLaunched_Enemy_Sneak_Attack:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_SneakAttackLaunched
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_SneakAttackLaunched
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_SneakAttackLaunched
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_SneakAttackLaunched
+    - Side: China
+      Sounds: EvaChina_SneakAttackLaunched
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_SneakAttackLaunched
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_SneakAttackLaunched
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_SneakAttackLaunched
+    - Side: Boss
+      Sounds: EvaChina_SneakAttackLaunched
+    - Side: GLA
+      Sounds: EvaGLA_SneakAttackLaunched
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_SneakAttackLaunched
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_SneakAttackLaunched
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_SneakAttackLaunched
+  SuperweaponLaunched_Enemy_GPS_Scrambler:
+    Priority: 5
+    TimeBetweenChecksMS: 30000
+    ExpirationTimeMS: 5000
+    SideSounds:
+    - Side: America
+      Sounds: EvaUSA_GPSScramblerLaunched
+    - Side: AmericaSuperWeaponGeneral
+      Sounds: EvaUSA_GPSScramblerLaunched
+    - Side: AmericaLaserGeneral
+      Sounds: EvaUSA_GPSScramblerLaunched
+    - Side: AmericaAirForceGeneral
+      Sounds: EvaUSA_GPSScramblerLaunched
+    - Side: China
+      Sounds: EvaChina_GPSScramblerLaunched
+    - Side: ChinaTankGeneral
+      Sounds: EvaChina_GPSScramblerLaunched
+    - Side: ChinaInfantryGeneral
+      Sounds: EvaChina_GPSScramblerLaunched
+    - Side: ChinaNukeGeneral
+      Sounds: EvaChina_GPSScramblerLaunched
+    - Side: Boss
+      Sounds: EvaChina_GPSScramblerLaunched
+    - Side: GLA
+      Sounds: EvaGLA_GPSScramblerLaunched
+    - Side: GLAToxinGeneral
+      Sounds: EvaGLA_GPSScramblerLaunched
+    - Side: GLADemolitionGeneral
+      Sounds: EvaGLA_GPSScramblerLaunched
+    - Side: GLAStealthGeneral
+      Sounds: EvaGLA_GPSScramblerLaunched

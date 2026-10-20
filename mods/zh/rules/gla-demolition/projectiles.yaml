@@ -1,0 +1,68 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Demo_ScudStormMissile:
+    KindOf: PROJECTILE
+    EditorSorting: SYSTEM
+    VisionRange: 300.0
+    ShroudClearingRange: 0
+    TransportSlotCount: 10
+    Locomotor: SET_NORMAL SCUDStormMissileLocomotor
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryHeight: 30.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UBScudStrm_M
+        ConditionState:
+          DAMAGED REALLYDAMAGED RUBBLE:
+            Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 10000.0
+        InitialHealth: 10000.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 0
+        InitialVelocity: 0
+        IgnitionFX: FX_ScudStormIgnition
+        DistanceToTravelBeforeTurning: 500
+        DistanceToTargetBeforeDiving: 200
+      ModuleTag_05:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 15.0
+        TargetHeightIncludesStructures: Yes
+        OnlyWhenMovingDown: Yes
+        SnapToGroundOnDeath: Yes
+        InitialDelay: 1000
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponScudStorm
+      ModuleTag_08:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Demo_ScudStormDamageWeapon
+        StartsActive: Yes
+    SourceFile: Data/INI/Object/DemoGeneral.ini

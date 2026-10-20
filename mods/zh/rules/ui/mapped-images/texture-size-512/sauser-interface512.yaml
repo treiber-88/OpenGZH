@@ -1,0 +1,1042 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  SAChinook_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:393 Right:487 Bottom:489
+    Status: NONE
+  SAsentry_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:393 Right:365 Bottom:489
+    Status: NONE
+  SACDozer_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:393 Right:243 Bottom:489
+    Status: NONE
+  SASoloDrone_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:393 Right:121 Bottom:489
+    Status: NONE
+  SASpGunship2_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:295 Right:487 Bottom:391
+    Status: NONE
+  SSTankDrop2:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:295 Right:365 Bottom:391
+    Status: NONE
+  SACCommanche_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:295 Right:243 Bottom:391
+    Status: NONE
+  SASpGunship3_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:121 Bottom:391
+    Status: NONE
+  SABurton_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:197 Right:487 Bottom:293
+    Status: NONE
+  SASpGunship_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:197 Right:365 Bottom:293
+    Status: NONE
+  SABattleDrone_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:197 Right:243 Bottom:293
+    Status: NONE
+  SAStealthComm_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:197 Right:121 Bottom:293
+    Status: NONE
+  SABarracks_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:99 Right:487 Bottom:195
+    Status: NONE
+  SAsupplyline_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:99 Right:365 Bottom:195
+    Status: NONE
+  SAAurora_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:99 Right:243 Bottom:195
+    Status: NONE
+  SAThunderBolt2_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:99 Right:121 Bottom:195
+    Status: NONE
+  SAAmbulance_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:1 Right:487 Bottom:97
+    Status: NONE
+  SAThunderBolt_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:1 Right:365 Bottom:97
+    Status: NONE
+  SAACommand_L:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:1 Right:243 Bottom:97
+    Status: NONE
+  SSTankDrop3:
+    Texture: SAUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:121 Bottom:97
+    Status: NONE
+  SAHummer_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:393 Right:487 Bottom:489
+    Status: NONE
+  SAICBM_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:393 Right:365 Bottom:489
+    Status: NONE
+  SAFence_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:393 Right:243 Bottom:489
+    Status: NONE
+  SAKingRap_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:393 Right:121 Bottom:489
+    Status: NONE
+  SAEmptyBox_USA:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:295 Right:487 Bottom:391
+    Status: NONE
+  SADropZone_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:295 Right:365 Bottom:391
+    Status: NONE
+  SALaserCan_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:295 Right:243 Bottom:391
+    Status: NONE
+  SALaserPatr_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:121 Bottom:391
+    Status: NONE
+  SSTankDrop:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:197 Right:487 Bottom:293
+    Status: NONE
+  SACTomahawk_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:197 Right:365 Bottom:293
+    Status: NONE
+  SALsrTank_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:197 Right:243 Bottom:293
+    Status: NONE
+  SACRaptor_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:197 Right:121 Bottom:293
+    Status: NONE
+  SALwPwrPrtCan_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:99 Right:487 Bottom:195
+    Status: NONE
+  SAMicroPat_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:99 Right:365 Bottom:195
+    Status: NONE
+  SAMOAB_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:99 Right:243 Bottom:195
+    Status: NONE
+  SAPatriotSent_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:99 Right:121 Bottom:195
+    Status: NONE
+  SAComCentr_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:1 Right:487 Bottom:97
+    Status: NONE
+  SAPowerPlantSW_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:1 Right:365 Bottom:97
+    Status: NONE
+  SARAmblnce_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:1 Right:243 Bottom:97
+    Status: NONE
+  SASentryUpgr_L:
+    Texture: SAUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:121 Bottom:97
+    Status: NONE
+  SAcarrier_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:393 Right:487 Bottom:489
+    Status: NONE
+  SARanger_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:393 Right:365 Bottom:489
+    Status: NONE
+  SARanger:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:393 Right:243 Bottom:489
+    Status: NONE
+  SAchemsuit_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:393 Right:121 Bottom:489
+    Status: NONE
+  SAPrison_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:295 Right:487 Bottom:391
+    Status: NONE
+  SACIAOff_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:295 Right:365 Bottom:391
+    Status: NONE
+  SAPOWTruck_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:295 Right:243 Bottom:391
+    Status: NONE
+  SAComChinok_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:121 Bottom:391
+    Status: NONE
+  SAPowerPlant_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:197 Right:487 Bottom:293
+    Status: NONE
+  SACruiseMis_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:197 Right:365 Bottom:293
+    Status: NONE
+  SAPilot_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:197 Right:243 Bottom:293
+    Status: NONE
+  SAFirebase_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:197 Right:121 Bottom:293
+    Status: NONE
+  SAPatriot_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:99 Right:487 Bottom:195
+    Status: NONE
+  SAFuelAirBomb_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:99 Right:365 Bottom:195
+    Status: NONE
+  SAPathFinder1_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:99 Right:243 Bottom:195
+    Status: NONE
+  SAFulArAurora_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:99 Right:121 Bottom:195
+    Status: NONE
+  SAPaladin_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:1 Right:487 Bottom:97
+    Status: NONE
+  SAHellfire_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:1 Right:365 Bottom:97
+    Status: NONE
+  SAMissleDefender_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:1 Right:243 Bottom:97
+    Status: NONE
+  SAHypAurora_L:
+    Texture: SAUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:121 Bottom:97
+    Status: NONE
+  SABattleship:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:445 Right:185 Bottom:493
+    Status: NONE
+  SSA10Attack:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:445 Right:123 Bottom:493
+    Status: NONE
+  SAB3Bomber:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:445 Right:61 Bottom:493
+    Status: NONE
+  SAStrategyCenter:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:438 Right:495 Bottom:486
+    Status: NONE
+  SAAvnger:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:438 Right:433 Bottom:486
+    Status: NONE
+  SASupplyCntr:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:438 Right:371 Bottom:486
+    Status: NONE
+  SAArtillery:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:438 Right:309 Bottom:486
+    Status: NONE
+  SSTowMissiles:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:438 Right:247 Bottom:486
+    Status: NONE
+  SSTimedDemo:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:395 Right:185 Bottom:443
+    Status: NONE
+  SSSpySat:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:395 Right:123 Bottom:443
+    Status: NONE
+  SSSeekDestroy:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:395 Right:61 Bottom:443
+    Status: NONE
+  SSScoutArmor:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:388 Right:495 Bottom:436
+    Status: NONE
+  SSRocketAttack:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:388 Right:433 Bottom:436
+    Status: NONE
+  SSRemoteDemo:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:388 Right:371 Bottom:436
+    Status: NONE
+  SSPlaneLaserMissiles:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:388 Right:309 Bottom:436
+    Status: NONE
+  SSParticleFire:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:388 Right:247 Bottom:436
+    Status: NONE
+  SSLaserMissile:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:345 Right:185 Bottom:393
+    Status: NONE
+  SAUplink:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:345 Right:123 Bottom:393
+    Status: NONE
+  SSHoldLine:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:345 Right:61 Bottom:393
+    Status: NONE
+  SSFlashbang:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:338 Right:495 Bottom:386
+    Status: NONE
+  SSDetox:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:338 Right:433 Bottom:386
+    Status: NONE
+  SSDetonate:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:338 Right:371 Bottom:386
+    Status: NONE
+  SSControlRods:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:338 Right:309 Bottom:386
+    Status: NONE
+  SSCompositeArmor:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:338 Right:247 Bottom:386
+    Status: NONE
+  SSCommancheMissiles:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:295 Right:185 Bottom:343
+    Status: NONE
+  SSCIA:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:295 Right:123 Bottom:343
+    Status: NONE
+  SSChinookUnload:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:61 Bottom:343
+    Status: NONE
+  SSChinookDrop:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:431 Top:288 Right:491 Bottom:336
+    Status: NONE
+  SSBombardment:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:369 Top:288 Right:429 Bottom:336
+    Status: NONE
+  SSAdvancedTraining:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:288 Right:367 Bottom:336
+    Status: NONE
+  SSA10Attack2:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:288 Right:305 Bottom:336
+    Status: NONE
+  SACWeaponsfact_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:355 Top:197 Right:463 Bottom:286
+    Status: NONE
+  SACLeopard_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:197 Right:353 Bottom:286
+    Status: NONE
+  SAWarthog_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:197 Right:243 Bottom:293
+    Status: NONE
+  SAUplink_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:197 Right:121 Bottom:293
+    Status: NONE
+  SAToHkStm_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:99 Right:487 Bottom:195
+    Status: NONE
+  SASupplyCntr_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:99 Right:365 Bottom:195
+    Status: NONE
+  SAArtillery_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:99 Right:243 Bottom:195
+    Status: NONE
+  SAStrategyCenter_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:99 Right:121 Bottom:195
+    Status: NONE
+  SAAvnger_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:1 Right:487 Bottom:97
+    Status: NONE
+  SAStealth_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:1 Right:365 Bottom:97
+    Status: NONE
+  SABattleship_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:1 Right:243 Bottom:97
+    Status: NONE
+  SAScout_L:
+    Texture: SAUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:121 Bottom:97
+    Status: NONE
+  SACWeaponsfact:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:401 Right:363 Bottom:449
+    Status: NONE
+  SACCrusader:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:401 Right:305 Bottom:449
+    Status: NONE
+  SAACommand:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:401 Right:247 Bottom:449
+    Status: NONE
+  SSKnifeAttack:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:401 Right:185 Bottom:449
+    Status: NONE
+  SAToHkStm:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:401 Right:123 Bottom:449
+    Status: NONE
+  SAAmbulance:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:401 Right:61 Bottom:449
+    Status: NONE
+  SAAurora:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:351 Right:495 Bottom:399
+    Status: NONE
+  SAThunderBolt2:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:351 Right:433 Bottom:399
+    Status: NONE
+  SAThunderBolt:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:351 Right:371 Bottom:399
+    Status: NONE
+  SABarracks:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:351 Right:309 Bottom:399
+    Status: NONE
+  SAsupplyline:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:351 Right:247 Bottom:399
+    Status: NONE
+  SASteaUpg:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:351 Right:185 Bottom:399
+    Status: NONE
+  SABattleDrone:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:351 Right:123 Bottom:399
+    Status: NONE
+  SAStealthComm:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:351 Right:61 Bottom:399
+    Status: NONE
+  SABurton:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:301 Right:495 Bottom:349
+    Status: NONE
+  SACCommanche:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:301 Right:433 Bottom:349
+    Status: NONE
+  SASpGunship3:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:301 Right:371 Bottom:349
+    Status: NONE
+  SACDaisyCutter:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:301 Right:309 Bottom:349
+    Status: NONE
+  SASpGunship2:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:301 Right:247 Bottom:349
+    Status: NONE
+  SASpGunship:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:301 Right:185 Bottom:349
+    Status: NONE
+  SACDozer:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:301 Right:123 Bottom:349
+    Status: NONE
+  SASoloDrone:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:301 Right:61 Bottom:349
+    Status: NONE
+  SAChinook:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:251 Right:495 Bottom:299
+    Status: NONE
+  SACLeopard:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:251 Right:433 Bottom:299
+    Status: NONE
+  SASentryUpgr:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:251 Right:371 Bottom:299
+    Status: NONE
+  SAsentry:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:251 Right:309 Bottom:299
+    Status: NONE
+  SAWarthog:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:251 Right:247 Bottom:299
+    Status: NONE
+  SARAmblnce:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:251 Right:185 Bottom:299
+    Status: NONE
+  SAComCentr:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:251 Right:123 Bottom:299
+    Status: NONE
+  SACParatroopers:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:251 Right:61 Bottom:299
+    Status: NONE
+  SAPatriotSent:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:201 Right:495 Bottom:249
+    Status: NONE
+  SACParatroopers2:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:201 Right:433 Bottom:249
+    Status: NONE
+  SAMOAB:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:201 Right:371 Bottom:249
+    Status: NONE
+  SACParatroopers3:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:201 Right:309 Bottom:249
+    Status: NONE
+  SAMicroPat:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:201 Right:247 Bottom:249
+    Status: NONE
+  SACRaptor:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:201 Right:185 Bottom:249
+    Status: NONE
+  SALwPwrPrtCan:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:201 Right:123 Bottom:249
+    Status: NONE
+  SACTomahawk:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:201 Right:61 Bottom:249
+    Status: NONE
+  SALsrTank:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:151 Right:495 Bottom:199
+    Status: NONE
+  SAleaflet:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:151 Right:433 Bottom:199
+    Status: NONE
+  SAB3Carpet:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:151 Right:371 Bottom:199
+    Status: NONE
+  SALaserPatr:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:151 Right:309 Bottom:199
+    Status: NONE
+  SADropZone:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:151 Right:247 Bottom:199
+    Status: NONE
+  SALaserCan:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:151 Right:185 Bottom:199
+    Status: NONE
+  SAFence:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:151 Right:123 Bottom:199
+    Status: NONE
+  SAKingRap:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:151 Right:61 Bottom:199
+    Status: NONE
+  SAHummer:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:101 Right:495 Bottom:149
+    Status: NONE
+  SAICBM:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:101 Right:433 Bottom:149
+    Status: NONE
+  SAMissleDefender:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:101 Right:371 Bottom:149
+    Status: NONE
+  SAHypAurora:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:101 Right:309 Bottom:149
+    Status: NONE
+  SAPaladin:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:101 Right:247 Bottom:149
+    Status: NONE
+  SAHellfire:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:101 Right:185 Bottom:149
+    Status: NONE
+  SAPathFinder1:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:101 Right:123 Bottom:149
+    Status: NONE
+  SAFulArAurora:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:101 Right:61 Bottom:149
+    Status: NONE
+  SAPatriot:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:51 Right:495 Bottom:99
+    Status: NONE
+  SAFlares:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:51 Right:433 Bottom:99
+    Status: NONE
+  SAPilot:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:51 Right:371 Bottom:99
+    Status: NONE
+  SAFirebase:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:51 Right:309 Bottom:99
+    Status: NONE
+  SAPowerPlant:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:51 Right:247 Bottom:99
+    Status: NONE
+  SACruiseMis:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:51 Right:185 Bottom:99
+    Status: NONE
+  SAPOWTruck:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:51 Right:123 Bottom:99
+    Status: NONE
+  SAComChinok:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:51 Right:61 Bottom:99
+    Status: NONE
+  SACntrlRds:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:1 Right:495 Bottom:49
+    Status: NONE
+  SAPrison:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:1 Right:433 Bottom:49
+    Status: NONE
+  SARadarUpgrade:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:1 Right:371 Bottom:49
+    Status: NONE
+  SAchemsuit:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:1 Right:309 Bottom:49
+    Status: NONE
+  SAScout:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:1 Right:247 Bottom:49
+    Status: NONE
+  SAcarrier:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:1 Right:185 Bottom:49
+    Status: NONE
+  SABunkerBust:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:1 Right:123 Bottom:49
+    Status: NONE
+  SAStealth:
+    Texture: SAUserInterface512_005.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:61 Bottom:49
+    Status: NONE

@@ -1,0 +1,100 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Nuke_BattleMasterTankShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        DetonateCallsKill: Yes
+        FirstHeight: 10
+        SecondHeight: 10
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+      ModuleTag_06:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Nuke_Upgrade_ChinaWGUraniumShells
+      ModuleTag_07:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Nuke_NukeShellWeapon
+        StartsActive: Yes
+    SourceFile: Data/INI/Object/NukeGeneral.ini
+  Nuke_OverlordTankShell:
+    DisplayName: OBJECT:TankShell
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Armor: ProjectileArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_04:
+        Module: Behavior
+        Class: DumbProjectileBehavior
+        DetonateCallsKill: Yes
+        FirstHeight: 10
+        SecondHeight: 10
+        FirstPercentIndent: 50%
+        SecondPercentIndent: 90%
+        FlightPathAdjustDistPerSecond: 100
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 0.01
+      ModuleTag_06:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Nuke_Upgrade_ChinaWGUraniumShells
+      ModuleTag_07:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Nuke_NukeShellWeapon
+        StartsActive: Yes
+    SourceFile: Data/INI/Object/NukeGeneral.ini

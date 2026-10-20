@@ -1,0 +1,256 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  SSObserverUSA:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:489 Top:53 Right:511 Bottom:77
+    Status: ROTATED_90_CLOCKWISE
+  SSObserverChina:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:489 Top:27 Right:511 Bottom:51
+    Status: ROTATED_90_CLOCKWISE
+  SSObserverGLA:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:489 Top:1 Right:511 Bottom:25
+    Status: ROTATED_90_CLOCKWISE
+  SSRally:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:431 Top:443 Right:491 Bottom:491
+    Status: NONE
+  SSProximity:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:369 Top:443 Right:429 Bottom:491
+    Status: NONE
+  SSAttackMove2:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:443 Right:367 Bottom:491
+    Status: NONE
+  SSLimoDriver:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:443 Right:305 Bottom:491
+    Status: NONE
+  SSEvacButton:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:431 Top:393 Right:491 Bottom:441
+    Status: NONE
+  SSMachineGun:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:369 Top:393 Right:429 Bottom:441
+    Status: NONE
+  SSGuardAIR:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:307 Top:393 Right:367 Bottom:441
+    Status: NONE
+  SSGuard:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:393 Right:305 Bottom:441
+    Status: NONE
+  SSFerry_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:393 Right:243 Bottom:489
+    Status: NONE
+  SSLimoDriver_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:393 Right:121 Bottom:489
+    Status: NONE
+  SSConvoy_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:295 Right:487 Bottom:391
+    Status: NONE
+  SSTechCave_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:295 Right:365 Bottom:391
+    Status: NONE
+  SSClearMines_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:295 Right:243 Bottom:391
+    Status: NONE
+  SSTechHospital_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:121 Bottom:391
+    Status: NONE
+  SSChevron3L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:197 Right:487 Bottom:293
+    Status: NONE
+  SSTechOilDerrick_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:197 Right:365 Bottom:293
+    Status: NONE
+  SSChevron2L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:197 Right:243 Bottom:293
+    Status: NONE
+  SSTechOilRefinery_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:197 Right:121 Bottom:293
+    Status: NONE
+  SSChevron1L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:99 Right:487 Bottom:195
+    Status: NONE
+  SSChemBunk_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:99 Right:365 Bottom:195
+    Status: NONE
+  SSTechRadioStation_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:99 Right:243 Bottom:195
+    Status: NONE
+  LandingPad_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:99 Right:121 Bottom:195
+    Status: NONE
+  SSBeacon_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:1 Right:487 Bottom:97
+    Status: NONE
+  RepairBay_L:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:1 Right:365 Bottom:97
+    Status: NONE
+  Cameo_push:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:1 Right:243 Bottom:97
+    Status: NONE
+  Cameo_hilited:
+    Texture: SSUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:121 Bottom:97
+    Status: NONE
+  RepairBay:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:51 Right:309 Bottom:99
+    Status: NONE
+  SSCaptureBuilding:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:51 Right:247 Bottom:99
+    Status: NONE
+  LandingPad:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:51 Right:185 Bottom:99
+    Status: NONE
+  SSCarpetBomb:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:51 Right:123 Bottom:99
+    Status: NONE
+  SSChevron1S:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:51 Right:61 Bottom:99
+    Status: NONE
+  SSChevron2S:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:1 Right:495 Bottom:49
+    Status: NONE
+  SSChevron3S:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:1 Right:433 Bottom:49
+    Status: NONE
+  SSClusterMines:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:1 Right:371 Bottom:49
+    Status: NONE
+  SSStop:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:1 Right:309 Bottom:49
+    Status: NONE
+  SSSell2:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:1 Right:247 Bottom:49
+    Status: NONE
+  SSRepairDrone:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:1 Right:185 Bottom:49
+    Status: NONE
+  SSRepair2:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:1 Right:123 Bottom:49
+    Status: NONE
+  SSRepair:
+    Texture: SSUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:61 Bottom:49
+    Status: NONE

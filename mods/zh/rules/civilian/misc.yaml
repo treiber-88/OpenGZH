@@ -1,0 +1,2212 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  TsingMaTankColumn:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CMTsingMaTanks
+            Animation: CMTsingMaTanks.CMTsingMaTanks
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 100000
+        MaxLifetime: 100000
+    SourceFile: Data/INI/Object/CivilianBuilding.ini
+  TsingMaInfantryColumn:
+    EditorSorting: DEBRIS
+    KindOf: NO_COLLIDE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: INF4BRG_SKN
+            Animation: INF4BRG_SKL.INF4BRG_ANM3
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 100000
+        MaxLifetime: 100000
+    SourceFile: Data/INI/Object/CivilianBuilding.ini
+  CINE_Sun:
+    DisplayName: OBJECT:Prop
+    EditorSorting: VEHICLE
+    KindOf: SELECTABLE
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CINE_Sun
+      ModuleTag_BODY:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_DIE:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL
+        FX: FX_GenericCarExplode
+    SourceFile: Data/INI/Object/CivilianBuilding.ini
+  CINE_Moon:
+    DisplayName: OBJECT:Prop
+    EditorSorting: VEHICLE
+    KindOf: SELECTABLE
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CINE_Moon
+      ModuleTag_BODY:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_DIE:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL
+        FX: FX_GenericCarExplode
+    SourceFile: Data/INI/Object/CivilianBuilding.ini
+  CINE_CPlane03:
+    DisplayName: OBJECT:Structure
+    EditorSorting: STRUCTURE
+    KindOf: SELECTABLE
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CINE_CPlane03
+            Animation: CINE_CPlane03.CINE_CPlane03
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.01 1.01
+      ModuleTag_BODY:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_DIE:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL
+        FX: FX_GenericCarExplode
+    SourceFile: Data/INI/Object/CivilianBuilding.ini
+  SoccerStadiumLight:
+    DisplayName: OBJECT:BigLightpost
+    EditorSorting: STRUCTURE
+    KindOf: IMMOBILE
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CBStadLight
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_IWantRubble:
+        Module: Behavior
+        Class: KeepObjectDie
+      ModuleTag_06:
+        Module: Behavior
+        Class: ToppleUpdate
+        ToppleFX: FX_ToppleLampPost
+        BounceFX: FX_LampPostBounce
+      ModuleTag_07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +TOPPLED
+        SinkRate: 2
+        SinkDelay: 14000
+        DestructionDelay: 20000
+    SourceFile: Data/INI/Object/CivilianBuilding.ini
+  CarLimo03DeadHull:
+    DisplayName: OBJECT:Limo
+    EditorSorting: SYSTEM
+    TransportSlotCount: 3
+    RadarPriority: UNIT
+    KindOf: CAN_CAST_REFLECTIONS IMMOBILE
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: CVLimo3_D1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 14000
+        SinkRate: 2
+        DestructionDelay: 20000
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        RubbleParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINEExplBox:
+    DisplayName: OBJECT:Prop
+    EditorSorting: VEHICLE
+    KindOf: SELECTABLE
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CINEExplBox
+      ModuleTag_BODY:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_DIE:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL
+        FX: FX_GenericCarExplode
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINEExplBox02:
+    DisplayName: OBJECT:Prop
+    EditorSorting: VEHICLE
+    KindOf: SELECTABLE
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CINEExplBox
+      ModuleTag_BODY:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 9999.0
+        InitialHealth: 9999.0
+      ModuleTag_DIE:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL
+        FX: FX_GenericCarExplode
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_Confetti:
+    DisplayName: OBJECT:Prop
+    EditorSorting: VEHICLE
+    KindOf: SELECTABLE
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CINE_Confetti
+            ParticleSysBone: SparksL01 ParadeConfetti
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 2.0
+        InitialHealth: 2.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_GenericCarExplode
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_Flak:
+    DisplayName: OBJECT:Prop
+    EditorSorting: VEHICLE
+    KindOf: SELECTABLE
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CINE_Flak
+            ParticleSysBone:
+            - Flak01 Flak
+            - Flak02 Flak
+            - Flak03 Flak
+            - Flak04 Flak
+            - Flak05 Flak
+            - Flak06 Flak
+            - Flak07 Flak
+            - Flak08 Flak
+            - Flak09 Flak
+            - Flak10 Flak
+            - Flak11 Flak
+            - Flak12 Flak
+            - Flak13 Flak
+            - Flak14 Flak
+            - Flak15 Flak
+            - Flak16 Flak
+            - Flak17 Flak
+            - Flak18 Flak
+            - Flak19 Flak
+            - Flak20 Flak
+            - Flak21 Flak
+            - Flak22 Flak
+            - Flak23 Flak
+            - Flak24 Flak
+            - Flak25 Flak
+            - Flak26 Flak
+            - Flak27 Flak
+            - Flak28 Flak
+            - Flak29 Flak
+            - Flak30 Flak
+            - Flak31 Flak
+            - Flak32 Flak
+            - Flak33 Flak
+            - Flak34 Flak
+            - Flak35 Flak
+            - Flak36 Flak
+            - Flak37 Flak
+            - Flak38 Flak
+            - Flak39 Flak
+            - Flak40 Flak
+            - Flak41 Flak
+            - Flak42 Flak
+            - Flak43 Flak
+            - Flak44 Flak
+            - Flak45 Flak
+            - Flak46 Flak
+            - Flak47 Flak
+            - Flak48 Flak
+            - Flak49 Flak
+            - Flak50 Flak
+            - Flak51 Flak
+            - Flak52 Flak
+            - Flak53 Flak
+            - Flak54 Flak
+            - Flak55 Flak
+            - Flak56 Flak
+            - Flak57 Flak
+            - Flak58 Flak
+            - Flak59 Flak
+            - Flak60 Flak
+            - Flak61 Flak
+            - Flak62 Flak
+            - Flak63 Flak
+            - Flak64 Flak
+            - Flak65 Flak
+            - Flak66 Flak
+            - Flak67 Flak
+            - Flak68 Flak
+            - Flak69 Flak
+            - Flak70 Flak
+            - Flak71 Flak
+            - Flak72 Flak
+            - Flak73 Flak
+            - Flak74 Flak
+            - Flak75 Flak
+            - Flak76 Flak
+            - Flak77 Flak
+            - Flak78 Flak
+            - Flak79 Flak
+            - Flak80 Flak
+            - Flak81 Flak
+            - Flak82 Flak
+            - Flak83 Flak
+            - Flak84 Flak
+            - Flak85 Flak
+            - Flak86 Flak
+            - Flak87 Flak
+            - Flak88 Flak
+            - Flak89 Flak
+            - Flak90 Flak
+            - Flak91 Flak
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 9999.0
+        InitialHealth: 9999.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_GenericCarExplode
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AGenericSound:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientVillage1:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientVillage1
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientArabMarket1:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientArabMarket1
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientArabMarket2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientArabMarket2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientArabMarket3:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientArabMarket3
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientDogBarking:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientDogBarking
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientNightOwl:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientNightOwl
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientWindDesert:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientWindDesert
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientWindMountain:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientWindMountain
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientWindCold:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientWindCold
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientWavesLake:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientWavesLake
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientRiver:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientRiver
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientMeadow:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientMeadow
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientMarsh:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientMarsh
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientWavesOcean1:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientWavesOcean1
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientInfantryCharge1:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientInfantryCharge1
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientCrowdAngryArabs1:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientCrowdAngryArabs1
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmbientGLABase:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientGLABase
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertFarmGoat:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertFarmGoat
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_BattleSweetener:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_U02_BattleSweetener
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertFarmAmbience:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: FarmAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertFarmCow:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: CowAmbience
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertFarmSheep:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertFarmSheep
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertFarmRooster:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertFarmRooster
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketBell:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketBell
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketCarHorn:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketCarHorn
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketDog:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketDog
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketDog2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketDog2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketGoat:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketGoat
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketMoped:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketMoped
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketWallaMusicLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketWallaMusicLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketWallaLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketWallaLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketWallaWomenLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketWallaWomenLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureDayBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureDayBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureDayBirds2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureDayBirds2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureDayInsects:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureDayInsects
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureDayInsects2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureDayInsects2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureDayInsects3:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureDayInsects3
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureWindThinLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureWindThinLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureWindTreesLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureWindTreesLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureWindThickLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureWindThickLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageDayBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageDayBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageDayBirds2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageDayBirds2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageDayDog:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageDayDog
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageKids:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageKids
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageKids2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageKids2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageDayMoped:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageDayMoped
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageDayRooster:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageDayRooster
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageDayWallaLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageDayWallaLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureNightInsectLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureNightInsectLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageNightCat:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageNightCat
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageNightDog:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageNightDog
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageNightDog2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageNightDog2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageNightDrummerLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageNightDrummerLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageNightInsect:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageNightInsect
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageNightInsect2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageNightInsect2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageNightMenLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageNightMenLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageNightTrash:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageNightTrash
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanTrainStationAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanTrainStationAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanTrainStationAmbientLoop2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanTrainStationAmbientLoop2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanBusStationAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanBusStationAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanBusStationPAVoice:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanBusStationPAVoice
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanBusStationBuses:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanBusStationBuses
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanCemetaryBell:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanCemetaryBell
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanCemetaryDigging:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanCemetaryDigging
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanNightChinaBikeBell:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanNightChinaBikeBell
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanNightChinaClub2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanNightChinaClub2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanParkAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanParkAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanParkBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanParkBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanParkDucks:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanParkDucks
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanParkChimes:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanParkChimes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanSwimmingPoolAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: HotelAmbientSwimmerLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanSwimmingPoolDiver:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: HotelAmbientDiver
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanPoliceSiren:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanPoliceSiren
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanPoliceSirenLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanPoliceSirenLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanCityAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanCityAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanCityAmbientLoop2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanCityAmbientLoop2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanDocksBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanDocksBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanDocksAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanDocksAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanDocksBouy:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanDocksBouy
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanDocksFoghorn:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanDocksFoghorn
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanDocksMachineryLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanDocksMachineryLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WinterNatureWoodpecker:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WinterNatureWoodpecker
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WinterNatureCrows:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WinterNatureCrows
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WinterNatureCrows2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WinterNatureCrows2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WinterNatureWindLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WinterNatureWindLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WinterNatureNightWolves:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WinterNatureNightWolves
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanIndustrialYardPileDriver:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanIndustrialYardPileDriver
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanIndustrialYardAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: IndustrialYardAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WaterOceanWaves:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WaterOceanWaves
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WaterRiverLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WaterRiverLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WaterStreamLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WaterStreamLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WinterNatureWindCold:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WinterNatureWindCold
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WinterNatureWind:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WinterNatureWind
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageDayDog2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageDayDog2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateNightOwl:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateNightOwl
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertNatureWindNight:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertNatureWindNight
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateMeadowAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateMeadowAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateMarshAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateMarshAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketWallaLoop2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketWallaLoop2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertMarketWallaLoop3:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertMarketWallaLoop3
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageDayWallaLoop2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_DesertVillageDayWallaLoop2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_JungleDayDenseAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_JungleDayDenseAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_JungleDayDenseAmbientLoop2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_JungleDayDenseAmbientLoop2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_JungleDayDenseAmbientBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_JungleDayDenseAmbientBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_JungleDaySparseAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_JungleDaySparseAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_JungleDaySparseAmbientAnimal:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_JungleDaySparseAmbientAnimal
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_JungleNightAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_JungleNightAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_JungleNightAmbientLoop2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_JungleNightAmbientLoop2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_MountainNatureAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_MountainNatureAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_MountainBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_MountainBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_MountainBirds2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_MountainBirds2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateForestBirdsLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateForestBirdsLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateForestBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateForestBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateForestTreesLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateForestTreesLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateForestTrees:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateForestTrees
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateMeadowBirdsLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateMeadowBirdsLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateMeadowBirdsLoop2:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateMeadowBirdsLoop2
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateMeadowBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateMeadowBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanChinaCourtyardLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanChinaCourtyardLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanChinaCourtyardBirds:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanChinaCourtyardBirds
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_UrbanChinaCourtyardWallaLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_UrbanChinaCourtyardWallaLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WaterLakeAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WaterLakeAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WaterLakeLappingLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WaterLakeLappingLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_WaterLakeLapping:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_WaterLakeLapping
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateTownDayAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateTownDayAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateTownDayPigDog:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateTownDayPigDog
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_TemperateTownDayPig:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateTownDayPig
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Amb_DesertVillageMilitary:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Amb_TemperateTownDayPig
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_InfantryChargeLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: AmbientInfantryCharge1
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_TankAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_TankAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_ParadeAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_ParadeAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_ParadeMarchingLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_ParadeMarchingLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_ParadePanicFemaleLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_ParadePanicFemaleLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_ParadeCrowdLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_ParadeCrowdLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_NukeAftermathAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_NukeAftermathAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_NukeAftermathAmbientFX:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_NukeAftermathAmbientFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_ScudStormLaunchAlertLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_ScudStormLaunchAlertLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_BridgeDemoChargeBeep:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_BridgeDemoChargeBeep
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_BaikonurRocketPadHissLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_BaikonurRocketPadHissLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_BaikonurGLACheerSquad:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_BaikonurGLACheerSquad
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_AngryMobAmbientLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_AngryMobAmbientLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_DirtRollingLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_DirtRollingLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_TrainRunningLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_TrainRunningLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_CombatCycleMainLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_CombatCycleMainLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_CombatCycleRumbleLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_CombatCycleRumbleLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_CombatCycleByLoop:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_CombatCycleByLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Cin_CombatCycleByElements:
+    EditorSorting: AUDIO
+    KindOf: IMMOBILE
+    SoundAmbient: Cin_CombatCycleByElements
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDefaultDraw
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CivilianVehicleFerry:
+    SelectPortrait: SSFerry_L
+    DisplayName: OBJECT:AutoFerry
+    EditorSorting: VEHICLE
+    CommandSet: RailedTransportCommandSet
+    VisionRange: 150
+    CrushableLevel: 3
+    SoundMoveLoop: FerryMoveLoop
+    SoundAmbient: Amb_UrbanDocksFoghorn
+    RadarPriority: UNIT
+    KindOf: SELECTABLE TRANSPORT
+    Locomotor: SET_NORMAL BasicBoatLocomotor
+    Geometry: BOX
+    GeometryIsSmall: No
+    GeometryMajorRadius: 72.0
+    GeometryMinorRadius: 25.0
+    GeometryHeight: 20.0
+    Shadow: SHADOW_VOLUME
+    ArmorSet:
+      Armor: None
+      DamageFX: DefaultDamageFX
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CVFerry
+          OVER_WATER:
+            Model: CVFerry
+            ParticleSysBone: Smoke01 FerrySmokeStop
+          MOVING OVER_WATER:
+            Model: CVFerry
+            ParticleSysBone: [Smoke01 FerrySmoke, TreadFX01 AmphibWave, TreadFX02 AmphibWave]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: RailedTransportContain
+        Slots: 10
+        AllowInsideKindOf: INFANTRY VEHICLE BOAT
+        DoorOpenTime: 2000
+        ScatterNearbyOnExit: No
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 30.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: RailedTransportAIUpdate
+        PathPrefixName: Ferry
+      ModuleTag_06:
+        Module: Behavior
+        Class: RailedTransportDockUpdate
+        NumberApproachPositions: 9
+        PullInsideDuration: 4500
+        PushOutsideDuration: 4500
+        ToleranceDistance: 400.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      UpdateTag_01:
+        Module: Behavior
+        Class: FloatUpdate
+        Enabled: No
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AvalancheChunk:
+    EditorSorting: SYSTEM
+    KindOf: IGNORED_IN_GUI
+    Geometry: CYLINDER
+    GeometryIsSmall: No
+    GeometryMajorRadius: 30.0
+    GeometryHeight: 20.0
+    Shadow: NONE
+    ShadowSizeX: 1
+    ShadowSizeY: 1
+    ShadowTexture: None
+    ArmorSet:
+      Armor: AvalancheArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXSnow01
+        ConditionState:
+          POST_COLLAPSE MOVING FREEFALL:
+            ParticleSysBone: none AvalancheMistLight
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: TensileFormationUpdate
+        Enabled: No
+        CrackSound: AvalancheCrack
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponWhenDamagedBehavior
+        StartsActive: Yes
+        ContinuousWeaponDamaged: AvalancheWeapon
+        ContinuousWeaponReallyDamaged: AvalancheWeapon
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AvalancheLeadChunk:
+    EditorSorting: SYSTEM
+    KindOf: IGNORED_IN_GUI
+    Geometry: CYLINDER
+    GeometryIsSmall: No
+    GeometryMajorRadius: 30.0
+    GeometryHeight: 20.0
+    Shadow: NONE
+    ShadowSizeX: 1
+    ShadowSizeY: 1
+    ShadowTexture: None
+    ArmorSet:
+      Armor: AvalancheArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXSnow01
+        ConditionState:
+          POST_COLLAPSE:
+            ParticleSysBone: none AvalancheMistLight
+          POST_COLLAPSE MOVING:
+            ParticleSysBone: none AvalancheMistMedium
+          POST_COLLAPSE MOVING FREEFALL:
+            ParticleSysBone: none AvalancheMistHeavy
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: TensileFormationUpdate
+        Enabled: No
+        CrackSound: AvalancheCrack
+      ModuleTag_07:
+        Module: Behavior
+        Class: FireWeaponWhenDamagedBehavior
+        StartsActive: Yes
+        ContinuousWeaponDamaged: AvalancheWeapon
+        ContinuousWeaponReallyDamaged: AvalancheWeapon
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  300MeterShroudClearObject:
+    EditorSorting: STRUCTURE
+    Side: Civilian
+    VisionRange: 300
+    RadarPriority: NOT_ON_RADAR
+    KindOf: IMMOBILE
+    Geometry: SPHERE
+    GeometryMajorRadius: 10.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+      ModuleTag_02:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 99999.0
+        InitialHealth: 99999.0
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  RocketBomb:
+    DisplayName: OBJECT:RocketBomb
+    Side: Civilian
+    EditorSorting: VEHICLE
+    KindOf: IMMOBILE
+    Shadow: SHADOW_VOLUME
+    Geometry: BOX
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: CV8BombCN
+          Animation: CV8BombCN.CV8BombCN
+          AnimationMode: ONCE
+          ParticleSysBone:
+          - SmokeM01 WarheadTrail02
+          - SmokeS01 WarheadTrail
+          - SmokeS02 WarheadTrail
+          - SmokeS03 WarheadTrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_04:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  RocketDrop:
+    DisplayName: OBJECT:RocketDrop
+    Side: Civilian
+    EditorSorting: VEHICLE
+    KindOf: IMMOBILE
+    Shadow: SHADOW_VOLUME
+    Geometry: BOX
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: CV8DropCN
+          Animation: CV8DropCN.CV8DropCN
+          AnimationMode: ONCE
+          ParticleSysBone: SmokeS02 WarheadTrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_04:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_TreeBirds:
+    DisplayName: OBJECT:CINE_TreeBirds
+    Side: Civilian
+    EditorSorting: VEHICLE
+    KindOf: IMMOBILE
+    Shadow: SHADOW_VOLUME
+    Geometry: BOX
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CINE_TreeBirds
+          Animation: CINE_TreeBirds.CINE_TreeBirds
+          AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_SnowyMountainStatic:
+    DisplayName: OBJECT:CINE_SnowyMountainStatic
+    Side: Civilian
+    EditorSorting: VEHICLE
+    KindOf: IMMOBILE
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ReceivesDynamicLights: No
+        DefaultConditionState:
+          Model: AvMnt_A
+      ModuleTag_02:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -TOPPLED
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_SnowyMountainScrollingSnow:
+    DisplayName: OBJECT:CINE_SnowyMountainScrollingSnow
+    Side: Civilian
+    EditorSorting: VEHICLE
+    KindOf: IMMOBILE
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ParticlesAttachedToAnimatedBones: Yes
+        ReceivesDynamicLights: No
+        DefaultConditionState:
+          Model: AvMnt_B
+          Animation: AvMnt_B.AvMnt_B
+          AnimationMode: LOOP
+          ParticleSysBone:
+          - Smoke01 BuildingSnowDust
+          - Smoke02 BuildingSnowDust
+          - Smoke03 BuildingSnowDust
+          - Smoke04 BuildingSnowDust
+      ModuleTag_02:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -TOPPLED
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  SDILasers:
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: ABSDILink_L
+            Animation: ABSDILink_L.ABSDILink_L
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+      ModuleTag_03:
+        Module: Body
+        Class: HighlanderBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/FactionBuilding.ini
+  PatriotBinaryDataStream:
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DLaserDraw
+        Texture: EXBinaryStream32.tga
+        NumBeams: 1
+        InnerBeamWidth: 4
+        InnerColor: R:0 G:255 B:0 A:180
+        Tile: Yes
+        ScrollRate: -0.25
+        Segments: 20
+        ArcHeight: 30.0
+        SegmentOverlapRatio: 0.0000
+        TilingScalar: 0.25
+      ModuleTag_02:
+        Module: ClientUpdate
+        Class: LaserUpdate
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 600
+        MaxLifetime: 600
+    SourceFile: Data/INI/Object/FactionBuilding.ini
+  Bird:
+    DisplayName: OBJECT:Bird
+    EditorSorting: MISC_NATURAL
+    Scale: 5.0
+    Locomotor: SET_NORMAL BirdLocomotor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CIBird
+            Animation: CIBird.CIBird
+            AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+    SourceFile: Data/INI/Object/NatureUnit.ini
+  Ox:
+    DisplayName: OBJECT:Ox
+    EditorSorting: MISC_NATURAL
+    Scale: 1.5
+    SoundAmbient: CowAmbience
+    Locomotor: SET_NORMAL BasicCarLocomotor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CIox_SKN
+          IdleAnimation:
+          - CIox_SKL.CIox_STD
+          - CIox_SKL.CIox_STD
+          - CIox_SKL.CIox_STD
+          - CIox_SKL.CIox_STD
+          - CIox_SKL.CIox_STD
+          - CIox_SKL.CIox_IDL
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIox_SKL.CIox_WKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIox_SKL.CIox_RUN
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: CIox_SKL.CIox_DTA
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+    SourceFile: Data/INI/Object/NatureUnit.ini

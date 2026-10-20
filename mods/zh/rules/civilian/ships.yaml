@@ -1,0 +1,432 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  CivilianVehiclePTBoat:
+    DisplayName: OBJECT:PTBoat
+    EditorSorting: VEHICLE
+    CommandSet: GenericCommandSet
+    VisionRange: 150
+    CrusherLevel: 0
+    CrushableLevel: 3
+    SoundMoveLoop: AmphibiousTransportMoveLoop
+    KindOf: SELECTABLE VEHICLE BOAT
+    Locomotor: SET_NORMAL BasicBoatLocomotor
+    Geometry: BOX
+    Scale: 1.0
+    GeometryIsSmall: No
+    GeometryMajorRadius: 48.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 14.0
+    Shadow: SHADOW_VOLUME
+    ArmorSet:
+      Armor: TruckArmor
+      DamageFX: DefaultDamageFX
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY PTBoatGun
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: AVPTBoat
+          OVER_WATER:
+            Model: AVPTBoat
+          MOVING OVER_WATER:
+            Model: AVPTBoat
+            ParticleSysBone: TreadFX01 AmphibWave
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInAnotherModule: Dum_Turret
+        DefaultConditionState:
+          Model: UITech_SKN
+          Turret: Dum-TurManMVR
+          TurretArtAngle: 180
+          HideSubObject: 20Cal 50Cal RPG MuzzleFX01 MuzzleFX02 MuzzleFX03
+          IdleAnimation: [UITech_SKL.UITech_STA 0 6, UITech_SKL.UITech_IDA, UITech_SKL.UITech_IDB]
+          AnimationMode: ONCE
+          ShowSubObject: 20Cal
+          WeaponMuzzleFlash: PRIMARY MuzzleFX01
+          WeaponFireFXBone: PRIMARY Muzzle01
+        ConditionState:
+          RUBBLE MOVING TURRET_ROTATE:
+            Animation: None
+            HideSubObject: UITech-SKN
+            ShowSubObject: 20Cal
+            WeaponMuzzleFlash: PRIMARY MuzzleFX01
+            WeaponFireFXBone: PRIMARY Muzzle01
+          MOVING:
+            Animation: UITech_SKL.UITech_MVB
+            AnimationMode: LOOP
+            ShowSubObject: 20Cal
+            WeaponMuzzleFlash: PRIMARY MuzzleFX01
+            WeaponFireFXBone: PRIMARY Muzzle01
+          TURRET_ROTATE:
+            Animation: UITech_SKL.UITech_TNA
+            AnimationMode: LOOP
+            ShowSubObject: 20Cal
+            WeaponMuzzleFlash: PRIMARY MuzzleFX01
+            WeaponFireFXBone: PRIMARY Muzzle01
+            Aliases:
+            - TURRET_ROTATE MOVING
+            - TURRET_ROTATE FIRING_A
+            - TURRET_ROTATE BETWEEN_FIRING_SHOTS_A
+            - TURRET_ROTATE RELOADING_A
+            - TURRET_ROTATE MOVING FIRING_A
+            - TURRET_ROTATE MOVING BETWEEN_FIRING_SHOTS_A
+            - TURRET_ROTATE MOVING RELOADING_A
+          FIRING_A:
+            Animation: UITech_SKL.UITech_ATA
+            AnimationMode: LOOP
+            ShowSubObject: 20Cal
+            WeaponMuzzleFlash: PRIMARY MuzzleFX01
+            WeaponFireFXBone: PRIMARY Muzzle01
+            Aliases:
+            - BETWEEN_FIRING_SHOTS_A
+            - RELOADING_A
+            - MOVING FIRING_A
+            - MOVING BETWEEN_FIRING_SHOTS_A
+            - MOVING RELOADING_A
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_05:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: ALL
+        CreationList: OCL_GenericCarExplode
+      ModuleTag_06:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -FLOODED
+        DeathFX: FX_GenericCarExplode
+      ModuleTag_07:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 180
+          NaturalTurretAngle: 0
+          MinIdleScanAngle: 30
+          MaxIdleScanAngle: 60
+          MinIdleScanInterval: 5000
+          MaxIdleScanInterval: 10000
+          ControlledWeaponSlots: PRIMARY SECONDARY TERTIARY
+      ModuleTag_08:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 30.0
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      UpdateTag_01:
+        Module: Behavior
+        Class: FloatUpdate
+        Enabled: No
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  BoatAsianFishing:
+    DisplayName: OBJECT:AsianFishingBoat
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    CommandSet: CivilianCarBombCommandSet
+    KindOf: SELECTABLE CAN_ATTACK VEHICLE BOAT
+    RadarPriority: LOCAL_UNIT_ONLY
+    Locomotor:
+    - SET_NORMAL BasicCarLocomotor
+    - SET_WANDER WanderCarLocomotor
+    - SET_PANIC PanicCarLocomotor
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 31.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    Shadow: SHADOW_VOLUME
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY None
+    - Conditions: CARBOMB
+      Weapon: PRIMARY SuicideCarBomb
+    ArmorSet:
+      Armor: TruckArmor
+      DamageFX: CrushableCarDamageFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CVJUNK
+          REALLYDAMAGED:
+            Model: CVJUNK_D
+          RUBBLE:
+            Model: CVJUNK_D
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+      ModuleTag_04:
+        Module: Behavior
+        Class: CrushDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        TotalCrushSound: CarAlarm
+        BackEndCrushSound: CarAlarm
+        FrontEndCrushSound: CarAlarm
+        TotalCrushSoundPercent: 50
+        BackEndCrushSoundPercent: 50
+        FrontEndCrushSoundPercent: 50
+      ModuleTag_11:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 14000
+        SinkRate: 2
+        DestructionDelay: 20000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_06:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        CreationList: OCL_GenericCarExplode
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -FLOODED
+        DeathFX: FX_GenericCarExplode
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +SUICIDED
+        CreationList: OCL_BurnedCarHull
+      ModuleTag_09:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_10:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 30.0
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      UpdateTag_01:
+        Module: Behavior
+        Class: FloatUpdate
+        Enabled: No
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  BoatFishingTrowler:
+    DisplayName: OBJECT:FishingTrowler
+    EditorSorting: VEHICLE
+    TransportSlotCount: 1
+    CommandSet: CivilianCarBombCommandSet
+    KindOf: SELECTABLE CAN_ATTACK VEHICLE BOAT
+    RadarPriority: LOCAL_UNIT_ONLY
+    Locomotor:
+    - SET_NORMAL BasicCarLocomotor
+    - SET_WANDER WanderCarLocomotor
+    - SET_PANIC PanicCarLocomotor
+    Geometry: BOX
+    GeometryIsSmall: No
+    GeometryMajorRadius: 27.0
+    GeometryMinorRadius: 11.0
+    GeometryHeight: 13.0
+    Shadow: SHADOW_VOLUME
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY None
+    - Conditions: CARBOMB
+      Weapon: PRIMARY SuicideCarBomb
+    ArmorSet:
+      Armor: TruckArmor
+      DamageFX: CrushableCarDamageFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CVTROWLER
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+      ModuleTag_04:
+        Module: Behavior
+        Class: CrushDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        TotalCrushSound: CarAlarm
+        BackEndCrushSound: CarAlarm
+        FrontEndCrushSound: CarAlarm
+        TotalCrushSoundPercent: 50
+        BackEndCrushSoundPercent: 50
+        FrontEndCrushSoundPercent: 50
+      ModuleTag_11:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 14000
+        SinkRate: 2
+        DestructionDelay: 20000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_06:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        CreationList: OCL_GenericCarExplode
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -FLOODED
+        DeathFX: FX_GenericCarExplode
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +SUICIDED
+        CreationList: OCL_BurnedCarHull
+      ModuleTag_09:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_10:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 30.0
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      UpdateTag_01:
+        Module: Behavior
+        Class: FloatUpdate
+        Enabled: No
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  BoatTugboat:
+    DisplayName: OBJECT:Tugboat
+    EditorSorting: VEHICLE
+    TransportSlotCount: 1
+    CommandSet: CivilianCarBombCommandSet
+    SoundMoveStart: CarMoveStart
+    KindOf: SELECTABLE CAN_ATTACK VEHICLE BOAT
+    RadarPriority: LOCAL_UNIT_ONLY
+    Locomotor:
+    - SET_NORMAL BasicCarLocomotor
+    - SET_WANDER WanderCarLocomotor
+    - SET_PANIC PanicCarLocomotor
+    Geometry: BOX
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 26.0
+    GeometryMinorRadius: 14.0
+    GeometryHeight: 13.0
+    Shadow: SHADOW_VOLUME
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY None
+    - Conditions: CARBOMB
+      Weapon: PRIMARY SuicideCarBomb
+    ArmorSet:
+      Armor: TruckArmor
+      DamageFX: CrushableCarDamageFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CVTUGBOAT
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+      ModuleTag_04:
+        Module: Behavior
+        Class: CrushDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        TotalCrushSound: CarAlarm
+        BackEndCrushSound: CarAlarm
+        FrontEndCrushSound: CarAlarm
+        TotalCrushSoundPercent: 50
+        BackEndCrushSoundPercent: 50
+        FrontEndCrushSoundPercent: 50
+      ModuleTag_11:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 14000
+        SinkRate: 2
+        DestructionDelay: 20000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_06:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        CreationList: OCL_GenericCarExplode
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -FLOODED
+        DeathFX: FX_GenericCarExplode
+      ModuleTag_08:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +SUICIDED
+        CreationList: OCL_BurnedCarHull
+      ModuleTag_09:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_10:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 30.0
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      UpdateTag_01:
+        Module: Behavior
+        Class: FloatUpdate
+        Enabled: No
+    SourceFile: Data/INI/Object/CivilianUnit.ini

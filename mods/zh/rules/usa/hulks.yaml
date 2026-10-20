@@ -1,0 +1,175 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  DeadMicrowaveHulk:
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    RadarPriority: UNIT
+    KindOf: CAN_CAST_REFLECTIONS IMMOBILE NO_COLLIDE HULK
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVThundrblt_D1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 14000
+        SinkRate: 2
+        DestructionDelay: 20000
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        RubbleParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+    SourceFile: Data/INI/Object/Hulk.ini
+  AmericaVehicleHumveeDeadHull:
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    RadarPriority: UNIT
+    KindOf: CAN_CAST_REFLECTIONS IMMOBILE NO_COLLIDE HULK
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVHUMMER_D1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 14000
+        SinkRate: 2
+        DestructionDelay: 20000
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        RubbleParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+    SourceFile: Data/INI/Object/Hulk.ini
+  ComancheRubbleHull:
+    DisplayName: OBJECT:ComancheHull
+    Side: America
+    KindOf: IMMOBILE NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVComanche_D1
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 25.0
+        AllowBouncing: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 3000
+        SinkRate: 4
+        DestructionDelay: 10000
+    SourceFile: Data/INI/Object/Hulk.ini
+  ChinookRubbleHull:
+    DisplayName: OBJECT:ComancheHull
+    Side: America
+    KindOf: IMMOBILE NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVChinook_D1
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 25.0
+        AllowBouncing: No
+        KillWhenRestingOnGround: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 20000
+        MaxLifetime: 20000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 1
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini
+  HelixRubbleHull:
+    DisplayName: OBJECT:ComancheHull
+    Side: America
+    KindOf: IMMOBILE NO_COLLIDE HULK
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NVHelix_D2
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 45.0
+        AllowBouncing: No
+        KillWhenRestingOnGround: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 20000
+        MaxLifetime: 20000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1500
+        SinkRate: 1
+        DestructionDelay: 16000
+    SourceFile: Data/INI/Object/Hulk.ini

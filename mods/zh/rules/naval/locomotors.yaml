@@ -1,0 +1,43 @@
+# OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
+# Shared by the ships of every faction (rules/<faction>/ships.yaml).
+
+Locomotors:
+  # Fast patrol craft (PT boats, junks, trawlers).
+  NavalLightLocomotor:
+    Surfaces: WATER
+    Speed: 55
+    SpeedDamaged: 40
+    TurnRate: 90
+    TurnRateDamaged: 70
+    Acceleration: 40
+    AccelerationDamaged: 30
+    Braking: 60
+    MinTurnSpeed: 10
+    ZAxisBehavior: SURFACE_RELATIVE_HEIGHT
+    Appearance: HOVER
+    PreferredHeight: 0
+    CloseEnoughDist: 15
+    PitchStiffness: 0.9
+    RollStiffness: 0.95
+    PitchDamping: 0.9
+    RollDamping: 0.9
+
+  # Heavy warships (battleship, aircraft carrier, gunboat): slow to turn and to stop.
+  NavalHeavyLocomotor:
+    Surfaces: WATER
+    Speed: 20
+    SpeedDamaged: 15
+    TurnRate: 20
+    TurnRateDamaged: 15
+    Acceleration: 6
+    AccelerationDamaged: 4
+    Braking: 8
+    MinTurnSpeed: 5
+    ZAxisBehavior: SURFACE_RELATIVE_HEIGHT
+    Appearance: HOVER
+    PreferredHeight: 0
+    CloseEnoughDist: 40
+    PitchStiffness: 0.95
+    RollStiffness: 0.98
+    PitchDamping: 0.95
+    RollDamping: 0.95

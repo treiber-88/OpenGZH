@@ -1,0 +1,136 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  LoadPageHuge:
+    Texture: loadpageuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  SCCAttack:
+    Texture: SCCAttack.tga
+    TextureWidth: 32
+    TextureHeight: 32
+    Coords: Left:0 Top:0 Right:31 Bottom:31
+    Status: NONE
+  InGameUIAmericaBase:
+    Texture: SACommandBar.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:64 Right:799 Bottom:255
+    Status: NONE
+  InGameUIChinaBase:
+    Texture: SNCommandBar.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:71 Right:799 Bottom:255
+    Status: NONE
+  InGameUIGLABase:
+    Texture: SUCommandBar.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:55 Right:799 Bottom:255
+    Status: NONE
+  TitleScreen:
+    Texture: TitleScreenuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MainMenuRuler:
+    Texture: MainMenuRuleruserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:800 Bottom:600
+    Status: NONE
+  CreditsScreen:
+    Texture: CreditScreenuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  America_ScoreScreen:
+    Texture: America_ScoreScreenuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  GLA_ScoreScreen:
+    Texture: GLA_ScoreScreenuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  China_ScoreScreen:
+    Texture: China_ScoreScreenuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MutiPlayer_ScoreScreen:
+    Texture: MutiPlayer_ScoreScreenuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  MainMenuBackdrop:
+    Texture: MainMenuBackdropuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  Victorious:
+    Texture: Victorious.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:0 Right:600 Bottom:219
+    Status: NONE
+  Defeated:
+    Texture: Defeated.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:0 Right:600 Bottom:219
+    Status: NONE
+  GameOver:
+    Texture: GameOver.tga
+    TextureWidth: 1024
+    TextureHeight: 256
+    Coords: Left:0 Top:0 Right:600 Bottom:219
+    Status: NONE
+  SAFactionLogoPage_US:
+    Texture: SAFactionLogoPage_USuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  SNFactionLogoPage_China:
+    Texture: SNFactionLogoPage_Chinauserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  Mp_Load:
+    Texture: Mp_Loaduserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  Skirmish_Load:
+    Texture: Skirmish_Load.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  SUFactionLogoPage_GLA:
+    Texture: SUFactionLogoPage_GLAuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE
+  ReturnLoadPage:
+    Texture: ReturnLoadPageuserinterface.tga
+    TextureWidth: 1024
+    TextureHeight: 1024
+    Coords: Left:0 Top:0 Right:799 Bottom:599
+    Status: NONE

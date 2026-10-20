@@ -1,0 +1,686 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  SpectreGunshipGattlingCannon:
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 3.0
+    GeometryIsSmall: No
+    Shadow: NONE
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY SpectreGattlingGun
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceRapidFire: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: CHASIS
+        DefaultConditionState:
+          Model: AVSGUNSHIP_GUN
+          TurretPitch: TURRETEL01
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+        Turret:
+          ControlledWeaponSlots: PRIMARY
+          TurretTurnRate: 160
+          TurretPitchRate: 160
+          AllowsPitch: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/AmericaAir.ini
+  SpectreGunshipHowitzer:
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 13.0
+    GeometryMinorRadius: 13.0
+    GeometryHeight: 8.0
+    GeometryIsSmall: No
+    Shadow: NONE
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY SpectreHowitzerGun
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceRapidFire: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVSGUNSHIP_GHOW
+          TurretPitch: TURRETEL01
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 60
+          TurretPitchRate: 60
+          AllowsPitch: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_06:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        CanDetectWhileContained: Yes
+    SourceFile: Data/INI/Object/AmericaAir.ini
+  ChinaHelixGattlingCannon:
+    SelectPortrait: SNGatTower_L
+    ButtonImage: SNGatTower
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 8.0
+    GeometryMinorRadius: 8.0
+    GeometryHeight: 9.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY GattlingBuildingGun, SECONDARY GattlingBuildingGunAir]
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY BALLISTIC_MISSILE AIRCRAFT]
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceRapidFire: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: CHASSISBONE
+        DefaultConditionState:
+          Model: NVHelix_G
+          Turret: TURRET01
+          TurretPitch: TURRETEL
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+        ConditionState:
+          CONTINUOUS_FIRE_SLOW:
+            Model: NVHelix_G
+            Animation: NVHelix_G.NVHelix_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.1 0.1
+          CONTINUOUS_FIRE_MEAN:
+            Model: NVHelix_G
+            Animation: NVHelix_G.NVHelix_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.2 0.2
+          CONTINUOUS_FIRE_FAST:
+            Model: NVHelix_G
+            Animation: NVHelix_G.NVHelix_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.3 0.3
+            ParticleSysBone: [Muzzle01 GattlingMuzzleSmoke, Muzzle02 GattlingMuzzleSmoke]
+          REALLYDAMAGED:
+            Model: NVHelix_GD
+            Turret: TURRET01
+            TurretPitch: TURRETEL
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+            ParticleSysBone:
+            - Smoke01 SmokeFactionMedium
+            - Smoke02 SmokeFactionMedium
+            - Smoke03 SmokeFactionMedium
+            - SparkM01 SparksMedium
+            - SparkM02 SparksMedium
+          CONTINUOUS_FIRE_SLOW REALLYDAMAGED:
+            Model: NVHelix_GD
+            Animation: NVHelix_GD.NVHelix_GD
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.1 0.1
+          CONTINUOUS_FIRE_MEAN REALLYDAMAGED:
+            Model: NVHelix_GD
+            Animation: NVHelix_GD.NVHelix_GD
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.2 0.2
+          CONTINUOUS_FIRE_FAST REALLYDAMAGED:
+            Model: NVHelix_GD
+            Animation: NVHelix_GD.NVHelix_GD
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.3 0.3
+            ParticleSysBone: [Muzzle01 GattlingMuzzleSmoke, Muzzle02 GattlingMuzzleSmoke]
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_SDU:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 1500
+        DetectionRange: 200
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          ControlledWeaponSlots: PRIMARY
+          TurretTurnRate: 60
+          TurretPitchRate: 60
+          AllowsPitch: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_05:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_ChinaChainGuns
+    SourceFile: Data/INI/Object/ChinaAir.ini
+  ChinaHelixPropagandaTower:
+    SelectPortrait: SNPropSpeaker_L
+    ButtonImage: SNPropSpeaker
+    PlacementViewAngle: -45
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 6.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: CHASSISBONE
+        ConditionState:
+          NONE:
+            Model: NVHELIX_S
+            Animation: NVHELIX_S.NVHELIX_S
+            AnimationMode: LOOP
+          REALLYDAMAGED:
+            Model: NVHELIX_SD
+            ParticleSysBone:
+            - Smoke01 SmolderingSmoke
+            - Smoke02 SmolderingSmoke
+            - Flame01 SmolderingFire
+            - Flame01 SmolderingFlameCore
+            - Spark01 LiveWireSparks
+          NIGHT:
+            Model: NVHELIX_S
+            Animation: NVHELIX_S.NVHELIX_S
+            AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PropagandaTowerBehavior
+        Radius: 150.0
+        DelayBetweenUpdates: 2000
+        HealPercentEachSecond: 1%
+        PulseFX: FX_HelixPropagandaTowerPropagandaPulse
+        UpgradeRequired: Upgrade_ChinaSubliminalMessaging
+        UpgradedHealPercentEachSecond: 2%
+        UpgradedPulseFX: FX_HelixPropagandaTowerSubliminalPulse
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/ChinaAir.ini
+  ChinaHelixBattleBunker:
+    SelectPortrait: SNBunker_L
+    ButtonImage: SNBunker
+    PlacementViewAngle: -45
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 6.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceUnload: OverlordTankVoiceUnload
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: CHASSISBONE
+        ConditionState:
+          NONE:
+            Model: NVHELIX_B
+          REALLYDAMAGED:
+            Model: NVHELIX_BD
+            ParticleSysBone:
+            - Smoke01 SmolderingSmoke
+            - Smoke02 SmolderingSmoke
+            - Flame01 SmolderingFire
+            - Flame01 SmolderingFlameCore
+            - Spark01 LiveWireSparks
+          NIGHT:
+            Model: NVHELIX_B
+          NIGHT REALLYDAMAGED:
+            Model: NVHELIX_BD
+            ParticleSysBone:
+            - Smoke01 SmolderingSmoke
+            - Smoke02 SmolderingSmoke
+            - Flame01 SmolderingFire
+            - Flame01 SmolderingFlameCore
+            - Spark01 LiveWireSparks
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/ChinaAir.ini
+  ChinaTankOverlordBarrelDebris:
+    EditorSorting: DEBRIS
+    Side: China
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: NVOvrlrd_D3
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 10000
+        MaxLifetime: 15000
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1000
+        SinkRate: 1
+        DestructionDelay: 2000
+    SourceFile: Data/INI/Object/ChinaMiscUnit.ini
+  ChinaTankOverlordGattlingCannon:
+    SelectPortrait: SNGatTower_L
+    ButtonImage: SNGatTower
+    UpgradeCameo1: Upgrade_ChinaUraniumShells
+    UpgradeCameo2: Upgrade_ChinaNuclearTanks
+    UpgradeCameo5: Upgrade_ChinaOverlordGattlingCannon
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 8.0
+    GeometryMinorRadius: 8.0
+    GeometryHeight: 9.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY GattlingBuildingGun, SECONDARY GattlingBuildingGunAir]
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceRapidFire: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: FIREPOINT01
+        DefaultConditionState:
+          Model: NVOvrlrd_G
+          Turret: TURRET01
+          TurretPitch: TURRETEL
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+        ConditionState:
+          CONTINUOUS_FIRE_SLOW:
+            Model: NVOvrlrd_G
+            Animation: NVOvrlrd_G.NVOvrlrd_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.1 0.1
+          CONTINUOUS_FIRE_MEAN:
+            Model: NVOvrlrd_G
+            Animation: NVOvrlrd_G.NVOvrlrd_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.2 0.2
+          CONTINUOUS_FIRE_FAST:
+            Model: NVOvrlrd_G
+            Animation: NVOvrlrd_G.NVOvrlrd_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.3 0.3
+            ParticleSysBone: [Muzzle01 GattlingMuzzleSmoke, Muzzle02 GattlingMuzzleSmoke]
+          REALLYDAMAGED:
+            Model: NVOvrlrd_GD
+            Turret: TURRET01
+            TurretPitch: TURRETEL
+            WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+            WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+            ParticleSysBone:
+            - Smoke01 SmokeFactionMedium
+            - Smoke02 SmokeFactionMedium
+            - Smoke03 SmokeFactionMedium
+            - SparkM01 SparksMedium
+            - SparkM02 SparksMedium
+          CONTINUOUS_FIRE_SLOW REALLYDAMAGED:
+            Model: NVOvrlrd_GD
+            Animation: NVOvrlrd_G.NVOvrlrd_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.1 0.1
+          CONTINUOUS_FIRE_MEAN REALLYDAMAGED:
+            Model: NVOvrlrd_GD
+            Animation: NVOvrlrd_G.NVOvrlrd_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.2 0.2
+          CONTINUOUS_FIRE_FAST REALLYDAMAGED:
+            Model: NVOvrlrd_GD
+            Animation: NVOvrlrd_G.NVOvrlrd_G
+            AnimationMode: LOOP
+            AnimationSpeedFactorRange: 0.3 0.3
+            ParticleSysBone: [Muzzle01 GattlingMuzzleSmoke, Muzzle02 GattlingMuzzleSmoke]
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 60
+          TurretPitchRate: 60
+          AllowsPitch: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_05:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_ChinaChainGuns
+      ModuleTag_06:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        CanDetectWhileContained: Yes
+    SourceFile: Data/INI/Object/ChinaVehicle.ini
+  ChinaTankOverlordPropagandaTower:
+    SelectPortrait: SNPropSpeaker_L
+    ButtonImage: SNPropSpeaker
+    UpgradeCameo1: Upgrade_Nationalism
+    UpgradeCameo2: Upgrade_ChinaUraniumShells
+    UpgradeCameo3: Upgrade_ChinaNuclearTanks
+    UpgradeCameo5: Upgrade_ChinaOverlordPropagandaTower
+    PlacementViewAngle: -45
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 6.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: FIREPOINT01
+        ConditionState:
+          NONE:
+            Model: NVOvrlrd_S
+            Animation: NVOvrlrd_S.NVOvrlrd_S
+            AnimationMode: LOOP
+          REALLYDAMAGED:
+            Model: NVOvrlrd_SD
+            ParticleSysBone:
+            - Smoke01 SmolderingSmoke
+            - Smoke02 SmolderingSmoke
+            - Flame01 SmolderingFire
+            - Flame01 SmolderingFlameCore
+            - Spark01 LiveWireSparks
+          NIGHT:
+            Model: NVOvrlrd_S
+            Animation: NVOvrlrd_S.NVOvrlrd_S
+            AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PropagandaTowerBehavior
+        Radius: 150.0
+        DelayBetweenUpdates: 2000
+        HealPercentEachSecond: 1%
+        PulseFX: FX_OverlordPropagandaTowerPropagandaPulse
+        UpgradeRequired: Upgrade_ChinaSubliminalMessaging
+        UpgradedHealPercentEachSecond: 2%
+        UpgradedPulseFX: FX_OverlordPropagandaTowerSubliminalPulse
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/ChinaVehicle.ini
+  ChinaTankOverlordBattleBunker:
+    SelectPortrait: SNBunker_L
+    ButtonImage: SNBunker
+    UpgradeCameo1: Upgrade_ChinaUraniumShells
+    UpgradeCameo2: Upgrade_ChinaNuclearTanks
+    UpgradeCameo5: Upgrade_ChinaOverlordBattleBunker
+    PlacementViewAngle: -45
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 6.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceUnload: OverlordTankVoiceUnload
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        AttachToBoneInContainer: FIREPOINT01
+        ConditionState:
+          NONE:
+            Model: NVOvrlrd_B
+          REALLYDAMAGED:
+            Model: NVOvrlrd_BD
+            ParticleSysBone:
+            - Smoke01 SmolderingSmoke
+            - Smoke02 SmolderingSmoke
+            - Flame01 SmolderingFire
+            - Flame01 SmolderingFlameCore
+            - Spark01 LiveWireSparks
+          NIGHT:
+            Model: NVOvrlrd_B
+          NIGHT REALLYDAMAGED:
+            Model: NVOvrlrd_BD
+            ParticleSysBone:
+            - Smoke01 SmolderingSmoke
+            - Smoke02 SmolderingSmoke
+            - Flame01 SmolderingFire
+            - Flame01 SmolderingFlameCore
+            - Spark01 LiveWireSparks
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 5
+        PassengersAllowedToFire: Yes
+        AllowInsideKindOf: INFANTRY
+        EnterSound: GarrisonEnter
+        ExitSound: GarrisonExit
+        DamagePercentToUnits: 50%
+      ModuleTag_04:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/ChinaVehicle.ini
+  Humvee1DeadHull:
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 3
+    RadarPriority: UNIT
+    KindOf: CAN_CAST_REFLECTIONS IMMOBILE
+    Geometry: BOX
+    GeometryMajorRadius: 9.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 7.5
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: CVHUMVEE_D1
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50
+        AllowBouncing: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 0
+        MaxLifetime: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 14000
+        SinkRate: 2
+        DestructionDelay: 20000
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        RubbleParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+    SourceFile: Data/INI/Object/CivilianUnit.ini

@@ -1,0 +1,274 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  SNPowerPointY:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:499 Top:17 Right:505 Bottom:23
+    Status: NONE
+  SNPowerPointR:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:499 Top:9 Right:505 Bottom:15
+    Status: NONE
+  SNPowerPointG:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:499 Top:1 Right:505 Bottom:7
+    Status: NONE
+  SNUAttackP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:211 Right:129 Bottom:225
+    Status: NONE
+  SNUAttack:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:246 Top:281 Right:281 Bottom:298
+    Status: NONE
+  SNUAttackH:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:209 Top:281 Right:244 Bottom:298
+    Status: NONE
+  SNUAttackI:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:172 Top:281 Right:207 Bottom:298
+    Status: NONE
+  SNWorkerP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:136 Top:281 Right:170 Bottom:305
+    Status: NONE
+  SNBeacon:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:281 Right:134 Bottom:305
+    Status: NONE
+  SNBeaconH:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:461 Top:269 Right:495 Bottom:293
+    Status: NONE
+  SNBeaconI:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:425 Top:269 Right:459 Bottom:293
+    Status: NONE
+  SNBeaconP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:389 Top:269 Right:423 Bottom:293
+    Status: NONE
+  SNWorker:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:461 Top:243 Right:495 Bottom:267
+    Status: NONE
+  SNWorkerH:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:425 Top:243 Right:459 Bottom:267
+    Status: NONE
+  SNWorkerI:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:389 Top:243 Right:423 Bottom:267
+    Status: NONE
+  SNChat:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:461 Top:217 Right:495 Bottom:241
+    Status: NONE
+  SNChatH:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:425 Top:217 Right:459 Bottom:241
+    Status: NONE
+  SNChatI:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:389 Top:217 Right:423 Bottom:241
+    Status: NONE
+  SNChatP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:198 Top:199 Right:232 Bottom:223
+    Status: NONE
+  SNOptions:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:450 Top:191 Right:484 Bottom:215
+    Status: NONE
+  SNOptionsI:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:414 Top:191 Right:448 Bottom:215
+    Status: NONE
+  SNOptionsH:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:198 Top:173 Right:232 Bottom:197
+    Status: NONE
+  SNOptionsP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:198 Top:145 Right:232 Bottom:171
+    Status: NONE
+  SNMaxMinUI:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:149 Top:178 Right:196 Bottom:209
+    Status: NONE
+  SNMaxMinUH:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:178 Right:147 Bottom:209
+    Status: NONE
+  SNMaxMinU:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:158 Right:510 Bottom:189
+    Status: NONE
+  SNMaxMinP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:414 Top:158 Right:461 Bottom:189
+    Status: NONE
+  SNMaxMinI:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:149 Top:145 Right:196 Bottom:176
+    Status: NONE
+  SNMaxMinH:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:145 Right:147 Bottom:176
+    Status: NONE
+  SNMaxMin:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:463 Top:125 Right:510 Bottom:156
+    Status: NONE
+  SNMaxMinUP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:414 Top:125 Right:461 Bottom:156
+    Status: NONE
+  SNGeneral:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:160 Top:112 Right:218 Bottom:143
+    Status: NONE
+  SNGeneralP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:112 Right:158 Bottom:143
+    Status: NONE
+  SNGeneralI:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:414 Top:92 Right:472 Bottom:123
+    Status: NONE
+  SNGeneralH:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:414 Top:59 Right:472 Bottom:90
+    Status: NONE
+  SNExpBar:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:476 Top:1 Right:497 Bottom:108
+    Status: NONE
+  SNTraySmall:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:414 Top:1 Right:474 Bottom:57
+    Status: NONE
+  SNPowerBarY:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:263 Right:387 Bottom:279
+    Status: NONE
+  SNPowerBarR:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:245 Right:387 Bottom:261
+    Status: NONE
+  SNPowerBarG:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:227 Right:387 Bottom:243
+    Status: NONE
+  SNPowerTray2_Frames:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:360 Top:1 Right:412 Bottom:210
+    Status: NONE
+  SNPowerTray2_Holder:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:304 Top:1 Right:358 Bottom:222
+    Status: NONE
+  SNTray:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:241 Top:1 Right:302 Bottom:225
+    Status: NONE
+  SNLogo:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:1 Right:239 Bottom:110
+    Status: NONE
+  CHINALevelUP:
+    Texture: SNControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:98 Bottom:431
+    Status: NONE

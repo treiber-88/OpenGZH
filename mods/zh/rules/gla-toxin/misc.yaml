@@ -1,0 +1,292 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Chem_PoisonFieldGammaLarge:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 70.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: Chem_LargePoisonFieldWeaponGamma
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 45000
+        MaxLifetime: 45000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_PoisonFieldGammaMedium:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 40.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: Chem_MediumPoisonFieldWeaponGamma
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 30000
+        MaxLifetime: 30000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_PoisonFieldGammaSmall:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: Chem_SmallPoisonFieldWeaponGamma
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 10000
+        MaxLifetime: 10000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_ToxinProjectileStream:
+    KindOf: INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DProjectileStreamDraw
+        Texture: EXToxinStreamp.tga
+        Width: 1.5
+        TileFactor: 2.0
+        ScrollRate: 6.0
+        MaxSegments: 14
+      ModuleTag_02:
+        Module: Behavior
+        Class: ProjectileStreamUpdate
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  GC_Chem_PoisonFieldGammaLarge:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 70.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: Chem_LargePoisonFieldWeaponGamma
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 45000
+        MaxLifetime: 45000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/GC_Chem_GLASystem.ini
+  GC_Chem_PoisonFieldGammaMedium:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 40.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: Chem_MediumPoisonFieldWeaponGamma
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 30000
+        MaxLifetime: 30000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/GC_Chem_GLASystem.ini
+  GC_Chem_PoisonFieldGammaSmall:
+    EditorSorting: SYSTEM
+    KindOf: IMMOBILE CLEANUP_HAZARD STICK_TO_TERRAIN_SLOPE INERT NO_COLLIDE
+    SoundAmbient: AnthraxPoolAmbientLoop
+    Geometry: CYLINDER
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    ArmorSet:
+      Conditions: None
+      Armor: HazardousMaterialArmor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: Chem_SmallPoisonFieldWeaponGamma
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 10000
+        MaxLifetime: 10000
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponUpdate
+        Weapon: HazardFieldCoreWeapon
+      ModuleTag_06:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_AnthraxPoolDie
+    SourceFile: Data/INI/Object/GC_Chem_GLASystem.ini
+  GC_Chem_ToxinProjectileStream:
+    KindOf: INERT
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DProjectileStreamDraw
+        Texture: EXToxinStreamp.tga
+        Width: 1.5
+        TileFactor: 2.0
+        ScrollRate: 6.0
+        MaxSegments: 14
+      ModuleTag_02:
+        Module: Behavior
+        Class: ProjectileStreamUpdate
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini

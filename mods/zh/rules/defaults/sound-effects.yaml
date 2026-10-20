@@ -1,0 +1,14 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+AudioEvents:
+  DefaultSoundEffect:
+    Volume: 100
+    Priority: high
+    MinVolume: 40
+    Control: random
+    Limit: 4
+    MinRange: 175.00
+    MaxRange: 800.00
+    PitchShift: -0 0
+    Type: ui player

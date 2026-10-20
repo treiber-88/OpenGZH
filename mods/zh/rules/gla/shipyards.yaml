@@ -1,0 +1,168 @@
+# OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
+#
+# The GLA Shipyard: built by workers on a shoreline, produces the ships in rules/gla/ships.yaml.
+# Placement and orientation work like the USA Shipyard (see rules/usa/shipyards.yaml).
+#
+# ART: no shipyard art exists in the original game; "PMDock01" (an original concrete pier) is a
+# stand-in until the new GLA shipyard model (UBShipyard) exists. See docs/shipyard-art.md.
+
+Objects:
+  GLAShipyard:
+    SelectPortrait: SUArmsDealer_L        # stand-in until the shipyard portrait exists
+    ButtonImage: SUArmsDealer             # stand-in until the shipyard button exists
+    PlacementViewAngle: 0
+    DisplayName: OBJECT:GLAShipyard
+    Side: GLA
+    EditorSorting: STRUCTURE
+    BuildCost: 1500
+    BuildTime: 25.0
+    EnergyProduction: 0
+    CommandSet: GLAShipyardCommandSet
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    ExperienceValue: 200 200 200 200
+    SoundOnDamaged: BuildingDamagedStateLight
+    SoundOnReallyDamaged: BuildingDestroy
+    RadarPriority: STRUCTURE
+    KindOf: PRELOAD STRUCTURE SELECTABLE IMMOBILE CAPTURABLE FS_FACTORY AUTO_RALLYPOINT MP_COUNT_FOR_VICTORY SCORE_CREATE SHIPYARD
+    Geometry: BOX
+    GeometryMajorRadius: 55.0
+    GeometryMinorRadius: 60.0
+    GeometryHeight: 35.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    BuildCompletion: PLACED_BY_PLAYER
+    Prerequisites:
+      Object: GLASupplyStash Demo_GLASupplyStash Slth_GLASupplyStash Chem_GLASupplyStash
+    ArmorSet:
+      Conditions: None
+      Armor: StructureArmor
+      DamageFX: StructureDamageFXNoShake
+    UnitSpecificSounds:
+      UnderConstruction: UnderConstructionLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: PMDock01                 # stand-in: replace with UBShipyard
+        ConditionState:
+          DAMAGED:
+            Model: PMDock01               # stand-in: replace with UBShipyard_D
+          REALLYDAMAGED RUBBLE:
+            Model: PMDock01               # stand-in: replace with UBShipyard_E
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 2000.0
+        InitialHealth: 2000.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_04:
+        Module: Behavior
+        Class: DefaultProductionExitUpdate
+        UnitCreatePoint: 'X:90.0 Y:0.0 Z:0.0'
+        NaturalRallyPoint: 'X:170.0 Y:0.0 Z:0.0'
+      ModuleTag_05:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem2: Bone:None RandomBone:No PSys:StructureTransitionMediumExplosion
+      ModuleTag_06:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      ModuleTag_07:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_LargeStructureDebris
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_StructureMediumDeath
+      ModuleTag_09:
+        Module: Behavior
+        Class: DestroyDie
+
+  Demo_GLAShipyard:
+    ReskinOf: GLAShipyard
+    Side: GLADemolitionGeneral
+    Prerequisites:
+      Object: Demo_GLASupplyStash
+  Slth_GLAShipyard:
+    ReskinOf: GLAShipyard
+    Side: GLAStealthGeneral
+    Prerequisites:
+      Object: Slth_GLASupplyStash
+  Chem_GLAShipyard:
+    ReskinOf: GLAShipyard
+    Side: GLAToxinGeneral
+    Prerequisites:
+      Object: Chem_GLASupplyStash
+
+CommandSets:
+  GLAShipyardCommandSet:
+    1: Command_ConstructGLAShipArmedTrawler
+    2: Command_ConstructGLAShipBombBoat
+    13: Command_SetRallyPoint
+    14: Command_Sell
+
+  # Add the shipyard to every GLA worker (slot 12 is free in all of them).
+  GLAWorkerCommandSet:
+    12: Command_ConstructGLAShipyard
+  Demo_GLAWorkerCommandSet:
+    12: Demo_Command_ConstructGLAShipyard
+  Slth_GLAWorkerCommandSet:
+    12: Slth_Command_ConstructGLAShipyard
+  Chem_GLAWorkerCommandSet:
+    12: Chem_Command_ConstructGLAShipyard
+
+CommandButtons:
+  Command_ConstructGLAShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: GLAShipyard
+    TextLabel: CONTROLBAR:ConstructGLAShipyard
+    ButtonImage: SUArmsDealer
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipGLABuildShipyard
+  Demo_Command_ConstructGLAShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: Demo_GLAShipyard
+    TextLabel: CONTROLBAR:ConstructGLAShipyard
+    ButtonImage: SUArmsDealer
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipGLABuildShipyard
+  Slth_Command_ConstructGLAShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: Slth_GLAShipyard
+    TextLabel: CONTROLBAR:ConstructGLAShipyard
+    ButtonImage: SUArmsDealer
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipGLABuildShipyard
+  Chem_Command_ConstructGLAShipyard:
+    Command: DOZER_CONSTRUCT
+    Object: Chem_GLAShipyard
+    TextLabel: CONTROLBAR:ConstructGLAShipyard
+    ButtonImage: SUArmsDealer
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipGLABuildShipyard
+
+  Command_ConstructGLAShipArmedTrawler:
+    Command: UNIT_BUILD
+    Object: GLAShipArmedTrawler
+    TextLabel: CONTROLBAR:ConstructGLAShipArmedTrawler
+    ButtonImage: SUQuadCannon             # stand-in until a trawler button exists
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipGLABuildArmedTrawler
+  Command_ConstructGLAShipBombBoat:
+    Command: UNIT_BUILD
+    Object: GLAShipBombBoat
+    TextLabel: CONTROLBAR:ConstructGLAShipBombBoat
+    ButtonImage: SUBombTruck              # stand-in until a bomb boat button exists
+    ButtonBorderType: BUILD
+    DescriptLabel: CONTROLBAR:ToolTipGLABuildBombBoat

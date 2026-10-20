@@ -1,0 +1,123 @@
+# OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
+#
+# USA ships, built at the USA Shipyard (rules/usa/shipyards.yaml). Each is a reskin of a ship that
+# already exists in the original Zero Hour data, so it keeps that ship's original model, animations,
+# death effects and sounds; only what makes it playable is changed (owner, cost, locomotor, weapons).
+
+Objects:
+  # Fast patrol boat: original "PT Boat" (model AVPTBoat).
+  AmericaShipPTBoat:
+    ReskinOf: CivilianVehiclePTBoat
+    DisplayName: OBJECT:AmericaShipPTBoat
+    Side: America
+    EditorSorting: VEHICLE
+    BuildCost: 600
+    BuildTime: 10.0
+    VisionRange: 250
+    ShroudClearingRange: 300
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CommandSet: AmericaShipCommandSet
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK VEHICLE BOAT SCORE
+    Locomotor: SET_NORMAL NavalLightLocomotor
+    Prerequisites:
+      Object: AmericaShipyard AirF_AmericaShipyard Lazr_AmericaShipyard SupW_AmericaShipyard
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY NavalPatrolGun
+    ArmorSet:
+      Conditions: None
+      Armor: NavalArmor
+      DamageFX: TankDamageFX
+
+  # Battleship: the original "Battleship" from the Generals campaign (model AVBattShip),
+  # given an engine and a playable long-range gun. Two turrets, as in the original.
+  AmericaShipBattleship:
+    ReskinOf: AmericaVehicleBattleShipReal
+    DisplayName: OBJECT:Battleship
+    ButtonImage: SABattleship
+    Side: America
+    BuildCost: 2500
+    BuildTime: 40.0
+    VisionRange: 400
+    ShroudClearingRange: 450
+    ExperienceValue: 300 300 500 800
+    ExperienceRequired: 0 400 800 1600
+    IsTrainable: Yes
+    CommandSet: AmericaShipCommandSet
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS VEHICLE BOAT SCORE SELECTABLE CAN_ATTACK HUGE_VEHICLE
+    Locomotor: SET_NORMAL NavalHeavyLocomotor
+    GeometryMajorRadius: 110.0
+    GeometryMinorRadius: 20.0
+    Prerequisites:
+      Object:
+      - AmericaShipyard AirF_AmericaShipyard Lazr_AmericaShipyard SupW_AmericaShipyard
+      - AmericaStrategyCenter AirF_AmericaStrategyCenter Lazr_AmericaStrategyCenter SupW_AmericaStrategyCenter
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY NavalBattleshipGun, SECONDARY NavalBattleshipGun]
+    ArmorSet:
+      Conditions: None
+      Armor: NavalArmor
+      DamageFX: TankDamageFX
+    Modules:
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 2500.0
+        InitialHealth: 2500.0
+      ModuleTag_Naval_Die1:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_GenericTankDeathExplosion
+      ModuleTag_Naval_Die2:
+        Module: Behavior
+        Class: DestroyDie
+
+  # Aircraft carrier: the original carrier (model PSAirCarrier) with its flight deck of Raptors,
+  # turned from a fixed structure into a ship. Its MOVING model state with bow and side wakes
+  # already exists in the original art.
+  AmericaShipAircraftCarrier:
+    ReskinOf: AmericaAircraftCarrier
+    DisplayName: OBJECT:AircraftCarrier
+    ButtonImage: SACRaptor                # stand-in: the original carrier has no cameo
+    Side: America
+    EditorSorting: VEHICLE
+    BuildCost: 3000
+    BuildTime: 60.0
+    VisionRange: 350
+    ShroudClearingRange: 400
+    RadarPriority: UNIT
+    CommandSet: AmericaShipAircraftCarrierCommandSet
+    KindOf: PRELOAD SELECTABLE VEHICLE BOAT HUGE_VEHICLE AIRCRAFT_CARRIER FS_AIRFIELD SCORE CAN_ATTACK MP_COUNT_FOR_VICTORY
+    Locomotor: SET_NORMAL NavalHeavyLocomotor
+    Prerequisites:
+      Object:
+      - AmericaShipyard AirF_AmericaShipyard Lazr_AmericaShipyard SupW_AmericaShipyard
+      - AmericaAirfield AirF_AmericaAirfield Lazr_AmericaAirfield SupW_AmericaAirfield
+    ArmorSet:
+      Conditions: None
+      Armor: NavalArmor
+      DamageFX: TankDamageFX
+    Modules:
+      ModuleTag_Naval_AI:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+      ModuleTag_Naval_Physics:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 2000.0
+
+CommandSets:
+  AmericaShipCommandSet:
+    11: Command_AttackMove
+    13: Command_Guard
+    14: Command_Stop
+  AmericaShipAircraftCarrierCommandSet:
+    1: Command_HiddenConstructAmericaJetAircraftCarrierRaptor
+    2: Command_AircraftCarrierFire
+    11: Command_AttackMove
+    13: Command_Guard
+    14: Command_Stop

@@ -1,0 +1,274 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  SAPowerPointY:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:495 Top:61 Right:501 Bottom:67
+    Status: NONE
+  SAPowerPointR:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:503 Top:53 Right:509 Bottom:59
+    Status: NONE
+  SAPowerPointG:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:495 Top:53 Right:501 Bottom:59
+    Status: NONE
+  SAUAttackI:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:136 Top:316 Right:171 Bottom:334
+    Status: NONE
+  SAUAttackH:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:393 Top:244 Right:428 Bottom:262
+    Status: NONE
+  SABeacon:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:316 Right:134 Bottom:340
+    Status: NONE
+  SAChatP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:470 Top:314 Right:504 Bottom:338
+    Status: NONE
+  SAWorker:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:470 Top:288 Right:504 Bottom:312
+    Status: NONE
+  SABeaconH:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:262 Right:511 Bottom:286
+    Status: NONE
+  SAOptionsH:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:236 Right:511 Bottom:260
+    Status: NONE
+  SABeaconI:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:210 Right:511 Bottom:234
+    Status: NONE
+  SABeaconP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:174 Top:190 Right:208 Bottom:214
+    Status: NONE
+  SAChat:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:184 Right:511 Bottom:208
+    Status: NONE
+  SAWorkerH:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:413 Top:184 Right:447 Bottom:208
+    Status: NONE
+  SAWorkerI:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:174 Top:164 Right:208 Bottom:188
+    Status: NONE
+  SAWorkerP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:477 Top:158 Right:511 Bottom:182
+    Status: NONE
+  SAChatI:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:413 Top:158 Right:447 Bottom:182
+    Status: NONE
+  SAChatH:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:182 Top:138 Right:216 Bottom:162
+    Status: NONE
+  SAOptions:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:182 Top:112 Right:216 Bottom:136
+    Status: NONE
+  SAOptionsP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:475 Top:27 Right:509 Bottom:51
+    Status: NONE
+  SAOptionsI:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:475 Top:1 Right:509 Bottom:25
+    Status: NONE
+  SAMinMaxUH:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:396 Top:300 Right:468 Bottom:331
+    Status: NONE
+  SAMinMaxH:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:322 Top:300 Right:394 Bottom:331
+    Status: NONE
+  SAMinMaxUP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:248 Top:283 Right:320 Bottom:314
+    Status: NONE
+  SAMinMaxUI:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:174 Top:283 Right:246 Bottom:314
+    Status: NONE
+  SAMinMax:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:283 Right:172 Bottom:314
+    Status: NONE
+  SAMinMaxI:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:393 Top:267 Right:465 Bottom:298
+    Status: NONE
+  SAMinMaxU:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:178 Right:172 Bottom:209
+    Status: NONE
+  SAMinMaxP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:145 Right:172 Bottom:176
+    Status: NONE
+  SAExpBar:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:454 Top:158 Right:475 Bottom:265
+    Status: NONE
+  SAGeneral:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:413 Top:125 Right:493 Bottom:156
+    Status: NONE
+  SAGeneralH:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:112 Right:180 Bottom:143
+    Status: NONE
+  SAGeneralP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:413 Top:92 Right:493 Bottom:123
+    Status: NONE
+  SAGeneralI:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:413 Top:59 Right:493 Bottom:90
+    Status: NONE
+  SAPowerBarY:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:270 Right:391 Bottom:281
+    Status: NONE
+  SAPowerBarG:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:257 Right:391 Bottom:268
+    Status: NONE
+  SAPowerBarR:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:244 Right:391 Bottom:255
+    Status: NONE
+  SATraySmall:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:413 Top:1 Right:473 Bottom:57
+    Status: NONE
+  SAUAttack:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:277 Top:219 Right:452 Bottom:242
+    Status: NONE
+  SAUAttackP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:217 Right:275 Bottom:240
+    Status: NONE
+  SAPowerTray2_Frames:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:359 Top:1 Right:411 Bottom:210
+    Status: NONE
+  SAPowerTray2_Holder:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:303 Top:1 Right:357 Bottom:217
+    Status: NONE
+  SATray:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:241 Top:1 Right:301 Bottom:215
+    Status: NONE
+  SALogo:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:100 Top:1 Right:239 Bottom:110
+    Status: NONE
+  USLevelUP:
+    Texture: SAControlBar512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:98 Bottom:431
+    Status: NONE

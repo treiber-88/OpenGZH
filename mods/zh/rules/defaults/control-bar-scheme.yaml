@@ -1,0 +1,74 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+ControlBarSchemes:
+  Default:
+    ScreenCreationRes: X:800 Y:600
+    QueueButtonImage: SCBigButton
+    RightHUDImage: UnitBackgroundA
+    CommandBarBorderColor: R:0 G:21 B:126 A:255
+    BuildUpClockColor: R:0 G:0 B:0 A:160
+    ButtonBorderBuildColor: R:67 G:108 B:190 A:255
+    ButtonBorderActionColor: R:1 G:175 B:2 A:255
+    ButtonBorderUpgradeColor: R:208 G:108 B:0 A:255
+    ButtonBorderSystemColor: R:207 G:195 B:2 A:255
+    GenBarButtonIn: SABarButtonGen2IN
+    GenBarButtonOn: SABarButtonGen2ON
+    ToggleButtonUpIn: SAMinMaxUH
+    ToggleButtonUpOn: SAMinMaxU
+    ToggleButtonUpPushed: SAMinMaxUP
+    ToggleButtonDownIn: SAMinMaxH
+    ToggleButtonDownOn: SAMinMax
+    ToggleButtonDownPushed: SAMinMaxP
+    OptionsButtonEnable: SAOptions
+    OptionsButtonHightlited: SAOptionsH
+    OptionsButtonPushed: SAOptionsP
+    IdleWorkerButtonEnable: SAWorker
+    IdleWorkerButtonHightlited: SAWorkerH
+    IdleWorkerButtonPushed: SAWorkerP
+    IdleWorkerButtonDisabled: SAWorkerI
+    BuddyButtonEnable: SAChat
+    BuddyButtonHightlited: SAChatH
+    BuddyButtonPushed: SAChatP
+    BeaconButtonEnable: SABeacon
+    BeaconButtonHightlited: SABeaconH
+    BeaconButtonPushed: SABeaconP
+    OptionsButtonDisabled: SAOptionsI
+    BuddyButtonDisabled: SAChatI
+    BeaconButtonDisabled: SABeaconI
+    GeneralButtonEnable: SAGeneral
+    GeneralButtonHightlited: SAGeneralH
+    GeneralButtonPushed: SAGeneralP
+    GeneralButtonDisabled: SAGeneralI
+    UAttackButtonEnable: SAUAttackI
+    UAttackButtonHightlited: SAUAttackH
+    UAttackButtonPushed: SAUAttackP
+    MinMaxButtonEnable: SAMinMax
+    MinMaxButtonHightlited: SAMinMaxH
+    MinMaxButtonPushed: SAMinMaxP
+    MinMaxUL: X:646 Y:432
+    MinMaxLR: X:718 Y:463
+    GeneralUL: X:719 Y:432
+    GeneralLR: X:799 Y:463
+    UAttackUL: X:136 Y:413
+    UAttackLR: X:178 Y:430
+    OptionsUL: X:184 Y:490
+    OptionsLR: X:220 Y:514
+    WorkerUL: X:184 Y:516
+    WorkerLR: X:220 Y:540
+    ChatUL: X:184 Y:568
+    ChatLR: X:220 Y:592
+    BeaconUL: X:184 Y:545
+    BeaconLR: X:220 Y:566
+    PowerBarUL: X:256 Y:466
+    PowerBarLR: X:542 Y:481
+    ExpBarForegroundImage: SAExpBar
+    MoneyUL: X:360 Y:437
+    MoneyLR: X:439 Y:456
+    GenArrow: USLevelUP
+    CommandMarkerImage: SAEmptyFrame
+    ImagePart:
+      Position: X:0 Y:408
+      Size: X:800 Y:191
+      ImageName: InGameUIAmericaBase
+      Layer: 4

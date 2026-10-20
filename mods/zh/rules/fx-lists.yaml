@@ -1,0 +1,4837 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+FXLists:
+  WeaponFX_ToxinShellWeapon:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ToxicShellExplosion
+  FX_CarOverlappedByCrusher:
+    Nuggets:
+    - Type: Sound
+      Name: CarMount
+  FX_GIDie: {}
+  FX_DieByFireUSA:
+    Nuggets:
+    - Type: Sound
+      Name: DieByFireUSA
+  FX_DieByToxinUSA:
+    Nuggets:
+    - Type: Sound
+      Name: DieByToxinUSA
+  FX_DieByFireGLA:
+    Nuggets:
+    - Type: Sound
+      Name: DieByFireGLA
+  FX_DieByToxinGLA:
+    Nuggets:
+    - Type: Sound
+      Name: DieByToxinGLA
+  FX_DieByFireChina:
+    Nuggets:
+    - Type: Sound
+      Name: DieByFireChina
+  FX_DieByToxinChina:
+    Nuggets:
+    - Type: Sound
+      Name: DieByToxinChina
+  FX_DieByFireFemale:
+    Nuggets:
+    - Type: Sound
+      Name: DieByFireChina
+  FX_DieByToxinFemale:
+    Nuggets:
+    - Type: Sound
+      Name: DieByToxinChina
+  FX_RedGuardDie:
+    Nuggets:
+    - Type: Sound
+      Name: RedGuardVoiceDie
+  FX_HackerDie:
+    Nuggets:
+    - Type: Sound
+      Name: RedGuardVoiceDie
+  FX_ToxinTractorDie:
+    Nuggets:
+    - Type: Sound
+      Name: ToxinTractorDie
+  FX_TankHunterDie:
+    Nuggets:
+    - Type: Sound
+      Name: TankHunterVoiceDie
+  FX_BlackLotusDie:
+    Nuggets:
+    - Type: Sound
+      Name: BlackLotusVoiceDie
+  FX_WorkerDie:
+    Nuggets:
+    - Type: Sound
+      Name: WorkerVoiceDie
+  FX_RebelDie:
+    Nuggets:
+    - Type: Sound
+      Name: RebelVoiceDie
+  FX_HijackerDie:
+    Nuggets:
+    - Type: Sound
+      Name: HijackerVoiceDie
+  FX_CivilianArabMaleDie:
+    Nuggets:
+    - Type: Sound
+      Name: CivilianArabMaleDie
+  FX_CivilianArabFemaleDie:
+    Nuggets:
+    - Type: Sound
+      Name: CivilianArabFemaleDie
+  FX_CivilianChinaMaleDie:
+    Nuggets:
+    - Type: Sound
+      Name: CivilianChinaMaleDie
+  FX_CivilianChinaFemaleDie:
+    Nuggets:
+    - Type: Sound
+      Name: CivilianChinaFemaleDie
+  FX_TerroristDie:
+    Nuggets:
+    - Type: Sound
+      Name: TerroristVoiceDie
+  FX_StingerSoldierDie:
+    Nuggets:
+    - Type: Sound
+      Name: StingerSoldierVoiceDie
+  FX_RPGTrooperDie:
+    Nuggets:
+    - Type: Sound
+      Name: RPGTrooperVoiceDie
+  FX_JarmenKellDie:
+    Nuggets:
+    - Type: Sound
+      Name: JarmenKellVoiceDie
+  FX_ColonelBurtonDie:
+    Nuggets:
+    - Type: Sound
+      Name: ColonelBurtonVoiceDie
+  FX_PathfinderDie:
+    Nuggets:
+    - Type: Sound
+      Name: PathfinderVoiceDie
+  FX_PilotDie:
+    Nuggets:
+    - Type: Sound
+      Name: PilotVoiceDie
+  FX_RangerDie:
+    Nuggets:
+    - Type: Sound
+      Name: RangerVoiceDie
+  FX_MissileDefenderDie:
+    Nuggets:
+    - Type: Sound
+      Name: MissileDefenderVoiceDie
+  FX_SaboteurDie:
+    Nuggets:
+    - Type: Sound
+      Name: SaboteurVoiceDie
+  FX_CombatCycleDie:
+    Nuggets:
+    - Type: Sound
+      Name: CombatCycleVoiceDie
+  FX_CombatCycleDieNoScream:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+  FX_CIAAgentDie:
+    Nuggets:
+    - Type: Sound
+      Name: CIAAgentVoiceDie
+  FX_ToxicPoolDie:
+    Nuggets:
+    - Type: Sound
+      Name: ToxicPoolDie
+  FX_AnthraxPoolDie:
+    Nuggets:
+    - Type: Sound
+      Name: AnthraxPoolDie
+  FX_RadiationPoolDie:
+    Nuggets:
+    - Type: Sound
+      Name: RadiationPoolDie
+  FX_GIDieCrushed:
+    Nuggets:
+    - Type: Sound
+      Name: InfantryCrush
+  FX_TrainWhistle:
+    Nuggets:
+    - Type: Sound
+      Name: TrainWhistle
+  FX_DamageMinorArmorPiercing: {}
+  FX_DamageMajorArmorPiercing: {}
+  FX_DamageTankStruck:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankStruckSmoke
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: ParticleSystem
+      Name: TankStruckDebris
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Height: 10 10 CONSTANT
+    - Type: ParticleSystem
+      Name: TankStruckLenzflare
+      Height: 10 10 CONSTANT
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: Sound
+      Name: VehicleImpactHeavy
+  FX_HeroicDamageTankStruck:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankStruckSmoke
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: ParticleSystem
+      Name: TankStruckDebris
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Height: 10 10 CONSTANT
+    - Type: ParticleSystem
+      Name: HeroicTankStruckLenzflare
+      Height: 10 10 CONSTANT
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: Sound
+      Name: VehicleImpactHeavy
+  FX_DamageSmallTankStruck:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SmallTankStruckSmoke
+      Height: 0 0 CONSTANT
+    - Type: ParticleSystem
+      Name: SmallTankStruckSparks
+      Height: 0 0 CONSTANT
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: Sound
+      Name: VehicleImpactLight
+  FX_DamageTankStruckSmallArms:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Height: 10 10 CONSTANT
+    - Type: ParticleSystem
+      Name: TankStruckSmallArmsSmoke
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: Sound
+      Name: VehicleImpactLight
+  FX_DamageDisableVehicle:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Height: 10 10 CONSTANT
+    - Type: ParticleSystem
+      Name: TankStruckSmallArmsSmoke
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: Sound
+      Name: VehicleImpactLight
+    - Type: Sound
+      Name: BuildingDisabled
+  FX_HeroicDamageDisableVehicle:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Height: 10 10 CONSTANT
+    - Type: ParticleSystem
+      Name: TankStruckSmallArmsSmoke
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: Sound
+      Name: VehicleImpactLight
+    - Type: Sound
+      Name: BuildingDisabled
+  FX_DamageSmallTankStruckSmallArms:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SmallTankStruckSparks
+      Height: 0 0 CONSTANT
+    - Type: ParticleSystem
+      Name: TankStruckSmallArmsSmoke
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: LightPulse
+      Color: R:128 G:128 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: Sound
+      Name: VehicleImpactLight
+  FX_HeroicDamageTankStruckSmallArms:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HeroicTankStruckSparks
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: TankStruckSmallArmsSmoke
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: LightPulse
+      Color: R:255 G:0 B:0
+      Radius: 25
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: Sound
+      Name: VehicleImpactLight
+  FX_DamageInfantryStruck:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: InfantryMortarDebris
+    - Type: ParticleSystem
+      Name: InfantryMortarDust
+    - Type: Sound
+  FX_DamageInfantryStruckSmallArms:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: InfantryStruckSparks
+      Height: 10 10 CONSTANT
+    - Type: ParticleSystem
+      Name: InfantryStruckSmallArmsSmoke
+      Height: 10 10 CONSTANT
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: Sound
+  FX_HeroicDamageInfantryStruckSmallArms:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HeroicInfantryStruckSparks
+      Height: 10 10 CONSTANT
+    - Type: ParticleSystem
+      Name: InfantryStruckSmallArmsSmoke
+      OrientToObject: Yes
+      Ricochet: Yes
+    - Type: ParticleSystem
+      Name: HeroicInfantryStruckFlare
+    - Type: Sound
+  FX_DamageTankStruckFlame:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankStruckFlame
+      Height: 10 10 CONSTANT
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+  FX_TechnicalGunnerHitsGround:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TreeBounceDust
+    - Type: Sound
+      Name: TechnicalBodyfall
+  WeaponFX_BattleshipBogusGun:
+    Nuggets:
+    - Type: SEVERE
+    - Type: ParticleSystem
+      Name: BattleshipMuzzleFlashFlame
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: BattleshipMuzzleFlashSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: BattleshipMuzzleFlashWave
+      Offset: X:0.0 Y:0.0 Z:-20.0
+      OrientToObject: Yes
+  WeaponFX_BattleshipTargetExplode:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: RANDOM
+      Radius: 15
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: ParticleSystem
+      Name: MortarDebris
+    - Type: ParticleSystem
+      Name: MortarDust
+    - Type: Sound
+      Name: ExplosionBattleshipTarget
+  WeaponFX_NeutronMissile:
+    Nuggets:
+    - Type: Sound
+      Name: NeutronMissileRelease
+  FX_ScudLauncherIgnition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ScudStormIgnitionCloud
+      Offset: X:-20.0 Y:0.0 Z:3.0
+      OrientToObject: Yes
+  WeaponFX_ScudStormMissile:
+    Nuggets:
+    - Type: Sound
+      Name: NeutronMissileRelease
+  FX_ScudStormIgnition:
+    Nuggets:
+    - Type: Sound
+      Name: NeutronMissileRelease
+    - Type: ParticleSystem
+      Name: ScudStormIgnitionCloud
+      Offset: X:0.0 Y:0.0 Z:3.0
+  FX_TomahawkIgnition:
+    Nuggets:
+    - Type: Sound
+    - Type: ParticleSystem
+      Name: ScudStormIgnitionCloud
+      Offset: X:0.0 Y:0.0 Z:3.0
+      OrientToObject: Yes
+  ScudStormMissileDetonation:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: ScudMissleExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: ScudMissleLenzFlare
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: ScudMissleExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  WeaponFX_NapalmMissile:
+    Nuggets:
+    - Type: Sound
+      Name: FireStormMissileWeapon
+  WeaponFX_DragonTankFlameWeapon:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+  WeaponFX_DragonTankFlameWeaponUpgraded:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+  WeaponFX_ToxinTruckFlameWeapon:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:64 G:255 B:64
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+  WeaponFX_ToxinTruckFlameWeaponUpgraded:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:64 G:64 B:255
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+  WeaponFX_CleanupFireWeapon:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:64 G:128 B:255
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+  WeaponFX_GenericTankShellDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+      UseCallersRadius: Yes
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+  WeaponFX_InfernoTankShellDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionFire
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+      UseCallersRadius: Yes
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+  WeaponFX_GenericTankGunNoTracer:
+    Nuggets:
+    - Type: NORMAL
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: TankMuzzleFlashSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TankMuzzleFlashFlame
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TankMuzzleFlare
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TankMuzzleWave
+      OrientToObject: Yes
+      CreateAtGroundHeight: Yes
+  WeaponFX_HeroicGenericTankGunNoTracer:
+    Nuggets:
+    - Type: NORMAL
+    - Type: LightPulse
+      Color: R:128 G:0 B:0
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: HeroicTankMuzzleFlashSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: HeroicTankMuzzleFlashFlame
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: HeroicTankMuzzleFlare
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TankMuzzleWave
+      OrientToObject: Yes
+      CreateAtGroundHeight: Yes
+  WeaponFX_NukeCannonMuzzleFlash:
+    Nuggets:
+    - Type: NORMAL
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: NukeCannonMuzzleFlashSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: NukeCannonMuzzleFlashFlame
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: NukeCannonMuzzleFlare
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: NukeCannonMuzzleFlashRing
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: NukeCannonMuzzleWave
+      OrientToObject: Yes
+      CreateAtGroundHeight: Yes
+  WeaponFX_HeroicNukeCannonMuzzleFlash:
+    Nuggets:
+    - Type: NORMAL
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: NukeCannonMuzzleFlashSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: NukeCannonMuzzleFlashFlame
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: HeroicNukeCannonMuzzleFlare
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: HeroicNukeCannonMuzzleFlashRing
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: NukeCannonMuzzleWave
+      OrientToObject: Yes
+      CreateAtGroundHeight: Yes
+  WeaponFX_GenericTankGunNoTracerSmall:
+    Nuggets:
+    - Type: NORMAL
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: TankSmallMuzzleFlashSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TankSmallMuzzleFlashFlame
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TankSmallMuzzleFlare
+      OrientToObject: Yes
+  WeaponFX_HeroicGenericTankGunNoTracerSmall:
+    Nuggets:
+    - Type: NORMAL
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: TankSmallMuzzleFlashSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TankSmallMuzzleFlashFlame
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: HeroicTankSmallMuzzleFlare
+      OrientToObject: Yes
+  WeaponFX_GenericTankGun:
+    Nuggets:
+    - Type: NORMAL
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 25
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: Tracer
+      DecayAt: 0.5
+      Length: 20
+      Width: 0.5
+      Color: R:230 G:204 B:179
+    - Type: ParticleSystem
+      Name: TankMuzzleFlashSmoke
+      OrientToObject: Yes
+      RotateY: 90
+    - Type: ParticleSystem
+      Name: TankMuzzleFlashFlame
+      OrientToObject: Yes
+      RotateY: 90
+  WeaponFX_GenericMachineGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 10
+      IncreaseTime: 0
+      DecreaseTime: 200
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShells
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:255 B:255
+      Speed: 600
+      Probability: 0.5
+  WeaponFX_GenericMachineGunFireWithRedTracers:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:128 G:0 B:0
+      Radius: 25
+      IncreaseTime: 0
+      DecreaseTime: 200
+    - Type: ParticleSystem
+      Name: HeroicGattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShells
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:0 B:0
+      Speed: 300
+      Probability: 0.5
+  WeaponFX_GattlingTankMachineGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 10
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShellsGattling
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:255 B:255
+      Speed: 1200
+      Probability: 0.7
+  WeaponFX_GattlingTankMachineGunFireWithRedTracers:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:64 B:64
+      Radius: 25
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: HeroicGattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShellsGattling
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:0 B:0
+      Speed: 1200
+      Probability: 0.7
+  WeaponFX_GattlingCannonMachineGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 10
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShellsGattlingTilted
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:255 B:255
+      Speed: 1200
+      Probability: 0.7
+  WeaponFX_GattlingCannonMachineGunFireWithRedTracers:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:64 B:64
+      Radius: 25
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: HeroicGattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShellsGattlingTilted
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:0 B:0
+      Speed: 1200
+      Probability: 0.7
+  WeaponFX_RedguardMachineGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 10
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:230 G:204 B:179
+      Speed: 300
+      Probability: 0.5
+  WeaponFX_HeroicRedguardMachineGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 10
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:0 B:0
+      Speed: 300
+      Probability: 0.5
+  WeaponFX_RangerAdvancedCombatRifleFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 20
+      IncreaseTime: 0
+      DecreaseTime: 300
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:230 G:204 B:179
+      Speed: 300
+      Probability: 0.5
+  WeaponFX_HeroicRangerAdvancedCombatRifleFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 20
+      IncreaseTime: 0
+      DecreaseTime: 300
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:0 B:0
+      Speed: 300
+      Probability: 0.9
+  WeaponFX_Comanche20mmCannonFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:255
+      Radius: 60
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShellsComanche
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:128 G:128 B:128
+      Speed: 600
+  WeaponFX_HeroicComanche20mmCannonFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:128 B:128
+      Radius: 60
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: ParticleSystem
+      Name: HeroicGattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShellsComanche
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:196 G:0 B:0
+      Speed: 600
+  WeaponFX_WatchTowerMachineGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 21
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+  WeaponFX_CommandoMachineGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 10
+      IncreaseTime: 0
+      DecreaseTime: 100
+  WeaponFX_QuadCannonGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:128 G:128 B:64
+      Radius: 20
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflareIntense
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShells
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:255 B:255
+      Speed: 300
+      Probability: 0.5
+  WeaponFX_HeroicQuadCannonGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 20
+      IncreaseTime: 0
+      DecreaseTime: 300
+    - Type: ParticleSystem
+      Name: HeroicGattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShells
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:255 G:0 B:0
+      Speed: 300
+      Probability: 0.5
+  WeaponFX_TechnicalGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 25
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflareIntense
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShells
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:230 G:204 B:179
+      Speed: 300
+      Probability: 0.25
+  WeaponFX_NapalmMissileDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: NapalmExplosionArms
+    - Type: ParticleSystem
+      Name: NapalmFire
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NapalmExplosionFlare
+      Offset: X:0.0 Y:0.0 Z:15.0
+    - Type: RANDOM
+      Radius: 15
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: Sound
+      Name: ExplosionFire
+  WeaponFX_BlackNapalmMissileDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: NapalmExplosionArms
+    - Type: ParticleSystem
+      Name: NapalmFire
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: RANDOM
+      Radius: 15
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: Sound
+      Name: ExplosionFire
+  WeaponFX_MolotovCocktailDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MolotovFlames
+    - Type: ParticleSystem
+      Name: MolotovGlassShatter
+    - Type: RANDOM
+      Radius: 18
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: Sound
+      Name: MolotovCocktailShatter
+  WeaponFX_JetMissileDetonation:
+    Nuggets:
+    - Type: NORMAL
+    - Type: ParticleSystem
+      Name: BuggyNewAirDeathSubExplosionSmoke
+    - Type: ParticleSystem
+      Name: ArtilleryBarrageShockwave
+    - Type: RANDOM
+      Radius: 15
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: Sound
+      Name: ExplosionJetMissile
+  FX_BombExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CarpetBombExplosionSmoke
+    - Type: ParticleSystem
+      Name: CarpetBombExplosionShockwave
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: Explosion
+  FX_TankDieExplosion:
+    Nuggets:
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 15
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: Sound
+      Name: TankDie
+  FX_JetDeathExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosion
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: JetDebris
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 3
+      Radius: 15 30 UNIFORM
+      Height: 0 0 UNIFORM
+      InitialDelay: 50 667 UNIFORM
+      OrientToObject: Yes
+    - Type: NORMAL
+  FX_RaptorDeathExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosion
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: JetDebris
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 3
+      Radius: 15 30 UNIFORM
+      Height: 0 0 UNIFORM
+      InitialDelay: 50 667 UNIFORM
+      OrientToObject: Yes
+    - Type: NORMAL
+  FX_GenericTankDeathExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Radius: 15 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 167 667 UNIFORM
+    - Type: ParticleSystem
+      Name: MammothTankExplosionDebris
+    - Type: ParticleSystem
+      Name: MammothTankExplosionLenzflare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: MammothTankExplosionShockwave
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_AmericaVehicleTomahawkDeathExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 3
+      Radius: 15 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 167 667 UNIFORM
+    - Type: ParticleSystem
+      Name: MammothTankExplosionDebris
+    - Type: ParticleSystem
+      Name: MammothTankExplosionShockwave
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_ChinaVehicleNukeCannonDeathExplosion:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: NukeCannonFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:45.0
+    - Type: ParticleSystem
+      Name: NukeCannonRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeCannonBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: NukeCannonShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomStem
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:35.0
+  FX_ParticleUplinkCannon_BeamHitsGround:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ParticleCannonUplink_HitFlare
+      Offset: X:0.0 Y:0.0 Z:2.0
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: ParticleUplinkCannon_Magma
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: ParticleUplinkCannon_Sparks
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: ParticleUplinkCannon_Shockwave
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: ParticleUplinkCannon_Fire
+      Offset: X:0.0 Y:0.0 Z:1.0
+  FX_ParticleUplinkCannon_BeamLaunchIteration:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ParticleUplinkCannon_LaunchFlare
+      Offset: X:0.0 Y:0.0 Z:10.0
+  SupW_FX_ParticleUplinkCannon_BeamLaunchIteration:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SupW_ParticleUplinkCannon_LaunchFlare
+      Offset: X:0.0 Y:0.0 Z:10.0
+  FX_GenericTankDeathEffect:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MammothTankExplosionArms
+    - Type: Sound
+      Name: Explosion
+  FX_CrusaderCatchFire:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankFire
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: ExplosionBarrel
+  FX_HumveeExplosionOneInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HotPillarArms
+      Offset: X:10 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: ExplosionBarrel
+  FX_HumveeExplosionOneFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HumveeExplosionSmoke
+    - Type: ParticleSystem
+      Name: HumveeSubExplosionSmoke
+      Count: 3
+      Radius: 15 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 167 667 UNIFORM
+    - Type: ParticleSystem
+      Name: HumveeExplosionDebris
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_HumveeDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HumveeTransitionExplosion1
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_ComancheDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ComancheTransitionSmoke
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_JetBigDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetTransitionSmokeLarge
+      Offset: X:0 Y:0 Z:10
+      OrientToObject: Yes
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_BattleMasterExplosionOneInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HotPillarArms
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: ExplosionBarrel
+  FX_GattlingExplosionOneInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HotPillarArms
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: ExplosionBarrel
+  FX_GattlingExplosionOneFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionDebris
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionShockwave
+      Offset: X:0 Y:0 Z:2
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionLenzflare
+      Offset: X:0 Y:0 Z:10
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_BattleMasterExplosionOneFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionDebris
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionShockwave
+      Offset: X:0 Y:0 Z:2
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionLenzflare
+      Offset: X:0 Y:0 Z:10
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_ScudLauncherExplosionOneFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ScudLauncherExplosionSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionDebris
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionShockwave
+      Offset: X:0 Y:0 Z:2
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionLenzflare
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherExplosionTrailArms
+      Offset: X:0 Y:0 Z:5
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_SupplyTruckExplosionOneFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ScudLauncherExplosionSmoke
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionDebris
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionShockwave
+      Offset: X:0 Y:0 Z:2
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionLenzflare
+      Offset: X:0 Y:0 Z:10
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_ToxinTruckExplosionOneFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: BattleMasterTankExplosionDebris
+    - Type: ParticleSystem
+      Name: ScudMissleExplosionTrailArms
+      Offset: X:0 Y:0 Z:2
+    - Type: ParticleSystem
+      Name: ToxicExplosionLarge
+      Offset: X:0 Y:0 Z:5
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_BattleMasterDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionExplosion
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionLenzflare
+      Offset: X:0 Y:0 Z:1
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionDebris
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_BattleMasterDamageTransitionSmall:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionExplosionSmall
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionLenzflareSmall
+      Offset: X:0 Y:0 Z:1
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionDebrisSmall
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_BattleDroneDamageTransitionSmall:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionExplosionSmall
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionLenzflareSmall
+      Offset: X:0 Y:0 Z:1
+    - Type: ParticleSystem
+      Name: BattleMasterTransitionDebrisSmall
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+  FX_ScudLauncherDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ScudLauncherTransitionExplosion
+      Offset: X:0 Y:0 Z:5
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: ScudLauncherTransitionLenzflare
+      Offset: X:0 Y:0 Z:1
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: ScudLauncherTransitionDebris
+      Offset: X:0 Y:0 Z:10
+      OrientToObject: Yes
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_OverlordSmoke:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankSmoke
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: ExplosionBarrel
+  FX_OverlordExplosionOneInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HotPillarArms
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: ExplosionBarrel
+  FX_OverlordExplosionOneFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: OverlordExplosionSmoke
+    - Type: ParticleSystem
+      Name: OverlordSubExplosionSmoke
+      Radius: 15 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 167 667 UNIFORM
+    - Type: ParticleSystem
+      Name: OverlordExplosionDebris
+    - Type: ParticleSystem
+      Name: OverlordExplosionLenzflare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: OverlordExplosionShockwave
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_OverlordDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: OverlordTransitionExplosion
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: OverlordTransitionDebris
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: OverlordTransitionLenzflare
+      Offset: X:0 Y:0 Z:1
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_NukeCannonDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: NukeCannonTransitionExplosion
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: NukeCannonTransitionDebris
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: NukeCannonTransitionLenzflare
+      Offset: X:0 Y:0 Z:1
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_DragonDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: DragonTransitionExplosion
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: DragonTransitionDebris
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: DragonTransitionLenzflare
+      Offset: X:0 Y:0 Z:1
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_CrusaderDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: DragonTransitionExplosion1
+      Offset: X:0 Y:0 Z:0
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_MIGDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MIGTransitionSmoke
+      Offset: X:0 Y:0 Z:0
+      OrientToObject: Yes
+    - Type: SUBTLE
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_DragonNapalmSpill:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: NapalmSpill01
+      Offset: X:0 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: NapalmSpill02
+      Offset: X:0 Y:0 Z:10
+    - Type: Sound
+      Name: FireHydrantBreak
+  FX_DragonTankDeathExplosionFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: OverlordExplosionSmoke
+    - Type: ParticleSystem
+      Name: OverlordSubExplosionSmoke
+      Radius: 15 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 167 667 UNIFORM
+    - Type: ParticleSystem
+      Name: FirestormSmall
+    - Type: ParticleSystem
+      Name: FirestormRingSmall
+      OrientToObject: Yes
+      Offset: X:0 Y:0 Z:1
+    - Type: SUBTLE
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_QuadCannonCatchFire:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankFire
+      Offset: X:0 Y:0 Z:10
+    - Type: SUBTLE
+    - Type: Sound
+      Name: QuadCannonCatchFire
+  FX_FireHydrantExplode:
+    Nuggets:
+    - Type: Sound
+      Name: FireHydrantBreak
+  FX_SmallStructureDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Radius: 15 30 UNIFORM
+      Height: 15 30 UNIFORM
+      InitialDelay: 200 300 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureExplosionSmoke
+      Count: 1
+      Height: 0 0 UNIFORM
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureSubExplosionSmoke
+      Count: 5
+      Radius: 15 30 UNIFORM
+      Height: 0 30 UNIFORM
+      InitialDelay: 167 1000 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureExplosionDebris
+    - Type: ParticleSystem
+      Name: SmallStructureExplosionShockwave
+    - Type: STRONG
+    - Type: Sound
+      Name: BuildingDie
+  FX_LargeStructureDeath:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDie
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 2
+      Radius: 20 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureExplosionSmoke
+      Count: 3
+      Radius: 10 40 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureSubExplosionSmoke
+      Count: 5
+      Radius: 15 50 UNIFORM
+      Height: 0 40 UNIFORM
+      InitialDelay: 167 1000 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureExplosionDebris
+    - Type: ParticleSystem
+      Name: LargeStructureExplosionShockwave
+    - Type: STRONG
+  FX_CommandCenterDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 2
+      Radius: 20 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureExplosionSmoke
+      Count: 3
+      Radius: 10 40 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureSubExplosionSmoke
+      Count: 5
+      Radius: 15 50 UNIFORM
+      Height: 0 40 UNIFORM
+      InitialDelay: 167 1000 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureExplosionDebris
+    - Type: ParticleSystem
+      Name: LargeStructureExplosionShockwave
+    - Type: STRONG
+  FX_AsianTVStationDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SubExplosionSmoke01
+      Offset: 'X:-30 Y:15: Z:10'
+      Count: 2
+      Radius: 1 8 UNIFORM
+      Height: 1 8 UNIFORM
+      InitialDelay: 100 200 UNIFORM
+    - Type: ParticleSystem
+      Name: SubExplosionSmoke01
+      Offset: 'X:30 Y:15: Z:10'
+      Count: 2
+      Radius: 1 8 UNIFORM
+      Height: 1 8 UNIFORM
+      InitialDelay: 100 200 UNIFORM
+    - Type: ParticleSystem
+      Name: SubExplosionSmoke01
+      Offset: 'X:30 Y:-15: Z:10'
+      Count: 2
+      Radius: 1 8 UNIFORM
+      Height: 1 8 UNIFORM
+      InitialDelay: 100 200 UNIFORM
+    - Type: ParticleSystem
+      Name: SubExplosionSmoke01
+      Offset: 'X:-30 Y:-15: Z:10'
+      Count: 2
+      Radius: 1 8 UNIFORM
+      Height: 1 8 UNIFORM
+      InitialDelay: 100 200 UNIFORM
+  FX_AmericaWarFactoryDeathStart:
+    Nuggets:
+    - Type: NORMAL
+  FX_AmericaWarFactoryDeathFinal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: LargeSquareShockwave
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: SubExplosionSmoke01
+      Offset: 'X:30 Y:-30: Z:10'
+      Count: 1
+      Radius: 1 8 UNIFORM
+      Height: 1 8 UNIFORM
+      InitialDelay: 200 400 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureExplosionSmoke
+      Offset: X:0 Y:0 Z:10
+      Count: 3
+      Radius: 10 40 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: StructureSubExplosionSmoke
+      Count: 5
+      Radius: 15 50 UNIFORM
+      Height: 0 40 UNIFORM
+      InitialDelay: 267 1000 UNIFORM
+    - Type: STRONG
+    - Type: Sound
+      Name: BuildingDie
+  ChinaNuclearMissileLauncherDoorOpen:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingNeutronMissileOpen
+  ChinaNuclearMissileLauncherLaunch:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingNeutronMissileLaunch
+  FX_ABPowerPlantExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+  FX_ABStingerSiteExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: SmallStructureExplosionShockwave
+  FX_ABTunnelNetworkExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: SmallStructureExplosionShockwave
+    - Type: ParticleSystem
+      Name: StructureExplosionSmallDebris
+  FX_TankerTruckExplode:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: SootySmokeColumn
+      Offset: X:20 Y:0 Z:0
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: BarrelExplosionDebris
+      Count: 3
+      Radius: 0 10 UNIFORM
+      InitialDelay: 167 1000 UNIFORM
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 10
+      Radius: 15 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 167 3000 UNIFORM
+    - Type: ParticleSystem
+      Name: TankerTruckExplosionShockwave
+    - Type: Sound
+      Name: GasStationDie
+    - Type: STRONG
+  FX_CarWallSmoke:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: HumveeSubExplosionSmoke
+      OrientToObject: Yes
+  FX_CarWallSpark:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FlatSparkSprayLineBurst
+      Offset: X:0 Y:0 Z:10
+      OrientToObject: Yes
+  FX_BigRigExplode:
+    Nuggets:
+    - Type: Sound
+      Name: GasStationDie
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: MammothTankExplosionShockwave
+  FX_CarCrush:
+    Nuggets:
+    - Type: Sound
+      Name: CarCrush
+    - Type: ParticleSystem
+      Name: CarCrushSmoke
+    - Type: ParticleSystem
+      Name: CarCrushDebris
+  FX_PropCrush:
+    Nuggets:
+    - Type: Sound
+      Name: CarCrush
+    - Type: ParticleSystem
+      Name: PuffLarge
+    - Type: ParticleSystem
+      Name: CarCrushDebris
+  FX_PropExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: PuffLarge
+    - Type: ParticleSystem
+      Name: CarCrushDebris
+  FX_GenericCarExplode:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: Explosion
+    - Type: ParticleSystem
+      Name: ExplosionSmoke
+  FX_TerroristExplode:
+    Nuggets:
+    - Type: Sound
+      Name: TerroristSuicides
+    - Type: ParticleSystem
+      Name: Explosion
+    - Type: ParticleSystem
+      Name: ExplosionSmoke
+  FX_LimoExplode:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: LimoExplosion
+    - Type: ParticleSystem
+      Name: LimoExplosionArms
+      Offset: X:12 Y:0 Z:0
+    - Type: ParticleSystem
+      Name: LimoExplosionArms
+      Offset: X:-12 Y:0 Z:0
+    - Type: ParticleSystem
+      Name: LimoExplosionSmoke
+    - Type: Sound
+      Name: Explosion
+  FX_LimoDamageTransition:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: LimoTransitionExplosion
+    - Type: Sound
+      Name: VehicleDamagedState
+  FX_PoliceCarExplode:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: Sound
+      Name: PoliceCarDie
+    - Type: ParticleSystem
+      Name: Explosion
+    - Type: ParticleSystem
+      Name: ExplosionSmoke
+  FX_StoneWallTopple:
+    Nuggets:
+    - Type: Sound
+      Name: WallStoneDie
+  FX_ConcreteWallTopple:
+    Nuggets:
+    - Type: Sound
+      Name: WallStoneDie
+  FX_BrickWallTopple:
+    Nuggets:
+    - Type: Sound
+      Name: WallStoneDie
+  FX_WoodWallTopple:
+    Nuggets:
+    - Type: Sound
+      Name: WallWoodDie
+  FX_SandWallTopple:
+    Nuggets:
+    - Type: Sound
+      Name: WallSandDie
+  FX_SandbagPileGoesPoof:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: PuffSmall
+    - Type: Sound
+      Name: WallSandDie
+  FX_GenericWallSegmentDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: PuffSmall
+    - Type: ParticleSystem
+      Name: StructureExplosionDebris
+    - Type: Sound
+      Name: WallStoneDie
+  FX_ToppleTree:
+    Nuggets:
+    - Type: Sound
+      Name: CrushTree
+  FX_ToppleStreetSign:
+    Nuggets:
+    - Type: Sound
+      Name: StreetSignImpact
+  FX_ToppleLampPost:
+    Nuggets:
+    - Type: Sound
+      Name: LampPostShear
+  FX_TreeBounce:
+    Nuggets:
+    - Type: Sound
+      Name: TreeBounce
+    - Type: ParticleSystem
+      Name: TreeBounceDust
+      Offset: X:0 Y:0 Z:25
+  FX_OptTreeBounce:
+    Nuggets:
+    - Type: Sound
+      Name: TreeBounce
+    - Type: ParticleSystem
+      Name: TreeBounceDust
+      Offset: X:0 Y:0 Z:0
+  FX_LampPostBounce:
+    Nuggets:
+    - Type: Sound
+      Name: LampPostBounce
+  FX_ChainLinkFenceTopple:
+    Nuggets:
+    - Type: Sound
+      Name: WallMetalDie
+  FX_ChainLinkFenceBounce:
+    Nuggets:
+    - Type: Sound
+      Name: LampPostBounce
+    - Type: ParticleSystem
+      Name: TreeBounceDust
+      Offset: X:0 Y:0 Z:25
+  FX_BarrelDeathExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BarrelExplosion
+    - Type: ParticleSystem
+      Name: BarrelExplosionShockwave
+    - Type: ParticleSystem
+      Name: BarrelExplosionDebris
+    - Type: SUBTLE
+    - Type: Sound
+      Name: ExplosionBarrel
+  CINE_WeaponFX_CruiseMissile:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureTransitionMediumExplosion
+    - Type: ParticleSystem
+      Name: StructureTransitionMediumFlare
+    - Type: ParticleSystem
+      Name: StructureTransitionMediumShockwave
+    - Type: ParticleSystem
+      Name: StructureTransitionMediumSmoke
+    - Type: SEVERE
+    - Type: Sound
+      Name: CINE_ExplosionBarrel01
+  FX_CINE_BarrelDeathExplosion01:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BarrelExplosion
+    - Type: ParticleSystem
+      Name: BarrelExplosionShockwave
+    - Type: ParticleSystem
+      Name: BarrelExplosionDebris
+    - Type: SUBTLE
+    - Type: Sound
+      Name: CINE_ExplosionBarrel01
+  FX_CINE_BarrelDeathExplosion02:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BarrelExplosion
+    - Type: ParticleSystem
+      Name: BarrelExplosionShockwave
+    - Type: ParticleSystem
+      Name: BarrelExplosionDebris
+    - Type: SUBTLE
+    - Type: Sound
+      Name: CINE_ExplosionBarrel02
+  FX_PatriotMissileIgnition:
+    Nuggets:
+    - Type: Sound
+      Name: NoSound
+    - Type: ParticleSystem
+      Name: PatriotMissileIgnitionCloud
+      OrientToObject: Yes
+  WeaponFX_PatriotMissileDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: NoSound
+    - Type: ParticleSystem
+      Name: PatriotMissileDetonationExplosion
+      OrientToObject: Yes
+  FX_NeutronMissileLaunch:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: NeutronMissleLaunch
+  FX_NeutronMissileIgnition:
+    Nuggets:
+    - Type: Sound
+      Name: NoSound
+  FX_NapalmMissileIgnition:
+    Nuggets:
+    - Type: Sound
+      Name: NoSound
+  FX_JetMissileIgnition:
+    Nuggets:
+    - Type: Sound
+      Name: AuroraJetMissileWeapon
+  FX_A10ThunderboltMissileIgnition:
+    Nuggets:
+    - Type: Sound
+      Name: A10ThunderboltMissileWeaponSound
+  FX_StingerMissileIgnition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StingerMissileBackblast
+      OrientToObject: Yes
+  FX_BuggyMissileIgnition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MissileBackblast
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: MissileBackblastClouds
+      OrientToObject: Yes
+  FX_MissileDefenderMissileIgnition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MissileDefenderMissileBackblast
+      OrientToObject: Yes
+  FX_InfantryStingerMissileIgnition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: InfantryStingerMissileBackblast
+      OrientToObject: Yes
+  FX_HumveeMissileIgnition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TowMissileBackblast
+      Offset: X:-15 Y:0 Z:0
+      OrientToObject: Yes
+  FX_StructureDamaged:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingImpactHeavy
+    - Type: NORMAL
+    - Type: ParticleSystem
+      Name: StructureDamagedFlash
+    - Type: ParticleSystem
+      Name: StructureDamagedSmoke
+    - Type: ParticleSystem
+      Name: StructureDamagedDebris
+  FX_StructureDamagedNoShake:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDamage
+    - Type: ParticleSystem
+      Name: StructureDamagedFlash
+    - Type: ParticleSystem
+      Name: StructureDamagedSmoke
+    - Type: ParticleSystem
+      Name: StructureDamagedDebris
+  FX_StructureDamagedFlameNoShake:
+    Nuggets:
+    - Type: Sound
+      Name: NoSound
+    - Type: ParticleSystem
+      Name: StructureDamagedFlash
+    - Type: ParticleSystem
+      Name: StructureDamagedSmoke
+    - Type: ParticleSystem
+      Name: StructureDamagedDebris
+  WeaponFX_ComancheAntiTankMissileDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+  WeaponFX_ComancheRocketPodRocketDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+  WeaponFX_RocketBuggyMissileDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionLenzflare
+  WeaponFX_EMPRocketDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: EMPPatriotLensFlare
+    - Type: ParticleSystem
+      Name: EMPPatriotLensFlare2
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: EMPPatriotRing
+    - Type: Sound
+      Name: ExplosionPatriotEMP
+  WeaponFX_SCUDMissileDetonationAnthrax:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherAnthraxExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherAnthraxLenzFlare
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherAnthraxExplosionTrailArms
+      Offset: X:0.0 Y:0.0 Z:15.0
+  WeaponFX_SCUDMissileDetonationToxin:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherToxinExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherToxinLenzFlare
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherToxinExplosionTrailArms
+      Offset: X:0.0 Y:0.0 Z:15.0
+  WeaponFX_TomahawkMissileDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+  WeaponFX_HumveeMissileDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+  WeaponFX_DragonTankMissileDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FlamethrowerTarget
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: FlameThrowerSpray
+      OrientToObject: Yes
+  WeaponFX_DragonTankMissileDetonationUpgraded:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FlamethrowerTargetUpgraded
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: FlameThrowerSprayUpgraded
+      OrientToObject: Yes
+  FX_RaptorMidAirCrashingExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+    - Type: ParticleSystem
+      Name: BuggyMissileDebris
+  FX_RaptorCrashExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: LargeStructureExplosionShockwave
+    - Type: ParticleSystem
+      Name: ExplosionLarge01
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 50
+  WeaponFX_ToxinTruckMissileDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ToxinTarget
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: ToxinPuddle
+      CreateAtGroundHeight: Yes
+  WeaponFX_ToxinTruckMissileDetonationUpgraded:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AnthraxTarget
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: AnthraxPuddle
+      CreateAtGroundHeight: Yes
+  WeaponFX_CleanupToxinDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CleanupTarget
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: CleanupPuddle
+      CreateAtGroundHeight: Yes
+  WeaponFX_ToxinTruckSprayNozzle:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ToxinSpray
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: ToxinPuddle
+      CreateAtGroundHeight: Yes
+  WeaponFX_ToxinTruckSprayGround:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ToxinPuddleLarge
+      CreateAtGroundHeight: Yes
+      UseCallersRadius: Yes
+  WeaponFX_ToxinTruckSprayNozzleUpgraded:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AnthraxSpray
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: AnthraxPuddle
+      CreateAtGroundHeight: Yes
+  WeaponFX_ToxinTruckSprayGroundUpgraded:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AnthraxPuddleLarge
+      CreateAtGroundHeight: Yes
+      UseCallersRadius: Yes
+  WeaponFX_StingerMissileDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+  WeaponFX_MineDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: MineExplosion
+    - Type: ParticleSystem
+      Name: MineDebris
+    - Type: ParticleSystem
+      Name: MineSmoke
+    - Type: ParticleSystem
+      Name: MineFlash
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: RANDOM
+      Radius: 15
+  WeaponFX_WorkerMineDisarming:
+    Nuggets:
+    - Type: Sound
+      Name: MineClearedByWorker
+    - Type: ParticleSystem
+      Name: MineDisarmingSmoke
+    - Type: ParticleSystem
+      Name: MineDisarmingFlash
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: RANDOM
+      Radius: 10
+  WeaponFX_DozerMineDisarming:
+    Nuggets:
+    - Type: Sound
+      Name: MineClearedByDozer
+    - Type: ParticleSystem
+      Name: MineDisarmingSmoke
+    - Type: ParticleSystem
+      Name: MineDisarmingFlash
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: MineDisarmingDebris
+    - Type: RANDOM
+      Radius: 10
+  WeaponFX_SuicideDynamitePackDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CarpetBombExplosionShockwave
+    - Type: ParticleSystem
+      Name: ArmExplosionSmall01
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 15
+  WeaponFX_SuicideDynamitePackDetonationPlusFire:
+    Nuggets:
+    - Type: Sound
+      Name: TerroristSuicides
+    - Type: ParticleSystem
+      Name: Explosion
+    - Type: ParticleSystem
+      Name: ExplosionSmoke
+    - Type: ParticleSystem
+      Name: CarpetBombExplosionShockwave
+    - Type: ParticleSystem
+      Name: ArmExplosionSmall01
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 15
+  WeaponFX_CINEConvoyNuke:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionNeutron
+    - Type: ParticleSystem
+      Name: NukeFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:105.0
+    - Type: ParticleSystem
+      Name: NukeRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:15.0
+    - Type: ParticleSystem
+      Name: NukeShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeMushroomStem
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeShockwave
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:50.0
+    - Type: RANDOM
+      Radius: 250
+  WeaponFX_TNTStickyBombDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: LargeStructureExplosionShockwave
+    - Type: ParticleSystem
+      Name: ExplosionLarge01
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 50
+    - Type: Sound
+      Name: BombTruckDefaultBombDetonation
+  FX_BoobyTrapExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      UseCallersRadius: Yes
+      Name: BoobyTrapSmoke
+    - Type: ParticleSystem
+      UseCallersRadius: Yes
+      Name: boobyTrapExplosion
+    - Type: NORMAL
+    - Type: Sound
+      Name: BombTruckDefaultBombDetonation
+  FX_GLADemoTrapWarning:
+    Nuggets:
+    - Type: Sound
+      Name: GLADemoChargeAlarm
+  WeaponFX_DemoTrapDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: DemoTrapExplosion
+    - Type: ParticleSystem
+      Name: BombTruckDefaultExplosionArms
+    - Type: ParticleSystem
+      Name: DemoTrapLenzFlare
+    - Type: ParticleSystem
+      Name: BombTruckHEShockwave
+    - Type: RANDOM
+      Radius: 15
+  CINE_WeaponFX_DemoTrapDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: LargeStructureExplosionShockwave
+    - Type: ParticleSystem
+      Name: ExplosionLarge01
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 50
+  WeaponFX_RangerFlashBangGrenadeDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FlashBangNormal
+      Offset: X:0 Y:0 Z:4
+    - Type: ParticleSystem
+      Name: FlashBangNormalSpark
+    - Type: Sound
+      Name: ExplosionFlashBang
+  FX_DaisyCutterExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggySubExplosion
+    - Type: ParticleSystem
+      Name: DaisyExplosionGasSpray
+    - Type: ParticleSystem
+      Name: DaisyExplosionScatter
+      AttachToObject: Yes
+      InitialDelay: 500 500 UNIFORM
+    - Type: Sound
+      Name: DaisyCutterGas
+  FX_DaisyCutterIgnite:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: DaisyExplosionScatterIgnite1
+    - Type: ParticleSystem
+      Name: DaisyExplosionScatterIgnite2
+      InitialDelay: 500 500 UNIFORM
+    - Type: ParticleSystem
+      Name: DaisyFlameShockwave
+      InitialDelay: 1000 1000 UNIFORM
+    - Type: Sound
+      Name: DaisyCutterIgnite
+  FX_DaisyCutterFinalExplosion:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionDaisyCutter
+    - Type: SEVERE
+  FX_LeafletsDrop:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: LeafletParticles1
+    - Type: ParticleSystem
+      Name: LeafletParticles1
+      InitialDelay: 500 500 UNIFORM
+    - Type: Sound
+      Name: LeafletDrop
+  FX_MOABExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SpectreHowitzerExplosionArms
+    - Type: ParticleSystem
+      Name: MOABExplosionGasSpray
+    - Type: ParticleSystem
+      Name: DaisyExplosionScatter
+      AttachToObject: Yes
+      InitialDelay: 500 500 UNIFORM
+    - Type: Sound
+      Name: DaisyCutterGas
+  FX_MOABIgnite:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: DaisyExplosionScatterIgnite1
+    - Type: ParticleSystem
+      Name: DaisyExplosionScatterIgnite2
+      InitialDelay: 500 500 UNIFORM
+    - Type: ParticleSystem
+      Name: DaisyFlameShockwave
+      InitialDelay: 1000 1000 UNIFORM
+    - Type: Sound
+      Name: DaisyCutterIgnite
+  FX_MOABFinalExplosion:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionDaisyCutter
+    - Type: SEVERE
+  FX_RocketBuggyCatchFire:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyFire
+      AttachToObject: Yes
+  FX_BuggyMissileDebris:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MissileExhaust
+      AttachToObject: Yes
+  FX_BuggyDeathExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyExplosion
+    - Type: ParticleSystem
+      Name: BuggyExplosionDebris
+    - Type: SUBTLE
+    - Type: Sound
+      Name: CarDie
+  FX_BuggyTurretExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyTurretExplosion
+      OrientToObject: Yes
+  FX_RocketBuggyAirDeathAirPart:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyNewAirDeathExplosionAirPart
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionLenzflare
+    - Type: ParticleSystem
+      Name: BuggyNewAirDeathSubExplosionSmoke
+      Count: 3
+      Radius: 15 30 UNIFORM
+      Height: 0 20 UNIFORM
+      InitialDelay: 167 667 UNIFORM
+    - Type: Sound
+      Name: CarDie
+  FX_RocketBuggyAirDeathGroundPart:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyExplosionAirDeathGroundPart
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionShockwave
+    - Type: ParticleSystem
+      Name: BuggyExplosionSmokeAirDeathGroundPart
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionLenzflare
+    - Type: ParticleSystem
+      Name: BuggyDebrisTrail
+      AttachToObject: Yes
+    - Type: Sound
+      Name: CarDie
+  FX_TechnicalAirDeathGroundPart:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyExplosionAirDeathGroundPart
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionShockwave
+    - Type: ParticleSystem
+      Name: BuggyExplosionSmokeAirDeathGroundPart
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionLenzflare
+    - Type: ParticleSystem
+      Name: BuggyDebrisTrail
+      AttachToObject: Yes
+    - Type: Sound
+      Name: CarDie
+    - Type: Sound
+      Name: TechnicalVoiceDie
+  FX_AmericaScoutDroneExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ScoutDroneExplosion
+      OrientToObject: Yes
+    - Type: Sound
+      Name: ScoutDroneDie
+  FX_AmericaBattleDroneExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BattleDroneExplosion
+      OrientToObject: Yes
+    - Type: Sound
+      Name: BattleDroneDie
+  FX_BuggyNewDeathExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionSmoke
+    - Type: ParticleSystem
+      Name: SpectreHowitzerExplosionCloud
+    - Type: ParticleSystem
+      Name: SpectreHotPillarArmFlame
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionDebris2
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionShockwave
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: CarDie
+  FX_BuggyNew_DeathEffect:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionArms
+    - Type: Sound
+      Name: CarDie
+  WeaponFX_ToppledStructureShockwave:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: Explosion
+    - Type: ParticleSystem
+      Name: ExplosionSmoke
+  FX_DefaultStructureCrushing:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CrushingBuildingExplosion
+    - Type: ParticleSystem
+      Name: StructureToppleShockwave
+    - Type: ParticleSystem
+      Name: StructureToppleCrushingSmoke
+    - Type: NORMAL
+  FX_DefaultStructureToppling:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDamage
+    - Type: ParticleSystem
+      Name: CrushingBuildingExplosion
+    - Type: ParticleSystem
+      Name: StructureToppleShockwave
+  FX_DefaultStructureToppleDone:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDestroyStone
+  FX_DefaultStructureToppleStart:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureToppleStartExplosion
+    - Type: ParticleSystem
+      Name: StructureToppleStartShockwave
+  FX_DefaultStructureSecondary:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureToppleSecondaryExplosion
+  FX_DefaultStructureToppleDelay:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingToppleDelayStone
+    - Type: ParticleSystem
+      Name: StructureToppleDelayExplosion
+  FX_StructureToppleAngle20:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingFallingStone
+  FX_SmallTowerCrushing:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SmallCrushingBuildingExplosion
+    - Type: ParticleSystem
+      Name: SmallStructureToppleShockwave
+    - Type: ParticleSystem
+      Name: SmallStructureToppleCrushingSmoke
+    - Type: NORMAL
+  FX_StructureCollapseInitial:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDamage
+    - Type: ParticleSystem
+      Name: StructureCollapseInitialExplosion
+    - Type: ParticleSystem
+      Name: StructureCollapseInitialShockwave
+  FX_StructureCollapseDelay:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingCollapse1
+    - Type: ParticleSystem
+      Name: StructureCollapseDelayExplosion
+    - Type: ParticleSystem
+      Name: StructureCollapseDelayShockwave
+  FX_StructureCollapseBurst:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingCollapse2
+    - Type: ParticleSystem
+      Name: StructureCollapseBurstExplosion
+    - Type: ParticleSystem
+      Name: StructureCollapseBurstFlash
+    - Type: ParticleSystem
+      Name: StructureCollapseBurstShockwave
+  FX_StructureCollapseFinal:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingCollapse3
+    - Type: ParticleSystem
+      Name: StructureCollapseFinalExplosion
+    - Type: ParticleSystem
+      Name: StructureCollapseFinalShockwave
+  FX_ComancheStartDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SubExplosionSmoke02
+      Offset: X:0 Y:0 Z:5
+    - Type: Sound
+      Name: ComancheDie
+    - Type: Sound
+      Name: ComancheVoiceFalling
+  FX_ChinookStartDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SubExplosionSmoke02
+      Offset: X:0 Y:0 Z:5
+    - Type: Sound
+      Name: ComancheDie
+    - Type: Sound
+      Name: ChinookVoiceFalling
+  FX_HelicopterStartDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SubExplosionSmoke02
+      Offset: X:0 Y:0 Z:5
+    - Type: Sound
+      Name: ComancheDie
+  FX_HelicopterBladeExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Count: 5
+      Radius: 5 5 UNIFORM
+    - Type: Sound
+      Name: ComancheSpinExplosion
+  FX_HelicopterHitGround:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CarCrushDebris
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: Sound
+      Name: ComancheCrash
+    - Type: SUBTLE
+  FX_HelicopterHitGroundGlobal:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CarCrushDebris
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: Sound
+      Name: ComancheCrash
+    - Type: SUBTLE
+  FX_GroundedHelicopterBlowUp:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ArmExplosionSmall01
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 3
+      Radius: 5 5 UNIFORM
+      InitialDelay: 100 100 UNIFORM
+    - Type: Sound
+      Name: CarDie
+    - Type: STRONG
+  FX_GLAPowerPlantDamagedExplosion1:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDamage
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDamagedExplosion
+      Count: 2
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDamagedShockwave
+      InitialDelay: 0 200 UNIFORM
+  FX_GLAPowerPlantDamagedExplosion2:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDamage
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDamagedExplosion
+      Count: 2
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDamagedShockwave
+      InitialDelay: 0 200 UNIFORM
+  FX_GLAPowerPlantDamagedExplosion3:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDamage
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDamagedExplosion
+      Count: 2
+      InitialDelay: 0 200 UNIFORM
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDamagedShockwave
+      InitialDelay: 0 200 UNIFORM
+  FX_GLAPowerPlantDeathStart:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDamage
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDeathExplosion1
+      Offset: X:-3.532 Y:30 Z:2
+      Count: 2
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDeathShockwave2
+      Offset: X:-3.532 Y:30 Z:2
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDeathExplosion1
+      Offset: X:-9.08 Y:-8.547 Z:1
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDeathShockwave2
+      Offset: X:-9.08 Y:-8.547 Z:1
+    - Type: NORMAL
+  FX_GLAPowerPlantDeathFinal:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDamage
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDeathExplosion2
+      Offset: X:-3.532 Y:30 Z:26.822
+      Count: 2
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDeathShockwave2
+      Offset: X:-3.532 Y:30 Z:26.822
+    - Type: ParticleSystem
+      Name: GLAPowerPlantDeathExplosion2
+      Offset: X:-9.08 Y:-8.547 Z:16.598
+    - Type: NORMAL
+  FX_DamWaterSpray01:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: WaterSpraySplash
+      OrientToObject: Yes
+      InitialDelay: 50 5000 UNIFORM
+  FX_Nuke:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionNeutron
+    - Type: ParticleSystem
+      Name: NukeFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:105.0
+    - Type: ParticleSystem
+      Name: NukeRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:15.0
+    - Type: ParticleSystem
+      Name: NukeShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:30.0
+    - Type: ParticleSystem
+      Name: NukeMushroomStem
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:30.0
+    - Type: ParticleSystem
+      Name: NukeShockwave
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:30.0
+    - Type: ParticleSystem
+      Name: NukeMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:50.0
+    - Type: ParticleSystem
+      Name: NukeRadiationInitial
+      InitialDelay: 3000 3000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+  FX_BaikonurNuke:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionNeutron
+    - Type: ParticleSystem
+      Name: NukeBaikonurFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeBaikonurMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeBaikonurMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:105.0
+    - Type: ParticleSystem
+      Name: NukeBaikonurRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:15.0
+    - Type: ParticleSystem
+      Name: NukeBaikonurShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeBaikonurMushroomStem
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeBaikonurShockwave
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: NukeBaikonurMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:50.0
+  FX_NukeGLA:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: NukeGLAFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeGLAMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeGLAMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:105.0
+    - Type: ParticleSystem
+      Name: NukeGLARing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeGLABlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:15.0
+    - Type: ParticleSystem
+      Name: NukeGLAShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeGLAMushroomStem
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeGLAShockwave
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeGLAMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:50.0
+  WeaponFX_SmallFireFieldWeapon:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FireFieldSmall
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_SmallFireFieldWeaponUpgraded:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BlackFireFieldSmall
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_LargePoisonFieldWeapon:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: PoisonFieldLarge
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_MediumPoisonFieldWeapon:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: PoisonFieldMedium
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_SmallPoisonFieldWeapon:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: PoisonFieldSmall
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_LargePoisonFieldWeaponUpgraded:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AnthraxFieldLarge
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_MediumPoisonFieldWeaponUpgraded:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AnthraxFieldMedium
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_SmallPoisonFieldWeaponUpgraded:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AnthraxFieldSmall
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_LargeRadiationFieldWeapon:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: RadiationFieldLarge
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_MediumRadiationFieldWeapon:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: RadiationFieldMedium
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_SmallRadiationFieldWeapon:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: RadiationFieldSmall
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  FX_GLAViralOutbreak:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: GLAViralOutbreakClouds
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: GLAViralOutbreakFumes
+      InitialDelay: 500 500 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:2.0
+  FX_ParticleTestFX: {}
+  WeaponFX_SCUDMissileDetonationExplosive:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherLenzFlare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherExplosionTrailArms
+      Offset: X:0.0 Y:0.0 Z:15.0
+  FX_ChinaPowerPlantDeath:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: NukeCannonFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:45.0
+    - Type: ParticleSystem
+      Name: NukeCannonRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeCannonBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: NukeCannonShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomStem
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonShockwave
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:35.0
+  WeaponFX_NukeCannon:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: NukeCannonFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:45.0
+    - Type: ParticleSystem
+      Name: NukeCannonRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeCannonBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: NukeCannonShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomStem
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:35.0
+  WeaponFX_BaikonurRocket:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: NukeCannonFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:45.0
+    - Type: ParticleSystem
+      Name: NukeCannonRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeCannonBlastWave
+      InitialDelay: 500 500 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: NukeCannonShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomStem
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:35.0
+  FX_CarpetBomb:
+    Nuggets:
+    - Type: SEVERE
+    - Type: ParticleSystem
+      Name: UpgradeCarpetBombExplosion
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: UpgradeCarpetBombWave
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: UpgradeCarpetBombExplosionPuff
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: UpgradeCarpetBombLenzflare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: Sound
+      Name: ExplosionCarpetBomb
+  FX_CINE_CarpetBomb:
+    Nuggets:
+    - Type: SEVERE
+    - Type: RANDOM
+      Radius: 50
+    - Type: ParticleSystem
+      Name: UpgradeCarpetBombExplosion
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: UpgradeCarpetBombWave
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: UpgradeCarpetBombExplosionPuff
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: UpgradeCarpetBombLenzflare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: Sound
+      Name: ExplosionCarpetBomb
+  FX_AuroraBombLaunch:
+    Nuggets:
+    - Type: Sound
+      Name: DaisyCutterWeapon
+  FX_AuroraBombDetonate:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CarpetBombExplosion
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: CarpetBombWave
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: CarpetBombExplosionPuff
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Sound
+      Name: ExplosionCarpetBomb
+  FX_A10ThunderboltMissileExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CarpetBombExplosion
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: CarpetBombWave
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: CarpetBombExplosionPuff
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Sound
+      Name: ExplosionCarpetBomb
+  FX_BonusCrate:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BonusCrate01
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: BonusCrateFlash
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+  FX_DamDamaged:
+    Nuggets:
+    - Type: Sound
+      Name: DamBreakStage1
+  FX_DamReallyDamaged:
+    Nuggets:
+    - Type: Sound
+      Name: DamBreakStage2
+  FX_DamRubble:
+    Nuggets:
+    - Type: Sound
+      Name: DamBreakStage3
+  FX_SmolderingFlame:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SmolderingFire
+    - Type: ParticleSystem
+      Name: SmolderingSmoke
+  FX_FireStorm:
+    Nuggets:
+    - Type: Sound
+      Name: FireStorm
+  FX_BlackNapalmFireStorm:
+    Nuggets:
+    - Type: Sound
+      Name: BlackNapalmFireStorm
+  FX_FlashBangBuilding:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FlashBangBuildingFlash
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: FlashBangBuildingSpark
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: FlashBangBuildingSmoke
+      OrientToObject: Yes
+  FX_MakeCarBombSuccess:
+    Nuggets:
+    - Type: Sound
+      Name: TerroristCarBomb
+  FX_FlashBangGarrisonBuildingHit:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:255
+      Radius: 100
+      RadiusAsPercentOfObjectSize: 150%
+      IncreaseTime: 0
+      DecreaseTime: 2000
+    - Type: Sound
+      Name: TankDie
+    - Type: FXListAtBonePos
+      FX: FX_FlashBangBuilding
+      BoneName: FIREPOINT
+      OrientToBone: Yes
+  FX_ToxinBuildingClear:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ToxinBuildingClearSpray
+      OrientToObject: yes
+  FX_ToxinUpgradedBuildingClear:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ToxinUpgradedBuildingClearSpray
+      OrientToObject: yes
+  FX_FlameBuildingClear:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FlameBuildingSpray
+      OrientToObject: yes
+  FX_ToxinStreamGarrisonBuildingHit:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:255
+      Radius: 100
+      RadiusAsPercentOfObjectSize: 150%
+      IncreaseTime: 0
+      DecreaseTime: 2000
+    - Type: Sound
+      Name: TankDie
+    - Type: FXListAtBonePos
+      FX: FX_ToxinBuildingClear
+      BoneName: FIREPOINT
+      OrientToBone: Yes
+  FX_ToxinStreamUpgradedGarrisonBuildingHit:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:255
+      Radius: 100
+      RadiusAsPercentOfObjectSize: 150%
+      IncreaseTime: 0
+      DecreaseTime: 2000
+    - Type: Sound
+      Name: TankDie
+    - Type: FXListAtBonePos
+      FX: FX_ToxinUpgradedBuildingClear
+      BoneName: FIREPOINT
+      OrientToBone: Yes
+  FX_DragonFlameGarrisonBuildingHit:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:255
+      Radius: 100
+      RadiusAsPercentOfObjectSize: 150%
+      IncreaseTime: 0
+      DecreaseTime: 2000
+    - Type: Sound
+      Name: TankDie
+    - Type: FXListAtBonePos
+      FX: FX_FlameBuildingClear
+      BoneName: FIREPOINT
+      OrientToBone: Yes
+  FX_JetBigDeathInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetBigExplosionInitial
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetBigExplosionLenzflare
+      OrientToObject: yes
+    - Type: Sound
+      Name: CargoJetDie
+  FX_BigPlaneDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosionTrailArms
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetBigExplosion
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetBigExplosionLenzflare
+      OrientToObject: yes
+    - Type: Sound
+      Name: CargoJetFlambe
+  FX_RaptorDeathInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosionTrailArms
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetExplosion
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetDebris
+      OrientToObject: yes
+    - Type: Sound
+      Name: RaptorDie
+    - Type: Sound
+      Name: RaptorVoiceFalling
+  FX_AuroraDeathInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosionTrailArms
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetExplosion
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetDebris
+      OrientToObject: yes
+    - Type: Sound
+      Name: RaptorDie
+    - Type: Sound
+      Name: AuroraBomberVoiceFalling
+  FX_StealthFighterDeathInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosionTrailArms
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetExplosion
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetDebris
+      OrientToObject: yes
+    - Type: Sound
+      Name: RaptorDie
+    - Type: Sound
+      Name: StealthFighterVoiceFalling
+  FX_MigDeathInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosionTrailArms
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetExplosion
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetDebris
+      OrientToObject: yes
+    - Type: Sound
+      Name: RaptorDie
+    - Type: Sound
+      Name: MigVoiceFalling
+  FX_JetDeathInitial:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosionTrailArms
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetExplosion
+      OrientToObject: yes
+    - Type: ParticleSystem
+      Name: JetDebris
+      OrientToObject: yes
+    - Type: Sound
+      Name: RaptorDie
+  FX_JetDeathSecondary:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetBurning
+      AttachToObject: Yes
+  FX_JetDeathHitGround:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosionGroundDebris
+      OrientToObject: yes
+      Offset: X:6.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: JetExplosionGroundDust
+      OrientToObject: yes
+      Offset: X:6.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: JetExplosionGround
+      OrientToObject: yes
+      Offset: X:6.0 Y:0.0 Z:5.0
+    - Type: Sound
+      Name: RaptorCrash
+  FX_JetOnGroundDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosionGroundDebris
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: JetExplosionGroundDust
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:2.0
+  FX_JetDeathFinalBlowUp: {}
+  FX_JetDeathFinalBlowUp_CinematicVersion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: JetExplosion
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: JetDebris
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 3
+      Radius: 15 30 UNIFORM
+      Height: 0 0 UNIFORM
+      InitialDelay: 50 667 UNIFORM
+      OrientToObject: Yes
+    - Type: NORMAL
+  WeaponFX_ClusterMineImpact:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ClusterMineDrop
+    - Type: ParticleSystem
+      Name: ClusterMineDropLenzflare
+    - Type: ParticleSystem
+      Name: ClusterMineDropRing
+    - Type: Sound
+      Name: ExplosionClusterMine
+    - Type: STRONG
+  WeaponFX_EMPPulseImpact:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: EMPLensFlare
+    - Type: ParticleSystem
+      Name: EMPLensFlare1
+    - Type: ParticleSystem
+      Name: EMPLensFlare2
+    - Type: ParticleSystem
+      Name: EMPRing
+    - Type: Sound
+      Name: EMPPulseWhoosh
+    - Type: STRONG
+  FX_RangerCombatDropKillSingle:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FlashBangBuildingFlash
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: FlashBangBuildingSpark
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: FlashBangBuildingSmoke
+      OrientToObject: Yes
+  FX_RangerCombatDropKill:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:255
+      Radius: 100
+      RadiusAsPercentOfObjectSize: 150%
+      IncreaseTime: 0
+      DecreaseTime: 2000
+    - Type: Sound
+      Name: RangerVoiceClearBuilding
+    - Type: FXListAtBonePos
+      FX: FX_RangerCombatDropKillSingle
+      BoneName: FIREPOINT
+      OrientToBone: Yes
+  WeaponFX_BombTruckDefaultBombDetonation:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: BombTruckDefaultExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: BombTruckDefaultLenzFlare
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: BombTruckDefaultExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  Demo_WeaponFX_BombTruckDefaultBombDetonation:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: Demo_BombTruckDefaultExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: Demo_BombTruckDefaultLenzFlare
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: Demo_BombTruckDefaultExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  WeaponFX_BombTruckBioBombDetonation:
+    Nuggets:
+    - Type: STRONG
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: BombTruckBioExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: BombTruckBioLenzFlare
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: BombTruckBioExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  WeaponFX_BombTruckAnthraxBombDetonation:
+    Nuggets:
+    - Type: STRONG
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: BombTruckAnthraxExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: BombTruckAnthraxLenzFlare
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: BombTruckAnthraxExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  WeaponFX_BombTruckAnthraxGammaBombDetonation:
+    Nuggets:
+    - Type: STRONG
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: BombTruckAnthraxGammaExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: BombTruckAnthraxGammaLenzFlare
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: BombTruckAnthraxGammaExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  WeaponFX_BombTruckHighExplosiveBombDetonation:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: BombTruckHEExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: BombTruckHELenzFlare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: BombTruckHEShockwave
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: BombTruckHEExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  Demo_WeaponFX_BombTruckHighExplosiveBombDetonation:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: Demo_BombTruckHEExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: Demo_BombTruckHELenzFlare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: Demo_BombTruckHEShockwave
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: Demo_BombTruckHEExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  WeaponFX_BombTruckHighExplosiveBioBombDetonation:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: BombTruckHEBioExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: BombTruckHEBioLenzFlare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: BombTruckHEBioShockwave
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: BombTruckHEBioExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  WeaponFX_BombTruckHighExplosiveAnthraxBombDetonation:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: BombTruckHEAnthraxExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: BombTruckHEAnthraxLenzFlare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: BombTruckHEAnthraxShockwave
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: BombTruckHEAnthraxExplosionTrailArms
+      InitialDelay: 100 100 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:25.0
+  FX_BridgeDamaged01:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TreeBounceDust
+  FX_BridgeRepaired01:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Height: 10 10 CONSTANT
+  FX_BombTruckDisguiseReveal:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 500
+  FX_BombTruckDisguise:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 500
+  FX_GenericMissileDeath:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: Explosion
+    - Type: ParticleSystem
+      Name: ExplosionSmoke
+  FX_GenericMissileDisintegrate:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: GenericLaserHit
+      Height: 0 0 CONSTANT
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Height: 0 0 CONSTANT
+    - Type: LightPulse
+      Color: R:255 G:64 B:64
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: Sound
+  FX_ChemicalFactoryExplosion:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: ChemicalFactoryGreenGasThick
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: ChemicalExplosionMushroom
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+  WeaponFX_EruptionOfToxicGooLarge:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: LightPulse
+      Color: R:0 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: ParticleSystem
+      Name: ToxicGooDebrisLarge
+    - Type: Sound
+      Name: ToxicGooSplash
+  WeaponFX_EruptionOfToxicGooSmall:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: LightPulse
+      Color: R:0 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: ParticleSystem
+      Name: ToxicGooDebrisSmall
+    - Type: Sound
+      Name: ToxicGooSplash
+  FX_TechRadioStationOwnedPulse:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TechRadioStationOwnedRing
+      Offset: X:0.0 Y:0.0 Z:50.0
+      OrientToObject: Yes
+  FX_PropagandaTowerPropagandaPulse:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SonicRange
+      Offset: X:0.0 Y:0.0 Z:50.0
+      OrientToObject: Yes
+  FX_PropagandaTowerSubliminalPulse:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SonicRangeUpgraded
+      Offset: X:0.0 Y:0.0 Z:50.0
+      OrientToObject: Yes
+  FX_OverlordPropagandaTowerPropagandaPulse:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SonicRange
+      Offset: X:0.0 Y:0.0 Z:8.0
+      OrientToObject: Yes
+  FX_OverlordPropagandaTowerSubliminalPulse:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SonicRangeUpgraded
+      Offset: X:0.0 Y:0.0 Z:8.0
+      OrientToObject: Yes
+  FX_ECMTankMissileJammerPulse:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SonicRange1
+      Offset: X:0.0 Y:0.0 Z:10.0
+      OrientToObject: Yes
+  FX_ToxicTankDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ToxicExplosionLarge
+      Offset: X:0 Y:0 Z:0
+    - Type: ParticleSystem
+      Name: ToxinLenzflare
+      Offset: X:0 Y:0 Z:0
+    - Type: LightPulse
+      Color: R:128 G:255 B:32
+      Radius: 60
+      IncreaseTime: 100
+      DecreaseTime: 1500
+    - Type: SEVERE
+    - Type: Sound
+      Name: Explosion
+  FX_ToxicBunkerDamageTransition:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: ToxicExplosionLargeUpgraded
+      Offset: X:0 Y:0 Z:0
+    - Type: ParticleSystem
+      Name: ToxinLenzflareUpgraded
+      Offset: X:0 Y:0 Z:0
+    - Type: LightPulse
+      Color: R:64 G:64 B:255
+      Radius: 60
+      IncreaseTime: 100
+      DecreaseTime: 1500
+    - Type: SEVERE
+    - Type: Sound
+      Name: Explosion
+  FX_ArtilleryBarrage:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: RANDOM
+      Radius: 15
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: ParticleSystem
+      Name: ArtilleryBarrageDebris
+    - Type: ParticleSystem
+      Name: ArtilleryBarrageDust
+    - Type: ParticleSystem
+      Name: ArtilleryBarrageShockwave
+      Offset: X:0 Y:0 Z:2
+    - Type: Sound
+      Name: ExplosionCarpetBomb
+  FX_AnthraxBomb:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: ParticleSystem
+      Name: AnthraxBombExplosion
+    - Type: ParticleSystem
+      Name: AnthraxBombSpray
+    - Type: ParticleSystem
+      Name: AnthraxBombLenzflare
+      Offset: X:0 Y:0 Z:2
+    - Type: Sound
+      Name: ExplosionAnthraxBomb
+  FX_AnthraxGammaBomb:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: ParticleSystem
+      Name: AnthraxGammaBombExplosion
+    - Type: ParticleSystem
+      Name: AnthraxGammaBombSpray
+    - Type: ParticleSystem
+      Name: AnthraxGammaBombLenzflare
+      Offset: X:0 Y:0 Z:2
+    - Type: Sound
+      Name: ExplosionAnthraxBomb
+  FX_LocomotiveExplode:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: BarrelExplosionDebris
+      Count: 3
+      Radius: 0 10 UNIFORM
+      InitialDelay: 167 1000 UNIFORM
+    - Type: Sound
+      Name: GasStationDie
+    - Type: STRONG
+  FX_RailroadTankCarExplode:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: BarrelExplosionDebris
+      Count: 1
+      Radius: 0 10 UNIFORM
+      InitialDelay: 167 1000 UNIFORM
+    - Type: Sound
+      Name: GasStationDie
+    - Type: STRONG
+  FX_RailroadWoodenCarExplode:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: BarrelExplosionDebris
+      Count: 1
+      Radius: 0 10 UNIFORM
+      InitialDelay: 167 1000 UNIFORM
+    - Type: Sound
+      Name: GasStationDie
+    - Type: STRONG
+  FX_RailroadCoalCarExplode:
+    Nuggets:
+    - Type: Sound
+      Name: CarDie
+    - Type: ParticleSystem
+      Name: MammothTankExplosionSmoke
+    - Type: ParticleSystem
+      Name: BarrelExplosionDebris
+      Count: 1
+      Radius: 0 10 UNIFORM
+      InitialDelay: 167 1000 UNIFORM
+    - Type: Sound
+      Name: GasStationDie
+    - Type: STRONG
+  FX_IRDetection:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: IRDetectGrid
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: IRDetectSonar
+      Offset: X:0.0 Y:0.0 Z:2.0
+  FX_RailroadBridgeCollapse:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: BuildingToppleDelayMetal
+    - Type: Sound
+      Name: ExplosionDaisyCutter
+    - Type: Sound
+      Name: BuildingFallingMetal
+    - Type: Sound
+      Name: BuildingCollapse1
+    - Type: Sound
+      Name: RailroadBridgeMetalFatigue
+    - Type: Sound
+      Name: AvalancheCrack
+    - Type: ParticleSystem
+      Name: StructureExplosionSmoke
+    - Type: ParticleSystem
+      Name: RiverSplashLarge
+      InitialDelay: 5000 5000 UNIFORM
+      Offset: X:70.0 Y:0.0 Z:-156.0
+    - Type: ParticleSystem
+      Name: RiverRippleHiLite
+      InitialDelay: 5000 5000 UNIFORM
+      Offset: X:70.0 Y:0.0 Z:-156.0
+    - Type: Sound
+      Name: RiverSplash5000
+    - Type: Sound
+      Name: DebrisBigMetal
+    - Type: ParticleSystem
+      Name: RiverSplashLarge
+      InitialDelay: 6000 6000 UNIFORM
+      Offset: X:20.0 Y:0.0 Z:-156.0
+    - Type: ParticleSystem
+      Name: RiverRippleHiLite
+      InitialDelay: 6000 6000 UNIFORM
+      Offset: X:20.0 Y:0.0 Z:-156.0
+    - Type: Sound
+      Name: RiverSplash6000
+    - Type: Sound
+      Name: DebrisBigMetal
+    - Type: ParticleSystem
+      Name: RiverSplashLarge
+      InitialDelay: 7000 7000 UNIFORM
+      Offset: X:-20.0 Y:0.0 Z:-156.0
+    - Type: ParticleSystem
+      Name: RiverRippleHiLite
+      InitialDelay: 7000 7000 UNIFORM
+      Offset: X:-20.0 Y:0.0 Z:-156.0
+    - Type: Sound
+      Name: RiverSplash7000
+    - Type: Sound
+      Name: DebrisBigMetal
+    - Type: ParticleSystem
+      Name: StructureDamagedDebris
+  FX_SpectacularTrainWreck: {}
+  FX_VehicleCrashesIntoBuilding:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CarCrushDebris
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: Sound
+      Name: ComancheCrash
+    - Type: SUBTLE
+  WeaponFX_PaladinPointDefenseLaser:
+    Nuggets:
+    - Type: Sound
+      Name: PaladinPointDefenseLaserPulse
+  WeaponFX_AvengerTargetDesignator:
+    Nuggets:
+    - Type: Sound
+      Name: NoSound
+  FX_StructureLargeDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureTransitionLargeSmoke
+    - Type: ParticleSystem
+      Name: StructureTransitionLargeExplosion
+    - Type: ParticleSystem
+      Name: StructureTransitionLargeShockwave
+    - Type: ParticleSystem
+      Name: StructureTransitionLargeFlare
+    - Type: Sound
+    - Type: SUBTLE
+  FX_StructureMediumDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureTransitionMediumSmoke
+    - Type: ParticleSystem
+      Name: StructureTransitionMediumExplosion
+    - Type: ParticleSystem
+      Name: StructureTransitionMediumShockwave
+    - Type: ParticleSystem
+      Name: StructureTransitionMediumFlare
+    - Type: Sound
+      Name: BuildingDie
+    - Type: SUBTLE
+  FX_StructureSmallDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureTransitionSmallSmoke
+    - Type: ParticleSystem
+      Name: StructureTransitionSmallExplosion
+    - Type: ParticleSystem
+      Name: StructureTransitionSmallShockwave
+    - Type: ParticleSystem
+      Name: StructureTransitionSmallFlare
+    - Type: Sound
+      Name: BuildingDie
+    - Type: SUBTLE
+  FX_StructureTinyDeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureTransitionTinySmoke
+    - Type: ParticleSystem
+      Name: StructureTransitionTinyExplosion
+    - Type: ParticleSystem
+      Name: StructureTransitionTinyShockwave
+    - Type: ParticleSystem
+      Name: StructureTransitionTinyFlare
+    - Type: Sound
+      Name: BuildingDie
+    - Type: SUBTLE
+  FX_BuildingDie:
+    Nuggets:
+    - Type: Sound
+      Name: BuildingDie
+  FX_TsingMaExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TsingMaRing
+    - Type: ParticleSystem
+      Name: TsingMaTrailArms
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TsingMaLenzflare
+      OrientToObject: Yes
+      Offset: X:0 Y:0 Z:1
+    - Type: SEVERE
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_TsingMaSplash:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TsingMaExplosionWave
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TsingMaSplashWave
+      OrientToObject: Yes
+      InitialDelay: 2000 2000 UNIFORM
+    - Type: ParticleSystem
+      Name: TsingMaSplashHit
+      OrientToObject: Yes
+      InitialDelay: 2000 2000 UNIFORM
+  FX_TrainWreckExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TsingMaRing
+    - Type: ParticleSystem
+      Name: TrainWreckTrailArms
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TsingMaLenzflare
+      OrientToObject: Yes
+      Offset: X:0 Y:0 Z:1
+    - Type: SEVERE
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: TankDie
+  FX_TrainWreckSplash:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: TrainWreckExplosionWave
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TrainWreckSplashWave
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: TrainWreckSplashHit
+      OrientToObject: Yes
+  FX_CratePickup:
+    Nuggets:
+    - Type: Sound
+      Name: CratePickupSound
+  FX_ParticleUplinkDeathInitial:
+    Nuggets:
+    - Type: Sound
+    - Type: ParticleSystem
+      Name: ParticleDeathFlare
+      Offset: X:30 Y:0 Z:10
+    - Type: ParticleSystem
+      Name: ParticleDeathImplode
+      Offset: X:30 Y:0 Z:20
+  FX_StrategyCenterBarrage:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: RANDOM
+      Radius: 15
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: ParticleSystem
+      Name: StrategyCenterBarrageDebris
+    - Type: ParticleSystem
+      Name: SpectreHowitzerExplosionCloud
+    - Type: ParticleSystem
+      Name: SpectreHowitzerExplosionArms
+    - Type: ParticleSystem
+      Name: StrategyCenterBarrageShockwave
+      Offset: X:0 Y:0 Z:2
+    - Type: ParticleSystem
+      Name: StratCentBarrageLenzflare
+      Height: 10 10 CONSTANT
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+  WeaponFX_SpectreGattlingMuzzleFlash:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 10
+      IncreaseTime: 0
+      DecreaseTime: 100
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflare
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShellsSpectreGattling
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 20
+      Width: 0.6
+      Color: R:255 G:255 B:255
+      Speed: 1200
+      Probability: 0.7
+  FX_SpectreHowitzerExplosion:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: RANDOM
+      Radius: 50
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: ParticleSystem
+      Name: SpectreHowitzerExplosionCloud
+    - Type: ParticleSystem
+      Name: SpectreHotPillarArms
+    - Type: ParticleSystem
+      Name: MammothTankExplosionLenzflare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: SpectreHowitzerShockwave
+      Offset: X:0 Y:0 Z:2
+    - Type: Sound
+      Name: ExplosionCarpetBomb
+    - Type: ParticleSystem
+      Name: SpectreGunshipExplosionLight
+  FX_spectreGunshipDeathExplosion:
+    Nuggets:
+    - Type: SEVERE
+    - Type: ParticleSystem
+      Name: spectreDeathExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+  FX_SpectreGattlingImpacts:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: InfantryMortarDebris
+    - Type: ParticleSystem
+      Name: SpectreGattlingArmsSmoke
+    - Type: ParticleSystem
+      Name: InfantryStruckSparks
+    - Type: ParticleSystem
+      Name: TankStruckSparks
+      Height: 10 10 CONSTANT
+    - Type: Sound
+  FX_SpectreGunshipExplosionLight:
+    Nuggets:
+    - Type: SEVERE
+    - Type: ParticleSystem
+      Name: SpectreGunshipExplosionLight
+      Offset: X:0.0 Y:0.0 Z:2.0
+  FX_spectreDeathExplosion:
+    Nuggets:
+    - Type: SEVERE
+    - Type: ParticleSystem
+      Name: spectreDeathExplosion
+      Offset: X:0.0 Y:0.0 Z:2.0
+  GC_Chem_WeaponFX_ToxinFlameWeaponGamma:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:0 B:255
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 500
+  GC_Chem_WeaponFX_ToxinMissileDetonationGamma:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: GC_Chem_ToxinTarget
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: GC_Chem_ToxinPuddle
+      CreateAtGroundHeight: Yes
+  GC_Chem_WeaponFX_LargePoisonFieldWeaponGamma:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: GC_Chem_AnthraxFieldGammaLarge
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  GC_Chem_WeaponFX_MediumPoisonFieldWeaponGamma:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: GC_Chem_AnthraxFieldGammaMedium
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  GC_Chem_WeaponFX_SmallPoisonFieldWeaponGamma:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: GC_Chem_AnthraxGammaFieldSmall
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  GC_Chem_WeaponFX_ToxinTruckSprayNozzleGamma:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AnthraxGammaSpray
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: GC_Chem_ToxinPuddle
+      CreateAtGroundHeight: Yes
+  GC_Chem_WeaponFX_ToxinTruckSprayGroundGamma:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AnthraxGammaPuddleLarge
+      CreateAtGroundHeight: Yes
+      UseCallersRadius: Yes
+  FX_HelixPropagandaTowerPropagandaPulse:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SonicRangeDown
+      Offset: X:0.0 Y:0.0 Z:8.0
+      OrientToObject: Yes
+  FX_HelixPropagandaTowerSubliminalPulse:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SonicRangeDownUpgraded
+      Offset: X:0.0 Y:0.0 Z:8.0
+      OrientToObject: Yes
+  FX_MicrowaveTankEmitter:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: MicrowaveEmitter
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  FX_BattleBusStartUndeath:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: FireBaseShellExplosionCloud
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionDebris2
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionShockwave
+  FX_BattleBusHitGround:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionShockwave
+    - Type: ParticleSystem
+      Name: SpectreHowitzerExplosionCloud
+  FX_GroundedHelicopterBlowUpBig:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureTransitionSmallExplosion
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 3
+      Radius: 5 5 UNIFORM
+      InitialDelay: 100 100 UNIFORM
+    - Type: Sound
+      Name: CarDie
+    - Type: STRONG
+  WeaponFX_SentryDroneGunFire:
+    Nuggets:
+    - Type: LightPulse
+      Color: R:255 G:255 B:128
+      Radius: 25
+      IncreaseTime: 0
+      DecreaseTime: 500
+    - Type: ParticleSystem
+      Name: GattlingCannonLenzflareIntense
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: SentryDroneMuzzleFlash
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: InfantryStruckSmallArmsSmoke
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: FallingShells
+      OrientToObject: Yes
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: Tracer
+      DecayAt: 1
+      Length: 10
+      Width: 0.3
+      Color: R:230 G:204 B:179
+      Speed: 300
+      Probability: 0.25
+  WeaponFX_MOAB_Blast:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMOAB
+    - Type: ParticleSystem
+      Name: MOABsparks
+      InitialDelay: 225 225 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: MOABRing
+      InitialDelay: 225 225 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NukeCannonBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: MOABMushroomStem
+      InitialDelay: 500 500 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: MOABExplosionArms
+      InitialDelay: 10 10 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: StructureTransitionLargeFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: MOABDustWave
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: RANDOM
+      Radius: 250
+  Lazr_WeaponFX_Laser:
+    Nuggets:
+    - Type: Sound
+      Name: PaladinPointDefenseLaserPulse
+  Lazr_WeaponFX_LaserCrusader:
+    Nuggets:
+    - Type: Sound
+      Name: LaserCrusaderWeapon
+  FX_HelixHelicopterBlowUpBig:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: StructureTransitionSmallExplosion
+    - Type: ParticleSystem
+      Name: MammothTankSubExplosionSmoke
+      Count: 3
+      Radius: 5 5 UNIFORM
+      InitialDelay: 100 100 UNIFORM
+    - Type: ParticleSystem
+      Name: HelixDeathExplosionCloud
+      Count: 3
+      Radius: 5 5 UNIFORM
+      InitialDelay: 100 100 UNIFORM
+    - Type: Sound
+      Name: CarDie
+    - Type: STRONG
+  FX_FireBaseHowitzerExplosion:
+    Nuggets:
+    - Type: SUBTLE
+    - Type: RANDOM
+      Radius: 50
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: ParticleSystem
+      Name: FireBaseShellExplosionCloud
+    - Type: ParticleSystem
+      Name: FireBaseHowitzerPillarArms
+    - Type: ParticleSystem
+      Name: MammothTankExplosionLenzflare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: SpectreGunshipExplosionLight
+  Nuke_WeaponFX_NukeCannon:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: NukeCannonFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NukeCannonRing
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NukeCannonBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NukeCannonShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomStem
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionShockwave
+  Nuke_WeaponFX_CarpetBomb:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionMiniNuke
+    - Type: ParticleSystem
+      Name: NukeCannonFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:45.0
+    - Type: ParticleSystem
+      Name: NukeCannonRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeCannonBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: NukeCannonShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomStem
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:35.0
+  GC_Chem_WeaponFX_SCUDMissileDetonationAnthrax:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: GC_Chem_ScudMissleLauncherGammaExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: GC_Chem_ScudMissleLauncherGammaLenzFlare
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: GC_Chem_ScudMissleLauncherGammaExplosionTrailArms
+      Offset: X:0.0 Y:0.0 Z:15.0
+  FX_BunkerBusterExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SeismicDebris
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: seismicDust
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: SeismicShockwave
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: SeismicDirt
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: BunkerBusterPlume
+      InitialDelay: 500 500 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: BunkerBusterPlumeCore
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0
+    - Type: Sound
+      Name: ExplosionDaisyCutter
+    - Type: SEVERE
+  WeaponFX_BunkerBusterIntialImpact:
+    Nuggets:
+    - Type: SEVERE
+    - Type: ParticleSystem
+      Name: BattleshipMuzzleFlashFlame
+      OrientToObject: Yes
+    - Type: ParticleSystem
+      Name: BattleshipMuzzleFlashWave
+      Offset: X:0.0 Y:0.0 Z:-20.0
+      OrientToObject: Yes
+  FX_CraterBombExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: CraterDebris
+    - Type: SEVERE
+    - Type: SCORCH_4
+      Radius: 250
+  Neutron_WeaponFX_Mine:
+    Nuggets:
+    - Type: Sound
+      Name: MineExplosion
+    - Type: ParticleSystem
+      Name: MineDebris
+    - Type: ParticleSystem
+      Name: MineSmoke
+    - Type: ParticleSystem
+      Name: MineFlash
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: NeutronFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: RANDOM
+      Radius: 15
+  Neutron_WeaponFX_NukeCannon:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionNeutronShell
+    - Type: ParticleSystem
+      Name: AirF_AuroraBombScatterIgnite2
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NeutronLenzflare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NeutronRing
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NeutronFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:0.0
+    - Type: ParticleSystem
+      Name: NeutronMushroomExplosion
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:50.0
+    - Type: ParticleSystem
+      Name: NeutronDust
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:50.0
+    - Type: ParticleSystem
+      Name: NeutronDustRingDust
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:30.0
+    - Type: RANDOM
+      Radius: 50
+  WeaponFX_UpgradeMineDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: MineExplosion
+    - Type: ParticleSystem
+      Name: MineDebris
+    - Type: ParticleSystem
+      Name: MineSmoke
+    - Type: ParticleSystem
+      Name: MineFlash
+      Offset: X:0.0 Y:0.0 Z:1.0
+    - Type: ParticleSystem
+      Name: EMPSparksSmall
+    - Type: RANDOM
+      Radius: 15
+  AirF_FX_AuroraBombIgnite:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: AirF_AuroraBombScatterIgnite1
+    - Type: Sound
+      Name: DaisyCutterIgnite
+  AirF_FX_AuroraBombExplode:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BuggySubExplosion
+    - Type: ParticleSystem
+      Name: AirF_AuroraBombScatter1
+      AttachToObject: Yes
+    - Type: ParticleSystem
+      Name: AirF_AuroraBombExplosion
+    - Type: ParticleSystem
+      Name: AirF_AuroraBombScatterIgnite2
+    - Type: ParticleSystem
+      Name: AirF_AuroraDustRing
+    - Type: RANDOM
+      Radius: 75
+    - Type: Sound
+      Name: DaisyCutterGas
+  Demo_ScudStormMissileDetonation:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: ScudMissleExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: DEMOScudMissleLenzFlare
+      Offset: X:0.0 Y:0.0 Z:1.0
+  Nuke_WeaponFX_NapalmMissileDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: NukeCannonFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:40.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:45.0
+    - Type: ParticleSystem
+      Name: NukeCannonRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeCannonBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: NukeCannonShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomStem
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:20.0
+    - Type: ParticleSystem
+      Name: NukeCannonMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:35.0
+    - Type: RANDOM
+      Radius: 15
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 30
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: Sound
+      Name: ExplosionFire
+  SupW_FX_Nuke:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionNeutron
+    - Type: ParticleSystem
+      Name: NukeFlare
+      InitialDelay: 0 0 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeMushroomExplosion
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:90.0
+    - Type: ParticleSystem
+      Name: NukeMushroomCloudRing
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:105.0
+    - Type: ParticleSystem
+      Name: NukeRing
+      Offset: X:0.0 Y:0.0 Z:5.0
+    - Type: ParticleSystem
+      Name: NukeBlastWave
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:15.0
+    - Type: ParticleSystem
+      Name: NukeShockwaveInverted
+      InitialDelay: 300 300 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:30.0
+    - Type: ParticleSystem
+      Name: NukeMushroomStem
+      InitialDelay: 2000 2000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:30.0
+    - Type: ParticleSystem
+      Name: NukeShockwave
+      InitialDelay: 200 200 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:30.0
+    - Type: ParticleSystem
+      Name: NukeMushroomRing
+      InitialDelay: 1000 1000 UNIFORM
+      Offset: X:0.0 Y:0.0 Z:50.0
+  SupW_FX_DefenseEmitter:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: SupW_DefenseEmitterParticles
+      UseCallersRadius: Yes
+      Offset: X:0.0 Y:0.0 Z:1.0
+  WeaponFX_BlackNapalmExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: BlackNapalm
+    - Type: ParticleSystem
+      Name: BlackNapalmSparks
+    - Type: RANDOM
+      Radius: 35
+    - Type: LightPulse
+      Color: R:255 G:128 B:51
+      Radius: 15
+      IncreaseTime: 0
+      DecreaseTime: 2333
+    - Type: Sound
+      Name: ExplosionFire
+  WeaponFX_DEMOGENRocketBuggyMissileDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: DEMOBuggyMissileExplosionSmoke
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionLenzflare
+  WeaponFX_DEMOGenericTankShellDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+      UseCallersRadius: Yes
+    - Type: ParticleSystem
+      Name: DEMOBuggyMissileExplosionSmoke
+  WeaponFX_DEMO_SCUDMissileDetonationExplosive:
+    Nuggets:
+    - Type: SEVERE
+    - Type: Sound
+      Name: ExplosionScudExplosive
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherExplosionArms
+      Offset: X:0.0 Y:0.0 Z:2.0
+    - Type: ParticleSystem
+      Name: DEMOScudMissleLenzFlare
+      Offset: X:0.0 Y:0.0 Z:10.0
+    - Type: ParticleSystem
+      Name: ScudMissleLauncherExplosionTrailArms
+      Offset: X:0.0 Y:0.0 Z:15.0
+  WeaponFX_DEMORocketBuggyMissileDetonation:
+    Nuggets:
+    - Type: Sound
+      Name: ExplosionRocketBuggyMissile
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosion
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionSmoke
+    - Type: ParticleSystem
+      Name: BuggyMissileExplosionLenzflare
+  FX_DEMOBuggyNewDeathExplosion:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: DemoBuggyNewExplosionSmoke
+    - Type: ParticleSystem
+      Name: SpectreHowitzerExplosionCloud
+    - Type: ParticleSystem
+      Name: SpectreHotPillarArmFlame
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionDebris2
+    - Type: ParticleSystem
+      Name: BuggyNewExplosionShockwave
+    - Type: STRONG
+    - Type: RANDOM
+      Radius: 15
+    - Type: Sound
+      Name: CarDie
+  WeaponFX_DemoSuicideDynamitePackDetonation:
+    Nuggets:
+    - Type: ParticleSystem
+      Name: RedDonuteCloud
+    - Type: ParticleSystem
+      Name: ArmExplosionSmall01
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: ParticleSystem
+      Name: DemoTrapLenzFlare
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 15
+  WeaponFX_DemoSuicideDynamitePackDetonationPlusFire:
+    Nuggets:
+    - Type: Sound
+      Name: TerroristSuicides
+    - Type: ParticleSystem
+      Name: Explosion
+    - Type: ParticleSystem
+      Name: DemoExplosionSmoke
+    - Type: ParticleSystem
+      Name: RedDonuteCloud
+    - Type: ParticleSystem
+      Name: ArmExplosionSmall01
+    - Type: ParticleSystem
+      Name: HotPillarArms
+    - Type: NORMAL
+    - Type: RANDOM
+      Radius: 15

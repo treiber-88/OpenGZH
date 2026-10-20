@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OpenGZH.Client/OpenGZH.Client.csproj" />
+    <Project Path="src/OpenGZH.Core/OpenGZH.Core.csproj" />
+    <Project Path="src/OpenGZH.Editor/OpenGZH.Editor.csproj" />
+    <Project Path="src/OpenGZH.Formats/OpenGZH.Formats.csproj" />
+    <Project Path="src/OpenGZH.Game/OpenGZH.Game.csproj" />
+    <Project Path="src/OpenGZH.Logic/OpenGZH.Logic.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/OpenGZH.Tests/OpenGZH.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/OpenGZH.Tools/OpenGZH.Tools.csproj" />
+  </Folder>
+</Solution>

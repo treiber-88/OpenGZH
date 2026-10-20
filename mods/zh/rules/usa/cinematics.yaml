@@ -1,0 +1,5530 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  CINE_USA08_AmericaJetB52:
+    DisplayName: OBJECT:B52
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: B52AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 50 50 50 50
+    Locomotor: SET_NORMAL CINE_USA08_B52Locomotor
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 60.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: TankDamageFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber
+          Flags: MAINTAIN_FRAME_ACROSS_STATES
+          ParticleSysBone:
+          - Engine00 JetBlackTrailThin
+          - Engine02 JetBlackTrailThin
+          - Engine03 JetBlackTrailThin
+          - Engine04 JetBlackTrailThin
+          - WingTip01 JetContrailThin
+          - WingTip02 JetContrailThin
+        ConditionState:
+          DAMAGED:
+            Model: AVBomber_D
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Engine00 JetBlackTrailThin
+            - Engine02 JetBlackTrailThin
+            - Engine03 JetBlackTrailThin
+            - Engine04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          REALLYDAMAGED:
+            Model: AVBomber_D
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Engine00 JetBlackTrailThin
+            - Engine02 JetBlackTrailThin
+            - Engine03 JetBlackTrailThin
+            - Engine04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          RUBBLE:
+            Model: AVBomber_D1
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVBomber_A2U
+          Animation: AVBomber_A2K.AVBomber_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST MAINTAIN_FRAME_ACROSS_STATES
+        ConditionState:
+          DOOR_1_OPENING:
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST MAINTAIN_FRAME_ACROSS_STATES
+          DOOR_1_CLOSING:
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST MAINTAIN_FRAME_ACROSS_STATES
+          REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST MAINTAIN_FRAME_ACROSS_STATES
+          DOOR_1_OPENING REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST MAINTAIN_FRAME_ACROSS_STATES
+          DOOR_1_CLOSING REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST MAINTAIN_FRAME_ACROSS_STATES
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1000.0
+        InitialHealth: 1000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponDaisyCutter
+        OCL: SUPERWEAPON_DaisyCutter
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponParadropAmerica
+        UpgradeOCL: [SCIENCE_Paradrop3 SUPERWEAPON_Paradrop3, SCIENCE_Paradrop2 SUPERWEAPON_Paradrop2]
+        OCL: SUPERWEAPON_Paradrop1
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponCarpetBomb
+        OCL: SUPERWEAPON_CarpetBomb
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 4
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 300
+        PutInContainer: AmericaParachute
+        DeliveryDistance: 150
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_11:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U06_CruiseMissileFLY:
+    Scale: .66
+    DisplayName: OBJECT:MIG
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 300.0
+    VoiceSelect: MigVoiceSelect
+    VoiceMove: MigVoiceMove
+    VoiceAttack: MigVoiceAttack
+    VoiceAttackAir: MigVoiceAttackAir
+    VoiceGuard: MigVoiceAirPatrol
+    SoundAmbient: MigAmbientLoop
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL CINE_CruiseMissile, SET_TAXIING BasicJetTaxiLocomotor]
+    Geometry: Box
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 14.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 5.0
+    Shadow: [SHADOW_VOLUME, SHADOW_VOLUME]
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: MigVoiceCreate
+      Afterburner: RaptorAfterburner
+      VoiceGarrison: MigVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVCINECMF
+          ParticleSysBone: [Engine01 CINE_U06_JetExhaust, Engine01 CINE_U06_SteamRocketFuselage]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_04:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 250.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ReturnToBaseIdleTime: 1000000
+      ModuleTag_08:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U06_CruiseMissileAttack:
+    Scale: .66
+    DisplayName: OBJECT:MIG
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 300.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVCINECMA
+          Animation: AVCINECMA.AVCINECMA
+          AnimationMode: ONCE
+          ParticleSysBone: [Engine01 CINE_U06_JetExhaust, Engine01 CINE_U06_SteamRocketFuselage]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_04:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -TOPPLED
+      ModuleTag_10:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -TOPPLED
+        DeathFX: FX_PropExplode
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U06_BBus:
+    DisplayName: OBJECT:Structure
+    EditorSorting: STRUCTURE
+    CommandSet: BaikonurLaunchTowerCommandSet
+    SoundAmbient: BuildingNeutronMissileHiss
+    KindOf: STRUCTURE SELECTABLE IMMOBILE AIRCRAFT_PATH_AROUND CAPTURABLE
+    Geometry: BOX
+    GeometryMajorRadius: 45.0
+    GeometryMinorRadius: 46.0
+    GeometryHeight: 160.0
+    GeometryIsSmall: No
+    Shadow: None
+    ArmorSet:
+      Conditions: None
+      Armor: StructureArmor
+      DamageFX: StructureDamageFXNoShake
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        ConditionState:
+          NONE:
+            Model: CINE_BBus
+          DOOR_1_OPENING:
+            Model: CINE_BBus
+            Animation: CINE_BBus.CINE_BBus
+            AnimationMode: ONCE
+          DAMAGED:
+            Model: CBBaikRock_A1
+            Animation: CBBaikRock_A1.CBBaikRock_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+          REALLYDAMAGED:
+            Model: CBBaikRock_A1
+            Animation: CBBaikRock_A1.CBBaikRock_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+          RUBBLE:
+            Model: CBBaikRock_CR
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 2000.0
+        InitialHealth: 2000.0
+      ModuleTag_IWantRubble:
+        Module: Behavior
+        Class: KeepObjectDie
+      ModuleTag_04:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: FlammableUpdate
+        FlameDamageLimit: 20
+        FlameDamageExpiration: 2000
+        AflameDuration: 5000
+        AflameDamageAmount: 25
+        AflameDamageDelay: 500
+      ModuleTag_06:
+        Module: Behavior
+        Class: BaikonurLaunchPower
+        SpecialPowerTemplate: SuperweaponLaunchBaikonurRocket
+        DetonationObject: BaikonurRocketDetonation
+      ModuleTag_07:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_PoisonFieldLarge
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_NukeGLA
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem2: Bone:None RandomBone:No PSys:StructureTransitionMediumExplosion
+        ReallyDamagedParticleSystem3: Bone:None RandomBone:No PSys:StructureTransitionMediumShockwave
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U06_SatPhoto01:
+    DisplayName: OBJECT:MIG
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 300.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CINE_SatP01
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -TOPPLED
+      ModuleTag_10:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -TOPPLED
+        DeathFX: FX_PropExplode
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U06_SatPhoto02:
+    DisplayName: OBJECT:MIG
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 300.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CINE_SatP02
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -TOPPLED
+      ModuleTag_10:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -TOPPLED
+        DeathFX: FX_PropExplode
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U06_SatPhoto03:
+    DisplayName: OBJECT:MIG
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 200.0
+    ShroudClearingRange: 300.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CINE_SatP03
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL -TOPPLED
+      ModuleTag_10:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -TOPPLED
+        DeathFX: FX_PropExplode
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_Sattelite3:
+    DisplayName: OBJECT:Structure
+    EditorSorting: STRUCTURE
+    CommandSet: BaikonurLaunchTowerCommandSet
+    SoundAmbient: [CINE_SatSound01Loop, ParticleUplinkCannon_PowerupSoundLoop]
+    KindOf: STRUCTURE SELECTABLE IMMOBILE AIRCRAFT_PATH_AROUND CAPTURABLE
+    Geometry: BOX
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Shadow: None
+    ArmorSet:
+      Conditions: None
+      Armor: StructureArmor
+      DamageFX: StructureDamageFXNoShake
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        ConditionState:
+          NONE:
+            Model: CINE_Sat02
+            Animation: CINE_Sat02.CINE_Sat02
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+          DOOR_1_OPENING:
+            Model: CINE_Sat02
+            Animation: CINE_Sat02.CINE_Sat02
+            AnimationMode: ONCE
+          DAMAGED:
+            Model: CBBaikRock_A1
+            Animation: CBBaikRock_A1.CBBaikRock_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 SteamRocketFuselage
+            - Smoke02 SteamRocketFuselage
+            - Smoke03 SteamRocketFuselage
+            - Smoke04 SteamRocketFuselage
+          REALLYDAMAGED:
+            Model: CBBaikRock_A1
+            Animation: CBBaikRock_A1.CBBaikRock_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Smoke01 SteamRocketFuselage
+            - Smoke02 SteamRocketFuselage
+            - Smoke03 SteamRocketFuselage
+            - Smoke04 SteamRocketFuselage
+          RUBBLE:
+            Model: CBBaikRock_CR
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 2000.0
+        InitialHealth: 2000.0
+      ModuleTag_IWantRubble:
+        Module: Behavior
+        Class: KeepObjectDie
+      ModuleTag_04:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: FlammableUpdate
+        FlameDamageLimit: 20
+        FlameDamageExpiration: 2000
+        AflameDuration: 5000
+        AflameDamageAmount: 25
+        AflameDamageDelay: 500
+      ModuleTag_06:
+        Module: Behavior
+        Class: BaikonurLaunchPower
+        SpecialPowerTemplate: SuperweaponLaunchBaikonurRocket
+        DetonationObject: BaikonurRocketDetonation
+      ModuleTag_07:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_PoisonFieldLarge
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_NukeGLA
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem2: Bone:None RandomBone:No PSys:StructureTransitionMediumExplosion
+        ReallyDamagedParticleSystem3: Bone:None RandomBone:No PSys:StructureTransitionMediumShockwave
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaVehicleHumvee:
+    SelectPortrait: SAHummer_L
+    ButtonImage: SAHummer
+    UpgradeCameo1: Upgrade_AmericaBattleDrone
+    UpgradeCameo2: Upgrade_AmericaScoutDrone
+    UpgradeCameo3: Upgrade_AmericaTOWMissile
+    DisplayName: OBJECT:Humvee
+    Side: America
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 700
+    BuildTime: 10.0
+    VisionRange: 320
+    ShroudClearingRange: 320
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 150 300
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: AmericaVehicleHumveeCommandSet
+    VoiceSelect: HumveeVoiceSelect
+    VoiceMove: HumveeVoiceMove
+    VoiceGuard: HumveeVoiceMove
+    VoiceAttack: HumveeVoiceAttack
+    VoiceAttackAir: HumveeVoiceAttackTOW
+    SoundMoveStart: HumveeMoveStart
+    SoundMoveStartDamaged: HumveeMoveStart
+    SoundEnter: HumveeEnter
+    SoundExit: HumveeExit
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE TRANSPORT
+    Locomotor: SET_NORMAL CINE_USAHumveeLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 14.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 11.5
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY HumveeGun
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY HumveeGun, SECONDARY HumveeMissileWeapon, TERTIARY HumveeMissileWeaponAir]
+      PreferredAgainst: TERTIARY AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: HumveeArmor
+      DamageFX: TruckDamageFX
+    Prerequisites:
+      Object: AmericaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: HumveeVoiceCreate
+      TurretMoveLoop: TurretMoveLoop
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      VoiceCrush: HumveeVoiceCrush
+      TruckLandingSound: RocketBuggyLand
+      TruckPowerslideSound: RocketBuggyPowerslide
+      VoiceUnload: HumveeVoiceUnload
+      VoiceEnter: HumveeVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack.tga
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        PowerslideSpray: RocketBuggyDirtPowerSlide
+        LeftFrontTireBone: Tire01
+        RightFrontTireBone: Tire02
+        LeftRearTireBone: Tire03
+        RightRearTireBone: Tire04
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 1.25
+        ConditionState:
+          NONE:
+            Model: AVHUMMER
+            Turret: Turret
+            ShowSubObject: Turret
+            HideSubObject: TurretUp01 Housecolor03 MuzzleFXUP01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+          REALLYDAMAGED:
+            Model: AVHUMMER_d
+            Turret: Turret
+            ShowSubObject: Turret
+            HideSubObject: TurretUp01 Housecolor03 MuzzleFXUP01
+            WeaponFireFXBone: PRIMARY Muzzle
+            WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WEAPONSET_PLAYER_UPGRADE:
+            Model: AVHUMMER
+            Turret: TurretUp01
+            HideSubObject: Turret MuzzleFX01
+            ShowSubObject: TurretUp01 Housecolor03
+            WeaponFireFXBone: [PRIMARY MuzzleUp, SECONDARY WeaponB, TERTIARY WeaponB]
+            WeaponMuzzleFlash: PRIMARY MuzzleFXUp
+            WeaponLaunchBone: [SECONDARY WeaponB, TERTIARY WeaponB]
+          REALLYDAMAGED WEAPONSET_PLAYER_UPGRADE:
+            Model: AVHUMMER_d
+            Turret: TurretUp01
+            HideSubObject: Turret MuzzleFX01
+            ShowSubObject: TurretUp01 Housecolor03
+            WeaponFireFXBone: [PRIMARY MuzzleUp, SECONDARY WeaponB, TERTIARY WeaponB]
+            WeaponMuzzleFlash: PRIMARY MuzzleFXUp
+            WeaponLaunchBone: [SECONDARY WeaponB, TERTIARY WeaponB]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 240.0
+        InitialHealth: 240.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: TransportAIUpdate
+        AutoAcquireEnemiesWhenIdle: Yes
+        MoodAttackCheckRate: 250
+        Turret:
+          TurretTurnRate: 180
+          RecenterTime: 5000
+          ControlledWeaponSlots: PRIMARY SECONDARY TERTIARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: TransportContain
+        PassengersAllowedToFire: Yes
+        Slots: 5
+        DamagePercentToUnits: 10%
+        AllowInsideKindOf: INFANTRY
+        ExitDelay: 250
+        NumberOfExitPaths: 3
+        GoAggressiveOnExit: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanBattleDrone
+        TriggeredBy: Upgrade_AmericaBattleDrone
+        ConflictsWith: Upgrade_AmericaScoutDrone
+      ModuleTag_07:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanScoutDrone
+        TriggeredBy: Upgrade_AmericaScoutDrone
+        ConflictsWith: Upgrade_AmericaBattleDrone
+      ModuleTag_08:
+        Module: Behavior
+        Class: ProductionUpdate
+        MaxQueueEntries: 1
+      ModuleTag_09:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_AmericaTOWMissile
+      ModuleTag_10:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_11:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 25
+        DestructionDelay: 1
+        OCL: [INITIAL OCL_InitialHumveeDebris, FINAL OCL_FinalHumveeDebris]
+        FX: FINAL FX_BattleMasterExplosionOneFinal
+      ModuleTag_12:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_13:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_CratesChange:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_16:
+        Module: Behavior
+        Class: EjectPilotDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ExemptStatus: HIJACKED
+        VeterancyLevels: ALL -REGULAR
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+      ModuleTag_17:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_USA08_AmericaVehicleComanche:
+    SelectPortrait: SACCommanche_L
+    ButtonImage: SACCommanche
+    UpgradeCameo1: Upgrade_ComancheRocketPods
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    DisplayName: OBJECT:Comanche
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 400.0
+    ShroudClearingRange: 600
+    BuildCost: 1500
+    BuildTime: 20
+    ExperienceValue: 50 50 100 200
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CommandSet: AmericaVehicleComancheCommandSet
+    VoiceSelect: ComancheVoiceSelect
+    VoiceMove: ComancheVoiceMove
+    VoiceGuard: ComancheVoiceMove
+    VoiceAttack: ComancheVoiceAttack
+    SoundAmbient: ComancheAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT PRODUCED_AT_HELIPAD
+    Locomotor: [SET_NORMAL CINE_USA08_ComancheLocomotor, SET_TAXIING BasicHelicopterTaxiLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 25.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: AmericaAirfield
+    WeaponSet:
+    - Conditions: None
+      Weapon:
+      - PRIMARY Comanche20mmCannonWeapon
+      - SECONDARY ComancheAntiTankMissileWeapon
+      - TERTIARY NONE
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY VEHICLE STRUCTURE]
+      AutoChooseSources:
+      - PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - SECONDARY FROM_PLAYER FROM_SCRIPT FROM_AI
+    - Conditions: PLAYER_UPGRADE
+      Weapon:
+      - PRIMARY Comanche20mmCannonWeapon
+      - SECONDARY ComancheAntiTankMissileWeapon
+      - TERTIARY ComancheRocketPodWeapon
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY VEHICLE STRUCTURE]
+      AutoChooseSources:
+      - PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - SECONDARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - TERTIARY NONE
+    ArmorSet:
+      Conditions: None
+      Armor: ComancheArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: ComancheVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceGarrison: ComancheVoiceMove
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+      VoiceFireRocketPods: ComancheVoiceAttackRocket
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVComanche
+          HideSubObject: [MissileUpgrade, TurretFX01]
+          Animation: AVComanche.AVComanche
+          AnimationMode: LOOP
+          WeaponMuzzleFlash: PRIMARY TurretFX
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponLaunchBone: SECONDARY Muzzle
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVComanche_d
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+          WEAPONSET_PLAYER_UPGRADE:
+            ShowSubObject: MissileUpgrade
+            Animation: AVComanche.AVComanche
+            AnimationMode: LOOP
+            WeaponFireFXBone: TERTIARY WeaponB
+            WeaponLaunchBone: TERTIARY WeaponB
+          WEAPONSET_PLAYER_UPGRADE REALLYDAMAGED:
+            Model: AVComanche_d
+            ShowSubObject: MissileUpgrade
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+            WeaponFireFXBone: TERTIARY WeaponB
+            WeaponLaunchBone: TERTIARY WeaponB
+          RUBBLE:
+            Model: AVComanche_d
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+          RUBBLE SPECIAL_DAMAGED:
+            Model: AVComanche_d
+            HideSubObject: AVComanche_Prop
+      ModuleTag_02:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ComancheRocketPods
+      ModuleTag_03:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_04:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 220.0
+        InitialHealth: 220.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_ComancheStartDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        MinHeight: 5
+        NeedsRunway: No
+        KeepsParkingSpaceWhenAirborne: No
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 0
+          TurretPitchRate: 0
+          ControlledWeaponSlots: PRIMARY SECONDARY
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: HelicopterSlowDeathBehavior
+        DestructionDelay: 99999999
+        SpiralOrbitTurnRate: 140.0
+        SpiralOrbitForwardSpeed: 350.0
+        SpiralOrbitForwardSpeedDamping: .9999
+        MaxBraking: 190
+        SoundDeathLoop: ComancheDamagedLoop
+        MinSelfSpin: 100
+        MaxSelfSpin: 300
+        SelfSpinUpdateDelay: 100
+        SelfSpinUpdateAmount: 10
+        FallHowFast: 12.0%
+        MinBladeFlyOffDelay: 1500
+        MaxBladeFlyOffDelay: 1500
+        AttachParticle: SootySmokeTrail
+        AttachParticleBone: Propeller02
+        BladeObjectName: ComancheBlades
+        BladeBoneName: Propeller01
+        OCLEjectPilot: OCL_EjectPilotViaParachute
+        FXBlade: FX_HelicopterBladeExplosion
+        OCLBlade: OCL_HelicopterBladeExplosion
+        FXHitGround: FX_HelicopterHitGround
+        OCLHitGround: OCL_HelicopterHitGround
+        FXFinalBlowUp: FX_GroundedHelicopterBlowUp
+        OCLFinalBlowUp: OCL_GroundedHelicopterBlowUp
+        DelayFromGroundToFinalDeath: 1500
+        FinalRubbleObject: ComancheRubbleHull
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuousDown
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_ComancheDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_ComancheRubbleHull:
+    DisplayName: OBJECT:ComancheHull
+    Side: America
+    KindOf: IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVComanche_D1
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 25.0
+        AllowBouncing: Yes
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaInfantryRanger:
+    SelectPortrait: SARanger_L
+    ButtonImage: SARanger
+    UpgradeCameo1: Upgrade_AmericaRangerFlashBangGrenade
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    DisplayName: OBJECT:Ranger
+    Side: America
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 400
+    BuildCost: 225
+    BuildTime: 5.0
+    ExperienceValue: 20 20 40 60
+    ExperienceRequired: 0 20 40 60 120
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: AmericaInfantryRangerCommandSet
+    VoiceSelect: RangerVoiceSelect
+    VoiceMove: RangerVoiceMove
+    VoiceGuard: RangerVoiceMove
+    VoiceAttack: RangerVoiceAttack
+    VoiceFear: RangerVoiceFear
+    VoiceTaskComplete: RangerVoiceCaptureComplete
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY CAN_RAPPEL SCORE
+    Locomotor: SET_NORMAL BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 7.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 13.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY CINE_RangerAdvancedCombatRifle
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY RangerAdvancedCombatRifle, SECONDARY RangerFlashBangGrenadeWeapon]
+      AutoChooseSources: [PRIMARY FROM_SCRIPT FROM_AI, SECONDARY FROM_SCRIPT FROM_AI]
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: AmericaBarracks
+    UnitSpecificSounds:
+      VoiceEnter: RangerVoiceMove
+      VoiceEnterHostile: RangerVoiceMove
+      VoiceGarrison: RangerVoiceGarrison
+      VoiceCreate: RangerVoiceCreate
+      VoiceSubdue: RangerVoiceSubdue
+      VoiceClearBuilding: RangerVoiceClearBuilding
+      VoiceGetHealed: RangerVoiceMove
+    UnitSpecificFX:
+      CombatDropKillFX: FX_RangerCombatDropKill
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AIRngr_SKN
+          IdleAnimation: [AIRngr_SKL.AIRngr_STA 0 35, AIRngr_SKL.AIRngr_IDA, AIRngr_SKL.AIRngr_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WeaponLaunchBone: SECONDARY Muzzle
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: [AIRngr_SKL.AIRngr_STB 0 35, AIRngr_SKL.AIRngr_IDC, AIRngr_SKL.AIRngr_IDD]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandInjured
+          FIRING_A:
+            Animation: AIRngr_SKL.AIRngr_ATA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringA
+            Aliases: [BETWEEN_FIRING_SHOTS_A, RELOADING_A]
+          FIRING_A REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_ATA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringAInjured
+            Aliases:
+            - BETWEEN_FIRING_SHOTS_A REALLYDAMAGED
+            - RELOADING_A REALLYDAMAGED
+            - MOVING FIRING_A
+            - MOVING BETWEEN_FIRING_SHOTS_A
+            - MOVING RELOADING_A
+          PREATTACK_B:
+            Animation: AIRngr_SKL.AIRngr_ATBA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringB
+            Aliases: [PREATTACK_B MOVING, PREATTACK_B FIRING_B, PREATTACK_B BETWEEN_FIRING_SHOTS_B]
+          FIRING_B:
+            Animation: AIRngr_SKL.AIRngr_ATBB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringB
+          BETWEEN_FIRING_SHOTS_B:
+            Animation: AIRngr_SKL.AIRngr_ATBB
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_FiringB
+            WaitForStateToFinishIfPossible: TRANS_FiringB
+            Aliases: [RELOADING_B]
+          PREATTACK_B REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_ATB2A
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringBInjured
+            Aliases:
+            - PREATTACK_B MOVING REALLYDAMAGED
+            - PREATTACK_B FIRING_B REALLYDAMAGED
+            - PREATTACK_B BETWEEN_FIRING_SHOTS_B REALLYDAMAGED
+          FIRING_B REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_ATB2B
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringBInjured
+          BETWEEN_FIRING_SHOTS_B REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_ATB2B
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_FiringBInjured
+            WaitForStateToFinishIfPossible: TRANS_FiringBInjured
+            Aliases: [RELOADING_B REALLYDAMAGED]
+          MOVING:
+            Animation: AIRngr_SKL.AIRngr_RNA 40
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+          MOVING REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_RNB 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+          DYING:
+            Animation: [AIRngr_SKL.AIRngr_DTA, AIRngr_SKL.AIRngr_DTB]
+            AnimationMode: ONCE
+            TransitionKey: None
+          DYING EXPLODED_FLAILING:
+            Animation: AIRngr_SKL.AIRngr_ADTF2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: AIRngr_SKL.AIRngr_ADTF3
+            AnimationMode: ONCE
+            TransitionKey: None
+            Aliases: [DYING SPLATTED]
+          SPECIAL_CHEERING:
+            Animation: AIRngr_SKL.AIRngr_CHA
+            AnimationMode: LOOP
+          SPECIAL_CHEERING REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_CHB
+            AnimationMode: LOOP
+          FREEFALL:
+            Animation: AIRngr_SKL.AIRngr_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: AIRngr_SKL.AIRngr_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+          UNPACKING:
+            Model: AIRngr_F_SKN
+            Animation: AIRngr_F_SKL.AIRngr_F_FDP1
+            AnimationMode: ONCE
+            Aliases: [UNPACKING REALLYDAMAGED]
+          RAISING_FLAG:
+            Model: AIRngr_F_SKN
+            Animation: AIRngr_F_SKL.AIRngr_F_FDP2
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Raising
+            Aliases: [RAISING_FLAG REALLYDAMAGED]
+          PACKING:
+            Model: AIRngr_F_SKN
+            Animation: AIRngr_F_SKL.AIRngr_F_FDP1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_Packing
+            Aliases: [PACKING REALLYDAMAGED]
+          RAPPELLING:
+            Animation: AIRngr_SKL.AIRngr_RPL1
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Rappelling
+            Aliases: [MOVING RAPPELLING]
+        TransitionState:
+          TRANS_Stand TRANS_StandInjured:
+            Animation: AIRngr_SKL.AIRngr_SA2SB
+            AnimationMode: ONCE
+          TRANS_FiringA TRANS_FiringAInjured:
+            Animation: AIRngr_SKL.AIRngr_A2WAA
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_FiringA:
+            Animation: AIRngr_SKL.AIRngr_ATAST
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_FiringA TRANS_Stand:
+            Animation: AIRngr_SKL.AIRngr_ATAED
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_StandInjured TRANS_FiringAInjured:
+            Animation: AIRngr_SKL.AIRngr_S2WAA
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_FiringAInjured TRANS_StandInjured:
+            Animation: AIRngr_SKL.AIRngr_WAA2S
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_Stand TRANS_FiringB:
+            Animation: AIRngr_SKL.AIRngr_ATBST1
+            AnimationMode: ONCE
+          TRANS_FiringB TRANS_Stand:
+            Animation: AIRngr_SKL.AIRngr_ATBST2
+            AnimationMode: ONCE
+          TRANS_StandInjured TRANS_FiringBInjured:
+            Animation: AIRngr_SKL.AIRngr_ATB2ST1
+            AnimationMode: ONCE
+          TRANS_FiringBInjured TRANS_StandInjured:
+            Animation: AIRngr_SKL.AIRngr_ATB2ST2
+            AnimationMode: ONCE
+          TRANS_FiringA TRANS_FiringB:
+            Animation: AIRngr_SKL.AIRngr_ATA2AB
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_FiringB TRANS_FiringA:
+            Animation: AIRngr_SKL.AIRngr_ATA2AB
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 4 4
+          TRANS_Dying TRANS_Flailing:
+            Animation: AIRngr_SKL.AIRngr_ADTF1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: AIRngr_SKL.AIRngr_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: AIRngr_SKL.AIRngr_PTD
+            AnimationMode: ONCE
+          TRANS_Chute TRANS_StandInjured:
+            Animation: AIRngr_SKL.AIRngr_PTD
+            AnimationMode: ONCE
+          TRANS_Raising TRANS_Packing:
+            Model: AIRngr_F_SKN
+            Animation: AIRngr_F_SKL.AIRngr_F_FDP2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+          TRANS_Rappelling TRANS_Stand:
+            Animation: AIRngr_SKL.AIRngr_RPL2
+            AnimationMode: ONCE
+          TRANS_Rappelling TRANS_StandInjured:
+            Animation: AIRngr_SKL.AIRngr_RPL2
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 180.0
+        InitialHealth: 180.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: AutoFindHealingUpdate
+        ScanRate: 1000
+        ScanRange: 300
+        NeverHeal: 0.85
+        AlwaysHeal: 0.25
+      ModuleTag_06:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_09:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_10:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_AmericaRangerFlashBangGrenade
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RangerDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RangerDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_12:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_17:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_18:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityRangerCaptureBuilding
+        UpdateModuleStartsAttack: Yes
+        StartsPaused: Yes
+        InitiateSound: RangerVoiceCapture
+      ModuleTag_19:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityRangerCaptureBuilding
+        StartAbilityRange: 5.0
+        UnpackTime: 3000
+        PreparationTime: 10000
+        PackTime: 2000
+        DoCaptureFX: Yes
+      ModuleTag_20:
+        Module: Behavior
+        Class: UnpauseSpecialPowerUpgrade
+        SpecialPowerTemplate: SpecialAbilityRangerCaptureBuilding
+        TriggeredBy: Upgrade_InfantryCaptureBuilding
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericanInfantryPathfinder:
+    SelectPortrait: SAPathfinder1_L
+    ButtonImage: SAPathfinder1
+    UpgradeCameo1: Upgrade_AmericaAdvancedTraining
+    DisplayName: OBJECT:Pathfinder
+    Side: America
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 300
+    ShroudClearingRange: 400
+    BuildCost: 600
+    BuildTime: 10.0
+    ExperienceValue: 40 40 60 80
+    ExperienceRequired: 0 50 100 200
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: AmericaInfantryPathfinderCommandSet
+    VoiceSelect: PathfinderVoiceSelect
+    VoiceMove: PathfinderVoiceMove
+    VoiceGuard: PathfinderVoiceMove
+    VoiceAttack: PathfinderVoiceAttack
+    VoiceFear: [PathfinderVoiceFear, PathfinderVoiceFear]
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY STEALTH_GARRISON SCORE
+    Locomotor: SET_NORMAL ColonelBurtonGroundLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY CINE_USAPathfinderSniperRifle
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: AmericaBarracks
+      Science: SCIENCE_Pathfinder
+    UnitSpecificSounds:
+      VoiceCreate: PathfinderVoiceCreate
+      VoiceGarrison: PathfinderVoiceGarrison
+      VoiceEnter: PathfinderVoiceMove
+      VoiceEnterHostile: PathfinderVoiceMove
+      VoiceGetHealed: PathfinderVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AIPFDR_SKN
+          IdleAnimation: [AIPFDR_SKL.AIPFDR_STA 0 14, AIPFDR_SKL.AIPFDR_IDA]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          TransitionKey: TRANS_Standing
+        ConditionState:
+          MOVING:
+            Animation: AIPFDR_SKL.AIPFDR_RNA 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Standing
+            ParticleSysBone: None InfantryDustTrails
+          PREATTACK_A:
+            Animation: AIPFDR_SKL.AIPFDR_STB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_PreAttack
+            Aliases: [PREATTACK_A MOVING, PREATTACK_A FIRING_A, PREATTACK_A BETWEEN_FIRING_SHOTS_A]
+          FIRING_A:
+            Animation: AIPFDR_SKL.AIPFDR_ATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_LyingDown
+            Aliases: [RELOADING_A, BETWEEN_FIRING_SHOTS_A]
+          MOVING FIRING_A:
+            Animation: AIPFDR_SKL.AIPFDR_CLA 15
+            AnimationMode: LOOP
+            TransitionKey: TRANS_LyingDown
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING BETWEEN_FIRING_SHOTS_A, MOVING RELOADING_A]
+          DYING:
+            Animation: AIPFDR_SKL.AIPFDR_DTA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: AIPFDR_SKL.AIPFDR_ADTA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: AIPFDR_SKL.AIPFDR_ADTA3
+            AnimationMode: ONCE
+            TransitionKey: None
+          FREEFALL:
+            Animation: AIPFDR_SKL.AIPFDR_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL DYING]
+          PARACHUTING:
+            Animation: AIPFDR_SKL.AIPFDR_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING DYING]
+        TransitionState:
+          TRANS_Standing TRANS_PreAttack:
+            Animation: AIPFDR_SKL.AIPFDR_DVA
+            AnimationMode: ONCE
+          TRANS_LyingDown TRANS_Dying:
+            Animation: AIPFDR_SKL.AIPFDR_SUA
+            AnimationMode: ONCE
+          TRANS_LyingDown TRANS_Standing:
+            Animation: AIPFDR_SKL.AIPFDR_SUA
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: AIPFDR_SKL.AIPFDR_ADTA1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: AIPFDR_SKL.AIPFDR_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Standing:
+            Animation: AIPFDR_SKL.AIPFDR_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes Stealthed
+        MoodAttackCheckRate: 250
+      ModuleTag_04:
+        Module: Behavior
+        Class: AutoFindHealingUpdate
+        ScanRate: 1000
+        ScanRange: 300
+        NeverHeal: 0.85
+        AlwaysHeal: 0.25
+      ModuleTag_05:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_10:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_PathfinderDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_PathfinderDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_13:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaTankCrusader:
+    SelectPortrait: SACLeopard_L
+    ButtonImage: SACLeopard
+    UpgradeCameo1: Upgrade_AmericaBattleDrone
+    UpgradeCameo2: Upgrade_AmericaScoutDrone
+    UpgradeCameo3: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo4: Upgrade_AmericaCompositeArmor
+    DisplayName: OBJECT:Crusader
+    Side: America
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    BuildCost: 900
+    BuildTime: 10.0
+    VisionRange: 150
+    ShroudClearingRange: 300
+    ExperienceValue: 100 100 200 400
+    ExperienceRequired: 0 200 300 600
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    CommandSet: AmericaTankCrusaderCommandSet
+    VoiceSelect: CrusaderTankVoiceSelect
+    VoiceMove: CrusaderTankVoiceMove
+    VoiceGuard: CrusaderTankVoiceMove
+    VoiceAttack: CrusaderTankVoiceAttack
+    SoundMoveStart: CrusaderTankMoveStart
+    SoundMoveStartDamaged: CrusaderTankMoveStart
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS VEHICLE SCORE
+    Locomotor: SET_NORMAL CINE_CrusaderLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY CrusaderTankGun
+    ArmorSet:
+      Conditions: None
+      Armor: TankArmor
+      DamageFX: TankDamageFX
+    Prerequisites:
+      Object: AmericaWarFactory
+    UnitSpecificSounds:
+      VoiceCreate: CrusaderTankVoiceCreate
+      VoiceEnter: CrusaderTankVoiceMove
+      TurretMoveStart: NoSound
+      TurretMoveLoop: TurretMoveLoop
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      VoiceCrush: CrusaderTankVoiceCrush
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTankDraw
+        TrackMarks: EXTnkTrack.tga
+        TreadAnimationRate: 2.0
+        TreadDriveSpeedFraction: 0.3
+        TreadPivotSpeedFraction: 0.6
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVLeopard
+          Turret: Turret
+          WeaponFireFXBone: PRIMARY TurretMS
+          WeaponRecoilBone: PRIMARY Barrel
+          WeaponMuzzleFlash: PRIMARY TurretFX
+          WeaponLaunchBone: PRIMARY TurretMS
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVLeopard_D
+          RUBBLE:
+            Model: AVLeopard_D
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 480
+        InitialHealth: 480
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 180
+          ControlledWeaponSlots: PRIMARY
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanBattleDrone
+        TriggeredBy: Upgrade_AmericaBattleDrone
+        ConflictsWith: Upgrade_AmericaScoutDrone
+      ModuleTag_06:
+        Module: Behavior
+        Class: ObjectCreationUpgrade
+        UpgradeObject: OCL_AmericanScoutDrone
+        TriggeredBy: Upgrade_AmericaScoutDrone
+        ConflictsWith: Upgrade_AmericaBattleDrone
+      ModuleTag_07:
+        Module: Behavior
+        Class: ProductionUpdate
+        MaxQueueEntries: 1
+      ModuleTag_08:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_AmericaCompositeArmor
+        AddMaxHealth: 100.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+      ModuleTag_10:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 50
+        DestructionDelay: 500
+        DestructionDelayVariance: 100
+        FX: [INITIAL FX_GenericTankDeathEffect, FINAL FX_GenericTankDeathExplosion]
+        OCL: [MIDPOINT OCL_GenericTankDeathEffect, FINAL OCL_CrusaderTurret]
+      ModuleTag_11:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 50
+        DestructionDelay: 2000
+        DestructionDelayVariance: 300
+        FX: [INITIAL FX_CrusaderCatchFire, FINAL FX_GenericTankDeathExplosion]
+        OCL: FINAL OCL_GenericTankDeathEffect
+      ModuleTag_12:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmallLightSmokeColumn
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_13:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+      ModuleTag_14:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_15:
+        Module: Behavior
+        Class: CreateObjectDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        CreationList: OCL_CrusaderTank_CrushEffect
+      ModuleTag_CratesChange:
+        Module: Behavior
+        Class: CreateCrateDie
+        CrateData: SalvageCrateData
+      ModuleTag_18:
+        Module: Behavior
+        Class: MaxHealthUpgrade
+        TriggeredBy: Upgrade_AmericaCompositeArmor
+        AddMaxHealth: 100.0
+        ChangeType: ADD_CURRENT_HEALTH_TOO
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaInfantryBiohazardTech:
+    Buildable: No
+    DisplayName: OBJECT:BioHazardTech
+    Side: America
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 400
+    BuildCost: 200
+    BuildTime: 5.0
+    ExperienceValue: 50 100 150 400
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: AmericaInfantryHazMatCommandSet
+    VoiceSelect: NoSound
+    VoiceMove: NoSound
+    VoiceAttack: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE
+    Locomotor: SET_NORMAL CINE_HazMatHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 13.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY BioHazardTechCleanHazardWeapon
+      AutoChooseSources: PRIMARY NONE
+    ArmorSet:
+      Conditions: None
+      Armor: HazMatHumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: AmericaBarracks
+    UnitSpecificFX: {}
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AITECH_SKN
+          IdleAnimation: [AITECH_SKL.AITECH_STA 0 21, AITECH_SKL.AITECH_IDA, AITECH_SKL.AITECH_IDB]
+          AnimationMode: ONCE
+          WeaponLaunchBone: PRIMARY BIOGUNFX
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          FIRING_A:
+            Animation: AITECH_SKL.AITECH_ATA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringA
+            Aliases:
+            - BETWEEN_FIRING_SHOTS_A
+            - RELOADING_A
+            - FIRING_A REALLYDAMAGED
+            - BETWEEN_FIRING_SHOTS_A REALLYDAMAGED
+            - RELOADING_A REALLYDAMAGED
+          MOVING FIRING_A:
+            Animation: AITECH_SKL.AITECH_WKB 15
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING BETWEEN_FIRING_SHOTS_A, MOVING RELOADING_A]
+          MOVING:
+            Animation: AITECH_SKL.AITECH_WKA 15
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+          DYING:
+            Animation: [AITECH_SKL.AITECH_DTA, AITECH_SKL.AITECH_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: AITECH_SKL.AITECH_ADTD2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: AITECH_SKL.AITECH_ADTD3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: AITECH_SKL.AITECH_CHA
+            AnimationMode: LOOP
+          FREEFALL:
+            Animation: AITECH_SKL.AITECH_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: AITECH_SKL.AITECH_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: AITECH_SKL.AITECH_ADTD1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: AITECH_SKL.AITECH_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: AITECH_SKL.AITECH_PDN
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: CleanupHazardUpdate
+        WeaponSlot: PRIMARY
+        ScanRate: 1000
+        ScanRange: 100.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: CleanupAreaPower
+        SpecialPowerTemplate: SpecialAbilityAmbulanceCleanupArea
+        MaxMoveDistanceFromLocation: 300.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: No
+      ModuleTag_06:
+        Module: Behavior
+        Class: AutoFindHealingUpdate
+        ScanRate: 1000
+        ScanRange: 300
+        NeverHeal: 0.85
+        AlwaysHeal: 0.25
+      ModuleTag_07:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_10:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RebelDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RebelDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_RebelDie
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  AmericaVehiclePOWTruck:
+    SelectPortrait: SAPowTruck
+    ButtonImage: SAPowTruck
+    DisplayName: OBJECT:POWTruck
+    Side: America
+    EditorSorting: VEHICLE
+    TransportSlotCount: 3
+    Buildable: No
+    VisionRange: 200
+    ShroudClearingRange: 300
+    ExperienceValue: 50 50 50 50
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: Yes
+    CrusherLevel: 2
+    CrushableLevel: 2
+    VoiceSelect: POWTruckUSAVoiceSelect
+    VoiceMove: POWTruckUSAVoiceMove
+    VoiceGuard: POWTruckUSAVoiceMove
+    SoundEnter: POWTruckEnter
+    SoundExit: POWTruckExit
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS VEHICLE TRANSPORT SCORE
+    Locomotor: SET_NORMAL POWTruckLocomotor
+    Geometry: BOX
+    GeometryMajorRadius: 15.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 13.5
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    ArmorSet:
+      Conditions: None
+      Armor: TruckArmor
+      DamageFX: TankDamageFX
+    UnitSpecificSounds:
+      VoiceCreate: POWTruckUSAVoiceCreate
+      TurretMoveLoop: TurretMoveLoop
+      SoundMoveStart: POWTruckUSAMoveStart
+      SoundMoveStartDamaged: POWTruckUSAMoveStart
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      VoiceCrush: POWTruckUSAVoiceCrush
+      TruckLandingSound: RocketBuggyLand
+      TruckPowerslideSound: POWTruckUSAMoveStart
+      VoiceEnter: POWTruckUSAVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DTruckDraw
+        OkToChangeModelColor: Yes
+        TrackMarks: EXTireTrack.tga
+        Dust: RocketBuggyDust
+        DirtSpray: RocketBuggyDirtSpray
+        PowerslideSpray: RocketBuggyDirtPowerSlide
+        LeftFrontTireBone: Tire01
+        RightFrontTireBone: Tire02
+        MidLeftRearTireBone: Tire03
+        MidRightRearTireBone: Tire05
+        LeftRearTireBone: Tire04
+        RightRearTireBone: Tire06
+        TireRotationMultiplier: 0.2
+        PowerslideRotationAddition: 2.5
+        ConditionState:
+          NONE:
+            Model: AVPOWTRUCK
+          REALLYDAMAGED:
+            Model: AVPOWTRUCK_D
+          RUBBLE:
+            Model: AVPOWTruck_D
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 500.0
+        InitialHealth: 500.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        ProbabilityModifier: 25
+        DestructionDelay: 1
+        FX: FINAL FX_BattleMasterExplosionOneFinal
+        OCL: FINAL OCL_AmericanPOWTruckDeathEffect
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_CarCrush
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_BattleMasterDamageTransition'
+      ModuleTag_10:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaJetRaptor:
+    SelectPortrait: SACRaptor_L
+    ButtonImage: SACRaptor
+    UpgradeCameo1: Upgrade_AmericaLaserMissiles
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    DisplayName: OBJECT:Raptor
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 400.0
+    ShroudClearingRange: 400
+    BuildCost: 1400
+    BuildTime: 1
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: AmericaJetRaptorCommandSet
+    VoiceSelect: RaptorVoiceSelect
+    VoiceMove: RaptorVoiceMove
+    VoiceAttack: RaptorVoiceAttack
+    VoiceAttackAir: RaptorVoiceAttackAir
+    VoiceGuard: RaptorVoiceAirPatrol
+    SoundAmbient: RaptorAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL RaptorJetLocomotor, SET_TAXIING CINE_BasicJetTaxiLocomotor]
+    Geometry: Box
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 14.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 5.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: AmericaAirfield
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY RaptorJetMissileWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: RaptorVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceLowFuel: RaptorVoiceLowFuel
+      VoiceGarrison: RaptorVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVRaptor
+          HideSubObject: BurnerFX01 BurnerFX02
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ParticleSysBone:
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX01 BurnerFX02
+          REALLYDAMAGED:
+            Model: AVRaptor_D
+            ParticleSysBone: [Smoke01 JetSmoke, Engine01 JetEngineDamagedSmoke]
+          REALLYDAMAGED JETEXHAUST:
+            Model: AVRaptor_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: AVRaptor_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            ShowSubObject: BurnerFX01 BurnerFX02
+          RUBBLE:
+            Model: AVRaptor_D1B
+            HideSubObject: None
+            ShowSubObject: None
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: AVRaptor_D1B
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_RaptorDeathFinalBlowUp
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_RaptorDeathInitial
+        OCLInitialDeath: OCL_RaptorDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        OCLSecondary: OCL_RaptorDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        OCLHitGround: OCL_RaptorDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp
+        OCLFinalBlowUp: OCL_RaptorDeathFinalBlowUp
+      ModuleTag_06:
+        Module: Behavior
+        Class: EjectPilotDie
+        ExemptStatus: HIJACKED
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+        VeterancyLevels: ALL -REGULAR
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+      ModuleTag_09:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ParkingOffset: 3
+        ReturnToBaseIdleTime: 3
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaJetB52:
+    DisplayName: OBJECT:B52
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: CINE_B52AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 50 50 50 50
+    Locomotor: SET_NORMAL CINE_B52Locomotor
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 60.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: TankDamageFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVBomber
+          ParticleSysBone:
+          - Engine00 JetBlackTrailThin
+          - Engine02 JetBlackTrailThin
+          - Engine03 JetBlackTrailThin
+          - Engine04 JetBlackTrailThin
+          - WingTip01 JetContrailThin
+          - WingTip02 JetContrailThin
+        ConditionState:
+          DAMAGED:
+            Model: AVBomber_D
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Engine00 JetBlackTrailThin
+            - Engine02 JetBlackTrailThin
+            - Engine03 JetBlackTrailThin
+            - Engine04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          REALLYDAMAGED:
+            Model: AVBomber_D
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Engine00 JetBlackTrailThin
+            - Engine02 JetBlackTrailThin
+            - Engine03 JetBlackTrailThin
+            - Engine04 JetBlackTrailThin
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+          RUBBLE:
+            Model: AVBomber_D1
+            ParticleSysBone:
+            - Smoke01 JetFireLarge
+            - Smoke02 JetFireLarge
+            - Smoke01 JetSmokeLarge
+            - Smoke02 JetSmokeLarge
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVBomber_A2U
+          Animation: AVBomber_A2K.AVBomber_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST
+        ConditionState:
+          DOOR_1_OPENING:
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+          DOOR_1_CLOSING:
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+          REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+          DOOR_1_OPENING REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+          DOOR_1_CLOSING REALLYDAMAGED:
+            Model: AVBomber_A2DU
+            Animation: AVBomber_A2K.AVBomber_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1000.0
+        InitialHealth: 1000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponDaisyCutter
+        OCL: SUPERWEAPON_DaisyCutter
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_05:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponParadropAmerica
+        UpgradeOCL: [SCIENCE_Paradrop3 SUPERWEAPON_Paradrop3, SCIENCE_Paradrop2 SUPERWEAPON_Paradrop2]
+        OCL: SUPERWEAPON_Paradrop1
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: OCLSpecialPower
+        SpecialPowerTemplate: SuperweaponCarpetBomb
+        OCL: SUPERWEAPON_CarpetBomb
+        CreateLocation: USE_OWNER_OBJECT
+        ScriptedSpecialPowerOnly: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 4
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 300
+        PutInContainer: AmericaParachute
+        DeliveryDistance: 150
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_11:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaVehicleComanche:
+    SelectPortrait: SACCommanche_L
+    ButtonImage: SACCommanche
+    UpgradeCameo1: Upgrade_ComancheRocketPods
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    DisplayName: OBJECT:Comanche
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 400.0
+    ShroudClearingRange: 600
+    BuildCost: 1500
+    BuildTime: 20
+    ExperienceValue: 50 50 100 200
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CommandSet: AmericaVehicleComancheCommandSet
+    VoiceSelect: ComancheVoiceSelect
+    VoiceMove: ComancheVoiceMove
+    VoiceGuard: ComancheVoiceMove
+    VoiceAttack: ComancheVoiceAttack
+    SoundAmbient: ComancheAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT PRODUCED_AT_HELIPAD
+    Locomotor: [SET_NORMAL CINE_ComancheLocomotor, SET_TAXIING BasicHelicopterTaxiLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 25.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: AmericaAirfield
+    WeaponSet:
+    - Conditions: None
+      Weapon:
+      - PRIMARY Comanche20mmCannonWeapon
+      - SECONDARY ComancheAntiTankMissileWeapon
+      - TERTIARY NONE
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY VEHICLE STRUCTURE]
+      AutoChooseSources:
+      - PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - SECONDARY FROM_PLAYER FROM_SCRIPT FROM_AI
+    - Conditions: PLAYER_UPGRADE
+      Weapon:
+      - PRIMARY Comanche20mmCannonWeapon
+      - SECONDARY ComancheAntiTankMissileWeapon
+      - TERTIARY ComancheRocketPodWeapon
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY VEHICLE STRUCTURE]
+      AutoChooseSources:
+      - PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - SECONDARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - TERTIARY NONE
+    ArmorSet:
+      Conditions: None
+      Armor: ComancheArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: ComancheVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceGarrison: ComancheVoiceMove
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVComanche
+          HideSubObject: MissileUpgrade
+          Animation: AVComanche.AVComanche
+          AnimationMode: LOOP
+          WeaponMuzzleFlash: PRIMARY TurretFX
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponLaunchBone: SECONDARY Muzzle
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVComanche_d
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+          WEAPONSET_PLAYER_UPGRADE:
+            ShowSubObject: MissileUpgrade
+            Animation: AVComanche.AVComanche
+            AnimationMode: LOOP
+            WeaponFireFXBone: TERTIARY WeaponB
+            WeaponLaunchBone: TERTIARY WeaponB
+          WEAPONSET_PLAYER_UPGRADE REALLYDAMAGED:
+            Model: AVComanche_d
+            ShowSubObject: MissileUpgrade
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+            WeaponFireFXBone: TERTIARY WeaponB
+            WeaponLaunchBone: TERTIARY WeaponB
+          RUBBLE:
+            Model: AVComanche_d
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+          RUBBLE SPECIAL_DAMAGED:
+            Model: AVComanche_d
+            HideSubObject: AVComanche_Prop
+      ModuleTag_02:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ComancheRocketPods
+      ModuleTag_03:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_04:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 220.0
+        InitialHealth: 220.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_ComancheStartDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        MinHeight: 5
+        NeedsRunway: No
+        KeepsParkingSpaceWhenAirborne: No
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 0
+          TurretPitchRate: 0
+          ControlledWeaponSlots: PRIMARY SECONDARY
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: HelicopterSlowDeathBehavior
+        DestructionDelay: 99999999
+        SpiralOrbitTurnRate: 140.0
+        SpiralOrbitForwardSpeed: 350.0
+        SpiralOrbitForwardSpeedDamping: .9999
+        MaxBraking: 190
+        SoundDeathLoop: ComancheDamagedLoop
+        MinSelfSpin: 100
+        MaxSelfSpin: 300
+        SelfSpinUpdateDelay: 100
+        SelfSpinUpdateAmount: 10
+        FallHowFast: 12.0%
+        MinBladeFlyOffDelay: 1500
+        MaxBladeFlyOffDelay: 1500
+        AttachParticle: SootySmokeTrail
+        AttachParticleBone: Propeller02
+        BladeObjectName: ComancheBlades
+        BladeBoneName: Propeller01
+        OCLEjectPilot: OCL_EjectPilotViaParachute
+        FXBlade: FX_HelicopterBladeExplosion
+        OCLBlade: OCL_HelicopterBladeExplosion
+        FXHitGround: FX_HelicopterHitGround
+        OCLHitGround: OCL_HelicopterHitGround
+        FXFinalBlowUp: FX_GroundedHelicopterBlowUp
+        OCLFinalBlowUp: OCL_GroundedHelicopterBlowUp
+        DelayFromGroundToFinalDeath: 1500
+        FinalRubbleObject: ComancheRubbleHull
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuousDown
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_ComancheDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaInfantryColonelBurton:
+    SelectPortrait: SABurton_L
+    ButtonImage: SABurton
+    DisplayName: OBJECT:ColonelBurton
+    Side: America
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 250
+    ShroudClearingRange: 500
+    BuildCost: 1500
+    BuildTime: 20.0
+    ExperienceValue: 50 100 100 150
+    ExperienceRequired: 0 200 300 600
+    IsTrainable: Yes
+    CrushableLevel: 2
+    CommandSet: AmericaInfantryColonelBurtonCommandSet
+    MaxSimultaneousOfType: 1
+    VoiceSelect: ColonelBurtonVoiceSelect
+    VoiceMove: ColonelBurtonVoiceMove
+    VoiceAttack: ColonelBurtonVoiceAttack
+    VoiceFear: ColonelBurtonVoiceFear
+    VoiceGuard: ColonelBurtonVoiceMove
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SCORE
+    Locomotor: SET_NORMAL CINE_ColonelBurtonGroundLocomotor CINE_ColonelBurtonCliffLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY ColonelBurtonSniperRifleWeapon, SECONDARY ColonelBurtonKnifeWeapon]
+      AutoChooseSources: [PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI, SECONDARY NONE]
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: [AmericaBarracks, AmericaStrategyCenter]
+    UnitSpecificSounds:
+      VoiceMelee: ColonelBurtonVoiceAttackKnife
+      VoiceCreate: ColonelBurtonVoiceCreate
+      VoiceGarrison: ColonelBurtonVoiceGarrison
+      VoiceEnter: ColonelBurtonVoiceMove
+      VoiceEnterHostile: ColonelBurtonVoiceMove
+      VoiceGetHealed: ColonelBurtonVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AIHERO_SKN
+          IdleAnimation: [AIHERO_SKL.AIHERO_STA 0 25, AIHERO_SKL.AIHERO_IDA, AIHERO_SKL.AIHERO_IDB]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: [AIHERO_SKL.AIHERO_ISTA 0 30, AIHERO_SKL.AIHERO_IIDA, AIHERO_SKL.AIHERO_IIDB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandInjured
+          MOVING:
+            Animation: AIHERO_SKL.AIHERO_RNA 34
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Stand
+            ParticleSysBone: None InfantryDustTrails
+            Aliases:
+            - MOVING FIRING_A
+            - MOVING BETWEEN_FIRING_SHOTS_A
+            - MOVING RELOADING_A
+            - MOVING FIRING_B
+            - MOVING BETWEEN_FIRING_SHOTS_B
+            - MOVING RELOADING_B
+          MOVING REALLYDAMAGED:
+            Animation: AIHERO_SKL.AIHERO_IRNA 26
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_StandInjured
+            ParticleSysBone: None InfantryDustTrails
+            Aliases:
+            - MOVING FIRING_A REALLYDAMAGED
+            - MOVING BETWEEN_FIRING_SHOTS_A REALLYDAMAGED
+            - MOVING RELOADING_A REALLYDAMAGED
+            - MOVING FIRING_B REALLYDAMAGED
+            - MOVING BETWEEN_FIRING_SHOTS_B REALLYDAMAGED
+            - MOVING RELOADING_B REALLYDAMAGED
+          FIRING_A:
+            Animation: AIHERO_SKL.AIHERO_ATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringA
+            Aliases: [BETWEEN_FIRING_SHOTS_A, RELOADING_A]
+          FIRING_A REALLYDAMAGED:
+            Animation: AIHERO_SKL.AIHERO_IATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringAInjured
+            Aliases: [BETWEEN_FIRING_SHOTS_A REALLYDAMAGED, RELOADING_A REALLYDAMAGED]
+          UNPACKING:
+            Animation: AIHERO_SKL.AIHERO_ATB1
+            AnimationMode: ONCE
+            Aliases: [MOVING UNPACKING]
+          UNPACKING REALLYDAMAGED:
+            Animation: AIHERO_SKL.AIHERO_IATB1
+            AnimationMode: ONCE
+            Aliases: [MOVING UNPACKING REALLYDAMAGED]
+          PREATTACK_B:
+            Animation: AIHERO_SKL.AIHERO_ATC
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Stabbing
+            Aliases: [PREATTACK_B MOVING, PREATTACK_B FIRING_B, PREATTACK_B BETWEEN_FIRING_SHOTS_B]
+          FIRING_B:
+            Animation: AIHERO_SKL.AIHERO_ATC
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_Stabbing
+            Aliases: [BETWEEN_FIRING_SHOTS_B, RELOADING_B]
+          PREATTACK_B REALLYDAMAGED:
+            Animation: AIHERO_SKL.AIHERO_IATC1
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StabbingInjured
+            Aliases:
+            - PREATTACK_B MOVING REALLYDAMAGED
+            - PREATTACK_B FIRING_B REALLYDAMAGED
+            - PREATTACK_B BETWEEN_FIRING_SHOTS_B REALLYDAMAGED
+          FIRING_B REALLYDAMAGED:
+            Animation: AIHERO_SKL.AIHERO_IATC2
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_StabbingInjured
+            Aliases: [BETWEEN_FIRING_SHOTS_B REALLYDAMAGED, RELOADING_B REALLYDAMAGED]
+          SPECIAL_CHEERING:
+            Animation: AIHERO_SKL.AIHERO_CHA
+            AnimationMode: ONCE
+          SPECIAL_CHEERING REALLYDAMAGED:
+            Animation: AIHERO_SKL.AIHERO_ICHA
+            AnimationMode: ONCE
+          CLIMBING:
+            Animation: AIHERO_SKL.AIHERO_CLMID
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Climbing
+            Aliases: [RAPPELLING, CLIMBING REALLYDAMAGED, RAPPELLING REALLYDAMAGED]
+          CLIMBING MOVING:
+            Animation: AIHERO_SKL.AIHERO_CLMUP
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Climbing
+            Aliases: [CLIMBING MOVING REALLYDAMAGED]
+          RAPPELLING MOVING:
+            Animation: AIHERO_SKL.AIHERO_CLMUP
+            AnimationMode: LOOP_BACKWARDS
+            TransitionKey: TRANS_Climbing
+            Aliases: [RAPPELLING MOVING REALLYDAMAGED]
+          DYING:
+            Animation:
+            - AIHERO_SKL.AIHERO_DTA
+            - AIHERO_SKL.AIHERO_DTB
+            - AIHero_SKL.AIHero_IDTA
+            - AIHero_SKL.AIHero_IDTB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+            Aliases: [RAPPELLING DYING, CLIMBING DYING]
+          DYING EXPLODED_FLAILING:
+            Animation: AIHERO_SKL.AIHERO_ADTG22
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: AIHERO_SKL.AIHERO_ADTG23
+            AnimationMode: ONCE
+            TransitionKey: None
+          FREEFALL:
+            Animation: AIHERO_SKL.AIHERO_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: AIHERO_SKL.AIHERO_PHG
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+        TransitionState:
+          TRANS_Stand TRANS_StandInjured:
+            Animation: AIHERO_SKL.AIHERO_ISTAHIT
+            AnimationMode: ONCE
+          TRANS_FiringA TRANS_FiringAInjured:
+            Animation: AIHERO_SKL.AIHERO_IATAHIT
+            AnimationMode: ONCE
+          TRANS_Stabbing TRANS_Stand:
+            Animation: AIHERO_SKL.AIHERO_ATC2
+            AnimationMode: ONCE
+          TRANS_StabbingInjured TRANS_StandInjured:
+            Animation: AIHERO_SKL.AIHERO_IATC2
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: AIHERO_SKL.AIHERO_ADTG21
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: AIHERO_SKL.AIHERO_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: AIHERO_SKL.AIHERO_PTD
+            AnimationMode: ONCE
+          TRANS_Chute TRANS_StandInjured:
+            Animation: AIHERO_SKL.AIHERO_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 200.0
+        InitialHealth: 200.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: AutoFindHealingUpdate
+        ScanRate: 1000
+        ScanRange: 300
+        NeverHeal: 0.85
+        AlwaysHeal: 0.25
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 2000
+        StealthForbiddenConditions: FIRING_PRIMARY
+        HintDetectableConditions: IS_FIRING_WEAPON
+        FriendlyOpacityMin: 50.0%
+        FriendlyOpacityMax: 100.0%
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+        EnemyDetectionEvaEvent: EnemyColonelBurtonDetected
+        OwnDetectionEvaEvent: OwnColonelBurtonDetected
+      ModuleTag_08:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityColonelBurtonRemoteCharges
+        UpdateModuleStartsAttack: Yes
+        InitiateSound: ColonelBurtonVoicePlantRemoteCharge
+      ModuleTag_09:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityColonelBurtonRemoteCharges
+        StartAbilityRange: 0.0
+        PreparationTime: 0
+        SpecialObject: RemoteC4Charge
+        MaxSpecialObjects: 8
+        SpecialObjectsPersistWhenOwnerDies: No
+        AlwaysValidateSpecialObjects: Yes
+        SpecialObjectsPersistent: Yes
+        UniqueSpecialObjectTargets: Yes
+        UnpackTime: 5500
+        PackTime: 0
+        SkipPackingWithNoTarget: Yes
+        FlipOwnerAfterUnpacking: Yes
+        FleeRangeAfterCompletion: 100.0
+        UnpackSound: ColonelBurtonPlantCharge
+        LoseStealthOnTrigger: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityColonelBurtonTimedCharges
+        UpdateModuleStartsAttack: Yes
+        InitiateSound: ColonelBurtonVoicePlantTimedCharge
+      ModuleTag_11:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityColonelBurtonTimedCharges
+        StartAbilityRange: 0.0
+        PreparationTime: 0
+        SpecialObject: TimedC4Charge
+        MaxSpecialObjects: 10
+        SpecialObjectsPersistWhenOwnerDies: Yes
+        SpecialObjectsPersistent: Yes
+        UniqueSpecialObjectTargets: Yes
+        UnpackTime: 5500
+        FlipOwnerAfterUnpacking: Yes
+        FleeRangeAfterCompletion: 100.0
+        UnpackSound: ColonelBurtonPlantCharge
+        LoseStealthOnTrigger: Yes
+      ModuleTag_12:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_13:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_ColonelBurtonDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_ColonelBurtonDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_18:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaVehicleChinook:
+    SelectPortrait: SAChinook_L
+    ButtonImage: SAChinook
+    DisplayName: OBJECT:Chinook
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 600
+    BuildCost: 1200
+    BuildTime: 10.0
+    ExperienceValue: 50 50 50 50
+    IsTrainable: No
+    CommandSet: AmericaVehicleChinookCommandSet
+    VoiceSelect: ChinookVoiceSelect
+    VoiceMove: ChinookVoiceMove
+    VoiceAttack: ChinookVoiceAttack
+    SoundAmbient: ChinookAmbientLoop
+    SoundAmbientRubble: NoSound
+    SoundEnter: HumveeEnter
+    SoundExit: HumveeExit
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS SELECTABLE VEHICLE TRANSPORT AIRCRAFT HARVESTER SCORE PRODUCED_AT_HELIPAD
+    Locomotor: [SET_NORMAL CINE_ChinookLocomotor, SET_TAXIING BasicHelicopterTaxiLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: AmericaSupplyCenter
+    ArmorSet:
+      Conditions: None
+      Armor: ChinookArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: ChinookVoiceCreate
+      VoiceSupply: ChinookVoiceSupply
+      VoiceUnload: ChinookVoiceUnload
+      VoiceCombatDrop: ChinookVoiceCombatDrop
+      VoiceClearBuilding: RangerVoiceClearBuilding
+      VoiceGarrison: ChinookVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ExtraPublicBone: [RopeStart, RopeEnd]
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVChinook
+          Animation: AVChinook.AVChinook
+          AnimationMode: LOOP
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVChinook_d
+            Animation: AVChinook_d.AVChinook_d
+            AnimationMode: LOOP
+          RUBBLE:
+            Model: AVChinook_d
+            Animation: AVChinook_d.AVChinook_d
+            AnimationMode: LOOP
+          RUBBLE SPECIAL_DAMAGED:
+            Model: AVChinook_d
+            HideSubObject: [Props01, Props02]
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: None
+            TransitionKey: TRANS_Empty
+            WaitForStateToFinishIfPossible: TRANS_Unloading
+          DYING:
+            Model: None
+            Aliases: [RUBBLE, CARRYING RUBBLE, DOCKING RUBBLE, DOCKING CARRYING RUBBLE]
+          CARRYING:
+            Model: AVChinook_A
+            Animation: AVChinook_A.AVChinook_A
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Full
+            WaitForStateToFinishIfPossible: TRANS_PickingUp
+          DOCKING:
+            Model: AVChinook_A1MSH
+            Animation: AVChinook_A1SK.AVChinook_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+            AnimationSpeedFactorRange: .75 .75
+            TransitionKey: TRANS_PickingUp
+            WaitForStateToFinishIfPossible: TRANS_Unloading
+          DOCKING CARRYING:
+            Model: AVChinook_A1MSH
+            Animation: AVChinook_A1SK.AVChinook_A1
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.75 2.75
+            TransitionKey: TRANS_Unloading
+            WaitForStateToFinishIfPossible: TRANS_PickingUp
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_ChinookStartDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuousDown
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_ComancheDamageTransition'
+      ModuleTag_07:
+        Module: Behavior
+        Class: ChinookAIUpdate
+        MaxBoxes: 8
+        SupplyCenterActionDelay: 3000
+        SupplyWarehouseActionDelay: 1250
+        SupplyWarehouseScanDistance: 700
+        SuppliesDepletedVoice: ChinookVoiceSuppliesDepleted
+        NumRopes: 4
+        PerRopeDelayMin: 900
+        PerRopeDelayMax: 1500
+        RopeWidth: 0.5
+        RopeColor: R:0 G:0 B:0
+        RopeWobbleLen: 10
+        RopeWobbleAmplitude: 0.25
+        RopeWobbleRate: 180
+        RopeFinalHeight: 10
+        RappelSpeed: 30
+        MinDropHeight: 40
+      ModuleTag_08:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 8
+        DamagePercentToUnits: 100%
+        AllowInsideKindOf: INFANTRY VEHICLE
+        ForbidInsideKindOf: AIRCRAFT HUGE_VEHICLE
+        ExitDelay: 100
+        NumberOfExitPaths: 1
+      ModuleTag_09:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_10:
+        Module: Behavior
+        Class: HelicopterSlowDeathBehavior
+        DestructionDelay: 99999999
+        SpiralOrbitTurnRate: 140.0
+        SpiralOrbitForwardSpeed: 350.0
+        SpiralOrbitForwardSpeedDamping: .9999
+        MaxBraking: 190
+        SoundDeathLoop: ComancheDamagedLoop
+        MinSelfSpin: 100
+        MaxSelfSpin: 300
+        SelfSpinUpdateDelay: 100
+        SelfSpinUpdateAmount: 10
+        FallHowFast: 12.0%
+        MinBladeFlyOffDelay: 1500
+        MaxBladeFlyOffDelay: 1500
+        AttachParticle: SootySmokeTrail
+        AttachParticleBone: Propeller02
+        BladeObjectName: ComancheBlades
+        BladeBoneName: Propeller01
+        FXBlade: FX_HelicopterBladeExplosion
+        OCLBlade: OCL_HelicopterBladeExplosion
+        FXHitGround: FX_HelicopterHitGround
+        OCLHitGround: OCL_HelicopterHitGround
+        FXFinalBlowUp: FX_GroundedHelicopterBlowUp
+        OCLFinalBlowUp: OCL_GroundedHelicopterBlowUp
+        DelayFromGroundToFinalDeath: 30
+        FinalRubbleObject: ChinookRubbleHull
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U04_AmericaJetCargoPlane_HIGH:
+    DisplayName: OBJECT:CargoPlane
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: Cin_C130AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT FORCEATTACKABLE IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 40 40 40 40
+    Locomotor: SET_NORMAL CINE_U04_B52Locomotor_HIGH
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 40.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: TankDamageFX
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVCargoPln
+          Animation: AVCargoPln.AVCargoPln
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVCargoPln_A2
+          Animation: AVCargoPln_A2.AVCargoPln_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST
+        ConditionState:
+          DOOR_1_OPENING:
+            Model: AVCargoPln_A2
+            Animation: AVCargoPln_A2.AVCargoPln_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+          DOOR_1_CLOSING:
+            Model: AVCargoPln_A2
+            Animation: AVCargoPln_A2.AVCargoPln_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 10000.0
+        InitialHealth: 10000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 1
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 1200
+        PutInContainer: CINE_U04_AmericaParachute
+        DeliveryDistance: 3000
+      ModuleTag_10:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_11:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_17:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U04_AmericaJetCargoPlane_MEDIUM:
+    DisplayName: OBJECT:CargoPlane
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: C130AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT FORCEATTACKABLE IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 40 40 40 40
+    Locomotor: SET_NORMAL CINE_U04_B52Locomotor_MEDIUM
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 40.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: TankDamageFX
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVCargoPln
+          Animation: AVCargoPln.AVCargoPln
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVCargoPln_A2
+          Animation: AVCargoPln_A2.AVCargoPln_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST
+        ConditionState:
+          DOOR_1_OPENING:
+            Model: AVCargoPln_A2
+            Animation: AVCargoPln_A2.AVCargoPln_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+          DOOR_1_CLOSING:
+            Model: AVCargoPln_A2
+            Animation: AVCargoPln_A2.AVCargoPln_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 10000.0
+        InitialHealth: 10000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 1
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 1200
+        PutInContainer: CINE_U04_AmericaParachute
+        DeliveryDistance: 3000
+      ModuleTag_10:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_11:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_17:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U04_AmericaJetCargoPlane_LOW:
+    DisplayName: OBJECT:CargoPlane
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 0.0
+    CommandSet: Command_ScriptedTransportDrops
+    SoundAmbient: C130AmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK VEHICLE SCORE TRANSPORT AIRCRAFT FORCEATTACKABLE IGNORED_IN_GUI EMP_HARDENED
+    ExperienceValue: 40 40 40 40
+    Locomotor: SET_NORMAL CINE_U04_B52Locomotor_LOW
+    Geometry: Box
+    GeometryIsSmall: No
+    GeometryMajorRadius: 40.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 10.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+    - Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: TankDamageFX
+    - Conditions: PLAYER_UPGRADE
+      Armor: CountermeasuresAirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        DefaultConditionState:
+          Model: AVCargoPln
+          Animation: AVCargoPln.AVCargoPln
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVCargoPln_A2
+          Animation: AVCargoPln_A2.AVCargoPln_A2
+          AnimationMode: MANUAL
+          Flags: START_FRAME_FIRST
+        ConditionState:
+          DOOR_1_OPENING:
+            Model: AVCargoPln_A2
+            Animation: AVCargoPln_A2.AVCargoPln_A2
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+          DOOR_1_CLOSING:
+            Model: AVCargoPln_A2
+            Animation: AVCargoPln_A2.AVCargoPln_A2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 10000.0
+        InitialHealth: 10000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: DeliverPayloadAIUpdate
+        DoorDelay: 500
+        MaxAttempts: 1
+        DropOffset: X:0 Y:0 Z:-10
+        DropDelay: 1200
+        PutInContainer: CINE_U04_AmericaParachute
+        DeliveryDistance: 3000
+      ModuleTag_10:
+        Module: Behavior
+        Class: TransportContain
+        Slots: 100
+        ScatterNearbyOnExit: No
+        OrientLikeContainerOnExit: Yes
+        KeepContainerVelocityOnExit: Yes
+        ExitPitchRate: 30
+        ExitBone: WeaponA01
+        AllowInsideKindOf: INFANTRY VEHICLE PROJECTILE DOZER PARACHUTABLE
+        DoorOpenTime: 0
+        NumberOfExitPaths: 0
+        DestroyRidersWhoAreNotFreeToExit: Yes
+      ModuleTag_11:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        DestructionDelay: 2000
+        RollRate: 0.0
+        RollRateDelta: 100%
+        PitchRate: 0
+        FallHowFast: 25.0%
+        FXInitialDeath: FX_JetBigDeathInitial
+        OCLInitialDeath: OCL_AmericaJetCargoDeathStart
+        DelaySecondaryFromInitialDeath: 2000
+        OCLSecondary: OCL_AmericaJetCargoHulkDeath
+        FXSecondary: FX_BigPlaneDeath
+      ModuleTag_17:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_JetBigDamageTransition'
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_USA04_PARADROP_AmericaInfantryRanger:
+    SelectPortrait: SARanger_L
+    ButtonImage: SARanger
+    UpgradeCameo1: Upgrade_AmericaRangerFlashBangGrenade
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    UpgradeCameo3: Upgrade_InfantryCaptureBuilding
+    UpgradeCameo4: Upgrade_AmericaChemicalSuits
+    DisplayName: OBJECT:Ranger
+    Side: America
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 400
+    BuildCost: 225
+    BuildTime: 5.0
+    ExperienceValue: 20 20 40 60
+    ExperienceRequired: 0 40 60 120
+    IsTrainable: No
+    CrushableLevel: 0
+    CommandSet: AmericaInfantryRangerCommandSet
+    VoiceSelect: RangerVoiceSelect
+    VoiceMove: RangerVoiceMove
+    VoiceGuard: RangerVoiceMove
+    VoiceAttack: RangerVoiceAttack
+    VoiceFear: RangerVoiceFear
+    VoiceTaskComplete: RangerVoiceCaptureComplete
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY
+    Locomotor: SET_NORMAL BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 7.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 13.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY RangerAdvancedCombatRifle
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY RangerAdvancedCombatRifle, SECONDARY RangerFlashBangGrenadeWeapon]
+      AutoChooseSources: [PRIMARY FROM_SCRIPT FROM_AI DEFAULT_SWITCH_WEAPON, SECONDARY FROM_SCRIPT FROM_AI]
+      WeaponLockSharedAcrossSets: Yes
+    ArmorSet:
+    - Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    - Conditions: PLAYER_UPGRADE
+      Armor: ChemSuitHumanArmor
+      DamageFX: None
+    Prerequisites:
+      Object: AmericaBarracks
+    UnitSpecificSounds:
+      VoiceEnter: RangerVoiceMove
+      VoiceEnterHostile: RangerVoiceMove
+      VoiceGarrison: RangerVoiceGarrison
+      VoiceCreate: RangerVoiceCreate
+      VoiceSubdue: RangerVoiceSubdue
+      VoiceClearBuilding: RangerVoiceClearBuilding
+      VoiceGetHealed: RangerVoiceMove
+      VoicePrimaryWeaponMode: RangerVoiceModeGun
+      VoiceSecondaryWeaponMode: RangerVoiceModeFlashBang
+    UnitSpecificFX:
+      CombatDropKillFX: FX_RangerCombatDropKill
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        IgnoreConditionStates: PREATTACK_A FIRING_A BETWEEN_FIRING_SHOTS_A RELOADING_A
+        DefaultConditionState:
+          Model: AIRngr_SKN
+          IdleAnimation: [AIRngr_SKL.AIRngr_STA 0 35, AIRngr_SKL.AIRngr_IDA, AIRngr_SKL.AIRngr_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WeaponLaunchBone: SECONDARY Muzzle
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: [AIRngr_SKL.AIRngr_STB 0 35, AIRngr_SKL.AIRngr_IDC, AIRngr_SKL.AIRngr_IDD]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandInjured
+          USING_WEAPON_A:
+            Animation: AIRngr_SKL.AIRngr_ATA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringA
+          USING_WEAPON_A REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_ATA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringAInjured
+          MOVING:
+            Animation: AIRngr_SKL.AIRngr_RNA 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Move
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING]
+          MOVING REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_RNB 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Move
+            Aliases: [MOVING REALLYDAMAGED ATTACKING]
+          DYING:
+            Animation: [AIRngr_SKL.AIRngr_DTA, AIRngr_SKL.AIRngr_DTB]
+            AnimationMode: ONCE
+            TransitionKey: None
+          DYING EXPLODED_FLAILING:
+            Animation: AIRngr_SKL.AIRngr_ADTF2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: AIRngr_SKL.AIRngr_ADTF3
+            AnimationMode: ONCE
+            TransitionKey: None
+            Aliases: [DYING SPLATTED]
+          SPECIAL_CHEERING:
+            Animation: AIRngr_SKL.AIRngr_CHA
+            AnimationMode: LOOP
+          SPECIAL_CHEERING REALLYDAMAGED:
+            Animation: AIRngr_SKL.AIRngr_CHB
+            AnimationMode: LOOP
+          FREEFALL:
+            Animation: AIRngr_SKL.AIRngr_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: AIRngr_SKL.AIRngr_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+        TransitionState:
+          TRANS_Stand TRANS_StandInjured:
+            Animation: AIRngr_SKL.AIRngr_SA2SB
+            AnimationMode: ONCE
+          TRANS_FiringA TRANS_FiringAInjured:
+            Animation: AIRngr_SKL.AIRngr_A2WAA
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_FiringA:
+            Animation: AIRngr_SKL.AIRngr_ATAST
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_FiringA TRANS_Stand:
+            Animation: AIRngr_SKL.AIRngr_ATAED
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_StandInjured TRANS_FiringAInjured:
+            Animation: AIRngr_SKL.AIRngr_S2WAA
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_FiringAInjured TRANS_StandInjured:
+            Animation: AIRngr_SKL.AIRngr_WAA2S
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_Stand TRANS_Move:
+            Animation: AIRngr_SKL.AIRngr_STA2RNA
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: AIRngr_SKL.AIRngr_ADTF1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: AIRngr_SKL.AIRngr_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: AIRngr_SKL.AIRngr_PTD
+            AnimationMode: ONCE
+          TRANS_Chute TRANS_StandInjured:
+            Animation: AIRngr_SKL.AIRngr_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 180.0
+        InitialHealth: 180.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RangerDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_12:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Armor01:
+        Module: Behavior
+        Class: ArmorUpgrade
+        TriggeredBy: Upgrade_AmericaChemicalSuits
+      ModuleTag_21:
+        Module: Behavior
+        Class: LockWeaponCreate
+        SlotToLock: PRIMARY
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_U04_AmericaParachute:
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    IsTrainable: No
+    KindOf: PRELOAD PARACHUTE UNATTACKABLE
+    Locomotor: [SET_NORMAL CINE_U04_ParachuteLocomotor, SET_FREEFALL FreeFallLocomotor]
+    RadarPriority: NOT_ON_RADAR
+    Geometry: CYLINDER
+    GeometryMajorRadius: 15.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: PMparacht_SKNc
+          Animation: PMparacht_SKL.PMparacht_FAL
+          AnimationMode: LOOP
+        ConditionState:
+          PARACHUTING:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_OPN
+            AnimationMode: ONCE
+          RUBBLE:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_DRP
+            AnimationMode: ONCE
+          RUBBLE PARACHUTING:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_DRP
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100000.0
+        InitialHealth: 100000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: ParachuteContain
+        PitchRateMax: 60
+        RollRateMax: 60
+        LowAltitudeDamping: 0.2
+        ParachuteOpenDist: 100.0
+        AllowInsideKindOf: INFANTRY PARACHUTABLE
+        ParachuteOpenSound: ParachuteOpen
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1000
+        SinkRate: 1
+        DestructionDelay: 4000
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaJetStealthFighter:
+    SelectPortrait: SAStealth_L
+    ButtonImage: SAStealth
+    UpgradeCameo1: Upgrade_AmericaLaserMissiles
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    DisplayName: OBJECT:StealthFighter
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300.0
+    BuildCost: 1600
+    BuildTime: 25.0
+    ExperienceValue: 100 100 200 300
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: AmericaJetStealthFighterCommandSet
+    VoiceSelect: StealthFighterVoiceSelect
+    VoiceMove: StealthFighterVoiceMove
+    VoiceAttack: StealthFighterVoiceAttack
+    VoiceAttackAir: StealthFighterVoiceAttackAir
+    VoiceGuard: StealthFighterVoiceAirPatrol
+    SoundAmbient: StealthFighterAmbientLoop
+    SoundAmbientRubble: NoSound
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    RadarPriority: LOCAL_UNIT_ONLY
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL CINE_StealthJetLocomotor, SET_TAXIING CINE_BasicJetTaxiLocomotor]
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 7.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: AmericaAirfield
+      Science: SCIENCE_StealthFighter
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY CINE_StealthJetMissileWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: StealthFighterVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceLowFuel: AuroraBomberVoiceLowFuel
+      VoiceGarrison: StealthFighterVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVStealth
+          HideSubObject: BurnerFX03 BurnerFX04
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ParticleSysBone:
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX03 BurnerFX04
+          REALLYDAMAGED:
+            Model: AVStealth_D
+            ParticleSysBone: [Smoke01 JetSmoke, Engine01 JetEngineDamagedSmoke]
+          REALLYDAMAGED JETEXHAUST:
+            Model: AVStealth_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: AVStealth_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX03 BurnerFX04
+          RUBBLE:
+            Model: AVStealth_D1
+            HideSubObject: None
+            ShowSubObject: None
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: AVStealth_D1
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_StealthDeathFinalBlowUp
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_StealthFighterDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp
+        OCLFinalBlowUp: OCL_StealthDeathFinalBlowUp
+      ModuleTag_04:
+        Module: Behavior
+        Class: EjectPilotDie
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+        ExemptStatus: HIJACKED
+        VeterancyLevels: ALL -REGULAR
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ReturnToBaseIdleTime: 10000
+      ModuleTag_08:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 1
+        StealthForbiddenConditions: FIRING_PRIMARY
+        FriendlyOpacityMin: 50.0%
+        FriendlyOpacityMax: 100.0%
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaJetStealthFighterUSA08:
+    SelectPortrait: SAStealth_L
+    ButtonImage: SAStealth
+    UpgradeCameo1: Upgrade_AmericaLaserMissiles
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    DisplayName: OBJECT:StealthFighter
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300.0
+    BuildCost: 1600
+    BuildTime: 25.0
+    ExperienceValue: 100 100 200 300
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrusherLevel: 1
+    CrushableLevel: 2
+    CommandSet: AmericaJetStealthFighterCommandSet
+    VoiceSelect: StealthFighterVoiceSelect
+    VoiceMove: StealthFighterVoiceMove
+    VoiceAttack: StealthFighterVoiceAttack
+    VoiceAttackAir: StealthFighterVoiceAttackAir
+    VoiceGuard: StealthFighterVoiceAirPatrol
+    SoundAmbient: StealthFighterAmbientLoop
+    SoundAmbientRubble: NoSound
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    RadarPriority: LOCAL_UNIT_ONLY
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT
+    Locomotor: [SET_NORMAL CINE_StealthJetLocomotor, SET_TAXIING CINE_BasicJetTaxiLocomotor]
+    Geometry: Cylinder
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 7.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: AmericaAirfield
+      Science: SCIENCE_StealthFighter
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY CINE_StealthJetMissileWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: StealthFighterVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceLowFuel: AuroraBomberVoiceLowFuel
+      VoiceGarrison: StealthFighterVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVStealth
+          HideSubObject: BurnerFX03 BurnerFX04
+          WeaponLaunchBone: PRIMARY WeaponA
+        ConditionState:
+          JETEXHAUST:
+            ParticleSysBone: [Wingtip01 JetContrail, Wingtip02 JetContrail]
+          JETEXHAUST JETAFTERBURNER:
+            ParticleSysBone:
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX03 BurnerFX04
+          REALLYDAMAGED:
+            Model: AVStealth_D
+            ParticleSysBone: [Smoke01 JetSmoke, Engine01 JetEngineDamagedSmoke]
+          REALLYDAMAGED JETEXHAUST:
+            Model: AVStealth_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+          REALLYDAMAGED JETEXHAUST JETAFTERBURNER:
+            Model: AVStealth_D
+            ParticleSysBone:
+            - Smoke01 JetSmoke
+            - Engine01 JetEngineDamagedSmoke
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+            - Engine01 JetLenzflare
+            - Engine02 JetLenzflare
+            ShowSubObject: BurnerFX03 BurnerFX04
+          RUBBLE:
+            Model: AVStealth_D1
+            HideSubObject: None
+            ShowSubObject: None
+          RUBBLE JETEXHAUST JETAFTERBURNER:
+            Model: AVStealth_D1
+            HideSubObject: None
+            ShowSubObject: None
+            ParticleSysBone:
+            - Engine01 JetExhaust
+            - Engine02 JetExhaust
+            - Wingtip01 JetContrail
+            - Wingtip02 JetContrail
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: JetSlowDeathBehavior
+        FXOnGroundDeath: FX_JetOnGroundDeath
+        OCLOnGroundDeath: OCL_StealthDeathFinalBlowUp
+        DestructionDelay: 99999999
+        RollRate: 0.2
+        RollRateDelta: 100%
+        PitchRate: 0.0
+        FallHowFast: 110.0%
+        FXInitialDeath: FX_StealthFighterDeathInitial
+        DelaySecondaryFromInitialDeath: 500
+        FXSecondary: FX_JetDeathSecondary
+        FXHitGround: FX_JetDeathHitGround
+        DelayFinalBlowUpFromHitGround: 200
+        FXFinalBlowUp: FX_JetDeathFinalBlowUp
+        OCLFinalBlowUp: OCL_StealthDeathFinalBlowUp
+      ModuleTag_04:
+        Module: Behavior
+        Class: EjectPilotDie
+        GroundCreationList: OCL_EjectPilotOnGround
+        AirCreationList: OCL_EjectPilotViaParachute
+        ExemptStatus: HIJACKED
+        VeterancyLevels: ALL -REGULAR
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 5
+        ReturnToBaseIdleTime: 10000
+      ModuleTag_08:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+      ModuleTag_22:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes Psys:SmokeSmallContinuous01
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_MIGDamageTransition'
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaInfantryOfficer:
+    DisplayName: OBJECT:Officer
+    Side: America
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 150
+    BuildCost: 400
+    BuildTime: 10.0
+    VoiceSelect: RangerVoiceSelect
+    VoiceGroupSelect: BattleCrySound
+    VoiceMove: RangerVoiceMove
+    VoiceAttack: RangerVoiceAttack
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY SCORE
+    Locomotor: SET_NORMAL CINE_BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY AmericaOfficerMachineGun
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AIOFCR_SKN
+          IdleAnimation: [AIOFCR_SKL.AIOFCR_STA 0 21, AIOFCR_SKL.AIOFCR_IDA, AIOFCR_SKL.AIOFCR_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          TransitionKey: TRANS_STAND
+        ConditionState:
+          MOVING:
+            Animation: AIOFCR_SKL.AIOFCR_RNA
+            AnimationMode: LOOP
+            ParticleSysBone: None InfantryDustTrails
+          PREATTACK_A:
+            Animation: AIOFCR_SKL.AIOFCR_ATAST
+            AnimationMode: ONCE
+            Aliases: [PREATTACK_A MOVING, PREATTACK_A FIRING_A, PREATTACK_A BETWEEN_FIRING_SHOTS_A]
+          FIRING_A:
+            Animation: AIOFCR_SKL.AIOFCR_ATALP
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FIRING_A
+          BETWEEN_FIRING_SHOTS_A:
+            Animation: AIOFCR_SKL.AIOFCR_ATALP
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FIRING_A
+            Aliases: [RELOADING_A, MOVING FIRING_A, MOVING BETWEEN_FIRING_SHOTS_A, MOVING RELOADING_A]
+          DYING:
+            Animation: [AIOFCR_SKL.AIOFCR_DTA, AIOFCR_SKL.AIOFCR_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: AIOFCR_SKL.AIOFCR_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: AIOFCR_SKL.AIOFCR_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: AIOFCR_SKL.AIOFCR_CHA
+            AnimationMode: LOOP
+          PARACHUTING:
+            Animation: AIOFCR_SKL.AIOFCR_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+        TransitionState:
+          TRANS_FIRING_A TRANS_STAND:
+            Animation: AIOFCR_SKL.AIOFCR_ATAED
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: AIOFCR_SKL.AIOFCR_ADTE1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: AIOFCR_SKL.AIOFCR_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: AIOFCR_SKL.AIOFCR_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: AutoFindHealingUpdate
+        ScanRate: 1000
+        ScanRange: 300
+        NeverHeal: 0.85
+        AlwaysHeal: 0.25
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RangerDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RangerDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_10:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaVehicleComanche02:
+    SelectPortrait: SACCommanche_L
+    ButtonImage: SACCommanche
+    UpgradeCameo1: Upgrade_ComancheRocketPods
+    UpgradeCameo2: Upgrade_AmericaAdvancedTraining
+    DisplayName: OBJECT:Comanche
+    EditorSorting: VEHICLE
+    Side: America
+    TransportSlotCount: 0
+    VisionRange: 400.0
+    ShroudClearingRange: 600
+    BuildCost: 1500
+    BuildTime: 20
+    ExperienceValue: 50 50 100 200
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CommandSet: AmericaVehicleComancheCommandSet
+    VoiceSelect: ComancheVoiceSelect
+    VoiceMove: ComancheVoiceMove
+    VoiceGuard: ComancheVoiceMove
+    VoiceAttack: ComancheVoiceAttack
+    SoundAmbient: ComancheAmbientLoop
+    SoundAmbientRubble: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS CAN_ATTACK SELECTABLE VEHICLE SCORE AIRCRAFT PRODUCED_AT_HELIPAD
+    Locomotor: [SET_NORMAL ComancheLocomotor, SET_TAXIING BasicHelicopterTaxiLocomotor]
+    Geometry: BOX
+    GeometryMajorRadius: 20.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 25.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    Prerequisites:
+      Object: AmericaAirfield
+    WeaponSet:
+    - Conditions: None
+      Weapon:
+      - PRIMARY Comanche20mmCannonWeapon
+      - SECONDARY ComancheAntiTankMissileWeapon
+      - TERTIARY NONE
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY VEHICLE STRUCTURE]
+      AutoChooseSources:
+      - PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - SECONDARY FROM_PLAYER FROM_SCRIPT FROM_AI
+    - Conditions: PLAYER_UPGRADE
+      Weapon:
+      - PRIMARY Comanche20mmCannonWeapon
+      - SECONDARY ComancheAntiTankMissileWeapon
+      - TERTIARY ComancheRocketPodWeapon
+      PreferredAgainst: [PRIMARY INFANTRY, SECONDARY VEHICLE STRUCTURE]
+      AutoChooseSources:
+      - PRIMARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - SECONDARY FROM_PLAYER FROM_SCRIPT FROM_AI
+      - TERTIARY NONE
+    ArmorSet:
+      Conditions: None
+      Armor: ComancheArmor
+      DamageFX: None
+    UnitSpecificSounds:
+      VoiceCreate: ComancheVoiceCreate
+      SoundEject: PilotSoundEject
+      VoiceEject: PilotVoiceEject
+      Afterburner: RaptorAfterburner
+      VoiceGarrison: ComancheVoiceMove
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVComanche
+          HideSubObject: MissileUpgrade
+          Animation: AVComanche.AVComanche
+          AnimationMode: LOOP
+          WeaponMuzzleFlash: PRIMARY TurretFX
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponLaunchBone: SECONDARY Muzzle
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVComanche_d
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+          WEAPONSET_PLAYER_UPGRADE:
+            ShowSubObject: MissileUpgrade
+            Animation: AVComanche.AVComanche
+            AnimationMode: LOOP
+            WeaponFireFXBone: TERTIARY WeaponB
+            WeaponLaunchBone: TERTIARY WeaponB
+          WEAPONSET_PLAYER_UPGRADE REALLYDAMAGED:
+            Model: AVComanche_d
+            ShowSubObject: MissileUpgrade
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+            WeaponFireFXBone: TERTIARY WeaponB
+            WeaponLaunchBone: TERTIARY WeaponB
+          RUBBLE:
+            Model: AVComanche_d
+            Animation: AVComanche_d.AVComanche_d
+            AnimationMode: LOOP
+          RUBBLE SPECIAL_DAMAGED:
+            Model: AVComanche_d
+            HideSubObject: AVComanche_Prop
+      ModuleTag_02:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_ComancheRocketPods
+      ModuleTag_03:
+        Module: Behavior
+        Class: ExperienceScalarUpgrade
+        TriggeredBy: Upgrade_AmericaAdvancedTraining
+        AddXPScalar: 1.0
+      ModuleTag_04:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 220.0
+        InitialHealth: 220.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_ComancheStartDeath
+      ModuleTag_06:
+        Module: Behavior
+        Class: JetAIUpdate
+        MinHeight: 5
+        NeedsRunway: No
+        KeepsParkingSpaceWhenAirborne: No
+        AutoAcquireEnemiesWhenIdle: Yes
+        Turret:
+          TurretTurnRate: 0
+          TurretPitchRate: 0
+          ControlledWeaponSlots: PRIMARY SECONDARY
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: HelicopterSlowDeathBehavior
+        DestructionDelay: 99999999
+        SpiralOrbitTurnRate: 140.0
+        SpiralOrbitForwardSpeed: 350.0
+        SpiralOrbitForwardSpeedDamping: .9999
+        MaxBraking: 190
+        SoundDeathLoop: ComancheDamagedLoop
+        MinSelfSpin: 100
+        MaxSelfSpin: 300
+        SelfSpinUpdateDelay: 100
+        SelfSpinUpdateAmount: 10
+        FallHowFast: 12.0%
+        MinBladeFlyOffDelay: 1500
+        MaxBladeFlyOffDelay: 1500
+        AttachParticle: SootySmokeTrail
+        AttachParticleBone: Propeller02
+        BladeObjectName: ComancheBlades
+        BladeBoneName: Propeller01
+        OCLEjectPilot: OCL_CINE_EjectPilotViaParachute
+        FXBlade: FX_HelicopterBladeExplosion
+        OCLBlade: OCL_HelicopterBladeExplosion
+        FXHitGround: FX_HelicopterHitGround
+        OCLHitGround: OCL_HelicopterHitGround
+        FXFinalBlowUp: FX_GroundedHelicopterBlowUp
+        OCLFinalBlowUp: OCL_GroundedHelicopterBlowUp
+        DelayFromGroundToFinalDeath: 1500
+        FinalRubbleObject: ComancheRubbleHull
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        ReallyDamagedParticleSystem1: Bone:Smoke RandomBone:Yes PSys:SmokeSmallContinuousDown
+        ReallyDamagedFXList1: 'Loc: X:0 Y:0 Z:0 FXList:FX_ComancheDamageTransition'
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 3
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaInfantryPilot:
+    SelectPortrait: SAPilot_L
+    ButtonImage: SAPilot
+    DisplayName: OBJECT:Pilot
+    Side: America
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    ExperienceValue: 10 10 10 10
+    ExperienceRequired: 0 1 2 3
+    IsTrainable: Yes
+    CommandSet: AmericaInfantryPilotCommandSet
+    VisionRange: 150
+    ShroudClearingRange: 300
+    CrushableLevel: 0
+    VoiceSelect: PilotVoiceSelect
+    VoiceMove: PilotVoiceMove
+    VoiceAttack: PilotVoiceMove
+    VoiceGarrison: NoSound
+    VoiceFear: PilotVoiceFear
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_CAST_REFLECTIONS INFANTRY NO_GARRISON SCORE
+    Locomotor:
+    - SET_NORMAL ColonelBurtonGroundLocomotor
+    - SET_NORMAL_UPGRADED BasicHumanLocomotorPlus25
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    UnitSpecificSounds:
+      VoiceEnter: PilotVoiceEnter
+      VoiceEnterHostile: PilotVoiceEnter
+      VoiceGetHealed: PilotVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AIRPlt_SKN
+          IdleAnimation: AIRPlt_SKL.AIRPlt_SST 0 20
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          FREEFALL:
+            Animation: AIRPlt_SKL.AIRPLT_PFL
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL DYING]
+          PARACHUTING:
+            Animation: AIRPlt_SKL.AIRPlt_PHG
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Chute
+            WaitForStateToFinishIfPossible: TRANS_Falling
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+          MOVING:
+            Animation: AIRPlt_SKL.AIRPlt_RNA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Move
+            ParticleSysBone: None InfantryDustTrails
+          DYING:
+            Animation: [AIRPlt_SKL.AIRPlt_DTA, AIRPlt_SKL.AIRPlt_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: AIRPlt_SKL.AIRPlt_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: AIRPlt_SKL.AIRPlt_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: AIRPLT_SKL.AIRPLT_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Move TRANS_Stand:
+            Animation: AIRPlt_SKL.AIRPlt_SUR
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: AIRPlt_SKL.AIRPlt_ADTE1
+            AnimationMode: ONCE
+          TRANS_Chute TRANS_Stand:
+            Animation: AIRPlt_SKL.AIRPlt_SUR
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: VeterancyGainCreate
+        StartingLevel: VETERAN
+      ModuleTag_03:
+        Module: Behavior
+        Class: VeterancyCrateCollide
+        RequiredKindOf: VEHICLE
+        ForbiddenKindOf: DOZER
+        EffectRange: 0
+        AddsOwnerVeterancy: Yes
+        IsPilot: Yes
+      ModuleTag_04:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: AutoFindHealingUpdate
+        ScanRate: 1000
+        ScanRange: 300
+        NeverHeal: 0.85
+        AlwaysHeal: 0.25
+      ModuleTag_07:
+        Module: Behavior
+        Class: PilotFindVehicleUpdate
+        ScanRate: 1000
+        ScanRange: 300
+        MinHealth: 0.5
+      ModuleTag_08:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_10:
+        Module: Behavior
+        Class: LocomotorSetUpgrade
+        TriggeredBy: Upgrade_Veterancy_HEROIC
+      ModuleTag_11:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_PilotDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_PilotDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AircraftCarrier:
+    DisplayName: OBJECT:CINE_Carrier
+    EditorSorting: Vehicle
+    KindOf: STRUCTURE SELECTABLE IMMOBILE AIRCRAFT_PATH_AROUND CAPTURABLE
+    Geometry: BOX
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 5.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ArmorSet:
+      Conditions: None
+      Armor: StructureArmor
+      DamageFX: StructureDamageFXNoShake
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        ConditionState:
+          NONE:
+            Model: PSAirCarrier_Dt
+            Animation: PSAirCarrier_Dt.PSAirCarrier_Dt
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+          RUBBLE:
+            Model: PSAirCarrier_Dt
+            Animation: PSAirCarrier_Dt.PSAirCarrier_Dt
+            AnimationMode: ONCE
+            ParticleSysBone:
+            - SPLASH0BONE airCarrierDeathSplash0
+            - SPLASH0BONE airCarrierShockWave0
+            - SPLASH1BONE airCarrierDeathSplash
+            - SPLASH1BONE airCarrierShockWave
+            - SPLASH3BONE airCarrierTowerSplash
+            - SPLASH3BONE airCarrierDeckSmoke
+            - OILSLICKBONE airCarrierDeckSmoke
+            - EXPLOSION1BONE airCarrierExplosion0
+            - EXPLOSION1BONE airCarrierLightFlash1
+            - EXPLOSION1BONE airCarrierShockWave1
+            - EXPLOSION1BONE airCarrierExplosionSparks
+            - EXPLOSION2BONE airCarrierExplosion1
+            - EXPLOSION2BONE airCarrierLightFlash2
+            - EXPLOSION2BONE airCarrierShockWave2
+            - EXPLOSION2BONE airCarrierDeckFireBig
+            - EXPLOSION4BONE airCarrierExplosion2
+            - EXPLOSION4BONE airCarrierLightFlash3
+            - EXPLOSION4BONE airCarrierShockWave3
+            - EXPLOSION4BONE airCarrierDeckFire
+            - EXPLOSION5BONE airCarrierFinalExplosion
+            - EXPLOSION5BONE airCarrierDeckFire
+            - EXPLOSION5BONE airCarrierSmoke
+            - SPLASH4BONE airCarrierDeathSplash1
+            - SPLASH5BONE airCarrierDeathSplash1
+            - SPLASH6BONE airCarrierDeathSplash2
+            - SPLASH7BONE airCarrierDeathSplash3
+            - MAST1BONE airCarrierDeckFireBig
+            - MAST2BONE airCarrierDeckFire
+            - SPLASH4BONE airCarrierDeathRipple
+            - SPLASH5BONE airCarrierDeathRipple
+            - SPLASH6BONE airCarrierDeathRipple
+            - SPLASH7BONE airCarrierDeathRipple
+            - SPLASH5BONE airCarrierFinalDeathSplash
+            - JET01BONE airCarrierDeckFireJet5
+            - JET01BONE airCarrierJetEngine01Smoke
+            - JET01BONE airCarrierJet01Explosion
+            - JET03BONE airCarrierDeckFireBig
+            - JET04BONE airCarrierDeckFireBig
+            - JET05BONE airCarrierJetExplosion1
+            - JET05BONE airCarrierDeckFireJet5
+            - JET06BONE airCarrierDeckFireJet6
+            - JET06BONE airCarrierJetExplosion2
+            - JET07BONE airCarrierJetExplosion3
+            - JET07BONE airCarrierDeckFireJet7
+            - JET08BONE airCarrierDeckFire
+            - JET08BONE airCarrierJet8Splash
+            - OILSLICKBONE airCarrierOilSlick
+            - OILSLICKBONE airCarrierMidShipSplash
+            - SPARK1BONE airCarrierSmoke
+            - SPARK1BONE airCarrierDeckFire
+            - SPARK2BONE airCarrierSmoke
+            - SPARK2BONE airCarrierDeckFire
+            - BOWSPLASH0BONE1 airCarrierBowDeathSplash
+            - SMOKEBONE01 airCarrierSmoke
+            - SMOKEBONE02 airCarrierSmoke
+            - SMOKEBONE03 airCarrierSmoke
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_IWantRubble:
+        Module: Behavior
+        Class: KeepObjectDie
+      ModuleTag_04:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem2: Bone:None RandomBone:No PSys:StructureTransitionMediumExplosion
+        ReallyDamagedParticleSystem3: Bone:None RandomBone:No PSys:StructureTransitionMediumShockwave
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_AmericaParticleCannonUplink:
+    SelectPortrait: SAUplink_L
+    ButtonImage: SAUplink
+    PlacementViewAngle: -45
+    DisplayName: OBJECT:ParticleCannon
+    Side: America
+    EditorSorting: STRUCTURE
+    BuildCost: 5000
+    BuildTime: 60.0
+    EnergyProduction: -10
+    VisionRange: 200.0
+    ShroudClearingRange: 200
+    ShroudRevealToAllRange: 60
+    CommandSet: AmericaParticleUplinkCannonCommandSet
+    ExperienceValue: 400 400 400 400
+    MaxSimultaneousOfType: DeterminedBySuperweaponRestriction
+    MaxSimultaneousLinkKey: Superweapon
+    VoiceSelect: ParticleCannonSelect
+    SoundOnDamaged: BuildingDamagedStateLight
+    SoundOnReallyDamaged: BuildingDestroy
+    RadarPriority: STRUCTURE
+    KindOf: PRELOAD STRUCTURE SELECTABLE IMMOBILE SCORE CAPTURABLE FS_TECHNOLOGY POWERED MP_COUNT_FOR_VICTORY FS_SUPERWEAPON
+    Geometry: BOX
+    GeometryMajorRadius: 64.0
+    GeometryMinorRadius: 38.0
+    GeometryHeight: 38.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    BuildCompletion: PLACED_BY_PLAYER
+    Prerequisites:
+      Object: AmericaStrategyCenter
+    ArmorSet:
+      Conditions: None
+      Armor: StructureArmorTough
+      DamageFX: StructureDamageFXNoShake
+    UnitSpecificSounds:
+      UnderConstruction: UnderConstructionLoop
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ExtraPublicBone: [FX01, FX02, FX03, FX04, FX05]
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: ABSDILink
+            Animation: ABSDILink.ABSDILink
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          DAMAGED:
+            Model: ABSDILink_D
+            Animation: ABSDILink_D.ABSDILink_D
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          REALLYDAMAGED RUBBLE:
+            Model: ABSDILink_E
+            Animation: ABSDILink_E.ABSDILink_E
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          NIGHT:
+            Model: ABSDILink_N
+            Animation: ABSDILink_N.ABSDILink_N
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          DAMAGED NIGHT:
+            Model: ABSDILink_DN
+            Animation: ABSDILink_DN.ABSDILink_DN
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          REALLYDAMAGED RUBBLE NIGHT:
+            Model: ABSDILink_EN
+            Animation: ABSDILink_EN.ABSDILink_EN
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          SNOW:
+            Model: ABSDILink_S
+            Animation: ABSDILink_S.ABSDILink_S
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          DAMAGED SNOW:
+            Model: ABSDILink_DS
+            Animation: ABSDILink_DS.ABSDILink_DS
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          REALLYDAMAGED RUBBLE SNOW:
+            Model: ABSDILink_ES
+            Animation: ABSDILink_ES.ABSDILink_ES
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          NIGHT SNOW:
+            Model: ABSDILink_NS
+            Animation: ABSDILink_NS.ABSDILink_NS
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          DAMAGED NIGHT SNOW:
+            Model: ABSDILink_DNS
+            Animation: ABSDILink_DNS.ABSDILink_DNS
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          REALLYDAMAGED RUBBLE NIGHT SNOW:
+            Model: ABSDILink_ENS
+            Animation: ABSDILink_ENS.ABSDILink_ENS
+            AnimationMode: LOOP
+            Flags: MAINTAIN_FRAME_ACROSS_STATES
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink
+            Animation: ABSDILink.ABSDILink
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED DAMAGED:
+            Model: ABSDILink_D
+            Animation: ABSDILink_D.ABSDILink_D
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED REALLYDAMAGED:
+            Model: ABSDILink_E
+            Animation: ABSDILink_E.ABSDILink_E
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED NIGHT:
+            Model: ABSDILink_N
+            Animation: ABSDILink_N.ABSDILink_N
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED NIGHT DAMAGED:
+            Model: ABSDILink_DN
+            Animation: ABSDILink_DN.ABSDILink_DN
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED NIGHT REALLYDAMAGED:
+            Model: ABSDILink_EN
+            Animation: ABSDILink_EN.ABSDILink_EN
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED SNOW:
+            Model: ABSDILink_S
+            Animation: ABSDILink_S.ABSDILink_S
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED SNOW DAMAGED:
+            Model: ABSDILink_DS
+            Animation: ABSDILink_DS.ABSDILink_DS
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED SNOW REALLYDAMAGED:
+            Model: ABSDILink_ES
+            Animation: ABSDILink_ES.ABSDILink_ES
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED NIGHT SNOW:
+            Model: ABSDILink_NS
+            Animation: ABSDILink_NS.ABSDILink_NS
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED NIGHT SNOW DAMAGED:
+            Model: ABSDILink_DNS
+            Animation: ABSDILink_DNS.ABSDILink_DNS
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED NIGHT SNOW REALLYDAMAGED:
+            Model: ABSDILink_ENS
+            Animation: ABSDILink_ENS.ABSDILink_ENS
+            AnimationMode: LOOP
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+          AWAITING_CONSTRUCTION:
+            Model: NONE
+            Aliases:
+            - AWAITING_CONSTRUCTION DAMAGED
+            - AWAITING_CONSTRUCTION REALLYDAMAGED
+            - AWAITING_CONSTRUCTION NIGHT
+            - AWAITING_CONSTRUCTION NIGHT DAMAGED
+            - AWAITING_CONSTRUCTION NIGHT REALLYDAMAGED
+            - AWAITING_CONSTRUCTION SNOW
+            - AWAITING_CONSTRUCTION SNOW DAMAGED
+            - AWAITING_CONSTRUCTION SNOW REALLYDAMAGED
+            - AWAITING_CONSTRUCTION NIGHT SNOW
+            - AWAITING_CONSTRUCTION NIGHT SNOW DAMAGED
+            - AWAITING_CONSTRUCTION NIGHT SNOW REALLYDAMAGED
+            - SOLD
+            - SOLD DAMAGED
+            - SOLD REALLYDAMAGED
+            - SOLD NIGHT
+            - SOLD NIGHT DAMAGED
+            - SOLD NIGHT REALLYDAMAGED
+            - SOLD SNOW
+            - SOLD SNOW DAMAGED
+            - SOLD SNOW REALLYDAMAGED
+            - SOLD NIGHT SNOW
+            - SOLD NIGHT SNOW DAMAGED
+            - SOLD NIGHT SNOW REALLYDAMAGED
+      ModuleTag_02:
+        Module: Draw
+        Class: W3DModelDraw
+        ExtraPublicBone: [FXConnector, FXMain]
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: ABSDILink_A1
+            Animation: ABSDILink_A1.ABSDILink_A1
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            Aliases: [NIGHT, NIGHT SNOW, SNOW]
+          DAMAGED:
+            Model: ABSDILink_A1D
+            Animation: ABSDILink_A1D.ABSDILink_A1D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            Aliases: [NIGHT DAMAGED, NIGHT SNOW DAMAGED, SNOW DAMAGED]
+          REALLYDAMAGED RUBBLE:
+            Model: ABSDILink_A1E
+            Animation: ABSDILink_A1E.ABSDILink_A1E
+            AnimationMode: MANUAL
+            Flags: START_FRAME_FIRST
+            Aliases:
+            - NIGHT REALLYDAMAGED RUBBLE
+            - NIGHT SNOW REALLYDAMAGED RUBBLE
+            - SNOW REALLYDAMAGED RUBBLE
+          AWAITING_CONSTRUCTION:
+            Model: None
+            Aliases:
+            - NIGHT AWAITING_CONSTRUCTION
+            - NIGHT SNOW AWAITING_CONSTRUCTION
+            - SNOW AWAITING_CONSTRUCTION
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A1
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+            Aliases:
+            - NIGHT AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED
+            - NIGHT SNOW AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED
+            - SNOW AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED DAMAGED:
+            Model: ABSDILink_A1D
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+            Aliases:
+            - NIGHT AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED DAMAGED
+            - NIGHT SNOW AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED DAMAGED
+            - SNOW AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED DAMAGED
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED REALLYDAMAGED RUBBLE:
+            Model: ABSDILink_A1E
+            Flags: ADJUST_HEIGHT_BY_CONSTRUCTION_PERCENT
+            Aliases:
+            - NIGHT AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED REALLYDAMAGED RUBBLE
+            - NIGHT SNOW AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED REALLYDAMAGED RUBBLE
+            - SNOW AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED REALLYDAMAGED RUBBLE
+          UNPACKING:
+            Model: ABSDILink_A1
+            Animation: ABSDILink_A1.ABSDILink_A1
+            AnimationMode: ONCE
+            Flags: MAINTAIN_FRAME_ACROSS_STATES2
+            Aliases: [NIGHT UNPACKING, NIGHT SNOW UNPACKING, SNOW UNPACKING]
+          UNPACKING DAMAGED:
+            Model: ABSDILink_A1D
+            Animation: ABSDILink_A1D.ABSDILink_A1D
+            AnimationMode: ONCE
+            Flags: MAINTAIN_FRAME_ACROSS_STATES2
+            Aliases: [NIGHT UNPACKING DAMAGED, NIGHT SNOW UNPACKING DAMAGED, SNOW UNPACKING DAMAGED]
+          UNPACKING REALLYDAMAGED RUBBLE:
+            Model: ABSDILink_A1E
+            Animation: ABSDILink_A1E.ABSDILink_A1E
+            AnimationMode: ONCE
+            Flags: MAINTAIN_FRAME_ACROSS_STATES2
+            Aliases:
+            - NIGHT UNPACKING REALLYDAMAGED RUBBLE
+            - NIGHT SNOW UNPACKING REALLYDAMAGED RUBBLE
+            - SNOW UNPACKING REALLYDAMAGED RUBBLE
+          DEPLOYED:
+            Model: ABSDILink_A1
+            Animation: ABSDILink_A1.ABSDILink_A1
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            Aliases: [NIGHT DEPLOYED, NIGHT SNOW DEPLOYED, SNOW DEPLOYED]
+          DEPLOYED DAMAGED:
+            Model: ABSDILink_A1D
+            Animation: ABSDILink_A1D.ABSDILink_A1D
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            Aliases: [NIGHT DEPLOYED DAMAGED, NIGHT SNOW DEPLOYED DAMAGED, SNOW DEPLOYED DAMAGED]
+          DEPLOYED REALLYDAMAGED RUBBLE:
+            Model: ABSDILink_A1E
+            Animation: ABSDILink_A1E.ABSDILink_A1E
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            Aliases:
+            - NIGHT DEPLOYED REALLYDAMAGED RUBBLE
+            - NIGHT SNOW DEPLOYED REALLYDAMAGED RUBBLE
+            - SNOW DEPLOYED REALLYDAMAGED RUBBLE
+          PACKING:
+            Model: ABSDILink_A1
+            Animation: ABSDILink_A1.ABSDILink_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: MAINTAIN_FRAME_ACROSS_STATES3
+            Aliases: [NIGHT PACKING, NIGHT SNOW PACKING, SNOW PACKING]
+          PACKING DAMAGED:
+            Model: ABSDILink_A1D
+            Animation: ABSDILink_A1D.ABSDILink_A1D
+            AnimationMode: ONCE_BACKWARDS
+            Flags: MAINTAIN_FRAME_ACROSS_STATES3
+            Aliases: [NIGHT PACKING DAMAGED, NIGHT SNOW PACKING DAMAGED, SNOW PACKING DAMAGED]
+          PACKING REALLYDAMAGED RUBBLE:
+            Model: ABSDILink_A1E
+            Animation: ABSDILink_A1E.ABSDILink_A1E
+            AnimationMode: ONCE_BACKWARDS
+            Flags: MAINTAIN_FRAME_ACROSS_STATES3
+            Aliases:
+            - NIGHT PACKING REALLYDAMAGED RUBBLE
+            - NIGHT SNOW PACKING REALLYDAMAGED RUBBLE
+            - SNOW PACKING REALLYDAMAGED RUBBLE
+          SOLD DEPLOYED:
+            Model: NONE
+          SOLD SNOW DEPLOYED:
+            Model: NONE
+          SOLD NIGHT DEPLOYED:
+            Model: NONE
+          SOLD NIGHT SNOW DEPLOYED:
+            Model: NONE
+      ModuleTag_03:
+        Module: Draw
+        Class: W3DModelDraw
+        AnimationsRequirePower: No
+        DefaultConditionState:
+          Model: None
+          TransitionKey: DOWN_DEFAULT
+        ConditionState:
+          NIGHT:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          SNOW:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          SNOW NIGHT:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A4
+            Animation: ABSDILink_A4.ABSDILink_A4
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: UP_DAY
+            ParticleSysBone: [SmokeS01 SmokeBuildingSmall, SparksS01 LiveWireSparks02]
+          NIGHT AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A4N
+            Animation: ABSDILink_A4N.ABSDILink_A4N
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: UP_NIGHT
+            ParticleSysBone: [SmokeS01 SmokeBuildingSmall, SparksS01 LiveWireSparks02]
+          SNOW AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A4S
+            Animation: ABSDILink_A4S.ABSDILink_A4S
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: UP_SNOW
+            ParticleSysBone: [SmokeS01 SmokeBuildingSmall, SparksS01 LiveWireSparks02]
+          SNOW NIGHT AWAITING_CONSTRUCTION PARTIALLY_CONSTRUCTED ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A4SN
+            Animation: ABSDILink_A4SN.ABSDILink_A4SN
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: UP_SNOWNIGHT
+            ParticleSysBone: [SmokeS01 SmokeBuildingSmall, SparksS01 LiveWireSparks02]
+        TransitionState:
+          DOWN_DEFAULT UP_DAY:
+            Model: ABSDILink_A4
+            Animation: ABSDILink_A4.ABSDILink_A4
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_NIGHT:
+            Model: ABSDILink_A4N
+            Animation: ABSDILink_A4N.ABSDILink_A4N
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_SNOW:
+            Model: ABSDILink_A4S
+            Animation: ABSDILink_A4S.ABSDILink_A4S
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_SNOWNIGHT:
+            Model: ABSDILink_A4SN
+            Animation: ABSDILink_A4SN.ABSDILink_A4SN
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          UP_DAY DOWN_DEFAULT:
+            Model: ABSDILink_A4
+            Animation: ABSDILink_A4.ABSDILink_A4
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_NIGHT DOWN_DEFAULT:
+            Model: ABSDILink_A4N
+            Animation: ABSDILink_A4N.ABSDILink_A4N
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_SNOW DOWN_DEFAULT:
+            Model: ABSDILink_A4S
+            Animation: ABSDILink_A4S.ABSDILink_A4S
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_SNOWNIGHT DOWN_DEFAULT:
+            Model: ABSDILink_A4SN
+            Animation: ABSDILink_A4SN.ABSDILink_A4SN
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+      ModuleTag_04:
+        Module: Draw
+        Class: W3DModelDraw
+        AnimationsRequirePower: No
+        MinLODRequired: MEDIUM
+        DefaultConditionState:
+          Model: None
+          TransitionKey: DOWN_DEFAULT
+        ConditionState:
+          NIGHT:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          SNOW:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          SNOW NIGHT:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          PARTIALLY_CONSTRUCTED:
+            Model: ABSDILink_A6
+            Animation: ABSDILink_A6.ABSDILink_A6
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: UP_DAY
+            ParticleSysBone:
+            - Sparks01 BuildUpBlueSpark
+            - Sparks02 BuildUpBlueSpark
+            - Sparks03 BuildUpBlueSpark
+            - Sparks04 BuildUpBlueSpark
+            - Sparks05 BuildUpBlueSpark
+          NIGHT PARTIALLY_CONSTRUCTED:
+            Model: ABSDILink_A6N
+            Animation: ABSDILink_A6N.ABSDILink_A6N
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: UP_NIGHT
+            ParticleSysBone:
+            - Sparks01 BuildUpBlueSpark
+            - Sparks02 BuildUpBlueSpark
+            - Sparks03 BuildUpBlueSpark
+            - Sparks04 BuildUpBlueSpark
+            - Sparks05 BuildUpBlueSpark
+          SNOW PARTIALLY_CONSTRUCTED:
+            Model: ABSDILink_A6S
+            Animation: ABSDILink_A6S.ABSDILink_A6S
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: UP_SNOW
+            ParticleSysBone:
+            - Sparks01 BuildUpBlueSpark
+            - Sparks02 BuildUpBlueSpark
+            - Sparks03 BuildUpBlueSpark
+            - Sparks04 BuildUpBlueSpark
+            - Sparks05 BuildUpBlueSpark
+          SNOW NIGHT PARTIALLY_CONSTRUCTED:
+            Model: ABSDILink_A6SN
+            Animation: ABSDILink_A6SN.ABSDILink_A6SN
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            TransitionKey: UP_SNOWNIGHT
+            ParticleSysBone:
+            - Sparks01 BuildUpBlueSpark
+            - Sparks02 BuildUpBlueSpark
+            - Sparks03 BuildUpBlueSpark
+            - Sparks04 BuildUpBlueSpark
+            - Sparks05 BuildUpBlueSpark
+        TransitionState:
+          DOWN_DEFAULT UP_DAY:
+            Model: ABSDILink_A6
+            Animation: ABSDILink_A6.ABSDILink_A6
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_NIGHT:
+            Model: ABSDILink_A6N
+            Animation: ABSDILink_A6N.ABSDILink_A6N
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_SNOW:
+            Model: ABSDILink_A6S
+            Animation: ABSDILink_A6S.ABSDILink_A6S
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_SNOWNIGHT:
+            Model: ABSDILink_A6SN
+            Animation: ABSDILink_A6SN.ABSDILink_A6SN
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          UP_DAY DOWN_DEFAULT:
+            Model: ABSDILink_A6
+            Animation: ABSDILink_A6.ABSDILink_A6
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_NIGHT DOWN_DEFAULT:
+            Model: ABSDILink_A6N
+            Animation: ABSDILink_A6N.ABSDILink_A6N
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_SNOW DOWN_DEFAULT:
+            Model: ABSDILink_A6S
+            Animation: ABSDILink_A6S.ABSDILink_A6S
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_SNOWNIGHT DOWN_DEFAULT:
+            Model: ABSDILink_A6SN
+            Animation: ABSDILink_A6SN.ABSDILink_A6SN
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+      ModuleTag_05:
+        Module: Draw
+        Class: W3DModelDraw
+        AnimationsRequirePower: No
+        DefaultConditionState:
+          Model: None
+          TransitionKey: DOWN_DEFAULT
+        ConditionState:
+          NIGHT:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          SNOW:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          SNOW NIGHT:
+            Model: None
+            TransitionKey: DOWN_DEFAULT
+          SOLD:
+            Model: NONE
+          ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A5
+            Animation: ABSDILink_A5.ABSDILink_A5
+            AnimationMode: LOOP
+            TransitionKey: UP_DAY
+          NIGHT ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A5N
+            Animation: ABSDILink_A5N.ABSDILink_A5N
+            AnimationMode: LOOP
+            TransitionKey: UP_NIGHT
+          SNOW ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A5S
+            Animation: ABSDILink_A5S.ABSDILink_A5S
+            AnimationMode: LOOP
+            TransitionKey: UP_SNOW
+          SNOW NIGHT ACTIVELY_BEING_CONSTRUCTED:
+            Model: ABSDILink_A5SN
+            Animation: ABSDILink_A5SN.ABSDILink_A5SN
+            AnimationMode: LOOP
+            TransitionKey: UP_SNOWNIGHT
+        TransitionState:
+          DOWN_DEFAULT UP_DAY:
+            Model: ABSDILink_AB
+            Animation: ABSDILink_AB.ABSDILink_AB
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_NIGHT:
+            Model: ABSDILink_ABN
+            Animation: ABSDILink_ABN.ABSDILink_ABN
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_SNOW:
+            Model: ABSDILink_ABS
+            Animation: ABSDILink_ABS.ABSDILink_ABS
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          DOWN_DEFAULT UP_SNOWNIGHT:
+            Model: ABSDILink_ABSN
+            Animation: ABSDILink_ABSN.ABSDILink_ABSN
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Flags: START_FRAME_FIRST
+          UP_DAY DOWN_DEFAULT:
+            Model: ABSDILink_AB
+            Animation: ABSDILink_AB.ABSDILink_AB
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_NIGHT DOWN_DEFAULT:
+            Model: ABSDILink_ABN
+            Animation: ABSDILink_ABN.ABSDILink_ABN
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_SNOW DOWN_DEFAULT:
+            Model: ABSDILink_ABS
+            Animation: ABSDILink_ABS.ABSDILink_ABS
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+          UP_SNOWNIGHT DOWN_DEFAULT:
+            Model: ABSDILink_ABSN
+            Animation: ABSDILink_ABSN.ABSDILink_ABSN
+            AnimationMode: ONCE_BACKWARDS
+            AnimationSpeedFactorRange: 2.0 2.0
+            Flags: START_FRAME_LAST
+      ModuleTag_06:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 4000.0
+        InitialHealth: 4000.0
+        SubdualDamageCap: 4200
+        SubdualDamageHealRate: 500
+        SubdualDamageHealAmount: 100
+      ModuleTag_07:
+        Module: Behavior
+        Class: BaseRegenerateUpdate
+      ModuleTag_16:
+        Module: Behavior
+        Class: SpecialPowerCreate
+      ModuleTag_11:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SuperweaponParticleUplinkCannon
+        UpdateModuleStartsAttack: Yes
+      ModuleTag_12:
+        Module: Behavior
+        Class: ParticleUplinkCannonUpdate
+        SpecialPowerTemplate: SuperweaponParticleUplinkCannon
+        BeginChargeTime: 5000
+        RaiseAntennaTime: 4667
+        ReadyDelayTime: 2000
+        TotalFiringTime: 3500
+        DamagePerSecond: 400
+        TotalDamagePulses: 40
+        WidthGrowTime: 2000
+        BeamTravelTime: 2500
+        DamageType: PARTICLE_BEAM
+        DamageRadiusScalar: 3.4
+        RevealRange: 50.0
+        OuterEffectBoneName: FX
+        OuterEffectNumBones: 5
+        ConnectorBoneName: FXConnector
+        FireBoneName: FXMain
+        OuterNodesLightFlareParticleSystem: ParticleUplinkCannon_OuterNodeLightFlare
+        OuterNodesMediumFlareParticleSystem: ParticleUplinkCannon_OuterNodeMediumFlare
+        OuterNodesIntenseFlareParticleSystem: ParticleUplinkCannon_OuterNodeIntenseFlare
+        ConnectorMediumLaserName: ParticleUplinkCannon_MediumConnectorLaser
+        ConnectorIntenseLaserName: ParticleUplinkCannon_IntenseConnectorLaser
+        LaserBaseLightFlareParticleSystemName: ParticleUplinkCannon_LaserBaseReadyToFire
+        ParticleBeamLaserName: ParticleUplinkCannon_OrbitalLaser
+        GroundHitFX: FX_ParticleUplinkCannon_BeamHitsGround
+        BeamLaunchFX: FX_ParticleUplinkCannon_BeamLaunchIteration
+        DelayBetweenLaunchFX: 1000
+        TotalScorchMarks: 20
+        ScorchMarkScalar: 2.4
+        SwathOfDeathDistance: 200.0
+        SwathOfDeathAmplitude: 50.0
+        ManualDrivingSpeed: 20
+        ManualFastDrivingSpeed: 65
+        DoubleClickToFastDriveDelay: 500
+        PoweringUpSoundLoop: ParticleUplinkCannon_PowerupSoundLoop
+        UnpackToIdleSoundLoop: ParticleUplinkCannon_UnpackToIdleSoundLoop
+        FiringToPackSoundLoop: ParticleUplinkCannon_FiringToPackSoundLoop
+        GroundAnnihilationSoundLoop: ParticleUplinkCannon_GroundAnnihilationSoundLoop
+        DamagePulseRemnantObjectName: ParticleUplinkCannonTrailRemnant
+      ModuleTag_14:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+      ModuleTag_15:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_17:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem2: Bone:None RandomBone:No PSys:StructureTransitionMediumExplosion
+        ReallyDamagedParticleSystem3: Bone:None RandomBone:No PSys:StructureTransitionMediumShockwave
+      ModuleTag_18:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        ExemptStatus: UNDER_CONSTRUCTION
+        DestructionDelay: 2000
+        FX: [INITIAL FX_ParticleUplinkDeathInitial, FINAL FX_StructureMediumDeath]
+        OCL: [INITIAL OCL_SDILinkLasers, FINAL OCL_ParticleUplinkDeathFinal]
+      ModuleTag_19:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        RequiredStatus: UNDER_CONSTRUCTION
+        OCL: OCL_ABPowerPlantExplode
+        FX: FX_StructureMediumDeath
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini
+  CINE_Chinook:
+    DisplayName: OBJECT:Structure
+    EditorSorting: STRUCTURE
+    CommandSet: BaikonurLaunchTowerCommandSet
+    KindOf: STRUCTURE SELECTABLE IMMOBILE AIRCRAFT_PATH_AROUND CAPTURABLE
+    Geometry: BOX
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ArmorSet:
+      Conditions: None
+      Armor: StructureArmor
+      DamageFX: StructureDamageFXNoShake
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        ConditionState:
+          NONE:
+            Model: CINE_Chinook
+            Animation: CINE_Chinook.CINE_Chinook
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+          DOOR_1_OPENING:
+            Model: CINE_Chinook
+            Animation: CINE_Chinook.CINE_Chinook
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.01 1.01
+          DAMAGED:
+            Model: CBBaikRock_A1
+            Animation: CBBaikRock_A1.CBBaikRock_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+          REALLYDAMAGED:
+            Model: CBBaikRock_A1
+            Animation: CBBaikRock_A1.CBBaikRock_A1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_FIRST
+          RUBBLE:
+            Model: CBBaikRock_CR
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 2000.0
+        InitialHealth: 2000.0
+      ModuleTag_IWantRubble:
+        Module: Behavior
+        Class: KeepObjectDie
+      ModuleTag_04:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: FlammableUpdate
+        FlameDamageLimit: 20
+        FlameDamageExpiration: 2000
+        AflameDuration: 5000
+        AflameDamageAmount: 25
+        AflameDamageDelay: 500
+      ModuleTag_06:
+        Module: Behavior
+        Class: BaikonurLaunchPower
+        SpecialPowerTemplate: SuperweaponLaunchBaikonurRocket
+        DetonationObject: BaikonurRocketDetonation
+      ModuleTag_07:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_PoisonFieldLarge
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_NukeGLA
+      ModuleTag_09:
+        Module: Behavior
+        Class: TransitionDamageFX
+        DamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem1: Bone:None RandomBone:No PSys:StructureTransitionMediumSmoke
+        ReallyDamagedParticleSystem2: Bone:None RandomBone:No PSys:StructureTransitionMediumExplosion
+        ReallyDamagedParticleSystem3: Bone:None RandomBone:No PSys:StructureTransitionMediumShockwave
+    SourceFile: Data/INI/Object/AmericaCINEUnit.ini

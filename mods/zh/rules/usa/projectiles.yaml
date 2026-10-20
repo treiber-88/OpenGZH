@@ -1,0 +1,451 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  AirF_AuroraBomb:
+    Side: America
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL AuroraBombLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXCarptBmb
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 2
+        ForwardFriction: 2
+        CenterOfMassOffset: 2
+      ModuleTag_04:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 0
+        IgnitionDelay: 0
+        InitialVelocity: 0
+        DistanceToTravelBeforeTurning: 0
+        DistanceToTargetBeforeDiving: 0
+      ModuleTag_05:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: AirF_OCL_AuroraBombExplode
+      ModuleTag_06:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: AirF_FX_AuroraBombExplode
+      ModuleTag_07:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 50.0
+        TargetHeightIncludesStructures: Yes
+    SourceFile: Data/INI/Object/AirforceGeneral.ini
+  CountermeasureFlare:
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL CountermeasureFlareLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 4.0
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+          ParticleSysBone: [None CountermeasureFlareParticleSys, None CounterMeasureSmoke]
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5
+      ModuleTag_04:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_05:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+    SourceFile: Data/INI/Object/AmericaMiscUnit.ini
+  Nuke_ChinaCarpetBomb:
+    DisplayName: OBJECT:CarpetBomb
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 300.0
+    SoundFallingFromPlane: DaisyCutterWeapon
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXCarptBmb
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 2000.0
+        InitialHealth: 2000.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Nuke_ChinaCarpetBombWeapon
+        StartsActive: Yes
+      ModuleTag_10:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 0
+        OCL: INITIAL Nuke_OCL_RadiationFieldSmall
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 1.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: Nuke_SuperweaponChinaCarpetBomb
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: Nuke_WeaponFX_CarpetBomb
+      ModuleTag_09:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/NukeGeneral.ini
+  ChinaCarpetBomb:
+    DisplayName: OBJECT:CarpetBomb
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 300.0
+    SoundFallingFromPlane: DaisyCutterWeapon
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXCarptBmb
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 2000.0
+        InitialHealth: 2000.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: ChinaCarpetBombWeapon
+        StartsActive: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 1.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponChinaCarpetBomb
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_CarpetBomb
+      ModuleTag_09:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  A10ThunderboltMissile:
+    DisplayName: OBJECT:Missile
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 0.0
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS PROJECTILE SMALL_MISSILE
+    Locomotor: SET_NORMAL A10ThunderboltMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: AVWarthog_M
+          ParticleSysBone: NONE MissileExhaust
+        ConditionState:
+          JAMMED:
+            ParticleSysBone: None SparksMedium
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+        SubdualDamageCap: 200
+        SubdualDamageHealRate: 100000
+        SubdualDamageHealAmount: 50
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_08:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_09:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 10000
+        InitialVelocity: 30
+        IgnitionDelay: 0
+        IgnitionFX: FX_A10ThunderboltMissileIgnition
+      ModuleTag_11:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponA10ThunderboltMissileStrike
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  CarpetBomb:
+    DisplayName: OBJECT:CarpetBomb
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 300.0
+    SoundFallingFromPlane: DaisyCutterWeapon
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXCarptBmb
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: CarpetBombWeapon
+        StartsActive: Yes
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 1.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_07:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponCarpetBomb
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_CarpetBomb
+      ModuleTag_09:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  AuroraBomb:
+    Side: America
+    EditorSorting: SYSTEM
+    VisionRange: 0.0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL AuroraBombLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 2.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: EXCarptBmb
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 2
+        ForwardFriction: 2
+        CenterOfMassOffset: 2
+      ModuleTag_04:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: No
+        FuelLifetime: 0
+        IgnitionDelay: 0
+        InitialVelocity: 0
+        DistanceToTravelBeforeTurning: 0
+        DistanceToTargetBeforeDiving: 0
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  RemoteC4Charge:
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 75.0
+    ShroudClearingRange: 75
+    RadarPriority: NOT_ON_RADAR
+    KindOf: PROJECTILE MINE NO_COLLIDE
+    Geometry: CYLINDER
+    GeometryMajorRadius: 8.0
+    GeometryHeight: 8.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      UnitBombPing: BombTickRemote
+      StickyBombCreated: ColonelBurtonSetDemoCharge
+    Modules:
+      ModuleTag_NewBody:
+        Module: Body
+        Class: HighlanderBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 0
+        StealthForbiddenConditions: NONE
+        FriendlyOpacityMin: 50.0%
+        InnateStealth: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: StickyBombUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 1
+        FX: INITIAL WeaponFX_TNTStickyBombDetonation
+        Weapon: FINAL BurtonC4ChargeWeapon
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  TimedC4Charge:
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 75.0
+    ShroudClearingRange: 75
+    RadarPriority: NOT_ON_RADAR
+    KindOf: PROJECTILE MINE NO_COLLIDE
+    Geometry: CYLINDER
+    GeometryMajorRadius: 8.0
+    GeometryHeight: 8.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      UnitBombPing: BombTickTimed
+      StickyBombCreated: ColonelBurtonSetDemoCharge
+    Modules:
+      ModuleTag_NewBody:
+        Module: Body
+        Class: HighlanderBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 0
+        StealthForbiddenConditions: NONE
+        FriendlyOpacityMin: 50.0%
+        InnateStealth: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 20000
+        MaxLifetime: 20000
+      ModuleTag_05:
+        Module: Behavior
+        Class: StickyBombUpdate
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 1
+        FX: INITIAL WeaponFX_TNTStickyBombDetonation
+        Weapon: FINAL BurtonC4ChargeWeapon
+    SourceFile: Data/INI/Object/WeaponObjects.ini

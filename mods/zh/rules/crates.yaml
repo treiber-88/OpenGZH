@@ -1,0 +1,372 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Crates:
+  SalvageCrateData:
+    CreationChance: 1.0
+    KilledByType: SALVAGER
+    KillerScience: SCIENCE_GLA
+    CrateObject: SalvageCrate 1.0
+  EliteTankCrateData:
+    CreationChance: .75
+    VeterancyLevel: ELITE
+    CrateObject: [1000DollarCrate .75, SmallLevelUpCrate .25]
+  HeroicTankCrateData:
+    CreationChance: 1.0
+    VeterancyLevel: HEROIC
+    CrateObject: [2500DollarCrate .50, MediumLevelUpCrate .25, 2FreeCrusadersCrate .25]
+  GLA02_Always100DollarCrate:
+    CreationChance: 1.0
+    CrateObject: 100DollarCrate 1.0
+    OwnedByMaker: Yes
+  GLA02_Always200DollarCrate:
+    CreationChance: 1.0
+    CrateObject: 200DollarCrate 1.0
+    OwnedByMaker: Yes
+  GLA02_Always1000DollarCrate:
+    CreationChance: 1.0
+    CrateObject: 1000DollarCrate 1.0
+    OwnedByMaker: Yes
+  GLA02_Always1500DollarCrate:
+    CreationChance: 1.0
+    CrateObject: 1500DollarCrate 1.0
+    OwnedByMaker: Yes
+  GLA02_Always2500DollarCrate:
+    CreationChance: 1.0
+    CrateObject: 2500DollarCrate 1.0
+    OwnedByMaker: Yes
+Objects:
+  SalvageCrate:
+    EditorSorting: MISC_MAN_MADE
+    KindOf: PARACHUTABLE SELECTABLE
+    Geometry: BOX
+    GeometryMajorRadius: 12.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DScienceModelDraw
+        RequiredScience: SCIENCE_GLA
+        DefaultConditionState:
+          Model: PMJnkCrate
+      ModuleTag_02:
+        Module: Behavior
+        Class: SalvageCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        PickupScience: SCIENCE_GLA
+        WeaponChance: 100%
+        LevelChance: 25%
+        MoneyChance: 75%
+        MinMoney: 25
+        MaxMoney: 75
+      ModuleTag_03:
+        Module: Behavior
+        Class: DeletionUpdate
+        MinLifetime: 30000
+        MaxLifetime: 35000
+  1000DollarCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    TransportSlotCount: 1
+    KindOf: PARACHUTABLE CRATE
+    Shadow: SHADOW_VOLUME
+    Geometry: BOX
+    GeometryMajorRadius: 12.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMUNCrate03
+          ParticleSysBone: FX1 glitter2
+      ModuleTag_ForbiddenChanges:
+        Module: Behavior
+        Class: MoneyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        MoneyProvided: 1000
+        ExecuteAnimation: MoneyPickUp
+        ExecuteAnimationTime: 4.0
+        ExecuteAnimationZRise: 15.0
+        ExecuteAnimationFades: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+  2500DollarCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    TransportSlotCount: 1
+    KindOf: PARACHUTABLE CRATE
+    Shadow: SHADOW_VOLUME
+    Geometry: BOX
+    GeometryMajorRadius: 12.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMUNCrate03
+          ParticleSysBone: FX1 glitter2
+      ModuleTag_ForbiddenChanges:
+        Module: Behavior
+        Class: MoneyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        MoneyProvided: 2500
+        ExecuteAnimation: MoneyPickUp
+        ExecuteAnimationTime: 4.0
+        ExecuteAnimationZRise: 15.0
+        ExecuteAnimationFades: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: SquishCollide
+  SmallLevelUpCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    KindOf: PARACHUTABLE CRATE
+    Geometry: BOX
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMCrates
+      ModuleTag_02:
+        Module: Behavior
+        Class: VeterancyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        EffectRange: 100
+  MediumLevelUpCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    KindOf: PARACHUTABLE CRATE
+    Geometry: BOX
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMCrates
+      ModuleTag_02:
+        Module: Behavior
+        Class: VeterancyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        EffectRange: 250
+  2FreeCrusadersCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    KindOf: PARACHUTABLE CRATE
+    Shadow: SHADOW_VOLUME
+    Geometry: BOX
+    GeometryMajorRadius: 4.0
+    GeometryMinorRadius: 4.0
+    GeometryHeight: 4.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMCrates
+      ModuleTag_02:
+        Module: Behavior
+        Class: UnitCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        UnitCount: 2
+        UnitName: AmericaTankCrusader
+  100DollarCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    TransportSlotCount: 1
+    KindOf: PARACHUTABLE CRATE
+    Shadow: SHADOW_VOLUME
+    Geometry: BOX
+    GeometryMajorRadius: 12.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMUNCrate03
+          ParticleSysBone: FX1 glitter2
+      ModuleTag_ForbiddenChanges:
+        Module: Behavior
+        Class: MoneyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        MoneyProvided: 100
+        ExecuteAnimation: MoneyPickUp
+        ExecuteAnimationTime: 4.0
+        ExecuteAnimationZRise: 15.0
+        ExecuteAnimationFades: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+  200DollarCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    TransportSlotCount: 1
+    KindOf: PARACHUTABLE CRATE
+    Geometry: BOX
+    GeometryMajorRadius: 12.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMUNCrate03
+          ParticleSysBone: FX1 glitter2
+      ModuleTag_ForbiddenChanges:
+        Module: Behavior
+        Class: MoneyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        MoneyProvided: 200
+        ExecuteAnimation: MoneyPickUp
+        ExecuteAnimationTime: 4.0
+        ExecuteAnimationZRise: 15.0
+        ExecuteAnimationFades: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+  100DollarCrateForBuildings:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    TransportSlotCount: 1
+    KindOf: PARACHUTABLE CRATE
+    Geometry: BOX
+    GeometryMajorRadius: 12.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMUNCrate03
+          ParticleSysBone: FX1 glitter2
+      ModuleTag_ForbiddenChanges:
+        Module: Behavior
+        Class: MoneyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        MoneyProvided: 100
+        BuildingPickup: Yes
+        ExecuteAnimation: MoneyPickUp
+        ExecuteAnimationTime: 4.0
+        ExecuteAnimationZRise: 15.0
+        ExecuteAnimationFades: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+  SupplyDropZoneCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    TransportSlotCount: 1
+    KindOf: PARACHUTABLE CRATE
+    Geometry: BOX
+    GeometryMajorRadius: 12.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMUNCrate03
+          Animation: PMUNCrate03.PMUNCrate03
+          AnimationMode: LOOP
+          ParticleSysBone: FX1 glitter2
+      ModuleTag_ForbiddenChanges:
+        Module: Behavior
+        Class: MoneyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        MoneyProvided: 250
+        UpgradedBoost: UpgradeType:Upgrade_AmericaSupplyLines Boost:25
+        BuildingPickup: Yes
+        ExecuteAnimation: MoneyPickUp
+        ExecuteAnimationTime: 4.0
+        ExecuteAnimationZRise: 15.0
+        ExecuteAnimationFades: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+  1500DollarCrate:
+    DisplayName: OBJECT:Crate
+    EditorSorting: MISC_MAN_MADE
+    TransportSlotCount: 1
+    KindOf: PARACHUTABLE CRATE
+    Geometry: BOX
+    GeometryMajorRadius: 12.0
+    GeometryMinorRadius: 12.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: PMUNCrate03
+          ParticleSysBone: FX1 glitter2
+      ModuleTag_ForbiddenChanges:
+        Module: Behavior
+        Class: MoneyCrateCollide
+        ForbiddenKindOf: PROJECTILE
+        MoneyProvided: 1500
+        ExecuteAnimation: MoneyPickUp
+        ExecuteAnimationTime: 4.0
+        ExecuteAnimationZRise: 15.0
+        ExecuteAnimationFades: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0

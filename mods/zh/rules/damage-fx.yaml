@@ -1,0 +1,269 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+DamageFX:
+  DefaultDamageFX:
+    ThrottleTime: DEFAULT 300
+    AmountForMajorFX: ARMOR_PIERCING 50.0
+    MajorFX: [ARMOR_PIERCING FX_DamageMajorArmorPiercing, HEALING None, PENALTY None, STATUS None]
+    MinorFX: [ARMOR_PIERCING FX_DamageMinorArmorPiercing, HEALING None, PENALTY None, STATUS None]
+  CrushableCarDamageFX:
+    ThrottleTime: DEFAULT 300
+    AmountForMajorFX: CRUSH 1.0
+    MajorFX: [CRUSH FX_CarOverlappedByCrusher, HEALING None, STATUS None]
+    MinorFX: [CRUSH FX_CarOverlappedByCrusher, HEALING None, STATUS None]
+  TankDamageFX:
+    ThrottleTime: DEFAULT 100
+    AmountForMajorFX: DEFAULT 2.0
+    MajorFX:
+    - DEFAULT FX_DamageTankStruck
+    - SMALL_ARMS FX_DamageTankStruckSmallArms
+    - COMANCHE_VULCAN FX_DamageTankStruckSmallArms
+    - KILL_PILOT FX_DamageDisableVehicle
+    - SNIPER FX_DamageTankStruckSmallArms
+    - GATTLING FX_DamageTankStruckSmallArms
+    - FLAME None
+    - PARTICLE_BEAM None
+    - HEALING None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_VEHICLE None
+    VeterancyMajorFX:
+    - HEROIC DEFAULT FX_HeroicDamageTankStruck
+    - HEROIC SMALL_ARMS FX_HeroicDamageTankStruckSmallArms
+    - HEROIC COMANCHE_VULCAN FX_HeroicDamageTankStruckSmallArms
+    - HEROIC KILL_PILOT FX_HeroicDamageDisableVehicle
+    - HEROIC SNIPER FX_HeroicDamageTankStruckSmallArms
+    - HEROIC GATTLING FX_HeroicDamageTankStruckSmallArms
+    MinorFX:
+    - DEFAULT FX_DamageTankStruck
+    - SMALL_ARMS FX_DamageTankStruckSmallArms
+    - COMANCHE_VULCAN FX_DamageTankStruckSmallArms
+    - KILL_PILOT FX_DamageDisableVehicle
+    - SNIPER FX_DamageTankStruckSmallArms
+    - GATTLING FX_DamageTankStruckSmallArms
+    - FLAME None
+    - PARTICLE_BEAM None
+    - HEALING None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_VEHICLE None
+    VeterancyMinorFX:
+    - HEROIC DEFAULT FX_HeroicDamageTankStruck
+    - HEROIC SMALL_ARMS FX_HeroicDamageTankStruckSmallArms
+    - HEROIC COMANCHE_VULCAN FX_HeroicDamageTankStruckSmallArms
+    - HEROIC KILL_PILOT FX_HeroicDamageDisableVehicle
+    - HEROIC SNIPER FX_HeroicDamageTankStruckSmallArms
+    - HEROIC GATTLING FX_HeroicDamageTankStruckSmallArms
+  SmallTankDamageFX:
+    ThrottleTime: DEFAULT 100
+    AmountForMajorFX: DEFAULT 2.0
+    MajorFX:
+    - DEFAULT FX_DamageSmallTankStruck
+    - SMALL_ARMS FX_DamageSmallTankStruckSmallArms
+    - COMANCHE_VULCAN FX_DamageTankStruckSmallArms
+    - KILL_PILOT FX_DamageDisableVehicle
+    - SNIPER FX_DamageTankStruckSmallArms
+    - GATTLING FX_DamageTankStruckSmallArms
+    - FLAME None
+    - PARTICLE_BEAM None
+    - HEALING None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_VEHICLE None
+    MinorFX:
+    - DEFAULT None
+    - SMALL_ARMS FX_DamageSmallTankStruckSmallArms
+    - COMANCHE_VULCAN FX_DamageTankStruckSmallArms
+    - KILL_PILOT FX_DamageDisableVehicle
+    - SNIPER FX_DamageTankStruckSmallArms
+    - GATTLING FX_DamageTankStruckSmallArms
+    - FLAME None
+    - PARTICLE_BEAM None
+    - HEALING None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_VEHICLE None
+    VeterancyMajorFX:
+    - HEROIC SMALL_ARMS FX_HeroicDamageTankStruckSmallArms
+    - HEROIC COMANCHE_VULCAN FX_HeroicDamageTankStruckSmallArms
+    - HEROIC KILL_PILOT FX_HeroicDamageDisableVehicle
+    - HEROIC SNIPER FX_HeroicDamageTankStruckSmallArms
+    - HEROIC GATTLING FX_HeroicDamageTankStruckSmallArms
+    VeterancyMinorFX:
+    - HEROIC SMALL_ARMS FX_HeroicDamageTankStruckSmallArms
+    - HEROIC COMANCHE_VULCAN FX_HeroicDamageTankStruckSmallArms
+    - HEROIC KILL_PILOT FX_HeroicDamageDisableVehicle
+    - HEROIC SNIPER FX_HeroicDamageTankStruckSmallArms
+    - HEROIC GATTLING FX_HeroicDamageTankStruckSmallArms
+  StructureDamageFX:
+    ThrottleTime: DEFAULT 300
+    AmountForMajorFX: DEFAULT 1.0
+    MajorFX:
+    - DEFAULT FX_StructureDamaged
+    - PARTICLE_BEAM None
+    - HEALING None
+    - FLAME None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_BUILDING None
+    MinorFX:
+    - DEFAULT FX_StructureDamaged
+    - PARTICLE_BEAM None
+    - HEALING None
+    - FLAME None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_BUILDING None
+  StructureDamageFXNoShake:
+    ThrottleTime: DEFAULT 300
+    AmountForMajorFX: DEFAULT 1.0
+    MajorFX:
+    - DEFAULT FX_StructureDamagedNoShake
+    - PARTICLE_BEAM None
+    - HEALING None
+    - PENALTY None
+    - FLAME FX_StructureDamagedFlameNoShake
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_BUILDING None
+    MinorFX:
+    - DEFAULT FX_StructureDamagedNoShake
+    - PARTICLE_BEAM None
+    - HEALING None
+    - PENALTY None
+    - FLAME FX_StructureDamagedFlameNoShake
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_BUILDING None
+  DamageFX_Empty: {}
+  TruckDamageFX:
+    ThrottleTime: DEFAULT 100
+    MajorFX:
+    - DEFAULT FX_DamageTankStruck
+    - SMALL_ARMS FX_DamageSmallTankStruckSmallArms
+    - COMANCHE_VULCAN FX_DamageTankStruckSmallArms
+    - KILL_PILOT FX_DamageDisableVehicle
+    - SNIPER FX_DamageTankStruckSmallArms
+    - GATTLING FX_DamageTankStruckSmallArms
+    - ARMOR_PIERCING FX_DamageMajorArmorPiercing
+    - HEALING None
+    - PARTICLE_BEAM None
+    - FLAME None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_VEHICLE None
+    VeterancyMajorFX:
+    - HEROIC DEFAULT FX_HeroicDamageTankStruck
+    - HEROIC SMALL_ARMS FX_HeroicDamageTankStruckSmallArms
+    - HEROIC COMANCHE_VULCAN FX_HeroicDamageTankStruckSmallArms
+    - HEROIC KILL_PILOT FX_HeroicDamageDisableVehicle
+    - HEROIC SNIPER FX_HeroicDamageTankStruckSmallArms
+    - HEROIC GATTLING FX_HeroicDamageTankStruckSmallArms
+    MinorFX:
+    - DEFAULT FX_DamageTankStruck
+    - SMALL_ARMS FX_DamageSmallTankStruckSmallArms
+    - COMANCHE_VULCAN FX_DamageTankStruckSmallArms
+    - KILL_PILOT FX_DamageDisableVehicle
+    - SNIPER FX_DamageTankStruckSmallArms
+    - GATTLING FX_DamageTankStruckSmallArms
+    - ARMOR_PIERCING FX_DamageMinorArmorPiercing
+    - HEALING None
+    - PARTICLE_BEAM None
+    - FLAME None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_VEHICLE None
+    VeterancyMinorFX:
+    - HEROIC DEFAULT FX_HeroicDamageTankStruck
+    - HEROIC SMALL_ARMS FX_HeroicDamageTankStruckSmallArms
+    - HEROIC COMANCHE_VULCAN FX_HeroicDamageTankStruckSmallArms
+    - HEROIC KILL_PILOT FX_HeroicDamageDisableVehicle
+    - HEROIC SNIPER FX_HeroicDamageTankStruckSmallArms
+    - HEROIC GATTLING FX_HeroicDamageTankStruckSmallArms
+  LimoDamageFX:
+    ThrottleTime: DEFAULT 300
+    MajorFX:
+    - GATTLING FX_DamageTankStruckSmallArms
+    - DEFAULT FX_DamageTankStruck
+    - PARTICLE_BEAM None
+    - SMALL_ARMS FX_DamageTankStruckSmallArms
+    - FLAME None
+    - HEALING None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_VEHICLE None
+    VeterancyMajorFX: HEROIC GATTLING FX_HeroicDamageTankStruckSmallArms
+    MinorFX:
+    - GATTLING FX_DamageTankStruckSmallArms
+    - DEFAULT None
+    - PARTICLE_BEAM None
+    - SMALL_ARMS None
+    - FLAME None
+    - HEALING None
+    - RADIATION None
+    - POISON None
+    - STATUS None
+    - SUBDUAL_VEHICLE None
+    VeterancyMinorFX: HEROIC GATTLING FX_HeroicDamageTankStruckSmallArms
+    AmountForMajorFX: DEFAULT 1.0
+  InfantryDamageFX:
+    ThrottleTime: DEFAULT 100
+    AmountForMajorFX: DEFAULT 2.0
+    MajorFX:
+    - DEFAULT FX_DamageInfantryStruck
+    - SMALL_ARMS FX_DamageInfantryStruckSmallArms
+    - COMANCHE_VULCAN FX_DamageInfantryStruckSmallArms
+    - SNIPER NONE
+    - FLAME None
+    - PARTICLE_BEAM None
+    - HEALING None
+    - RADIATION None
+    - POISON None
+    - WATER None
+    - POISON None
+    - MELEE None
+    - UNRESISTABLE None
+    - STATUS None
+    - MICROWAVE None
+    VeterancyMajorFX:
+    - HEROIC DEFAULT FX_DamageInfantryStruck
+    - HEROIC SMALL_ARMS FX_HeroicDamageInfantryStruckSmallArms
+    - HEROIC COMANCHE_VULCAN FX_HeroicDamageInfantryStruckSmallArms
+    - HEROIC SNIPER NONE
+    MinorFX:
+    - DEFAULT FX_DamageInfantryStruck
+    - SMALL_ARMS FX_DamageInfantryStruckSmallArms
+    - COMANCHE_VULCAN FX_DamageInfantryStruckSmallArms
+    - SNIPER NONE
+    - FLAME None
+    - PARTICLE_BEAM None
+    - HEALING None
+    - RADIATION None
+    - POISON None
+    - WATER None
+    - POISON None
+    - MELEE None
+    - UNRESISTABLE None
+    - STATUS None
+    - MICROWAVE None
+    VeterancyMinorFX:
+    - HEROIC DEFAULT FX_DamageInfantryStruck
+    - HEROIC SMALL_ARMS FX_HeroicDamageInfantryStruckSmallArms
+    - HEROIC COMANCHE_VULCAN FX_HeroicDamageInfantryStruckSmallArms
+    - HEROIC SNIPER NONE
+  EmptyDamageFX:
+    AmountForMajorFX: DEFAULT 1.0
+    MajorFX: DEFAULT None
+    MinorFX: DEFAULT None

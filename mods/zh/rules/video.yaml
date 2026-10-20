@@ -1,0 +1,127 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Videos:
+  Sizzle:
+    Filename: sizzle_review
+    Comment: This is the EA logo screen
+  Sizzle640:
+    Filename: sizzle_review640
+    Comment: This is the EA logo screen
+  EALogoMovie:
+    Filename: EA_LOGO
+    Comment: This is the EA logo screen
+  EALogoMovie640:
+    Filename: EA_LOGO640
+    Comment: This is the EA logo screen
+  GeneralsChallengeBackground:
+    Filename: GC_Background
+    Comment: Plays in the background for GC loads
+  VSSmall:
+    Filename: VS_small
+    Comment: '"VS" logo, in flames'
+  PortraitDrThraxLeft:
+    Filename: Comp_ThraxGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitDrThraxRight:
+    Filename: Comp_ThraxGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitAirGenLeft:
+    Filename: Comp_AirGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitAirGenRight:
+    Filename: Comp_AirGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitBossGenLeft:
+    Filename: Comp_BossGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitBossGenRight:
+    Filename: Comp_BossGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitDemolitionGenLeft:
+    Filename: Comp_DemolGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitDemolitionGenRight:
+    Filename: Comp_DemolGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitInfantryGenLeft:
+    Filename: Comp_InfantryGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitInfantryGenRight:
+    Filename: Comp_InfantryGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitLaserGenLeft:
+    Filename: Comp_LaserGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitLaserGenRight:
+    Filename: Comp_LaserGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitNukeGenLeft:
+    Filename: Comp_NukeGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitNukeGenRight:
+    Filename: Comp_NukeGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitTankGenLeft:
+    Filename: Comp_TankGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitTankGenRight:
+    Filename: Comp_TankGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitSuperGenLeft:
+    Filename: Comp_SuperGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitSuperGenRight:
+    Filename: Comp_SuperGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitStealthGenLeft:
+    Filename: Comp_StealthGen_000
+    Comment: portrait transition for Generals Challenge load screen
+  PortraitStealthGenRight:
+    Filename: Comp_StealthGen_inv_000
+    Comment: portrait transition for Generals Challenge load screen
+  MD_China01:
+    Filename: MD_China01_0
+    Comment: campaign transition movie
+  MD_China02:
+    Filename: MD_China02_0
+    Comment: campaign transition movie
+  MD_China03:
+    Filename: MD_China03_0
+    Comment: campaign transition movie
+  MD_China04:
+    Filename: MD_China04_0
+    Comment: campaign transition movie
+  MD_China05:
+    Filename: MD_China05_0
+    Comment: campaign transition movie
+  MD_GLA01:
+    Filename: MD_GLA01_0
+    Comment: campaign transition movie
+  MD_GLA02:
+    Filename: MD_GLA02_0
+    Comment: campaign transition movie
+  MD_GLA03:
+    Filename: MD_GLA03_0
+    Comment: campaign transition movie
+  MD_GLA04:
+    Filename: MD_GLA04_0
+    Comment: campaign transition movie
+  MD_GLA05:
+    Filename: MD_GLA05_0
+    Comment: campaign transition movie
+  MD_USA01:
+    Filename: MD_USA01_0
+    Comment: campaign transition movie
+  MD_USA02:
+    Filename: MD_USA02_0
+    Comment: campaign transition movie
+  MD_USA03:
+    Filename: MD_USA03_0
+    Comment: campaign transition movie
+  MD_USA04:
+    Filename: MD_USA04_0
+    Comment: campaign transition movie
+  MD_USA05:
+    Filename: MD_USA05_0
+    Comment: campaign transition movie

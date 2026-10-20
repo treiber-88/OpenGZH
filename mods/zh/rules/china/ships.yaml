@@ -1,0 +1,89 @@
+# OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
+#
+# China ships, built at the China Shipyard (rules/china/shipyards.yaml). The original game has no
+# Chinese warships, so these arm two original Asian hulls: the junk (model CVJUNK) and the tugboat
+# (model CVTUGBOAT). Weapons are China's own: the Gattling cannon and the Battlemaster gun.
+
+Objects:
+  # Patrol junk: fast and cheap; its Gattling cannon hits both boats and aircraft, like the Gattling Tank.
+  ChinaShipPatrolJunk:
+    ReskinOf: BoatAsianFishing
+    DisplayName: OBJECT:ChinaShipPatrolJunk
+    Side: China
+    BuildCost: 500
+    BuildTime: 9.0
+    VisionRange: 250
+    ShroudClearingRange: 300
+    TransportSlotCount: 0
+    RadarPriority: UNIT
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CommandSet: ChinaShipCommandSet
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK VEHICLE BOAT SCORE
+    Locomotor: SET_NORMAL NavalLightLocomotor
+    Prerequisites:
+      Object: ChinaShipyard Tank_ChinaShipyard Infa_ChinaShipyard Nuke_ChinaShipyard
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY GattlingTankGun, SECONDARY GattlingTankGunAir]
+      PreferredAgainst: [PRIMARY INFANTRY VEHICLE STRUCTURE, SECONDARY AIRCRAFT]
+    ArmorSet:
+      Conditions: None
+      Armor: NavalArmor
+      DamageFX: TankDamageFX
+    Modules:
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 300.0
+        InitialHealth: 300.0
+      ModuleTag_Naval_AI:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+
+  # Gunboat: an armored tugboat carrying a Battlemaster cannon; the backbone of China's navy.
+  ChinaShipGunboat:
+    ReskinOf: BoatTugboat
+    DisplayName: OBJECT:ChinaShipGunboat
+    Side: China
+    BuildCost: 900
+    BuildTime: 14.0
+    VisionRange: 250
+    ShroudClearingRange: 300
+    TransportSlotCount: 0
+    RadarPriority: UNIT
+    ExperienceValue: 100 100 200 400
+    ExperienceRequired: 0 200 300 600
+    IsTrainable: Yes
+    CommandSet: ChinaShipCommandSet
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK VEHICLE BOAT SCORE
+    Locomotor: SET_NORMAL NavalHeavyLocomotor
+    Prerequisites:
+      Object:
+      - ChinaShipyard Tank_ChinaShipyard Infa_ChinaShipyard Nuke_ChinaShipyard
+      - ChinaWarFactory Tank_ChinaWarFactory Infa_ChinaWarFactory Nuke_ChinaWarFactory
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY BattleMasterTankGun
+    ArmorSet:
+      Conditions: None
+      Armor: NavalArmor
+      DamageFX: TankDamageFX
+    Modules:
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 700.0
+        InitialHealth: 700.0
+      ModuleTag_Naval_AI:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+
+CommandSets:
+  ChinaShipCommandSet:
+    11: Command_AttackMove
+    13: Command_Guard
+    14: Command_Stop

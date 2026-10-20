@@ -1,0 +1,329 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+GameData:
+  ShellMapName: Maps\ShellMapMD\ShellMapMD.map
+  MapName: Assault.map
+  MoveHintName: SCMoveHint
+  UseTrees: Yes
+  UseFPSLimit: Yes
+  FramesPerSecondLimit: 30
+  ChipsetType: 0
+  MaxShellScreens: 8
+  UseCloudMap: Yes
+  UseLightMap: Yes
+  BilinearTerrainTex: Yes
+  TrilinearTerrainTex: Yes
+  MultiPassTerrain: Yes
+  AdjustCliffTextures: Yes
+  StretchTerrain: No
+  UseHalfHeightMap: No
+  ShowObjectHealth: Yes
+  HideGarrisonFlags: No
+  Use3WayTerrainBlends: 1
+  DrawEntireTerrain: No
+  TerrainLOD: DISABLE
+  TerrainLODTargetTimeMS: 45
+  TextureReductionFactor: 0
+  RightMouseAlwaysScrolls: Yes
+  UseWaterPlane: Yes
+  UseCloudPlane: Yes
+  UseShadowVolumes: Yes
+  UseShadowDecals: Yes
+  UseBehindBuildingMarker: Yes
+  DefaultOcclusionDelay: 3000
+  OccludedColorLuminanceScale: 0.5
+  WaterPositionX: 0.0
+  WaterPositionY: 0.0
+  WaterPositionZ: 7.0
+  WaterExtentX: 2000.0
+  WaterExtentY: 2000.0
+  WaterType: 0
+  DefaultStructureRubbleHeight: 10.0
+  VertexWaterAvailableMaps1: Maps\nVidiaDemo\nVidiaDemo.map
+  VertexWaterHeightClampLow1: 0.0
+  VertexWaterHeightClampHi1: 16.3
+  VertexWaterAngle1: 45
+  VertexWaterXPosition1: 2700.0
+  VertexWaterYPosition1: -750.0
+  VertexWaterZPosition1: 2.9
+  VertexWaterXGridCells1: 65
+  VertexWaterYGridCells1: 360
+  VertexWaterGridSize1: 10.0
+  VertexWaterAttenuationA1: 1.0
+  VertexWaterAttenuationB1: 0.0
+  VertexWaterAttenuationC1: 0.0
+  VertexWaterAttenuationRange1: 20.0
+  VertexWaterAvailableMaps2: Maps\CHI03\CHI03.map
+  VertexWaterHeightClampLow2: 0.0
+  VertexWaterHeightClampHi2: 31.2
+  VertexWaterAngle2: -12
+  VertexWaterXPosition2: 282.0
+  VertexWaterYPosition2: -20.0
+  VertexWaterZPosition2: 3.0
+  VertexWaterXGridCells2: 100
+  VertexWaterYGridCells2: 200
+  VertexWaterGridSize2: 11.0
+  VertexWaterAttenuationA2: 1.0
+  VertexWaterAttenuationB2: 0.0
+  VertexWaterAttenuationC2: 0.0
+  VertexWaterAttenuationRange2: 20.0
+  VertexWaterAvailableMaps3: Maps\GLA01\GLA01.map
+  VertexWaterHeightClampLow3: 0.0
+  VertexWaterHeightClampHi3: 45.0
+  VertexWaterAngle3: -12
+  VertexWaterXPosition3: 1424.0
+  VertexWaterYPosition3: -270.0
+  VertexWaterZPosition3: 2.0
+  VertexWaterXGridCells3: 75
+  VertexWaterYGridCells3: 360
+  VertexWaterGridSize3: 10.0
+  VertexWaterAttenuationA3: 1.0
+  VertexWaterAttenuationB3: 0.0
+  VertexWaterAttenuationC3: 0.0
+  VertexWaterAttenuationRange3: 20.0
+  VertexWaterAvailableMaps4: Maps\USA06\USA06.map
+  VertexWaterHeightClampLow4: 0.0
+  VertexWaterHeightClampHi4: 16.3
+  VertexWaterAngle4: 45
+  VertexWaterXPosition4: 2700.0
+  VertexWaterYPosition4: -750.0
+  VertexWaterZPosition4: 2.9
+  VertexWaterXGridCells4: 65
+  VertexWaterYGridCells4: 360
+  VertexWaterGridSize4: 10.0
+  VertexWaterAttenuationA4: 1.0
+  VertexWaterAttenuationB4: 0.0
+  VertexWaterAttenuationC4: 0.0
+  VertexWaterAttenuationRange4: 20.0
+  DownwindAngle: -0.785
+  DrawSkyBox: Yes
+  SkyBoxPositionZ: -100.0
+  SkyBoxScale: 8.4
+  CameraPitch: 37.5
+  CameraYaw: 0.0
+  CameraHeight: 232.0
+  MaxCameraHeight: 310.0
+  MinCameraHeight: 120.0
+  CameraAdjustSpeed: 0.3
+  ScrollAmountCutoff: 50.0
+  EnforceMaxCameraHeight: No
+  TerrainHeightAtEdgeOfMap: 100.0
+  UnitDamagedThreshold: 0.7
+  UnitReallyDamagedThreshold: 0.35
+  GroundStiffness: 0.8
+  StructureStiffness: 0.3
+  Gravity: -64.0
+  PartitionCellSize: 40.0
+  ParticleScale: 1.0
+  AutoFireParticleSmallPrefix: FireS
+  AutoFireParticleSmallSystem: FireFactionSmall
+  AutoFireParticleSmallMax: 2
+  AutoFireParticleMediumPrefix: FireM
+  AutoFireParticleMediumSystem: FireFactionMedium
+  AutoFireParticleMediumMax: 1
+  AutoFireParticleLargePrefix: FireL
+  AutoFireParticleLargeSystem: FireFactionLarge
+  AutoFireParticleLargeMax: 1
+  AutoSmokeParticleSmallPrefix: SmokeS
+  AutoSmokeParticleSmallSystem: SmokeFactionSmall
+  AutoSmokeParticleSmallMax: 4
+  AutoSmokeParticleMediumPrefix: SmokeM
+  AutoSmokeParticleMediumSystem: SmokeFactionMedium
+  AutoSmokeParticleMediumMax: 2
+  AutoSmokeParticleLargePrefix: SmokeL
+  AutoSmokeParticleLargeSystem: SmokeFactionLarge
+  AutoSmokeParticleLargeMax: 1
+  AutoAflameParticlePrefix: Aflame
+  AutoAflameParticleSystem: FireBuildingSmall
+  AutoAflameParticleMax: 4
+  HistoricDamageLimit: 5000
+  AmmoPipScaleFactor: 1.5
+  ContainerPipScaleFactor: 1.5
+  AmmoPipScreenOffset: X:-1.0 Y:0.0
+  ContainerPipScreenOffset: X:1.0 Y:0.0
+  AmmoPipWorldOffset: X:0.0 Y:0.0 Z:10.0
+  ContainerPipWorldOffset: X:0.0 Y:0.0 Z:10.0
+  LevelGainAnimationName: LevelGainedAnimation
+  LevelGainAnimationTime: 4.0
+  LevelGainAnimationZRise: 15.0
+  GetHealedAnimationName: GetHealedAnimation
+  GetHealedAnimationTime: 4.0
+  GetHealedAnimationZRise: 15.0
+  MaxTerrainTracks: 100
+  TimeOfDay: AFTERNOON
+  Weather: NORMAL
+  MakeTrackMarks: Yes
+  ForceModelsToFollowTimeOfDay: Yes
+  ForceModelsToFollowWeather: Yes
+  InfantryLightMorningScale: 100f
+  InfantryLightAfternoonScale: 100f
+  InfantryLightEveningScale: 200f
+  InfantryLightNightScale: 200f
+  TerrainLightingMorningAmbient: R:128 G:100 B:77
+  TerrainLightingMorningDiffuse: R:230 G:180 B:153
+  TerrainLightingMorningLightPos: X:-0.96 Y:0.05 Z:-0.29
+  TerrainLightingEveningAmbient: R:64 G:59 B:51
+  TerrainLightingEveningDiffuse: R:153 G:128 B:102
+  TerrainLightingEveningLightPos: X:-1.0 Y:0.0 Z:-0.2
+  TerrainLightingNightAmbient: R:26 G:26 B:39
+  TerrainLightingNightDiffuse: R:51 G:51 B:77
+  TerrainLightingNightLightPos: X:-1.0 Y:1.0 Z:-2.0
+  TerrainObjectsLightingMorningAmbient: R:128 G:102 B:77
+  TerrainObjectsLightingMorningDiffuse: R:230 G:179 B:153
+  TerrainObjectsLightingMorningLightPos: X:-0.96 Y:0.05 Z:-0.29
+  TerrainObjectsLightingEveningAmbient: R:64 G:59 B:51
+  TerrainObjectsLightingEveningDiffuse: R:153 G:128 B:102
+  TerrainObjectsLightingEveningLightPos: X:-1.0 Y:0.0 Z:-0.2
+  TerrainObjectsLightingNightAmbient: R:26 G:26 B:39
+  TerrainObjectsLightingNightDiffuse: R:51 G:51 B:77
+  TerrainObjectsLightingNightLightPos: X:-1.0 Y:1.0 Z:-2.0
+  TerrainLightingAfternoonAmbient: R:56 G:52 B:44
+  TerrainLightingAfternoonDiffuse: R:255 G:255 B:255
+  TerrainLightingAfternoonLightPos: X:-0.81 Y:0.38 Z:-0.45
+  TerrainObjectsLightingAfternoonAmbient: R:56 G:52 B:44
+  TerrainObjectsLightingAfternoonDiffuse: R:255 G:255 B:255
+  TerrainObjectsLightingAfternoonLightPos: X:-0.81 Y:0.38 Z:-0.45
+  TerrainLightingAfternoonAmbient2: R:0 G:0 B:0
+  TerrainLightingAfternoonDiffuse2: R:60 G:60 B:120
+  TerrainLightingAfternoonLightPos2: X:0.79 Y:0.62 Z:-0.00
+  TerrainObjectsLightingAfternoonAmbient2: R:0 G:0 B:0
+  TerrainObjectsLightingAfternoonDiffuse2: R:60 G:60 B:80
+  TerrainObjectsLightingAfternoonLightPos2: X:0.79 Y:0.62 Z:-0.00
+  TerrainLightingAfternoonAmbient3: R:0 G:0 B:0
+  TerrainLightingAfternoonDiffuse3: R:30 G:30 B:20
+  TerrainLightingAfternoonLightPos3: X:0.81 Y:-0.48 Z:-0.34
+  TerrainObjectsLightingAfternoonAmbient3: R:0 G:0 B:0
+  TerrainObjectsLightingAfternoonDiffuse3: R:30 G:30 B:20
+  TerrainObjectsLightingAfternoonLightPos3: X:0.81 Y:-0.48 Z:-0.34
+  AudioOn: Yes
+  MusicOn: Yes
+  SoundsOn: Yes
+  SpeechOn: Yes
+  VideoOn: Yes
+  DebugAI: No
+  DebugAIObstacles: No
+  MaxRoadSegments: 4000
+  MaxRoadVertex: 3000
+  MaxRoadIndex: 5000
+  MaxRoadTypes: 100
+  ValuePerSupplyBox: 75
+  BuildSpeed: 1.0
+  MinDistFromEdgeOfMapForBuild: 30.0
+  SupplyBuildBorder: 20.0
+  AllowedHeightVariationForBuilding: 10.0
+  MinLowEnergyProductionSpeed: 0.5
+  MaxLowEnergyProductionSpeed: 0.8
+  LowEnergyPenaltyModifier: 1.0
+  MultipleFactory: 1.0
+  RefundPercent: 50.0%
+  StealthFriendlyOpacity: 50.0%
+  CommandCenterHealRange: 500.0
+  CommandCenterHealAmount: 0.01
+  MaxLineBuildObjects: 50
+  MaxTunnelCapacity: 10
+  StandardMinefieldDensity: 0.004
+  StandardMinefieldDistance: 40
+  HorizontalScrollSpeedFactor: 1.6
+  VerticalScrollSpeedFactor: 2.0
+  KeyboardScrollSpeedFactor: 2.0
+  MovementPenaltyDamageState: REALLYDAMAGED
+  MaxParticleCount: 2500
+  MaxFieldParticleCount: 30
+  WeaponBonus:
+  - HORDE RATE_OF_FIRE 150%
+  - NATIONALISM RATE_OF_FIRE 125%
+  - FANATICISM RATE_OF_FIRE 125%
+  - ENTHUSIASTIC RATE_OF_FIRE 125%
+  - SUBLIMINAL RATE_OF_FIRE 125%
+  - GARRISONED RANGE 133%
+  - GARRISONED DAMAGE 125%
+  - TARGET_FAERIE_FIRE RATE_OF_FIRE 150%
+  - FRENZY_ONE DAMAGE 110%
+  - FRENZY_TWO DAMAGE 120%
+  - FRENZY_THREE DAMAGE 130%
+  - VETERAN RATE_OF_FIRE 120%
+  - VETERAN DAMAGE 110%
+  - ELITE RATE_OF_FIRE 140%
+  - ELITE DAMAGE 120%
+  - HERO RATE_OF_FIRE 160%
+  - HERO DAMAGE 130%
+  - BATTLEPLAN_BOMBARDMENT DAMAGE 120%
+  - BATTLEPLAN_SEARCHANDDESTROY RANGE 120%
+  - BATTLEPLAN_HOLDTHELINE RATE_OF_FIRE 100%
+  - SOLO_AI_EASY RATE_OF_FIRE 80%
+  - SOLO_AI_NORMAL RATE_OF_FIRE 100%
+  - SOLO_AI_HARD RATE_OF_FIRE 120%
+  HealthBonus_Veteran: 120%
+  HealthBonus_Elite: 130%
+  HealthBonus_Heroic: 150%
+  HumanSoloPlayerHealthBonus_Easy: 150%
+  HumanSoloPlayerHealthBonus_Normal: 100%
+  HumanSoloPlayerHealthBonus_Hard: 80%
+  GroupSelectMinSelectSize: 5
+  GroupSelectVolumeBase: 0.5
+  GroupSelectVolumeIncrement: 0.02
+  MaxUnitSelectSounds: 8
+  SelectionFlashSaturationFactor: 0.5
+  SelectionFlashHouseColor: No
+  CameraAudibleRadius: 250
+  GroupMoveClickToGatherAreaFactor: 0.5
+  ShakeSubtleIntensity: 0.5
+  ShakeNormalIntensity: 1.0
+  ShakeStrongIntensity: 2.5
+  ShakeSevereIntensity: 5.0
+  ShakeCineExtremeIntensity: 7.5
+  ShakeCineInsaneIntensity: 10.0
+  MaxShakeIntensity: 10.0
+  MaxShakeRange: 150.0
+  SellPercentage: 50%
+  BaseRegenHealthPercentPerSecond: 0.3%
+  BaseRegenDelay: 3000
+  SpecialPowerViewObject: SuperweaponPing
+  StandardPublicBone:
+  - FirePoint
+  - Target_Left
+  - Target_Right
+  - ExitStart
+  - ExitEnd
+  - Muzzle
+  - PARA_COG
+  - PARA_ATTCH
+  - PARA_MAN
+  - ExitStart
+  - DockStart
+  - DockAction
+  - DockEnd
+  - DockWaiting
+  - WeaponA
+  - Smoke
+  - Fire
+  - WaterSpray
+  - Spray
+  - WaterSprayBig
+  - Steam
+  - Propeller
+  - SpawnPoint
+  - FireS
+  - FireM
+  - FireL
+  - SmokeS
+  - SmokeM
+  - SmokeL
+  - Aflame
+  DefaultStartingCash: 10000
+  UnlookPersistDuration: 5000
+  ShroudColor: R:255 G:255 B:255
+  ClearAlpha: 255
+  FogAlpha: 127
+  ShroudAlpha: 0
+  NetworkFPSHistoryLength: 30
+  NetworkLatencyHistoryLength: 200
+  NetworkRunAheadMetricsTime: 5000
+  NetworkCushionHistoryLength: 10
+  NetworkRunAheadSlack: 10
+  NetworkKeepAliveDelay: 20
+  NetworkDisconnectTime: 5000
+  NetworkPlayerTimeoutTime: 60000
+  NetworkDisconnectScreenNotifyTime: 15000
+  KeyboardCameraRotateSpeed: 0.1

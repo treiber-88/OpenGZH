@@ -1,0 +1,1011 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Armor:
+  NoArmor:
+    Armor:
+    - DEFAULT 100%
+    - HAZARD_CLEANUP 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  HumanArmor:
+    Armor:
+    - CRUSH 200%
+    - ARMOR_PIERCING 10%
+    - INFANTRY_MISSILE 10%
+    - FLAME 150%
+    - PARTICLE_BEAM 150%
+    - SNIPER 200%
+    - LASER 50%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 100%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  HazMatHumanArmor:
+    Armor:
+    - CRUSH 200%
+    - ARMOR_PIERCING 10%
+    - SNIPER 200%
+    - FLAME 25%
+    - LASER 25%
+    - POISON 0%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - PARTICLE_BEAM 150%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 100%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  ChemSuitHumanArmor:
+    Armor:
+    - CRUSH 200%
+    - ARMOR_PIERCING 10%
+    - INFANTRY_MISSILE 10%
+    - FLAME 150%
+    - POISON 20%
+    - RADIATION 20%
+    - MICROWAVE 20%
+    - PARTICLE_BEAM 150%
+    - SNIPER 200%
+    - LASER 50%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 100%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  StingerSoldierArmor:
+    Armor:
+    - DEFAULT 25%
+    - EXPLOSION 10%
+    - FLAME 100%
+    - POISON 100%
+    - ARMOR_PIERCING 10%
+    - INFANTRY_MISSILE 10%
+    - PARTICLE_BEAM 10%
+    - CRUSH 200%
+    - SNIPER 200%
+    - GATTLING 0%
+    - SMALL_ARMS 100%
+    - COMANCHE_VULCAN 0%
+    - JET_MISSILES 0%
+    - LASER 25%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 100%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  TankArmor:
+    Armor:
+    - CRUSH 50%
+    - SMALL_ARMS 25%
+    - GATTLING 10%
+    - COMANCHE_VULCAN 25%
+    - FLAME 25%
+    - RADIATION 50%
+    - MICROWAVE 0%
+    - POISON 25%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - PARTICLE_BEAM 100%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  DozerArmor:
+    Armor:
+    - CRUSH 50%
+    - SMALL_ARMS 25%
+    - GATTLING 10%
+    - COMANCHE_VULCAN 25%
+    - FLAME 25%
+    - RADIATION 50%
+    - MICROWAVE 0%
+    - POISON 25%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - PARTICLE_BEAM 100%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - LAND_MINE 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  UpgradedTankArmor:
+    Armor:
+    - CRUSH 30%
+    - SMALL_ARMS 20%
+    - GATTLING 10%
+    - COMANCHE_VULCAN 20%
+    - FLAME 10%
+    - POISON 10%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - PARTICLE_BEAM 100%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  TruckArmor:
+    Armor:
+    - CRUSH 50%
+    - SMALL_ARMS 50%
+    - GATTLING 50%
+    - COMANCHE_VULCAN 50%
+    - INFANTRY_MISSILE 50%
+    - POISON 50%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  AntiAirVehicle:
+    Armor:
+    - JET_MISSILES 30%
+    - STEALTHJET_MISSILES 30%
+    - CRUSH 50%
+    - SMALL_ARMS 50%
+    - GATTLING 50%
+    - COMANCHE_VULCAN 50%
+    - INFANTRY_MISSILE 50%
+    - POISON 50%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  QuadCannonArmor:
+    Armor:
+    - JET_MISSILES 30%
+    - STEALTHJET_MISSILES 30%
+    - CRUSH 50%
+    - SMALL_ARMS 50%
+    - GATTLING 50%
+    - COMANCHE_VULCAN 50%
+    - INFANTRY_MISSILE 50%
+    - POISON 50%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - FLAME 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  HumveeArmor:
+    Armor:
+    - JET_MISSILES 30%
+    - STEALTHJET_MISSILES 30%
+    - CRUSH 50%
+    - SMALL_ARMS 50%
+    - GATTLING 50%
+    - COMANCHE_VULCAN 50%
+    - INFANTRY_MISSILE 50%
+    - POISON 50%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - FLAME 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  AvengerArmor:
+    Armor:
+    - JET_MISSILES 23%
+    - STEALTHJET_MISSILES 30%
+    - CRUSH 50%
+    - SMALL_ARMS 50%
+    - GATTLING 50%
+    - COMANCHE_VULCAN 50%
+    - INFANTRY_MISSILE 50%
+    - POISON 50%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  ToxinTruckArmor:
+    Armor:
+    - CRUSH 50%
+    - SMALL_ARMS 50%
+    - GATTLING 50%
+    - COMANCHE_VULCAN 50%
+    - INFANTRY_MISSILE 50%
+    - POISON 0%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - MOLOTOV_COCKTAIL 20%
+    - INFANTRY_MISSILE 20%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  DragonTankArmor:
+    Armor:
+    - CRUSH 50%
+    - SMALL_ARMS 25%
+    - GATTLING 25%
+    - COMANCHE_VULCAN 25%
+    - FLAME 0%
+    - RADIATION 50%
+    - MICROWAVE 0%
+    - POISON 25%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - PARTICLE_BEAM 100%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - MOLOTOV_COCKTAIL 20%
+    - INFANTRY_MISSILE 20%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  VulnerableAllArmor:
+    Armor:
+    - DEFAULT 100%
+    - HAZARD_CLEANUP 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  AirplaneArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 120%
+    - GATTLING 120%
+    - EXPLOSION 100%
+    - INFANTRY_MISSILE 120%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - JET_MISSILES 25%
+    - POISON 25%
+    - RADIATION 25%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - MELEE 0%
+  CountermeasuresAirplaneArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 75%
+    - GATTLING 75%
+    - EXPLOSION 90%
+    - INFANTRY_MISSILE 100%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - JET_MISSILES 25%
+    - POISON 25%
+    - RADIATION 25%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - MELEE 0%
+  SpectreGunshipArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 40%
+    - GATTLING 40%
+    - EXPLOSION 40%
+    - INFANTRY_MISSILE 40%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - JET_MISSILES 25%
+    - POISON 25%
+    - RADIATION 25%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - MELEE 0%
+  CountermeasuresSpectreGunshipArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 30%
+    - GATTLING 30%
+    - EXPLOSION 40%
+    - INFANTRY_MISSILE 40%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - JET_MISSILES 25%
+    - POISON 25%
+    - RADIATION 25%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - MELEE 0%
+  ComancheArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 120%
+    - GATTLING 120%
+    - EXPLOSION 130%
+    - INFANTRY_MISSILE 120%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - POISON 25%
+    - RADIATION 25%
+    - MICROWAVE 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - SNIPER 0%
+    - MELEE 0%
+  CountermeasuresComancheArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 75%
+    - GATTLING 75%
+    - EXPLOSION 110%
+    - INFANTRY_MISSILE 100%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - POISON 25%
+    - RADIATION 25%
+    - MICROWAVE 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - SNIPER 0%
+    - MELEE 0%
+  ChinookArmor:
+    Armor:
+    - DEFAULT 50%
+    - INFANTRY_MISSILE 25%
+    - POISON 25%
+    - RADIATION 25%
+    - SNIPER 0%
+    - MICROWAVE 0%
+    - HAZARD_CLEANUP 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - MELEE 0%
+  ProjectileArmor:
+    Armor:
+    - DEFAULT 25%
+    - FALLING 0%
+    - LASER 100%
+    - SMALL_ARMS 25%
+    - MICROWAVE 0%
+    - GATTLING 25%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 100%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - POISON 0%
+    - RADIATION 0%
+    - FLAME 0%
+  BallisticMissileArmor:
+    Armor:
+    - DEFAULT 80%
+    - FALLING 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - MICROWAVE 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 100%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  StructureArmor:
+    Armor:
+    - DEFAULT 100%
+    - Surrender 0%
+    - SMALL_ARMS 50%
+    - GATTLING 10%
+    - COMANCHE_VULCAN 50%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 50%
+    - PARTICLE_BEAM 200%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 250%
+    - LAND_MINE 0%
+    - FLAME 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 100%
+  StructureArmorTough:
+    Armor:
+    - DEFAULT 100%
+    - Surrender 0%
+    - SMALL_ARMS 50%
+    - GATTLING 10%
+    - COMANCHE_VULCAN 50%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 50%
+    - PARTICLE_BEAM 25%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 250%
+    - LAND_MINE 0%
+    - FLAME 50%
+    - EXPLOSION 80%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 100%
+  GLAUpgradedStructureArmor:
+    Armor:
+    - DEFAULT 75%
+    - Surrender 0%
+    - SMALL_ARMS 40%
+    - GATTLING 7%
+    - COMANCHE_VULCAN 40%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 40%
+    - PARTICLE_BEAM 150%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 150%
+    - LAND_MINE 0%
+    - FLAME 40%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 75%
+  GLAUpgradedStructureArmorTough:
+    Armor:
+    - DEFAULT 75%
+    - Surrender 0%
+    - SMALL_ARMS 40%
+    - GATTLING 7%
+    - COMANCHE_VULCAN 40%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 40%
+    - PARTICLE_BEAM 18%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 150%
+    - LAND_MINE 0%
+    - FLAME 40%
+    - EXPLOSION 60%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 75%
+  BaseDefenseArmor:
+    Armor:
+    - DEFAULT 100%
+    - Surrender 0%
+    - SMALL_ARMS 50%
+    - GATTLING 25%
+    - COMANCHE_VULCAN 50%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 25%
+    - PARTICLE_BEAM 200%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 200%
+    - STEALTHJET_MISSILES 250%
+    - JET_MISSILES 25%
+    - LAND_MINE 0%
+    - FLAME 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 100%
+  StingerSiteArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 50%
+    - GATTLING 30%
+    - COMANCHE_VULCAN 50%
+    - RADIATION 0%
+    - MICROWAVE 1%
+    - SNIPER 100%
+    - POISON 100%
+    - SURRENDER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 25%
+    - PARTICLE_BEAM 200%
+    - KILL_PILOT 0%
+    - AURORA_BOMB 200%
+    - STEALTHJET_MISSILES 250%
+    - JET_MISSILES 40%
+    - LAND_MINE 0%
+    - FLAME 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 100%
+  WallArmor:
+    Armor:
+    - DEFAULT 100%
+    - SURRENDER 0%
+    - SMALL_ARMS 6%
+    - GATTLING 6%
+    - COMANCHE_VULCAN 6%
+    - FLAME 0%
+    - SNIPER 0%
+    - POISON 0%
+    - MICROWAVE 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 25%
+    - PARTICLE_BEAM 100%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 300%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  MineArmor:
+    Armor:
+    - DEFAULT 100%
+    - LAND_MINE 0%
+    - POISON 0%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - HAZARD_CLEANUP 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  TreeArmor:
+    Armor: [DEFAULT 0%, FLAME 100%, PARTICLE_BEAM 100%, UNRESISTABLE 100%]
+  InvulnerableAllArmor:
+    Armor: [DEFAULT 0%, UNRESISTABLE 100%]
+  HazardousMaterialArmor:
+    Armor: [DEFAULT 0%, HAZARD_CLEANUP 100%, FLAME 0%]
+  AvalancheArmor:
+    Armor:
+    - DEFAULT 0%
+    - EXPLOSION 100%
+    - UNRESISTABLE 100%
+    - INFANTRY_MISSILE 100%
+    - AURORA_BOMB 100%
+    - LAND_MINE 100%
+    - JET_MISSILES 100%
+    - STEALTHJET_MISSILES 100%
+  BattleBusTruckArmor:
+    Armor:
+    - DEFAULT 100%
+    - JET_MISSILES 75%
+    - STEALTHJET_MISSILES 50%
+    - ARMOR_PIERCING 90%
+    - CRUSH 50%
+    - SMALL_ARMS 25%
+    - GATTLING 25%
+    - COMANCHE_VULCAN 25%
+    - FLAME 50%
+    - INFANTRY_MISSILE 50%
+    - POISON 25%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+    - RADIATION 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  BattleBusStructureArmorTough:
+    Armor:
+    - DEFAULT 100%
+    - JET_MISSILES 50%
+    - STEALTHJET_MISSILES 75%
+    - ARMOR_PIERCING 90%
+    - Surrender 0%
+    - SMALL_ARMS 25%
+    - GATTLING 25%
+    - COMANCHE_VULCAN 25%
+    - RADIATION 1%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 50%
+    - PARTICLE_BEAM 200%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 200%
+    - LAND_MINE 0%
+    - FLAME 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 100%
+  BattleBusTruckArmorPlusOne:
+    Armor:
+    - DEFAULT 90%
+    - JET_MISSILES 70%
+    - STEALTHJET_MISSILES 45%
+    - ARMOR_PIERCING 81%
+    - CRUSH 45%
+    - SMALL_ARMS 20%
+    - GATTLING 20%
+    - COMANCHE_VULCAN 20%
+    - FLAME 45%
+    - INFANTRY_MISSILE 45%
+    - POISON 20%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 90%
+    - SUBDUAL_BUILDING 0%
+    - RADIATION 45%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 90%
+    - SUBDUAL_BUILDING 0%
+  BattleBusStructureArmorToughPlusOne:
+    Armor:
+    - DEFAULT 90%
+    - JET_MISSILES 45%
+    - STEALTHJET_MISSILES 75%
+    - ARMOR_PIERCING 81%
+    - Surrender 0%
+    - SMALL_ARMS 20%
+    - GATTLING 20%
+    - COMANCHE_VULCAN 20%
+    - RADIATION 1%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 45%
+    - PARTICLE_BEAM 100%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 150%
+    - LAND_MINE 0%
+    - FLAME 45%
+    - EXPLOSION 80%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 90%
+  BattleBusTruckArmorPlusTwo:
+    Armor:
+    - DEFAULT 80%
+    - JET_MISSILES 65%
+    - STEALTHJET_MISSILES 40%
+    - ARMOR_PIERCING 75%
+    - CRUSH 40%
+    - SMALL_ARMS 15%
+    - GATTLING 15%
+    - COMANCHE_VULCAN 15%
+    - FLAME 40%
+    - INFANTRY_MISSILE 40%
+    - POISON 15%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 80%
+    - SUBDUAL_BUILDING 0%
+    - RADIATION 40%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 80%
+    - SUBDUAL_BUILDING 0%
+  BattleBusStructureArmorToughPlusTwo:
+    Armor:
+    - DEFAULT 80%
+    - JET_MISSILES 40%
+    - STEALTHJET_MISSILES 65%
+    - ARMOR_PIERCING 75%
+    - Surrender 0%
+    - SMALL_ARMS 15%
+    - GATTLING 15%
+    - COMANCHE_VULCAN 15%
+    - RADIATION 1%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 40%
+    - PARTICLE_BEAM 100%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 100%
+    - LAND_MINE 0%
+    - FLAME 40%
+    - EXPLOSION 70%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 80%
+  FireBaseArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 50%
+    - GATTLING 30%
+    - COMANCHE_VULCAN 50%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - SNIPER 100%
+    - POISON 0%
+    - SURRENDER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 25%
+    - PARTICLE_BEAM 200%
+    - KILL_PILOT 0%
+    - AURORA_BOMB 200%
+    - STEALTHJET_MISSILES 250%
+    - JET_MISSILES 40%
+    - LAND_MINE 0%
+    - FLAME 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 100%
+  SentryDroneArmor:
+    Armor:
+    - JET_MISSILES 30%
+    - STEALTHJET_MISSILES 30%
+    - CRUSH 50%
+    - SMALL_ARMS 50%
+    - GATTLING 50%
+    - COMANCHE_VULCAN 50%
+    - INFANTRY_MISSILE 50%
+    - POISON 00%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - FLAME 50%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  DemoGenTerroristArmor:
+    Armor:
+    - CRUSH 200%
+    - ARMOR_PIERCING 10%
+    - INFANTRY_MISSILE 10%
+    - FLAME 100%
+    - PARTICLE_BEAM 150%
+    - SNIPER 200%
+    - LASER 50%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 100%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - SMALL_ARMS 80%
+    - GATTLING 80%
+    - COMANCHE_VULCAN 80%
+    - POISON 50%
+  AFG_ComancheArmor:
+    Armor:
+    - DEFAULT 100%
+    - SMALL_ARMS 100%
+    - GATTLING 100%
+    - EXPLOSION 100%
+    - INFANTRY_MISSILE 100%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - POISON 25%
+    - RADIATION 25%
+    - MICROWAVE 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - SNIPER 0%
+    - MELEE 0%
+  AFG_CountermeasuresComancheArmor:
+    Armor:
+    - DEFAULT 90%
+    - SMALL_ARMS 62%
+    - GATTLING 62%
+    - EXPLOSION 90%
+    - INFANTRY_MISSILE 90%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - POISON 25%
+    - RADIATION 25%
+    - MICROWAVE 0%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+    - SNIPER 0%
+    - MELEE 0%
+  InfGen_HumanArmor:
+    Armor:
+    - CRUSH 200%
+    - ARMOR_PIERCING 10%
+    - INFANTRY_MISSILE 10%
+    - FLAME 150%
+    - POISON 60%
+    - RADIATION 60%
+    - MICROWAVE 60%
+    - PARTICLE_BEAM 150%
+    - SNIPER 200%
+    - LASER 50%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 100%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  ChemReb_HumanArmor:
+    Armor:
+    - CRUSH 200%
+    - ARMOR_PIERCING 10%
+    - INFANTRY_MISSILE 10%
+    - SNIPER 200%
+    - FLAME 150%
+    - LASER 50%
+    - POISON 5%
+    - PARTICLE_BEAM 150%
+    - HAZARD_CLEANUP 0%
+    - KILL_PILOT 0%
+    - SURRENDER 100%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 0%
+  StructureArmorInternetCenter:
+    Armor:
+    - DEFAULT 100%
+    - Surrender 0%
+    - SMALL_ARMS 50%
+    - GATTLING 10%
+    - COMANCHE_VULCAN 50%
+    - RADIATION 0%
+    - MICROWAVE 0%
+    - SNIPER 0%
+    - POISON 1%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - INFANTRY_MISSILE 50%
+    - PARTICLE_BEAM 20%
+    - KILL_PILOT 0%
+    - SURRENDER 0%
+    - AURORA_BOMB 250%
+    - LAND_MINE 0%
+    - FLAME 50%
+    - EXPLOSION 70%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 0%
+    - SUBDUAL_BUILDING 100%
+  AssaultCrawlerArmor:
+    Armor:
+    - JET_MISSILES 60%
+    - STEALTHJET_MISSILES 60%
+    - AURORA_BOMB 80%
+    - CRUSH 50%
+    - SMALL_ARMS 25%
+    - GATTLING 25%
+    - COMANCHE_VULCAN 25%
+    - FLAME 25%
+    - RADIATION 50%
+    - MICROWAVE 0%
+    - POISON 25%
+    - SNIPER 0%
+    - MELEE 0%
+    - LASER 0%
+    - HAZARD_CLEANUP 0%
+    - PARTICLE_BEAM 100%
+    - KILL_PILOT 100%
+    - SURRENDER 0%
+    - SUBDUAL_MISSILE 0%
+    - SUBDUAL_VEHICLE 100%
+    - SUBDUAL_BUILDING 0%
+  InvulnerableArmor:
+    Armor: [DEFAULT 1%, HAZARD_CLEANUP 0%, SURRENDER 0%]

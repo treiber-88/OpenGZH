@@ -1,0 +1,556 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Sciences:
+  SCIENCE_AMERICA:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_CHINA:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_GLA:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_Rank1:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_Rank2:
+    PrerequisiteSciences: SCIENCE_Rank1
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_Rank3:
+    PrerequisiteSciences: SCIENCE_Rank2
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_Rank4:
+    PrerequisiteSciences: SCIENCE_Rank3
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_Rank5:
+    PrerequisiteSciences: SCIENCE_Rank4
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_Rank6:
+    PrerequisiteSciences: SCIENCE_Rank5
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_Rank7:
+    PrerequisiteSciences: SCIENCE_Rank6
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_Rank8:
+    PrerequisiteSciences: SCIENCE_Rank7
+    SciencePurchasePointCost: 0
+    IsGrantable: No
+  SCIENCE_PaladinTank:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAPaladin
+    Description: CONTROLBAR:ToolTipUSASciencePaladin
+  SCIENCE_StealthFighter:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAStealthFighter
+    Description: CONTROLBAR:ToolTipUSAScienceStealthFighter
+  SCIENCE_SpyDrone:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USASpyDrone
+    Description: CONTROLBAR:ToolTipUSAScienceSpyDrone
+  SCIENCE_Pathfinder:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAPathFinder
+    Description: CONTROLBAR:ToolTipUSASciencePathFinder
+  SCIENCE_Paradrop1:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAParaDrop1
+    Description: CONTROLBAR:ToolTipUSAScienceParaDrop
+  SCIENCE_Paradrop2:
+    PrerequisiteSciences: SCIENCE_Paradrop1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAParaDrop2
+    Description: CONTROLBAR:ToolTipUSAScienceParaDrop
+  SCIENCE_Paradrop3:
+    PrerequisiteSciences: SCIENCE_Paradrop2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAParaDrop3
+    Description: CONTROLBAR:ToolTipUSAScienceParaDrop
+  SCIENCE_A10ThunderboltMissileStrike1:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAA10Strike1
+    Description: CONTROLBAR:ToolTipUSAScienceA10Strike
+  SCIENCE_A10ThunderboltMissileStrike2:
+    PrerequisiteSciences: SCIENCE_A10ThunderboltMissileStrike1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAA10Strike2
+    Description: CONTROLBAR:ToolTipUSAScienceA10Strike
+  SCIENCE_A10ThunderboltMissileStrike3:
+    PrerequisiteSciences: SCIENCE_A10ThunderboltMissileStrike2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAA10Strike3
+    Description: CONTROLBAR:ToolTipUSAScienceA10Strike
+  SCIENCE_SpectreGunshipSolo:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USASpectreGunship1
+    Description: CONTROLBAR:ToolTipUSAScienceSpectreGunship
+  SCIENCE_SpectreGunship1:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USASpectreGunship1
+    Description: CONTROLBAR:AirF_ToolTipUSAScienceSpectreGunship
+  SCIENCE_SpectreGunship2:
+    PrerequisiteSciences: SCIENCE_SpectreGunship1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USASpectreGunship1
+    Description: CONTROLBAR:AirF_ToolTipUSAScienceSpectreGunship
+  SCIENCE_SpectreGunship3:
+    PrerequisiteSciences: SCIENCE_SpectreGunship2 SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USASpectreGunship1
+    Description: CONTROLBAR:AirF_ToolTipUSAScienceSpectreGunship
+  SCIENCE_AirF_CarpetBomb:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaCarpetBomb
+    Description: CONTROLBAR:AirF_ToolTipUSAScienceCarpetBomb
+  SCIENCE_DaisyCutter:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USADaisyCutter
+    Description: CONTROLBAR:ToolTipUSAScienceDaisyCutter
+  SCIENCE_LeafletDrop:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USALeafletDrop
+    Description: CONTROLBAR:ToolTipUSAScienceLeafletDrop
+  Early_SCIENCE_LeafletDrop:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USALeafletDrop
+    Description: CONTROLBAR:ToolTipUSAScienceLeafletDrop
+  SCIENCE_MOAB:
+    PrerequisiteSciences: SCIENCE_AMERICA
+    SciencePurchasePointCost: 0
+    IsGrantable: Yes
+  SCIENCE_RedGuardTraining:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaRedGuardTraining
+    Description: CONTROLBAR:ToolTipChinaScienceRedGuardTraining
+  SCIENCE_BattlemasterTraining:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaBattleMasterTraining
+    Description: CONTROLBAR:ToolTipChinaScienceBattlemasterTraining
+  SCIENCE_ClusterMines:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaClusterMines
+    Description: CONTROLBAR:ToolTipChinaScienceClusterMines
+  SCIENCE_ArtilleryTraining:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaArtilleryTraining
+    Description: CONTROLBAR:ToolTipChinaScienceARtilleryTraining
+  SCIENCE_NukeLauncher:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaNukeLauncher
+    Description: CONTROLBAR:ToolTipChinaScienceNukeCannon
+  SCIENCE_ArtilleryBarrage1:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaArtilleryBarrage
+    Description: CONTROLBAR:ToolTipChinaScienceArtilleryBarrage
+  SCIENCE_ArtilleryBarrage2:
+    PrerequisiteSciences: SCIENCE_ArtilleryBarrage1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaArtilleryBarrage2
+    Description: CONTROLBAR:ToolTipChinaScienceArtilleryBarrage
+  SCIENCE_ArtilleryBarrage3:
+    PrerequisiteSciences: SCIENCE_ArtilleryBarrage2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaArtilleryBarrage3
+    Description: CONTROLBAR:ToolTipChinaScienceArtilleryBarrage
+  SCIENCE_Frenzy1:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaFrenzy
+    Description: CONTROLBAR:ToolTipChinaScienceFrenzy
+  SCIENCE_Frenzy2:
+    PrerequisiteSciences: SCIENCE_Frenzy1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaFrenzy2
+    Description: CONTROLBAR:ToolTipChinaScienceFrenzy
+  SCIENCE_Frenzy3:
+    PrerequisiteSciences: SCIENCE_Frenzy2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaFrenzy3
+    Description: CONTROLBAR:ToolTipChinaScienceFrenzy
+  Early_SCIENCE_Frenzy1:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaFrenzy
+    Description: CONTROLBAR:ToolTipChinaScienceFrenzy
+  Early_SCIENCE_Frenzy2:
+    PrerequisiteSciences: Early_SCIENCE_Frenzy1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaFrenzy2
+    Description: CONTROLBAR:ToolTipChinaScienceFrenzy
+  Early_SCIENCE_Frenzy3:
+    PrerequisiteSciences: Early_SCIENCE_Frenzy2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaFrenzy3
+    Description: CONTROLBAR:ToolTipChinaScienceFrenzy
+  SCIENCE_CashHack1:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaCashHack1
+    Description: CONTROLBAR:ToolTipChinaScienceCashHack
+  SCIENCE_CashHack2:
+    PrerequisiteSciences: SCIENCE_CashHack1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaCashHack2
+    Description: CONTROLBAR:ToolTipChinaScienceCashHack
+  SCIENCE_CashHack3:
+    PrerequisiteSciences: SCIENCE_CashHack2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaCashHack3
+    Description: CONTROLBAR:ToolTipChinaScienceCashHack
+  SCIENCE_EMPPulse:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaEMPPulse
+    Description: CONTROLBAR:ToolTipChinaScienceEMPPulse
+  SCIENCE_ChinaCarpetBomb:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaCarpetBomb
+    Description: CONTROLBAR:ToolTipChinaScienceCarpetBomb
+  Early_SCIENCE_ChinaCarpetBomb:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaCarpetBomb
+    Description: CONTROLBAR:ToolTipChinaScienceCarpetBomb
+  Nuke_SCIENCE_ChinaCarpetBomb:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:Nuke_ChinaCarpetBomb
+    Description: CONTROLBAR:Nuke_ToolTipChinaScienceCarpetBomb
+  SCIENCE_ScudLauncher:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLASCUDLauncher
+    Description: CONTROLBAR:ToolTipGLAScienceSCUDLauncher
+  SCIENCE_MarauderTank:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLAMaruaderTank
+    Description: CONTROLBAR:ToolTipGLaScienceMarauderTank
+  SCIENCE_TechnicalTraining:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLATechnicalTraining
+    Description: CONTROLBAR:ToolTipGLAScienceTechnicalTraining
+  SCIENCE_Hijacker:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLAHijacker
+    Description: CONTROLBAR:ToolTipGLAScienceHijacker
+  SCIENCE_RebelAmbush1:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLARebelAmbush1
+    Description: CONTROLBAR:ToolTipGLAScienceRebelAmbush
+  SCIENCE_RebelAmbush2:
+    PrerequisiteSciences: SCIENCE_RebelAmbush1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLARebelAmbush2
+    Description: CONTROLBAR:ToolTipGLAScienceRebelAmbush
+  SCIENCE_RebelAmbush3:
+    PrerequisiteSciences: SCIENCE_RebelAmbush2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLARebelAmbush3
+    Description: CONTROLBAR:ToolTipGLAScienceRebelAmbush
+  Chem_SCIENCE_RebelAmbush1:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLARebelAmbush1
+    Description: CONTROLBAR:Chem_ToolTipGLAScienceRebelAmbush
+  Chem_SCIENCE_RebelAmbush2:
+    PrerequisiteSciences: Chem_SCIENCE_RebelAmbush1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLARebelAmbush2
+    Description: CONTROLBAR:Chem_ToolTipGLAScienceRebelAmbush
+  Chem_SCIENCE_RebelAmbush3:
+    PrerequisiteSciences: Chem_SCIENCE_RebelAmbush2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLARebelAmbush3
+    Description: CONTROLBAR:Chem_ToolTipGLAScienceRebelAmbush
+  SCIENCE_CashBounty1:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLACashBounty1
+    Description: CONTROLBAR:ToolTipGLAScienceCashBounty
+  SCIENCE_CashBounty2:
+    PrerequisiteSciences: SCIENCE_CashBounty1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLACashBounty2
+    Description: CONTROLBAR:ToolTipGLAScienceCashBounty
+  SCIENCE_CashBounty3:
+    PrerequisiteSciences: SCIENCE_CashBounty2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLACashBounty3
+    Description: CONTROLBAR:ToolTipGLAScienceCashBounty
+  SCIENCE_AnthraxBomb:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLAAnthraxBomb
+    Description: CONTROLBAR:ToolTipGLAScienceAnthraxBomb
+  SCIENCE_SneakAttack:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GLASneakAttack
+    Description: CONTROLBAR:ToolTipGLAScienceSneakAttack
+  SCIENCE_GPSScrambler:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank5
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GPSScrambler
+    Description: CONTROLBAR:ToolTipScienceGPSScrambler
+  Slth_SCIENCE_GPSScrambler:
+    PrerequisiteSciences: SCIENCE_GLA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:GPSScrambler
+    Description: CONTROLBAR:ToolTipScienceGPSScrambler
+  SCIENCE_EmergencyRepair1:
+    PrerequisiteSciences: SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:EmergencyRepair1
+    Description: CONTROLBAR:ToolTipScienceEmergencyRepair
+  SCIENCE_EmergencyRepair2:
+    PrerequisiteSciences: SCIENCE_EmergencyRepair1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:EmergencyRepair2
+    Description: CONTROLBAR:ToolTipScienceEmergencyRepair
+  SCIENCE_EmergencyRepair3:
+    PrerequisiteSciences: SCIENCE_EmergencyRepair2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:EmergencyRepair3
+    Description: CONTROLBAR:ToolTipScienceEmergencyRepair
+  Early_SCIENCE_EmergencyRepair1:
+    PrerequisiteSciences: SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:EmergencyRepair1
+    Description: CONTROLBAR:ToolTipScienceEmergencyRepair
+  Early_SCIENCE_EmergencyRepair2:
+    PrerequisiteSciences: Early_SCIENCE_EmergencyRepair1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:EmergencyRepair2
+    Description: CONTROLBAR:ToolTipScienceEmergencyRepair
+  Early_SCIENCE_EmergencyRepair3:
+    PrerequisiteSciences: Early_SCIENCE_EmergencyRepair2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:EmergencyRepair3
+    Description: CONTROLBAR:ToolTipScienceEmergencyRepair
+  SCIENCE_BlackMarketNuke:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: Yes
+    DisplayName: SCIENCE:TempName
+    Description: SCIENCE:TempDescription
+  SCIENCE_CrateDrop:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: Yes
+    DisplayName: SCIENCE:TempName
+    Description: SCIENCE:TempDescription
+  SCIENCE_CarpetBomb:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: Yes
+    DisplayName: SCIENCE:TempName
+    Description: SCIENCE:TempDescription
+  SCIENCE_NapalmStrike:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: Yes
+    DisplayName: SCIENCE:TempName
+    Description: SCIENCE:TempDescription
+  SCIENCE_Defector:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: Yes
+    DisplayName: SCIENCE:TempName
+    Description: SCIENCE:TempDescription
+  SCIENCE_TerrorCell:
+    PrerequisiteSciences: None
+    SciencePurchasePointCost: 0
+    IsGrantable: Yes
+    DisplayName: SCIENCE:TempName
+    Description: SCIENCE:TempDescription
+  SCIENCE_OverlordTraining:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaOverlordTraining
+    Description: CONTROLBAR:ToolTipChinaScienceOverlordTraining
+  SCIENCE_GattlingTankTraining:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaGattlingTankTraining
+    Description: CONTROLBAR:ToolTipChinaScienceGattlingTankTraining
+  SCIENCE_TankParadrop1:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaTankParadrop1
+    Description: CONTROLBAR:ToolTipChinaScienceTankParadrop
+  SCIENCE_TankParadrop2:
+    PrerequisiteSciences: SCIENCE_TankParadrop1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaTankParadrop2
+    Description: CONTROLBAR:ToolTipChinaScienceTankParadrop
+  SCIENCE_TankParadrop3:
+    PrerequisiteSciences: SCIENCE_TankParadrop2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaTankParadrop3
+    Description: CONTROLBAR:ToolTipChinaScienceTankParadrop
+  Infa_SCIENCE_RedGuardTraining:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank1
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:Infa_ChinaRedGuardTraining
+    Description: CONTROLBAR:Infa_ToolTipChinaScienceRedGuardTraining
+  SCIENCE_InfantryParadrop1:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaInfantryParadrop1
+    Description: CONTROLBAR:ToolTipChinaScienceInfantryParadrop
+  SCIENCE_InfantryParadrop2:
+    PrerequisiteSciences: SCIENCE_InfantryParadrop1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaInfantryParadrop2
+    Description: CONTROLBAR:ToolTipChinaScienceInfantryParadrop
+  SCIENCE_InfantryParadrop3:
+    PrerequisiteSciences: SCIENCE_InfantryParadrop2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaInfantryParadrop3
+    Description: CONTROLBAR:ToolTipChinaScienceInfantryParadrop
+  Infa_SCIENCE_InfantryParadrop1:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaInfantryParadrop1
+    Description: CONTROLBAR:Infa_ToolTipChinaScienceInfantryParadrop
+  Infa_SCIENCE_InfantryParadrop2:
+    PrerequisiteSciences: Infa_SCIENCE_InfantryParadrop1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaInfantryParadrop2
+    Description: CONTROLBAR:Infa_ToolTipChinaScienceInfantryParadrop
+  Infa_SCIENCE_InfantryParadrop3:
+    PrerequisiteSciences: Infa_SCIENCE_InfantryParadrop2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaInfantryParadrop3
+    Description: CONTROLBAR:Infa_ToolTipChinaScienceInfantryParadrop
+  Nuke_SCIENCE_NukeDrop:
+    PrerequisiteSciences: SCIENCE_CHINA SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:ChinaNukeDrop
+    Description: CONTROLBAR:ToolTipChinaScienceNukeDrop
+  AirF_SCIENCE_A10ThunderboltMissileStrike1:
+    PrerequisiteSciences: SCIENCE_AMERICA SCIENCE_Rank1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAA10Strike1
+    Description: CONTROLBAR:ToolTipUSAScienceA10Strike
+  AirF_SCIENCE_A10ThunderboltMissileStrike2:
+    PrerequisiteSciences: AirF_SCIENCE_A10ThunderboltMissileStrike1 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAA10Strike2
+    Description: CONTROLBAR:ToolTipUSAScienceA10Strike
+  AirF_SCIENCE_A10ThunderboltMissileStrike3:
+    PrerequisiteSciences: AirF_SCIENCE_A10ThunderboltMissileStrike2 SCIENCE_Rank3
+    SciencePurchasePointCost: 1
+    IsGrantable: Yes
+    DisplayName: SCIENCE:USAA10Strike3
+    Description: CONTROLBAR:ToolTipUSAScienceA10Strike

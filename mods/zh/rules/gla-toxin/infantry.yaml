@@ -1,0 +1,4212 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  Chem_GLAInfantryJarmenKell:
+    SelectPortrait: SUJermanKell1_L
+    ButtonImage: SUJermanKell1
+    UpgradeCameo1: Upgrade_GLAAPBullets
+    DisplayName: OBJECT:JarmenKell
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    MaxSimultaneousOfType: 1
+    VisionRange: 200
+    ShroudClearingRange: 400
+    BuildCost: 1500
+    BuildTime: 20.0
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrushableLevel: 2
+    CommandSet: GLAInfantryJarmenKellCommandSet
+    VoiceSelect: JarmenKellVoiceSelect
+    VoiceMove: JarmenKellVoiceMove
+    VoiceGuard: JarmenKellVoiceMove
+    VoiceAttack: JarmenKellVoiceAttack
+    VoiceFear: JarmenKellVoiceFear
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER STEALTH_GARRISON SCORE HERO CANNOT_RETALIATE
+    Locomotor: SET_NORMAL JarmenKellLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY GLAJarmenKellRifle, SECONDARY GLAJarmenKellVehiclePilotSniperRifle]
+      AutoChooseSources: SECONDARY NONE
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: [Chem_GLABarracks, Chem_GLAPalace]
+    UnitSpecificSounds:
+      VoiceCreate: JarmenKellVoiceCreate
+      VoiceSnipePilot: JarmenKellVoiceSnipe
+      VoiceGarrison: JarmenKellVoiceGarrison
+      VoiceEnter: JarmenKellVoiceMove
+      VoiceEnterHostile: JarmenKellVoiceMove
+      VoiceGetHealed: JarmenKellVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIHERO_SKN
+          IdleAnimation: [UIHERO_SKL.UIHERO_STA 0 21, UIHERO_SKL.UIHERO_IDA, UIHERO_SKL.UIHERO_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: [UIHERO_SKL.UIHERO_ISTA 0 30, UIHERO_SKL.UIHERO_IIDA, UIHERO_SKL.UIHERO_IIDB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandInjured
+          FIRING_A:
+            Animation: UIHERO_SKL.UIHERO_ATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringA
+            AnimationSpeedFactorRange: 1.5 1.5
+          BETWEEN_FIRING_SHOTS_A:
+            Animation: UIHERO_SKL.UIHERO_STA
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_FiringA
+            Aliases: [RELOADING_A]
+          FIRING_A REALLYDAMAGED:
+            Animation: UIHERO_SKL.UIHERO_IATA2
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringAInjured
+            AnimationSpeedFactorRange: 1.5 1.5
+          BETWEEN_FIRING_SHOTS_A REALLYDAMAGED:
+            Animation: UIHERO_SKL.UIHERO_IATA2
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            WaitForStateToFinishIfPossible: TRANS_FiringAInjured
+            Aliases: [RELOADING_A REALLYDAMAGED]
+          MOVING:
+            Animation: UIHERO_SKL.UIHERO_RNA2 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING FIRING_A, MOVING BETWEEN_FIRING_SHOTS_A, MOVING RELOADING_A]
+          MOVING REALLYDAMAGED:
+            Animation: UIHERO_SKL.UIHERO_IRNA 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases:
+            - MOVING FIRING_A REALLYDAMAGED
+            - MOVING BETWEEN_FIRING_SHOTS_A REALLYDAMAGED
+            - MOVING RELOADING_A REALLYDAMAGED
+          SPECIAL_CHEERING:
+            Animation: UIHERO_SKL.UIHERO_CHA
+            AnimationMode: LOOP
+          SPECIAL_CHEERING REALLYDAMAGED:
+            Animation: UIHERO_SKL.UIHERO_ICHA
+            AnimationMode: LOOP
+          DYING:
+            Animation:
+            - UIHERO_SKL.UIHERO_DTA
+            - UIHERO_SKL.UIHERO_DTB
+            - UIHERO_SKL.UIHERO_IDTA
+            - UIHERO_SKL.UIHERO_IDTB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: UIHERO_SKL.UIHERO_ADTG22
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UIHERO_SKL.UIHERO_ADTG23
+            AnimationMode: ONCE
+            TransitionKey: None
+          FREEFALL:
+            Animation: UIHERO_SKL.UIHERO_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: UIHERO_SKL.UIHERO_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+        TransitionState:
+          TRANS_Stand TRANS_StandInjured:
+            Animation: UIHERO_SKL.UIHERO_ISTAHIT
+            AnimationMode: ONCE
+          TRANS_FiringA TRANS_FiringAInjured:
+            Animation: UIHERO_SKL.UIHERO_IATAHIT
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: UIHERO_SKL.UIHERO_ADTG21
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: UIHERO_SKL.UIHERO_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: UIHERO_SKL.UIHERO_PTD
+            AnimationMode: ONCE
+          TRANS_Chute TRANS_StandInjured:
+            Animation: UIHERO_SKL.UIHERO_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 200.0
+        InitialHealth: 200.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 2000
+        StealthForbiddenConditions: ATTACKING
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+        EnemyDetectionEvaEvent: EnemyJarmenKellDetected
+        OwnDetectionEvaEvent: OwnJarmenKellDetected
+      ModuleTag_07:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPBullets
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_JarmenKellDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_JarmenKellDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryTunnelDefender:
+    SelectPortrait: SURPG_L
+    ButtonImage: SURPG
+    UpgradeCameo1: Upgrade_GLAAPRockets
+    DisplayName: OBJECT:TunnelDefender
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 400
+    BuildCost: 300
+    BuildTime: 5.0
+    ExperienceValue: 20 20 40 60
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: GLAInfantryTunnelDefenderCommandSet
+    VoiceSelect: RPGTrooperVoiceSelect
+    VoiceMove: RPGTrooperVoiceMove
+    VoiceGuard: RPGTrooperVoiceMove
+    VoiceAttack: RPGTrooperVoiceAttack
+    VoiceFear: RPGTrooperVoiceFear
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER SCORE
+    Locomotor: SET_NORMAL MissileDefenderLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon:
+      - PRIMARY Chem_TunnelDefenderRocketWeaponBeta
+      - SECONDARY Chem_TunnelDefenderRocketWeaponBetaAir
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_AI FROM_SCRIPT
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    - Conditions: PLAYER_UPGRADE
+      Weapon:
+      - PRIMARY Chem_TunnelDefenderRocketWeaponGamma
+      - SECONDARY Chem_TunnelDefenderRocketWeaponGammaAir
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_AI FROM_SCRIPT
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    UnitSpecificSounds:
+      VoiceCreate: RPGTrooperVoiceCreate
+      VoiceGarrison: RPGTrooperVoiceGarrison
+      VoiceEnter: RPGTrooperVoiceMove
+      VoiceEnterHostile: RPGTrooperVoiceMove
+      VoiceGetHealed: RPGTrooperVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UITunF_SKN
+          IdleAnimation:
+          - UITunF_SKL.UITunF_STA 0 20
+          - UITunF_SKL.UITunF_IDA
+          - UITunF_SKL.UITunF_IDB
+          - UITunF_SKL.UITunF_IDC
+          AnimationMode: ONCE
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleFX]
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WeaponLaunchBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+        ConditionState:
+          MOVING:
+            Animation:
+            - UITunF_SKL.UITunF_WKA 16
+            - UITunF_SKL.UITunF_WKB 30
+            - UITunF_SKL.UITunF_WKC 30
+            - UITunF_SKL.UITunF_RNA 15
+            - UITunF_SKL.UITunF_RNB 25
+            AnimationMode: LOOP
+            ParticleSysBone: None InfantryDustTrails
+          DYING:
+            Animation: [UITunF_SKL.UITunF_DTA, UITunF_SKL.UITunF_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: [UITunF_SKL.UITunF_ADTA2, UITunF_SKL.UITunF_ADTE2, UITunF_SKL.UITunF_ADTF2]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: [UITunF_SKL.UITunF_ADTA3, UITunF_SKL.UITunF_ADTE3, UITunF_SKL.UITunF_ADTF3]
+            AnimationMode: ONCE
+            TransitionKey: None
+          FIRING_A:
+            Animation: UITunF_SKL.UITunF_ATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_START_FIRING
+            Aliases: [FIRING_B]
+          BETWEEN_FIRING_SHOTS_A:
+            Animation: UITunF_SKL.UITunF_STA
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_START_FIRING
+            Aliases: [BETWEEN_FIRING_SHOTS_B, RELOADING_A, RELOADING_B]
+          SPECIAL_CHEERING:
+            Animation: UITUNF_SKL.UITUNF_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UITunF_SKL.UITunF_ADTA1, UITunF_SKL.UITunF_ADTE1, UITunF_SKL.UITunF_ADTF1]
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RPGTrooperDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RPGTrooperDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_12:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_13:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryStingerSoldier:
+    SelectPortrait: SUStinger_L
+    ButtonImage: SUStinger
+    DisplayName: OBJECT:StingerSoldier
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 400.0
+    ShroudClearingRange: 400
+    BuildCost: 100
+    BuildTime: 1.0
+    CrushableLevel: 0
+    VoiceSelect: StingerSoldierVoiceSelect
+    VoiceMove: StingerSoldierVoiceMove
+    VoiceAttack: StingerSoldierVoiceAttack
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER CLICK_THROUGH SPAWNS_ARE_THE_WEAPONS
+    Locomotor: SET_NORMAL BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: [PRIMARY Chem_StingerMissileWeaponBeta, SECONDARY Chem_StingerMissileWeaponAirBeta]
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_AI FROM_SCRIPT
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    - Conditions: PLAYER_UPGRADE
+      Weapon:
+      - PRIMARY Chem_StingerMissileWeaponGamma
+      - SECONDARY Chem_StingerMissileWeaponAirGamma
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_AI FROM_SCRIPT
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: StingerSoldierArmor
+      DamageFX: None
+    Prerequisites:
+      Object: Chem_GLABarracks
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UISmsd_SKN
+          IdleAnimation:
+          - UISmsd_SKL.UISmsd_STA 0 45
+          - UISmsd_SKL.UISmsd_IDA
+          - UISmsd_SKL.UISmsd_IDB
+          - UISmsd_SKL.UISmsd_IDC
+          - UISmsd_SKL.UISmsd_IDD
+          AnimationMode: ONCE
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WeaponFireFXBone: [PRIMARY Exhaust, SECONDARY Exhaust]
+          WeaponLaunchBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WaitForStateToFinishIfPossible: TRANS_START_FIRING
+          Aliases: [BETWEEN_FIRING_SHOTS_A, BETWEEN_FIRING_SHOTS_B, RELOADING_A, RELOADING_B]
+        ConditionState:
+          MOVING:
+            Animation: UISmsd_SKL.UISmsd_WKB 25
+            AnimationMode: LOOP
+          DYING:
+            Animation: [UISmsd_SKL.UISmsd_DTA, UISmsd_SKL.UISmsd_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+            WaitForStateToFinishIfPossible: NONE
+          DYING EXPLODED_FLAILING:
+            Animation: [UISmsd_SKL.UISmsd_ADTF2, UISmsd_SKL.UISmsd_ADTG22]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+            WaitForStateToFinishIfPossible: NONE
+          DYING EXPLODED_BOUNCING:
+            Animation: [UISmsd_SKL.UISmsd_ADTF3, UISmsd_SKL.UISmsd_ADTG23]
+            AnimationMode: ONCE
+            TransitionKey: None
+            WaitForStateToFinishIfPossible: NONE
+          FIRING_A:
+            Animation: UISmsd_SKL.UISmsd_ATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_START_FIRING
+            Aliases: [MOVING FIRING_A, MOVING RELOADING_A]
+          FIRING_B:
+            Animation: UISmsd_SKL.UISmsd_ATB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_START_FIRINGB
+            Aliases: [MOVING FIRING_B, MOVING RELOADING_B]
+          SPECIAL_CHEERING:
+            Animation: UISMSD_SKL.UISMSD_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UISmsd_SKL.UISmsd_ADTF1, UISmsd_SKL.UISmsd_ADTG21]
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_16:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        DetectionRange: 200
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: No
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes Stealthed ATTACK_BUILDINGS
+        MoodAttackCheckRate: 250
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlavedUpdate
+      ModuleTag_08:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_StingerSoldierDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_StingerSoldierDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_15:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryTerrorist:
+    SelectPortrait: SUTerrorist_L
+    ButtonImage: SUTerrorist
+    UpgradeCameo1: Chem_Upgrade_GLAAnthraxGamma
+    DisplayName: OBJECT:Chem_Terrorist
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 200
+    BuildCost: 200
+    BuildTime: 5.0
+    CrushableLevel: 0
+    CommandSet: GLAInfantryTerroristCommandSet
+    VoiceSelect: TerroristVoiceSelect
+    VoiceMove: TerroristVoiceMove
+    VoiceAttack: TerroristVoiceAttack
+    VoiceFear: TerroristVoiceFear
+    VoiceGuard: TerroristVoiceMove
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER SCORE
+    ExperienceValue: 20 20 20 20
+    Locomotor: SET_NORMAL FastHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY TerroristSuicideWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: Chem_GLABarracks
+    UnitSpecificSounds:
+      VoiceGarrison: TerroristVoiceMove
+      VoiceCreate: TerroristVoiceCreate
+      VoiceEnter: TerroristVoiceEnter
+      VoiceEnterHostile: TerroristVoiceEnterHostile
+      VoiceGetHealed: TerroristVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UITRST_SKN
+          IdleAnimation: [UITRST_SKL.UITRST_STA 0 25, UITRST_SKL.UITRST_IDA, UITRST_SKL.UITRST_IDB]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            Animation: UITRST_SKL.UITRST_STA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Stand
+          FREEFALL:
+            Animation: UITRST_SKL.UITRST_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: UITRST_SKL.UITRST_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+          MOVING:
+            Animation: UITRST_SKL.UITRST_RNA 15
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING REALLYDAMAGED]
+          ATTACKING MOVING:
+            Animation: UITRST_SKL.UITRST_RNB 10
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            Aliases: [ATTACKING MOVING REALLYDAMAGED]
+          PREATTACK_A:
+            Animation: UITRST_SKL.UITRST_ATA
+            AnimationMode: ONCE
+            Aliases: [PREATTACK_A MOVING]
+          DYING:
+            Animation: [UITRST_SKL.UITRST_DTA, UITRST_SKL.UITRST_DTC]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: UITRST_SKL.UITRST_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UITRST_SKL.UITRST_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: UITRST_SKL.UITRST_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: UITRST_SKL.UITRST_ADTE1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: UITRST_SKL.UITRST_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: UITRST_SKL.UITRST_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_CBH01:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: ConvertToCarBombCrateCollide
+        RequiredKindOf: VEHICLE
+        FXList: FX_MakeCarBombSuccess
+      ModuleTag_07:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -SUICIDED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_TerroristDie
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry_TerroristOnly
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta_TerroristOnly
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma_TerroristOnly
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +SUICIDED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_TerroristExplode
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+        OCL: INITIAL Chem_PoisonFieldGammaLarge
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: SuicideDynamitePack
+        StartsActive: Yes
+        DeathTypes: NONE +SUICIDED +CRUSHED +SPLATTED +LASERED +BURNED +EXPLODED
+      ModuleTag91:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_SuicideWeaponGamma
+        StartsActive: No
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+        RequiresAllTriggers: Yes
+        DeathTypes: NONE +SUICIDED +CRUSHED +SPLATTED +LASERED +BURNED +EXPLODED
+      ModuleTag_92:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_SuicideWeaponBeta
+        StartsActive: No
+        TriggeredBy: Upgrade_GLAAnthraxBeta
+        RequiresAllTriggers: Yes
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_93:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: Chem_SuicideWeapon
+        StartsActive: No
+        ConflictsWith: Upgrade_GLAAnthraxBeta Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryAngryMobNexus:
+    SelectPortrait: SUAngryMob_L
+    ButtonImage: SUAngryMob
+    UpgradeCameo1: Upgrade_GLAArmTheMob
+    DisplayName: OBJECT:AngryMobNexus
+    Side: GLAToxinGeneral
+    RadarPriority: [NOT_ON_RADAR, UNIT]
+    EditorSorting: INFANTRY
+    TransportSlotCount: 0
+    BuildCost: 800
+    BuildTime: 15.0
+    VisionRange: 150
+    ShroudClearingRange: 0
+    ExperienceValue: 5 5 5 5
+    IsTrainable: No
+    CommandSet: GLAInfantryAngryMobCommandSet
+    VoiceSelect: AngryMobVoiceSelect
+    VoiceMove: AngryMobVoiceMove
+    VoiceGuard: AngryMobVoiceMove
+    VoiceAttack: AngryMobVoiceAttack
+    SoundMoveStart: NoSound
+    SoundAmbient: AngryMobAmbientLoop
+    SoundAmbientRubble: NoSound
+    KindOf: PRELOAD CAN_ATTACK INFANTRY MOB_NEXUS ATTACK_NEEDS_LINE_OF_SIGHT NO_COLLIDE SELECTABLE SCORE
+    Locomotor:
+    - SET_NORMAL AngryMobNexusLocomotor
+    - SET_WANDER AngryMobNexusLocomotor
+    - SET_PANIC AngryMobNexusLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    WeaponSet:
+      Conditions: None
+      Weapon:
+      - PRIMARY GLAAngryMobNexusHarmlessWeapon
+      - SECONDARY GLAAngryMobNexusHarmlessWeapon
+      - TERTIARY GLAAngryMobNexusHarmlessWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+      DamageFX: None
+    Prerequisites:
+      Object: [Chem_GLABarracks, Chem_GLAPalace]
+    UnitSpecificSounds:
+      VoiceCreate: AngryMobVoiceCreate
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: None
+      ModuleTag_02:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 99999.0
+        InitialHealth: 99999.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 50.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SpawnBehavior
+        SpawnNumber: 10
+        SpawnReplaceDelay: 30000
+        SpawnTemplateName:
+        - GLAInfantryAngryMobPistol01
+        - GLAInfantryAngryMobRock02
+        - GLAInfantryAngryMobMolotov02
+        - GLAInfantryAngryMobPistol03
+        - GLAInfantryAngryMobRock04
+        - GLAInfantryAngryMobMolotov02
+        - GLAInfantryAngryMobPistol05
+        ExitByBudding: Yes
+        InitialBurst: 5
+        OneShot: No
+        AggregateHealth: Yes
+        SlavesHaveFreeWill: No
+      ModuleTag_06:
+        Module: Behavior
+        Class: QueueProductionExitUpdate
+        UnitCreatePoint: 'X: 0.0 Y: 0.0 Z:0.0'
+        NaturalRallyPoint: 'X: 0.0 Y: 0.0 Z:0.0'
+        ExitDelay: 5000
+        InitialBurst: 5
+      ModuleTag_07:
+        Module: Behavior
+        Class: DestroyDie
+        DeathTypes: ALL
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryAngryMobPistol01:
+    DisplayName: OBJECT:AngryMob
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 0
+    VisionRange: 150
+    ShroudClearingRange: 150
+    BuildCost: 100
+    BuildTime: 0.0
+    ExperienceValue: 5 5 5 5
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: Yes
+    CrushableLevel: 0
+    VoiceSelect: NoSound
+    VoiceMove: NoSound
+    VoiceAttack: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER IGNORED_IN_GUI
+    Locomotor:
+    - SET_NORMAL AngryMobNormalLocomotor
+    - SET_WANDER AngryMobWanderLocomotor
+    - SET_PANIC AngryMobPanicLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY GLAAngryMobPistolWeapon
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY GLAAngryMobAK47NoDamageWeapon, SECONDARY GLAAngryMobAK47Weapon]
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: Chem_GLABarracks
+    Modules:
+      DrawTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIMOB01_SKN
+          IdleAnimation:
+          - UIMOB01_SKL.UIMOB01_IDA1 0 12
+          - UIMOB01_SKL.UIMOB01_IDA2 0 5
+          - UIMOB01_SKL.UIMOB01_CHA 0 5
+          - UIMOB01_SKL.UIMOB01_STA 0 5
+          AnimationMode: ONCE
+          AnimationSpeedFactorRange: 0.9 1.1
+          TransitionKey: TRANS_STAND_A
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY MuzzleAK]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleAKFX]
+        ConditionState:
+          PREATTACK_A:
+            Animation: UIMOB01_SKL.UIMOB01_ATA1_ST
+            AnimationMode: ONCE
+            Aliases: [PREATTACK_A FIRING_A, PREATTACK_A BETWEEN_FIRING_SHOTS_A]
+          FIRING_A:
+            Animation: UIMOB01_SKL.UIMOB01_ATA1_LP
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FIRING_A
+            Aliases: [BETWEEN_FIRING_SHOTS_A]
+          RELOADING_A:
+            Animation: UIMOB01_SKL.UIMOB01_ATA1_ED
+            AnimationMode: ONCE
+          MOVING:
+            Animation: UIMOB01_SKL.UIMOB01_RNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING
+            ParticleSysBone: None InfantryDustTrails
+            Aliases:
+            - MOVING RELOADING_A
+            - MOVING PREATTACK_A
+            - MOVING FIRING_A
+            - MOVING BETWEEN_FIRING_SHOTS_A
+            - MOVING RELOADING_C RELOADING_A
+            - MOVING PREATTACK_C BETWEEN_FIRING_SHOTS_A
+          DYING:
+            Animation: [UIMOB01_SKL.UIMOB01_DA1, UIMOB01_SKL.UIMOB01_DA2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING:
+            Animation: UIMOB01_SKL.UIMOB01_CHA
+            AnimationMode: ONCE
+          WEAPONSET_PLAYER_UPGRADE:
+            Model: UIMOB01_SKN
+            IdleAnimation:
+            - UIMOB01_SKL.UIMOB01_IDD1 0 6
+            - UIMOB01_SKL.UIMOB01_IDD2 0 6
+            - UIMOB01_SKL.UIMOB01_CHD 0 6
+            - UIMOB01_SKL.UIMOB01_STD
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 0.9 1.1
+            TransitionKey: TRANS_STAND_AK
+          MOVING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB01_SKL.UIMOB01_RND
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING_AK
+          DYING WEAPONSET_PLAYER_UPGRADE:
+            Animation: [UIMOB01_SKL.UIMOB01_DD1, UIMOB01_SKL.UIMOB01_DD2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB01_SKL.UIMOB01_CHD
+            AnimationMode: ONCE
+          PREATTACK_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB01_SKL.UIMOB01_ATD1_ST
+            AnimationMode: ONCE
+            Aliases:
+            - PREATTACK_B FIRING_B WEAPONSET_PLAYER_UPGRADE
+            - PREATTACK_B BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE
+          FIRING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB01_SKL.UIMOB01_ATD1_LP
+            AnimationMode: LOOP
+            WeaponFireFXBone: SECONDARY MuzzleAK
+            WeaponMuzzleFlash: SECONDARY MuzzleAKFX
+            TransitionKey: TRANS_FIRING_AK
+            Aliases: [BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE]
+          RELOADING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB01_SKL.UIMOB01_ATD1_ED
+            AnimationMode: ONCE
+          DYING EXPLODED_FLAILING:
+            Animation: [UIMOB01_SKL.UIMOB01_A_ADTE2, UIMOB01_SKL.UIMOB01_D_ADTE2]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: [UIMOB01_SKL.UIMOB01_A_ADTE3, UIMOB01_SKL.UIMOB01_D_ADTE3]
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_FIRING_A TRANS_STAND_A:
+            Animation: UIMOB01_SKL.UIMOB01_ATA1_ED
+            AnimationMode: ONCE
+          TRANS_STAND_A TRANS_STAND_AK:
+            Animation: UIMOB01_SKL.UIMOB01_TA-D
+            AnimationMode: ONCE
+          TRANS_FIRING_AK TRANS_STAND_AK:
+            Animation: UIMOB01_SKL.UIMOB01_ATD1_ED
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UIMOB01_SKL.UIMOB01_A_ADTE1, UIMOB01_SKL.UIMOB01_D_ADTE1]
+            AnimationMode: ONCE
+      BodyTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: MobMemberSlavedUpdate
+        MustCatchUpRadius: 40
+        NoNeedToCatchUpRadius: 15
+        Squirrelliness: 0.05
+        CatchUpCrisisBailTime: 30
+      BehaviorTag_01:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: SquishCollide
+      UpgradeTag_01:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_GLAArmTheMob
+      DeathTag_01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabMaleDie
+      DeathTag_02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      DeathTag_03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabMaleDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      DeathTag_04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_GIDie
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      BehaviorTag_02:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryAngryMobRock02:
+    DisplayName: OBJECT:AngryMob
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 0
+    VisionRange: 150
+    ShroudClearingRange: 150
+    BuildCost: 100
+    BuildTime: 0.0
+    ExperienceValue: 5 5 5 5
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: Yes
+    CrushableLevel: 0
+    VoiceSelect: NoSound
+    VoiceMove: NoSound
+    VoiceAttack: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER IGNORED_IN_GUI
+    Locomotor:
+    - SET_NORMAL AngryMobNormalLocomotor
+    - SET_WANDER AngryMobWanderLocomotor
+    - SET_PANIC AngryMobPanicLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY GLAAngryMobRockProjectileWeapon
+    - Conditions: PLAYER_UPGRADE
+      Weapon: [PRIMARY GLAAngryMobAK47NoDamageWeapon, SECONDARY GLAAngryMobAK47Weapon]
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: Chem_GLABarracks
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIMOB02_SKN
+          IdleAnimation:
+          - UIMOB02_SKL.UIMOB02_IDB1 0 12
+          - UIMOB02_SKL.UIMOB02_IDB2 0 5
+          - UIMOB02_SKL.UIMOB02_CHB 0 5
+          - UIMOB02_SKL.UIMOB02_STB 0 12
+          AnimationMode: ONCE
+          AnimationSpeedFactorRange: 0.9 1.1
+          TransitionKey: TRANS_STAND_A
+          WeaponFireFXBone: SECONDARY MuzzleAK
+          WeaponMuzzleFlash: SECONDARY MuzzleAKFX
+        ConditionState:
+          PREATTACK_A:
+            Animation: UIMOB02_SKL.UIMOB02_ATB2_BF
+            AnimationMode: ONCE
+            Aliases: [PREATTACK_A FIRING_A, PREATTACK_A BETWEEN_FIRING_SHOTS_A]
+          FIRING_A:
+            Animation: [UIMOB02_SKL.UIMOB02_ATB1_AF, UIMOB02_SKL.UIMOB02_ATB2_AF]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FIRING_A
+          BETWEEN_FIRING_SHOTS_A:
+            Animation: UIMOB02_SKL.UIMOB02_STB
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_FIRING_A
+            Aliases: [RELOADING_A]
+          MOVING:
+            Animation: UIMOB02_SKL.UIMOB02_RNB
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING
+            ParticleSysBone: None InfantryDustTrails
+          DYING:
+            Animation: [UIMOB02_SKL.UIMOB02_DB1, UIMOB02_SKL.UIMOB02_DB2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING:
+            Animation: UIMOB02_SKL.UIMOB02_CHB
+            Flags: RANDOMSTART
+            AnimationMode: LOOP
+          WEAPONSET_PLAYER_UPGRADE:
+            Model: UIMOB02_SKN
+            IdleAnimation:
+            - UIMOB02_SKL.UIMOB02_IDD1 0 6
+            - UIMOB02_SKL.UIMOB02_IDD2 0 6
+            - UIMOB02_SKL.UIMOB02_CHD 0 6
+            - UIMOB02_SKL.UIMOB02_STD
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 0.9 1.1
+            TransitionKey: TRANS_STAND_AK
+          MOVING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB02_SKL.UIMOB02_RND
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING_AK
+          DYING WEAPONSET_PLAYER_UPGRADE:
+            Animation: [UIMOB02_SKL.UIMOB02_DD1, UIMOB02_SKL.UIMOB02_DD2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB02_SKL.UIMOB02_CHD
+            AnimationMode: ONCE
+          PREATTACK_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB02_SKL.UIMOB02_ATD1_ST
+            AnimationMode: ONCE
+            Aliases:
+            - PREATTACK_B FIRING_B WEAPONSET_PLAYER_UPGRADE
+            - PREATTACK_B BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE
+          FIRING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB02_SKL.UIMOB02_ATD1_LP
+            AnimationMode: LOOP
+            WeaponFireFXBone: SECONDARY MuzzleAK
+            WeaponMuzzleFlash: SECONDARY MuzzleAKFX
+            TransitionKey: TRANS_FIRING_AK
+            Aliases: [BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE]
+          RELOADING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB02_SKL.UIMOB02_ATD1_ED
+            AnimationMode: ONCE
+          DYING EXPLODED_FLAILING:
+            Animation: [UIMOB02_SKL.UIMOB02_B_ADTA2, UIMOB02_SKL.UIMOB02_D_ADTA2]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: [UIMOB02_SKL.UIMOB02_B_ADTA3, UIMOB02_SKL.UIMOB02_D_ADTA3]
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_STAND_A TRANS_STAND_AK:
+            Animation: UIMOB02_SKL.UIMOB02_TB-D
+            AnimationMode: ONCE
+          TRANS_FIRING_AK TRANS_STAND_AK:
+            Animation: UIMOB02_SKL.UIMOB02_ATD1_ED
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UIMOB02_SKL.UIMOB02_B_ADTA1, UIMOB02_SKL.UIMOB02_D_ADTA1]
+            AnimationMode: ONCE
+      BodyTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: MobMemberSlavedUpdate
+        MustCatchUpRadius: 40
+        NoNeedToCatchUpRadius: 15
+        Squirrelliness: 0.05
+        CatchUpCrisisBailTime: 30
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: SquishCollide
+      UpgradeTag_01:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_GLAArmTheMob
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabFemaleDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabFemaleDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_GIDie
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_13:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryAngryMobPistol03:
+    ReskinOf: Chem_GLAInfantryAngryMobPistol01
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Modules:
+      DrawTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIMOB03_SKN
+          IdleAnimation:
+          - UIMOB03_SKL.UIMOB03_IDA1 0 12
+          - UIMOB03_SKL.UIMOB03_IDA2 0 5
+          - UIMOB03_SKL.UIMOB03_CHA 0 5
+          - UIMOB03_SKL.UIMOB03_STA 0 5
+          AnimationMode: ONCE
+          AnimationSpeedFactorRange: 0.9 1.1
+          TransitionKey: TRANS_STAND_A
+          WeaponFireFXBone: [PRIMARY Muzzle, SECONDARY MuzzleAK, TERTIARY "UIMOB03 R HAND"]
+          WeaponMuzzleFlash: [PRIMARY MuzzleFX, SECONDARY MuzzleAKFX]
+        ConditionState:
+          PREATTACK_A:
+            Animation: UIMOB03_SKL.UIMOB03_ATA1_ST
+            AnimationMode: ONCE
+            Aliases: [PREATTACK_A FIRING_A, PREATTACK_A BETWEEN_FIRING_SHOTS_A]
+          FIRING_A:
+            Animation: UIMOB03_SKL.UIMOB03_ATA1_LP
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FIRING_A
+            Aliases: [BETWEEN_FIRING_SHOTS_A]
+          RELOADING_A:
+            Animation: UIMOB03_SKL.UIMOB03_ATA1_ED
+            AnimationMode: ONCE
+          MOVING:
+            Animation: UIMOB03_SKL.UIMOB03_RNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING
+            ParticleSysBone: None InfantryDustTrails
+            Aliases:
+            - MOVING RELOADING_A
+            - MOVING PREATTACK_A
+            - MOVING FIRING_A
+            - MOVING BETWEEN_FIRING_SHOTS_A
+            - MOVING RELOADING_C RELOADING_A
+            - MOVING PREATTACK_C BETWEEN_FIRING_SHOTS_A
+          DYING:
+            Animation: [UIMOB03_SKL.UIMOB03_DA1, UIMOB03_SKL.UIMOB03_DA2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING:
+            Animation: UIMOB03_SKL.UIMOB03_CHA
+            AnimationMode: ONCE
+          WEAPONSET_PLAYER_UPGRADE:
+            Model: UIMOB03_SKN
+            IdleAnimation:
+            - UIMOB03_SKL.UIMOB03_IDD1 0 6
+            - UIMOB03_SKL.UIMOB03_IDD2 0 6
+            - UIMOB03_SKL.UIMOB03_CHD 0 6
+            - UIMOB03_SKL.UIMOB03_STD
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 0.9 1.1
+            TransitionKey: TRANS_STAND_AK
+          MOVING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB03_SKL.UIMOB03_RND
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING_AK
+          DYING WEAPONSET_PLAYER_UPGRADE:
+            Animation: [UIMOB03_SKL.UIMOB03_DD1, UIMOB03_SKL.UIMOB03_DD2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB03_SKL.UIMOB03_CHD
+            AnimationMode: ONCE
+          PREATTACK_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB03_SKL.UIMOB03_ATD_ST
+            AnimationMode: ONCE
+            Aliases:
+            - PREATTACK_B FIRING_B WEAPONSET_PLAYER_UPGRADE
+            - PREATTACK_B BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE
+          FIRING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB03_SKL.UIMOB03_ATD_LP
+            AnimationMode: LOOP
+            WeaponFireFXBone: SECONDARY MuzzleAK
+            WeaponMuzzleFlash: SECONDARY MuzzleAKFX
+            TransitionKey: TRANS_FIRING_AK
+            Aliases: [BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE]
+          RELOADING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB03_SKL.UIMOB03_ATD_ED
+            AnimationMode: ONCE
+          DYING EXPLODED_FLAILING:
+            Animation: [UIMOB03_SKL.UIMOB03_A_ADTD2, UIMOB03_SKL.UIMOB03_D_ADTD2]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: [UIMOB03_SKL.UIMOB03_A_ADTD3, UIMOB03_SKL.UIMOB03_D_ADTD3]
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_FIRING_A TRANS_STAND_A:
+            Animation: UIMOB03_SKL.UIMOB03_ATA1_ED
+            AnimationMode: ONCE
+          TRANS_STAND_A TRANS_STAND_AK:
+            Animation: UIMOB03_SKL.UIMOB03_TA-D
+            AnimationMode: ONCE
+          TRANS_FIRING_AK TRANS_STAND_AK:
+            Animation: UIMOB03_SKL.UIMOB03_ATD_ED
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UIMOB03_SKL.UIMOB03_A_ADTD1, UIMOB03_SKL.UIMOB03_D_ADTD1]
+            AnimationMode: ONCE
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryAngryMobRock04:
+    ReskinOf: Chem_GLAInfantryAngryMobRock02
+    Geometry: CYLINDER
+    GeometryMajorRadius: 5.0
+    GeometryMinorRadius: 5.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIMOB04_SKN
+          IdleAnimation:
+          - UIMOB04_SKL.UIMOB04_IDB1 0 12
+          - UIMOB04_SKL.UIMOB04_IDB2 0 5
+          - UIMOB04_SKL.UIMOB04_CHB 0 5
+          - UIMOB04_SKL.UIMOB04_STB 0 12
+          AnimationMode: ONCE
+          AnimationSpeedFactorRange: 0.9 1.1
+          TransitionKey: TRANS_STAND_A
+          WaitForStateToFinishIfPossible: TRANS_FIRING_A
+          WeaponFireFXBone: SECONDARY MuzzleAK
+          WeaponMuzzleFlash: SECONDARY MuzzleAKFX
+        ConditionState:
+          PREATTACK_A:
+            Animation: UIMOB04_SKL.UIMOB04_ATB2_BF
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 1.0 1.0
+            Aliases: [PREATTACK_A FIRING_A, PREATTACK_A BETWEEN_FIRING_SHOTS_A]
+          FIRING_A:
+            Animation: [UIMOB04_SKL.UIMOB04_ATB1_AF, UIMOB04_SKL.UIMOB04_ATB2_AF]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FIRING_A
+          BETWEEN_FIRING_SHOTS_A:
+            Animation: UIMOB04_SKL.UIMOB04_STB
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_FIRING_A
+            Aliases: [RELOADING_A]
+          MOVING:
+            Animation: UIMOB04_SKL.UIMOB04_RUN
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING
+            ParticleSysBone: None InfantryDustTrails
+          DYING:
+            Animation: [UIMOB04_SKL.UIMOB04_DB1, UIMOB04_SKL.UIMOB04_DB2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING:
+            Animation: UIMOB04_SKL.UIMOB04_CHB
+            Flags: RANDOMSTART
+            AnimationMode: LOOP
+          WEAPONSET_PLAYER_UPGRADE:
+            Model: UIMOB04_SKN
+            IdleAnimation:
+            - UIMOB04_SKL.UIMOB04_IDD1 0 6
+            - UIMOB04_SKL.UIMOB04_IDD2 0 6
+            - UIMOB04_SKL.UIMOB04_CHD 0 6
+            - UIMOB04_SKL.UIMOB04_STD
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 0.9 1.1
+            TransitionKey: TRANS_STAND_AK
+            WeaponFireFXBone: SECONDARY MuzzleAK
+            WeaponMuzzleFlash: SECONDARY MuzzleAKFX
+          MOVING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB04_SKL.UIMOB04_RND
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING_AK
+          DYING WEAPONSET_PLAYER_UPGRADE:
+            Animation: [UIMOB04_SKL.UIMOB04_DD1, UIMOB04_SKL.UIMOB04_DD2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB04_SKL.UIMOB04_CHD
+            AnimationMode: ONCE
+          PREATTACK_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB04_SKL.UIMOB04_ATD1_ST
+            AnimationMode: ONCE
+            Aliases:
+            - PREATTACK_B FIRING_B WEAPONSET_PLAYER_UPGRADE
+            - PREATTACK_B BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE
+          FIRING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB04_SKL.UIMOB04_ATD1_LP
+            AnimationMode: LOOP
+            WeaponFireFXBone: PRIMARY MuzzleAK
+            WeaponMuzzleFlash: PRIMARY MuzzleAKFX
+            TransitionKey: TRANS_FIRING_AK
+            Aliases: [BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE]
+          RELOADING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB04_SKL.UIMOB04_ATD1_ED
+            AnimationMode: ONCE
+          DYING EXPLODED_FLAILING:
+            Animation: [UIMOB04_SKL.UIMOB04_B_ADTF2, UIMOB04_SKL.UIMOB04_D_ADTF2]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: [UIMOB04_SKL.UIMOB04_B_ADTF3, UIMOB04_SKL.UIMOB04_D_ADTF3]
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_STAND_A TRANS_STAND_AK:
+            Animation: UIMOB04_SKL.UIMOB04_TB-D
+            AnimationMode: ONCE
+          TRANS_FIRING_AK TRANS_STAND_AK:
+            Animation: UIMOB04_SKL.UIMOB04_ATD1_ED
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UIMOB04_SKL.UIMOB04_B_ADTF1, UIMOB04_SKL.UIMOB04_D_ADTF1]
+            AnimationMode: ONCE
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryAngryMobPistol05:
+    ReskinOf: Chem_GLAInfantryAngryMobPistol01
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Modules:
+      DrawTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIMOB05_SKN
+          IdleAnimation:
+          - UIMOB05_SKL.UIMOB05_IDA1 0 12
+          - UIMOB05_SKL.UIMOB05_IDA2 0 5
+          - UIMOB05_SKL.UIMOB05_CHA 0 5
+          - UIMOB05_SKL.UIMOB05_STA 0 5
+          AnimationMode: ONCE
+          AnimationSpeedFactorRange: 0.9 1.1
+          TransitionKey: TRANS_STAND_A
+          WeaponFireFXBone: PRIMARY Muzzle01
+          WeaponMuzzleFlash: PRIMARY Muzzle01
+        ConditionState:
+          PREATTACK_A:
+            Animation: UIMOB05_SKL.UIMOB05_ATA1_ST
+            AnimationMode: ONCE
+            Aliases: [PREATTACK_A FIRING_A, PREATTACK_A BETWEEN_FIRING_SHOTS_A]
+          FIRING_A:
+            Animation: UIMOB05_SKL.UIMOB05_ATA1_LP
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FIRING_A
+            Aliases: [BETWEEN_FIRING_SHOTS_A]
+          RELOADING_A:
+            Animation: UIMOB05_SKL.UIMOB05_ATA1_ED
+            AnimationMode: ONCE
+          MOVING:
+            Animation: UIMOB05_SKL.UIMOB05_RNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING
+            ParticleSysBone: None InfantryDustTrails
+            Aliases:
+            - MOVING RELOADING_A
+            - MOVING PREATTACK_A
+            - MOVING FIRING_A
+            - MOVING BETWEEN_FIRING_SHOTS_A
+            - MOVING RELOADING_C RELOADING_A
+            - MOVING PREATTACK_C BETWEEN_FIRING_SHOTS_A
+          DYING:
+            Animation: [UIMOB05_SKL.UIMOB05_DA1, UIMOB05_SKL.UIMOB05_DA2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING:
+            Animation: UIMOB05_SKL.UIMOB05_CHA
+            AnimationMode: ONCE
+          WEAPONSET_PLAYER_UPGRADE:
+            Model: UIMOB05_SKN
+            IdleAnimation:
+            - UIMOB05_SKL.UIMOB05_IDD1 0 6
+            - UIMOB05_SKL.UIMOB05_IDD2 0 6
+            - UIMOB05_SKL.UIMOB05_CHD 0 6
+            - UIMOB05_SKL.UIMOB05_STD
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 0.9 1.1
+            TransitionKey: TRANS_STAND_AK
+            WeaponFireFXBone: SECONDARY MuzzleAK
+            WeaponMuzzleFlash: SECONDARY MuzzleAKFX
+          MOVING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB05_SKL.UIMOB05_RND
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING_AK
+          DYING WEAPONSET_PLAYER_UPGRADE:
+            Animation: [UIMOB05_SKL.UIMOB05_DD1, UIMOB05_SKL.UIMOB05_DD2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB05_SKL.UIMOB05_CHD
+            AnimationMode: ONCE
+          PREATTACK_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB05_SKL.UIMOB05_ATD1_ST
+            AnimationMode: ONCE
+            Aliases:
+            - PREATTACK_B FIRING_B WEAPONSET_PLAYER_UPGRADE
+            - PREATTACK_B BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE
+          FIRING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB05_SKL.UIMOB05_ATD1_LP
+            AnimationMode: LOOP
+            WeaponFireFXBone: PRIMARY MuzzleAK
+            WeaponMuzzleFlash: PRIMARY MuzzleAKFX
+            TransitionKey: TRANS_FIRING_AK
+            Aliases: [BETWEEN_FIRING_SHOTS_B WEAPONSET_PLAYER_UPGRADE]
+          RELOADING_B WEAPONSET_PLAYER_UPGRADE:
+            Animation: UIMOB05_SKL.UIMOB05_ATD1_ED
+            AnimationMode: ONCE
+          DYING EXPLODED_FLAILING:
+            Animation: [UIMOB05_SKL.UIMOB05_A_ADTA2, UIMOB05_SKL.UIMOB05_D_ADTA2]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: [UIMOB05_SKL.UIMOB05_A_ADTA3, UIMOB05_SKL.UIMOB05_D_ADTA3]
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_FIRING_A TRANS_STAND_A:
+            Animation: UIMOB05_SKL.UIMOB05_ATA1_ED
+            AnimationMode: ONCE
+          TRANS_STAND_A TRANS_STAND_AK:
+            Animation: UIMOB05_SKL.UIMOB05_TA-D
+            AnimationMode: ONCE
+          TRANS_FIRING_AK TRANS_STAND_AK:
+            Animation: UIMOB05_SKL.UIMOB05_ATD1_ED
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UIMOB05_SKL.UIMOB05_A_ADTA1, UIMOB05_SKL.UIMOB05_D_ADTA1]
+            AnimationMode: ONCE
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryAngryMobMolotov02:
+    DisplayName: OBJECT:AngryMob
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 0
+    VisionRange: 150
+    ShroudClearingRange: 150
+    BuildCost: 100
+    BuildTime: 0.0
+    ExperienceValue: 5 5 5 5
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: Yes
+    CrushableLevel: 0
+    VoiceSelect: NoSound
+    VoiceMove: NoSound
+    VoiceAttack: NoSound
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER IGNORED_IN_GUI
+    Locomotor:
+    - SET_NORMAL AngryMobNormalLocomotor
+    - SET_WANDER AngryMobWanderLocomotor
+    - SET_PANIC AngryMobPanicLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 4.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY GLAAngryMobMolotovCocktailProjectileWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: Chem_GLABarracks
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIMOB02_SKN
+          IdleAnimation:
+          - UIMOB02_SKL.UIMOB02_IDB1 0 12
+          - UIMOB02_SKL.UIMOB02_IDB2 0 5
+          - UIMOB02_SKL.UIMOB02_CHB 0 5
+          - UIMOB02_SKL.UIMOB02_STB 0 12
+          AnimationMode: ONCE
+          AnimationSpeedFactorRange: 0.9 1.1
+          TransitionKey: TRANS_STAND_B
+          WeaponFireFXBone: SECONDARY   "UIMOB02 R HAND"
+        ConditionState:
+          PREATTACK_B:
+            Animation: UIMOB02_SKL.UIMOB02_ATCB_BF
+            AnimationMode: ONCE
+            Aliases: [PREATTACK_B FIRING_B, PREATTACK_B BETWEEN_FIRING_SHOTS_B]
+          FIRING_B:
+            Animation: UIMOB02_SKL.UIMOB02_ATCB_AF
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FIRING_B
+          BETWEEN_FIRING_SHOTS_B:
+            Animation: UIMOB02_SKL.UIMOB02_STB
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_FIRING_B
+            Aliases: [RELOADING_B]
+          MOVING:
+            Animation: UIMOB02_SKL.UIMOB02_RNB
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: MOVING
+            ParticleSysBone: None InfantryDustTrails
+          DYING:
+            Animation: [UIMOB02_SKL.UIMOB02_DB1, UIMOB02_SKL.UIMOB02_DB2]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          SPECIAL_CHEERING:
+            Animation: UIMOB02_SKL.UIMOB02_CHB
+            Flags: RANDOMSTART
+            AnimationMode: LOOP
+          DYING EXPLODED_FLAILING:
+            Animation: [UIMOB02_SKL.UIMOB02_B_ADTA2, UIMOB02_SKL.UIMOB02_D_ADTA2]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: [UIMOB02_SKL.UIMOB02_B_ADTA3, UIMOB02_SKL.UIMOB02_D_ADTA3]
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UIMOB02_SKL.UIMOB02_B_ADTA1, UIMOB02_SKL.UIMOB02_D_ADTA1]
+            AnimationMode: ONCE
+      BodyTag_01:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: MobMemberSlavedUpdate
+        MustCatchUpRadius: 40
+        NoNeedToCatchUpRadius: 15
+        Squirrelliness: 0.05
+        CatchUpCrisisBailTime: 30
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: SquishCollide
+      UpgradeTag_01:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Upgrade_GLAArmTheMob
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabFemaleDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabFemaleDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_GIDie
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_13:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryWorker:
+    SelectPortrait: SUWorker_L
+    ButtonImage: SUWorker
+    UpgradeCameo1: Upgrade_GLAWorkerShoes
+    DisplayName: OBJECT:Worker
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 200
+    BuildCost: 200
+    BuildTime: 3.0
+    CrushableLevel: 0
+    CommandSet: Chem_GLAWorkerCommandSet
+    VoiceSelect: WorkerVoiceSelect
+    VoiceMove: WorkerVoiceMove
+    VoiceAttack: WorkerVoiceMove
+    VoiceGuard: WorkerVoiceMove
+    VoiceFear: WorkerVoiceFear
+    VoiceTaskComplete: WorkerVoiceBuildComplete
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_CAST_REFLECTIONS INFANTRY SALVAGER DOZER HARVESTER SCORE
+    Locomotor: [SET_NORMAL FastHumanLocomotor, SET_NORMAL_UPGRADED WorkerShoesLocomotor]
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY None
+    - Conditions: MINE_CLEARING_DETAIL
+      Weapon: PRIMARY WorkerMineDisarmingWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    UnitSpecificSounds:
+      VoiceEnter: WorkerVoiceMoveUpgraded
+      VoiceEnterHostile: WorkerVoiceMoveUpgraded
+      VoiceGarrison: WorkerVoiceGarrison
+      VoiceCreate: WorkerVoiceCreate
+      VoiceSupply: WorkerVoiceSupply
+      VoiceNoBuild: WorkerVoiceBuildNot
+      VoiceRepair: WorkerVoiceRepair
+      VoiceDisarm: WorkerVoiceClearMine
+      VoiceBuildResponse: WorkerVoiceBuild
+      VoiceGetHealed: WorkerVoiceMoveUpgraded
+      VoiceMoveUpgraded: WorkerVoiceMoveUpgraded
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIWRKR_SKN
+          IdleAnimation: [UIWRKR_SKL.UIWRKR_STA 0 9, UIWRKR_SKL.UIWRKR_IDA]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: UIWRKR_SKL.UIWRKR_RNA 16
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Moving
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [ACTIVELY_CONSTRUCTING MOVING]
+          ATTACKING:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_MS
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_MetalDetector_Standing
+          MOVING ATTACKING:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_MSW 50
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_MetalDetector_Moving
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING CARRYING]
+          MOVING CARRYING:
+            ShowSubObject: BOX
+            Animation: UIWRKR_SKL.UIWRKR_CARY 12
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Carry
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [ACTIVELY_CONSTRUCTING MOVING CARRYING]
+          CARRYING:
+            ShowSubObject: BOX
+            Animation: UIWRKR_SKL.UIWRKR_CARST 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Carry
+          DYING:
+            Animation: UIWRKR_SKL.UIWRKR_DTA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+            Aliases: [DYING CARRYING]
+          DYING EXPLODED_FLAILING:
+            Animation: UIWRKR_SKL.UIWRKR_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UIWRKR_SKL.UIWRKR_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: UIWRKR_SKL.UIWRKR_CHA
+            AnimationMode: ONCE
+          ACTIVELY_CONSTRUCTING:
+            Animation: UIWRKR_SKL.UIWRKR_BDA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Constructing
+            Aliases: [ACTIVELY_CONSTRUCTING CARRYING]
+        TransitionState:
+          TRANS_Stand TRANS_MetalDetector_Standing:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB1
+            AnimationMode: ONCE
+          TRANS_MetalDetector_Standing TRANS_Stand:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB2
+            AnimationMode: ONCE
+          TRANS_Carry TRANS_MetalDetector_Standing:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB1
+            AnimationMode: ONCE
+          TRANS_MetalDetector_Standing TRANS_Carry:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB2
+            AnimationMode: ONCE
+          TRANS_Carry TRANS_MetalDetector_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC1
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_MetalDetector_Moving TRANS_Stand:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB2
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_MetalDetector_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC1
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_Moving TRANS_MetalDetector_Standing:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB1
+            AnimationMode: ONCE
+          TRANS_MetalDetector_Standing TRANS_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC2
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_Moving TRANS_MetalDetector_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC1
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_MetalDetector_Moving TRANS_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC2
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_Dying TRANS_Flailing:
+            Animation: UIWRKR_SKL.UIWRKR_ADTE1
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_Carry:
+            ShowSubObject: BOX
+            Animation: UIWRKR_SKL.UIWRKR_PIK
+            AnimationMode: ONCE
+          TRANS_Carry TRANS_Stand:
+            ShowSubObject: BOX
+            Animation: UIWRKR_SKL.UIWRKR_PIK
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+          TRANS_Stand TRANS_Constructing:
+            Animation: UIWRKR_SKL.UIWRKR_TRA1
+            AnimationMode: ONCE
+          TRANS_Constructing TRANS_Stand:
+            Animation: UIWRKR_SKL.UIWRKR_TRA2
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: WorkerAIUpdate
+        RepairHealthPercentPerSecond: 2%
+        BoredTime: 5000
+        BoredRange: 150
+        MaxBoxes: 1
+        UpgradedSupplyBoost: 8
+        SupplyCenterActionDelay: 150
+        SupplyWarehouseActionDelay: 150
+        SupplyWarehouseScanDistance: 700
+        SuppliesDepletedVoice: WorkerVoiceSuppliesDepleted
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: LocomotorSetUpgrade
+        TriggeredBy: Upgrade_GLAWorkerShoes
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_WorkerDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_WorkerDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_12:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: No
+        ExtraRequiredKindOf: MINE
+      ModuleTag_13:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_14:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        TriggeredBy: Upgrade_GLAWorkerFakeCommandSet
+        RemovesUpgrades: Upgrade_GLAWorkerRealCommandSet
+        CommandSet: Chem_GLAWorkerFakeBuildingsCommandSet
+      ModuleTag_15:
+        Module: Behavior
+        Class: CommandSetUpgrade
+        TriggeredBy: Upgrade_GLAWorkerRealCommandSet
+        RemovesUpgrades: Upgrade_GLAWorkerFakeCommandSet Upgrade_GLAWorkerRealCommandSet
+        CommandSet: Chem_GLAWorkerCommandSet
+      ModuleTag_16:
+        Module: Behavior
+        Class: ProductionUpdate
+        MaxQueueEntries: 1
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_ToxicInfantryGamma:
+    Side: GLAToxinGeneral
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:ToxicInfantry
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CITOXDTH_SKNB
+          Animation: CITOXDTH_SKL.CITOXDTH_DTA
+          AnimationSpeedFactorRange: 0.9 1.3
+          AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 4500
+        SinkRate: 0.5
+        DestructionDelay: 9500
+      ModuleTag_07:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_GIDie
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  Chem_GLAInfantryRebel:
+    SelectPortrait: SUToxinRebel_L
+    ButtonImage: SUToxinRebel
+    UpgradeCameo1: Chem_Upgrade_GLAAnthraxGamma
+    UpgradeCameo2: Upgrade_InfantryCaptureBuilding
+    UpgradeCameo3: Upgrade_GLACamouflage
+    DisplayName: OBJECT:Chem_Rebel
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 300
+    BuildCost: 200
+    BuildTime: 5.0
+    ExperienceValue: 25 30 35 45
+    ExperienceRequired: 0 40 60 120
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: Chem_GLAInfantryRebelCommandSet
+    VoiceSelect: ToxinRebelVoiceSelect
+    VoiceMove: RebelVoiceMove
+    VoiceGuard: RebelVoiceMove
+    VoiceAttack: ToxinRebelVoiceAttack
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    VoiceFear: RebelVoiceFear
+    VoiceTaskComplete: RebelVoiceCaptureComplete
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER SCORE
+    Locomotor: SET_NORMAL BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY GC_Chem_GLARebelGunBeta
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY GC_Chem_GLARebelGunGamma
+    ArmorSet:
+      Conditions: None
+      Armor: ChemReb_HumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: Chem_GLABarracks
+    UnitSpecificSounds:
+      VoiceCreate: ToxinRebelVoiceCreate
+      VoiceSubdue: RebelVoiceSubdue
+      VoiceGarrison: RebelVoiceGarrison
+      VoiceEnter: RebelVoiceMove
+      VoiceEnterHostile: RebelVoiceMove
+      VoiceGetHealed: RebelVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        IgnoreConditionStates: PREATTACK_A FIRING_A BETWEEN_FIRING_SHOTS_A RELOADING_A
+        DefaultConditionState:
+          Model: UIRGrdTOX_SKN
+          IdleAnimation: [UIRGrd_SKL.UIRGrd_STN 0 35, UIRGrd_SKL.UIRGrd_IDA, UIRGrd_SKL.UIRGrd_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle01
+          WeaponLaunchBone: PRIMARY Muzzle01
+          HideSubObject: MuzzleFX01
+          TransitionKey: TRANS_Standing
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: [UIRGrd_SKL.UIRGrd_STB 0 35, UIRGrd_SKL.UIRGrd_IDC, UIRGrd_SKL.UIRGrd_IDD]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandingHurt
+          MOVING:
+            Animation: UIRGrd_SKL.UIRGrd_RNA 15
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Walking
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING]
+          MOVING REALLYDAMAGED:
+            Animation: UIRGrd_SKL.UIRGrd_RNB 25
+            AnimationMode: LOOP
+            TransitionKey: TRANS_WalkingHurt
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING REALLYDAMAGED]
+          DYING:
+            Animation: [UIRGrd_SKL.UIRGrd_DTA, UIRGrd_SKL.UIRGrd_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: UIRGrd_SKL.UIRGrd_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UIRGrd_SKL.UIRGrd_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: UIRGrd_SKL.UIRGrd_IDB
+          USING_WEAPON_A:
+            Animation: UIRGrd_SKL.UIRGrd_ATA3
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Firing
+          USING_WEAPON_A REALLYDAMAGED:
+            Animation: UIRGrd_SKL.UIRGrd_ATA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringHurt
+          UNPACKING:
+            Model: UIRGrdTOXF_SKN
+            Animation: UIRGrd_F_SKL.UIRGrd_F_FDP1
+            AnimationMode: ONCE
+            Aliases: [UNPACKING REALLYDAMAGED]
+          RAISING_FLAG:
+            Model: UIRGrdTOXF_SKN
+            Animation: UIRGrd_F_SKL.UIRGrd_F_FDP2
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Raising
+            Aliases: [RAISING_FLAG REALLYDAMAGED]
+          PACKING:
+            Model: UIRGrdTOXF_SKN
+            Animation: UIRGrd_F_SKL.UIRGrd_F_FDP1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_Packing
+            Aliases: [PACKING REALLYDAMAGED]
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: UIRGrd_SKL.UIRGrd_ADTE1
+            AnimationMode: ONCE
+          TRANS_Standing TRANS_Firing:
+            Animation: UIRGrd_SKL.UIRGrd_ATAST
+            AnimationMode: ONCE
+          TRANS_Firing TRANS_Standing:
+            Animation: UIRGrd_SKL.UIRGrd_ATAED
+            AnimationMode: ONCE
+          TRANS_StandingHurt TRANS_FiringHurt:
+            Animation: UIRGrd_SKL.UIRGrd_ATA2ED
+            AnimationMode: ONCE_BACKWARDS
+          TRANS_FiringHurt TRANS_StandingHurt:
+            Animation: UIRGrd_SKL.UIRGrd_ATA2ED
+            AnimationMode: ONCE
+          TRANS_Standing TRANS_StandingHurt:
+            Animation: UIRGrd_SKL.UIRGrd_ATA2ED
+            AnimationMode: ONCE
+          TRANS_Raising TRANS_Packing:
+            Model: UIRGrdTOXF_SKN
+            Animation: UIRGrd_F_SKL.UIRGrd_F_FDP2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 2500
+        StealthForbiddenConditions: ATTACKING USING_ABILITY
+        MoveThresholdSpeed: 3
+        InnateStealth: No
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPBullets
+      ModuleTag_10:
+        Module: Behavior
+        Class: StealthUpgrade
+        TriggeredBy: Upgrade_GLACamouflage
+      ModuleTag_11:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_12:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RebelDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RebelDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_16:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_17:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityRebelCaptureBuilding
+        UpdateModuleStartsAttack: Yes
+        StartsPaused: Yes
+        InitiateSound: RebelVoiceCapture
+      ModuleTag_18:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityRebelCaptureBuilding
+        StartAbilityRange: 5.0
+        UnpackTime: 3000
+        PreparationTime: 20000
+        PackTime: 2000
+        DoCaptureFX: Yes
+        AwardXPForTriggering: 12
+      ModuleTag_19:
+        Module: Behavior
+        Class: UnpauseSpecialPowerUpgrade
+        SpecialPowerTemplate: SpecialAbilityRebelCaptureBuilding
+        TriggeredBy: Upgrade_InfantryCaptureBuilding
+    SourceFile: Data/INI/Object/ChemicalGeneral.ini
+  GC_Chem_GLAInfantryStingerSoldier:
+    UpgradeCameo1: Chem_Upgrade_GLAAnthraxGamma
+    SelectPortrait: SUStinger_L
+    ButtonImage: SUStinger
+    DisplayName: OBJECT:StingerSoldier
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 400.0
+    ShroudClearingRange: 400
+    BuildCost: 100
+    BuildTime: 1.0
+    CrushableLevel: 0
+    VoiceSelect: StingerSoldierVoiceSelect
+    VoiceMove: StingerSoldierVoiceMove
+    VoiceAttack: StingerSoldierVoiceAttack
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER CLICK_THROUGH SPAWNS_ARE_THE_WEAPONS
+    Locomotor: SET_NORMAL BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon:
+      - PRIMARY GC_Chem_StingerMissileWeaponBeta
+      - SECONDARY GC_Chem_StingerMissileWeaponAirBeta
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_AI FROM_SCRIPT
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    - Conditions: PLAYER_UPGRADE
+      Weapon:
+      - PRIMARY GC_Chem_StingerMissileWeaponGamma
+      - SECONDARY GC_Chem_StingerMissileWeaponAirGamma
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_AI FROM_SCRIPT
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: StingerSoldierArmor
+      DamageFX: None
+    Prerequisites:
+      Object: GC_Chem_GLABarracks
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UISmsd_SKN
+          IdleAnimation:
+          - UISmsd_SKL.UISmsd_STA 0 45
+          - UISmsd_SKL.UISmsd_IDA
+          - UISmsd_SKL.UISmsd_IDB
+          - UISmsd_SKL.UISmsd_IDC
+          - UISmsd_SKL.UISmsd_IDD
+          AnimationMode: ONCE
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WeaponFireFXBone: [PRIMARY Exhaust, SECONDARY Exhaust]
+          WeaponLaunchBone: [PRIMARY Muzzle, SECONDARY Muzzle]
+          WaitForStateToFinishIfPossible: TRANS_START_FIRING
+          Aliases: [BETWEEN_FIRING_SHOTS_A, BETWEEN_FIRING_SHOTS_B, RELOADING_A, RELOADING_B]
+        ConditionState:
+          MOVING:
+            Animation: UISmsd_SKL.UISmsd_WKB 25
+            AnimationMode: LOOP
+          DYING:
+            Animation: [UISmsd_SKL.UISmsd_DTA, UISmsd_SKL.UISmsd_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+            WaitForStateToFinishIfPossible: NONE
+          DYING EXPLODED_FLAILING:
+            Animation: [UISmsd_SKL.UISmsd_ADTF2, UISmsd_SKL.UISmsd_ADTG22]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+            WaitForStateToFinishIfPossible: NONE
+          DYING EXPLODED_BOUNCING:
+            Animation: [UISmsd_SKL.UISmsd_ADTF3, UISmsd_SKL.UISmsd_ADTG23]
+            AnimationMode: ONCE
+            TransitionKey: None
+            WaitForStateToFinishIfPossible: NONE
+          FIRING_A:
+            Animation: UISmsd_SKL.UISmsd_ATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_START_FIRING
+            Aliases: [MOVING FIRING_A, MOVING RELOADING_A]
+          FIRING_B:
+            Animation: UISmsd_SKL.UISmsd_ATB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_START_FIRINGB
+            Aliases: [MOVING FIRING_B, MOVING RELOADING_B]
+          SPECIAL_CHEERING:
+            Animation: UISMSD_SKL.UISMSD_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UISmsd_SKL.UISmsd_ADTF1, UISmsd_SKL.UISmsd_ADTG21]
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_16:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        DetectionRange: 200
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: No
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes Stealthed ATTACK_BUILDINGS
+        MoodAttackCheckRate: 250
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlavedUpdate
+      ModuleTag_08:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_09:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_StingerSoldierDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_StingerSoldierDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini
+  GC_Chem_GLAInfantryRebel:
+    SelectPortrait: SUToxinRebel_L
+    ButtonImage: SUToxinRebel
+    UpgradeCameo1: Chem_Upgrade_GLAAnthraxGamma
+    UpgradeCameo2: Upgrade_InfantryCaptureBuilding
+    UpgradeCameo3: Upgrade_GLACamouflage
+    DisplayName: OBJECT:Rebel
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 300
+    BuildCost: 150
+    BuildTime: 5.0
+    ExperienceValue: 15 15 30 40
+    ExperienceRequired: 0 40 60 120
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: GLAInfantryRebelCommandSet
+    VoiceSelect: RebelVoiceSelect
+    VoiceMove: RebelVoiceMove
+    VoiceGuard: RebelVoiceMove
+    VoiceAttack: RebelVoiceAttack
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    VoiceFear: RebelVoiceFear
+    VoiceTaskComplete: RebelVoiceCaptureComplete
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER SCORE
+    Locomotor: SET_NORMAL BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY GC_Chem_GLARebelGunBeta
+    - Conditions: PLAYER_UPGRADE
+      Weapon: PRIMARY GC_Chem_GLARebelGunGamma
+    ArmorSet:
+      Conditions: None
+      Armor: HazMatHumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: GC_Chem_GLABarracks
+    UnitSpecificSounds:
+      VoiceCreate: RebelVoiceCreate
+      VoiceSubdue: RebelVoiceSubdue
+      VoiceGarrison: RebelVoiceGarrison
+      VoiceEnter: RebelVoiceMove
+      VoiceEnterHostile: RebelVoiceMove
+      VoiceGetHealed: RebelVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ParticlesAttachedToAnimatedBones: Yes
+        IgnoreConditionStates: PREATTACK_A FIRING_A BETWEEN_FIRING_SHOTS_A RELOADING_A
+        DefaultConditionState:
+          Model: UIRGrdTOX_SKN
+          IdleAnimation: [UIRGrd_SKL.UIRGrd_STN 0 35, UIRGrd_SKL.UIRGrd_IDA, UIRGrd_SKL.UIRGrd_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle01
+          WeaponLaunchBone: PRIMARY Muzzle01
+          HideSubObject: MuzzleFX01
+          TransitionKey: TRANS_Standing
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: [UIRGrd_SKL.UIRGrd_STB 0 35, UIRGrd_SKL.UIRGrd_IDC, UIRGrd_SKL.UIRGrd_IDD]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandingHurt
+          MOVING:
+            Animation: UIRGrd_SKL.UIRGrd_RNA 15
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Walking
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING]
+          MOVING REALLYDAMAGED:
+            Animation: UIRGrd_SKL.UIRGrd_RNB 25
+            AnimationMode: LOOP
+            TransitionKey: TRANS_WalkingHurt
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING REALLYDAMAGED]
+          DYING:
+            Animation: [UIRGrd_SKL.UIRGrd_DTA, UIRGrd_SKL.UIRGrd_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: UIRGrd_SKL.UIRGrd_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UIRGrd_SKL.UIRGrd_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: UIRGrd_SKL.UIRGrd_IDB
+          USING_WEAPON_A:
+            Animation: UIRGrd_SKL.UIRGrd_ATA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Firing
+          USING_WEAPON_A REALLYDAMAGED:
+            Animation: UIRGrd_SKL.UIRGrd_ATA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringHurt
+          UNPACKING:
+            Model: UIRGrd_F_SKN
+            Animation: UIRGrd_F_SKL.UIRGrd_F_FDP1
+            AnimationMode: ONCE
+            Aliases: [UNPACKING REALLYDAMAGED]
+          RAISING_FLAG:
+            Model: UIRGrd_F_SKN
+            Animation: UIRGrd_F_SKL.UIRGrd_F_FDP2
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Raising
+            Aliases: [RAISING_FLAG REALLYDAMAGED]
+          PACKING:
+            Model: UIRGrd_F_SKN
+            Animation: UIRGrd_F_SKL.UIRGrd_F_FDP1
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+            TransitionKey: TRANS_Packing
+            Aliases: [PACKING REALLYDAMAGED]
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: UIRGrd_SKL.UIRGrd_ADTE1
+            AnimationMode: ONCE
+          TRANS_Standing TRANS_Firing:
+            Animation: UIRGrd_SKL.UIRGrd_ATAST
+            AnimationMode: ONCE
+          TRANS_Firing TRANS_Standing:
+            Animation: UIRGrd_SKL.UIRGrd_ATAED
+            AnimationMode: ONCE
+          TRANS_StandingHurt TRANS_FiringHurt:
+            Animation: UIRGrd_SKL.UIRGrd_ATA2ED
+            AnimationMode: ONCE_BACKWARDS
+          TRANS_FiringHurt TRANS_StandingHurt:
+            Animation: UIRGrd_SKL.UIRGrd_ATA2ED
+            AnimationMode: ONCE
+          TRANS_Standing TRANS_StandingHurt:
+            Animation: UIRGrd_SKL.UIRGrd_ATA2ED
+            AnimationMode: ONCE
+          TRANS_Raising TRANS_Packing:
+            Model: UIRGrd_F_SKN
+            Animation: UIRGrd_F_SKL.UIRGrd_F_FDP2
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_05:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 2500
+        StealthForbiddenConditions: ATTACKING USING_ABILITY
+        MoveThresholdSpeed: 3
+        InnateStealth: No
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPBullets
+      ModuleTag_10:
+        Module: Behavior
+        Class: StealthUpgrade
+        TriggeredBy: Upgrade_GLACamouflage
+      ModuleTag_11:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_12:
+        Module: ClientUpdate
+        Class: AnimatedParticleSysBoneClientUpdate
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RebelDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RebelDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_16:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_17:
+        Module: Behavior
+        Class: SpecialAbility
+        SpecialPowerTemplate: SpecialAbilityRebelCaptureBuilding
+        UpdateModuleStartsAttack: Yes
+        StartsPaused: Yes
+        InitiateSound: RebelVoiceCapture
+      ModuleTag_18:
+        Module: Behavior
+        Class: SpecialAbilityUpdate
+        SpecialPowerTemplate: SpecialAbilityRebelCaptureBuilding
+        StartAbilityRange: 5.0
+        UnpackTime: 3000
+        PreparationTime: 20000
+        PackTime: 2000
+        DoCaptureFX: Yes
+        AwardXPForTriggering: 12
+      ModuleTag_19:
+        Module: Behavior
+        Class: UnpauseSpecialPowerUpgrade
+        SpecialPowerTemplate: SpecialAbilityRebelCaptureBuilding
+        TriggeredBy: Upgrade_InfantryCaptureBuilding
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini
+  GC_Chem_GLAInfantryTunnelDefender:
+    SelectPortrait: SUToxinRPG_L
+    ButtonImage: SUToxinRPG
+    UpgradeCameo1: Upgrade_GLAAPRockets
+    DisplayName: OBJECT:TunnelDefender
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 400
+    BuildCost: 300
+    BuildTime: 5.0
+    ExperienceValue: 20 20 40 60
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrushableLevel: 0
+    CommandSet: GLAInfantryTunnelDefenderCommandSet
+    VoiceSelect: RPGTrooperVoiceSelect
+    VoiceMove: RPGTrooperVoiceMove
+    VoiceGuard: RPGTrooperVoiceMove
+    VoiceAttack: RPGTrooperVoiceAttack
+    VoiceFear: RPGTrooperVoiceFear
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER SCORE
+    Locomotor: SET_NORMAL MissileDefenderLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon:
+      - PRIMARY GC_Chem_TunnelDefenderRocketWeaponBeta
+      - SECONDARY GC_Chem_TunnelDefenderRocketWeaponBetaAir
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_AI FROM_SCRIPT
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    - Conditions: PLAYER_UPGRADE
+      Weapon:
+      - PRIMARY GC_Chem_TunnelDefenderRocketWeaponGamma
+      - SECONDARY GC_Chem_TunnelDefenderRocketWeaponGammaAir
+      AutoChooseSources: PRIMARY FROM_PLAYER FROM_AI FROM_SCRIPT
+      PreferredAgainst: SECONDARY BALLISTIC_MISSILE AIRCRAFT
+    ArmorSet:
+      Conditions: None
+      Armor: HazMatHumanArmor
+      DamageFX: InfantryDamageFX
+    UnitSpecificSounds:
+      VoiceCreate: RPGTrooperVoiceCreate
+      VoiceGarrison: RPGTrooperVoiceGarrison
+      VoiceEnter: RPGTrooperVoiceMove
+      VoiceEnterHostile: RPGTrooperVoiceMove
+      VoiceGetHealed: RPGTrooperVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UITunFTox_SKN
+          IdleAnimation:
+          - UITunF_SKL.UITunF_STA 0 20
+          - UITunF_SKL.UITunF_IDA
+          - UITunF_SKL.UITunF_IDB
+          - UITunF_SKL.UITunF_IDC
+          AnimationMode: ONCE
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponLaunchBone: PRIMARY Muzzle
+        ConditionState:
+          MOVING:
+            Animation:
+            - UITunF_SKL.UITunF_WKA 16
+            - UITunF_SKL.UITunF_WKB 30
+            - UITunF_SKL.UITunF_WKC 30
+            - UITunF_SKL.UITunF_RNA 15
+            - UITunF_SKL.UITunF_RNB 25
+            AnimationMode: LOOP
+            ParticleSysBone: None InfantryDustTrails
+          DYING:
+            Animation: [UITunF_SKL.UITunF_DTA, UITunF_SKL.UITunF_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: [UITunF_SKL.UITunF_ADTA2, UITunF_SKL.UITunF_ADTE2, UITunF_SKL.UITunF_ADTF2]
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: [UITunF_SKL.UITunF_ADTA3, UITunF_SKL.UITunF_ADTE3, UITunF_SKL.UITunF_ADTF3]
+            AnimationMode: ONCE
+            TransitionKey: None
+          FIRING_A:
+            Animation: UITunF_SKL.UITunF_ATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_START_FIRING
+          BETWEEN_FIRING_SHOTS_A:
+            Animation: UITunF_SKL.UITunF_STA
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_START_FIRING
+            Aliases: [RELOADING_A]
+          SPECIAL_CHEERING:
+            Animation: UITUNF_SKL.UITUNF_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: [UITunF_SKL.UITunF_ADTA1, UITunF_SKL.UITunF_ADTE1, UITunF_SKL.UITunF_ADTF1]
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponSetUpgrade
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RPGTrooperDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RPGTrooperDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_12:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini
+  GC_Chem_GLAInfantryWorker:
+    SelectPortrait: SUWorker_L
+    ButtonImage: SUWorker
+    DisplayName: OBJECT:Worker
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 200
+    BuildCost: 200
+    BuildTime: 5.0
+    CrushableLevel: 0
+    CommandSet: GC_Chem_GLAWorkerCommandSet
+    VoiceSelect: WorkerVoiceSelect
+    VoiceMove: WorkerVoiceMove
+    VoiceAttack: WorkerVoiceMove
+    VoiceGuard: WorkerVoiceMove
+    VoiceFear: WorkerVoiceFear
+    VoiceTaskComplete: WorkerVoiceBuildComplete
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_CAST_REFLECTIONS INFANTRY SALVAGER DOZER HARVESTER SCORE
+    Locomotor: SET_NORMAL FastHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+    - Conditions: None
+      Weapon: PRIMARY None
+    - Conditions: MINE_CLEARING_DETAIL
+      Weapon: PRIMARY WorkerMineDisarmingWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: HazMatHumanArmor
+      DamageFX: InfantryDamageFX
+    UnitSpecificSounds:
+      VoiceEnter: WorkerVoiceMoveUpgraded
+      VoiceEnterHostile: WorkerVoiceMoveUpgraded
+      VoiceGarrison: WorkerVoiceGarrison
+      VoiceCreate: WorkerVoiceCreate
+      VoiceSupply: WorkerVoiceSupply
+      VoiceNoBuild: WorkerVoiceBuildNot
+      VoiceRepair: WorkerVoiceRepair
+      VoiceDisarm: WorkerVoiceClearMine
+      VoiceBuildResponse: WorkerVoiceBuild
+      VoiceGetHealed: WorkerVoiceMoveUpgraded
+      VoiceMoveUpgraded: WorkerVoiceMoveUpgraded
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIWRKR_SKN
+          IdleAnimation: [UIWRKR_SKL.UIWRKR_STA 0 9, UIWRKR_SKL.UIWRKR_IDA]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: UIWRKR_SKL.UIWRKR_RNA 16
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Moving
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [ACTIVELY_CONSTRUCTING MOVING]
+          ATTACKING:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_MS
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_MetalDetector_Standing
+          MOVING ATTACKING:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_MSW 50
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_MetalDetector_Moving
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING ATTACKING CARRYING]
+          MOVING CARRYING:
+            ShowSubObject: BOX
+            Animation: UIWRKR_SKL.UIWRKR_CARY 12
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Carry
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [ACTIVELY_CONSTRUCTING MOVING CARRYING]
+          CARRYING:
+            ShowSubObject: BOX
+            Animation: UIWRKR_SKL.UIWRKR_CARST 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Carry
+          DYING:
+            Animation: UIWRKR_SKL.UIWRKR_DTA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+            Aliases: [DYING CARRYING]
+          DYING EXPLODED_FLAILING:
+            Animation: UIWRKR_SKL.UIWRKR_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UIWRKR_SKL.UIWRKR_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: UIWRKR_SKL.UIWRKR_CHA
+            AnimationMode: ONCE
+          ACTIVELY_CONSTRUCTING:
+            Animation: UIWRKR_SKL.UIWRKR_BDA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Constructing
+            Aliases: [ACTIVELY_CONSTRUCTING CARRYING]
+        TransitionState:
+          TRANS_Stand TRANS_MetalDetector_Standing:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB1
+            AnimationMode: ONCE
+          TRANS_MetalDetector_Standing TRANS_Stand:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB2
+            AnimationMode: ONCE
+          TRANS_Carry TRANS_MetalDetector_Standing:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB1
+            AnimationMode: ONCE
+          TRANS_MetalDetector_Standing TRANS_Carry:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB2
+            AnimationMode: ONCE
+          TRANS_Carry TRANS_MetalDetector_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC1
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_MetalDetector_Moving TRANS_Stand:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB2
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_MetalDetector_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC1
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_Moving TRANS_MetalDetector_Standing:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRB1
+            AnimationMode: ONCE
+          TRANS_MetalDetector_Standing TRANS_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC2
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_Moving TRANS_MetalDetector_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC1
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_MetalDetector_Moving TRANS_Moving:
+            ShowSubObject: MINED_SKIN
+            Animation: UIWRKR_SKL.UIWRKR_TRC2
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 2.0 2.0
+          TRANS_Dying TRANS_Flailing:
+            Animation: UIWRKR_SKL.UIWRKR_ADTE1
+            AnimationMode: ONCE
+          TRANS_Stand TRANS_Carry:
+            ShowSubObject: BOX
+            Animation: UIWRKR_SKL.UIWRKR_PIK
+            AnimationMode: ONCE
+          TRANS_Carry TRANS_Stand:
+            ShowSubObject: BOX
+            Animation: UIWRKR_SKL.UIWRKR_PIK
+            AnimationMode: ONCE_BACKWARDS
+            Flags: START_FRAME_LAST
+          TRANS_Stand TRANS_Constructing:
+            Animation: UIWRKR_SKL.UIWRKR_TRA1
+            AnimationMode: ONCE
+          TRANS_Constructing TRANS_Stand:
+            Animation: UIWRKR_SKL.UIWRKR_TRA2
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: WorkerAIUpdate
+        RepairHealthPercentPerSecond: 2%
+        BoredTime: 5000
+        BoredRange: 150
+        MaxBoxes: 1
+        UpgradedSupplyBoost: 25
+        SupplyCenterActionDelay: 150
+        SupplyWarehouseActionDelay: 150
+        SupplyWarehouseScanDistance: 700
+        SuppliesDepletedVoice: WorkerVoiceSuppliesDepleted
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_WorkerDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_WorkerDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_12:
+        Module: Behavior
+        Class: StealthDetectorUpdate
+        DetectionRate: 500
+        CanDetectWhileGarrisoned: No
+        CanDetectWhileContained: No
+        ExtraRequiredKindOf: MINE
+      ModuleTag_13:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini
+  GC_Chem_GLAInfantryHijacker:
+    SelectPortrait: SUHijacker_L
+    ButtonImage: SUHijacker
+    DisplayName: OBJECT:Hijacker
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 100
+    ShroudClearingRange: 200
+    BuildCost: 400
+    BuildTime: 10.0
+    ExperienceValue: 50 100 150 400
+    ExperienceRequired: 0 150 450 900
+    IsTrainable: No
+    CrushableLevel: 0
+    CommandSet: GLAInfantryHijackerCommandSet
+    VoiceSelect: HijackerVoiceSelect
+    VoiceMove: HijackerVoiceMove
+    VoiceGuard: HijackerVoiceMove
+    VoiceAttack: HijackerVoiceAttack
+    VoiceFear: HijackerVoiceFear
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_CAST_REFLECTIONS INFANTRY SALVAGER SCORE STEALTH_GARRISON
+    Locomotor: SET_NORMAL JarmenKellLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    ArmorSet:
+      Conditions: None
+      Armor: HazMatHumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: [GC_Chem_GLABarracks, GC_Chem_GLAPalace]
+      Science: SCIENCE_Hijacker
+    UnitSpecificSounds:
+      VoiceGarrison: HijackerVoiceGarrison
+      VoiceCreate: HijackerVoiceCreate
+      VoiceEnter: HijackerVoiceEnter
+      VoiceEnterHostile: HijackerVoiceEnterHostile
+      VoiceGetHealed: HijackerVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIHJCK_SKN
+          IdleAnimation: [UIHJCK_SKL.UIHJCK_STA 0 25, UIHJCK_SKL.UIHJCK_IDA, UIHJCK_SKL.UIHJCK_IDB]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+          Aliases: [REALLYDAMAGED]
+        ConditionState:
+          MOVING:
+            Animation: UIHJCK_SKL.UIHJCK_RUN
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [REALLYDAMAGED MOVING]
+          DYING:
+            Animation: [UIHJCK_SKL.UIHJCK_DTA, UIHJCK_SKL.UIHJCK_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: UIHJCK_SKL.UIHJCK_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UIHJCK_SKL.UIHJCK_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: UIHJCK_SKL.UIHJCK_CHA
+            AnimationMode: LOOP
+          PARACHUTING:
+            Animation: UIHJCK_SKL.UIHJCK_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: UIHJCK_SKL.UIHJCK_ADTE1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: UIHJCK_SKL.UIHJCK_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: UIHJCK_SKL.UIHJCK_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 500
+        StealthForbiddenConditions: MOVING
+        MoveThresholdSpeed: 3
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: HijackerUpdate
+        ParachuteName: AmericaParachute
+      ModuleTag_05:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_CBH01:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_06:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_08:
+        Module: Behavior
+        Class: ConvertToHijackedVehicleCrateCollide
+        RequiredKindOf: VEHICLE
+      ModuleTag_09:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_HijackerDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_HijackerDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini
+  GC_Chem_GLAInfantryJarmenKell:
+    SelectPortrait: SUJermanKell1_L
+    ButtonImage: SUJermanKell1
+    UpgradeCameo1: Upgrade_GLAAPBullets
+    DisplayName: OBJECT:JarmenKell
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    MaxSimultaneousOfType: 1
+    VisionRange: 200
+    ShroudClearingRange: 300
+    BuildCost: 1500
+    BuildTime: 20.0
+    ExperienceValue: 50 50 100 150
+    ExperienceRequired: 0 100 200 400
+    IsTrainable: Yes
+    CrushableLevel: 2
+    CommandSet: GLAInfantryJarmenKellCommandSet
+    VoiceSelect: JarmenKellVoiceSelect
+    VoiceMove: JarmenKellVoiceMove
+    VoiceGuard: JarmenKellVoiceMove
+    VoiceAttack: JarmenKellVoiceAttack
+    VoiceFear: JarmenKellVoiceFear
+    SoundStealthOn: StealthOn
+    SoundStealthOff: StealthOff
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER STEALTH_GARRISON SCORE HERO
+    Locomotor: SET_NORMAL JarmenKellLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY GLAJarmenKellRifle, SECONDARY GLAJarmenKellVehiclePilotSniperRifle]
+      AutoChooseSources: [PRIMARY NONE, SECONDARY NONE]
+    ArmorSet:
+      Conditions: None
+      Armor: HazMatHumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: [GC_Chem_GLABarracks, GC_Chem_GLAPalace]
+    UnitSpecificSounds:
+      VoiceCreate: JarmenKellVoiceCreate
+      VoiceSnipePilot: JarmenKellVoiceSnipe
+      VoiceGarrison: JarmenKellVoiceGarrison
+      VoiceEnter: JarmenKellVoiceMove
+      VoiceEnterHostile: JarmenKellVoiceMove
+      VoiceGetHealed: JarmenKellVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIHERO_SKN
+          IdleAnimation: [UIHERO_SKL.UIHERO_STA 0 21, UIHERO_SKL.UIHERO_IDA, UIHERO_SKL.UIHERO_IDB]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            IdleAnimation: [UIHERO_SKL.UIHERO_ISTA 0 30, UIHERO_SKL.UIHERO_IIDA, UIHERO_SKL.UIHERO_IIDB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_StandInjured
+          FIRING_A:
+            Animation: UIHERO_SKL.UIHERO_ATA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringA
+            AnimationSpeedFactorRange: 1.5 1.5
+          BETWEEN_FIRING_SHOTS_A:
+            Animation: UIHERO_SKL.UIHERO_STA
+            AnimationMode: ONCE
+            WaitForStateToFinishIfPossible: TRANS_FiringA
+            Aliases: [RELOADING_A]
+          FIRING_A REALLYDAMAGED:
+            Animation: UIHERO_SKL.UIHERO_IATA2
+            AnimationMode: ONCE
+            TransitionKey: TRANS_FiringAInjured
+            AnimationSpeedFactorRange: 1.5 1.5
+          BETWEEN_FIRING_SHOTS_A REALLYDAMAGED:
+            Animation: UIHERO_SKL.UIHERO_IATA2
+            AnimationMode: MANUAL
+            Flags: START_FRAME_LAST
+            WaitForStateToFinishIfPossible: TRANS_FiringAInjured
+            Aliases: [RELOADING_A REALLYDAMAGED]
+          MOVING:
+            Animation: UIHERO_SKL.UIHERO_RNA2 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING FIRING_A, MOVING BETWEEN_FIRING_SHOTS_A, MOVING RELOADING_A]
+          MOVING REALLYDAMAGED:
+            Animation: UIHERO_SKL.UIHERO_IRNA 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases:
+            - MOVING FIRING_A REALLYDAMAGED
+            - MOVING BETWEEN_FIRING_SHOTS_A REALLYDAMAGED
+            - MOVING RELOADING_A REALLYDAMAGED
+          SPECIAL_CHEERING:
+            Animation: UIHERO_SKL.UIHERO_CHA
+            AnimationMode: LOOP
+          SPECIAL_CHEERING REALLYDAMAGED:
+            Animation: UIHERO_SKL.UIHERO_ICHA
+            AnimationMode: LOOP
+          DYING:
+            Animation:
+            - UIHERO_SKL.UIHERO_DTA
+            - UIHERO_SKL.UIHERO_DTB
+            - UIHERO_SKL.UIHERO_IDTA
+            - UIHERO_SKL.UIHERO_IDTB
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: UIHERO_SKL.UIHERO_ADTG22
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UIHERO_SKL.UIHERO_ADTG23
+            AnimationMode: ONCE
+            TransitionKey: None
+          FREEFALL:
+            Animation: UIHERO_SKL.UIHERO_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: UIHERO_SKL.UIHERO_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+        TransitionState:
+          TRANS_Stand TRANS_StandInjured:
+            Animation: UIHERO_SKL.UIHERO_ISTAHIT
+            AnimationMode: ONCE
+          TRANS_FiringA TRANS_FiringAInjured:
+            Animation: UIHERO_SKL.UIHERO_IATAHIT
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: UIHERO_SKL.UIHERO_ADTG21
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: UIHERO_SKL.UIHERO_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: UIHERO_SKL.UIHERO_PTD
+            AnimationMode: ONCE
+          TRANS_Chute TRANS_StandInjured:
+            Animation: UIHERO_SKL.UIHERO_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 200.0
+        InitialHealth: 200.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: StealthUpdate
+        StealthDelay: 2000
+        StealthForbiddenConditions: ATTACKING
+        InnateStealth: Yes
+        OrderIdleEnemiesToAttackMeUponReveal: Yes
+        EnemyDetectionEvaEvent: EnemyJarmenKellDetected
+        OwnDetectionEvaEvent: OwnJarmenKellDetected
+      ModuleTag_07:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_08:
+        Module: Behavior
+        Class: WeaponBonusUpgrade
+        TriggeredBy: Upgrade_GLAAPBullets
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_JarmenKellDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_JarmenKellDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini
+  GC_Chem_GLAInfantryTerrorist:
+    SelectPortrait: SUTerrorist_L
+    ButtonImage: SUTerrorist
+    DisplayName: OBJECT:Terrorist
+    Side: GLAToxinGeneral
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    ShroudClearingRange: 200
+    BuildCost: 200
+    BuildTime: 5.0
+    CrushableLevel: 0
+    CommandSet: GLAInfantryTerroristCommandSet
+    VoiceSelect: TerroristVoiceSelect
+    VoiceMove: TerroristVoiceMove
+    VoiceAttack: TerroristVoiceAttack
+    VoiceFear: TerroristVoiceFear
+    VoiceGuard: TerroristVoiceMove
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CAN_CAST_REFLECTIONS INFANTRY SALVAGER SCORE
+    ExperienceValue: 20 20 20 20
+    Locomotor: SET_NORMAL FastHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY TerroristSuicideWeapon
+    ArmorSet:
+      Conditions: None
+      Armor: HazMatHumanArmor
+      DamageFX: InfantryDamageFX
+    Prerequisites:
+      Object: GC_Chem_GLABarracks
+    UnitSpecificSounds:
+      VoiceGarrison: TerroristVoiceMove
+      VoiceCreate: TerroristVoiceCreate
+      VoiceEnter: TerroristVoiceEnter
+      VoiceEnterHostile: TerroristVoiceEnterHostile
+      VoiceGetHealed: TerroristVoiceMove
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UITRST_SKN
+          IdleAnimation: [UITRST_SKL.UITRST_STA 0 25, UITRST_SKL.UITRST_IDA, UITRST_SKL.UITRST_IDB]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          REALLYDAMAGED:
+            Animation: UITRST_SKL.UITRST_STA
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Stand
+          FREEFALL:
+            Animation: UITRST_SKL.UITRST_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+            Aliases: [FREEFALL REALLYDAMAGED, FREEFALL DYING]
+          PARACHUTING:
+            Animation: UITRST_SKL.UITRST_PHG
+            AnimationMode: LOOP
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING REALLYDAMAGED, PARACHUTING DYING]
+          MOVING:
+            Animation: UITRST_SKL.UITRST_RNA 15
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            ParticleSysBone: None InfantryDustTrails
+            Aliases: [MOVING REALLYDAMAGED]
+          ATTACKING MOVING:
+            Animation: UITRST_SKL.UITRST_RNB 10
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+            Aliases: [ATTACKING MOVING REALLYDAMAGED]
+          PREATTACK_A:
+            Animation: UITRST_SKL.UITRST_ATA
+            AnimationMode: ONCE
+            Aliases: [PREATTACK_A MOVING]
+          DYING:
+            Animation: [UITRST_SKL.UITRST_DTA, UITRST_SKL.UITRST_DTC]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: UITRST_SKL.UITRST_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: UITRST_SKL.UITRST_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+          SPECIAL_CHEERING:
+            Animation: UITRST_SKL.UITRST_CHA
+            AnimationMode: LOOP
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: UITRST_SKL.UITRST_ADTE1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: UITRST_SKL.UITRST_POP
+            AnimationMode: ONCE
+            Flags: PRISTINE_BONE_POS_IN_FINAL_FRAME
+          TRANS_Chute TRANS_Stand:
+            Animation: UITRST_SKL.UITRST_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 120.0
+        InitialHealth: 120.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_CBH01:
+        Module: Behavior
+        Class: CommandButtonHuntUpdate
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: ConvertToCarBombCrateCollide
+        RequiredKindOf: VEHICLE
+        FXList: FX_MakeCarBombSuccess
+      ModuleTag_07:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -SUICIDED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_TerroristDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +SUICIDED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_TerroristExplode
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: GC_Chem_SuicideDynamitePackBeta
+        StartsActive: Yes
+        DeathTypes: NONE +SUICIDED +CRUSHED +SPLATTED +LASERED +BURNED +EXPLODED
+        ConflictsWith: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: FireWeaponWhenDeadBehavior
+        DeathWeapon: GC_Chem_SuicideDynamitePackGamma
+        StartsActive: No
+        DeathTypes: NONE +SUICIDED +CRUSHED +SPLATTED +LASERED +BURNED +EXPLODED
+        TriggeredBy: Chem_Upgrade_GLAAnthraxGamma
+      ModuleTag_14:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/GC_Chem_GLAUnits.ini

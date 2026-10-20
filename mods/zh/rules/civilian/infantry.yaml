@@ -1,0 +1,3088 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  MogadishuMaleCivilian01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuMaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CIUMC01_SKN
+          IdleAnimation: [CIUMC01_SKL.CIUMC01_STN 0 30, CIUMC01_SKL.CIUMC01_IDA]
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIUMC01_SKL.CIUMC01_WKA 50
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIUMC01_SKL.CIUMC01_PKA 20
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: CIUMC01_SKL.CIUMC01_DTA
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianArabMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  MogadishuMaleCivilian02:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuMaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CISTV01_SKN
+          IdleAnimation: [CISTV01_SKL.CISTV01_STN 0 30, CISTV01_SKL.CISTV01_IDA]
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CISTV01_SKL.CISTV01_WKA 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CISTV01_SKL.CISTV01_PKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: CISTV01_SKL.CISTV01_DTA
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianArabMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireGLA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinGLA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  MogadishuMaleCivilian03:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuMaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: cisciv02_SKN
+          IdleAnimation:
+          - cisciv02_SKL.cisciv02_STA 0 30
+          - cisciv02_SKL.cisciv02_IDA
+          - cisciv02_SKL.cisciv02_IDB
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: cisciv02_SKL.cisciv02_WKA 42
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: cisciv02_SKL.cisciv02_RNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [cisciv02_SKL.cisciv02_DTA, cisciv02_SKL.cisciv02_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: cisciv02_SKL.cisciv02_ADTA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: cisciv02_SKL.cisciv02_ADTA3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: cisciv02_SKL.cisciv02_ADTA1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianChinaMaleDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianChinaMaleDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  MogadishuFemaleCivilian02:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CIUMC3S_SKN
+          IdleAnimation: [CIUMC3S_SKL.CIUMC3S_STA 0 30, CIUMC3S_SKL.CIUMC3S_IDA, CIUMC3S_SKL.CIUMC3S_IDB]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: CIUMC3S_SKL.CIUMC3S_WKA 22
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_STAND
+          MOVING PANICKING:
+            Animation: CIUMC3S_SKL.CIUMC3S_RNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Panic
+          DYING:
+            Animation: [CIUMC3S_SKL.CIUMC3S_DTA, CIUMC3S_SKL.CIUMC3S_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIUMC3S_SKL.CIUMC3S_ATDE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIUMC3S_SKL.CIUMC3S_ATDE3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Stand TRANS_Panic:
+            Animation: CIUMC3S_SKL.CIUMC3S_RNA
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIUMC3S_SKL.CIUMC3S_ATDE1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED -POISONED_BETA -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianArabFemaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireFemale
+        OCL: INITIAL OCL_FlamingInfantry
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  MogadishuFemaleCivilian01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CIUC01_SKN
+          IdleAnimation: [CIUC01_SKL.CIUC01_STA 0 5, CIUC01_SKL.CIUC01_IDA]
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: [CIUC01_SKL.CIUC01_WKA 30 1, CIUC01_SKL.CIUC01_WKB 10 7]
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: [CIUC01_SKL.CIUC01_PNA 30, CIUC01_SKL.CIUC01_PNB 20]
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [CIUC01_SKL.CIUC01_DTA, CIUC01_SKL.CIUC01_DTB]
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianArabFemaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireFemale
+        OCL: INITIAL OCL_FlamingInfantry
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Partisan01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY SELECTABLE
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIPART_SKN
+          Animation: UIPART_SKL.UIPART_STA
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_CivilianArabMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Partisan02:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY SELECTABLE
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIPART2_SKN
+          Animation: UIPART2_SKL.UIPART2_STA
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_CivilianArabMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  Partisan03:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY SELECTABLE
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: UIPRTSN3_SKN
+          Animation: UIPRTSN3_SKL.UIPRTSN3_STA
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_CivilianArabFemaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  UNSoldier:
+    Side: Civilian
+    EditorSorting: [INFANTRY, INFANTRY]
+    TransportSlotCount: [1, 1]
+    DisplayName: OBJECT:UNSoldier
+    VisionRange: 100
+    ShroudClearingRange: 300
+    ExperienceValue: 20 20 40 60
+    ExperienceRequired: 0 20 40 60 120
+    IsTrainable: Yes
+    CrushableLevel: 0
+    VoiceSelect: RangerVoiceSelect
+    VoiceMove: RangerVoiceMove
+    VoiceAttack: RangerVoiceAttack
+    RadarPriority: UNIT
+    KindOf: PRELOAD SELECTABLE CAN_ATTACK CAN_CAST_REFLECTIONS INFANTRY
+    Locomotor: SET_NORMAL BasicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 10.0
+    GeometryMinorRadius: 10.0
+    GeometryHeight: 13.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    BuildCompletion: APPEARS_AT_RALLY_POINT
+    WeaponSet:
+      Conditions: None
+      Weapon: PRIMARY RangerAdvancedCombatRifle
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: InfantryDamageFX
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIUNSL_SKN
+          IdleAnimation: [CIUNSL_SKL.CIUNSL_STA 0 21, CIUNSL_SKL.CIUNSL_ID1, CIUNSL_SKL.CIUNSL_ID2]
+          AnimationMode: ONCE
+          WeaponFireFXBone: PRIMARY Muzzle
+          WeaponMuzzleFlash: PRIMARY MuzzleFX
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          FIRING_A:
+            Animation: CIUNSL_SKL.CIUNSL_ATA1_LP
+            AnimationMode: LOOP
+            TransitionKey: TRANS_FiringA
+            Aliases:
+            - BETWEEN_FIRING_SHOTS_A
+            - RELOADING_A
+            - MOVING FIRING_A
+            - MOVING BETWEEN_FIRING_SHOTS_A
+            - MOVING RELOADING_A
+          FREEFALL:
+            Animation: CIUNSL_SKL.CIUNSL_PFL
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Falling
+          PARACHUTING:
+            Animation: CIUNSL_SKL.CIUNSL_PHG
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Chute
+            Aliases: [PARACHUTING DYING]
+          MOVING:
+            Animation: CIUNSL_SKL.CIUNSL_RNA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: None
+          DYING:
+            Animation: [CIUNSL_SKL.CIUNSL_DTA, CIUNSL_SKL.CIUNSL_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIUNSL_SKL.CIUNSL_ADTA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIUNSL_SKL.CIUNSL_ADTA3
+            AnimationMode: ONCE
+            TransitionKey: None
+            Aliases: [DYING SPLATTED]
+        TransitionState:
+          TRANS_Stand TRANS_FiringA:
+            Animation: CIUNSL_SKL.CIUNSL_ATA1_ST
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_FiringA TRANS_Stand:
+            Animation: CIUNSL_SKL.CIUNSL_ATA1_ED
+            AnimationMode: ONCE
+            AnimationSpeedFactorRange: 4 4
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIUNSL_SKL.CIUNSL_ADTA1
+            AnimationMode: ONCE
+          TRANS_Falling TRANS_Chute:
+            Animation: CIUNSL_SKL.CIUNSL_POP
+            AnimationMode: ONCE
+          TRANS_Chute TRANS_Stand:
+            Animation: CIUNSL_SKL.CIUNSL_PTD
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 125.0
+        InitialHealth: 125.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: ProductionUpdate
+      ModuleTag_07:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RangerDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_RangerDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_12:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  GenericMale01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:GenericMale
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIAMan01_SKN
+          IdleAnimation:
+          - CIAMan01_SKL.CIAMan01_STA 0 30
+          - CIAMan01_SKL.CIAMan01_IDA
+          - CIAMan01_SKL.CIAMan01_IDB
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIAMan01_SKL.CIAMan01_WKA 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIAMan01_SKL.CIAMan01_RNA 35
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [CIAMan01_SKL.CIAMan01_DTA, CIAMan01_SKL.CIAMan01_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIAMan01_SKL.CIAMan01_ADTD2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIAMan01_SKL.CIAMan01_ADTD3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIAMan01_SKL.CIAMan01_ADTD1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED -POISONED_BETA -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabMaleDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabMaleDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  GenericFemale01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:GenericFemale
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIAFem01_SKN
+          IdleAnimation:
+          - CIAFem01_SKL.CIAFem01_STA 0 30
+          - CIAFem01_SKL.CIAFem01_IDA
+          - CIAFem01_SKL.CIAFem01_IDB
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIAFem01_SKL.CIAFem01_WKA 25
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIAFem01_SKL.CIAFem01_RNA 20
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [CIAFem01_SKL.CIAFem01_DTA, CIAFem01_SKL.CIAFem01_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIAFem01_SKL.CIAFem01_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIAFem01_SKL.CIAFem01_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIAFem01_SKL.CIAFem01_ADTE1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED -POISONED_BETA -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianArabFemaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireFemale
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AmericanFarmer01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIEFMR1_SKN
+          IdleAnimation: [CIEFMR1_SKL.CIEFMR1_STA 0 30, CIEFMR1_SKL.CIEFMR1_IDA, CIEFMR1_SKL.CIEFMR1_IDB]
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIEFMR1_SKL.CIEFMR1_WKA 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIEFMR1_SKL.CIEFMR1_PNA 35
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [CIEFMR1_SKL.CIEFMR1_DTA, CIEFMR1_SKL.CIEFMR1_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIEFMR1_SKL.CIEFMR1_ATDT2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIEFMR1_SKL.CIEFMR1_ATDT3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIEFMR1_SKL.CIEFMR1_ATDT1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianArabMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AsianFarmer01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIUFrm1_SKN
+          IdleAnimation: [CIUFrm1_SKL.CIUFrm1_STA 0 30, CIUFrm1_SKL.CIUFrm1_IDA, CIUFrm1_SKL.CIUFrm1_IDB]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: CIUFrm1_SKL.CIUFrm1_WKA 16
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_STAND
+          MOVING PANICKING:
+            Animation: CIUFrm1_SKL.CIUFrm1_PKA_LP
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Panic
+          DYING:
+            Animation: [CIUFrm1_SKL.CIUFrm1_DTA, CIUFrm1_SKL.CIUFrm1_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIUFrm1_SKL.CIUFrm1_ADTA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIUFrm1_SKL.CIUFrm1_ADTA3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Stand TRANS_Panic:
+            Animation: CIUFrm1_SKL.CIUFrm1_PKA_ST
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIUFrm1_SKL.CIUFrm1_ADTA1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  HomelessGuy:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIHMLSS01_SKN
+          IdleAnimation: [CIHMLSS01_SKL.CIHMLSS01_STA 0 35, CIHMLSS01_SKL.CIHMLSS01_IDA]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Sleep
+        TransitionState:
+          TRANS_Sleep TRANS_Move:
+            Animation: CIHMLSS01_SKL.CIHMLSS01_STUP
+            AnimationMode: ONCE
+          TRANS_Move TRANS_Panick:
+            Animation: CIHMLSS01_SKL.CIHMLSS01_RNA
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIHMLSS01_SKL.CIHMLSS01_ADTF1
+            AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIHMLSS01_SKL.CIHMLSS01_WKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Move
+          MOVING PANICKING:
+            Animation: CIHMLSS01_SKL.CIHMLSS01_RNA 35
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Panick
+          DYING:
+            Animation: CIHMLSS01_SKL.CIHMLSS01_DTA
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIHMLSS01_SKL.CIHMLSS01_ADTF2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIHMLSS01_SKL.CIHMLSS01_ADTF3
+            AnimationMode: ONCE
+            TransitionKey: None
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AsianFarmer02:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIUFrm2_SKN
+          IdleAnimation: [CIUFrm2_SKL.CIUFrm2_STA 0 5, CIUFrm2_SKL.CIUFrm2_IDA, CIUFrm2_SKL.CIUFrm2_IDB]
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: CIUFrm2_SKL.CIUFrm2_WKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_STAND
+          MOVING PANICKING:
+            Animation: CIUFrm2_SKL.CIUFrm2_PKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Panic
+          DYING:
+            Animation: [CIUFrm2_SKL.CIUFrm2_DTA, CIUFrm2_SKL.CIUFrm2_DTB, CIUFrm2_SKL.CIUFrm2_DTC]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIUFrm2_SKL.CIUFrm2_ADTD2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIUFrm2_SKL.CIUFrm2_ADTD3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIUFrm2_SKL.CIUFrm2_ADTD1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AsianFarmer3:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIUFrm3_SKN
+          IdleAnimation: [CIUFrm3_SKL.CIUFrm3_STA 0 30, CIUFrm3_SKL.CIUFrm3_IDA, CIUFrm3_SKL.CIUFrm3_IDB]
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIUFrm3_SKL.CIUFrm3_WKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIUFrm3_SKL.CIUFrm3_PKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [CIUFrm3_SKL.CIUFrm3_DTA, CIUFrm3_SKL.CIUFrm3_DTB, CIUFrm3_SKL.CIUFrm3_DTC]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIUFrm3_SKL.CIUFrm3_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIUFrm3_SKL.CIUFrm3_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIUFrm3_SKL.CIUFrm3_ADTE1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  GenericMale02:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CINMCIV01_SKN
+          IdleAnimation:
+          - CINMCIV01_SKL.CINMCIV01_STA 0 30
+          - CINMCIV01_SKL.CINMCIV01_IDA
+          - CINMCIV01_SKL.CINMCIV01_IDB
+          - CINMCIV01_SKL.CINMCIV01_IDC
+          - CINMCIV01_SKL.CINMCIV01_IDD
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: CINMCIV01_SKL.CINMCIV01_WKA 16
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_STAND
+          MOVING PANICKING:
+            Animation: CINMCIV01_SKL.CINMCIV01_PKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Panic
+          DYING:
+            Animation: [CINMCIV01_SKL.CINMCIV01_DTA, CINMCIV01_SKL.CINMCIV01_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CINMCIV01_SKL.CINMCIV01_ADTA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CINMCIV01_SKL.CINMCIV01_ADTA3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Stand TRANS_Panic:
+            Animation: CINMCIV01_SKL.CINMCIV01_PKA
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: CINMCIV01_SKL.CINMCIV01_ADTA1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  GenericFemale02:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CINFCIV01_SKN
+          IdleAnimation:
+          - CINFCIV01_SKL.CINFCIV01_STD 0 30
+          - CINFCIV01_SKL.CINFCIV01_IDA
+          - CINFCIV01_SKL.CINFCIV01_IDB
+          - CINFCIV01_SKL.CINFCIV01_IDC
+          - CINFCIV01_SKL.CINFCIV01_IDD
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: CINFCIV01_SKL.CINFCIV01_WKA 16
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_STAND
+          MOVING PANICKING:
+            Animation: CINFCIV01_SKL.CINFCIV01_PKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Panic
+          DYING:
+            Animation: [CINFCIV01_SKL.CINFCIV01_DTA, CINFCIV01_SKL.CINFCIV01_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CINFCIV01_SKL.CINFCIV01_ADTA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CINFCIV01_SKL.CINFCIV01_ADTA3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Stand TRANS_Panic:
+            Animation: CINFCIV01_SKL.CINFCIV01_PKA
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: CINFCIV01_SKL.CINFCIV01_ADTA1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaFemaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireFemale
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinFemale
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_CheeringGenericMale02:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CINMCIV01_SKN
+          IdleAnimation:
+          - CINMCIV01_SKL.CINMCIV01_CHA 0 30
+          - CINMCIV01_SKL.CINMCIV01_CHB
+          - CINMCIV01_SKL.CINMCIV01_CHA
+          - CINMCIV01_SKL.CINMCIV01_CHB
+          - CINMCIV01_SKL.CINMCIV01_CHA
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: CINMCIV01_SKL.CINMCIV01_WKA 16
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_STAND
+          MOVING PANICKING:
+            Animation: CINMCIV01_SKL.CINMCIV01_PKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Panic
+          DYING:
+            Animation: [CINMCIV01_SKL.CINMCIV01_DTA, CINMCIV01_SKL.CINMCIV01_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CINMCIV01_SKL.CINMCIV01_ADTA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CINMCIV01_SKL.CINMCIV01_ADTA3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Stand TRANS_Panic:
+            Animation: CINMCIV01_SKL.CINMCIV01_PKA
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: CINMCIV01_SKL.CINMCIV01_ADTA1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_CheeringGenericFemale02:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CINFCIV01_SKN
+          IdleAnimation:
+          - CINFCIV01_SKL.CINFCIV01_CHA 0 30
+          - CINFCIV01_SKL.CINFCIV01_CHB
+          - CINFCIV01_SKL.CINFCIV01_CHA
+          - CINFCIV01_SKL.CINFCIV01_CHB
+          - CINFCIV01_SKL.CINFCIV01_CHA
+          AnimationMode: ONCE
+          TransitionKey: TRANS_Stand
+        ConditionState:
+          MOVING:
+            Animation: CINFCIV01_SKL.CINFCIV01_WKA 16
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_STAND
+          MOVING PANICKING:
+            Animation: CINFCIV01_SKL.CINFCIV01_PKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+            TransitionKey: TRANS_Panic
+          DYING:
+            Animation: [CINFCIV01_SKL.CINFCIV01_DTA, CINFCIV01_SKL.CINFCIV01_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CINFCIV01_SKL.CINFCIV01_ADTA2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CINFCIV01_SKL.CINFCIV01_ADTA3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Stand TRANS_Panic:
+            Animation: CINFCIV01_SKL.CINFCIV01_PKA
+            AnimationMode: ONCE
+          TRANS_Dying TRANS_Flailing:
+            Animation: CINFCIV01_SKL.CINFCIV01_ADTA1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaFemaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_CheeringGenericMale01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:GenericMale
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIAMan01_SKN
+          IdleAnimation:
+          - CIAMan01_SKL.CIAMan01_CHA 0 30
+          - CIAMan01_SKL.CIAMan01_CHA
+          - CIAMan01_SKL.CIAMan01_CHA
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIAMan01_SKL.CIAMan01_WKA 30
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIAMan01_SKL.CIAMan01_RNA 35
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [CIAMan01_SKL.CIAMan01_DTA, CIAMan01_SKL.CIAMan01_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIAMan01_SKL.CIAMan01_ADTD2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIAMan01_SKL.CIAMan01_ADTD3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIAMan01_SKL.CIAMan01_ADTD1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_Death01:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -CRUSHED -SPLATTED -EXPLODED -BURNED -POISONED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabMaleDie
+      ModuleTag_Death02:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_GIDieCrushed
+      ModuleTag_Death03:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +EXPLODED
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+        FX: INITIAL FX_CivilianArabMaleDie
+        FlingForce: 8
+        FlingForceVariance: 3
+        FlingPitch: 60
+        FlingPitchVariance: 10
+      ModuleTag_Death04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireUSA
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinUSA
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_CheeringGenericFemale01:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:GenericFemale
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIAFem01_SKN
+          IdleAnimation:
+          - CIAFem01_SKL.CIAFem01_CHA 0 30
+          - CIAFem01_SKL.CIAFem01_CHA
+          - CIAFem01_SKL.CIAFem01_CHA
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIAFem01_SKL.CIAFem01_WKA 25
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIAFem01_SKL.CIAFem01_RNA 20
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [CIAFem01_SKL.CIAFem01_DTA, CIAFem01_SKL.CIAFem01_DTB]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIAFem01_SKL.CIAFem01_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIAFem01_SKL.CIAFem01_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIAFem01_SKL.CIAFem01_ADTE1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_CivilianArabFemaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  CINE_CheeringAsianFarmer3:
+    Side: Civilian
+    EditorSorting: INFANTRY
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:MogadishuFemaleCivilian
+    CrushableLevel: 0
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY CAN_BE_REPULSED
+    Locomotor:
+    - SET_NORMAL BasicHumanLocomotor
+    - SET_WANDER WanderHumanLocomotor
+    - SET_PANIC PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_DECAL
+    ShadowSizeX: 14
+    ShadowSizeY: 14
+    ShadowTexture: ShadowI
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: CIUFrm3_SKN
+          IdleAnimation: [CIUFrm3_SKL.CIUFrm3_CHB 0 30, CIUFrm3_SKL.CIUFrm3_CHB, CIUFrm3_SKL.CIUFrm3_CHB]
+          AnimationMode: ONCE
+        ConditionState:
+          MOVING:
+            Animation: CIUFrm3_SKL.CIUFrm3_WKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          MOVING PANICKING:
+            Animation: CIUFrm3_SKL.CIUFrm3_PKA
+            AnimationMode: LOOP
+            Flags: RANDOMSTART
+          DYING:
+            Animation: [CIUFrm3_SKL.CIUFrm3_DTA, CIUFrm3_SKL.CIUFrm3_DTB, CIUFrm3_SKL.CIUFrm3_DTC]
+            AnimationMode: ONCE
+            TransitionKey: TRANS_Dying
+          DYING EXPLODED_FLAILING:
+            Animation: CIUFrm3_SKL.CIUFrm3_ADTE2
+            AnimationMode: LOOP
+            TransitionKey: TRANS_Flailing
+          DYING EXPLODED_BOUNCING:
+            Animation: CIUFrm3_SKL.CIUFrm3_ADTE3
+            AnimationMode: ONCE
+            TransitionKey: None
+        TransitionState:
+          TRANS_Dying TRANS_Flailing:
+            Animation: CIUFrm3_SKL.CIUFrm3_ADTE1
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: ALL -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        SinkDelay: 3000
+        SinkRate: 0.5
+        DestructionDelay: 8000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED -POISONED_BETA -POISONED -BURNED -POISONED_GAMMA
+        DeathFX: FX_CivilianChinaMaleDie
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+      ModuleTag_Death06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_BETA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryBeta
+      ModuleTag_Death05:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantry
+      ModuleTag_DeathBurned:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +BURNED
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByFireChina
+        OCL: INITIAL OCL_FlamingInfantry
+      ModuleTag_Death07:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DeathTypes: NONE +POISONED_GAMMA
+        DestructionDelay: 0
+        FX: INITIAL FX_DieByToxinChina
+        OCL: INITIAL OCL_ToxicInfantryGamma
+      ModuleTag_09:
+        Module: Behavior
+        Class: PoisonedBehavior
+        PoisonDamageInterval: 100
+        PoisonDuration: 3000
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  GC_Chem_ToxicInfantryGamma:
+    Side: Civilian
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:ToxicInfantry
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CITOXDTH_SKNB
+          Animation: CITOXDTH_SKL.CITOXDTH_DTA
+          AnimationSpeedFactorRange: 0.9 1.3
+          AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 4500
+        SinkRate: 0.5
+        DestructionDelay: 9500
+      ModuleTag_07:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_GIDie
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+    SourceFile: Data/INI/Object/GC_Chem_GLASystem.ini
+  FlamingInfantry:
+    Side: Civilian
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:FlamingInfantry
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY
+    Locomotor: SET_NORMAL PanicHumanLocomotor
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CIBURN_SKN
+          Animation: CIBURN_SKL.CIBURN_RNA
+          AnimationMode: LOOP
+          Flags: RANDOMSTART
+          ParticleSysBone: Bone_FX1 FireInfantrySmall
+        ConditionState:
+          DYING:
+            Animation: CIBURN_SKL.CIBURN_FLA
+            AnimationMode: ONCE
+            Flags: START_FRAME_FIRST
+            ParticleSysBone:
+            - Bone_FX1 FireInfantrySmallSub1
+            - Bone_FX2 FireInfantrySmallSub2
+            - Bone_FX9 FireInfantrySmallSub3
+            - Bone_FX3 FireInfantrySmallSub4
+            - Bone_FX5 FireInfantrySmallSub5
+            - Bone_FX6 FireInfantrySmallSub6
+            - Bone_FX5 FireInfantrySmallSub7
+            - Bone_FX8 FireInfantrySmallSub8
+            - Bone_FX7 FireInfantrySmallSub9
+            - Bone_FX8 FireInfantrySmallSub10
+            AnimationSpeedFactorRange: 0.85 1.15
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: WanderAIUpdate
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 4500
+        SinkRate: 0.5
+        DestructionDelay: 9500
+      ModuleTag_07:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_GIDie
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+    SourceFile: Data/INI/Object/System.ini
+  ToxicInfantry:
+    Side: Civilian
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 150
+    DisplayName: OBJECT:ToxicInfantry
+    RadarPriority: NOT_ON_RADAR
+    KindOf: CAN_CAST_REFLECTIONS INFANTRY
+    Geometry: CYLINDER
+    GeometryMajorRadius: 3.0
+    GeometryMinorRadius: 3.0
+    GeometryHeight: 12.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: HumanArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CITOXDTH_SKN
+          Animation: CITOXDTH_SKL.CITOXDTH_DTA
+          AnimationSpeedFactorRange: 0.9 1.3
+          AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 50.0
+        InitialHealth: 50.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 3000
+        MaxLifetime: 3000
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 4500
+        SinkRate: 0.5
+        DestructionDelay: 9500
+      ModuleTag_07:
+        Module: Behavior
+        Class: SquishCollide
+      ModuleTag_08:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: ALL -CRUSHED -SPLATTED
+        DeathFX: FX_GIDie
+      ModuleTag_09:
+        Module: Behavior
+        Class: FXListDie
+        DeathTypes: NONE +CRUSHED +SPLATTED
+        DeathFX: FX_GIDieCrushed
+    SourceFile: Data/INI/Object/System.ini
+  ToxicInfantryBeta:
+    ReskinOf: ToxicInfantry
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CITOXDTH_SKNB
+          Animation: CITOXDTH_SKL.CITOXDTH_DTA
+          AnimationSpeedFactorRange: 0.9 1.3
+          AnimationMode: ONCE
+    SourceFile: Data/INI/Object/System.ini
+  ToxicInfantryGamma:
+    ReskinOf: ToxicInfantry
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: CITOXDTH_SKNP
+          Animation: CITOXDTH_SKL.CITOXDTH_DTA
+          AnimationSpeedFactorRange: 0.9 1.3
+          AnimationMode: ONCE
+    SourceFile: Data/INI/Object/System.ini
+  ToxicInfantry_TerroristOnly:
+    ReskinOf: ToxicInfantry
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UITRST_SKNG
+          Animation: UITRST_SKL.UITrst_DGRN
+          AnimationSpeedFactorRange: 0.9 1.3
+          AnimationMode: ONCE
+    SourceFile: Data/INI/Object/System.ini
+  ToxicInfantryBeta_TerroristOnly:
+    ReskinOf: ToxicInfantry
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UITRST_SKNB
+          Animation: UITRST_SKL.UITrst_DBLU
+          AnimationSpeedFactorRange: 0.9 1.3
+          AnimationMode: ONCE
+    SourceFile: Data/INI/Object/System.ini
+  ToxicInfantryGamma_TerroristOnly:
+    ReskinOf: ToxicInfantry
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: UITRST_SKNP
+          Animation: UITRST_SKL.UITrst_DBLU
+          AnimationSpeedFactorRange: 0.9 1.3
+          AnimationMode: ONCE
+    SourceFile: Data/INI/Object/System.ini

@@ -1,0 +1,928 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+MappedImages:
+  SUBBTrap:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:393 Right:487 Bottom:489
+    Status: NONE
+  SUBlckMarket_LF:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:393 Right:365 Bottom:489
+    Status: NONE
+  SUcamo_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:393 Right:243 Bottom:489
+    Status: NONE
+  SUComBike_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:393 Right:121 Bottom:489
+    Status: NONE
+  SUEliteGrd_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:295 Right:487 Bottom:391
+    Status: NONE
+  SUGLA_General:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:295 Right:365 Bottom:391
+    Status: NONE
+  SUHeadquarters_LF:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:295 Right:243 Bottom:391
+    Status: NONE
+  SULeadGLA01_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:121 Bottom:391
+    Status: NONE
+  SUSaboteur_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:197 Right:487 Bottom:293
+    Status: NONE
+  SUScudStorm_LF:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:197 Right:365 Bottom:293
+    Status: NONE
+  SUSneakAttack_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:197 Right:243 Bottom:293
+    Status: NONE
+  SUSpplyCtr_F:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:197 Right:121 Bottom:293
+    Status: NONE
+  SUSpplyCtr_LF:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:99 Right:487 Bottom:195
+    Status: NONE
+  SUStinger_LF:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:99 Right:365 Bottom:195
+    Status: NONE
+  SUToxicTunnel_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:99 Right:243 Bottom:195
+    Status: NONE
+  SUToxinRebel_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:99 Right:121 Bottom:195
+    Status: NONE
+  SUToxinRPG_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:1 Right:487 Bottom:97
+    Status: NONE
+  SUToxinTerr_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:1 Right:365 Bottom:97
+    Status: NONE
+  AngryMobFireBomb_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:1 Right:243 Bottom:97
+    Status: NONE
+  SUScudLauncher_L:
+    Texture: SUUserInterface512_001.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:121 Bottom:97
+    Status: NONE
+  SUArmsDealer_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:393 Right:487 Bottom:489
+    Status: NONE
+  SURebel_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:393 Right:365 Bottom:489
+    Status: NONE
+  SUAngryMob_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:393 Right:243 Bottom:489
+    Status: NONE
+  SURocketBuggy_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:393 Right:121 Bottom:489
+    Status: NONE
+  SURPG_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:295 Right:487 Bottom:391
+    Status: NONE
+  SUScorpion_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:295 Right:365 Bottom:391
+    Status: NONE
+  SUTunnel_LF:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:295 Right:243 Bottom:391
+    Status: NONE
+  SUScudStorm_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:121 Bottom:391
+    Status: NONE
+  SUStinger_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:197 Right:487 Bottom:293
+    Status: NONE
+  SUSupplyCenter_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:197 Right:365 Bottom:293
+    Status: NONE
+  SUTechnical_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:197 Right:243 Bottom:293
+    Status: NONE
+  SUTerrorist_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:197 Right:121 Bottom:293
+    Status: NONE
+  SUToxinTractor_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:99 Right:487 Bottom:195
+    Status: NONE
+  SUTunnel_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:99 Right:365 Bottom:195
+    Status: NONE
+  SUVan_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:99 Right:243 Bottom:195
+    Status: NONE
+  SUWorker_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:99 Right:121 Bottom:195
+    Status: NONE
+  SUAdvDeTrap_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:1 Right:487 Bottom:97
+    Status: NONE
+  SUArmsDealer_LF:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:1 Right:365 Bottom:97
+    Status: NONE
+  SUBarracks_LF:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:1 Right:243 Bottom:97
+    Status: NONE
+  SUbattlebus_L:
+    Texture: SUUserInterface512_002.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:121 Bottom:97
+    Status: NONE
+  SUScorpion:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:445 Right:495 Bottom:493
+    Status: NONE
+  SSViralOutbreak:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:445 Right:433 Bottom:493
+    Status: NONE
+  SURPG:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:445 Right:371 Bottom:493
+    Status: NONE
+  SUAngryMob:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:443 Right:309 Bottom:491
+    Status: NONE
+  SURocketBuggy:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:443 Right:247 Bottom:491
+    Status: NONE
+  SUArmsDealer:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:443 Right:185 Bottom:491
+    Status: NONE
+  SURebel:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:443 Right:123 Bottom:491
+    Status: NONE
+  SUBarracks:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:443 Right:61 Bottom:491
+    Status: NONE
+  SURadarVan:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:395 Right:495 Bottom:443
+    Status: NONE
+  SUBarricade:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:395 Right:433 Bottom:443
+    Status: NONE
+  SuQuadCannon:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:395 Right:371 Bottom:443
+    Status: NONE
+  SUBlackMarket:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:393 Right:309 Bottom:441
+    Status: NONE
+  SUPrison:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:393 Right:247 Bottom:441
+    Status: NONE
+  SUBombTruck:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:393 Right:185 Bottom:441
+    Status: NONE
+  SUPOWTruck:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:393 Right:123 Bottom:441
+    Status: NONE
+  SUHeadquarters:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:393 Right:61 Bottom:441
+    Status: NONE
+  SUPalace:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:429 Top:345 Right:489 Bottom:393
+    Status: NONE
+  SUHijacker:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:345 Right:427 Bottom:393
+    Status: NONE
+  SUMarauder:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:438 Top:295 Right:498 Bottom:343
+    Status: NONE
+  SSHideBomb:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:295 Right:436 Bottom:343
+    Status: NONE
+  SUJermanKell1_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:295 Right:365 Bottom:391
+    Status: NONE
+  SUHole_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:295 Right:243 Bottom:391
+    Status: NONE
+  SUHijacker_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:295 Right:121 Bottom:391
+    Status: NONE
+  SUMarauder_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:197 Right:487 Bottom:293
+    Status: NONE
+  SUHeadquarters_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:197 Right:365 Bottom:293
+    Status: NONE
+  SUPalace_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:197 Right:243 Bottom:293
+    Status: NONE
+  SUEmptyBox_GLA:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:197 Right:121 Bottom:293
+    Status: NONE
+  SUBombTruck_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:99 Right:487 Bottom:195
+    Status: NONE
+  SUPOWTruck_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:99 Right:365 Bottom:195
+    Status: NONE
+  SUBlackMarket_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:99 Right:243 Bottom:195
+    Status: NONE
+  SUPrison_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:99 Right:121 Bottom:195
+    Status: NONE
+  SUBarricade_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:367 Top:1 Right:487 Bottom:97
+    Status: NONE
+  SuQuadCannon_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:245 Top:1 Right:365 Bottom:97
+    Status: NONE
+  SUBarracks_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:123 Top:1 Right:243 Bottom:97
+    Status: NONE
+  SURadarVan_L:
+    Texture: SUUserInterface512_003.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:121 Bottom:97
+    Status: NONE
+  SUUseDeto:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:451 Right:495 Bottom:499
+    Status: NONE
+  AngryMobFireBomb:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:451 Right:433 Bottom:499
+    Status: NONE
+  SUTunnel_F:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:451 Right:371 Bottom:499
+    Status: NONE
+  SSAnthraxBeta:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:451 Right:309 Bottom:499
+    Status: NONE
+  SUToxinTerr:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:451 Right:247 Bottom:499
+    Status: NONE
+  SSAnthraxBomb:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:451 Right:185 Bottom:499
+    Status: NONE
+  SUToxinRPG:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:451 Right:123 Bottom:499
+    Status: NONE
+  SSAnthraxScud:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:451 Right:61 Bottom:499
+    Status: NONE
+  SUToxinRebel:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:401 Right:495 Bottom:449
+    Status: NONE
+  SSAPRockets:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:401 Right:433 Bottom:449
+    Status: NONE
+  SUToxicTunnel:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:401 Right:371 Bottom:449
+    Status: NONE
+  SUToxAmbsh3:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:401 Right:309 Bottom:449
+    Status: NONE
+  SUToxAmbsh2:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:401 Right:247 Bottom:449
+    Status: NONE
+  SUToxAmbsh1:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:401 Right:185 Bottom:449
+    Status: NONE
+  SUSuicideAttk:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:401 Right:123 Bottom:449
+    Status: NONE
+  SSAPShells:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:401 Right:61 Bottom:449
+    Status: NONE
+  SUStinger_F:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:351 Right:495 Bottom:399
+    Status: NONE
+  SSArmMob:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:351 Right:433 Bottom:399
+    Status: NONE
+  SSBioBombTruck:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:351 Right:371 Bottom:399
+    Status: NONE
+  SUSnipBull:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:351 Right:309 Bottom:399
+    Status: NONE
+  SSBombDisguise:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:351 Right:247 Bottom:399
+    Status: NONE
+  SUSneakAttack:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:351 Right:185 Bottom:399
+    Status: NONE
+  SUShoes:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:351 Right:123 Bottom:399
+    Status: NONE
+  SSBuggyRockets:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:351 Right:61 Bottom:399
+    Status: NONE
+  SUScudStorm_F:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:301 Right:495 Bottom:349
+    Status: NONE
+  SSCamoflage:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:301 Right:433 Bottom:349
+    Status: NONE
+  SUSaboteur:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:301 Right:371 Bottom:349
+    Status: NONE
+  SSCarjack:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:301 Right:309 Bottom:349
+    Status: NONE
+  SULeadGLA01:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:301 Right:247 Bottom:349
+    Status: NONE
+  SSCashBounty:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:301 Right:185 Bottom:349
+    Status: NONE
+  SUHeadquarters_F:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:301 Right:123 Bottom:349
+    Status: NONE
+  SUGPS03:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:301 Right:61 Bottom:349
+    Status: NONE
+  SUGPS02:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:251 Right:495 Bottom:299
+    Status: NONE
+  SUGPS01:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:251 Right:433 Bottom:299
+    Status: NONE
+  SSCashBounty2:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:251 Right:371 Bottom:299
+    Status: NONE
+  SUFakeUpgrade:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:251 Right:309 Bottom:299
+    Status: NONE
+  SUFakeToggle:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:251 Right:247 Bottom:299
+    Status: NONE
+  SUEnterbldg:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:251 Right:185 Bottom:299
+    Status: NONE
+  SSCashBounty3:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:251 Right:123 Bottom:299
+    Status: NONE
+  SUEliteGrd:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:251 Right:61 Bottom:299
+    Status: NONE
+  SSConstructDemo:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:201 Right:495 Bottom:249
+    Status: NONE
+  SUComBike:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:201 Right:433 Bottom:249
+    Status: NONE
+  SSContaminate:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:201 Right:371 Bottom:249
+    Status: NONE
+  SUcamo:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:201 Right:309 Bottom:249
+    Status: NONE
+  SUBuyDeton:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:201 Right:247 Bottom:249
+    Status: NONE
+  SUBusDisg:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:201 Right:185 Bottom:249
+    Status: NONE
+  SSDetonateDemo:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:201 Right:123 Bottom:249
+    Status: NONE
+  SUBlckMarket_F:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:201 Right:61 Bottom:249
+    Status: NONE
+  SSExplosiveBombTruck:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:151 Right:495 Bottom:199
+    Status: NONE
+  SSExplosiveScud:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:151 Right:433 Bottom:199
+    Status: NONE
+  SUbattlebus:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:151 Right:371 Bottom:199
+    Status: NONE
+  SSGLAAmbush:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:151 Right:309 Bottom:199
+    Status: NONE
+  SUBarracks_F:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:151 Right:247 Bottom:199
+    Status: NONE
+  SSGLAAmbush2:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:151 Right:185 Bottom:199
+    Status: NONE
+  SUArmsDealer_F:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:151 Right:123 Bottom:199
+    Status: NONE
+  SUAnthraxGamma:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:151 Right:61 Bottom:199
+    Status: NONE
+  SSGLAAmbush3:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:101 Right:495 Bottom:149
+    Status: NONE
+  SUAdvDeTrap:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:101 Right:433 Bottom:149
+    Status: NONE
+  SSRadarVanScan:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:51 Right:309 Bottom:99
+    Status: NONE
+  SUJermanKell1:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:101 Right:309 Bottom:149
+    Status: NONE
+  SUWorker:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:101 Right:247 Bottom:149
+    Status: NONE
+  SSJunkRepair:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:101 Right:185 Bottom:149
+    Status: NONE
+  SUVan:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:101 Right:123 Bottom:149
+    Status: NONE
+  SSManualDetonate:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:101 Right:61 Bottom:149
+    Status: NONE
+  SUTunnel:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:51 Right:495 Bottom:99
+    Status: NONE
+  SSRadarJammer:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:51 Right:433 Bottom:99
+    Status: NONE
+  SUToxinTractor:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:51 Right:371 Bottom:99
+    Status: NONE
+  SUTerrorist:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:51 Right:247 Bottom:99
+    Status: NONE
+  SSScorpionRocketBuild:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:51 Right:185 Bottom:99
+    Status: NONE
+  SUTechnical:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:51 Right:123 Bottom:99
+    Status: NONE
+  SSScudStorm:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:51 Right:61 Bottom:99
+    Status: NONE
+  SUSupplyCenter:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:435 Top:1 Right:495 Bottom:49
+    Status: NONE
+  SSSniperAttack:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:373 Top:1 Right:433 Bottom:49
+    Status: NONE
+  SUStinger:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:311 Top:1 Right:371 Bottom:49
+    Status: NONE
+  SSTechTraining:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:249 Top:1 Right:309 Bottom:49
+    Status: NONE
+  SUScudStorm:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:187 Top:1 Right:247 Bottom:49
+    Status: NONE
+  SSTerroristCarBomb:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:125 Top:1 Right:185 Bottom:49
+    Status: NONE
+  SUScudLauncher:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:63 Top:1 Right:123 Bottom:49
+    Status: NONE
+  SSToxinShells:
+    Texture: SUUserInterface512_004.tga
+    TextureWidth: 512
+    TextureHeight: 512
+    Coords: Left:1 Top:1 Right:61 Bottom:49
+    Status: NONE

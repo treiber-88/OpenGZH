@@ -1,0 +1,6348 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+ObjectCreationLists:
+  OCL_CreateDamagedBarrel:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: PMBarrel01_D1
+      Offset: X:0 Y:0 Z:0
+      Mass: 2
+      Count: 1
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 5
+      MaxForceMagnitude: 7
+      SpinRate: 180
+      MinForcePitch: 75
+      MaxForcePitch: 90
+      ParticleSystem: BlackTrail
+  OCL_FireWallSegment:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: FireWallSegment
+      Disposition: LIKE_EXISTING INHERIT_VELOCITY
+      PreserveLayer: Yes
+  OCL_FireWallSegmentUpgraded:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: FireWallSegmentUpgraded
+      Disposition: LIKE_EXISTING INHERIT_VELOCITY
+      PreserveLayer: Yes
+  OCL_FireFieldSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: FireFieldSmall
+      Disposition: ON_GROUND_ALIGNED
+  OCL_FireFieldUpgradedSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: FireFieldUpgradedSmall
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldLarge:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: PoisonFieldLarge
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldMedium:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: PoisonFieldMedium
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: PoisonFieldSmall
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldAnthraxBomb:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: PoisonFieldAnthraxBomb
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldAnthraxGammaBomb:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: PoisonFieldAnthraxGammaBomb
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldUpgradedLarge:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: PoisonFieldUpgradedLarge
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldUpgradedMedium:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: PoisonFieldUpgradedMedium
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldUpgradedSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: PoisonFieldUpgradedSmall
+      Disposition: ON_GROUND_ALIGNED
+  OCL_RadiationFieldLarge:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: RadiationFieldLarge
+      Disposition: ON_GROUND_ALIGNED
+  OCL_RadiationFieldMedium:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: RadiationFieldMedium
+      Disposition: ON_GROUND_ALIGNED
+  OCL_RadiationFieldSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: RadiationFieldSmall
+      Disposition: ON_GROUND_ALIGNED
+  OCL_NukeRadiationField:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: NukeRadiationFieldWeapon
+      Disposition: ON_GROUND_ALIGNED
+  OCL_FirestormSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: FirestormSmall
+      Disposition: ON_GROUND_ALIGNED
+  OCL_BlackNapalmFirestormSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: BlackNapalmFirestormSmall
+      Disposition: ON_GROUND_ALIGNED
+  OCL_MiGFirestorm:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: MiGFirestorm
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1 End
+  OCL_TankerTruckExplode:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVTanker_d03
+      Offset: 'x: -16.887 y:2.588 z: 6.751'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d09
+      Offset: 'x: -10.682 y: 4.327 z: 2.929'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d10
+      Offset: 'x: -10.682 y: -4.272 z: 2.929'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d11
+      Offset: 'x: -2.651 y: -4.119 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d12
+      Offset: 'x: -2.651 y: 4.062 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d13
+      Offset: 'x: 2.73 y: 4.062 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d14
+      Offset: 'x: 2.73 y: -4.119 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d15
+      Offset: 'x: -7.869 y: .07 z: 3.663'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d16
+      Offset: 'x: -17.47 y: 4.423 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d17
+      Offset: 'x: -17.47 y: -4.374 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d20
+      Offset: 'x: -.773 y: .07 z: 3.663'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d21
+      Offset: 'x: 34.293 y: -.009 z: 3.673'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d22
+      Offset: 'x: 31.646 y: 4.062 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d23
+      Offset: 'x: 31.646 y: -4.119 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d24
+      Offset: 'x: 37.026 y: 4.062 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d25
+      Offset: 'x: 37.026 y: -4.119 z: 2.203'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d26
+      Offset: 'x: 42.924 y: -.016 z: 2.854'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d27
+      Offset: 'x: 40.859 y: .128 z: 13.615'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d28
+      Offset: 'x: 40.859 y: .128 z: 13.615'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d29
+      Offset: 'x: 35.111 y: .128 z: 13.615'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d30
+      Offset: 'x: 28.222 y: .128 z: 13.615'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d31
+      Offset: 'x: 21.665 y: .128 z: 13.615'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d32
+      Offset: 'x: 14.347 y: .128 z: 13.615'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d33
+      Offset: 'x: 7.173 y: .128 z: 13.615'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVTanker_d34
+      Offset: 'x: -.105 y: .128 z: 13.615'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+  OCL_BigRigExplode:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d01
+      Offset: X:-12.5 Y:-2 Z:8
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d02
+      Offset: X:-12.5 Y:3 Z:8
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d03
+      Offset: X:-17 Y:2.5 Z:7
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d04
+      Offset: X:-20 Y:-1.5 Z:5
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d05
+      Offset: X:-17 Y:-2.75 Z:7
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d06
+      Offset: X:-20.5 Y:2 Z:5.5
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d07
+      Offset: X:-18 Y:-4 Z:4
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d08
+      Offset: X:-18 Y:4 Z:4
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d09
+      Offset: X:-10 Y:4 Z:3
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d10
+      Offset: X:-10 Y:-4 Z:3
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d11
+      Offset: X:-3 Y:-4 Z:2
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d12
+      Offset: X:-3 Y:4 Z:2
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d13
+      Offset: X:3 Y:4 Z:2
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d14
+      Offset: X:3 Y:-4 Z:2
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d15
+      Offset: X:-8 Y:0 Z:3.5
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d16
+      Offset: X:-17.5 Y:4.5 Z:2
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d17
+      Offset: X:-17.5 Y:-4.5 Z:2
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d18
+      Offset: X:-9 Y:4.5 Z:13.5
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d19
+      Offset: X:-9 Y:4.5 Z:8
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d03
+      Offset: X:-1 Y:0 Z:3.5
+      Mass: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d04
+      Offset: X:36 Y:3 Z:8
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d05
+      Offset: X:35 Y:3 Z:13
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d06
+      Offset: X:35 Y:-3 Z:13
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d03
+      Offset: X:36 Y:-3 Z:8
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d04
+      Offset: X:19 Y:3.5 Z:13.5
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d05
+      Offset: X:19 Y:-3.5 Z:13
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d27
+      Offset: X:18.5 Y:-4 Z:7
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d28
+      Offset: X:34 Y:0 Z:3.5
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d03
+      Offset: X:4 Y:-3.5 Z:13
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d04
+      Offset: X:4 Y:3 Z:13
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d05
+      Offset: X:2 Y:3 Z:8
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d06
+      Offset: X:2 Y:-3 Z:8
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d33
+      Offset: X:31.5 Y:4 Z:2
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d34
+      Offset: X:31.5 Y:-4 Z:2
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d35
+      Offset: X:37 Y:4 Z:2
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d36
+      Offset: X:37 Y:-4 Z:2
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d37
+      Offset: X:43 Y:0 Z:3
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+    - Type: CreateDebris
+      ModelNames: CVBigRig_d38
+      Offset: X:19 Y:3 Z:8
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+  OCL_PoliceCarExplode:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X04
+      Offset: X:5.804 Y:-3.499 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X05
+      Offset: X:5.815 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X06
+      Offset: X:-7.615 Y:-3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X07
+      Offset: X:-8.281 Y:1.964 Z:3.926
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X08
+      Offset: X:-7.615 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X09
+      Offset: X:-2.032 Y:3.638 Z:3.925
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X10
+      Offset: X:0.776 Y:-0.960 Z:5.601
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X11
+      Offset: X:-0.897 Y:-3.735 Z:2.994
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X12
+      Offset: X:-1.164 Y:-1.128 Z:7.401
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X13
+      Offset: X:-1.164 Y:-1.498 Z:7.401
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X14
+      Offset: X:-3.074 Y:-0.303 Z:6.468
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X15
+      Offset: X:2.602 Y:3.652 Z:3.923
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: CVPoliceCar_X16
+      Offset: X:-9.828 Y:-1.889 Z:2.636
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+  OCL_CrusaderTank_CrushEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadCrusaderHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_TechnicalJeep_CrushEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadTechnicalJeepHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_TechnicalVan_CrushEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadTechnicalVanHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_TechnicalTruck_CrushEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadTechnicalTruckHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_RocketBuggy_CrushEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadRocketBuggyHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_SCUDLauncherDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadSCUDLauncherHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: UVScudLchr_d2
+      Offset: X:17.58 Y:1.971 Z:10.282
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVScudLchr_d3
+      Offset: X:8.581 Y:1.943 Z:9.081
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVScudLchr_d4
+      Offset: X:-9.828 Y:-1.889 Z:2.636
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+  OCL_ChinaSupplyTruck_CrushEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadChinaSupplyTruckHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_ChinaSupplyTruckDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadChinaSupplyTruckHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: NVSSupplyTk_d2
+      Offset: X:-6.544 Y:7.281 Z:11.163
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: NVSSupplyTk_d3
+      Offset: X:-6.283 Y:5.099 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: NVSSupplyTk_d4
+      Offset: X:-1.235 Y:-4.169 Z:10.355
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: NVSSupplyTk_d5
+      Offset: X:5.819 Y:5.481 Z:10.425
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+  OCL_InfernoCannonDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: InfernoCannonHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: NVInferno_d2
+      Offset: X:-7.44 Y:0.0 Z:12.79
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: NVInferno_d3
+      Offset: X:-17.06 Y:-5.874 Z:12.5
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: DebrisBigMetal
+  OCL_ToxinTractorDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadToxinTractorHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: UVToxinTrk_d2
+      Offset: X:-4.96 Y:0.0 Z:16.449
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVToxinTrk_d3
+      Offset: X:8.748 Y:5.123 Z:2.563
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVToxinTrk_d3
+      Offset: X:8.748 Y:-5.123 Z:2.563
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVToxinTrk_d4
+      Offset: X:-8.734 Y:7.505 Z:5.078
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: UVToxinTrk_d4
+      Offset: X:-8.734 Y:-7.505 Z:5.078
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: UVToxinTrk_d5
+      Offset: X:1.886 Y:4.701 Z:6.593
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+    - Type: CreateDebris
+      ModelNames: UVToxinTrk_d5
+      Offset: X:1.886 Y:-4.701 Z:6.593
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+  OCL_GLAPOWTruckDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadGLAPOWTruckHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: UVPOWTruck_d2
+      Offset: X:4.807 Y:0.0 Z:12.799
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVPOWTruck_d3
+      Offset: X:11.005 Y:6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVPOWTruck_d3
+      Offset: X:11.005 Y:-6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVPOWTruck_d3
+      Offset: X:-7.348 Y:6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVPOWTruck_d3
+      Offset: X:-7.348 Y:-6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVPOWTruck_d3
+      Offset: X:13.758 Y:6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVPOWTruck_d3
+      Offset: X:-13.758 Y:-6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+  OCL_ChinaPOWTruckDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadChinaPOWTruckHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: NVPOWTrck_d2
+      Offset: X:10.298 Y:0.002 Z:13.928
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: NVPOWTrck_d3
+      Offset: X:-11.159 Y:5.155 Z:2.16
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVPOWTrck_d4
+      Offset: X:11.51 Y:-5.176 Z:2.16
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVPOWTrck_d5
+      Offset: X:-11.159 Y:-5.155 Z:2.16
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+  OCL_BombTruckDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadBombTruckHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: UVBmbTruk_d2
+      Offset: X:-7.248 Y:6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVBmbTruk_d2
+      Offset: X:-7.248 Y:-6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVBmbTruk_d2
+      Offset: X:-13.758 Y:6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVBmbTruk_d2
+      Offset: X:-13.758 Y:-6.75 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVBmbTruk_d3
+      Offset: X:19.09 Y:0.0 Z:3.863
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: UVBmbTruk_d4
+      Offset: X:-18.792 Y:0.0 Z:3.863
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.83333333333
+  OCL_GenericTankDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadCrusaderHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01
+      Offset: X:17.58 Y:1.971 Z:10.282
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D02
+      Offset: X:8.581 Y:1.943 Z:9.081
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D03
+      Offset: X:19.641 Y:2.261 Z:10.569
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D04
+      Offset: X:13.587 Y:-2.29 Z:9.715
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D05
+      Offset: X:6.764 Y:-2.233 Z:8.873
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.4
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D06
+      Offset: X:2.755 Y:-0.99 Z:8.462
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D07
+      Offset: X:-1.818 Y:-3.702 Z:8.837
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D08
+      Offset: X:-2.867 Y:-3.701 Z:8.741
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09
+      Offset: X:-3.894 Y:0.942 Z:8.463
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D10
+      Offset: X:2.963 Y:2.839 Z:8.454
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D11
+      Offset: X:-4.679 Y:2.206 Z:9.613
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D12
+      Offset: X:-3.606 Y:-3.174 Z:10.986
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+  OCL_LaserTankDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadLaserTankHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01
+      Offset: X:17.58 Y:1.971 Z:10.282
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D02
+      Offset: X:8.581 Y:1.943 Z:9.081
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D03
+      Offset: X:19.641 Y:2.261 Z:10.569
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D04
+      Offset: X:13.587 Y:-2.29 Z:9.715
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D05
+      Offset: X:6.764 Y:-2.233 Z:8.873
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.4
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D06
+      Offset: X:2.755 Y:-0.99 Z:8.462
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D07
+      Offset: X:-1.818 Y:-3.702 Z:8.837
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D08
+      Offset: X:-2.867 Y:-3.701 Z:8.741
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09
+      Offset: X:-3.894 Y:0.942 Z:8.463
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D10
+      Offset: X:2.963 Y:2.839 Z:8.454
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D11
+      Offset: X:-4.679 Y:2.206 Z:9.613
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D12
+      Offset: X:-3.606 Y:-3.174 Z:10.986
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+  OCL_MicrowaveTankDeath_CrushEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadMicrowaveHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_MicrowaveTankDeath:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadMicrowaveHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: AVThundrblt_D2
+      Offset: X:17.58 Y:1.971 Z:10.282
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: AVThundrblt_D3
+      Offset: X:8.581 Y:1.943 Z:9.081
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVThundrblt_D4
+      Offset: X:19.641 Y:2.261 Z:10.569
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+  OCL_MarauderTankDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadMarauderHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: UVMarauder_D2
+      Offset: X:21.593 Y:-0.018 Z:9.867
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVMarauder_D3
+      Offset: X:-13.092 Y:-9.332 Z:9.367
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: UVMarauder_D4
+      Offset: X:6.323 Y:-0.027 Z:10.282
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: DebrisBigMetal
+  OCL_PaladinTankDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadPaladinHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: AVPaladin_D2
+      Offset: X:-3.599 Y:-0.056 Z:9.982
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVPaladin_D3
+      Offset: X:14.031 Y:0.039 Z:10.322
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: DebrisBigMetal
+  OCL_AvengerTankDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadAvengerHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_ScorpionTankDead: {}
+  OCL_ScorpionTankDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadScorpionHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: AVPowTruck_d2
+      Offset: X:-4.678 Y:6.497 Z:2.993
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: AVPowTruck_d3
+      Offset: X:-19.262 Y:0 Z:6.23
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVPowTruck_d4
+      Offset: X:8.721 Y:0.131 Z:14.81
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+  OCL_MilitiaTankDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DestroyedMilitiaTank
+      Offset: X:-4.2 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: CVTank_D2
+      Offset: X:-2.647 Y:0.0 Z:6.966
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: CVTank_D3
+      Offset: X:6.929 Y:0.015 Z:8.772
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: CVTank_D4
+      Offset: X:-2.503 Y:-1.224 Z:12.018
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+      BounceSound: VehicleDebris
+  OCL_RadarVanDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadRadarVanHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: UVRadarVan_d2
+      Offset: X:-9.721 Y:-3.801 Z:22.679
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVRadarVan_d3
+      Offset: X:8.551 Y:0.072 Z:16.693
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVRadarVan_d4
+      Offset: X:9.495 Y:5.169 Z:2.185
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+  OCL_QuadCannonDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadQuadCannonHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: UVQuadCann_d2
+      Offset: X:-9.721 Y:-3.801 Z:22.679
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVQuadCann_d3
+      Offset: X:8.551 Y:0.072 Z:16.693
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: UVQuadCann_d4
+      Offset: X:9.495 Y:5.169 Z:2.185
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+  OCL_QuadCannon_NormalExplosion:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01
+      Offset: X:17.58 Y:1.971 Z:10.282
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D02
+      Offset: X:8.581 Y:1.943 Z:9.081
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D03
+      Offset: X:19.641 Y:2.261 Z:10.569
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D04
+      Offset: X:13.587 Y:-2.29 Z:9.715
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D05
+      Offset: X:6.764 Y:-2.233 Z:8.873
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.4
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D06
+      Offset: X:2.755 Y:-0.99 Z:8.462
+      Mass: 7.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.3
+  OCL_AmericaVehicleTomahawkDie:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaVehicleTomahawkHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: LIKE_EXISTING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: AVTomahawk_D2
+      Offset: X:-3.001 Y:5.79 Z:12.829
+      Mass: 8
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVTomahawk_D3
+      Offset: X:-2.643 Y:-0.349 Z:9.954
+      Mass: 8
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVTomahawk_D4
+      Offset: X:-3.499 Y:-3.779 Z:8.132
+      Mass: 8
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: DebrisBigMetal
+  OCL_ChinaVehicleNukeCannonDie:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaVehicleNukeCannonHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: LIKE_EXISTING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: NVNukeCn_D2
+      Offset: X:3.191 Y:0 Z:7.094
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 60
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: NVNukeCn_D3
+      Offset: X:11.018 Y:0 Z:6.837
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 60
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: NVNukeCn_D4
+      Offset: X:4.195 Y:-4.84 Z:13.178
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 60
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+  OCL_FireHydrantExplode:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: WaterSpray
+      Disposition: ON_GROUND_ALIGNED
+  OCL_GenericCarExplode:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X04
+      Offset: X:5.804 Y:-3.499 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X05
+      Offset: X:5.815 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X06
+      Offset: X:-7.615 Y:-3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X07
+      Offset: X:-8.281 Y:1.964 Z:3.926
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X08
+      Offset: X:-7.615 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X09
+      Offset: X:-2.032 Y:3.638 Z:3.925
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X10
+      Offset: X:0.776 Y:-0.960 Z:5.601
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X11
+      Offset: X:-0.897 Y:-3.735 Z:2.994
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X12
+      Offset: X:-3.074 Y:-0.303 Z:6.468
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X13
+      Offset: X:2.602 Y:3.652 Z:3.923
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X14
+      Offset: X:-9.828 Y:-1.889 Z:2.636
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+  OCL_GenericCarFloatDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X04
+      Offset: X:5.804 Y:-3.499 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X05
+      Offset: X:5.815 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X06
+      Offset: X:-7.615 Y:-3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X07
+      Offset: X:-8.281 Y:1.964 Z:3.926
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X08
+      Offset: X:-7.615 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X09
+      Offset: X:-2.032 Y:3.638 Z:3.925
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X10
+      Offset: X:0.776 Y:-0.960 Z:5.601
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X11
+      Offset: X:-0.897 Y:-3.735 Z:2.994
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X12
+      Offset: X:-3.074 Y:-0.303 Z:6.468
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X13
+      Offset: X:2.602 Y:3.652 Z:3.923
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X14
+      Offset: X:-9.828 Y:-1.889 Z:2.636
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING FLOATING
+      DispositionIntensity: 0.8
+  OCL_LimoExplode:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVLimo3_D2
+      Offset: X:-15.962 Y:0.019 Z:4.649
+      Mass: 40
+      Count: 1
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 130
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 180
+    - Type: CreateDebris
+      ModelNames: CVLimo3_D3
+      Offset: X:13.202 Y:5.126 Z:1.975
+      Mass: 40
+      Count: 1
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 130
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 180
+    - Type: CreateDebris
+      ModelNames: CVLimo3_D4
+      Offset: X:-12.731 Y:-5.12 Z:1.975
+      Mass: 40
+      Count: 1
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 130
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 180
+    - Type: CreateDebris
+      ModelNames: CVLimo3_D5
+      Offset: X:13.62 Y:-0.013 Z:5.302
+      Mass: 40
+      Count: 1
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 130
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 180
+    - Type: CreateObject
+      ObjectNames: CarLimo03DeadHull
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: RANDOM_FORCE
+  OCL_SmallStructureDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:5
+      Mass: 40
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:5
+      Mass: 40
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:5
+      Mass: 40
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:5
+      Mass: 40
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:15
+      Mass: 40
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:15
+      Mass: 40
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:15
+      Mass: 40
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:15
+      Mass: 40
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:0 Y:0 Z:25
+      Mass: 40
+      Count: 10
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:0 Y:0 Z:40
+      Mass: 40
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+  OCL_ParticleUplinkDeathFinal:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 6
+      RequiresLivePlayer: Yes
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:5
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:5
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:5
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:5
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:0 Y:0 Z:25
+      Mass: 30.0
+      Count: 10
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:0 Y:0 Z:40
+      Mass: 30.0
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+  OCL_GenericWallSegmentDebris: {}
+  OCL_AmericanScoutDrone:
+    Nuggets:
+    - Type: CreateObject
+      Offset: X:-8 Y:0 Z:10
+      ObjectNames: AmericaVehicleScoutDrone
+      IgnorePrimaryObstacle: Yes
+      Disposition: LIKE_EXISTING
+      Count: 1
+      RequiresLivePlayer: Yes
+  OCL_AmericanBattleDrone:
+    Nuggets:
+    - Type: CreateObject
+      Offset: X:0 Y:0 Z:10
+      ObjectNames: AmericaVehicleBattleDrone
+      IgnorePrimaryObstacle: Yes
+      Disposition: LIKE_EXISTING
+      Count: 1
+      RequiresLivePlayer: Yes
+  OCL_AmericanHellfireDrone:
+    Nuggets:
+    - Type: CreateObject
+      Offset: X:0 Y:0 Z:10
+      ObjectNames: AmericaVehicleHellfireDrone
+      IgnorePrimaryObstacle: Yes
+      Disposition: LIKE_EXISTING
+      Count: 1
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris01:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 1
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris02:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 2
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris03:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 3
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris04:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 4
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris05:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 5
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris06:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 6
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris07:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 7
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris08:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 8
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris09:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 9
+      RequiresLivePlayer: Yes
+  OCL_AmericanRangerDebris10:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 10
+      RequiresLivePlayer: Yes
+  OCL_LargeStructureDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:5
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:5
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:5
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:5
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:15
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:15
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:15
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:15
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:0 Y:0 Z:25
+      Mass: 40.0
+      Count: 10
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:0 Y:0 Z:40
+      Mass: 40.0
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+  OCL_VeryLargeStructureDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:5
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:5
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:5
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:5
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:15
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:15
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:15
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:15
+      Mass: 40.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:-15 Y:15 Z:40
+      Mass: 40.0
+      Count: 7
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:15 Y:-15 Z:40
+      Mass: 40.0
+      Count: 7
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:-15 Y:-15 Z:40
+      Mass: 40.0
+      Count: 7
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:15 Y:15 Z:40
+      Mass: 40.0
+      Count: 7
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:0 Y:0 Z:80
+      Mass: 40.0
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:0 Y:0 Z:100
+      Mass: 30.0
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 7
+      BounceSound: BuildingDebris
+  OCL_AmericaWarFactoryDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:45 Y:-11 Z:15
+      Mass: 30.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-33 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-11 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-45 Y:-33 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-45 Y:11 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:33 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-11 Z:25
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-33 Z:20
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:-45 Y:-11 Z:20
+      Mass: 30.0
+      Count: 10
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:-15 Y:11 Z:20
+      Mass: 30.0
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+  OCL_ABPowerPlantExplode:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:5
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:5
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:5
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:5
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:15 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:15 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:15
+      Mass: 30.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:0 Y:0 Z:25
+      Mass: 30.0
+      Count: 10
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:0 Y:0 Z:40
+      Mass: 30.0
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+  OCL_ABStingerSiteDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:5
+      Mass: 20.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:-15 Y:15 Z:5
+      Mass: 20.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:5
+      Mass: 20.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:15 Y:15 Z:5
+      Mass: 20.0
+      Count: 3
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:0 Y:0 Z:20
+      Mass: 20.0
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+  OCL_ABTunnelNetworkDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:15 Y:-15 Z:0
+      Mass: 20.0
+      Count: 2
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:-15 Y:15 Z:0
+      Mass: 20.0
+      Count: 2
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d01 ABPwrPlant_d02 ABPwrPlant_d03 ABPwrPlant_d04 ABPwrPlant_d05 ABPwrPlant_d06 ABPwrPlant_d07 ABPwrPlant_d08 ABPwrPlant_d09 ABPwrPlant_d10
+      Offset: X:-15 Y:-15 Z:0
+      Mass: 20.0
+      Count: 2
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d11 ABPwrPlant_d12 ABPwrPlant_d13 ABPwrPlant_d14 ABPwrPlant_d15 ABPwrPlant_d16 ABPwrPlant_d17 ABPwrPlant_d18 ABPwrPlant_d19 ABPwrPlant_d20
+      Offset: X:15 Y:15 Z:0
+      Mass: 20.0
+      Count: 2
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 3
+      BounceSound: BuildingDebris
+    - Type: CreateDebris
+      ModelNames: ABPwrPlant_d21 ABPwrPlant_d22 ABPwrPlant_d23 ABPwrPlant_d24 ABPwrPlant_d25 ABPwrPlant_d26 ABPwrPlant_d27 ABPwrPlant_d28 ABPwrPlant_d29 ABPwrPlant_d30
+      Offset: X:0 Y:0 Z:15
+      Mass: 20.0
+      Count: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 5
+      BounceSound: BuildingDebris
+  OCL_TechnicalAirDeathStart:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 60
+      MaxForceMagnitude: 100
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UITech_Man_SKN
+      AnimationSet:
+      - UITech_Man_SKL.UITech_Man_DTA1 UITech_Man_SKL.UITech_Man_DTA2 UITech_Man_SKL.UITech_Man_DTA3
+      - UITech_Man_SKL.UITech_Man_DTB1 UITech_Man_SKL.UITech_Man_DTB2 UITech_Man_SKL.UITech_Man_DTB3
+      - UITech_Man_SKL.UITech_Man_DTC1 UITech_Man_SKL.UITech_Man_DTC2 UITech_Man_SKL.UITech_Man_DTC3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_CINE_U05_TechnicalAirDeathStart:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 100
+      MinForcePitch: 90
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UITech_Man_SKN
+      AnimationSet:
+      - UITech_Man_SKL.UITech_Man_DTA1 UITech_Man_SKL.UITech_Man_DTA2 UITech_Man_SKL.UITech_Man_DTA3
+      - UITech_Man_SKL.UITech_Man_DTB1 UITech_Man_SKL.UITech_Man_DTB2 UITech_Man_SKL.UITech_Man_DTB3
+      - UITech_Man_SKL.UITech_Man_DTC1 UITech_Man_SKL.UITech_Man_DTC2 UITech_Man_SKL.UITech_Man_DTC3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_CINE_U05_TechnicalAirDeathStart02:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 10
+      MaxForceMagnitude: 10
+      MinForcePitch: 90
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UITech_Man_SKN
+      AnimationSet:
+      - UITech_Man_SKL.UITech_Man_DTA1 UITech_Man_SKL.UITech_Man_DTA2 UITech_Man_SKL.UITech_Man_DTA3
+      - UITech_Man_SKL.UITech_Man_DTB1 UITech_Man_SKL.UITech_Man_DTB2 UITech_Man_SKL.UITech_Man_DTB3
+      - UITech_Man_SKL.UITech_Man_DTC1 UITech_Man_SKL.UITech_Man_DTC2 UITech_Man_SKL.UITech_Man_DTC3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_WorkerFlyingOffBikeDeathStart:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 60
+      MaxForceMagnitude: 100
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UIWRKR_SKN
+      AnimationSet: UIWRKR_SKL.UIWRKR_ADTE1 UIWRKR_SKL.UIWRKR_ADTE2 UIWRKR_SKL.UIWRKR_ADTE3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE INHERIT_VELOCITY
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_RebelFlyingOffBikeDeathStart:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 60
+      MaxForceMagnitude: 100
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UITech_Man_SKN
+      AnimationSet:
+      - UITech_Man_SKL.UITech_Man_DTA1 UITech_Man_SKL.UITech_Man_DTA2 UITech_Man_SKL.UITech_Man_DTA3
+      - UITech_Man_SKL.UITech_Man_DTB1 UITech_Man_SKL.UITech_Man_DTB2 UITech_Man_SKL.UITech_Man_DTB3
+      - UITech_Man_SKL.UITech_Man_DTC1 UITech_Man_SKL.UITech_Man_DTC2 UITech_Man_SKL.UITech_Man_DTC3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE INHERIT_VELOCITY
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_TunnelDefenderFlyingOffBikeDeathStart:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 60
+      MaxForceMagnitude: 100
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UITunF_SKN
+      AnimationSet:
+      - UITunF_SKL.UITunF_ADTA1 UITunF_SKL.UITunF_ADTA2 UITunF_SKL.UITunF_ADTA3
+      - UITunF_SKL.UITunF_ADTE1 UITunF_SKL.UITunF_ADTE2 UITunF_SKL.UITunF_ADTE3
+      - UITunF_SKL.UITunF_ADTF1 UITunF_SKL.UITunF_ADTF2 UITunF_SKL.UITunF_ADTF3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE INHERIT_VELOCITY
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_JarmenKellFlyingOffBikeDeathStart:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 60
+      MaxForceMagnitude: 100
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UIHERO_SKN
+      AnimationSet: UIHERO_SKL.UIHERO_ADTG21 UIHERO_SKL.UIHERO_ADTG22 UIHERO_SKL.UIHERO_ADTG23
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE INHERIT_VELOCITY
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_TerroristFlyingOffBikeDeathStart:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 60
+      MaxForceMagnitude: 100
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UITRST_SKN
+      AnimationSet: UITRST_SKL.UITRST_ADTE1 UITRST_SKL.UITRST_ADTE2 UITRST_SKL.UITRST_ADTE3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE INHERIT_VELOCITY
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_HijackerFlyingOffBikeDeathStart:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 60
+      MaxForceMagnitude: 100
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UIHJCK_SKN
+      AnimationSet: UIHJCK_SKL.UIHJCK_ADTE1 UIHJCK_SKL.UIHJCK_ADTE2 UIHJCK_SKL.UIHJCK_ADTE3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE INHERIT_VELOCITY
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 70
+      MaxForcePitch: 80
+  OCL_TerroristDeathHigh:
+    Nuggets:
+    - Type: ApplyRandomForce
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 70
+      MinForcePitch: 100
+      MaxForcePitch: 130
+      SpinRate: 120
+    - Type: CreateDebris
+      ModelNames: UITRST_SKN
+      AnimationSet: UITRST_SKL.UITRST_DTB1 UITRST_SKL.UITRST_DTB2 UITRST_SKL.UITRST_DTB3
+      FXFinal: FX_TechnicalGunnerHitsGround
+      OkToChangeModelColor: Yes
+      IgnorePrimaryObstacle: Yes
+      Mass: 5.0
+      Disposition: RANDOM_FORCE
+      OrientInForceDirection: Yes
+      ExtraBounciness: -1.0
+      ExtraFriction: -3
+      MinForceMagnitude: 12
+      MaxForceMagnitude: 15
+      MinForcePitch: 100
+      MaxForcePitch: 130
+  OCL_RocketBuggyAirDeathStart:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLARocketBuggyFullDebris
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 200
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 180
+  OCL_RocketBuggyAirDeath:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: UVRockBug_D2
+      Mass: 2.0
+      ExtraBounciness: 0.1
+      Count: 4
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 4
+      MaxForceMagnitude: 6
+      MinForcePitch: 0
+      MaxForcePitch: 360
+      SpinRate: 180
+    - Type: CreateDebris
+      ModelNames: UVRockBug_D3
+      Mass: 4.0
+      ExtraBounciness: -0.15
+      Count: 8
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 4
+      MaxForceMagnitude: 6
+      MinForcePitch: 0
+      MaxForcePitch: 360
+      SpinRate: 180
+      BounceSound: VehicleDebris
+  OCL_BuggyRocketScatter:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: RocketBuggyMissileDebris
+      Count: 5
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 60
+      MinForcePitch: 70
+      MaxForcePitch: 90
+  OCL_CombatBikeAirDeathStart:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLACombatBikeFullDebris
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 200
+      MinForcePitch: 70
+      MaxForcePitch: 90
+      SpinRate: 180
+  OCL_CombatBikeAirDeath:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: UVComBike_D2
+      Offset: X:8.73 Y:-2.204 Z:2.345
+      Mass: 2.0
+      ExtraBounciness: 0.1
+      Count: 2
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 4
+      MaxForceMagnitude: 6
+      MinForcePitch: 0
+      MaxForcePitch: 360
+      SpinRate: 180
+    - Type: CreateDebris
+      ModelNames: UVComBike_D3
+      Offset: X:-3.579 Y:-0.653 Z:3.326
+      Mass: 2.0
+      ExtraBounciness: -0.15
+      Count: 2
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 4
+      MaxForceMagnitude: 6
+      MinForcePitch: 0
+      MaxForcePitch: 360
+      SpinRate: 180
+      BounceSound: VehicleDebris
+  OCL_CombatBike_ToppledHulk:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLACombatBikeToppledHulk
+      Disposition: LIKE_EXISTING
+  OCL_BurnedCarHull:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVCarHulk
+      Mass: 50.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 200
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 200
+      BounceSound: DebrisBigMetal
+  OCL_CarWallExplode:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVCarHulk
+      Offset: X:10 Y:0 Z:2
+      Mass: 50.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 20
+      MaxForceMagnitude: 30
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 100
+    - Type: CreateDebris
+      ModelNames: CVCarHulk
+      Offset: X:0 Y:0 Z:2
+      Mass: 50.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 20
+      MaxForceMagnitude: 30
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 100
+    - Type: CreateDebris
+      ModelNames: CVCarHulk
+      Offset: X:-10 Y:0 Z:2
+      Mass: 50.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 20
+      MaxForceMagnitude: 30
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 100
+  OCL_BurningEmbers:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: BurningEmber
+      Offset: X:0 Y:0 Z:20
+      Count: 1
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 2
+      MaxForceMagnitude: 4
+      MinForcePitch: 60
+      MaxForcePitch: 70
+      ExtraBounciness: -1.0
+      ExtraFriction: 30
+  OCL_CrusaderTurret:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: AVLeopard_D2
+      Offset: X:0.491 Y:0.028 Z:7.717
+      Count: 1
+      Mass: 50.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 150
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 300
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVLeopard_D3
+      Offset: X:15.684 Y:0.942 Z:8.729
+      Count: 1
+      Mass: 50.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 150
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 300
+      BounceSound: DebrisBigMetal
+  OCL_OverlordTurret:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: AVCrusader_D2
+      Count: 1
+      Mass: 60.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 150
+      MaxForceMagnitude: 225
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 200
+      BounceSound: DebrisBigMetal
+  OCL_OverlordGattlingCannon:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaTankOverlordGattlingCannon
+      Count: 1
+      ContainInsideSourceObject: Yes
+  OCL_OverlordPropagandaTower:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaTankOverlordPropagandaTower
+      Count: 1
+      ContainInsideSourceObject: Yes
+  OCL_OverlordBattleBunker:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaTankOverlordBattleBunker
+      Count: 1
+      ContainInsideSourceObject: Yes
+  OCL_HelixGattlingCannon:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaHelixGattlingCannon
+      Count: 1
+      ContainInsideSourceObject: Yes
+  OCL_HelixPropagandaTower:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaHelixPropagandaTower
+      Count: 1
+      ContainInsideSourceObject: Yes
+  OCL_HelixBattleBunker:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaHelixBattleBunker
+      Count: 1
+      ContainInsideSourceObject: Yes
+  OCL_Infa_HelixBattleBunker:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Infa_ChinaHelixBattleBunker
+      Count: 1
+      ContainInsideSourceObject: Yes
+  OCL_DragonDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: NVDragon_D2
+      Offset: X:-5.699 Y:3.342 Z:4.488
+      Count: 1
+      Mass: 3.5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVDragon_D2
+      Offset: X:-5.699 Y:-3.738 Z:4.488
+      Count: 1
+      Mass: 40
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 80
+      MaxForceMagnitude: 100
+      SpinRate: 180
+      MinForcePitch: 75
+      MaxForcePitch: 90
+    - Type: CreateDebris
+      ModelNames: NVDragon_D2
+      Offset: X:-7.364 Y:0.0 Z:8.32
+      Count: 1
+      Mass: 3.5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVDragon_D3
+      Offset: X:3.655 Y:0.0 Z:11.703
+      Count: 1
+      Mass: 4.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+      BounceSound: VehicleDebris
+    - Type: CreateObject
+      ObjectNames: ChinaTankDragonDeadHull
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: RANDOM_FORCE
+  OCL_StructureToppleInitial:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X04
+      Offset: X:5.804 Y:-3.499 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X05
+      Offset: X:5.815 Y:3.508 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X06
+      Offset: X:-7.615 Y:-3.508 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X07
+      Offset: X:-8.281 Y:1.964 Z:3.926
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+  OCL_StructureToppleDelay:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X04
+      Offset: X:5.804 Y:-3.499 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X05
+      Offset: X:5.815 Y:3.508 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X06
+      Offset: X:-7.615 Y:-3.508 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X07
+      Offset: X:-8.281 Y:1.964 Z:3.926
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+  OCL_StructureToppleCrush:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+  OCL_StructureCollapseInitial:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X04
+      Offset: X:5.804 Y:-3.499 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X05
+      Offset: X:5.815 Y:3.508 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X06
+      Offset: X:-7.615 Y:-3.508 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X07
+      Offset: X:-8.281 Y:1.964 Z:3.926
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+  OCL_StructureCollapseDelay:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X04
+      Offset: X:5.804 Y:-3.499 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X05
+      Offset: X:5.815 Y:3.508 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X06
+      Offset: X:-7.615 Y:-3.508 Z:1.245
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X07
+      Offset: X:-8.281 Y:1.964 Z:3.926
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+  OCL_StructureCollapseFinal:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X01
+      Offset: X:6.7 Y:2.098 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X02
+      Offset: X:6.824 Y:-0.988 Z:2.972
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: CVGeneric_X03
+      Offset: X:-7.314 Y:-1.325 Z:4.546
+      Mass: 1.2
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+  OCL_ComancheBlades:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ComancheBlades
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+      SpinRate: 50
+      MinLifetime: 99999999
+      MaxLifetime: 99999999
+  OCL_HelixBlades:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: NVHelix_prop
+      Mass: 1.7
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.0
+      YawRate: 360
+      PitchRate: 0
+      RollRate: 0
+    - Type: CreateDebris
+      ModelNames: NVHelix_prop
+      Mass: 1.7
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.0
+      YawRate: -360
+      PitchRate: 0
+      RollRate: 0
+  OCL_HelicopterStartDeath:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01 GXMammoth_D02 GXMammoth_D03 GXMammoth_D04
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+  OCL_HelicopterBladeExplosion:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01 GXMammoth_D02 GXMammoth_D03 GXMammoth_D04
+      Count: 3
+      Mass: 10.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+      ParticleSystem: BuggyDebrisTireTrail
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D05 GXMammoth_D06 GXMammoth_D07 GXMammoth_D08
+      Count: 3
+      Mass: 10.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_HelicopterHitGround:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: AVComanche_D5
+      Count: 4
+      Mass: 6.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+  OCL_GroundedHelicopterBlowUp:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01 GXMammoth_D02 GXMammoth_D03 GXMammoth_D04
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D05 GXMammoth_D06 GXMammoth_D07 GXMammoth_D08
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_UP
+      DispositionIntensity: 1.5
+  OCL_EjectPilotOnGround:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryPilot
+      IgnorePrimaryObstacle: Yes
+      InheritsVeterancy: Yes
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 2
+      MaxForceMagnitude: 3
+      MinForcePitch: 50
+      MaxForcePitch: 60
+      SpinRate: 0
+      InvulnerableTime: 2000
+      RequiresLivePlayer: Yes
+  OCL_EjectPilotViaParachute:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaInfantryPilot
+      PutInContainer: AmericaParachute
+      IgnorePrimaryObstacle: Yes
+      InheritsVeterancy: Yes
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 10
+      MaxForceMagnitude: 12
+      MinForcePitch: 50
+      MaxForcePitch: 60
+      SpinRate: 0
+      InvulnerableTime: 2000
+      RequiresLivePlayer: Yes
+  OCL_CINE_EjectPilotViaParachute:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: CINE_AmericaInfantryPilot
+      PutInContainer: AmericaParachute
+      IgnorePrimaryObstacle: Yes
+      InheritsVeterancy: Yes
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 10
+      MaxForceMagnitude: 12
+      MinForcePitch: 50
+      MaxForcePitch: 60
+      SpinRate: 0
+      InvulnerableTime: 2000
+      RequiresLivePlayer: Yes
+  SUPERWEAPON_DaisyCutter:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetB52
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-10
+      Payload: DaisyCutterBomb
+      DeliveryDistance: 140
+      DeliveryDecalRadius: 170
+      DeliveryDecal:
+        Texture: SCCFuelAirBomb_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:0 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_MOAB:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetB3
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-10
+      Payload: MOAB
+      DeliveryDistance: 160
+      PreOpenDistance: 160
+      DeliveryDecalRadius: 170
+      DeliveryDecal:
+        Texture: SCCFuelAirBomb_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:0 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_LeafletDrop:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetB52
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-10
+      Payload: LeafletContainer
+      DeliveryDistance: 160
+      DeliveryDecalRadius: 100
+      DeliveryDecal:
+        Texture: SCCFuelAirBomb_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:255 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_NeutronMissile:
+    Nuggets:
+    - Type: FireWeapon
+      Weapon: NeutronMissileWeapon
+  SUPERWEAPON_ScudStorm:
+    Nuggets:
+    - Type: Attack
+      WeaponSlot: PRIMARY
+      NumberOfShots: 9
+      DeliveryDecalRadius: 200
+      DeliveryDecal:
+        Texture: SCCScudStorm_GLA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:33 G:255 B:67 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_ArtilleryBarrage1:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaArtilleryCannon
+      FormationSize: 12
+      FormationSpacing: 1.0
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DeliveryDistance: 250
+      WeaponErrorRadius: 100
+      DelayDeliveryMax: 3000
+      VisibleItemsDroppedPerInterval: 1
+      VisibleDropBoneBaseName: RootTransform
+      VisibleSubObjectBaseName: Bomb
+      VisibleNumBones: 1
+      VisiblePayloadTemplateName: ChinaArtilleryBarrageShell
+      VisiblePayloadWeaponTemplate: ArtilleryBarrageDamageWeapon
+      InheritTransportVelocity: Yes
+      ExitPitchRate: 30
+      SelfDestructObject: Yes
+      DeliveryDecalRadius: 125
+      DeliveryDecal:
+        Texture: SCCArtilleryBarrage_China
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_ArtilleryBarrage2:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaArtilleryCannon
+      FormationSize: 24
+      FormationSpacing: 1.0
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DeliveryDistance: 250
+      WeaponErrorRadius: 100
+      DelayDeliveryMax: 3000
+      VisibleItemsDroppedPerInterval: 1
+      VisibleDropBoneBaseName: RootTransform
+      VisibleSubObjectBaseName: Bomb
+      VisibleNumBones: 1
+      VisiblePayloadTemplateName: ChinaArtilleryBarrageShell
+      VisiblePayloadWeaponTemplate: ArtilleryBarrageDamageWeapon
+      InheritTransportVelocity: Yes
+      ExitPitchRate: 30
+      SelfDestructObject: Yes
+      DeliveryDecalRadius: 125
+      DeliveryDecal:
+        Texture: SCCArtilleryBarrage_China
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_ArtilleryBarrage3:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaArtilleryCannon
+      FormationSize: 36
+      FormationSpacing: 1.0
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DeliveryDistance: 250
+      WeaponErrorRadius: 100
+      DelayDeliveryMax: 3000
+      VisibleItemsDroppedPerInterval: 1
+      VisibleDropBoneBaseName: RootTransform
+      VisibleSubObjectBaseName: Bomb
+      VisibleNumBones: 1
+      VisiblePayloadTemplateName: ChinaArtilleryBarrageShell
+      VisiblePayloadWeaponTemplate: ArtilleryBarrageDamageWeapon
+      InheritTransportVelocity: Yes
+      ExitPitchRate: 30
+      SelfDestructObject: Yes
+      DeliveryDecalRadius: 125
+      DeliveryDecal:
+        Texture: SCCArtilleryBarrage_China
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_NapalmStrike:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetMIGNapalmStriker
+      FormationSize: 5
+      FormationSpacing: 35.0
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 0
+      Payload: NapalmMissile 1
+      FireWeapon: Yes
+      DeliveryDistance: 300
+      WeaponConvergenceFactor: 1.0
+      DeliveryDecalRadius: 100
+      DeliveryDecal:
+        Texture: SCCNapalmStrike_China
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_A10ThunderboltMissileStrike1:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetA10Thunderbolt
+      FormationSize: 1
+      FormationSpacing: 35.0
+      WeaponConvergenceFactor: 0.5
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropDelay: 500
+      DeliveryDistance: 450
+      VisibleItemsDroppedPerInterval: 2
+      VisibleDropBoneBaseName: WeaponA
+      VisibleSubObjectBaseName: Missile
+      VisibleNumBones: 6
+      VisiblePayloadTemplateName: A10ThunderboltMissile
+      VisiblePayloadWeaponTemplate: A10ThunderboltMissileWeapon
+      InheritTransportVelocity: Yes
+      ExitPitchRate: 30
+      DiveStartDistance: 500
+      DiveEndDistance: 300
+      StrafingWeaponSlot: PRIMARY
+      StrafeLength: 450
+      StrafeWeaponFX: FX_DamageTankStruckSmallArms
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCA10Strike_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_A10ThunderboltMissileStrike2:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetA10Thunderbolt
+      FormationSize: 2
+      FormationSpacing: 35.0
+      WeaponConvergenceFactor: 0.5
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropDelay: 500
+      DeliveryDistance: 450
+      VisibleItemsDroppedPerInterval: 2
+      VisibleDropBoneBaseName: WeaponA
+      VisibleSubObjectBaseName: Missile
+      VisibleNumBones: 6
+      VisiblePayloadTemplateName: A10ThunderboltMissile
+      VisiblePayloadWeaponTemplate: A10ThunderboltMissileWeapon
+      InheritTransportVelocity: Yes
+      ExitPitchRate: 30
+      DiveStartDistance: 500
+      DiveEndDistance: 300
+      StrafingWeaponSlot: PRIMARY
+      StrafeLength: 450
+      StrafeWeaponFX: FX_DamageTankStruckSmallArms
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCA10Strike_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_A10ThunderboltMissileStrike3:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetA10Thunderbolt
+      FormationSize: 3
+      FormationSpacing: 35.0
+      WeaponConvergenceFactor: 0.5
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropDelay: 500
+      DeliveryDistance: 450
+      VisibleItemsDroppedPerInterval: 2
+      VisibleDropBoneBaseName: WeaponA
+      VisibleSubObjectBaseName: Missile
+      VisibleNumBones: 6
+      VisiblePayloadTemplateName: A10ThunderboltMissile
+      VisiblePayloadWeaponTemplate: A10ThunderboltMissileWeapon
+      InheritTransportVelocity: Yes
+      ExitPitchRate: 30
+      DiveStartDistance: 500
+      DiveEndDistance: 300
+      StrafingWeaponSlot: PRIMARY
+      StrafeLength: 450
+      StrafeWeaponFX: FX_DamageTankStruckSmallArms
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCA10Strike_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_TerrorCell:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLAInfantryTerrorist
+      Count: 5
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      FadeSound: TerrorCellActivated
+  SUPERWEAPON_RepairVehicles1:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: RepairVehiclesInArea_InvisibleMarker_Level1
+      Count: 1
+  SUPERWEAPON_RepairVehicles2:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: RepairVehiclesInArea_InvisibleMarker_Level2
+      Count: 1
+  SUPERWEAPON_RepairVehicles3:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: RepairVehiclesInArea_InvisibleMarker_Level3
+      Count: 1
+  SUPERWEAPON_Frenzy1:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Frenzy_InvisibleMarker_Level1
+      Count: 1
+  SUPERWEAPON_Frenzy2:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Frenzy_InvisibleMarker_Level2
+      Count: 1
+  SUPERWEAPON_Frenzy3:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Frenzy_InvisibleMarker_Level3
+      Count: 1
+  SUPERWEAPON_GPSScrambler:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GPSScrambler_InvisibleMarker
+      Count: 1
+  SUPERWEAPON_SpySatellite:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SpySatellitePing
+      Count: 1
+  SUPERWEAPON_SpyDrone:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaVehicleSpyDrone
+      Disposition: LIKE_EXISTING
+      Count: 1
+  SUPERWEAPON_RadarVanScan:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: RadarVanPing
+      Count: 1
+  SUPERWEAPON_RebelAmbush1:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLAInfantryRebel
+      Count: 4
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  SUPERWEAPON_RebelAmbush2:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLAInfantryRebel
+      Count: 8
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  SUPERWEAPON_RebelAmbush3:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLAInfantryRebel
+      Count: 16
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  Demo_SUPERWEAPON_RebelAmbush1:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Demo_GLAInfantryRebel
+      Count: 4
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  Demo_SUPERWEAPON_RebelAmbush2:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Demo_GLAInfantryRebel
+      Count: 6
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  Demo_SUPERWEAPON_RebelAmbush3:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Demo_GLAInfantryRebel
+      Count: 10
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  Slth_SUPERWEAPON_RebelAmbush1:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Slth_GLAInfantryRebel
+      Count: 4
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  Slth_SUPERWEAPON_RebelAmbush2:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Slth_GLAInfantryRebel
+      Count: 8
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  Slth_SUPERWEAPON_RebelAmbush3:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Slth_GLAInfantryRebel
+      Count: 16
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  SUPERWEAPON_BlackMarketNuke:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: GLAJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-10
+      Payload: BlackMarketNuke
+      DeliveryDistance: 140
+      DeliveryDecalRadius: 100
+      DeliveryDecal:
+        Texture: EXTargeterAlpha
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:0 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_DetonateDirtyNuke:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: CargoTruckNuke
+      MinLifetime: 3000
+      MaxLifetime: 3000
+  OCL_DirtyNuke:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: CargoTruckNuke
+      MinLifetime: 1
+      MaxLifetime: 1
+  SUPERWEAPON_AnthraxBomb:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: GLAJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-10
+      Payload: AnthraxBomb
+      DeliveryDistance: 140
+      DeliveryDecalRadius: 200
+      DeliveryDecal:
+        Texture: SCCAnthraxBomb_GLA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:33 G:255 B:67 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_AnthraxBombGamma:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: GLAJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-10
+      Payload: AnthraxBombGamma
+      DeliveryDistance: 140
+      DeliveryDecalRadius: 200
+      DeliveryDecal:
+        Texture: SCCAnthraxBomb_GLA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:33 G:255 B:67 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_Paradrop1:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 150
+      ParachuteDirectly: Yes
+      PutInContainer: AmericaParachute
+      Payload: AmericaInfantryRanger 5
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_Paradrop2:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: Yes
+      PutInContainer: AmericaParachute
+      Payload: AmericaInfantryRanger 10
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_Paradrop3:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: Yes
+      PutInContainer: AmericaParachute
+      Payload: AmericaInfantryRanger 10
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: No
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: Yes
+      PutInContainer: AmericaParachute
+      Payload: AmericaInfantryRanger 10
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_ClusterMines:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-2
+      DropVariance: X:20 Y:20 Z:0
+      Payload: ClusterMinesBomb 1
+      DeliveryDistance: 140
+      DeliveryDecalRadius: 100
+      DeliveryDecal:
+        Texture: SCCClusterMines_China
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_EMPPulse:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-2
+      DropVariance: X:20 Y:20 Z:0
+      Payload: EMPPulseBomb 1
+      DeliveryDistance: 150
+      DeliveryDecalRadius: 200
+      DeliveryDecal:
+        Texture: SCCEMPPulse_China
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:40 G:110 B:210 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_CrateDrop:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 300
+      PutInContainer: AmericaParachute
+      Payload: 200DollarCrate 10
+      DeliveryDistance: 250
+      DeliveryDecalRadius: 100
+      DeliveryDecal:
+        Texture: EXTargeterAlpha
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:0 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_CarpetBomb:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetB52
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-2
+      DropVariance: X:30 Y:40 Z:0
+      DropDelay: 300
+      Payload: CarpetBomb 15
+      DeliveryDistance: 400
+      DeliveryDecalRadius: 100
+      DeliveryDecal:
+        Texture: SCCA10Strike_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:156 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  AirF_SUPERWEAPON_CarpetBomb:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AirF_AmericaJetB3
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-2
+      DropVariance: X:30 Y:40 Z:0
+      DropDelay: 130
+      Payload: CarpetBomb 12
+      DeliveryDistance: 500
+      DeliveryDecalRadius: 180
+      DeliveryDecal:
+        Texture: SCCCarpBomb
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:0 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  Nuke_SUPERWEAPON_ChinaCarpetBomb:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCarpetBomber
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-2
+      DropVariance: X:30 Y:40 Z:0
+      DropDelay: 300
+      Payload: Nuke_ChinaCarpetBomb 10
+      DeliveryDistance: 350
+      DeliveryDecalRadius: 180
+      DeliveryDecal:
+        Texture: SCCCarpBomb
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:0 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  SUPERWEAPON_ChinaCarpetBomb:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCarpetBomber
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 1
+      DropOffset: X:0 Y:0 Z:-2
+      DropVariance: X:30 Y:40 Z:0
+      DropDelay: 300
+      Payload: ChinaCarpetBomb 10
+      DeliveryDistance: 350
+      DeliveryDecalRadius: 180
+      DeliveryDecal:
+        Texture: SCCCarpBomb
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:255 G:0 B:0 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  OCL_AmericaSupplyDropZoneCrateDrop:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 350
+      PutInContainer: AmericaCrateParachute
+      Payload: SupplyDropZoneCrate 6
+      ParachuteDirectly: Yes
+      DeliveryDistance: 410
+  OCL_DaisyCutterExplode:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DaisyCutterGas
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01 GXMammoth_D02 GXMammoth_D03 GXMammoth_D04
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+  OCL_EMPPulseEffectSpheroids:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: EMPPulseEffectSpheroid
+      Count: 1
+  OCL_MOABEffectSpheroid:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: MOABEffectSpheroid
+      Count: 1
+  OCL_EMPMineEffectSpheroid:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: EMPMineEffectSpheroid
+      Count: 1
+  OCL_FlamingInfantry:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: FlamingInfantry
+      Disposition: LIKE_EXISTING
+      SkipIfSignificantlyAirborne: Yes
+  OCL_ToxicInfantry:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ToxicInfantry
+      Disposition: LIKE_EXISTING
+      SkipIfSignificantlyAirborne: Yes
+  OCL_ToxicInfantryBeta:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ToxicInfantryBeta
+      Disposition: LIKE_EXISTING
+      SkipIfSignificantlyAirborne: Yes
+  OCL_ToxicInfantryGamma:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ToxicInfantryGamma
+      Disposition: LIKE_EXISTING
+      SkipIfSignificantlyAirborne: Yes
+  OCL_ToxicInfantry_TerroristOnly:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ToxicInfantry_TerroristOnly
+      Disposition: LIKE_EXISTING
+      SkipIfSignificantlyAirborne: Yes
+  OCL_ToxicInfantryBeta_TerroristOnly:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ToxicInfantryBeta_TerroristOnly
+      Disposition: LIKE_EXISTING
+      SkipIfSignificantlyAirborne: Yes
+  OCL_ToxicInfantryGamma_TerroristOnly:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ToxicInfantryGamma_TerroristOnly
+      Disposition: LIKE_EXISTING
+      SkipIfSignificantlyAirborne: Yes
+  OCL_GLAPowerPlantDeathFinal:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: UBPwrPlant_D2
+      Offset: X:-9.08 Y:-8.547 Z:16.598
+      Count: 1
+      Mass: 50.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 150
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: BuildingDebris
+    - Type: CreateObject
+      ObjectNames: GLAPowerPlantWindmillBlade
+      Offset: X:-3.532 Y:37.388 Z:27.822
+      Count: 3
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 150
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 1000
+  OCL_InitialHumveeDebris:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaVehicleHumveeDeadHull
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: RANDOM_FORCE
+  OCL_FinalHumveeDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: AVHUMMER_D2
+      Offset: X:-7.098 Y:5.7 Z:2.9
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVHUMMER_D2
+      Offset: X:10.407 Y:-5.7 Z:2.9
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVHUMMER_D3
+      Offset: X:.071 Y:6.73 Z:7.273
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 60
+      MinForcePitch: 60
+      MaxForcePitch: 70
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVHUMMER_D3
+      Offset: X:.071 Y:-6.73 Z:7.273
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 60
+      MinForcePitch: 60
+      MaxForcePitch: 70
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVScrap2 AVScrap3 AVScrap4 AVScrap5
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: .5
+  OCL_FinalAmbulanceDebris:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaVehicleAmbulanceDeadHull
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: RANDOM_FORCE
+    - Type: CreateDebris
+      ModelNames: AVAmbulance_D2
+      Offset: X:-7.098 Y:5.7 Z:2.9
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVAmbulance_D2
+      Offset: X:10.407 Y:-5.7 Z:2.9
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVAmbulance_D3
+      Offset: X:.071 Y:6.73 Z:7.273
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 60
+      MinForcePitch: 60
+      MaxForcePitch: 70
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVAmbulance_D3
+      Offset: X:.071 Y:-6.73 Z:7.273
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 60
+      MinForcePitch: 60
+      MaxForcePitch: 70
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVScrap2 AVScrap3 AVScrap4 AVScrap5
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: .5
+  OCL_FinalTroopCrawlerDebris:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaVehicleTroopCrawlerDeadHull
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: RANDOM_FORCE
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D2
+      Offset: X:3.869 Y:-6.784 Z:3.215
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D3
+      Offset: X:-14.729 Y:-6.924 Z:3.452
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D4
+      Offset: X:-15.097 Y:6.728 Z:3.585
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D5
+      Offset: X:11.096 Y:6.894 Z:3.145
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVScrap2 AVScrap3 AVScrap4 AVScrap5
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: .5
+  OCL_FinalAssaultTroopCrawlerDebris:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaVehicleAssaultTroopCrawlerDeadHull
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: RANDOM_FORCE
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D2
+      Offset: X:3.869 Y:-6.784 Z:3.215
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D3
+      Offset: X:-14.729 Y:-6.924 Z:3.452
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D4
+      Offset: X:-15.097 Y:6.728 Z:3.585
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D5
+      Offset: X:11.096 Y:6.894 Z:3.145
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVScrap2 AVScrap3 AVScrap4 AVScrap5
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: .5
+  OCL_ChinaTankBattleMasterDebris:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaVehicleBattleMasterDeadHull
+      Offset: X:0 Y:0.0 Z:0
+      Count: 1
+      Disposition: RANDOM_FORCE
+    - Type: CreateDebris
+      ModelNames: NVBtMstr_D2
+      Offset: X:2.506 Y:0.0 Z:7.044
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: NVBtMstr_D3
+      Offset: X:7.366 Y:0.0 Z:9.024
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 60
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVScrap2 AVScrap3 AVScrap4 AVScrap5
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: .5
+  OCL_ChinaTankOverlordDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: NVOvrlrd_D2
+      Offset: X:-1.492 Y:0.0 Z:17.946
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: NVOvrlrd_D3
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 60
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: NVOvrlrd_D4
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 60
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateObject
+      ObjectNames: ChinaTankOverlordBarrelDebris
+      Offset: X:-8.84 Y:-7.283 Z:12.54
+      Count: 1
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 100
+      MaxForceMagnitude: 150
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 45
+    - Type: CreateObject
+      ObjectNames: ChinaTankOverlordDeadHull
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: RANDOM_FORCE
+  OCL_ChinaTankGattlingDebris:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadChinaGattlingTankHulk
+      Offset: X:-6.62 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: NVGattTank_D2
+      Offset: X:2.506 Y:0.0 Z:7.044
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: NVGattTank_D3
+      Offset: X:7.366 Y:0.0 Z:9.024
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 50
+      MaxForceMagnitude: 60
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVScrap2 AVScrap3 AVScrap4 AVScrap5
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: .5
+  OCL_ChinaTankECMDebris:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadChinaECMTankHulk
+      Offset: X:-6.62 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: NVBanshee_D2
+      Offset: X:2.506 Y:0.0 Z:7.044
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVScrap2 AVScrap3 AVScrap4 AVScrap5
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: .5
+  OCL_DamDie:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: WaveGuide
+      Count: 1
+      Disposition: LIKE_EXISTING
+  OCL_ChinaDozerExplode:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaDeadDozerHulk
+      Offset: X:-6.62 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: nvconstdoz_D2
+      Offset: X:8.93 Y:0.0 Z:4.13
+      Mass: 10
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.8
+    - Type: CreateDebris
+      ModelNames: nvconstdoz_D3
+      Offset: X:5.224 Y:-3.613 Z:10.611
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.6
+    - Type: CreateDebris
+      ModelNames: nvconstdoz_D4
+      Offset: X:-2.588 Y:-9.683 Z:3.87
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: AVScrap2
+      Offset: X:-0.805 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: AVScrap2
+      Offset: X:-14.235 Y:-3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: AVScrap2
+      Offset: X:-14.901 Y:1.964 Z:3.926
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: AVScrap5
+      Offset: X:-14.235 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.7
+    - Type: CreateDebris
+      ModelNames: AVScrap5
+      Offset: X:-8.652 Y:3.638 Z:3.925
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: AVScrap5
+      Offset: X:-5.844 Y:-0.960 Z:5.601
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.7
+  OCL_AmericaDozerExplode:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaDeadDozerHulk
+      Offset: X:-7.962 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: avconstdoz_D2
+      Offset: X:3.38 Y:-5.0 Z:1.0
+      Mass: 10
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.8
+    - Type: CreateDebris
+      ModelNames: avconstdoz_D2
+      Offset: X:-17.962 Y:-5.0 Z:1.0
+      Mass: 10
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.8
+    - Type: CreateDebris
+      ModelNames: avconstdoz_D2
+      Offset: X:-17.962 Y:5.0 Z:1.0
+      Mass: 10
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.8
+    - Type: CreateDebris
+      ModelNames: avconstdoz_D3
+      Offset: X:8.93 Y:0.0 Z:4.13
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.6
+    - Type: CreateDebris
+      ModelNames: avconstdoz_D4
+      Offset: X:-2.588 Y:-9.683 Z:3.87
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: avconstdoz_D5
+      Offset: X:-0.805 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: AVScrap2
+      Offset: X:-14.235 Y:-3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.8
+    - Type: CreateDebris
+      ModelNames: AVScrap2
+      Offset: X:-14.901 Y:1.964 Z:3.926
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: AVScrap5
+      Offset: X:-14.235 Y:3.508 Z:1.245
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.7
+    - Type: CreateDebris
+      ModelNames: AVScrap5
+      Offset: X:-8.652 Y:3.638 Z:3.925
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.0
+    - Type: CreateDebris
+      ModelNames: AVScrap5
+      Offset: X:-5.844 Y:-0.960 Z:5.601
+      Mass: 5
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.7
+  OCL_AmericaScoutDroneExplode:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaScoutDroneHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: AVScoutDr_D2
+      Offset: X:-8.5 Y:0.0 Z:2.4
+      Mass: 8
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      MinForceMagnitude: 5
+      MaxForceMagnitude: 6
+      MinForcePitch: 60
+      MaxForcePitch: 90
+      SpinRate: 100
+    - Type: CreateDebris
+      ModelNames: AVScoutDr_D3
+      Offset: X:0.0 Y:5.0 Z:0.0
+      Mass: 4.2
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVScoutDr_D3
+      Offset: X:0.0 Y:-5.0 Z:0.0
+      Mass: 2.2
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVScoutDr_D4
+      Offset: X:-7.75 Y:-2.1 Z:1.16
+      Mass: 4
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: VehicleDebris
+  OCL_AmericaBattleDroneExplode:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaBattleDroneHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: AVBattleDr_D2
+      Offset: X:-8.5 Y:0.0 Z:2.4
+      Mass: 8
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: AVBattleDr_D3
+      Offset: X:0.0 Y:5.0 Z:0.0
+      Mass: 4
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: VehicleDebris
+  OCL_RaptorDeathInitial:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: AVRaptor_D4
+      Offset: X:-5.598 Y:8.188 Z:0.04
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 40.0
+      SpinRate: 20.0
+  OCL_RaptorDeathSecondary: {}
+  OCL_RaptorDeathHitGround:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: AVRaptor_D2
+      Offset: X:-7.999 Y:4.314 Z:2.86
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 20.0
+      SpinRate: 50.0
+    - Type: CreateDebris
+      ModelNames: AVRaptor_D3
+      Offset: X:-12.822 Y:-6.425 Z:0.234
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 30.0
+      SpinRate: 30.0
+    - Type: CreateDebris
+      ModelNames: AVRaptor_D4
+      Offset: X:-5.598 Y:8.188 Z:0.04
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 40.0
+      SpinRate: 20.0
+  OCL_BattleBusStartUndeath:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:-40.0 Y:0.0 Z:0.0
+      Count: 1
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+  OCL_BattleBusHitGround:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:-40.0 Y:0.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+  OCL_BattleBusDeath:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadBattleBusHulk
+      Offset: X:-7.962 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: UVBattBus_D2
+      Offset: X:3.38 Y:-5.0 Z:1.0
+      Mass: 10
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.8
+    - Type: CreateDebris
+      ModelNames: UVBattBus_D3
+      Offset: X:-17.962 Y:-5.0 Z:1.0
+      Mass: 10
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.8
+    - Type: CreateDebris
+      ModelNames: UVBattBus_D4
+      Offset: X:-17.962 Y:5.0 Z:1.0
+      Mass: 10
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.8
+  OCL_RaptorDeathFinalBlowUp:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaJetRaptorHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.4
+      MinForcePitch: 0.0
+      MaxForcePitch: 10.0
+      RollRate: 0.0
+      PitchRate: 0.0
+      YawRate: 0.0
+  OCL_BigPlaneDeath:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:-40.0 Y:0.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:-20.0 Y:0.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:20.0 Y:0.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:40.0 Y:0.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:-30.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:-15.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:15.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:30.0 Z:0.0
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.5
+  OCL_AmericaJetCargoDeathStart:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:-40.0 Y:0.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1100
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:-20.0 Y:0.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1100
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1100
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:20.0 Y:0.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1100
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:40.0 Y:0.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1100
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:-30.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1100
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:-15.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1600
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:15.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1100
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:30.0 Z:0.0
+      Count: 3
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 1.0
+      ParticleSystem: JetExplosionTrailDebris
+      MinLifetime: 400
+      MaxLifetime: 1100
+  OCL_AmericaJetCargoHulkDeath:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:-40.0 Y:0.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:-20.0 Y:0.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:20.0 Y:0.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:40.0 Y:0.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:-30.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:-15.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:15.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Offset: X:0.0 Y:30.0 Z:0.0
+      Count: 2
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: .66
+  OCL_A10DeathFinalBlowUp:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaJetA10Hulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.4
+      MinForcePitch: 0.0
+      MaxForcePitch: 10.0
+      RollRate: 0.0
+      PitchRate: 0.0
+      YawRate: 0.0
+  OCL_SpectreDeathFinalBlowUp:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SpectreHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.4
+      MinForcePitch: 0.0
+      MaxForcePitch: 10.0
+      RollRate: 0.0
+      PitchRate: 0.0
+      YawRate: 0.0
+  OCL_A10DeathHitGround:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: AVWarthog_D2
+      Offset: X:-7.999 Y:4.314 Z:2.86
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 1.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 20.0
+      SpinRate: 50.0
+      MinLifetime: 4000
+      MaxLifetime: 6000
+    - Type: CreateDebris
+      ModelNames: AVWarthog_D2
+      Offset: X:7.999 Y:4.314 Z:2.86
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 1.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 20.0
+      SpinRate: 50.0
+      MinLifetime: 4000
+      MaxLifetime: 6000
+    - Type: CreateDebris
+      ModelNames: AVWarthog_D3
+      Offset: X:-2.822 Y:-6.425 Z:0.234
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 1.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 30.0
+      SpinRate: 30.0
+      MinLifetime: 4000
+      MaxLifetime: 6000
+    - Type: CreateDebris
+      ModelNames: AVWarthog_D3
+      Offset: X:2.822 Y:-6.425 Z:0.234
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 1.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 30.0
+      SpinRate: 30.0
+      MinLifetime: 4000
+      MaxLifetime: 6000
+  OCL_StealthDeathFinalBlowUp:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaJetStealthHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.4
+      MinForcePitch: 0.0
+      MaxForcePitch: 10.0
+      RollRate: 0.0
+      PitchRate: 0.0
+      YawRate: 0.0
+  OCL_AuroraDeathFinalBlowUp:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaJetAuroraHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.4
+      MinForcePitch: 0.0
+      MaxForcePitch: 10.0
+      RollRate: 0.0
+      PitchRate: 0.0
+      YawRate: 0.0
+  OCL_MIGDeathInitial:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: NVMIG_D4
+      Offset: X:7.027 Y:-3.033 Z:3.008
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 40.0
+      SpinRate: 20.0
+  OCL_MIGDeathSecondary: {}
+  OCL_MIGDeathHitGround:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: NVMIG_D2
+      Offset: X:-10.388 Y:3.573 Z:2.872
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 20.0
+      SpinRate: 50.0
+    - Type: CreateDebris
+      ModelNames: NVMIG_D3
+      Offset: x:-9.536 Y:3.573 Z:1.334
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 30.0
+      SpinRate: 30.0
+    - Type: CreateDebris
+      ModelNames: NVMIG_D4
+      Offset: X:7.027 Y:-3.033 Z:3.008
+      Mass: 3
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.5
+      MinForcePitch: 0.0
+      MaxForcePitch: 40.0
+      SpinRate: 20.0
+  OCL_MIGDeathFinalBlowUp:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaJetMIGHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY RANDOM_FORCE
+      DispositionIntensity: 0.4
+      MinForcePitch: 0.0
+      MaxForcePitch: 10.0
+      RollRate: 0.0
+      PitchRate: 0.0
+      YawRate: 0.0
+  OCL_MIGDeathFinalBlowUp_CinematicVersion:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: AVScrap2 AVScrap3 AVScrap4 AVScrap5
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING RANDOM_FORCE
+      DispositionIntensity: .5
+  OCL_BridgeDamaged01:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CVTanker_d15
+      Offset: 'x: -7.869 y: .07 z: 3.663'
+      Mass: 5
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1
+  OCL_BridgeRepaired01: {}
+  OCL_GenericMissileDisintegrate:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01
+      Offset: X:0 Y:0 Z:0
+      Mass: 2
+      Count: 1
+      Disposition: RANDOM_FORCE INHERIT_VELOCITY
+      MinForceMagnitude: 1
+      MaxForceMagnitude: 2
+      SpinRate: 180
+      MinForcePitch: 75
+      MaxForcePitch: 90
+  OCL_TrainWreck:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SpecialEffectsTrainCrashObject
+      Count: 1
+      Disposition: LIKE_EXISTING
+  OCL_VehicleCrashesIntoBuilding:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D09 GXMammoth_D10 GXMammoth_D11 GXMammoth_D12
+      Count: 6
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+  OCL_TsingMaExplosion:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CMTsingMa_d04 CMTsingMa_d05
+      Count: 35
+      Mass: 3.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+      Offset: X:10 Y:0 Z:0
+    - Type: CreateDebris
+      ModelNames: CMTsingMa_d03
+      Count: 5
+      Mass: 3.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+      Offset: X:10 Y:0 Z:0
+    - Type: CreateDebris
+      ModelNames: CMTsingMa_d01 CMTsingMa_d02
+      Count: 3
+      Mass: 50.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+      SpinRate: 10.0
+      Offset: X:10 Y:0 Z:0
+      MinLifetime: 40000
+      MaxLifetime: 60000
+  OCL_TsingMaTankColumn:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: TsingMaTankColumn
+      Disposition: LIKE_EXISTING
+      Count: 1
+  OCL_TsingMaInfantryColumn:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: TsingMaInfantryColumn
+      Disposition: LIKE_EXISTING
+      Count: 1
+  OCL_TrainWreckExplosion:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: CMTsingMa_d03 CMTsingMa_d04 CMTsingMa_d05
+      Count: 35
+      Mass: 3.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+      Offset: X:10 Y:0 Z:0
+  OCL_SDILinkLasers:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SDILasers
+      Disposition: LIKE_EXISTING
+      Count: 1
+      MinLifetime: 3000
+      MaxLifetime: 3000
+      Offset: X:30 Y:0 Z:0
+  OCL_CreateSneakAttackTunnelStart:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLASneakAttackTunnelNetworkStart
+      Disposition: LIKE_EXISTING
+  OCL_CreateSneakAttackTunnel:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GLASneakAttackTunnelNetwork
+      Disposition: LIKE_EXISTING
+  OCL_MOABExplode:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: MOABGas
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01 GXMammoth_D02 GXMammoth_D03 GXMammoth_D04
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+  OCL_LeafletContainerExplode:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01 GXMammoth_D02 GXMammoth_D03 GXMammoth_D04
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+  OCL_ReinforcementPadUSAVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: AmericaTankCrusader 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_ReinforcementPadCHIVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: ChinaTankBattleMaster 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_ReinforcementPadGLAVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: GLAJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: GLATankScorpion 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_SWGen_ReinforcementPadUSAVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: SupW_AmericaVehicleTomahawk 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_LGen_ReinforcementPadUSAVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: Lazr_AmericaTankCrusader 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_AFGen_ReinforcementPadUSAVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: AmericaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: AirF_AmericaVehicleHumvee 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_InfGen_ReinforcementPadCHIVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: Infa_ChinaVehicleTroopCrawler 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_TnkGen_ReinforcementPadCHIVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: Tank_ChinaTankBattleMaster 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_NukeGen_ReinforcementPadCHIVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: Nuke_ChinaTankBattleMaster 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_ToxGen_ReinforcementPadGLAVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: GLAJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: Chem_GLAVehicleToxinTruck 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_DemoGen_ReinforcementPadGLAVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: GLAJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: Demo_GLAVehicleCombatBike 2
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  OCL_StlthGen_ReinforcementPadGLAVehicle:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: GLAJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-5
+      DropDelay: 400
+      PutInContainer: LargeParachute
+      Payload: Slth_GLAVehicleQuadCannon 1
+      ParachuteDirectly: Yes
+      DeliveryDistance: 250
+  GC_Chem_SUPERWEAPON_RebelAmbush1:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Chem_GLAInfantryRebel
+      Count: 4
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+  GC_Chem_SUPERWEAPON_RebelAmbush2:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Chem_GLAInfantryRebel
+      Count: 8
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+  GC_Chem_SUPERWEAPON_RebelAmbush3:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Chem_GLAInfantryRebel
+      Count: 16
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+  Chem_SUPERWEAPON_RebelAmbush1:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Chem_GLAInfantryRebel
+      Count: 4
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  Chem_SUPERWEAPON_RebelAmbush2:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Chem_GLAInfantryRebel
+      Count: 8
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  Chem_SUPERWEAPON_RebelAmbush3:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Chem_GLAInfantryRebel
+      Count: 16
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+      DiesOnBadLand: Yes
+  OCL_NapalmBomb:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: NapalmBomb
+      Disposition: LIKE_EXISTING INHERIT_VELOCITY
+      Count: 1
+      MinLifetime: 3000
+      MaxLifetime: 3000
+      Offset: X:30 Y:0 Z:0
+  OCL_BlackNapalmBomb:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: BlackNapalmBomb
+      Disposition: LIKE_EXISTING INHERIT_VELOCITY
+      Count: 1
+      MinLifetime: 3000
+      MaxLifetime: 3000
+      Offset: X:30 Y:0 Z:0
+  GC_Chem_OCL_ToxicInfantryGamma:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Chem_ToxicInfantryGamma
+      Disposition: LIKE_EXISTING
+      SkipIfSignificantlyAirborne: Yes
+  OCL_PoisonFieldGammaLarge:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Chem_PoisonFieldGammaLarge
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldGammaMedium:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Chem_PoisonFieldGammaMedium
+      Disposition: ON_GROUND_ALIGNED
+  OCL_PoisonFieldGammaSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Chem_PoisonFieldGammaSmall
+      Disposition: ON_GROUND_ALIGNED
+  OCL_AmericaVehicleSentryDroneDie:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AmericaVehicleSentryDroneHulk
+      Offset: X:0.0 Y:0.0 Z:0.0
+      Count: 1
+      Disposition: LIKE_EXISTING
+      DispositionIntensity: 0.5
+    - Type: CreateDebris
+      ModelNames: AVSENTRY_D2
+      Offset: X:-3.001 Y:5.79 Z:12.829
+      Mass: 2.5
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVSENTRY_D3
+      Offset: X:-2.643 Y:-0.349 Z:9.954
+      Mass: 2.2
+      Count: 1
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: DebrisBigMetal
+    - Type: CreateDebris
+      ModelNames: AVSENTRY_D4
+      Offset: X:-3.499 Y:-3.779 Z:8.132
+      Mass: 2
+      Count: 2
+      Disposition: SEND_IT_FLYING INHERIT_VELOCITY
+      DispositionIntensity: 0.7
+      BounceSound: DebrisBigMetal
+  Tank_OCL_OverlordGattlingCannon:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Tank_ChinaTankOverlordGattlingCannon
+      Count: 1
+      ContainInsideSourceObject: Yes
+  Tank_OCL_OverlordPropagandaTower:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Tank_ChinaTankOverlordPropagandaTower
+      Count: 1
+      ContainInsideSourceObject: Yes
+  Tank_SUPERWEAPON_TankParadrop1:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 150
+      ParachuteDirectly: No
+      PutInContainer: LargeParachute
+      Payload: Tank_ChinaTankBattleMaster 1
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  Tank_SUPERWEAPON_TankParadrop2:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: No
+      PutInContainer: LargeParachute
+      Payload: Tank_ChinaTankBattleMaster 2
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  Tank_SUPERWEAPON_TankParadrop3:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: No
+      PutInContainer: LargeParachute
+      Payload: Tank_ChinaTankBattleMaster 2
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: No
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: No
+      PutInContainer: LargeParachute
+      Payload: Tank_ChinaTankBattleMaster 2
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  Infa_SUPERWEAPON_Paradrop1:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 150
+      ParachuteDirectly: Yes
+      PutInContainer: AmericaParachute
+      Payload: Infa_ChinaInfantryMiniGunner 5
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  Infa_SUPERWEAPON_Paradrop2:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: Yes
+      PutInContainer: AmericaParachute
+      Payload: Infa_ChinaInfantryMiniGunner 10
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  Infa_SUPERWEAPON_Paradrop3:
+    Nuggets:
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: Yes
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: Yes
+      PutInContainer: AmericaParachute
+      Payload: Infa_ChinaInfantryMiniGunner 8
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+    - Type: DeliverPayload
+      Transport: ChinaJetCargoPlane
+      StartAtPreferredHeight: Yes
+      StartAtMaxSpeed: No
+      MaxAttempts: 4
+      DropOffset: X:0 Y:0 Z:-10
+      DropDelay: 80
+      ParachuteDirectly: Yes
+      PutInContainer: AmericaParachute
+      Payload: Infa_ChinaInfantryMiniGunner 7
+      DeliveryDistance: 0
+      PreOpenDistance: 300
+      DeliveryDecalRadius: 50
+      DeliveryDecal:
+        Texture: SCCParadrop_USA
+        Style: SHADOW_ALPHA_DECAL
+        OpacityMin: 25%
+        OpacityMax: 50%
+        OpacityThrobTime: 500
+        Color: R:227 G:229 B:22 A:255
+        OnlyVisibleToOwningPlayer: Yes
+  GC_Slth_SUPERWEAPON_RebelAmbush1:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Slth_GLAInfantryRebel
+      Count: 4
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+  GC_Slth_SUPERWEAPON_RebelAmbush2:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Slth_GLAInfantryRebel
+      Count: 8
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+  GC_Slth_SUPERWEAPON_RebelAmbush3:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: GC_Slth_GLAInfantryRebel
+      Count: 16
+      SpreadFormation: Yes
+      MinDistanceAFormation: 20.0
+      MinDistanceBFormation: 30.0
+      MaxDistanceFormation: 400.0
+      FadeIn: Yes
+      FadeTime: 3000
+  Lazr_OCL_AmericanBattleDrone:
+    Nuggets:
+    - Type: CreateObject
+      Offset: X:0 Y:0 Z:10
+      ObjectNames: Lazr_AmericaVehicleBattleDrone
+      IgnorePrimaryObstacle: Yes
+      Disposition: LIKE_EXISTING
+      Count: 1
+      RequiresLivePlayer: Yes
+  Lazr_OCL_AmericanRangerDebris02:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Lazr_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 2
+      RequiresLivePlayer: Yes
+  SupW_OCL_AmericanRangerDebris02:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SupW_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 2
+      RequiresLivePlayer: Yes
+  AirF_OCL_AmericanRangerDebris02:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AirF_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 2
+      RequiresLivePlayer: Yes
+  Lazr_OCL_AmericanRangerDebris03:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Lazr_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 3
+      RequiresLivePlayer: Yes
+  SupW_OCL_AmericanRangerDebris03:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SupW_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 3
+      RequiresLivePlayer: Yes
+  AirF_OCL_AmericanRangerDebris03:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AirF_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 3
+      RequiresLivePlayer: Yes
+  Boss_OCL_AmericanRangerDebris03:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Boss_InfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 3
+      RequiresLivePlayer: Yes
+  Lazr_OCL_AmericanRangerDebris04:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Lazr_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 4
+      RequiresLivePlayer: Yes
+  SupW_OCL_AmericanRangerDebris04:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SupW_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 4
+      RequiresLivePlayer: Yes
+  AirF_OCL_AmericanRangerDebris04:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AirF_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 4
+      RequiresLivePlayer: Yes
+  Boss_OCL_AmericanRangerDebris04:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Boss_InfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 4
+      RequiresLivePlayer: Yes
+  Lazr_OCL_AmericanRangerDebris05:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Lazr_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 5
+      RequiresLivePlayer: Yes
+  SupW_OCL_AmericanRangerDebris05:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SupW_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 5
+      RequiresLivePlayer: Yes
+  AirF_OCL_AmericanRangerDebris05:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AirF_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 5
+      RequiresLivePlayer: Yes
+  AirF_OCL_AmericanRangerDebris10:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AirF_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 10
+      RequiresLivePlayer: Yes
+  Lazr_OCL_AmericanRangerDebris10:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Lazr_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 10
+      RequiresLivePlayer: Yes
+  SupW_OCL_AmericanRangerDebris10:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SupW_AmericaInfantryRanger
+      IgnorePrimaryObstacle: Yes
+      Disposition: SEND_IT_OUT
+      DispositionIntensity: 4
+      Count: 10
+      RequiresLivePlayer: Yes
+  OCL_GLAToxicSupplyTruck_CrushEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadGLAToxicSupplyTruckHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+  OCL_GLAToxicSupplyTruckDeathEffect:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: DeadGLAToxicSupplyTruckHulk
+      Offset: X:0 Y:0 Z:0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 0.1
+    - Type: CreateDebris
+      ModelNames: CVToxSpplyTk_D2
+      Offset: X:-6.544 Y:7.281 Z:11.163
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: CVToxSpplyTk_D3
+      Offset: X:-6.283 Y:5.099 Z:2.645
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: CVToxSpplyTk_D4
+      Offset: X:-1.235 Y:-4.169 Z:10.355
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+    - Type: CreateDebris
+      ModelNames: CVToxSpplyTk_D5
+      Offset: X:5.819 Y:5.481 Z:10.425
+      Mass: 5.0
+      Count: 1
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 2.5
+  OCL_InitialListeningOutpostDebris:
+    Nuggets:
+    - Type: CreateDebris
+      ModelNames: NVLOUTPOST_D2
+      Offset: X:-30.096 Y:0.0 Z:35.0
+      Count: 1
+      Mass: 9.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+  OCL_FinalListeningOutpostDebris:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: ChinaVehicleListeningOutpostDeadHull
+      Offset: X:19.0 Y:0.0 Z:6.0
+      Count: 1
+      Disposition: RANDOM_FORCE
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D2
+      Offset: X:3.869 Y:-6.784 Z:3.215
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D3
+      Offset: X:-14.729 Y:-6.924 Z:3.452
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D4
+      Offset: X:-15.097 Y:6.728 Z:3.585
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVTCRAWLER_D5
+      Offset: X:11.096 Y:6.894 Z:3.145
+      Count: 1
+      Mass: 20.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVLOUTPOST_D4
+      Offset: X:0.096 Y:0.0 Z:0.0
+      Count: 2
+      Mass: 15.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 40
+      MaxForceMagnitude: 50
+      MinForcePitch: 85
+      MaxForcePitch: 90
+      SpinRate: 90
+      BounceSound: VehicleDebris
+    - Type: CreateDebris
+      ModelNames: NVLOUTPOST_D5
+      Offset: X:-20.096 Y:0.0 Z:17.0
+      Count: 1
+      Mass: 15.0
+      Disposition: RANDOM_FORCE
+      MinForceMagnitude: 10
+      MaxForceMagnitude: 20
+      MinForcePitch: 35
+      MaxForcePitch: 40
+      SpinRate: 30
+      BounceSound: VehicleDebris
+  SUPERWEAPON_CruiseMissile:
+    Nuggets:
+    - Type: FireWeapon
+      Weapon: CruiseMissileWeapon
+  SupW_OCL_FuelAirBomb:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: SupW_AuroraFuelAirGas
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01 GXMammoth_D02 GXMammoth_D03 GXMammoth_D04
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+  SupW_OCL_PatriotEMPEffectSpheroid:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: EMPPatriotEffectSpheroid
+      Count: 1
+      Disposition: LIKE_EXISTING
+  AirF_OCL_AuroraBombExplode:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: AirF_AuroraBombGas
+      Disposition: LIKE_EXISTING
+    - Type: CreateDebris
+      ModelNames: GXMammoth_D01 GXMammoth_D02 GXMammoth_D03 GXMammoth_D04
+      Count: 4
+      Mass: 5.0
+      Disposition: SEND_IT_FLYING
+      DispositionIntensity: 1.5
+  Nuke_OCL_RadiationFieldSmall:
+    Nuggets:
+    - Type: CreateObject
+      ObjectNames: Nuke_RadiationFieldSmall
+      Disposition: ON_GROUND_ALIGNED
+  SupW_OCL_AmericanPointDefenseDrone:
+    Nuggets:
+    - Type: CreateObject
+      Offset: X:0 Y:0 Z:10
+      ObjectNames: SupW_AmericaVehiclePointDefenseDrone
+      IgnorePrimaryObstacle: Yes
+      Disposition: LIKE_EXISTING
+      Count: 1
+      RequiresLivePlayer: Yes
+  SupW_SUPERWEAPON_NeutronMissile:
+    Nuggets:
+    - Type: FireWeapon
+      Weapon: SupW_NeutronMissileWeapon

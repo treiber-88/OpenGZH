@@ -1,0 +1,97 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  CommercialAirliner:
+    DisplayName: OBJECT:Cessna
+    EditorSorting: VEHICLE
+    CrusherLevel: 2
+    CrushableLevel: 4
+    KindOf: CAN_CAST_REFLECTIONS VEHICLE AIRCRAFT
+    Locomotor: SET_NORMAL B52Locomotor
+    Geometry: CYLINDER
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 7.0
+    GeometryMinorRadius: 7.0
+    GeometryHeight: 7.0
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 89
+    ArmorSet:
+      Conditions: None
+      Armor: AirplaneArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        ConditionState:
+          NONE:
+            Model: CVAirplane
+          REALLYDAMAGED:
+            Model: CVAirplane_D
+          RUBBLE:
+            Model: CVAirplane_D
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_DeathTag03:
+        Module: Behavior
+        Class: DestroyDie
+      ModuleTag_DeathTag04:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_GenericCarExplode
+      ModuleTag_DeathTag05:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: FX_GenericCarExplode
+      ModuleTag_09:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_10:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_21:
+        Module: Behavior
+        Class: FlammableUpdate
+        AflameDuration: 5000
+        AflameDamageAmount: 5
+        AflameDamageDelay: 500
+    SourceFile: Data/INI/Object/CivilianUnit.ini
+  AvalancheSound:
+    DisplayName: OBJECT:Raptor
+    EditorSorting: SYSTEM
+    VisionRange: 180.0
+    ShroudClearingRange: 400
+    SoundAmbient: AvalancheTextureLoop
+    RadarPriority: UNIT
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS VEHICLE SCORE AIRCRAFT
+    Locomotor: SET_NORMAL RaptorJetLocomotor
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NONE
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 160.0
+        InitialHealth: 160.0
+      ModuleTag_07:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 500.0
+      ModuleTag_09:
+        Module: Behavior
+        Class: JetAIUpdate
+        OutOfAmmoDamagePerSecond: 10%
+        TakeoffDistForMaxLift: 0%
+        TakeoffPause: 500
+        MinHeight: 1
+        ParkingOffset: 3
+        ReturnToBaseIdleTime: 999999900
+    SourceFile: Data/INI/Object/System.ini

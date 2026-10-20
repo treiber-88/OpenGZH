@@ -1,0 +1,222 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  ClusterMinesBomb:
+    DisplayName: OBJECT:ClusterMinesBomb
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: EXAMine_A
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_05:
+        Module: Behavior
+        Class: GenerateMinefieldBehavior
+        MineName: ChinaClusterMine
+        DistanceAroundObject: 80
+        GenerateOnlyOnDeath: Yes
+        SmartBorder: Yes
+        SmartBorderSkipInterior: No
+        AlwaysCircular: Yes
+        GenerationFX: WeaponFX_ClusterMineImpact
+      ModuleTag_06:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 60.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_07:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  EMPPulseBomb:
+    DisplayName: OBJECT:EMPPulseBomb
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 0
+    KindOf: PROJECTILE
+    Locomotor: SET_NORMAL None
+    Geometry: SPHERE
+    GeometryMajorRadius: 1.0
+    GeometryMinorRadius: 1.0
+    GeometryHeight: 1.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: EXAMine_A
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 75.0
+        AerodynamicFriction: 1
+        ForwardFriction: 33
+        CenterOfMassOffset: 2
+      ModuleTag_05:
+        Module: Behavior
+        Class: HeightDieUpdate
+        TargetHeight: 15.0
+        TargetHeightIncludesStructures: No
+      ModuleTag_06:
+        Module: Behavior
+        Class: CreateObjectDie
+        CreationList: OCL_EMPPulseEffectSpheroids
+      ModuleTag_07:
+        Module: Behavior
+        Class: FXListDie
+        DeathFX: WeaponFX_EMPPulseImpact
+        OrientToObject: No
+      ModuleTag_08:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  TNTStickyBomb:
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 75.0
+    ShroudClearingRange: 75
+    RadarPriority: NOT_ON_RADAR
+    KindOf: PROJECTILE MINE NO_COLLIDE
+    Geometry: CYLINDER
+    GeometryMajorRadius: 8.0
+    GeometryHeight: 8.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      UnitBombPing: BombTickTimed
+    Modules:
+      ModuleTag_01:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5
+      ModuleTag_02:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 10000
+        MaxLifetime: 10000
+      ModuleTag_03:
+        Module: Behavior
+        Class: StickyBombUpdate
+      ModuleTag_04:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        DestructionDelay: 1
+        FX: INITIAL WeaponFX_TNTStickyBombDetonation
+        Weapon: FINAL TNTDetonationWeapon
+      ModuleTag_NewBody:
+        Module: Body
+        Class: HighlanderBody
+        MaxHealth: 1.0
+        InitialHealth: 1.0
+    SourceFile: Data/INI/Object/WeaponObjects.ini
+  ChinaArtilleryBarrageShell:
+    DisplayName: OBJECT:Missile
+    Side: China
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 0.0
+    SoundAmbient: ArtilleryBarrageIncomingWhistle
+    KindOf: PRELOAD CAN_CAST_REFLECTIONS PROJECTILE
+    Locomotor: SET_NORMAL A10ThunderboltMissileLocomotor
+    Geometry: Sphere
+    GeometryIsSmall: Yes
+    GeometryMajorRadius: 1.0
+    ArmorSet:
+      Conditions: None
+      Armor: ProjectileArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        ConditionState:
+          NONE:
+            Model: AVTankShel
+            ParticleSysBone: [NONE ArtilleryBarrageTrail, NONE ArtilleryBarrageTrailRing]
+      ModuleTag_02:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      DeathModuleTag_01:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +DETONATED
+      DeathModuleTag_02:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: NONE +LASERED
+        FX: FX_GenericMissileDisintegrate
+        OCL: OCL_GenericMissileDisintegrate
+      DeathModuleTag_03:
+        Module: Behavior
+        Class: InstantDeathBehavior
+        DeathTypes: ALL -LASERED -DETONATED
+        FX: FX_GenericMissileDeath
+      ModuleTag_08:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 1
+      ModuleTag_09:
+        Module: Behavior
+        Class: MissileAIUpdate
+        TryToFollowTarget: Yes
+        FuelLifetime: 10000
+        InitialVelocity: 30
+        IgnitionDelay: 0
+      ModuleTag_11:
+        Module: Behavior
+        Class: SpecialPowerCompletionDie
+        SpecialPowerTemplate: SuperweaponA10ThunderboltMissileStrike
+    SourceFile: Data/INI/Object/WeaponObjects.ini

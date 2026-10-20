@@ -1,0 +1,343 @@
+# GENERATED from the original Zero Hour INI data by 'OpenGZH.Tools import-rules'.
+# This file is now the source of truth for these rules: edit it freely.
+# To make a separate mod instead, override definitions from your own mod's rules files.
+Objects:
+  ComancheBlades:
+    DisplayName: OBJECT:Comanche
+    Side: America
+    KindOf: PRELOAD IMMOBILE NO_COLLIDE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: AVComanche_D2
+          Animation: AVComanche_D2.AVComanche_D2
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        AllowBouncing: Yes
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1000
+        MaxLifetime: 1000
+    SourceFile: Data/INI/Object/AmericaMiscUnit.ini
+  AmericaParachute:
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    IsTrainable: No
+    KindOf: PRELOAD PARACHUTE UNATTACKABLE
+    Locomotor: [SET_NORMAL ParachuteLocomotor, SET_FREEFALL FreeFallLocomotor]
+    RadarPriority: NOT_ON_RADAR
+    Geometry: CYLINDER
+    GeometryMajorRadius: 15.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: PMparacht_SKNc
+          Animation: PMparacht_SKL.PMparacht_FAL
+          AnimationMode: LOOP
+        ConditionState:
+          PARACHUTING:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_OPN
+            AnimationMode: ONCE
+          RUBBLE:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_DRP
+            AnimationMode: ONCE
+          RUBBLE PARACHUTING:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_DRP
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100000.0
+        InitialHealth: 100000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: ParachuteContain
+        PitchRateMax: 60
+        RollRateMax: 60
+        LowAltitudeDamping: 0.2
+        ParachuteOpenDist: 25.0
+        AllowInsideKindOf: INFANTRY PARACHUTABLE
+        ParachuteOpenSound: ParachuteOpen
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1000
+        SinkRate: 1
+        DestructionDelay: 4000
+    SourceFile: Data/INI/Object/AmericaMiscUnit.ini
+  AmericaCrateParachute:
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 0
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    IsTrainable: No
+    KindOf: PRELOAD PARACHUTE UNATTACKABLE
+    Locomotor: [SET_NORMAL CrateParachuteLocomotor, SET_FREEFALL CrateFreeFallLocomotor]
+    RadarPriority: NOT_ON_RADAR
+    Geometry: CYLINDER
+    GeometryMajorRadius: 15.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: PMparacht_SKNc
+          Animation: PMparacht_SKL.PMparacht_FAL
+          AnimationMode: LOOP
+        ConditionState:
+          PARACHUTING:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_OPN
+            AnimationMode: ONCE
+          RUBBLE:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_DRP
+            AnimationMode: ONCE
+          RUBBLE PARACHUTING:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_DRP
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100000.0
+        InitialHealth: 100000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: ParachuteContain
+        PitchRateMax: 60
+        RollRateMax: 60
+        LowAltitudeDamping: 0.2
+        ParachuteOpenDist: 12.5
+        AllowInsideKindOf: PARACHUTABLE
+        ParachuteOpenSound: ParachuteOpen
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1000
+        SinkRate: 1
+        DestructionDelay: 4000
+    SourceFile: Data/INI/Object/AmericaMiscUnit.ini
+  AmericaBattleshipBogusTarget:
+    EditorSorting: STRUCTURE
+    Side: America
+    RadarPriority: NOT_ON_RADAR
+    KindOf: IMMOBILE
+    Geometry: SPHERE
+    GeometryMajorRadius: 10.0
+    GeometryIsSmall: Yes
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableArmor
+      DamageFX: None
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: None
+      ModuleTag_02:
+        Module: Body
+        Class: ImmortalBody
+        MaxHealth: 99999.0
+        InitialHealth: 99999.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: FireWeaponWhenDamagedBehavior
+        StartsActive: Yes
+        ReactionWeaponPristine: BattleshipTargetDamagedWeapon
+        ReactionWeaponDamaged: BattleshipTargetDamagedWeapon
+        ReactionWeaponReallyDamaged: BattleshipTargetDamagedWeapon
+        DamageTypes: ALL
+        DamageAmount: 1
+    SourceFile: Data/INI/Object/AmericaMiscUnit.ini
+  LargeParachute:
+    EditorSorting: SYSTEM
+    TransportSlotCount: 10
+    VisionRange: 300.0
+    ShroudClearingRange: 300
+    IsTrainable: No
+    KindOf: PRELOAD PARACHUTE UNATTACKABLE
+    Locomotor: [SET_NORMAL ParachuteLocomotor, SET_FREEFALL FreeFallLocomotor]
+    RadarPriority: NOT_ON_RADAR
+    Geometry: CYLINDER
+    GeometryMajorRadius: 15.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: Yes
+    Shadow: SHADOW_VOLUME
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        OkToChangeModelColor: Yes
+        DefaultConditionState:
+          Model: PMparacht_SKNc
+          Animation: PMparacht_SKL.PMparacht_FAL
+          AnimationMode: LOOP
+        ConditionState:
+          PARACHUTING:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_OPN
+            AnimationMode: ONCE
+          RUBBLE:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_DRP
+            AnimationMode: ONCE
+          RUBBLE PARACHUTING:
+            Model: PMparacht_SKNc
+            Animation: PMparacht_SKL.PMparacht_DRP
+            AnimationMode: ONCE
+      ModuleTag_02:
+        Module: Behavior
+        Class: AIUpdateInterface
+      ModuleTag_03:
+        Module: Body
+        Class: ActiveBody
+        MaxHealth: 100000.0
+        InitialHealth: 100000.0
+      ModuleTag_04:
+        Module: Behavior
+        Class: PhysicsBehavior
+        Mass: 5.0
+      ModuleTag_05:
+        Module: Behavior
+        Class: ParachuteContain
+        PitchRateMax: 60
+        RollRateMax: 60
+        LowAltitudeDamping: 0.2
+        ParachuteOpenDist: 25.0
+        AllowInsideKindOf: INFANTRY VEHICLE PARACHUTABLE
+        ParachuteOpenSound: ParachuteOpen
+      ModuleTag_06:
+        Module: Behavior
+        Class: SlowDeathBehavior
+        SinkDelay: 1000
+        SinkRate: 1
+        DestructionDelay: 4000
+    SourceFile: Data/INI/Object/AmericaMiscUnit.ini
+  AmericaTankAvengerLaserTurret:
+    SelectPortrait: SNPropSpeaker_L
+    ButtonImage: SNPropSpeaker
+    UpgradeCameo1: Upgrade_Nationalism
+    UpgradeCameo2: Upgrade_ChinaUraniumShells
+    UpgradeCameo3: Upgrade_ChinaNuclearTanks
+    UpgradeCameo5: Upgrade_ChinaOverlordPropagandaTower
+    PlacementViewAngle: -45
+    Side: America
+    EditorSorting: SYSTEM
+    TransportSlotCount: 1
+    VisionRange: 200
+    KindOf: PRELOAD PORTABLE_STRUCTURE CAN_ATTACK ATTACK_NEEDS_LINE_OF_SIGHT CLICK_THROUGH IGNORED_IN_GUI
+    Geometry: BOX
+    GeometryMajorRadius: 6.0
+    GeometryMinorRadius: 6.0
+    GeometryHeight: 10.0
+    GeometryIsSmall: No
+    Shadow: SHADOW_VOLUME
+    ShadowSizeX: 45
+    WeaponSet:
+      Conditions: None
+      Weapon: [PRIMARY AvengerAirLaserOne, SECONDARY AvengerAirLaserTwo]
+    ArmorSet:
+      Conditions: None
+      Armor: InvulnerableAllArmor
+    UnitSpecificSounds:
+      TurretMoveStart: NoSound
+      TurretMoveLoop: NoSound
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DDependencyModelDraw
+        OkToChangeModelColor: Yes
+        ExtraPublicBone: [TurretFX01, TurretFX02, TURRET01, TURRETEL, TURRETEL01]
+        AttachToBoneInContainer: FIREPOINT01
+        DefaultConditionState:
+          Model: AVAVNGER_G
+          Turret: TURRET01
+          TurretPitch: TURRETEL01
+        ConditionState:
+          REALLYDAMAGED:
+            Model: AVAVNGER_GD
+            Turret: TURRET01
+            TurretPitch: TURRETEL01
+      ModuleTag_02:
+        Module: Body
+        Class: StructureBody
+        MaxHealth: 100.0
+        InitialHealth: 100.0
+      ModuleTag_03:
+        Module: Behavior
+        Class: AIUpdateInterface
+        AutoAcquireEnemiesWhenIdle: Yes
+        MoodAttackCheckRate: 500
+        Turret:
+          ControlledWeaponSlots: PRIMARY SECONDARY
+          TurretTurnRate: 180
+          TurretPitchRate: 180
+          AllowsPitch: Yes
+          NaturalTurretPitch: 45
+      ModuleTag_05:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/AmericaVehicle.ini
+  HelixBlades:
+    DisplayName: OBJECT:Comanche
+    Side: America
+    KindOf: PRELOAD IMMOBILE
+    Modules:
+      ModuleTag_01:
+        Module: Draw
+        Class: W3DModelDraw
+        DefaultConditionState:
+          Model: NVHelix_prop
+          Animation: NVHelix_prop.NVHelix_prop
+          AnimationMode: LOOP
+      ModuleTag_02:
+        Module: Behavior
+        Class: PhysicsBehavior
+        AllowBouncing: No
+      ModuleTag_03:
+        Module: Behavior
+        Class: LifetimeUpdate
+        MinLifetime: 1000
+        MaxLifetime: 2000
+      ModuleTag_die:
+        Module: Behavior
+        Class: DestroyDie
+    SourceFile: Data/INI/Object/ChinaMiscUnit.ini
