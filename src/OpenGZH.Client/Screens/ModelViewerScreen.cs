@@ -80,7 +80,7 @@ public sealed class ModelViewerScreen : IScreen
     {
         gl.ClearColor(0.18f, 0.2f, 0.24f, 1f);
         gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-        renderer.Draw(instances, camera.ViewProjection, camera.Position, lighting);
+        renderer.Draw(instances, camera.ViewProjection, camera.Position, lighting, camera.View);
     }
 
     public void Dispose()

@@ -16,6 +16,13 @@ public sealed class GameData
         HealthBonus = [1f, Float("HealthBonus_Veteran", 1f), Float("HealthBonus_Elite", 1f), Float("HealthBonus_Heroic", 1f)];
         BaseRegenHealthPercentPerSecond = Float("BaseRegenHealthPercentPerSecond", 0.02f);
         BaseRegenDelayFrames = LogicTime.Frames(Float("BaseRegenDelay", 3000));
+        StandardMinefieldDensity = Float("StandardMinefieldDensity", 0.01f);
+        PartitionCellSize = Float("PartitionCellSize", 40);
+        ClearAlpha = (int)Float("ClearAlpha", 255);
+        FogAlpha = (int)Float("FogAlpha", 127);
+        ShroudAlpha = (int)Float("ShroudAlpha", 0);
+        UnlookPersistFrames = LogicTime.Frames(Float("UnlookPersistDuration", 5000));
+        StandardMinefieldDistance = Float("StandardMinefieldDistance", 40);
         SellPercentage = Float("SellPercentage", 0.5f);
         RefundPercentOnStructureDestroyedWhileBuilding = Float("RefundPercentOnStructureDestroyedWhileBuilding", 0f);
         LowEnergyPenaltyModifier = Float("LowEnergyPenaltyModifier", 0.6f);
@@ -26,6 +33,7 @@ public sealed class GameData
         SupplyBuildBorder = Float("SupplyBuildBorder", 0f);
         GroundStiffness = Float("GroundStiffness", 0.5f);
         StructureStiffness = Float("StructureStiffness", 0.5f);
+        MaxTunnelCapacity = (int)Float("MaxTunnelCapacity", 10);
         DefaultStructureRubbleHeight = Float("DefaultStructureRubbleHeight", 1f);
         Gravity = Float("Gravity", -64f) / (LogicTime.FramesPerSecond * LogicTime.FramesPerSecond);
     }
@@ -42,6 +50,13 @@ public sealed class GameData
 
     public float BaseRegenHealthPercentPerSecond { get; }
     public int BaseRegenDelayFrames { get; }
+    public float StandardMinefieldDensity { get; }
+    public float PartitionCellSize { get; }
+    public int ClearAlpha { get; }
+    public int FogAlpha { get; }
+    public int ShroudAlpha { get; }
+    public int UnlookPersistFrames { get; }
+    public float StandardMinefieldDistance { get; }
     public float SellPercentage { get; }
     public float RefundPercentOnStructureDestroyedWhileBuilding { get; }
     public float LowEnergyPenaltyModifier { get; }
@@ -52,6 +67,7 @@ public sealed class GameData
     public float SupplyBuildBorder { get; }
     public float GroundStiffness { get; }
     public float StructureStiffness { get; }
+    public int MaxTunnelCapacity { get; }
     public float DefaultStructureRubbleHeight { get; }
 
     /// <summary>Gravity in world units per frame² (negative = down).</summary>

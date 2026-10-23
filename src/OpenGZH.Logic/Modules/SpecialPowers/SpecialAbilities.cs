@@ -335,7 +335,7 @@ public sealed class SpecialAbilityUpdate : Module, IUpdateModule, ISpecialPowerU
         Owner.SetCondition("UNPACKING", false);
         Owner.SetCondition("RAISING_FLAG", false);
         Owner.SetCondition("PACKING");
-        Game.Events.PlaySound(Setting("PackSound"), Owner.Position);
+        Game.Events.PlaySound(Setting("PackSound"), Owner.Position, source: Owner);
         Owner.AI?.SetBusy(CommandSource.AI);
         if (success)
         {
@@ -346,7 +346,7 @@ public sealed class SpecialAbilityUpdate : Module, IUpdateModule, ISpecialPowerU
                 "SPECIAL_BLACKLOTUS_STEAL_CASH_HACK" => Owner.Template.UnitSound("VoiceStealCashComplete"),
                 _ => Owner.Template.Rules.GetString("VoiceTaskComplete"),
             };
-            Game.Events.PlaySound(voice, Owner.Position, Owner.Owner);
+            Game.Events.PlaySound(voice, Owner.Position, Owner.Owner, Owner);
         }
     }
 
@@ -356,7 +356,7 @@ public sealed class SpecialAbilityUpdate : Module, IUpdateModule, ISpecialPowerU
         animFrames = Varied(unpackFrames);
         Owner.SetCondition("PACKING", false);
         Owner.SetCondition("UNPACKING");
-        Game.Events.PlaySound(Setting("UnpackSound"), Owner.Position);
+        Game.Events.PlaySound(Setting("UnpackSound"), Owner.Position, source: Owner);
         Owner.AI?.SetBusy(CommandSource.AI);
     }
 
@@ -514,7 +514,7 @@ public sealed class SpecialAbilityUpdate : Module, IUpdateModule, ISpecialPowerU
         MyPowerModule?.TriggerSpecialPower(null); // no view object
         Owner.AI?.Stop(CommandSource.AI);
         Owner.SetStatus(Status.UsingAbility);
-        Game.Events.PlaySound(Setting("PrepSoundLoop"), Owner.Position);
+        Game.Events.PlaySound(Setting("PrepSoundLoop"), Owner.Position, source: Owner);
     }
 
     bool InitLaser(GameObject laser, GameObject? target)
@@ -559,7 +559,7 @@ public sealed class SpecialAbilityUpdate : Module, IUpdateModule, ISpecialPowerU
                     if (lastPhase && !thisPhase)
                     {
                         target.FlashColor = Owner.Owner.Color;
-                        Game.Events.PlaySound("DefectorTimerTickSound", target.Position);
+                        Game.Events.PlaySound("DefectorTimerTickSound", target.Position, source: target);
                     }
                 }
                 if (Type == "SPECIAL_INFANTRY_CAPTURE_BUILDING")
@@ -587,7 +587,7 @@ public sealed class SpecialAbilityUpdate : Module, IUpdateModule, ISpecialPowerU
         int points = skillPoints != -1 ? skillPoints : awardXp;
         if (points > 0)
             Owner.Owner.AddSkillPoints(points);
-        Game.Events.PlaySound(Setting("TriggerSound"), Owner.Position);
+        Game.Events.PlaySound(Setting("TriggerSound"), Owner.Position, source: Owner);
 
         bool okToLoseStealth = true;
         var target = Target;
@@ -656,7 +656,7 @@ public sealed class SpecialAbilityUpdate : Module, IUpdateModule, ISpecialPowerU
                 if (target.FindModule<ContainModule>() is { IsGarrisonable: true } garrison)
                 {
                     // Capturing a garrisoned building throws the occupants out; it stays neutral.
-                    garrison.EvacuateAll();
+                    garrison.RemoveAllContained(true);
                     break;
                 }
                 Game.Events.Eva("BuildingStolen", target.Owner);
@@ -675,7 +675,7 @@ public sealed class SpecialAbilityUpdate : Module, IUpdateModule, ISpecialPowerU
                 {
                     target.Owner.Money.TryWithdraw(cash);
                     Owner.Owner.Money.Deposit(cash);
-                    Owner.Owner.MoneyEarned += cash;
+                    Owner.Owner.Score.AddMoneyEarned(cash);
                     Game.Events.Eva("CashStolen", target.Owner);
                     Game.Events.MoneyEarned(Owner, cash);
                     Game.Events.MoneyEarned(target, -cash);
@@ -856,7 +856,7 @@ public sealed class StickyBombUpdate : Module, IUpdateModule, ICreateModule
         Owner.SetPosition(position);
         if (Owner.IsKindOf("BOOBY_TRAP"))
             target.SetStatus(Status.BoobyTrapped);
-        Game.Events.PlaySound(Owner.Template.UnitSound("StickyBombCreated"), Owner.Position);
+        Game.Events.PlaySound(Owner.Template.UnitSound("StickyBombCreated"), Owner.Position, source: Owner);
     }
 
     public int Update()
@@ -876,7 +876,7 @@ public sealed class StickyBombUpdate : Module, IUpdateModule, ICreateModule
         if (Frame >= nextPingFrame)
         {
             nextPingFrame += LogicTime.FramesPerSecond;
-            Game.Events.PlaySound(Owner.Template.UnitSound("UnitBombPing"), Owner.Position);
+            Game.Events.PlaySound(Owner.Template.UnitSound("UnitBombPing"), Owner.Position, source: Owner);
         }
         return 0;
     }

@@ -30,6 +30,21 @@ public sealed class ModelInstance
     public readonly HashSet<string> HiddenSubObjects = new(StringComparer.OrdinalIgnoreCase);
     public readonly HashSet<string> ShownSubObjects = new(StringComparer.OrdinalIgnoreCase);
 
+    /// <summary>A color added to every light this model is lit by (the drawable's tint and selection flash).</summary>
+    public Vector3 Tint;
+
+    /// <summary>Alpha for the whole model (stealth see-through); below 1 it is drawn with the translucent things.</summary>
+    public float Opacity = 1;
+
+    /// <summary>Strength of the orange heat-vision pass on top (detected stealth units); 0 = none.</summary>
+    public float HeatVision;
+
+    /// <summary>Draw only the heat-vision pass (a detected enemy).</summary>
+    public bool HeatVisionOnly;
+
+    /// <summary>Per-mesh UV offsets added to linear-offset texture mappers (tank treads).</summary>
+    public Dictionary<RenderMesh, Vector2>? MeshUvOffsets;
+
     public ModelInstance(RenderModel model)
     {
         Model = model;
@@ -80,19 +95,39 @@ public sealed class ModelRenderer : IDisposable
         uniform mat4 uMeshTransform;     // rigid meshes: the bone they hang from
         uniform mat4 uBones[128];        // skinned meshes: every bone of the skeleton
         uniform int uSkinned;
+        uniform mat4 uView;
+        // Texture mappers for the two stages: the input (0 mesh UVs, 1 camera-space normal,
+        // 2 camera-space reflection) and the two rows of the texture matrix.
+        uniform int uUvSource[2];
+        uniform vec4 uTexRow0[2];
+        uniform vec4 uTexRow1[2];
 
         out vec3 vNormal;
         out vec2 vUv0;
         out vec2 vUv1;
         out vec4 vColor;
+        out vec2 vWorld;
 
         void main()
         {
             mat4 transform = uSkinned == 1 ? uBones[int(aBone + 0.5)] : uMeshTransform;
             vec4 world = transform * vec4(aPosition, 1.0);
+            vWorld = world.xy;
             vNormal = normalize(mat3(transform) * aNormal);
-            vUv0 = aUv0;
-            vUv1 = aUv1;
+            vec3 viewPos = (uView * world).xyz;
+            vec3 viewNormal = normalize(mat3(uView) * vNormal);
+            vec3 reflection = reflect(normalize(viewPos), viewNormal);
+            vec2 uvs[2] = vec2[2](aUv0, aUv1);
+            vec2 mapped[2];
+            for (int i = 0; i < 2; i++)
+            {
+                vec4 source = uUvSource[i] == 1 ? vec4(viewNormal, 1.0)
+                            : uUvSource[i] == 2 ? vec4(reflection, 1.0)
+                            : vec4(uvs[i], 1.0, 1.0);
+                mapped[i] = vec2(dot(uTexRow0[i], source), dot(uTexRow1[i], source));
+            }
+            vUv0 = mapped[0];
+            vUv1 = mapped[1];
             vColor = aColor;
             gl_Position = uViewProjection * world;
         }
@@ -104,8 +139,11 @@ public sealed class ModelRenderer : IDisposable
         in vec2 vUv0;
         in vec2 vUv1;
         in vec4 vColor;
+        in vec2 vWorld;
 
         uniform sampler2D uTexture;
+        uniform sampler2D uShroud;
+        uniform vec2 uShroudScale;
         uniform sampler2D uDetail;
         uniform int uTextured;
         uniform int uDetailFunc;       // original DetailColorFunc (0 = none)
@@ -119,6 +157,8 @@ public sealed class ModelRenderer : IDisposable
         uniform vec3 uMaterialDiffuse;
         uniform vec3 uMaterialEmissive;
         uniform float uMaterialOpacity;
+        uniform vec3 uTint;
+        uniform float uInstanceOpacity;
 
         out vec4 fragColor;
 
@@ -127,9 +167,9 @@ public sealed class ModelRenderer : IDisposable
             vec3 normal = normalize(vNormal);
             vec3 diffuse = vec3(0.0);
             for (int i = 0; i < 3; i++)
-                diffuse += max(dot(normal, -uLightDirection[i]), 0.0) * uLightColor[i];
+                diffuse += max(dot(normal, -uLightDirection[i]), 0.0) * (uLightColor[i] + uTint);
 
-            vec3 lighting = uAmbientLight * uMaterialAmbient + diffuse * uMaterialDiffuse * vColor.rgb + uMaterialEmissive;
+            vec3 lighting = (uAmbientLight + uTint) * uMaterialAmbient + diffuse * uMaterialDiffuse * vColor.rgb + uMaterialEmissive;
             vec4 gradient = vec4(clamp(lighting, 0.0, 1.0), uMaterialOpacity * vColor.a);
 
             vec4 texel = uTextured == 1 ? texture(uTexture, vUv0) : vec4(1.0);
@@ -151,6 +191,9 @@ public sealed class ModelRenderer : IDisposable
 
             if (uAlphaTest > 0.0 && color.a < uAlphaTest)
                 discard;
+            color.a *= uInstanceOpacity;
+            if (uShroudScale.x > 0.0)
+                color.rgb *= texture(uShroud, vWorld * uShroudScale).r;
             fragColor = color;
         }
         """;
@@ -158,6 +201,9 @@ public sealed class ModelRenderer : IDisposable
     readonly GL gl;
     readonly ShaderProgram shader;
     readonly TextureCache textures;
+    readonly Dictionary<W3dVertexMaterial, (TextureMapper? Stage0, TextureMapper? Stage1)> mappers = new(ReferenceEqualityComparer.Instance);
+    readonly System.Diagnostics.Stopwatch clock = System.Diagnostics.Stopwatch.StartNew();
+    float nowMs;
 
     public ModelRenderer(GL gl, TextureCache textures)
     {
@@ -169,9 +215,17 @@ public sealed class ModelRenderer : IDisposable
     readonly record struct QueuedBatch(ModelInstance Instance, RenderMesh Mesh, RenderPass Pass, DrawBatch Batch, float Depth);
 
     /// <summary>Draws all instances: opaque geometry first, then translucent geometry back to front.</summary>
-    public void Draw(IEnumerable<ModelInstance> instances, Matrix4x4 viewProjection, Vector3 cameraPosition, SceneLighting lighting)
+    /// <summary>The fog of war to darken models with (null = none).</summary>
+    public World.ShroudTexture? Shroud { get; set; }
+
+    public void Draw(IEnumerable<ModelInstance> instances, Matrix4x4 viewProjection, Vector3 cameraPosition, SceneLighting lighting, Matrix4x4? view = null)
     {
         shader.Use();
+        nowMs = (float)clock.Elapsed.TotalMilliseconds;
+        shader.Set("uView", view ?? Matrix4x4.Identity);
+        shader.Set("uShroud", 2);
+        shader.Set("uShroudScale", Shroud != null ? new Vector2(1 / Shroud.WorldWidth, 1 / Shroud.WorldHeight) : Vector2.Zero);
+        Shroud?.Bind(2);
         shader.Set("uViewProjection", viewProjection);
         shader.Set("uTexture", 0);
         shader.Set("uDetail", 1);
@@ -189,8 +243,13 @@ public sealed class ModelRenderer : IDisposable
         gl.Disable(EnableCap.Blend);
         gl.DepthMask(true);
 
+        var heatVision = new List<ModelInstance>();
         foreach (var instance in instances)
         {
+            if (instance.HeatVision > 0)
+                heatVision.Add(instance);
+            if (instance.HeatVisionOnly)
+                continue;
             UploadBones(instance);
             float depth = Vector3.DistanceSquared(instance.World.Translation, cameraPosition);
 
@@ -203,7 +262,7 @@ public sealed class ModelRenderer : IDisposable
                 {
                     foreach (var batch in pass.Batches)
                     {
-                        if (batch.Shader.IsBlended)
+                        if (batch.Shader.IsBlended || instance.Opacity < 1)
                             translucent.Add(new QueuedBatch(instance, mesh, pass, batch, depth));
                         else
                             DrawBatch(instance, mesh, pass, batch);
@@ -225,9 +284,66 @@ public sealed class ModelRenderer : IDisposable
             DrawBatch(queued.Instance, queued.Mesh, queued.Pass, queued.Batch);
         }
 
+        DrawHeatVision(heatVision);
+
         gl.Disable(EnableCap.Blend);
         gl.DepthMask(true);
         gl.BindVertexArray(0);
+    }
+
+    /// <summary>
+    /// The original's heat-vision material pass: the model again, untextured, lit only by an orange
+    /// emissive scaled by the fading strength, added on top (exactly over the model, or on its own for
+    /// a detected enemy, without writing depth).
+    /// </summary>
+    void DrawHeatVision(List<ModelInstance> instances)
+    {
+        if (instances.Count == 0)
+            return;
+        gl.Enable(EnableCap.Blend);
+        gl.BlendFunc(BlendingFactor.One, BlendingFactor.One);
+        gl.DepthMask(false);
+        foreach (var instance in instances)
+        {
+            UploadBones(instance);
+            gl.DepthFunc(instance.HeatVisionOnly ? DepthFunction.Lequal : DepthFunction.Equal);
+            foreach (var mesh in instance.Model.Meshes)
+            {
+                if (!instance.IsMeshVisible(mesh))
+                    continue;
+                bool skinned = mesh.Source.IsSkin;
+                shader.Set("uSkinned", skinned ? 1 : 0);
+                if (!skinned)
+                    shader.Set("uMeshTransform", instance.Pose.Transforms[Math.Min(mesh.BoneIndex, instance.Pose.Transforms.Length - 1)]);
+                shader.Set("uMaterialAmbient", Vector3.Zero);
+                shader.Set("uMaterialDiffuse", new Vector3(0.02f, 0.01f, 0));
+                shader.Set("uMaterialEmissive", new Vector3(0.5f, 0.2f, 0) * instance.HeatVision);
+                shader.Set("uMaterialOpacity", 1f);
+                shader.Set("uInstanceOpacity", 1f);
+                shader.Set("uTint", Vector3.Zero);
+                shader.Set("uGradient", 1);
+                shader.Set("uAlphaTest", 0f);
+                shader.Set("uTextured", 0);
+                shader.Set("uDetailFunc", 0);
+                SetStage(0, null, default);
+                SetStage(1, null, default);
+                if (mesh.Source.IsTwoSided)
+                    gl.Disable(EnableCap.CullFace);
+                else
+                    gl.Enable(EnableCap.CullFace);
+                foreach (var pass in mesh.Passes.Take(1))
+                {
+                    gl.BindVertexArray(pass.Vao);
+                    foreach (var batch in pass.Batches)
+                        unsafe
+                        {
+                            gl.DrawElements(PrimitiveType.Triangles, (uint)batch.IndexCount, DrawElementsType.UnsignedInt, (void*)(batch.IndexStart * sizeof(uint)));
+                        }
+                }
+            }
+        }
+        gl.DepthFunc(DepthFunction.Lequal);
+        gl.DepthMask(true);
     }
 
     void UploadBones(ModelInstance instance)
@@ -259,6 +375,9 @@ public sealed class ModelRenderer : IDisposable
         shader.Set("uMaterialOpacity", material?.Opacity ?? 1f);
         shader.Set("uGradient", (int)s.PrimaryGradient);
         shader.Set("uAlphaTest", s.AlphaTest != 0 ? 0.376f : 0f); // the original used an alpha reference of 0x60
+        SetMappers(instance, mesh, material);
+        shader.Set("uTint", instance.Tint);
+        shader.Set("uInstanceOpacity", instance.Opacity);
 
         // Textures.
         Texture? texture = null;
@@ -280,6 +399,8 @@ public sealed class ModelRenderer : IDisposable
         });
         if (s.IsBlended)
             gl.BlendFunc(SourceFactor(s.SrcBlend), DestinationFactor(s.DestBlend));
+        else if (instance.Opacity < 1)
+            gl.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);   // the original's alpha override
         if (mesh.Source.IsTwoSided)
             gl.Disable(EnableCap.CullFace);
         else
@@ -290,6 +411,42 @@ public sealed class ModelRenderer : IDisposable
         {
             gl.DrawElements(PrimitiveType.Triangles, (uint)batch.IndexCount, DrawElementsType.UnsignedInt, (void*)(batch.IndexStart * sizeof(uint)));
         }
+    }
+
+    static readonly Vector4 IdentityRow0 = new(1, 0, 0, 0), IdentityRow1 = new(0, 1, 0, 0);
+
+    (TextureMapper? Stage0, TextureMapper? Stage1) MappersFor(W3dVertexMaterial material)
+    {
+        if (!mappers.TryGetValue(material, out var pair))
+        {
+            pair = (TextureMapper.Create(material.StageMapping, material.MapperArgs),
+                    TextureMapper.Create(material.Stage1Mapping, material.MapperArgs1));
+            mappers[material] = pair;
+        }
+        return pair;
+    }
+
+    void SetMappers(ModelInstance instance, RenderMesh mesh, W3dVertexMaterial? material)
+    {
+        var (stage0, stage1) = material != null ? MappersFor(material) : (null, null);
+        Vector2 custom = instance.MeshUvOffsets != null && instance.MeshUvOffsets.TryGetValue(mesh, out var o) ? o : default;
+        SetStage(0, stage0, custom);
+        SetStage(1, stage1, custom);
+    }
+
+    void SetStage(int stage, TextureMapper? mapper, Vector2 custom)
+    {
+        if (mapper == null)
+        {
+            shader.Set($"uUvSource[{stage}]", 0);
+            shader.Set($"uTexRow0[{stage}]", IdentityRow0);
+            shader.Set($"uTexRow1[{stage}]", IdentityRow1);
+            return;
+        }
+        var (row0, row1) = mapper.Matrix(nowMs, custom);
+        shader.Set($"uUvSource[{stage}]", (int)mapper.Source);
+        shader.Set($"uTexRow0[{stage}]", row0);
+        shader.Set($"uTexRow1[{stage}]", row1);
     }
 
     static BlendingFactor SourceFactor(byte value) => value switch

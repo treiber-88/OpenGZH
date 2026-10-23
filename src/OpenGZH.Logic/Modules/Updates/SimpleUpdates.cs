@@ -89,8 +89,10 @@ public sealed class HeightDieUpdate : Module, IUpdateModule
 }
 
 /// <summary>A unit spawned and controlled by another (drones, hive slaves); it dies when its master dies.</summary>
-public sealed class SlavedUpdate : Module, IUpdateModule
+public sealed class SlavedUpdate : Module, IUpdateModule, Behaviors.ISlavedUpdate
 {
+    public void OnEnslave(Objects.GameObject slaver) => Owner.ProducerId = slaver.Id;
+
     public int Update()
     {
         var master = Game.FindObject(Owner.ProducerId);

@@ -1,3 +1,4 @@
+using OpenGZH.Formats.Compression;
 using System.Numerics;
 
 namespace OpenGZH.Formats.Maps;
@@ -347,5 +348,54 @@ public sealed class PolygonTrigger
                 list.Add(trigger);
         }
         return list;
+    }
+}
+
+/// <summary>
+/// A standalone script file (.scb), such as Data/Scripts/SkirmishScripts.scb: script lists for named
+/// players (ScriptsPlayers + PlayerScriptsList) and team definitions (ScriptTeams). Skirmish games give
+/// these to the computer players by side.
+/// </summary>
+public sealed class ScriptFile
+{
+    public List<string> PlayerNames { get; } = new();
+    public List<Dictionary<string, object>> PlayerProperties { get; } = new();
+    public List<ScriptList> ScriptLists { get; } = new();
+    public List<Dictionary<string, object>> Teams { get; } = new();
+
+    public static ScriptFile Read(byte[] fileData)
+    {
+        var data = RefPack.DecompressIfNeeded(fileData);
+        var chunks = new DataChunkReader(data);
+        var reader = chunks.Reader;
+        var file = new ScriptFile();
+        foreach (var chunk in chunks.Chunks())
+        {
+            switch (chunk.Label)
+            {
+                case "PlayerScriptsList":
+                    foreach (var list in chunks.SubChunks(chunk))
+                        if (list.Label == "ScriptList")
+                            file.ScriptLists.Add(ScriptList.Read(chunks, list));
+                    break;
+                case "ScriptsPlayers":
+                {
+                    bool readDicts = chunk.Version >= 2 && reader.ReadInt32() != 0;
+                    int count = reader.ReadInt32();
+                    for (int i = 0; i < count; i++)
+                    {
+                        file.PlayerNames.Add(chunks.ReadAsciiString());
+                        file.PlayerProperties.Add(readDicts ? chunks.ReadDict() : new Dictionary<string, object>());
+                    }
+                    break;
+                }
+                case "ScriptTeams":
+                    while (reader.BaseStream.Position < chunk.End)
+                        file.Teams.Add(chunks.ReadDict());
+                    break;
+            }
+            reader.BaseStream.Position = chunk.End;
+        }
+        return file;
     }
 }

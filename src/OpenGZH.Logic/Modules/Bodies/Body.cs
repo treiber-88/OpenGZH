@@ -28,7 +28,12 @@ public abstract class Body : Module, ICreateModule
 
     /// <summary>Frame of the last damage taken (used by auto-heal delays).</summary>
     public int LastDamageFrame { get; private set; } = -1000;
-    public uint LastDamageSourceId { get; private set; }
+    public uint LastDamageSourceId { get; protected set; }
+
+    /// <summary>The last hit (the original's last damage info): who, what, and whether it did nothing.</summary>
+    public LastDamageInfo? LastDamage { get; private set; }
+
+    public bool LastDamageNoEffect => LastDamage?.NoEffect ?? true;
 
     // Subdual damage (microwave tanks, EMP) temporarily disables instead of killing.
     public float SubdualDamage { get; private set; }
@@ -83,6 +88,17 @@ public abstract class Body : Module, ICreateModule
 
         float amount = Armor.AdjustDamage(damage.DamageType, damage.Amount);
 
+        if (damage.DamageType.Equals("KILL_PILOT", StringComparison.OrdinalIgnoreCase))
+        {
+            KillPilot(damage);
+            return;
+        }
+        if (damage.DamageType.Equals("KILL_GARRISONED", StringComparison.OrdinalIgnoreCase))
+        {
+            KillGarrisoned(damage);
+            return;
+        }
+
         if (damage.DamageType.Equals("STATUS", StringComparison.OrdinalIgnoreCase))
         {
             if (damage.DamageStatusType != null)
@@ -101,6 +117,10 @@ public abstract class Body : Module, ICreateModule
 
         if (damage.Kill)
             amount = Health;
+        var source = Game.FindObject(damage.SourceId);
+        LastDamage = new LastDamageInfo(damage.SourceId, source?.Template.Name ?? "", source?.Owner.Index ?? -1, amount <= 0 && !damage.Kill, damage.DamageType);
+        if (source != null)
+            Owner.Owner.SetAttackedBy(source.Owner.Index);
         if (amount <= 0 && !damage.Kill)
             return;
 
@@ -111,6 +131,8 @@ public abstract class Body : Module, ICreateModule
         LastDamageFrame = Frame;
         LastDamageSourceId = damage.SourceId;
 
+        if (damage.ActualDamageDealt > 0)
+            Game.Events.Damaged(Owner, damage);
         if (Health < before)
             foreach (var module in Owner.Modules.OfType<IDamageModule>().ToList())
                 module.OnDamage(damage);
@@ -122,6 +144,52 @@ public abstract class Body : Module, ICreateModule
             Die(damage);
     }
 
+    /// <summary>
+    /// A sniper shoots the driver (Jarmen Kell): the vehicle is left unmanned and neutral, for any
+    /// infantry to climb into. A Combat Cycle loses its rider instead (or dies if it was moving).
+    /// </summary>
+    void KillPilot(DamageInfo damage)
+    {
+        if (!Owner.IsKindOf("VEHICLE"))
+            return;
+        var damager = Game.FindObject(damage.SourceId);
+        LastDamageSourceId = damage.SourceId;
+        if (Owner.Contain is { IsRiderChangeContain: true } contain)
+        {
+            if (Owner.AI is { IsMoving: true })
+            {
+                damager?.ScoreTheKill(Owner);
+                Owner.Kill();
+            }
+            else if (contain.Passengers.FirstOrDefault() is { } rider)
+            {
+                Owner.AI?.Evacuate(Commands.CommandSource.AI, instantly: true);
+                damager?.ScoreTheKill(rider);
+                rider.Kill();
+            }
+        }
+        else
+        {
+            Owner.SetDisabled("DISABLED_UNMANNED");
+            Owner.AI?.Stop(Commands.CommandSource.AI);
+            Owner.SetTeam(Game.Players.Neutral.DefaultTeam);
+        }
+    }
+
+    /// <summary>Kills up to Amount of a garrisoned building's occupants (the building itself is unharmed).</summary>
+    void KillGarrisoned(DamageInfo damage)
+    {
+        int kills = (int)MathF.Floor(damage.Amount);
+        if (Owner.Contain is not { IsGarrisonable: true, Count: > 0, IsImmuneToClearBuildingAttacks: false } contain)
+            return;
+        var damager = Game.FindObject(damage.SourceId);
+        foreach (var occupant in contain.Passengers.Where(p => !p.IsEffectivelyDead).Take(kills).ToList())
+        {
+            damager?.ScoreTheKill(occupant);
+            occupant.Kill();
+        }
+    }
+
     /// <summary>Hook for bodies that limit damage (immortal, highlander...).</summary>
     protected virtual float AdjustIncomingDamage(float amount, DamageInfo damage) => amount;
 
@@ -130,10 +198,15 @@ public abstract class Body : Module, ICreateModule
 
     public void AttemptHealing(float amount, uint sourceId = 0)
     {
-        if (Owner.IsEffectivelyDead || amount <= 0)
+        if (Owner.IsEffectivelyDead && !Owner.IsKindOf("BRIDGE") && !Owner.IsKindOf("BRIDGE_TOWER"))
+            return;
+        amount = Armor.AdjustDamage("HEALING", amount);
+        if (amount <= 0)
             return;
         float before = Health;
         ChangeHealth(amount);
+        if (before <= 0 && Health > 0)
+            Owner.Revive();
         if (Health > before)
         {
             var healing = new DamageInfo { Amount = Health - before, DamageType = "HEALING", SourceId = sourceId };
@@ -178,6 +251,20 @@ public abstract class Body : Module, ICreateModule
         UpdateDamageState();
     }
 
+    /// <summary>Forces a damage state by setting health just inside it (keeps an Overlord's add-on looking as damaged as the Overlord).</summary>
+    public void SetDamageState(BodyDamageState state)
+    {
+        var data = Game.Catalog.GameData;
+        float ratio = state switch
+        {
+            BodyDamageState.Damaged => data.UnitDamagedThreshold,
+            BodyDamageState.ReallyDamaged => data.UnitReallyDamagedThreshold,
+            BodyDamageState.Rubble => 0,
+            _ => 1,
+        };
+        ChangeHealth(Math.Max(0, MaxHealth * ratio - 1) - Health);
+    }
+
     void UpdateDamageState()
     {
         var data = Game.Catalog.GameData;
@@ -211,6 +298,8 @@ public abstract class Body : Module, ICreateModule
             return;
         bool wasSubdued = IsSubdued;
         SubdualDamage = Math.Clamp(SubdualDamage + amount, 0, SubdualDamageCap);
+        // Gaining subdual damage tints the object blue (the original's notifySubdualDamage).
+        Owner.SetTint(Objects.TintStatus.GainingSubdualDamage, amount > 0);
         if (wasSubdued != IsSubdued)
             Owner.SetDisabled("DISABLED_SUBDUED", IsSubdued);
     }
@@ -226,3 +315,6 @@ public abstract class Body : Module, ICreateModule
 }
 
 public enum MaxHealthChange { PreserveRatio, AddCurrentHealthToo, SameCurrentHealth, FullyHeal }
+
+/// <summary>What last hit an object: its id, its template, its player (-1 if gone), and whether it did no damage.</summary>
+public sealed record LastDamageInfo(uint SourceId, string SourceTemplate, int SourcePlayerIndex, bool NoEffect, string DamageType = "");

@@ -55,6 +55,17 @@ public sealed class RenderModel : IDisposable
         return model;
     }
 
+    /// <summary>A model made of ready meshes in world space (map bridges built piece by piece).</summary>
+    public static RenderModel FromMeshes(GL gl, string name, IEnumerable<W3dMesh> meshes)
+    {
+        var model = new RenderModel(name, null);
+        foreach (var mesh in meshes)
+            if (mesh.Positions.Length > 0)
+                model.Meshes.Add(new RenderMesh(gl, mesh, 0));
+        model.ComputeBounds();
+        return model;
+    }
+
     void ComputeBounds()
     {
         var pose = new W3dPose(Hierarchy?.Pivots.Count ?? 1);
@@ -192,9 +203,10 @@ public sealed class RenderMesh : IDisposable
 
             vertices[o] = p.X; vertices[o + 1] = p.Y; vertices[o + 2] = p.Z;
             vertices[o + 3] = n.X; vertices[o + 4] = n.Y; vertices[o + 5] = n.Z;
-            // Images are uploaded top row first, so W3D's (Direct3D) UVs can be used as they are.
-            vertices[o + 6] = uv0.X; vertices[o + 7] = uv0.Y;
-            vertices[o + 8] = uv1.X; vertices[o + 9] = uv1.Y;
+            // W3D stores V from the bottom of the image (as the original loader flipped it); our
+            // images are uploaded top row first, so flip V here.
+            vertices[o + 6] = uv0.X; vertices[o + 7] = 1 - uv0.Y;
+            vertices[o + 8] = uv1.X; vertices[o + 9] = 1 - uv1.Y;
             vertices[o + 10] = color.X; vertices[o + 11] = color.Y; vertices[o + 12] = color.Z; vertices[o + 13] = color.W;
             vertices[o + 14] = bone;
         }

@@ -9,3 +9,6 @@ content/
 
 # Per-user settings, logs and saves
 userdata/
+
+# The published game executable (rebuild with the command in README.md)
+/OpenGZH.exe

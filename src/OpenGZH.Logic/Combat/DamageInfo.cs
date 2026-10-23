@@ -11,6 +11,9 @@ public sealed class DamageInfo
     public string DeathType { get; init; } = "NORMAL";
     public float Amount { get; init; }
 
+    /// <summary>Show the hit as this damage type instead (poison ticks are unresistable but look like poison).</summary>
+    public string? DamageFxOverride { get; init; }
+
     /// <summary>Instantly kill regardless of health (e.g. "kill" script actions, sold structures).</summary>
     public bool Kill { get; init; }
 

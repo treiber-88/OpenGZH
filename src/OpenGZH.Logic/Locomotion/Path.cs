@@ -15,6 +15,7 @@ public sealed class Path
     const int MaxCachedReturns = 20;
 
     readonly List<Vector3> nodes;
+    readonly List<int> layers;
 
     // The original caches the last answer while the unit hasn't moved.
     bool cacheValid;
@@ -23,11 +24,36 @@ public sealed class Path
     (Vector3 Pos, float Dist) cacheOut;
     int flightStart;
 
-    public Path(IEnumerable<Vector3> points) => nodes = points.ToList();
+    public Path(IEnumerable<Vector3> points)
+    {
+        nodes = points.ToList();
+        layers = Enumerable.Repeat(0, nodes.Count).ToList();
+    }
+
+    /// <summary>A path whose points each lie on a layer (0 = ground, 1+ = a bridge deck).</summary>
+    public Path(IEnumerable<(Vector3 Position, int Layer)> points)
+    {
+        var list = points.ToList();
+        nodes = list.Select(p => p.Position).ToList();
+        layers = list.Select(p => p.Layer).ToList();
+    }
+
+    public IReadOnlyList<int> Layers => layers;
+
+    /// <summary>The layer of the path where the last <see cref="ComputePointOnPath"/> put the unit.</summary>
+    public int CurrentLayer { get; private set; }
 
     public IReadOnlyList<Vector3> Nodes => nodes;
     public Vector3 LastNode => nodes[^1];
     public bool IsEmpty => nodes.Count == 0;
+
+    /// <summary>Adds a point at the end (the original's appendNode).</summary>
+    public void Append(Vector3 point, int layer = 0)
+    {
+        nodes.Add(point);
+        layers.Add(layer);
+        cacheValid = false;
+    }
 
     static bool ReallyClose(Vector3 a, Vector3 b) =>
         MathF.Abs(a.X - b.X) <= 0.1f && MathF.Abs(a.Y - b.Y) <= 0.1f && MathF.Abs(a.Z - b.Z) <= 0.1f;
@@ -40,7 +66,7 @@ public sealed class Path
     }
 
     /// <summary>The point to steer towards, and the distance still to go along the path.</summary>
-    public (Vector3 PosOnPath, float DistAlongPath) ComputePointOnPath(Vector3 pos, Pathfinder pathfinder, Surfaces surfaces)
+    public (Vector3 PosOnPath, float DistAlongPath) ComputePointOnPath(Vector3 pos, Pathfinder pathfinder, Surfaces surfaces, int layer = 0)
     {
         if (nodes.Count == 0)
             return (pos, 0);
@@ -96,6 +122,8 @@ public sealed class Path
             totalPathLength += segmentLength;
         }
 
+        // The segment the unit is on gives its layer; a straight line is tested on that layer.
+        CurrentLayer = closeNode >= 0 && closeNode + 1 < layers.Count ? layers[closeNode + 1] : layers.Count > 0 ? layers[^1] : 0;
         if (closeNode >= 0 && closeNode + 1 < nodes.Count)
         {
             var closePos = nodes[closeNode];
@@ -108,7 +136,7 @@ public sealed class Path
             // How far off the path we are, as a fraction of three cells.
             float k = Math.Min(1, offsetDist / (3 * CellSize));
             bool gotPos = false;
-            if (pathfinder.IsLineClear(pos, nextPos, surfaces))
+            if (pathfinder.IsLineClear(pos, nextPos, surfaces, layer))
             {
                 posOnPath = nextPos;
                 gotPos = true;
@@ -118,7 +146,7 @@ public sealed class Path
                 {
                     var after = nodes[closeNode + 2];
                     var tryPos = new Vector3((nextPos.X + after.X) * 0.5f, (nextPos.Y + after.Y) * 0.5f, nextPos.Z);
-                    if (veryClose || pathfinder.IsLineClear(pos, tryPos, surfaces))
+                    if (veryClose || pathfinder.IsLineClear(pos, tryPos, surfaces, layer))
                         posOnPath = tryPos;
                 }
             }
@@ -126,7 +154,7 @@ public sealed class Path
             {
                 float tryDist = along + 0.5f * (segmentLength - along);
                 var tryPos = new Vector3(closePos.X + tryDist * dir.X, closePos.Y + tryDist * dir.Y, closePos.Z);
-                if (pathfinder.IsLineClear(pos, tryPos, surfaces))
+                if (pathfinder.IsLineClear(pos, tryPos, surfaces, layer))
                 {
                     k = 0.5f;
                     gotPos = true;

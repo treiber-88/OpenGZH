@@ -1,3 +1,5 @@
+using System.Numerics;
+using OpenGZH.Core.Rules;
 using OpenGZH.Logic.Combat;
 using OpenGZH.Logic.Core;
 using OpenGZH.Logic.Objects;
@@ -99,8 +101,99 @@ public sealed class CreateCrateDie : DieModule
 {
     protected override void Die(DamageInfo killingBlow)
     {
-        string crate = Setting("CrateData");
-        if (crate.Length > 0)
-            Game.Crates.TrySpawn(crate, Owner, killingBlow);
+        var crates = ListSetting("CrateData").SelectMany(RuleValue.Words).ToList();
+        if (crates.Count > 0)
+            Game.Crates.TrySpawn(crates, Owner, killingBlow);
+    }
+}
+
+/// <summary>
+/// The pilot bails out when the vehicle dies: AirCreationList if it was flying, GroundCreationList
+/// otherwise (VoiceEject and SoundEject play).
+/// </summary>
+public sealed class EjectPilotDie : DieModule
+{
+    protected override void Die(DamageInfo killingBlow)
+    {
+        string ocl = Owner.IsSignificantlyAboveTerrain ? Setting("AirCreationList") : Setting("GroundCreationList");
+        if (ocl.Length == 0)
+            return;
+        EjectPilot(ocl, Owner, Game.FindObject(killingBlow.SourceId));
+    }
+
+    /// <summary>The original's static ejectPilot (also used by crashing helicopters).</summary>
+    public static void EjectPilot(string ocl, GameObject dyingObject, GameObject? damageDealer)
+    {
+        if (ocl.Length == 0)
+            return;
+        var game = dyingObject.Game;
+        game.ObjectCreation.Run(ocl, dyingObject, dyingObject.Position, damageDealer);
+        game.Events.PlaySound(dyingObject.Template.UnitSound("VoiceEject"), dyingObject.Position, dyingObject.Owner, dyingObject);
+        game.Events.PlaySound(dyingObject.Template.UnitSound("SoundEject"), dyingObject.Position, source: dyingObject);
+    }
+}
+
+/// <summary>
+/// Cars flattened by tanks: depending on where the crusher is (nearest of the middle, front or back
+/// point), the front, back or whole car is crushed (FRONTCRUSHED / BACKCRUSHED). The car survives a
+/// half-crush; crushing the other half finishes it.
+/// </summary>
+public sealed class CrushDie : DieModule
+{
+    enum Crush { Total, BackEnd, FrontEnd, None }
+
+    protected override void Die(DamageInfo killingBlow)
+    {
+        if (!killingBlow.DamageType.Equals("CRUSH", StringComparison.OrdinalIgnoreCase))
+            return;
+        var crusher = Game.FindObject(killingBlow.SourceId);
+        var crush = crusher != null ? CrushLocation(crusher) : Crush.Total;
+        if (crush == Crush.None)
+            return;
+        string key = crush switch { Crush.Total => "TotalCrush", Crush.BackEnd => "BackEndCrush", _ => "FrontEndCrush" };
+        string sound = Setting(key + "Sound");
+        if (sound.Length > 0 && Game.Random.Int(0, 99) < IntSetting(key + "SoundPercent"))
+            Game.Events.PlaySound(sound, Owner.Position, source: Owner);
+        bool front = crush is Crush.Total or Crush.FrontEnd;
+        bool back = crush is Crush.Total or Crush.BackEnd;
+        if (Owner.Body is { } body)
+        {
+            body.FrontCrushed = front;
+            body.BackCrushed = back;
+        }
+        Owner.SetCondition("FRONTCRUSHED", front);
+        Owner.SetCondition("BACKCRUSHED", back);
+    }
+
+    Crush CrushLocation(GameObject crusher)
+    {
+        bool frontCrushed = Owner.Body?.FrontCrushed ?? false, backCrushed = Owner.Body?.BackCrushed ?? false;
+        var dir = new Vector2(MathF.Cos(Owner.Orientation), MathF.Sin(Owner.Orientation));
+        var offset = dir * (Owner.Geometry.MajorRadius * 0.5f);
+        var pos = new Vector2(crusher.Position.X, crusher.Position.Y);
+        var center = new Vector2(Owner.Position.X, Owner.Position.Y);
+        var result = Crush.None;
+        float best = 99999;
+        if (!frontCrushed && !backCrushed)
+        {
+            best = Vector2.DistanceSquared(center, pos);
+            result = Crush.Total;
+        }
+        if (!frontCrushed)
+        {
+            float dist = Vector2.DistanceSquared(center + offset, pos);
+            if (dist < best)
+            {
+                result = backCrushed ? Crush.Total : Crush.FrontEnd;
+                best = dist;
+            }
+        }
+        if (!backCrushed)
+        {
+            float dist = Vector2.DistanceSquared(center - offset, pos);
+            if (dist < best)
+                result = frontCrushed ? Crush.Total : Crush.BackEnd;
+        }
+        return result;
     }
 }

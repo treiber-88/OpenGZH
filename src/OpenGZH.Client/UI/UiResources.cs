@@ -18,6 +18,9 @@ public sealed class UiResources : IDisposable
     public StringTable Strings { get; } = new();
     public GuiContext Gui { get; }
 
+    /// <summary>Sound, speech and music for the whole session.</summary>
+    public Audio.AudioManager Audio { get; }
+
     public UiResources(GL gl, GameContent content)
     {
         Content = content;
@@ -34,6 +37,7 @@ public sealed class UiResources : IDisposable
                 Strings.Set(label, text.Value);
 
         Gui = new GuiContext { Batch = Batch, Images = Images, Fonts = Fonts, Strings = Strings };
+        Audio = new Audio.AudioManager(content.FileSystem, content.Rules);
     }
 
     /// <summary>The interface is laid out for 800x600 and stretched to the screen, like the original.</summary>
@@ -51,6 +55,7 @@ public sealed class UiResources : IDisposable
 
     public void Dispose()
     {
+        Audio.Dispose();
         Fonts.Dispose();
         Batch.Dispose();
         Textures.Dispose();

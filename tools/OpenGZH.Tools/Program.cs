@@ -23,8 +23,10 @@ return command switch
     "script-stats" => ScriptStats.Run(fileSystem, rest),
     "terrain-view" => TerrainView.Run(fileSystem, rest),
     "wnd-dump" => WndDump.Run(fileSystem, rest),
+    "w3d-dump" => W3dDump.Run(fileSystem, rest),
     "list" => FileTools.List(fileSystem, rest),
     "extract" => FileTools.Extract(fileSystem, rest),
+    "texture-png" => FileTools.TexturePng(fileSystem, rest),
     _ => Help(),
 };
 

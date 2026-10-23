@@ -143,7 +143,7 @@ public sealed class MapViewerScreen : IScreen
 
         var frustum = new Frustum(viewProjection);
         var visible = instances.Where(i => frustum.Intersects(i.World.Translation, 150));
-        modelRenderer.Draw(visible, viewProjection, camera.Position, objectLighting);
+        modelRenderer.Draw(visible, viewProjection, camera.Position, objectLighting, camera.View);
         water.Draw(viewProjection);
     }
 

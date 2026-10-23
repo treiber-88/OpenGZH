@@ -323,7 +323,7 @@ public sealed class Locomotor
         if (obj.FindModule<PhysicsBehavior>() is not { } physics || physics.IsStunned)
             return;
 
-        if ((Template.Surfaces & Surfaces.Air) == 0 && !game.Pathfinder.IsValidMovementTerrain(obj.Position, Template.Surfaces) && !AllowInvalidPosition)
+        if ((Template.Surfaces & Surfaces.Air) == 0 && !game.Pathfinder.IsValidMovementTerrain(obj.Position, Template.Surfaces, obj.Layer) && !AllowInvalidPosition)
         {
             if (FixInvalidPosition(obj, physics))
                 return;
@@ -338,7 +338,7 @@ public sealed class Locomotor
             onPathDistToGoal = dist;
         }
 
-        float heightAboveSurface = obj.Position.Z - game.Terrain.LayerHeight(obj.Position.X, obj.Position.Y);
+        float heightAboveSurface = obj.Position.Z - game.Terrain.LayerHeight(obj.Position.X, obj.Position.Y, obj.Layer);
         bool treatAsAirborne = heightAboveSurface > -(3 * 3) * game.Catalog.GameData.Gravity;
 
         physics.ApplyMotiveForce(Vector3.Zero);
@@ -534,7 +534,7 @@ public sealed class Locomotor
             var offset = new Vector3(MathF.Cos(targetAngle) * distance, MathF.Sin(targetAngle) * distance, 0);
             var nextPos = obj.Position + offset;
             var halfPos = obj.Position + offset / 2;
-            if (!game.Pathfinder.IsValidMovementTerrain(halfPos, Template.Surfaces) || !game.Pathfinder.IsValidMovementTerrain(nextPos, Template.Surfaces))
+            if (!game.Pathfinder.IsValidMovementTerrain(halfPos, Template.Surfaces, obj.Layer) || !game.Pathfinder.IsValidMovementTerrain(nextPos, Template.Surfaces, obj.Layer))
             {
                 physics.Turning = RotateTowardsPosition(obj, goalPos);
                 physics.ApplyMotiveForce(Vector3.Zero);
@@ -589,7 +589,7 @@ public sealed class Locomotor
             for (int i = -1; i < 2; i++)
             {
                 var pos = obj.Position + new Vector3(i * PathCell, j * PathCell, 0);
-                if (game.Pathfinder.IsValidMovementTerrain(pos, Template.Surfaces))
+                if (game.Pathfinder.IsValidMovementTerrain(pos, Template.Surfaces, obj.Layer))
                     continue;
                 if (i < 0) dx += 1;
                 if (i > 0) dx -= 1;
@@ -854,7 +854,7 @@ public sealed class Locomotor
                 var pos = obj.Position;
                 float surface = Template.ZAxisBehavior switch
                 {
-                    ZAxisBehavior.RelativeToHighestLayer => game.Terrain.LayerHeight(pos.X, pos.Y),
+                    ZAxisBehavior.RelativeToHighestLayer => game.Terrain.HighestLayerHeight(pos.X, pos.Y),
                     ZAxisBehavior.SurfaceRelativeHeight => SurfaceHeightAt(pos.X, pos.Y),
                     _ => 0,
                 };

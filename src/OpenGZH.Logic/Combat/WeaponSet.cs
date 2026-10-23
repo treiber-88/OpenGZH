@@ -27,6 +27,9 @@ public sealed class WeaponSet
     public WeaponSet(GameObject owner) => this.owner = owner;
 
     public bool HasAnyWeapon => Slots.Any(w => w != null);
+
+    /// <summary>Every weapon is out of ammo (and none reload by themselves).</summary>
+    public bool IsOutOfAmmo => HasAnyWeapon && All.All(w => w.Status == WeaponStatus.OutOfAmmo);
     public IEnumerable<Weapon> All => Slots.Where(w => w != null)!;
     public Weapon? Current => Slots[(int)CurrentSlot] ?? All.FirstOrDefault();
 

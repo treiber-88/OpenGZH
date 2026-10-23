@@ -157,6 +157,14 @@ public sealed class SpyVisionUpdate : UpgradeModule, IUpdateModule, IOwnershipMo
         spyOnKindOf = Setting("SpyOnKindof");
     }
 
+    /// <summary>A saboteur knocks it out until this frame.</summary>
+    public void SetDisabledUntilFrame(int frame)
+    {
+        disabledUntilFrame = frame;
+        SetActive(Owner.Owner, false);
+        Owner.WakeUpdate(this);
+    }
+
     public void Activate(int durationFrames)
     {
         deactivateFrame = durationFrames == 0 ? Forever : Frame + durationFrames;

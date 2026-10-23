@@ -21,7 +21,7 @@ public static class W3dReader
     // Mesh sub-chunks.
     const uint Vertices = 0x02, VertexNormals = 0x03, VertexInfluences = 0x0E, MeshHeader3 = 0x1F, Triangles = 0x20;
     const uint MaterialInfo = 0x28, Shaders = 0x29, VertexMaterials = 0x2A, VertexMaterial = 0x2B;
-    const uint VertexMaterialName = 0x2C, VertexMaterialInfo = 0x2D, VertexMapperArgs0 = 0x2E;
+    const uint VertexMaterialName = 0x2C, VertexMaterialInfo = 0x2D, VertexMapperArgs0 = 0x2E, VertexMapperArgs1 = 0x2F;
     const uint Textures = 0x30, Texture = 0x31, TextureName = 0x32, TextureInfo = 0x33;
     const uint MaterialPass = 0x38, VertexMaterialIds = 0x39, ShaderIds = 0x3A, DiffuseColors = 0x3B;
     const uint TextureStage = 0x48, TextureIds = 0x49, StageTexCoords = 0x4A;
@@ -221,9 +221,13 @@ public static class W3dReader
                     material.Translucency = reader.ReadSingle();
                     // Stage 0 mapping type lives in bits 16-23 of the attributes.
                     material.StageMapping = (int)((material.Attributes >> 16) & 0xFF);
+                    material.Stage1Mapping = (int)((material.Attributes >> 8) & 0xFF);
                     break;
                 case VertexMapperArgs0:
                     material.MapperArgs = ReadZeroTerminated(reader, sub.Size);
+                    break;
+                case VertexMapperArgs1:
+                    material.MapperArgs1 = ReadZeroTerminated(reader, sub.Size);
                     break;
             }
         }

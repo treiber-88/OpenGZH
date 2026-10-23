@@ -27,9 +27,11 @@ public sealed class TerrainRenderer : IDisposable
         out vec3 vNormal;
         out vec2 vUv;
         out float vAlpha;
+        out vec2 vWorld;
 
         void main()
         {
+            vWorld = aPosition.xy;
             vNormal = aNormal;
             vUv = aUv;
             vAlpha = aAlpha;
@@ -42,8 +44,11 @@ public sealed class TerrainRenderer : IDisposable
         in vec3 vNormal;
         in vec2 vUv;
         in float vAlpha;
+        in vec2 vWorld;
 
         uniform sampler2D uAtlas;
+        uniform sampler2D uShroud;
+        uniform vec2 uShroudScale;
         uniform vec3 uAmbientLight;
         uniform vec3 uLightDirection[3];
         uniform vec3 uLightColor[3];
@@ -57,7 +62,8 @@ public sealed class TerrainRenderer : IDisposable
             for (int i = 0; i < 3; i++)
                 light += max(dot(normal, -uLightDirection[i]), 0.0) * uLightColor[i];
             vec4 texel = texture(uAtlas, vUv);
-            fragColor = vec4(texel.rgb * clamp(light, 0.0, 1.0), vAlpha);
+            float fog = uShroudScale.x > 0.0 ? texture(uShroud, vWorld * uShroudScale).r : 1.0;
+            fragColor = vec4(texel.rgb * clamp(light, 0.0, 1.0) * fog, vAlpha);
         }
         """;
 
@@ -78,8 +84,11 @@ public sealed class TerrainRenderer : IDisposable
     readonly Texture atlasTexture;
     readonly List<Chunk> chunks = new();
 
+    public TerrainAtlas Atlas { get; }
+
     public TerrainRenderer(GL gl, MapFile map, TerrainAtlas atlas)
     {
+        Atlas = atlas;
         this.gl = gl;
         shader = new ShaderProgram(gl, VertexSource, FragmentSource);
         atlasTexture = new Texture(gl, atlas.Image, repeat: false);
@@ -301,9 +310,15 @@ public sealed class TerrainRenderer : IDisposable
         return new Layer(vao, vbo, ebo, indices.Length);
     }
 
+    /// <summary>The fog of war to darken the ground with (null = none).</summary>
+    public World.ShroudTexture? Shroud { get; set; }
+
     public void Draw(Matrix4x4 viewProjection, SceneLighting lighting)
     {
         shader.Use();
+        shader.Set("uShroud", 2);
+        shader.Set("uShroudScale", Shroud != null ? new Vector2(1 / Shroud.WorldWidth, 1 / Shroud.WorldHeight) : Vector2.Zero);
+        Shroud?.Bind(2);
         shader.Set("uViewProjection", viewProjection);
         shader.Set("uAtlas", 0);
         shader.Set("uAmbientLight", lighting.Ambient);

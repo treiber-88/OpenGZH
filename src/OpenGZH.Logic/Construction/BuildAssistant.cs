@@ -18,8 +18,8 @@ public enum BuildLocation
 /// on the map, not on cliffs or water, flat enough (GameData AllowedHeightVariationForBuilding),
 /// clear of other buildings, and away from supplies for buildings marked CANNOT_BUILD_NEAR_SUPPLIES.
 ///
-/// OpenGZH naval addition: objects with KindOf SHIPYARD must instead straddle the shoreline:
-/// part of the footprint on land, part on water, and the ship exit point on water.
+/// OpenGZH naval addition: objects with KindOf SHIPYARD must instead stand wholly on water, next to
+/// the shore (dry ground at the edge for the dozer to build from), with the ship exit point on water.
 /// </summary>
 public sealed class BuildAssistant
 {
@@ -45,35 +45,24 @@ public sealed class BuildAssistant
             totalCells++;
             bool water = terrain.IsWaterCell(x, y);
 
-            // Coastlines are usually steep, so a shipyard may cover cliff cells at the water's edge.
-            if (terrain.IsCliffCell(x, y) && !water)
+            if (shipyard)
             {
-                if (!shipyard)
-                    return BuildLocation.RestrictedTerrain;
-                continue;
-            }
-            if (water)
-            {
+                // A shipyard stands wholly on water.
+                if (!water)
+                    return BuildLocation.NeedsShoreline;
                 waterCells++;
-                if (!shipyard)
-                    return BuildLocation.RestrictedTerrain;
                 continue;
             }
+            if (water || terrain.IsCliffCell(x, y))
+                return BuildLocation.RestrictedTerrain;
             landCells++;
             float height = terrain.CellCenter(x, y).Z;
             lowest = Math.Min(lowest, height);
             highest = Math.Max(highest, height);
         }
 
-        if (shipyard)
-        {
-            // A real shoreline: a fair part of the footprint on buildable land and a fair part on water.
-            float minimumShare = 0.15f * totalCells;
-            if (landCells < minimumShare || waterCells < minimumShare)
-                return BuildLocation.NeedsShoreline;
-            if (!IsShipExitOnWater(building, position, angle))
-                return BuildLocation.NeedsShoreline;
-        }
+        if (shipyard && (waterCells == 0 || !IsShipExitOnWater(building, position, angle) || !HasDozerFooting(building, position)))
+            return BuildLocation.NeedsShoreline;
 
         if (landCells > 0 && highest - lowest > AllowedHeightVariation)
             return BuildLocation.NotFlatEnough;
@@ -98,6 +87,29 @@ public sealed class BuildAssistant
         }
 
         return BuildLocation.Ok;
+    }
+
+    /// <summary>
+    /// Dry, open ground just outside a shipyard's edge, where a dozer can stand to build it (the
+    /// dozer works from within about its own size of the building's edge).
+    /// </summary>
+    bool HasDozerFooting(ObjectTemplate building, Vector3 position)
+    {
+        var terrain = game.Terrain;
+        float radius = Math.Max(building.GeometryMajorRadius, building.GeometryMinorRadius);
+        for (int i = 0; i < 24; i++)
+        {
+            float a = i * MathF.Tau / 24;
+            var direction = new Vector3(MathF.Cos(a), MathF.Sin(a), 0);
+            foreach (float extra in new[] { 6f, 12f })
+            {
+                var p = position + direction * (radius + extra);
+                var (cx, cy) = terrain.CellAt(p.X, p.Y);
+                if (!terrain.IsWaterCell(cx, cy) && !terrain.IsCliffCell(cx, cy))
+                    return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>A shipyard's exit point (its production exit's UnitCreatePoint) must be in water.</summary>
@@ -143,6 +155,65 @@ public sealed class BuildAssistant
     }
 
     /// <summary>
+    /// The original's isPossibleToMakeUnit: the builder has a build button for it and the player may
+    /// build it (prerequisites, script permissions, maximum count).
+    /// </summary>
+    public bool IsPossibleToMakeUnit(GameObject? builder, ObjectTemplate? what)
+    {
+        if (builder == null || what == null)
+            return false;
+        var button = builder.CommandSetButtons().LastOrDefault(b => b.CommandType is "UNIT_BUILD" or "DOZER_CONSTRUCT"
+            && game.Templates.Find(b.Object) is { } t && t.IsEquivalentTo(what));
+        if (button == null || game.Templates.Find(button.Object) is not { } buildable)
+            return false;
+        return builder.Owner.CanBuild(buildable);
+    }
+
+    /// <summary>The original's canMakeUnit, as yes or no: possible, not disabled, room in the queue, and affordable.</summary>
+    public bool CanMakeUnit(GameObject? builder, ObjectTemplate? what)
+    {
+        if (builder == null || what == null)
+            return false;
+        if (builder.HasStatus("SCRIPT_DISABLED") || builder.HasStatus("SCRIPT_UNPOWERED"))
+            return false;
+        if (!builder.Owner.CanBuildMoreOfType(what))
+            return false;
+        if (!IsPossibleToMakeUnit(builder, what))
+            return false;
+        if (builder.FindModule<Modules.Production.ProductionUpdate>() is { } production && production.CanQueueUnit(what) is { } reason && reason != "NotEnoughMoney")
+            return false;
+        return game.Costs.BuildCost(builder.Owner, what) <= builder.Owner.Money.Amount;
+    }
+
+    /// <summary>
+    /// The original's buildObjectNow: a dozer is sent to construct it (paying as usual); anything else
+    /// makes it appear finished on the spot (the computer player's "initially built" structures).
+    /// </summary>
+    public GameObject? BuildObjectNow(GameObject? builder, ObjectTemplate what, Vector3 position, float angle, Player owner)
+    {
+        if (builder != null && builder.FindModule<Modules.AI.DozerAIUpdate>() != null)
+        {
+            builder.AI?.Stop(Commands.CommandSource.AI);
+            return StartConstruction(what, position, angle, owner, builder);
+        }
+        position.Z = game.Terrain.GroundHeight(position);
+        var obj = game.CreateObject(what, owner, position, angle);
+        obj.ProducerId = builder?.Id ?? 0;
+        if (obj.IsKindOf(Kind.Structure))
+        {
+            owner.Score.AddObjectBuilt(obj);
+            owner.Score.AddMoneySpent(game.Costs.BuildCost(owner, what));
+        }
+        else
+        {
+            owner.OnUnitCreated(builder, obj);
+            game.Events.PlaySound(what.UnitSound("VoiceCreated"), obj.Position, null, obj);
+        }
+        game.TreatAsBuilt(obj);
+        return obj;
+    }
+
+    /// <summary>
     /// Sells a building: it is taken apart over a few seconds (shown with the SOLD model condition),
     /// then removed, and the owner gets GameData SellPercentage of its cost back.
     /// An unfinished building is cancelled instead, refunding what was paid.
@@ -162,6 +233,7 @@ public sealed class BuildAssistant
         int refund = (int)(game.Costs.BuildCost(structure.Owner, structure.Template) * game.Catalog.GameData.SellPercentage);
         structure.SetStatus(Status.Sold);
         structure.SetStatus(Status.Unselectable);
+        structure.Contain?.OnSelling(); // passengers walk out while it is taken apart
         structure.SetCondition(Condition.Sold);
         structure.Owner.Money.Deposit(refund);
         foreach (var production in structure.FindModules<Modules.Production.ProductionUpdate>())
@@ -186,7 +258,7 @@ public sealed class BuildAssistant
             if (game.Frame >= removeFrame)
             {
                 // Garrisoned units and passengers leave before the building disappears.
-                structure.FindModule<Modules.Contain.ContainModule>()?.EvacuateAll();
+                structure.Contain?.RemoveAllContained();
                 game.DestroyObject(structure);
                 pendingSales.RemoveAt(i);
             }

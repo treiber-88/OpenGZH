@@ -46,7 +46,39 @@ public class GuiWindow
     /// <summary>Raised when a button is clicked (or a list item chosen, a box ticked...).</summary>
     public event Action<GuiWindow>? Clicked;
 
+    /// <summary>The mouse moved onto / off this window (the original's GBM_MOUSE_ENTERING / LEAVING).</summary>
+    public event Action<GuiWindow>? MouseEntered;
+    public event Action<GuiWindow>? MouseLeft;
+    internal void RaiseMouseEntered() => MouseEntered?.Invoke(this);
+    internal void RaiseMouseLeft() => MouseLeft?.Invoke(this);
+
+    /// <summary>Replaces the first enabled image (the original's winSetEnabledImage, used by menu transitions).</summary>
+    public string? EnabledImageOverride { get; set; }
+
+    /// <summary>The first enabled image (the original's winGetEnabledImage(0)).</summary>
+    public string? EnabledImage => EnabledImageOverride ?? (Definition.EnabledData(0) is { HasImage: true } d ? d.Image : null);
+
+    /// <summary>The first disabled image (winGetDisabledImage(0)).</summary>
+    public string? DisabledImage => Definition.DisabledData(0) is { HasImage: true } d ? d.Image : null;
+
     public Rect ScreenRect { get; private set; }
+
+    /// <summary>Moves the window (and its children) on screen, keeping its size (the original's winSetPosition).</summary>
+    public void SetScreenPosition(Vector2 position)
+    {
+        var delta = position - new Vector2(ScreenRect.X, ScreenRect.Y);
+        Offset(delta);
+    }
+
+    void Offset(Vector2 delta)
+    {
+        ScreenRect = new Rect(ScreenRect.X + delta.X, ScreenRect.Y + delta.Y, ScreenRect.Width, ScreenRect.Height);
+        foreach (var child in Children)
+            child.Offset(delta);
+    }
+
+    /// <summary>Tooltip text set by code (the original's winSetTooltip).</summary>
+    public string? TooltipOverride { get; set; }
 
     public GuiWindow(WndWindow definition)
     {
@@ -112,7 +144,9 @@ public class GuiWindow
     protected virtual void DrawSelf(GuiContext context)
     {
         var data = StateData(0);
-        if (IsImageWindow)
+        if (IsImageWindow && EnabledImageOverride != null && IsEnabled)
+            context.Images.Draw(context.Batch, EnabledImageOverride, ScreenRect);
+        else if (IsImageWindow)
         {
             if (data is { HasImage: true })
                 context.Images.Draw(context.Batch, data.Image, ScreenRect);
@@ -132,10 +166,13 @@ public class GuiWindow
         : Hilited ? Definition.HiliteData(index) ?? Definition.EnabledData(index)
         : Definition.EnabledData(index);
 
+    /// <summary>Replaces the enabled text colour (the original's winSetEnabledTextColors, e.g. a player's colour).</summary>
+    public Vector4? EnabledTextColorOverride { get; set; }
+
     protected (Vector4 Color, Vector4 Shadow) TextColors() =>
         !IsEnabled ? (Definition.TextDisabled, Definition.TextDisabledBorder)
         : Hilited ? (Definition.TextHilite, Definition.TextHiliteBorder)
-        : (Definition.TextEnabled, Definition.TextEnabledBorder);
+        : (EnabledTextColorOverride ?? Definition.TextEnabled, Definition.TextEnabledBorder);
 
     protected string CurrentText(GuiContext context) => Text ?? context.Text(Definition.Text);
 
@@ -251,6 +288,13 @@ public class GuiPushButton : GuiWindow
     public override void OnMouseEnter() => Hilited = IsEnabled;
     public override void OnMouseDown(Vector2 point) => pressed = IsEnabled;
 
+    /// <summary>Acts as if clicked (the original's winSendSystemMsg GBM_SELECTED, e.g. Esc pressing Back).</summary>
+    public void SimulateClick()
+    {
+        if (IsEnabled)
+            RaiseClicked();
+    }
+
     public override void OnMouseUp(Vector2 point, bool inside)
     {
         bool wasPressed = pressed;
@@ -268,8 +312,12 @@ public sealed class GuiStaticText : GuiWindow
     protected override void DrawSelf(GuiContext context)
     {
         var data = StateData(0);
-        if (IsImageWindow && data is { HasImage: true })
-            context.Images.Draw(context.Batch, data.Image, ScreenRect);
+        // Like the original's static text image draw: an IMAGE window draws only its image (none for NoImage).
+        if (IsImageWindow)
+        {
+            if (data is { HasImage: true })
+                context.Images.Draw(context.Batch, data.Image, ScreenRect);
+        }
         else if (data != null && data.Color.W > 0 && !IsSeeThrough)
             context.Batch.FillRect(ScreenRect, data.Color);
         bool centered = Definition.Data("STATICTEXTDATA", "CENTERED") == "1";
@@ -464,16 +512,74 @@ public sealed class GuiSlider : GuiWindow
 
     protected override void DrawSelf(GuiContext context)
     {
-        var r = ScreenRect;
-        if (Definition.EnabledData(0) is { HasImage: true } track)
-            context.Images.Draw(context.Batch, track.Image, r);
+        if (IsImageWindow && !Vertical)
+            DrawBoxes(context);
         else
-            context.Batch.FillRect(r, new Vector4(0, 0, 0, 0.4f));
+            DrawColors(context);
+    }
+
+    /// <summary>The original's W3DGadgetHorizontalSliderImageDraw: a row of lit and unlit boxes.</summary>
+    void DrawBoxes(GuiContext context)
+    {
+        var d = Definition;
+        var fill = context.Images.Find(d.DisabledData(0)?.Image);
+        var blank = context.Images.Find(d.DisabledData(1)?.Image);
+        var highlight = context.Images.Find(d.HiliteData(0)?.Image);
+        if (fill == null || blank == null)
+        {
+            DrawColors(context);
+            return;
+        }
+        var r = ScreenRect;
+        float boxWidth = MathF.Floor(fill.PixelWidth * context.Scale.X);
+        if (boxWidth < 1)
+            return;
+        const float padding = 2;
+        float selected = Maximum > Minimum ? (Value - Minimum) / (float)(Maximum - Minimum) : 0;
+        float maxSelectedX = r.X + MathF.Floor(selected * r.Width);
+        int boxes = 0, selectedBoxes = 0;
+        float startX = r.X, endX = startX + boxWidth;
+        while (endX < r.Right)
+        {
+            if (startX <= maxSelectedX && Value != Minimum)
+                selectedBoxes++;
+            startX = endX + padding;
+            endX = startX + boxWidth;
+            boxes++;
+        }
+        float covered = endX - r.X - boxWidth;
+        float originX = r.X + MathF.Floor((r.Width - covered) / 2);
+        if (Hilited && highlight != null)
+        {
+            float offsetX = -MathF.Floor((boxWidth + padding) / 2), offsetY = MathF.Floor(boxWidth / 3);
+            for (int i = 0; i < boxes + 1; i++)
+                context.Images.Draw(context.Batch, highlight,
+                    new Rect(originX + offsetX + i * (boxWidth + padding), r.Y + offsetY, boxWidth + padding, boxWidth + padding));
+        }
+        for (int i = 0; i < boxes; i++)
+            context.Images.Draw(context.Batch, i < selectedBoxes ? fill : blank,
+                new Rect(originX + i * (boxWidth + padding), r.Y, boxWidth, boxWidth));
+    }
+
+    /// <summary>The original's colour draw: a bordered bar with the thumb.</summary>
+    void DrawColors(GuiContext context)
+    {
+        var r = ScreenRect;
+        var data = StateData(0);
+        if (data != null)
+        {
+            if (data.BorderColor.W > 0)
+                context.Batch.DrawRect(r, data.BorderColor);
+            if (data.Color.W > 0)
+                context.Batch.FillRect(r.Inflate(-1), data.Color);
+        }
         float t = Maximum > Minimum ? (Value - Minimum) / (float)(Maximum - Minimum) : 0;
         var thumb = Vertical
             ? new Rect(r.X, r.Bottom - t * r.Height - 6, r.Width, 12)
             : new Rect(r.X + t * r.Width - 6, r.Y, 12, r.Height);
-        context.Batch.FillRect(thumb, TextColors().Color);
+        var thumbData = !IsEnabled ? Definition.Extra("SLIDERTHUMBDISABLEDDRAWDATA", 0)
+            : Hilited ? Definition.Extra("SLIDERTHUMBHILITEDRAWDATA", 0) : Definition.Extra("SLIDERTHUMBENABLEDDRAWDATA", 0);
+        context.Batch.FillRect(thumb, thumbData?.Color ?? TextColors().Color);
     }
 
     public override void OnMouseDown(Vector2 point)

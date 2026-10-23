@@ -31,6 +31,10 @@ public sealed record AttackObjectCommand(int PlayerIndex, uint[] Units, uint Tar
         var target = game.FindObject(Target);
         if (target == null)
             return;
+        // As the original's ActionManager: a player can't order attacks on what is hidden in the fog.
+        var player = game.Players.All.FirstOrDefault(p => p.Index == PlayerIndex);
+        if (player != null && target.Owner != player && game.Shroud.StatusOf(target, player) >= Vision.ObjectShroud.Fogged)
+            return;
         foreach (var unit in Owned(game, Units))
             unit.AI?.AttackObject(target, CommandSource.Player);
     }
@@ -207,5 +211,125 @@ public sealed record DoSpecialPowerCommand(int PlayerIndex, string Power, uint S
             }
             user.UndetectedDefectorUntilFrame = 0; // my secret is out
         }
+    }
+}
+
+/// <summary>
+/// Steers a power that is working (the original's MSG_DO_SPECIAL_POWER_OVERRIDE_DESTINATION): the
+/// Particle Cannon's beam drives towards the point.
+/// </summary>
+public sealed record SpecialPowerOverrideDestinationCommand(int PlayerIndex, string Power, uint Source, Vector3 Position) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        if (game.Catalog.SpecialPower(Power) is not { } power)
+            return;
+        foreach (var user in Owned(game, [Source]))
+            if (Modules.SpecialPowers.SpecialPowerRules.ModuleFor(user, power) is { } module)
+                module.SetSpecialPowerOverridableDestination(Position);
+    }
+}
+
+/// <summary>Units walk to a transport, building or tunnel and get in.</summary>
+public sealed record EnterCommand(int PlayerIndex, uint[] Units, uint Container) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        if (game.FindObject(Container) is not { } container)
+            return;
+        foreach (var unit in Owned(game, Units))
+            if (unit.AI != null && unit != container)
+                unit.AI.Enter(container, CommandSource.Player);
+    }
+}
+
+/// <summary>Damaged vehicles drive into a repair bay (war factory, arms dealer, repair pad) to be fixed.</summary>
+public sealed record GetRepairedCommand(int PlayerIndex, uint[] Units, uint Depot) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        if (game.FindObject(Depot) is not { } depot)
+            return;
+        foreach (var unit in Owned(game, Units))
+            unit.AI?.GetRepairedAt(depot, CommandSource.Player);
+    }
+}
+
+/// <summary>China's reactor overcharge on or off.</summary>
+public sealed record ToggleOverchargeCommand(int PlayerIndex, uint[] Plants) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        foreach (var plant in Owned(game, Plants))
+            plant.FindModule<Modules.Behaviors.OverchargeBehavior>()?.Toggle();
+    }
+}
+
+/// <summary>Everyone inside the containers gets out.</summary>
+public sealed record EvacuateCommand(int PlayerIndex, uint[] Containers) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        foreach (var container in Owned(game, Containers))
+        {
+            if (container.AI != null)
+                container.AI.Evacuate(CommandSource.Player);
+            else
+                container.Contain?.OrderAllPassengersToExit(CommandSource.Player, instantly: false);
+        }
+    }
+}
+
+/// <summary>One passenger gets out (clicking its portrait on the control bar).</summary>
+public sealed record ExitContainerCommand(int PlayerIndex, uint Unit) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        foreach (var unit in Owned(game, [Unit]))
+            unit.AI?.ExitContainer(CommandSource.Player);
+    }
+}
+
+/// <summary>Hackers start hacking the internet where they stand.</summary>
+public sealed record HackInternetCommand(int PlayerIndex, uint[] Units) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        foreach (var unit in Owned(game, Units))
+            unit.AI?.HackInternet(CommandSource.Player);
+    }
+}
+
+/// <summary>Transports drop their troops onto a building or a point (Chinook combat drop).</summary>
+public sealed record CombatDropCommand(int PlayerIndex, uint[] Units, uint Target, Vector3 Position) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        var target = game.FindObject(Target);
+        foreach (var unit in Owned(game, Units))
+            unit.AI?.CombatDrop(target, target?.Position ?? Position, CommandSource.Player);
+    }
+}
+
+/// <summary>Units dock with a building or vehicle (the ferry's ramp, a repair bay).</summary>
+public sealed record DockCommand(int PlayerIndex, uint[] Units, uint Dock) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        if (game.FindObject(Dock) is not { } dock)
+            return;
+        foreach (var unit in Owned(game, Units))
+            if (unit != dock)
+                unit.AI?.Dock(dock, CommandSource.Player);
+    }
+}
+
+/// <summary>The ferry sets off along its next route.</summary>
+public sealed record ExecuteRailedTransportCommand(int PlayerIndex, uint[] Transports) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        foreach (var transport in Owned(game, Transports))
+            (transport.AI as Modules.Contain.RailedTransportAIUpdate)?.ExecuteRailedTransport();
     }
 }

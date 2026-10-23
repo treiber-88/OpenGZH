@@ -1,4 +1,5 @@
 using OpenGZH.Core.Rules;
+using OpenGZH.Logic.Core;
 using OpenGZH.Logic.Objects;
 
 namespace OpenGZH.Logic.Combat;
@@ -13,56 +14,62 @@ public sealed class CrateSystem
 
     public CrateSystem(GameLogic game) => this.game = game;
 
-    public void TrySpawn(string crateDataNames, GameObject victim, DamageInfo killingBlow)
+    /// <summary>
+    /// The original's CreateCrateDie: each listed crate entry is tried in turn (no crates for an
+    /// ally's kill). An entry needs its CreationChance roll, the victim's VeterancyLevel, a killer of
+    /// KilledByType and a killer with KillerScience; its crate is then picked by running total of the
+    /// CrateObject chances. OwnedByMaker crates belong to the victim's player.
+    /// </summary>
+    public void TrySpawn(IEnumerable<string> crateDataNames, GameObject victim, DamageInfo killingBlow)
     {
-        foreach (string name in RuleValue.Words(crateDataNames))
+        var killer = game.FindObject(killingBlow.SourceId);
+        if (killer != null && killer.Owner.IsAllyOf(victim.Owner))
+            return;
+        foreach (string name in crateDataNames)
         {
             var data = game.Rules.Get("Crates", name);
             if (data == null)
                 continue;
-
-            float chance = RuleValue.Float(data.GetString("CreationChance"), 1f);
-            if (!game.Random.Chance(chance))
+            if (!(game.Random.Float(0, 1) < RuleValue.Float(data.GetString("CreationChance"), 0)))
                 continue;
-
-            var killer = game.FindObject(killingBlow.SourceId);
-            string requiredScience = data.GetString("KillerScience");
-            if (requiredScience.Length > 0 && (killer == null || !killer.Owner.HasScience(requiredScience)))
+            if (data.GetString("VeterancyLevel") is { Length: > 0 } level && !victim.Veterancy.ToString().Equals(level, StringComparison.OrdinalIgnoreCase)
+                && !(level.Equals("HEROIC", StringComparison.OrdinalIgnoreCase) && victim.Veterancy == VeterancyLevel.Heroic))
                 continue;
             string killedByType = data.GetString("KilledByType");
             if (killedByType.Length > 0 && (killer == null || !RuleValue.Words(killedByType).Any(killer.IsKindOf)))
                 continue;
-            if (data.GetString("VeterancyLevel") is { Length: > 0 } level && !victim.Veterancy.ToString().Equals(level, StringComparison.OrdinalIgnoreCase))
+            string requiredScience = data.GetString("KillerScience");
+            if (requiredScience.Length > 0 && (killer == null || !killer.Owner.HasScience(requiredScience)))
                 continue;
-
-            string? crate = PickCrate(data);
-            if (crate == null)
-                continue;
-            var position = victim.Position;
-            position.Z = game.Terrain.GroundHeight(position);
-            game.CreateObject(crate, game.Players.Neutral, position);
-            return; // one crate per death
+            var crate = CreateCrate(data, victim);
+            if (crate != null && RuleValue.Bool(data.GetString("OwnedByMaker")))
+                crate.SetTeam(victim.Owner.DefaultTeam);
         }
     }
 
-    /// <summary>"CrateObject: Name weight" lines; weights are relative.</summary>
-    string? PickCrate(RuleNode data)
+    GameObject? CreateCrate(RuleNode data, GameObject victim)
     {
         if (!data.TryGet("CrateObject", out var entries))
             return null;
-        var options = entries.AsList()
-            .Select(e => RuleValue.Words(e.Value))
-            .Where(w => w.Length >= 1)
-            .Select(w => (Name: w[0], Weight: w.Length > 1 ? RuleValue.Float(w[1], 1) : 1f))
-            .ToList();
-        float total = options.Sum(o => o.Weight);
-        float roll = game.Random.Float(0, total);
-        foreach (var (crateName, weight) in options)
+        float pick = game.Random.Float(0, 1);
+        float total = 0;
+        string crateName = "";
+        foreach (var words in entries.AsList().Select(e => RuleValue.Words(e.Value)).Where(w => w.Length >= 1))
         {
-            roll -= weight;
-            if (roll <= 0)
-                return crateName;
+            total += words.Length > 1 ? RuleValue.Float(words[1], 0) : 0;
+            if (total > pick)
+            {
+                crateName = words[0];
+                break;
+            }
         }
-        return options.LastOrDefault().Name;
+        if (game.Templates.Find(crateName) == null)
+            return null;
+        var spot = victim.IsAboveTerrain && victim.HeightAboveTerrain > 5 ? victim.Position
+            : game.Pathfinder.NearestPassable(victim.Position, Locomotion.Surfaces.Ground) ?? victim.Position;
+        if (MathUtil.Distance2D(spot, victim.Position) > 125)
+            return null;
+        spot.Z = game.Terrain.LayerHeight(spot.X, spot.Y);
+        return game.CreateObject(crateName, game.Players.Neutral, spot, game.Random.Float(0, 2 * MathF.PI));
     }
 }

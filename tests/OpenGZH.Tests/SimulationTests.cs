@@ -1,3 +1,4 @@
+using OpenGZH.Logic.Commands;
 using System.Numerics;
 using OpenGZH.Core.FileSystem;
 using OpenGZH.Core.Mods;
@@ -33,14 +34,21 @@ public sealed class BaseGameFixture : IDisposable
 
     public bool Available => FileSystem != null && Rules != null;
 
-    public GameLogic NewSkirmish(string map = "Maps/Tournament Desert/Tournament Desert.map")
+    /// <summary>
+    /// A two-player skirmish. Most tests don't care about the fog of war, so by default Alice (human)
+    /// sees the whole map; pass <paramref name="revealMap"/> false to test the shroud itself.
+    /// </summary>
+    public GameLogic NewSkirmish(string map = "Maps/Tournament Desert/Tournament Desert.map", bool revealMap = true)
     {
         var mapFile = MapFile.Read(FileSystem!.ReadAllBytes(map));
-        return GameSetup.FromMap(mapFile, Rules!, seed: 1234,
+        var game = GameSetup.FromMap(mapFile, Rules!, seed: 1234,
         [
             new PlayerSlot("Alice", "FactionAmerica", IsHuman: true, StartPosition: 1, Color: 0x0000FF),
             new PlayerSlot("Bob", "FactionChina", IsHuman: false, StartPosition: 2, Color: 0xFF0000),
-        ], models: Models);
+        ], models: Models, readFile: p => FileSystem!.Exists(p) ? FileSystem.ReadAllBytes(p) : null);
+        if (revealMap)
+            game.Shroud.RevealMapForPlayerPermanently(game.Players.Find("Alice")!);
+        return game;
     }
 
     public void Dispose() => FileSystem?.Dispose();
@@ -187,8 +195,9 @@ public class EconomyTests(BaseGameFixture content, ITestOutputHelper output) : I
     {
         if (!content.Available) return;
         var game = content.NewSkirmish();
-        var bob = game.Players.Find("Bob")!;
-        var commandCenter = game.ObjectsOwnedBy(bob).First(o => o.Template.Name == "ChinaCommandCenter");
+        // Alice is human, so no computer player spends the money while we watch.
+        var bob = game.Players.Find("Alice")!;
+        var commandCenter = game.ObjectsOwnedBy(bob).First(o => o.IsKindOf("COMMANDCENTER"));
 
         // Build a supply center next to the nearest supply dock, then a truck.
         var dock = game.Objects.Where(o => o.FindModule<Logic.Modules.Supply.SupplyWarehouseDockUpdate>() != null)
@@ -196,11 +205,34 @@ public class EconomyTests(BaseGameFixture content, ITestOutputHelper output) : I
         var centerPosition = dock.Position + Vector3.Normalize(commandCenter.Position - dock.Position) * 120;
         var center = game.CreateObject("ChinaSupplyCenter", bob, centerPosition with { Z = game.Terrain.GroundHeight(centerPosition) })!;
         var truck = game.CreateObject("ChinaVehicleSupplyTruck", bob, centerPosition + new Vector3(60, 0, 0))!;
+        // (Trucks built at a supply center start gathering by themselves; one put down directly waits for orders.)
+        Logic.Modules.Supply.SupplyGatherer.Of(truck)!.ForceWanting = true;
         int before = bob.Money.Amount;
+        int boxesBefore = dock.FindModule<Logic.Modules.Supply.SupplyWarehouseDockUpdate>()!.Boxes;
 
         for (int i = 0; i < 30 * 90; i++)
             game.Update();
-        output.WriteLine($"money {before} -> {bob.Money.Amount}, dock {dock.Template.Name} at distance {Logic.Core.MathUtil.Distance2D(dock.Position, center.Position):F0}");
+        output.WriteLine($"money {before} -> {bob.Money.Amount}, boxes {boxesBefore} -> {dock.FindModule<Logic.Modules.Supply.SupplyWarehouseDockUpdate>()!.Boxes}, dock {dock.Template.Name} at distance {Logic.Core.MathUtil.Distance2D(dock.Position, center.Position):F0}");
         Assert.True(bob.Money.Amount > before, "the supply truck should have delivered at least once in 90 seconds");
+    }
+
+    [Fact]
+    public void GlaWorkerGathersWhenSentToADockAndBuildsWhenTold()
+    {
+        if (!content.Available) return;
+        var game = content.NewSkirmish();
+        var alice = game.Players.Find("Alice")!;
+        var commandCenter = game.ObjectsOwnedBy(alice).First(o => o.IsKindOf("COMMANDCENTER"));
+        var dock = game.Objects.Where(o => o.FindModule<Logic.Modules.Supply.SupplyWarehouseDockUpdate>() != null)
+            .OrderBy(o => Logic.Core.MathUtil.DistanceSquared2D(o.Position, commandCenter.Position)).First();
+        var centerPosition = dock.Position + Vector3.Normalize(commandCenter.Position - dock.Position) * 120;
+        game.CreateObject("GLASupplyStash", alice, centerPosition with { Z = game.Terrain.GroundHeight(centerPosition) });
+        var worker = game.CreateObject("GLAInfantryWorker", alice, centerPosition + new Vector3(60, 0, 0))!;
+        int before = alice.Money.Amount;
+        new DockCommand(alice.Index, [worker.Id], dock.Id).Execute(game);
+        for (int i = 0; i < 30 * 90; i++)
+            game.Update();
+        output.WriteLine($"money {before} -> {alice.Money.Amount}, state {Logic.Modules.Supply.SupplyGatherer.Of(worker)!.State}");
+        Assert.True(alice.Money.Amount > before, "the worker brings supplies home");
     }
 }

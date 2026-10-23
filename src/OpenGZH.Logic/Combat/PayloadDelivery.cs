@@ -36,6 +36,7 @@ public sealed class PayloadDelivery
         int delayMax = RuleUnits.Duration(nugget.GetString("DelayDeliveryMax"));
         float distToTarget = RuleValue.Float(nugget.GetString("DeliveryDistance"));
         bool startAtPreferredHeight = RuleValue.Bool(nugget.GetString("StartAtPreferredHeight"), true);
+        bool startAtMaxSpeed = RuleValue.Bool(nugget.GetString("StartAtMaxSpeed"));
 
         // Sideways offsets for the formation: the direction from target to start, turned 90 degrees
         // each way and added to itself (as the original does).
@@ -99,15 +100,71 @@ public sealed class PayloadDelivery
 
             if (transport.FindModule<Modules.AI.DeliverPayloadAIUpdate>() is { } delivery)
             {
-                delivery.Configure(nugget, moveTo, aimAt, targetObject, firstInFormation: index == 0);
-                if (startAtPreferredHeight && createOwner && delivery.Locomotor is { } locomotor)
+                if (startAtMaxSpeed && createOwner && transport.FindModule<Modules.Updates.PhysicsBehavior>() is { } physics
+                    && delivery.CurrentLocomotor is { } speedLocomotor)
+                {
+                    float factor = speedLocomotor.MaxSpeedFor(transport) * physics.Mass;
+                    physics.ApplyMotiveForce(MathUtil.Forward(transport.Orientation) * factor);
+                }
+                var data = Modules.AI.DeliverPayloadData.FromRules(nugget, game.Catalog);
+                if (index != 0)
+                    data.DeliveryDecalRadius = 0; // only the lead plane marks the target
+                delivery.DeliverPayload(moveTo, aimAt, data);
+                if (startAtPreferredHeight && createOwner && delivery.CurrentLocomotor is { } locomotor)
                     transport.SetPosition(startPos with { Z = game.Terrain.GroundHeight(startPos) + locomotor.PreferredHeight });
+                LoadPayload(nugget, transport, owner, startPos, source, firstInFormation: index == 0);
             }
             else
             {
                 transport.AI?.MoveTo(moveTo, Commands.CommandSource.AI);
             }
             yield return transport;
+        }
+    }
+
+    /// <summary>
+    /// Fills the plane: each "Payload: Name count" object, put in a PutInContainer (e.g. a parachute)
+    /// if the nugget names one, then into the plane's own container.
+    /// </summary>
+    void LoadPayload(RuleNode nugget, GameObject transport, Players.Player owner, Vector3 startPos, GameObject source, bool firstInFormation)
+    {
+        var containerTemplate = nugget.GetString("PutInContainer") is { Length: > 0 } name ? game.Templates.Find(name) : null;
+        if (!nugget.TryGet("Payload", out var lines))
+            return;
+        bool first = true;
+        foreach (var line in lines.AsList())
+        {
+            string[] words = RuleValue.Words(line.Value);
+            if (words.Length == 0 || game.Templates.Find(words[0]) is not { } template)
+                continue;
+            int count = words.Length > 1 ? RuleValue.Int(words[1], 1) : 1;
+            for (int i = 0; i < count; i++)
+            {
+                var payload = game.CreateObject(template, owner, startPos, transport.Orientation, owner.DefaultTeam);
+                payload.ProducerId = transport.Id;
+                payload.FindModule<Modules.SpecialPowers.SpecialPowerCompletionDie>()?.SetCreator(firstInFormation && first ? source.Id : 0);
+                if (containerTemplate != null)
+                {
+                    var container = game.CreateObject(containerTemplate, owner, startPos, transport.Orientation, owner.DefaultTeam);
+                    container.ProducerId = transport.Id;
+                    container.FindModule<Modules.SpecialPowers.SpecialPowerCompletionDie>()?.SetCreator(firstInFormation && first ? source.Id : 0);
+                    if (container.Contain is { } inner && inner.IsValidContainerFor(payload, true))
+                    {
+                        inner.AddToContain(payload);
+                        payload = container;
+                    }
+                    else
+                    {
+                        Log.Warning($"DeliverPayload: {containerTemplate.Name} can't hold {template.Name}.");
+                        game.DestroyObject(container);
+                    }
+                }
+                if (transport.Contain is { } hold && hold.IsValidContainerFor(payload, true))
+                    hold.AddToContain(payload);
+                else
+                    Log.Warning($"DeliverPayload: {transport.Template.Name} is full, or can't carry {payload.Template.Name}.");
+                first = false;
+            }
         }
     }
 
@@ -123,5 +180,11 @@ public sealed class PayloadDelivery
         };
         source.Weapons.LockSlot(slot);
         source.AI.AttackPosition(target, Commands.CommandSource.AI, Math.Max(1, RuleValue.Int(nugget.GetString("NumberOfShots"), 1)));
+        if (source.FindModule<Modules.Updates.RadiusDecalUpdate>() is { } decal)
+        {
+            decal.CreateRadiusDecal(Effects.RadiusDecalTemplate.Parse(nugget.TryGet("DeliveryDecal", out var d) ? d : null),
+                RuleValue.Float(nugget.GetString("DeliveryDecalRadius")), target);
+            decal.KillWhenNoLongerAttacking = true;
+        }
     }
 }

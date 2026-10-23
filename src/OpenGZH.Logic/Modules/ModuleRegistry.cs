@@ -39,12 +39,16 @@ public static class ModuleRegistry
     /// <summary>Creates the module for a definition, or null if it is client-only or not implemented.</summary>
     public static Module? Create(ModuleDefinition definition, GameObject owner)
     {
-        if (clientOnlyModuleTypes.Contains(definition.ModuleType))
+        // Client modules are drawn by the client, unless the logic needs their state too (e.g. LaserUpdate's beam ends).
+        if (clientOnlyModuleTypes.Contains(definition.ModuleType) && !types.ContainsKey(definition.ClassName))
             return null;
 
         if (!types.TryGetValue(definition.ClassName, out var type))
         {
-            if (MissingClasses.Add(definition.ClassName))
+            bool first;
+            lock (MissingClasses)
+                first = MissingClasses.Add(definition.ClassName);
+            if (first)
                 Log.Warning($"Module class '{definition.ClassName}' is not implemented yet (used by {owner.Template.Name}).");
             return null;
         }

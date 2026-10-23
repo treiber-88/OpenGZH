@@ -208,7 +208,7 @@ public sealed class CashHackSpecialPower : SpecialPowerModule
             return;
         victim.Owner.Money.TryWithdraw(cash);
         Owner.Owner.Money.Deposit(cash);
-        Owner.Owner.MoneyEarned += cash;
+        Owner.Owner.Score.AddMoneyEarned(cash);
         Game.Events.MoneyEarned(Owner, cash);
         Game.Events.MoneyEarned(victim, -cash);
     }

@@ -71,6 +71,16 @@ public sealed class QueueProductionExitUpdate : DefaultProductionExitUpdate
 /// <summary>Supply centers' exit for harvesters (can grant brief stealth to the new truck).</summary>
 public sealed class SupplyCenterProductionExitUpdate : DefaultProductionExitUpdate
 {
+    /// <summary>A new harvester heads straight off to gather (the original forces it into wanting).</summary>
+    public override void Exit(GameObject unit)
+    {
+        base.Exit(unit);
+        if (Supply.SupplyGatherer.Of(unit) is { } gatherer)
+            gatherer.ForceWanting = true;
+        int stealthFrames = FramesSetting("GrantTemporaryStealth");
+        if (stealthFrames > 0 && unit.FindModule<Stealth.StealthUpdate>() is { } stealth)
+            stealth.ReceiveGrant(true, stealthFrames);
+    }
 }
 
 /// <summary>Units appear at named bones of the building's model (e.g. GLA tunnels, spawn points).</summary>

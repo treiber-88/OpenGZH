@@ -367,7 +367,8 @@ FXLists:
       Name: TechnicalBodyfall
   WeaponFX_BattleshipBogusGun:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: ParticleSystem
       Name: BattleshipMuzzleFlashFlame
       OrientToObject: Yes
@@ -380,8 +381,10 @@ FXLists:
       OrientToObject: Yes
   WeaponFX_BattleshipTargetExplode:
     Nuggets:
-    - Type: SUBTLE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SUBTLE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -424,7 +427,8 @@ FXLists:
       OrientToObject: Yes
   ScudStormMissileDetonation:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -496,7 +500,8 @@ FXLists:
       Name: BuggyMissileExplosionSmoke
   WeaponFX_GenericTankGunNoTracer:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: LightPulse
       Color: R:255 G:255 B:128
       Radius: 15
@@ -517,7 +522,8 @@ FXLists:
       CreateAtGroundHeight: Yes
   WeaponFX_HeroicGenericTankGunNoTracer:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: LightPulse
       Color: R:128 G:0 B:0
       Radius: 15
@@ -538,7 +544,8 @@ FXLists:
       CreateAtGroundHeight: Yes
   WeaponFX_NukeCannonMuzzleFlash:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: LightPulse
       Color: R:255 G:255 B:128
       Radius: 15
@@ -562,7 +569,8 @@ FXLists:
       CreateAtGroundHeight: Yes
   WeaponFX_HeroicNukeCannonMuzzleFlash:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: LightPulse
       Color: R:255 G:255 B:128
       Radius: 15
@@ -586,7 +594,8 @@ FXLists:
       CreateAtGroundHeight: Yes
   WeaponFX_GenericTankGunNoTracerSmall:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: LightPulse
       Color: R:255 G:255 B:128
       Radius: 15
@@ -603,7 +612,8 @@ FXLists:
       OrientToObject: Yes
   WeaponFX_HeroicGenericTankGunNoTracerSmall:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: LightPulse
       Color: R:255 G:255 B:128
       Radius: 15
@@ -620,7 +630,8 @@ FXLists:
       OrientToObject: Yes
   WeaponFX_GenericTankGun:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: LightPulse
       Color: R:255 G:255 B:128
       Radius: 25
@@ -963,7 +974,8 @@ FXLists:
     - Type: ParticleSystem
       Name: NapalmExplosionFlare
       Offset: X:0.0 Y:0.0 Z:15.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -979,7 +991,8 @@ FXLists:
     - Type: ParticleSystem
       Name: NapalmFire
       Offset: X:0.0 Y:0.0 Z:5.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -994,7 +1007,8 @@ FXLists:
       Name: MolotovFlames
     - Type: ParticleSystem
       Name: MolotovGlassShatter
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 18
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -1005,12 +1019,14 @@ FXLists:
       Name: MolotovCocktailShatter
   WeaponFX_JetMissileDetonation:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: ParticleSystem
       Name: BuggyNewAirDeathSubExplosionSmoke
     - Type: ParticleSystem
       Name: ArtilleryBarrageShockwave
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -1025,15 +1041,19 @@ FXLists:
       Name: CarpetBombExplosionSmoke
     - Type: ParticleSystem
       Name: CarpetBombExplosionShockwave
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: Explosion
   FX_TankDieExplosion:
     Nuggets:
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -1057,7 +1077,8 @@ FXLists:
       Height: 0 0 UNIFORM
       InitialDelay: 50 667 UNIFORM
       OrientToObject: Yes
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
   FX_RaptorDeathExplosion:
     Nuggets:
     - Type: ParticleSystem
@@ -1073,7 +1094,8 @@ FXLists:
       Height: 0 0 UNIFORM
       InitialDelay: 50 667 UNIFORM
       OrientToObject: Yes
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
   FX_GenericTankDeathExplosion:
     Nuggets:
     - Type: ParticleSystem
@@ -1090,8 +1112,10 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:10.0
     - Type: ParticleSystem
       Name: MammothTankExplosionShockwave
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1109,14 +1133,17 @@ FXLists:
       Name: MammothTankExplosionDebris
     - Type: ParticleSystem
       Name: MammothTankExplosionShockwave
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
   FX_ChinaVehicleNukeCannonDeathExplosion:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMiniNuke
     - Type: ParticleSystem
@@ -1189,7 +1216,8 @@ FXLists:
     - Type: ParticleSystem
       Name: TankFire
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: ExplosionBarrel
   FX_HumveeExplosionOneInitial:
@@ -1197,7 +1225,8 @@ FXLists:
     - Type: ParticleSystem
       Name: HotPillarArms
       Offset: X:10 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: ExplosionBarrel
   FX_HumveeExplosionOneFinal:
@@ -1212,8 +1241,10 @@ FXLists:
       InitialDelay: 167 667 UNIFORM
     - Type: ParticleSystem
       Name: HumveeExplosionDebris
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1222,7 +1253,8 @@ FXLists:
     - Type: ParticleSystem
       Name: HumveeTransitionExplosion1
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_ComancheDamageTransition:
@@ -1230,7 +1262,8 @@ FXLists:
     - Type: ParticleSystem
       Name: ComancheTransitionSmoke
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_JetBigDamageTransition:
@@ -1239,7 +1272,8 @@ FXLists:
       Name: JetTransitionSmokeLarge
       Offset: X:0 Y:0 Z:10
       OrientToObject: Yes
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_BattleMasterExplosionOneInitial:
@@ -1247,7 +1281,8 @@ FXLists:
     - Type: ParticleSystem
       Name: HotPillarArms
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: ExplosionBarrel
   FX_GattlingExplosionOneInitial:
@@ -1255,7 +1290,8 @@ FXLists:
     - Type: ParticleSystem
       Name: HotPillarArms
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: ExplosionBarrel
   FX_GattlingExplosionOneFinal:
@@ -1270,8 +1306,10 @@ FXLists:
     - Type: ParticleSystem
       Name: BattleMasterTankExplosionLenzflare
       Offset: X:0 Y:0 Z:10
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1287,8 +1325,10 @@ FXLists:
     - Type: ParticleSystem
       Name: BattleMasterTankExplosionLenzflare
       Offset: X:0 Y:0 Z:10
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1308,8 +1348,10 @@ FXLists:
     - Type: ParticleSystem
       Name: ScudMissleLauncherExplosionTrailArms
       Offset: X:0 Y:0 Z:5
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1326,8 +1368,10 @@ FXLists:
     - Type: ParticleSystem
       Name: BattleMasterTankExplosionLenzflare
       Offset: X:0 Y:0 Z:10
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1343,8 +1387,10 @@ FXLists:
     - Type: ParticleSystem
       Name: ToxicExplosionLarge
       Offset: X:0 Y:0 Z:5
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1359,7 +1405,8 @@ FXLists:
     - Type: ParticleSystem
       Name: BattleMasterTransitionDebris
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_BattleMasterDamageTransitionSmall:
@@ -1373,7 +1420,8 @@ FXLists:
     - Type: ParticleSystem
       Name: BattleMasterTransitionDebrisSmall
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_BattleDroneDamageTransitionSmall:
@@ -1387,7 +1435,8 @@ FXLists:
     - Type: ParticleSystem
       Name: BattleMasterTransitionDebrisSmall
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
   FX_ScudLauncherDamageTransition:
     Nuggets:
     - Type: ParticleSystem
@@ -1402,7 +1451,8 @@ FXLists:
       Name: ScudLauncherTransitionDebris
       Offset: X:0 Y:0 Z:10
       OrientToObject: Yes
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_OverlordSmoke:
@@ -1410,7 +1460,8 @@ FXLists:
     - Type: ParticleSystem
       Name: TankSmoke
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: ExplosionBarrel
   FX_OverlordExplosionOneInitial:
@@ -1418,7 +1469,8 @@ FXLists:
     - Type: ParticleSystem
       Name: HotPillarArms
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: ExplosionBarrel
   FX_OverlordExplosionOneFinal:
@@ -1437,8 +1489,10 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:10.0
     - Type: ParticleSystem
       Name: OverlordExplosionShockwave
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1453,7 +1507,8 @@ FXLists:
     - Type: ParticleSystem
       Name: OverlordTransitionLenzflare
       Offset: X:0 Y:0 Z:1
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_NukeCannonDamageTransition:
@@ -1467,7 +1522,8 @@ FXLists:
     - Type: ParticleSystem
       Name: NukeCannonTransitionLenzflare
       Offset: X:0 Y:0 Z:1
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_DragonDamageTransition:
@@ -1481,7 +1537,8 @@ FXLists:
     - Type: ParticleSystem
       Name: DragonTransitionLenzflare
       Offset: X:0 Y:0 Z:1
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_CrusaderDamageTransition:
@@ -1489,7 +1546,8 @@ FXLists:
     - Type: ParticleSystem
       Name: DragonTransitionExplosion1
       Offset: X:0 Y:0 Z:0
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_MIGDamageTransition:
@@ -1498,7 +1556,8 @@ FXLists:
       Name: MIGTransitionSmoke
       Offset: X:0 Y:0 Z:0
       OrientToObject: Yes
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: VehicleDamagedState
   FX_DragonNapalmSpill:
@@ -1526,8 +1585,10 @@ FXLists:
       Name: FirestormRingSmall
       OrientToObject: Yes
       Offset: X:0 Y:0 Z:1
-    - Type: SUBTLE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SUBTLE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -1536,7 +1597,8 @@ FXLists:
     - Type: ParticleSystem
       Name: TankFire
       Offset: X:0 Y:0 Z:10
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: QuadCannonCatchFire
   FX_FireHydrantExplode:
@@ -1567,7 +1629,8 @@ FXLists:
       Name: StructureExplosionDebris
     - Type: ParticleSystem
       Name: SmallStructureExplosionShockwave
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
     - Type: Sound
       Name: BuildingDie
   FX_LargeStructureDeath:
@@ -1596,7 +1659,8 @@ FXLists:
       Name: StructureExplosionDebris
     - Type: ParticleSystem
       Name: LargeStructureExplosionShockwave
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_CommandCenterDeath:
     Nuggets:
     - Type: ParticleSystem
@@ -1621,7 +1685,8 @@ FXLists:
       Name: StructureExplosionDebris
     - Type: ParticleSystem
       Name: LargeStructureExplosionShockwave
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_AsianTVStationDeath:
     Nuggets:
     - Type: ParticleSystem
@@ -1654,7 +1719,8 @@ FXLists:
       InitialDelay: 100 200 UNIFORM
   FX_AmericaWarFactoryDeathStart:
     Nuggets:
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
   FX_AmericaWarFactoryDeathFinal:
     Nuggets:
     - Type: ParticleSystem
@@ -1680,7 +1746,8 @@ FXLists:
       Radius: 15 50 UNIFORM
       Height: 0 40 UNIFORM
       InitialDelay: 267 1000 UNIFORM
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
     - Type: Sound
       Name: BuildingDie
   ChinaNuclearMissileLauncherDoorOpen:
@@ -1733,7 +1800,8 @@ FXLists:
       Name: TankerTruckExplosionShockwave
     - Type: Sound
       Name: GasStationDie
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_CarWallSmoke:
     Nuggets:
     - Type: ParticleSystem
@@ -1908,7 +1976,8 @@ FXLists:
       Name: BarrelExplosionShockwave
     - Type: ParticleSystem
       Name: BarrelExplosionDebris
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: ExplosionBarrel
   CINE_WeaponFX_CruiseMissile:
@@ -1921,7 +1990,8 @@ FXLists:
       Name: StructureTransitionMediumShockwave
     - Type: ParticleSystem
       Name: StructureTransitionMediumSmoke
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: CINE_ExplosionBarrel01
   FX_CINE_BarrelDeathExplosion01:
@@ -1932,7 +2002,8 @@ FXLists:
       Name: BarrelExplosionShockwave
     - Type: ParticleSystem
       Name: BarrelExplosionDebris
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: CINE_ExplosionBarrel01
   FX_CINE_BarrelDeathExplosion02:
@@ -1943,7 +2014,8 @@ FXLists:
       Name: BarrelExplosionShockwave
     - Type: ParticleSystem
       Name: BarrelExplosionDebris
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: CINE_ExplosionBarrel02
   FX_PatriotMissileIgnition:
@@ -2013,7 +2085,8 @@ FXLists:
     Nuggets:
     - Type: Sound
       Name: BuildingImpactHeavy
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: ParticleSystem
       Name: StructureDamagedFlash
     - Type: ParticleSystem
@@ -2079,7 +2152,8 @@ FXLists:
       Name: ExplosionPatriotEMP
   WeaponFX_SCUDMissileDetonationAnthrax:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -2093,7 +2167,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:15.0
   WeaponFX_SCUDMissileDetonationToxin:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -2153,8 +2228,10 @@ FXLists:
       Name: ExplosionLarge01
     - Type: ParticleSystem
       Name: HotPillarArms
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 50
   WeaponFX_ToxinTruckMissileDetonation:
     Nuggets:
@@ -2227,7 +2304,8 @@ FXLists:
     - Type: ParticleSystem
       Name: MineFlash
       Offset: X:0.0 Y:0.0 Z:1.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
   WeaponFX_WorkerMineDisarming:
     Nuggets:
@@ -2238,7 +2316,8 @@ FXLists:
     - Type: ParticleSystem
       Name: MineDisarmingFlash
       Offset: X:0.0 Y:0.0 Z:1.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 10
   WeaponFX_DozerMineDisarming:
     Nuggets:
@@ -2251,7 +2330,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:1.0
     - Type: ParticleSystem
       Name: MineDisarmingDebris
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 10
   WeaponFX_SuicideDynamitePackDetonation:
     Nuggets:
@@ -2261,8 +2341,10 @@ FXLists:
       Name: ArmExplosionSmall01
     - Type: ParticleSystem
       Name: HotPillarArms
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
   WeaponFX_SuicideDynamitePackDetonationPlusFire:
     Nuggets:
@@ -2278,12 +2360,15 @@ FXLists:
       Name: ArmExplosionSmall01
     - Type: ParticleSystem
       Name: HotPillarArms
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
   WeaponFX_CINEConvoyNuke:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionNeutron
     - Type: ParticleSystem
@@ -2321,7 +2406,8 @@ FXLists:
       Name: NukeMushroomRing
       InitialDelay: 1000 1000 UNIFORM
       Offset: X:0.0 Y:0.0 Z:50.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 250
   WeaponFX_TNTStickyBombDetonation:
     Nuggets:
@@ -2331,8 +2417,10 @@ FXLists:
       Name: ExplosionLarge01
     - Type: ParticleSystem
       Name: HotPillarArms
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 50
     - Type: Sound
       Name: BombTruckDefaultBombDetonation
@@ -2344,7 +2432,8 @@ FXLists:
     - Type: ParticleSystem
       UseCallersRadius: Yes
       Name: boobyTrapExplosion
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
     - Type: Sound
       Name: BombTruckDefaultBombDetonation
   FX_GLADemoTrapWarning:
@@ -2361,7 +2450,8 @@ FXLists:
       Name: DemoTrapLenzFlare
     - Type: ParticleSystem
       Name: BombTruckHEShockwave
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
   CINE_WeaponFX_DemoTrapDetonation:
     Nuggets:
@@ -2373,8 +2463,10 @@ FXLists:
       Name: ExplosionLarge01
     - Type: ParticleSystem
       Name: HotPillarArms
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 50
   WeaponFX_RangerFlashBangGrenadeDetonation:
     Nuggets:
@@ -2413,7 +2505,8 @@ FXLists:
     Nuggets:
     - Type: Sound
       Name: ExplosionDaisyCutter
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
   FX_LeafletsDrop:
     Nuggets:
     - Type: ParticleSystem
@@ -2451,7 +2544,8 @@ FXLists:
     Nuggets:
     - Type: Sound
       Name: ExplosionDaisyCutter
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
   FX_RocketBuggyCatchFire:
     Nuggets:
     - Type: ParticleSystem
@@ -2468,7 +2562,8 @@ FXLists:
       Name: BuggyExplosion
     - Type: ParticleSystem
       Name: BuggyExplosionDebris
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: Sound
       Name: CarDie
   FX_BuggyTurretExplode:
@@ -2548,8 +2643,10 @@ FXLists:
       Name: BuggyNewExplosionDebris2
     - Type: ParticleSystem
       Name: BuggyNewExplosionShockwave
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: CarDie
@@ -2573,7 +2670,8 @@ FXLists:
       Name: StructureToppleShockwave
     - Type: ParticleSystem
       Name: StructureToppleCrushingSmoke
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
   FX_DefaultStructureToppling:
     Nuggets:
     - Type: Sound
@@ -2614,7 +2712,8 @@ FXLists:
       Name: SmallStructureToppleShockwave
     - Type: ParticleSystem
       Name: SmallStructureToppleCrushingSmoke
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
   FX_StructureCollapseInitial:
     Nuggets:
     - Type: Sound
@@ -2690,7 +2789,8 @@ FXLists:
       Name: HotPillarArms
     - Type: Sound
       Name: ComancheCrash
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
   FX_HelicopterHitGroundGlobal:
     Nuggets:
     - Type: ParticleSystem
@@ -2699,7 +2799,8 @@ FXLists:
       Name: HotPillarArms
     - Type: Sound
       Name: ComancheCrash
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
   FX_GroundedHelicopterBlowUp:
     Nuggets:
     - Type: ParticleSystem
@@ -2711,7 +2812,8 @@ FXLists:
       InitialDelay: 100 100 UNIFORM
     - Type: Sound
       Name: CarDie
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_GLAPowerPlantDamagedExplosion1:
     Nuggets:
     - Type: Sound
@@ -2762,7 +2864,8 @@ FXLists:
     - Type: ParticleSystem
       Name: GLAPowerPlantDeathShockwave2
       Offset: X:-9.08 Y:-8.547 Z:1
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
   FX_GLAPowerPlantDeathFinal:
     Nuggets:
     - Type: Sound
@@ -2777,7 +2880,8 @@ FXLists:
     - Type: ParticleSystem
       Name: GLAPowerPlantDeathExplosion2
       Offset: X:-9.08 Y:-8.547 Z:16.598
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
   FX_DamWaterSpray01:
     Nuggets:
     - Type: ParticleSystem
@@ -2786,7 +2890,8 @@ FXLists:
       InitialDelay: 50 5000 UNIFORM
   FX_Nuke:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionNeutron
     - Type: ParticleSystem
@@ -2830,7 +2935,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:0.0
   FX_BaikonurNuke:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionNeutron
     - Type: ParticleSystem
@@ -2870,7 +2976,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:50.0
   FX_NukeGLA:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMiniNuke
     - Type: ParticleSystem
@@ -2987,7 +3094,8 @@ FXLists:
   FX_ParticleTestFX: {}
   WeaponFX_SCUDMissileDetonationExplosive:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3001,7 +3109,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:15.0
   FX_ChinaPowerPlantDeath:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMiniNuke
     - Type: ParticleSystem
@@ -3041,7 +3150,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:35.0
   WeaponFX_NukeCannon:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMiniNuke
     - Type: ParticleSystem
@@ -3077,7 +3187,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:35.0
   WeaponFX_BaikonurRocket:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMiniNuke
     - Type: ParticleSystem
@@ -3113,7 +3224,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:35.0
   FX_CarpetBomb:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: ParticleSystem
       Name: UpgradeCarpetBombExplosion
       InitialDelay: 0 0 UNIFORM
@@ -3133,8 +3245,10 @@ FXLists:
       Name: ExplosionCarpetBomb
   FX_CINE_CarpetBomb:
     Nuggets:
-    - Type: SEVERE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SEVERE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 50
     - Type: ParticleSystem
       Name: UpgradeCarpetBombExplosion
@@ -3454,7 +3568,8 @@ FXLists:
       Height: 0 0 UNIFORM
       InitialDelay: 50 667 UNIFORM
       OrientToObject: Yes
-    - Type: NORMAL
+    - Type: ViewShake
+      Shake: NORMAL
   WeaponFX_ClusterMineImpact:
     Nuggets:
     - Type: ParticleSystem
@@ -3465,7 +3580,8 @@ FXLists:
       Name: ClusterMineDropRing
     - Type: Sound
       Name: ExplosionClusterMine
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   WeaponFX_EMPPulseImpact:
     Nuggets:
     - Type: ParticleSystem
@@ -3478,7 +3594,8 @@ FXLists:
       Name: EMPRing
     - Type: Sound
       Name: EMPPulseWhoosh
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_RangerCombatDropKillSingle:
     Nuggets:
     - Type: ParticleSystem
@@ -3506,7 +3623,8 @@ FXLists:
       OrientToBone: Yes
   WeaponFX_BombTruckDefaultBombDetonation:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3521,7 +3639,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:25.0
   Demo_WeaponFX_BombTruckDefaultBombDetonation:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3536,7 +3655,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:25.0
   WeaponFX_BombTruckBioBombDetonation:
     Nuggets:
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3551,7 +3671,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:25.0
   WeaponFX_BombTruckAnthraxBombDetonation:
     Nuggets:
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3566,7 +3687,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:25.0
   WeaponFX_BombTruckAnthraxGammaBombDetonation:
     Nuggets:
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3581,7 +3703,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:25.0
   WeaponFX_BombTruckHighExplosiveBombDetonation:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3599,7 +3722,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:25.0
   Demo_WeaponFX_BombTruckHighExplosiveBombDetonation:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3617,7 +3741,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:25.0
   WeaponFX_BombTruckHighExplosiveBioBombDetonation:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3635,7 +3760,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:25.0
   WeaponFX_BombTruckHighExplosiveAnthraxBombDetonation:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -3698,7 +3824,8 @@ FXLists:
     - Type: Sound
   FX_ChemicalFactoryExplosion:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMiniNuke
     - Type: ParticleSystem
@@ -3711,7 +3838,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:20.0
   WeaponFX_EruptionOfToxicGooLarge:
     Nuggets:
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: LightPulse
       Color: R:0 G:128 B:51
       Radius: 30
@@ -3723,7 +3851,8 @@ FXLists:
       Name: ToxicGooSplash
   WeaponFX_EruptionOfToxicGooSmall:
     Nuggets:
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: LightPulse
       Color: R:0 G:128 B:51
       Radius: 30
@@ -3782,7 +3911,8 @@ FXLists:
       Radius: 60
       IncreaseTime: 100
       DecreaseTime: 1500
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: Explosion
   FX_ToxicBunkerDamageTransition:
@@ -3798,13 +3928,16 @@ FXLists:
       Radius: 60
       IncreaseTime: 100
       DecreaseTime: 1500
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: Explosion
   FX_ArtilleryBarrage:
     Nuggets:
-    - Type: SUBTLE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SUBTLE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -3822,7 +3955,8 @@ FXLists:
       Name: ExplosionCarpetBomb
   FX_AnthraxBomb:
     Nuggets:
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: ParticleSystem
       Name: AnthraxBombExplosion
     - Type: ParticleSystem
@@ -3834,7 +3968,8 @@ FXLists:
       Name: ExplosionAnthraxBomb
   FX_AnthraxGammaBomb:
     Nuggets:
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
     - Type: ParticleSystem
       Name: AnthraxGammaBombExplosion
     - Type: ParticleSystem
@@ -3857,7 +3992,8 @@ FXLists:
       InitialDelay: 167 1000 UNIFORM
     - Type: Sound
       Name: GasStationDie
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_RailroadTankCarExplode:
     Nuggets:
     - Type: Sound
@@ -3871,7 +4007,8 @@ FXLists:
       InitialDelay: 167 1000 UNIFORM
     - Type: Sound
       Name: GasStationDie
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_RailroadWoodenCarExplode:
     Nuggets:
     - Type: Sound
@@ -3885,7 +4022,8 @@ FXLists:
       InitialDelay: 167 1000 UNIFORM
     - Type: Sound
       Name: GasStationDie
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_RailroadCoalCarExplode:
     Nuggets:
     - Type: Sound
@@ -3899,7 +4037,8 @@ FXLists:
       InitialDelay: 167 1000 UNIFORM
     - Type: Sound
       Name: GasStationDie
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_IRDetection:
     Nuggets:
     - Type: ParticleSystem
@@ -3910,7 +4049,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:2.0
   FX_RailroadBridgeCollapse:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: BuildingToppleDelayMetal
     - Type: Sound
@@ -3972,7 +4112,8 @@ FXLists:
       Name: HotPillarArms
     - Type: Sound
       Name: ComancheCrash
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
   WeaponFX_PaladinPointDefenseLaser:
     Nuggets:
     - Type: Sound
@@ -3992,7 +4133,8 @@ FXLists:
     - Type: ParticleSystem
       Name: StructureTransitionLargeFlare
     - Type: Sound
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
   FX_StructureMediumDeath:
     Nuggets:
     - Type: ParticleSystem
@@ -4005,7 +4147,8 @@ FXLists:
       Name: StructureTransitionMediumFlare
     - Type: Sound
       Name: BuildingDie
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
   FX_StructureSmallDeath:
     Nuggets:
     - Type: ParticleSystem
@@ -4018,7 +4161,8 @@ FXLists:
       Name: StructureTransitionSmallFlare
     - Type: Sound
       Name: BuildingDie
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
   FX_StructureTinyDeath:
     Nuggets:
     - Type: ParticleSystem
@@ -4031,7 +4175,8 @@ FXLists:
       Name: StructureTransitionTinyFlare
     - Type: Sound
       Name: BuildingDie
-    - Type: SUBTLE
+    - Type: ViewShake
+      Shake: SUBTLE
   FX_BuildingDie:
     Nuggets:
     - Type: Sound
@@ -4047,8 +4192,10 @@ FXLists:
       Name: TsingMaLenzflare
       OrientToObject: Yes
       Offset: X:0 Y:0 Z:1
-    - Type: SEVERE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SEVERE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -4076,8 +4223,10 @@ FXLists:
       Name: TsingMaLenzflare
       OrientToObject: Yes
       Offset: X:0 Y:0 Z:1
-    - Type: SEVERE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SEVERE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: TankDie
@@ -4107,8 +4256,10 @@ FXLists:
       Offset: X:30 Y:0 Z:20
   FX_StrategyCenterBarrage:
     Nuggets:
-    - Type: SUBTLE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SUBTLE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -4153,8 +4304,10 @@ FXLists:
       Probability: 0.7
   FX_SpectreHowitzerExplosion:
     Nuggets:
-    - Type: SUBTLE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SUBTLE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 50
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -4177,7 +4330,8 @@ FXLists:
       Name: SpectreGunshipExplosionLight
   FX_spectreGunshipDeathExplosion:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: ParticleSystem
       Name: spectreDeathExplosionArms
       Offset: X:0.0 Y:0.0 Z:2.0
@@ -4195,13 +4349,15 @@ FXLists:
     - Type: Sound
   FX_SpectreGunshipExplosionLight:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: ParticleSystem
       Name: SpectreGunshipExplosionLight
       Offset: X:0.0 Y:0.0 Z:2.0
   FX_spectreDeathExplosion:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: ParticleSystem
       Name: spectreDeathExplosion
       Offset: X:0.0 Y:0.0 Z:2.0
@@ -4295,7 +4451,8 @@ FXLists:
       InitialDelay: 100 100 UNIFORM
     - Type: Sound
       Name: CarDie
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   WeaponFX_SentryDroneGunFire:
     Nuggets:
     - Type: LightPulse
@@ -4328,7 +4485,8 @@ FXLists:
       Probability: 0.25
   WeaponFX_MOAB_Blast:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMOAB
     - Type: ParticleSystem
@@ -4359,7 +4517,8 @@ FXLists:
       Name: MOABDustWave
       InitialDelay: 0 0 UNIFORM
       Offset: X:0.0 Y:0.0 Z:1.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 250
   Lazr_WeaponFX_Laser:
     Nuggets:
@@ -4385,11 +4544,14 @@ FXLists:
       InitialDelay: 100 100 UNIFORM
     - Type: Sound
       Name: CarDie
-    - Type: STRONG
+    - Type: ViewShake
+      Shake: STRONG
   FX_FireBaseHowitzerExplosion:
     Nuggets:
-    - Type: SUBTLE
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: SUBTLE
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 50
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -4409,7 +4571,8 @@ FXLists:
       Name: SpectreGunshipExplosionLight
   Nuke_WeaponFX_NukeCannon:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMiniNuke
     - Type: ParticleSystem
@@ -4447,7 +4610,8 @@ FXLists:
       Name: BuggyNewExplosionShockwave
   Nuke_WeaponFX_CarpetBomb:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionMiniNuke
     - Type: ParticleSystem
@@ -4483,7 +4647,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:35.0
   GC_Chem_WeaponFX_SCUDMissileDetonationAnthrax:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -4523,10 +4688,12 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:0
     - Type: Sound
       Name: ExplosionDaisyCutter
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
   WeaponFX_BunkerBusterIntialImpact:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: ParticleSystem
       Name: BattleshipMuzzleFlashFlame
       OrientToObject: Yes
@@ -4538,8 +4705,10 @@ FXLists:
     Nuggets:
     - Type: ParticleSystem
       Name: CraterDebris
-    - Type: SEVERE
-    - Type: SCORCH_4
+    - Type: ViewShake
+      Shake: SEVERE
+    - Type: TerrainScorch
+      Scorch: SCORCH_4
       Radius: 250
   Neutron_WeaponFX_Mine:
     Nuggets:
@@ -4556,11 +4725,13 @@ FXLists:
       Name: NeutronFlare
       InitialDelay: 0 0 UNIFORM
       Offset: X:0.0 Y:0.0 Z:0.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
   Neutron_WeaponFX_NukeCannon:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionNeutronShell
     - Type: ParticleSystem
@@ -4591,7 +4762,8 @@ FXLists:
       Name: NeutronDustRingDust
       InitialDelay: 0 0 UNIFORM
       Offset: X:0.0 Y:0.0 Z:30.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 50
   WeaponFX_UpgradeMineDetonation:
     Nuggets:
@@ -4606,7 +4778,8 @@ FXLists:
       Offset: X:0.0 Y:0.0 Z:1.0
     - Type: ParticleSystem
       Name: EMPSparksSmall
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
   AirF_FX_AuroraBombIgnite:
     Nuggets:
@@ -4627,13 +4800,15 @@ FXLists:
       Name: AirF_AuroraBombScatterIgnite2
     - Type: ParticleSystem
       Name: AirF_AuroraDustRing
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 75
     - Type: Sound
       Name: DaisyCutterGas
   Demo_ScudStormMissileDetonation:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -4675,7 +4850,8 @@ FXLists:
       Name: NukeCannonMushroomRing
       InitialDelay: 1000 1000 UNIFORM
       Offset: X:0.0 Y:0.0 Z:35.0
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -4686,7 +4862,8 @@ FXLists:
       Name: ExplosionFire
   SupW_FX_Nuke:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionNeutron
     - Type: ParticleSystem
@@ -4736,7 +4913,8 @@ FXLists:
       Name: BlackNapalm
     - Type: ParticleSystem
       Name: BlackNapalmSparks
-    - Type: RANDOM
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 35
     - Type: LightPulse
       Color: R:255 G:128 B:51
@@ -4766,7 +4944,8 @@ FXLists:
       Name: DEMOBuggyMissileExplosionSmoke
   WeaponFX_DEMO_SCUDMissileDetonationExplosive:
     Nuggets:
-    - Type: SEVERE
+    - Type: ViewShake
+      Shake: SEVERE
     - Type: Sound
       Name: ExplosionScudExplosive
     - Type: ParticleSystem
@@ -4800,8 +4979,10 @@ FXLists:
       Name: BuggyNewExplosionDebris2
     - Type: ParticleSystem
       Name: BuggyNewExplosionShockwave
-    - Type: STRONG
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: STRONG
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
     - Type: Sound
       Name: CarDie
@@ -4815,8 +4996,10 @@ FXLists:
       Name: HotPillarArms
     - Type: ParticleSystem
       Name: DemoTrapLenzFlare
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15
   WeaponFX_DemoSuicideDynamitePackDetonationPlusFire:
     Nuggets:
@@ -4832,6 +5015,8 @@ FXLists:
       Name: ArmExplosionSmall01
     - Type: ParticleSystem
       Name: HotPillarArms
-    - Type: NORMAL
-    - Type: RANDOM
+    - Type: ViewShake
+      Shake: NORMAL
+    - Type: TerrainScorch
+      Scorch: RANDOM
       Radius: 15

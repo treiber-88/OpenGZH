@@ -22,6 +22,7 @@
     <ProjectReference Include="..\..\src\OpenGZH.Core\OpenGZH.Core.csproj" />
     <ProjectReference Include="..\..\src\OpenGZH.Formats\OpenGZH.Formats.csproj" />
     <ProjectReference Include="..\..\src\OpenGZH.Logic\OpenGZH.Logic.csproj" />
+    <ProjectReference Include="..\..\src\OpenGZH.Client\OpenGZH.Client.csproj" />
   </ItemGroup>
 
 </Project>

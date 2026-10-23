@@ -50,6 +50,9 @@ public sealed class Texture : IDisposable
             gl.GenerateMipmap(TextureTarget.Texture2D);
             gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)GLEnum.LinearMipmapLinear);
             gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)GLEnum.Linear);
+            // Anisotropic filtering keeps textures sharp at the steep RTS camera angle.
+            if (MaxAnisotropy(gl) > 1)
+                gl.TexParameter(TextureTarget.Texture2D, (TextureParameterName)0x84FE, Math.Min(8f, MaxAnisotropy(gl)));
         }
         else
         {
@@ -65,4 +68,21 @@ public sealed class Texture : IDisposable
     }
 
     public void Dispose() => gl.DeleteTexture(Handle);
+
+    static float maxAnisotropy = -1;
+
+    /// <summary>The driver's anisotropic filtering limit (GL_EXT_texture_filter_anisotropic; 1 if unsupported).</summary>
+    static float MaxAnisotropy(GL gl)
+    {
+        if (maxAnisotropy < 0)
+        {
+            maxAnisotropy = 1;
+            if (gl.IsExtensionPresent("GL_EXT_texture_filter_anisotropic") || gl.IsExtensionPresent("GL_ARB_texture_filter_anisotropic"))
+            {
+                gl.GetFloat((GetPName)0x84FF, out float max);
+                maxAnisotropy = Math.Max(1, max);
+            }
+        }
+        return maxAnisotropy;
+    }
 }

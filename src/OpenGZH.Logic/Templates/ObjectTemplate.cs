@@ -18,6 +18,12 @@ public sealed class ObjectTemplate
     public int BuildCost { get; }
     public float BuildTimeSeconds { get; }
     public float VisionRange { get; }
+
+    /// <summary>Everyone (enemies too) sees this far around it (e.g. a nuke going off).</summary>
+    public float ShroudRevealToAllRange { get; }
+
+    /// <summary>Covers this far around it in shroud for its enemies (GPS scrambler).</summary>
+    public float ShroudRange { get; }
     public float ShroudClearingRange { get; }
     public string DisplayName { get; }
     public string CommandSet { get; }
@@ -48,6 +54,10 @@ public sealed class ObjectTemplate
     public string UnitSound(string key) =>
         Rules.TryGet("UnitSpecificSounds", out var sounds) ? sounds.GetString(key) : "";
 
+    /// <summary>An effect from the object's UnitSpecificFX list (e.g. "CombatDropKillFX"), or "".</summary>
+    public string UnitFx(string key) =>
+        Rules.TryGet("UnitSpecificFX", out var fx) ? fx.GetString(key) : "";
+
     public ObjectTemplate(string name, RuleNode rules)
     {
         Name = name;
@@ -59,6 +69,8 @@ public sealed class ObjectTemplate
         BuildTimeSeconds = RuleValue.Float(rules.GetString("BuildTime"), 1);
         VisionRange = RuleValue.Float(rules.GetString("VisionRange"));
         ShroudClearingRange = RuleValue.Float(rules.GetString("ShroudClearingRange"), VisionRange);
+        ShroudRevealToAllRange = RuleValue.Float(rules.GetString("ShroudRevealToAllRange"));
+        ShroudRange = RuleValue.Float(rules.GetString("ShroudRange"));
         DisplayName = rules.GetString("DisplayName", name);
         CommandSet = rules.GetString("CommandSet");
         ButtonImage = rules.GetString("ButtonImage");
@@ -73,6 +85,8 @@ public sealed class ObjectTemplate
         EnergyBonus = RuleValue.Int(rules.GetString("EnergyBonus"));
         CrusherLevel = RuleValue.Int(rules.GetString("CrusherLevel"));
         CrushableLevel = RuleValue.Int(rules.GetString("CrushableLevel"), 255);
+        PlacementViewAngle = RuleValue.Float(rules.GetString("PlacementViewAngle"), 0) * MathF.PI / 180f;
+        BuildVariations = RuleValue.Words(rules.GetString("BuildVariations"));
 
         var modules = new List<ModuleDefinition>();
         if (rules.TryGet("Modules", out var moduleMap) && moduleMap.IsMapping)
@@ -83,6 +97,18 @@ public sealed class ObjectTemplate
     }
 
     public bool Is(string kind) => KindOf.Contains(kind);
+
+    /// <summary>The angle a building is placed at by default (radians).</summary>
+    public float PlacementViewAngle { get; }
+
+    /// <summary>Templates built in place of this one at random (e.g. civilian building variants).</summary>
+    public string[] BuildVariations { get; }
+
+    /// <summary>The same object, or a reskin of it (the original's isEquivalentTo).</summary>
+    public bool IsEquivalentTo(ObjectTemplate other) =>
+        Name.Equals(other.Name, StringComparison.OrdinalIgnoreCase)
+        || Rules.GetString("ReskinOf").Equals(other.Name, StringComparison.OrdinalIgnoreCase)
+        || other.Rules.GetString("ReskinOf").Equals(Name, StringComparison.OrdinalIgnoreCase);
 
     public IEnumerable<ModuleDefinition> ModulesOfType(string moduleType) =>
         Modules.Where(m => m.ModuleType.Equals(moduleType, StringComparison.OrdinalIgnoreCase));

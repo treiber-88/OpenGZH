@@ -115,6 +115,10 @@ public sealed class W3dVertexMaterial
     /// <summary>Texture-coordinate mapper (e.g. scrolling UVs for water or tank treads). 0 = none.</summary>
     public int StageMapping { get; set; }
     public string MapperArgs { get; set; } = "";
+
+    /// <summary>The detail (second) texture stage mapper, and its arguments.</summary>
+    public int Stage1Mapping { get; set; }
+    public string MapperArgs1 { get; set; } = "";
 }
 
 /// <summary>

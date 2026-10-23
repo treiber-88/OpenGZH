@@ -27,6 +27,9 @@ public sealed class ProductionUpdate : Module, IUpdateModule
         public int Quantity { get; init; } = 1;
         public int Produced { get; set; }
 
+        /// <summary>The exit door (parking space) reserved for this unit when it was queued.</summary>
+        public int Door { get; set; } = ProductionDoor.NoneNeeded;
+
         public bool IsUnit => Unit != null;
         public string Name => Unit?.Name ?? Upgrade ?? "";
     }
@@ -73,6 +76,8 @@ public sealed class ProductionUpdate : Module, IUpdateModule
             return "NotEnoughMoney";
         if (MaxSimultaneousReached(unit))
             return "MaximumReached";
+        if (Owner.FindModule<IProductionExit>() is { } exit && !exit.CanReserveFor(unit))
+            return "NoExitAvailable";
         return null;
     }
 
@@ -81,11 +86,19 @@ public sealed class ProductionUpdate : Module, IUpdateModule
         if (CanQueueUnit(unit) != null)
             return null;
         int cost = CostOf(unit);
-        if (!Owner.Owner.Money.TryWithdraw(cost))
+        // Airfields hold a parking space for each plane on order.
+        int door = Owner.FindModule<IProductionExit>()?.ReserveDoorForExit(unit) ?? ProductionDoor.NoneNeeded;
+        if (door == ProductionDoor.NoneAvailable)
             return null;
+        if (!Owner.Owner.Money.TryWithdraw(cost))
+        {
+            Owner.FindModule<IProductionExit>()?.UnreserveDoorForExit(door);
+            return null;
+        }
         var entry = new Entry
         {
             Id = nextEntryId++,
+            Door = door,
             Unit = unit,
             Cost = cost,
             TotalFrames = BuildFrames(unit.BuildTimeSeconds),
@@ -126,6 +139,8 @@ public sealed class ProductionUpdate : Module, IUpdateModule
         if (entry == null)
             return;
         queue.Remove(entry);
+        if (entry.IsUnit)
+            Owner.FindModule<IProductionExit>()?.UnreserveDoorForExit(entry.Door);
         Owner.Owner.Money.Deposit(entry.Cost);
     }
 
@@ -141,7 +156,7 @@ public sealed class ProductionUpdate : Module, IUpdateModule
 
     bool MaxSimultaneousReached(ObjectTemplate unit)
     {
-        int max = RuleValue.Int(unit.Rules.GetString("MaxSimultaneousOfType"), 0);
+        int max = Game.MaxSimultaneousOfType(unit);
         if (max <= 0)
             return false;
         int existing = Game.ObjectsOwnedBy(Owner.Owner).Count(o => o.Template.Name.Equals(unit.Name, StringComparison.OrdinalIgnoreCase));
@@ -181,8 +196,9 @@ public sealed class ProductionUpdate : Module, IUpdateModule
                 Owner.GiveUpgrade(entry.Upgrade);
             else
                 Owner.Owner.CompleteUpgrade(entry.Upgrade);
-            Game.Events.PlaySound(upgrade?.GetString("ResearchCompleteSound") ?? "", Owner.Position, Owner.Owner);
+            Game.Events.PlaySound(upgrade?.GetString("ResearchCompleteSound") ?? "", Owner.Position, Owner.Owner, Owner);
             Game.Events.Eva("UpgradeComplete", Owner.Owner);
+            Owner.Owner.Score.AddMoneySpent(RuleValue.Int(upgrade?.GetString("BuildCost") ?? "0"));
             queue.Remove(entry);
             return;
         }
@@ -193,14 +209,14 @@ public sealed class ProductionUpdate : Module, IUpdateModule
 
         var unit = Game.CreateObject(entry.Unit!, Owner.Owner, Owner.Position, Owner.Orientation);
         unit.ProducerId = Owner.Id;
-        Owner.Owner.UnitsBuilt++;
         if (exit != null)
-            exit.Exit(unit);
+            exit.ExitViaDoor(unit, entry.Door);
         else
             DefaultExit(unit);
         OpenDoor();
+        Owner.Owner.OnUnitCreated(Owner, unit);
         Game.Events.Eva("UnitReady", Owner.Owner);
-        Game.Events.PlaySound(entry.Unit!.Rules.GetString("VoiceCreate", entry.Unit.Rules["UnitSpecificSounds"]?.GetString("VoiceCreate") ?? ""), unit.Position, Owner.Owner);
+        Game.Events.PlaySound(entry.Unit!.Rules.GetString("VoiceCreate", entry.Unit.Rules["UnitSpecificSounds"]?.GetString("VoiceCreate") ?? ""), unit.Position, Owner.Owner, unit);
 
         entry.Produced++;
         if (entry.Produced >= entry.Quantity)
@@ -250,7 +266,18 @@ public interface IProductionExit
 {
     bool CanExitNow { get; }
     void Exit(GameObject unit);
-    Vector3? RallyPoint { get; set; }
+    public Vector3? RallyPoint { get; set; }
+
+    /// <summary>Whether a unit of this type could be queued now (an airfield needs a free parking space).</summary>
+    bool CanReserveFor(ObjectTemplate unit) => true;
+
+    /// <summary>Holds an exit for a queued unit: a door number, or ProductionDoor.NoneAvailable / NoneNeeded.</summary>
+    int ReserveDoorForExit(ObjectTemplate unit) => ProductionDoor.NoneNeeded;
+
+    void UnreserveDoorForExit(int door) { }
+
+    /// <summary>The finished unit leaves through the door reserved for it.</summary>
+    void ExitViaDoor(GameObject unit, int door) => Exit(unit);
 }
 
 /// <summary>Checks a definition's "Prerequisites" block against what a player owns and knows.</summary>

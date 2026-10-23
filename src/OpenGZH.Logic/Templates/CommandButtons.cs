@@ -22,7 +22,8 @@ public sealed record CommandButton(
     string CursorName,
     string InvalidCursorName,
     string RadiusCursorType,
-    string UnitSpecificSound)
+    string UnitSpecificSound,
+    int MaxShotsToFire = -1)
 {
     public static CommandButton FromRules(string name, RuleNode node) => new(
         name,
@@ -39,9 +40,34 @@ public sealed record CommandButton(
         node.GetString("CursorName"),
         node.GetString("InvalidCursorName"),
         node.GetString("RadiusCursorType"),
-        node.GetString("UnitSpecificSound"));
+        node.GetString("UnitSpecificSound"),
+        RuleValue.Int(node.GetString("MaxShotsToFire"), 0x7fffffff));
 
     public bool HasOption(string option) => Options.Contains(option, StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>Needs an object to aim at (NEED_TARGET_ENEMY/NEUTRAL/ALLY_OBJECT: the original's COMMAND_OPTION_NEED_OBJECT_TARGET).</summary>
+    public bool NeedsObjectTarget => HasOption("NEED_TARGET_ENEMY_OBJECT") || HasOption("NEED_TARGET_NEUTRAL_OBJECT") || HasOption("NEED_TARGET_ALLY_OBJECT");
+
+    public bool NeedsTargetPosition => HasOption("NEED_TARGET_POS");
+
+    /// <summary>Does the button accept a target with this relationship to the user (isValidRelationshipTarget)?</summary>
+    public bool IsValidRelationshipTarget(Players.Relationship r) => r switch
+    {
+        Players.Relationship.Enemies => HasOption("NEED_TARGET_ENEMY_OBJECT"),
+        Players.Relationship.Allies => HasOption("NEED_TARGET_ALLY_OBJECT"),
+        _ => HasOption("NEED_TARGET_NEUTRAL_OBJECT"),
+    };
+
+    /// <summary>The weapon slot named by WeaponSlot (PRIMARY / SECONDARY / TERTIARY).</summary>
+    public Combat.WeaponSlot Slot => WeaponSlot.ToUpperInvariant() switch
+    {
+        "SECONDARY" => Combat.WeaponSlot.Secondary,
+        "TERTIARY" => Combat.WeaponSlot.Tertiary,
+        _ => Combat.WeaponSlot.Primary,
+    };
+
+    /// <summary>The original's command type name without the GUI_COMMAND_ prefix (e.g. "SPECIAL_POWER").</summary>
+    public string CommandType => Command.ToUpperInvariant();
 }
 
 /// <summary>Reads command sets: up to 18 numbered slots, each naming a command button.</summary>

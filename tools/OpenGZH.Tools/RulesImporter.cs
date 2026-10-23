@@ -229,6 +229,15 @@ static partial class RulesImporter
     {
         string section = SectionNames.GetValueOrDefault(block.Type, block.Type + "s");
 
+        // Unnamed blocks that repeat (each starting money choice) become a list, in order.
+        if (block.Name.Length == 0 && block.Type is "MultiplayerStartingMoneyChoice")
+        {
+            if (!file.TryGet(block.Type, out var choices) || !choices.IsSequence)
+                choices = file.Set(block.Type, RuleNode.Sequence());
+            choices.Add(ConvertBody(block, block.Type));
+            return;
+        }
+
         // Unnamed blocks (GameData, InGameUI, AIData, ...) are singletons: merge them into one section.
         if (block.Name.Length == 0)
         {
@@ -338,7 +347,7 @@ static partial class RulesImporter
         {
             var list = RuleNode.Sequence();
             foreach (var nugget in nuggets)
-                list.Add(Prepend(ConvertBody(nugget, nugget.Type), "Type", nugget.Type));
+                list.Add(Prepend(RenameNuggetTypeField(ConvertBody(nugget, nugget.Type), nugget.Type), "Type", nugget.Type));
             result.Set("Nuggets", list);
         }
 
@@ -420,6 +429,26 @@ static partial class RulesImporter
             existing.MergeFrom(body);
         else
             section.Set(name, body);
+    }
+
+    /// <summary>
+    /// Some FX nuggets have their own "Type" field (ViewShake's shake strength, TerrainScorch's mark),
+    /// which would clash with the nugget kind; it is stored as "Shake" / "Scorch" instead.
+    /// </summary>
+    static RuleNode RenameNuggetTypeField(RuleNode body, string nuggetKind)
+    {
+        string? renamed = nuggetKind.ToLowerInvariant() switch
+        {
+            "viewshake" => "Shake",
+            "terrainscorch" => "Scorch",
+            _ => null,
+        };
+        if (renamed == null || !body.TryGet("Type", out _))
+            return body;
+        var result = RuleNode.Mapping();
+        foreach (var (k, v) in body.Entries)
+            result.Set(k.Equals("Type", StringComparison.OrdinalIgnoreCase) ? renamed : k, v);
+        return result;
     }
 
     static RuleNode Prepend(RuleNode mapping, string key, string value)

@@ -119,6 +119,12 @@ public sealed class DamageSystem
         var weapon = game.Catalog.Weapon(weaponName);
         if (weapon == null)
             return;
+        // The original's createAndFireTempWeapon: a real weapon fired from the source (projectiles fly).
+        if (source != null)
+        {
+            Weapon.FireTemporary(weapon, source, position);
+            return;
+        }
         var vet = (int)(source?.Veterancy ?? VeterancyLevel.Regular);
         game.Events.PlayFx(weapon.FireFX[vet], position);
         game.Events.PlayFx(weapon.ProjectileDetonationFX[vet], position);

@@ -33,7 +33,8 @@ public sealed class GuiLayout
             "CHECKBOX" => new GuiCheckBox(definition),
             "RADIOBUTTON" => new GuiRadioButton(definition),
             "PROGRESSBAR" => new GuiProgressBar(definition),
-            "LISTBOX" => new GuiListBox(definition),
+            "LISTBOX" or "SCROLLLISTBOX" => new GuiListBox(definition),
+            "COMBOBOX" => new GuiComboBox(definition),
             "ENTRYFIELD" => new GuiTextEntry(definition),
             "HORZSLIDER" or "VERTSLIDER" => new GuiSlider(definition),
             _ => new GuiWindow(definition),
@@ -94,6 +95,22 @@ public sealed class GuiManager
     public IReadOnlyList<GuiLayout> Layouts => layouts;
 
     public void Push(GuiLayout layout) => layouts.Add(layout);
+
+    /// <summary>A window by name in any loaded layout (the original's winGetWindowFromId(NULL, ...)).</summary>
+    public GuiWindow? Find(string name)
+    {
+        for (int i = layouts.Count - 1; i >= 0; i--)
+            if (layouts[i].Find(name) is { } found)
+                return found;
+        return null;
+    }
+
+    /// <summary>Puts a layout on top of the others (the original's bringForward).</summary>
+    public void BringForward(GuiLayout layout)
+    {
+        if (layouts.Remove(layout))
+            layouts.Add(layout);
+    }
     public void Remove(GuiLayout layout) => layouts.Remove(layout);
     public void Clear() => layouts.Clear();
 
@@ -107,6 +124,8 @@ public sealed class GuiManager
     {
         foreach (var layout in layouts)
             layout.Draw(context);
+        // An open drop-down list sits above every layout.
+        GuiComboBox.Open?.DrawList(context);
     }
 
     public GuiWindow? HitTest(Vector2 point)
@@ -122,18 +141,40 @@ public sealed class GuiManager
 
     public void MouseMove(Vector2 point)
     {
+        if (GuiComboBox.Open is { } open && open.ListContains(point))
+        {
+            open.ListMouseMove(point);
+            return;
+        }
         var hit = HitTest(point);
         if (hit != hovered)
         {
             hovered?.OnMouseLeave();
+            hovered?.RaiseMouseLeft();
             hovered = hit;
             hovered?.OnMouseEnter();
+            hovered?.RaiseMouseEntered();
         }
         (pressed as GuiSlider)?.Drag(point);
     }
 
     public bool MouseDown(Vector2 point)
     {
+        if (GuiComboBox.Open is { } open)
+        {
+            if (open.ListContains(point))
+            {
+                pressed = null;
+                return true;
+            }
+            // A click anywhere else closes the list (and is not passed on, except to the combo box itself).
+            if (HitTest(point) != open)
+            {
+                GuiComboBox.Close();
+                pressed = null;
+                return true;
+            }
+        }
         var hit = HitTest(point);
         pressed = hit;
         focused = hit as GuiTextEntry ?? focused;
@@ -143,6 +184,11 @@ public sealed class GuiManager
 
     public bool MouseUp(Vector2 point)
     {
+        if (GuiComboBox.Open is { } open && open.ListContains(point))
+        {
+            open.ListClick(point);
+            return true;
+        }
         var target = pressed;
         pressed = null;
         if (target == null)
@@ -153,6 +199,11 @@ public sealed class GuiManager
 
     public bool Scroll(Vector2 point, float amount)
     {
+        if (GuiComboBox.Open is { } open && open.ListContains(point))
+        {
+            open.ListScroll(amount);
+            return true;
+        }
         var hit = HitTest(point);
         for (var window = hit; window != null; window = window.Parent)
         {

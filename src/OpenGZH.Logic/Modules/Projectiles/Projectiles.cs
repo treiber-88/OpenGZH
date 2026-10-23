@@ -51,30 +51,8 @@ public abstract class ProjectileModule : Module, IUpdateModule, IProjectile
         {
             if (!Weapon.ShouldProjectileCollideWith(Launcher, Owner, other, TargetId))
                 return true;
-            int killCount = IntSetting("GarrisonHitKillCount");
-            if (killCount > 0 && other.FindModule<Contain.ContainModule>() is { IsGarrisonable: true, Count: > 0, IsImmuneToClearBuildingAttacks: false } garrison)
-            {
-                var required = Flags.KindOf.Parse(Setting("GarrisonHitKillRequiredKindOf"));
-                var forbidden = Flags.KindOf.Parse(Setting("GarrisonHitKillForbiddenKindOf"));
-                int killed = 0;
-                foreach (var occupant in garrison.Passengers.ToList())
-                {
-                    if (killed >= killCount)
-                        break;
-                    if (occupant.IsEffectivelyDead || !occupant.KindOf.HasAll(required) || occupant.KindOf.HasAny(forbidden))
-                        continue;
-                    if (Launcher != null)
-                        Launcher.Owner.ScoreKill(occupant);
-                    occupant.Kill();
-                    killed++;
-                }
-                if (killed > 0)
-                {
-                    Game.Events.PlayFx(Setting("GarrisonHitKillFX"), other.Position, other);
-                    Game.DestroyObject(Owner);
-                    return true;
-                }
-            }
+            if (ProjectileHits.TryClearGarrison(this, Owner, Launcher, other))
+                return true;
         }
         else if (!HitsGround())
         {
@@ -95,13 +73,7 @@ public abstract class ProjectileModule : Module, IUpdateModule, IProjectile
             return;
         detonated = true;
         if (Weapon != null)
-        {
-            int vet = (int)(Launcher?.Veterancy ?? VeterancyLevel.Regular);
-            Game.Events.PlayFx(Weapon.ProjectileDetonationFX[vet], Owner.Position);
-            if (Weapon.ProjectileDetonationOCL[vet] is { Length: > 0 } ocl)
-                Game.ObjectCreation.Run(ocl, Launcher ?? Owner, Owner.Position);
-            Game.Damage.DealWeaponDamage(Weapon, Launcher, directHit, Owner.Position, Bonus);
-        }
+            ProjectileHits.Detonate(Weapon, Owner, Launcher, directHit, Bonus);
         if (BoolSetting("DetonateCallsKill"))
             Owner.Kill();
         else
@@ -110,181 +82,250 @@ public abstract class ProjectileModule : Module, IUpdateModule, IProjectile
 }
 
 /// <summary>
-/// An unguided shell or bomb flying a fixed curve to where the target was (tank shells, artillery).
-/// The curve is the original's: a cubic Bezier from launch to target whose two control points sit at
-/// FirstPercentIndent / SecondPercentIndent along the way, raised by FirstHeight / SecondHeight.
-/// Moving targets are tracked by at most FlightPathAdjustDistPerSecond.
+/// An unguided shell or bomb (the original's DumbProjectileBehavior). Its flight is a cubic Bezier
+/// curve from launch to the target's centre, worked out in advance as one point per frame (curve
+/// length / weapon speed points). The two inner control points sit FirstPercentIndent and
+/// SecondPercentIndent along the line, FirstHeight / SecondHeight above the highest terrain in
+/// between. ScaleWeaponSpeed weapons fly faster the further the target (MinWeaponSpeed at minimum
+/// range up to WeaponSpeed at full range). A moving target drags the end of the curve by up to
+/// FlightPathAdjustDistPerSecond. It goes off at the end of the curve, on touching something or the
+/// ground, or after MaxLifespan. TumbleRandomly shells spin; others point along their path
+/// (OrientToFlightPath).
 /// </summary>
 public sealed class DumbProjectileBehavior : ProjectileModule
 {
-    Vector3 start, control1, control2, end;
-    float travelled, length, speed;
+    const int DefaultMaxLifespan = 10 * LogicTime.FramesPerSecond;
+
+    int maxLifespan;
+    bool tumbleRandomly, orientToFlightPath;
     float firstHeight, secondHeight, firstIndent, secondIndent, adjustPerFrame;
+
+    int lifespanFrame;
+    readonly List<Vector3> flightPath = new();
+    int segments;
+    float speed;
+    Vector3 pathStart, pathEnd;
+    int step;
+    float yawRate, pitchRate, rollRate;
 
     protected override void Initialize()
     {
+        maxLifespan = Definition.Settings.Has("MaxLifespan") ? FramesSetting("MaxLifespan") : DefaultMaxLifespan;
+        tumbleRandomly = BoolSetting("TumbleRandomly");
+        orientToFlightPath = BoolSetting("OrientToFlightPath", true);
         firstHeight = FloatSetting("FirstHeight");
         secondHeight = FloatSetting("SecondHeight");
-        firstIndent = FloatSetting("FirstPercentIndent", 0.3f);
-        secondIndent = FloatSetting("SecondPercentIndent", 0.7f);
+        firstIndent = FloatSetting("FirstPercentIndent");
+        secondIndent = FloatSetting("SecondPercentIndent");
         adjustPerFrame = RuleUnits.Velocity(Setting("FlightPathAdjustDistPerSecond"));
     }
+
+    static Vector3 CenterOf(GameObject obj) =>
+        obj.Position + new Vector3(0, 0, obj.Geometry.Type == GeometryType.Sphere ? 0 : obj.Geometry.Height * 0.5f);
 
     public override void Launch(GameObject launcher, WeaponTemplate weapon, GameObject? target, Vector3 targetPosition, WeaponBonus bonus)
     {
         base.Launch(launcher, weapon, target, targetPosition, bonus);
-        start = Owner.Position;
-        end = target != null ? target.Position + new Vector3(0, 0, target.Height * 0.5f) : targetPosition;
-        BuildCurve();
-        speed = Math.Max(0.5f, weapon.WeaponSpeed);
+        lifespanFrame = Frame + maxLifespan;
+        var victimPos = target != null ? CenterOf(target) : targetPosition;
+
         if (weapon.ScaleWeaponSpeed)
-            speed = Math.Max(weapon.MinWeaponSpeed, speed * Math.Clamp(length / Math.Max(1, weapon.AttackRange), 0.1f, 1));
+        {
+            float minRange = weapon.MinimumAttackRange, maxRange = weapon.AttackRange;
+            float range = MathUtil.Distance2D(Owner.Position, victimPos);
+            float ratio = maxRange > minRange ? (range - minRange) / (maxRange - minRange) : 1;
+            speed = ratio * (weapon.WeaponSpeed - weapon.MinWeaponSpeed) + weapon.MinWeaponSpeed;
+        }
+        else
+            speed = weapon.WeaponSpeed;
+        speed = Math.Max(speed, 0.01f);
+
+        if (tumbleRandomly)
+        {
+            pitchRate = Game.Random.Float(-1 / MathF.PI, 1 / MathF.PI);
+            yawRate = Game.Random.Float(-1 / MathF.PI, 1 / MathF.PI);
+            rollRate = Game.Random.Float(-1 / MathF.PI, 1 / MathF.PI);
+        }
+
+        pathStart = Owner.Position;
+        pathEnd = victimPos;
+        if (!CalcFlightPath(recalcSegments: true))
+        {
+            Game.DestroyObject(Owner);
+            return;
+        }
+        step = 0;
     }
 
-    void BuildCurve()
+    /// <summary>The highest ground under the line, partition cell by cell (the original's terrain-extremes scan).</summary>
+    bool HighestTerrainAlong(Vector3 a, Vector3 b, out float highest)
     {
-        var line = end - start;
-        control1 = start + line * firstIndent + new Vector3(0, 0, firstHeight);
-        control2 = start + line * secondIndent + new Vector3(0, 0, secondHeight);
-        length = Math.Max(1, line.Length());
+        highest = float.MinValue;
+        var terrain = Game.Terrain;
+        if (!terrain.IsInsidePlayableArea(a.X, a.Y) && !terrain.IsInsidePlayableArea(b.X, b.Y))
+            return false;
+        const float CellSize = 100f;
+        float length = MathUtil.Distance2D(a, b);
+        int samples = Math.Max(1, (int)MathF.Ceiling(length / (CellSize * 0.25f)));
+        for (int i = 0; i <= samples; i++)
+        {
+            var p = Vector3.Lerp(a, b, i / (float)samples);
+            highest = Math.Max(highest, terrain.GroundHeight(p.X, p.Y));
+        }
+        return true;
     }
 
-    Vector3 PointAt(float t)
+    bool CalcFlightPath(bool recalcSegments)
     {
-        float u = 1 - t;
-        return u * u * u * start + 3 * u * u * t * control1 + 3 * u * t * t * control2 + t * t * t * end;
+        if (!HighestTerrainAlong(pathStart, pathEnd, out float highest))
+            return false;
+        var line = pathEnd - pathStart;
+        float distance = line.Length();
+        var dir = distance > 0 ? line / distance : Vector3.Zero;
+        var c0 = pathStart;
+        var c3 = pathEnd;
+        var c1 = pathStart + dir * (distance * firstIndent);
+        var c2 = pathStart + dir * (distance * secondIndent);
+        highest = Math.Max(highest, Math.Max(c0.Z, c3.Z));
+        c1.Z = highest + firstHeight;
+        c2.Z = highest + secondHeight;
+
+        if (recalcSegments)
+            segments = (int)MathF.Ceiling(ApproximateLength(c0, c1, c2, c3, 0.5f) / speed);
+
+        flightPath.Clear();
+        if (segments <= 1)
+        {
+            // The original's iterator starts at the origin in this case.
+            for (int i = 0; i < segments; i++)
+                flightPath.Add(Vector3.Zero);
+            return true;
+        }
+        for (int i = 0; i < segments; i++)
+        {
+            float t = i / (float)(segments - 1);
+            float u = 1 - t;
+            flightPath.Add(u * u * u * c0 + 3 * u * u * t * c1 + 3 * u * t * t * c2 + t * t * t * c3);
+        }
+        return true;
+    }
+
+    /// <summary>The original's recursive Bezier length estimate.</summary>
+    static float ApproximateLength(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float tolerance)
+    {
+        float chord = Vector3.Distance(p0, p3);
+        float hull = Vector3.Distance(p0, p1) + Vector3.Distance(p1, p2) + Vector3.Distance(p2, p3);
+        if (hull - chord > tolerance)
+        {
+            // Split at t = 0.5 (de Casteljau).
+            var a = (p0 + p1) * 0.5f;
+            var b = (p1 + p2) * 0.5f;
+            var c = (p2 + p3) * 0.5f;
+            var d = (a + b) * 0.5f;
+            var e = (b + c) * 0.5f;
+            var m = (d + e) * 0.5f;
+            return ApproximateLength(p0, a, d, m, tolerance) + ApproximateLength(m, e, c, p3, tolerance);
+        }
+        return (int)(chord + hull) / 2f;
     }
 
     public override int Update()
     {
         if (!Launched)
             return 0;
+        if (lifespanFrame != 0 && Frame >= lifespanFrame || step >= flightPath.Count)
+        {
+            Detonate(null);
+            return 0;
+        }
 
         // Follow a moving target a little.
-        if (Target is { } target && adjustPerFrame > 0)
+        if (TargetId != 0 && adjustPerFrame > 0 && Game.FindObject(TargetId) is { } victim)
         {
-            var wanted = target.Position + new Vector3(0, 0, target.Height * 0.5f);
-            var shift = wanted - end;
-            if (shift.Length() > adjustPerFrame)
-                shift = Vector3.Normalize(shift) * adjustPerFrame;
-            end += shift;
-            BuildCurve();
+            var delta = CenterOf(victim) - pathEnd;
+            float moved = delta.Length();
+            if (moved * moved > 0.1f)
+            {
+                pathEnd += delta / moved * Math.Min(moved, adjustPerFrame);
+                if (!CalcFlightPath(recalcSegments: false))
+                {
+                    Detonate(null);
+                    return 0;
+                }
+            }
         }
 
-        travelled += speed;
-        float t = Math.Min(1, travelled / length);
-        var previous = Owner.Position;
-        var position = PointAt(t);
+        var position = flightPath[step];
+        if (orientToFlightPath && !tumbleRandomly && flightPath.Count > 1)
+        {
+            var dir = step > 0 ? position - flightPath[step - 1] : flightPath[1] - flightPath[0];
+            if (dir.LengthSquared() > 0)
+            {
+                Owner.SetOrientation(MathF.Atan2(dir.Y, dir.X));
+                Owner.Pitch = MathF.Atan2(dir.Z, new Vector2(dir.X, dir.Y).Length());
+            }
+        }
+        else if (tumbleRandomly)
+        {
+            Owner.SetOrientation(Owner.Orientation + yawRate);
+            Owner.Pitch += pitchRate;
+            Owner.Roll += rollRate;
+        }
         Owner.SetPosition(position);
-        var direction = position - previous;
-        if (direction.LengthSquared() > 0.0001f)
-        {
-            Owner.SetOrientation(MathF.Atan2(direction.Y, direction.X));
-            Owner.Pitch = MathF.Atan2(direction.Z, new Vector2(direction.X, direction.Y).Length());
-        }
 
-        bool hitGround = t > 0.2f && position.Z < Game.Terrain.LayerHeight(position.X, position.Y) - 1;
-        if (t >= 1 || hitGround)
-            Detonate(t >= 1 ? Target : null);
+        // Touching the ground (the original's physics reports this as a collision).
+        if (step > 0 && position.Z <= Game.Terrain.HighestLayerHeight(position.X, position.Y))
+        {
+            HandleCollision(null);
+            if (Owner.IsDestroyed)
+                return 0;
+        }
+        step++;
         return 0;
     }
 }
 
-/// <summary>
-/// A guided missile: ignites after IgnitionDelay, flies straight for DistanceToTravelBeforeTurning,
-/// then steers towards its target (TryToFollowTarget) using its locomotor's speed and turn rate,
-/// until it hits or its fuel runs out (FuelLifetime).
-/// </summary>
-public sealed class MissileAIUpdate : ProjectileModule
+/// <summary>What happens when any projectile hits: clearing garrisons, and detonating.</summary>
+public static class ProjectileHits
 {
-    // An AI in the original, so it steers in the initial phase.
-    public UpdatePhase Phase => UpdatePhase.Initial;
-    public FlagSet DisabledTypesToProcess => DisabledMask.Held;
-
-    float velocity, maxSpeed, acceleration, turnRate;
-    int ignitionDelay, fuelFrames, launchFrame;
-    float straightDistance, travelled;
-    bool followTarget, detonateOnNoFuel;
-    Vector3 heading;
-
-    protected override void Initialize()
+    /// <summary>
+    /// A projectile with GarrisonHitKillCount hitting an occupied garrison kills up to that many of the
+    /// occupants (with GarrisonHitKillRequiredKindOf / without GarrisonHitKillForbiddenKindOf) and vanishes.
+    /// </summary>
+    public static bool TryClearGarrison(Module projectileModule, GameObject projectile, GameObject? launcher, GameObject other)
     {
-        velocity = RuleUnits.Velocity(Setting("InitialVelocity"));
-        ignitionDelay = FramesSetting("IgnitionDelay");
-        fuelFrames = FramesSetting("FuelLifetime", 10000);
-        straightDistance = FloatSetting("DistanceToTravelBeforeTurning");
-        followTarget = BoolSetting("TryToFollowTarget", true);
-        detonateOnNoFuel = BoolSetting("DetonateOnNoFuel");
+        int killCount = projectileModule.Definition.GetInt("GarrisonHitKillCount");
+        if (killCount <= 0 || other.Contain is not { IsGarrisonable: true, Count: > 0, IsImmuneToClearBuildingAttacks: false } garrison)
+            return false;
+        var required = Flags.KindOf.Parse(projectileModule.Definition.Get("GarrisonHitKillRequiredKindOf"));
+        var forbidden = Flags.KindOf.Parse(projectileModule.Definition.Get("GarrisonHitKillForbiddenKindOf"));
+        int killed = 0;
+        foreach (var occupant in garrison.Passengers.ToList())
+        {
+            if (killed >= killCount)
+                break;
+            if (occupant.IsEffectivelyDead || !occupant.KindOf.HasAll(required) || occupant.KindOf.HasAny(forbidden))
+                continue;
+            launcher?.ScoreTheKill(occupant);
+            occupant.Kill();
+            killed++;
+        }
+        if (killed == 0)
+            return false;
+        projectile.Game.Events.PlayFx(projectileModule.Definition.Get("GarrisonHitKillFX"), other.Position, other);
+        projectile.Game.DestroyObject(projectile);
+        return true;
     }
 
-    public override void Launch(GameObject launcher, WeaponTemplate weapon, GameObject? target, Vector3 targetPosition, WeaponBonus bonus)
+    /// <summary>The weapon's detonation where the projectile is: effects, creation list and damage (the original's handleProjectileDetonation).</summary>
+    public static void Detonate(WeaponTemplate weapon, GameObject projectile, GameObject? launcher, GameObject? directHit, WeaponBonus bonus, bool doDamage = true)
     {
-        base.Launch(launcher, weapon, target, targetPosition, bonus);
-        launchFrame = Frame;
-        heading = MathUtil.Forward(launcher.Orientation) with { Z = 0.3f };
-        heading = Vector3.Normalize(heading);
-
-        // Speed and steering come from the missile's own locomotor (e.g. "TomahawkMissileLocomotor").
-        if (Owner.Template.Rules.TryGet("Locomotor", out var locomotors))
-        {
-            string name = Core.RuleWords.Second(locomotors.AsList().FirstOrDefault()?.Value);
-            if (Game.Catalog.Locomotor(name) is { } locomotor)
-            {
-                maxSpeed = locomotor.Speed;
-                acceleration = Math.Max(locomotor.Acceleration, maxSpeed / 15);
-                turnRate = locomotor.TurnRate;
-            }
-        }
-        if (maxSpeed <= 0)
-        {
-            maxSpeed = Math.Max(weapon.WeaponSpeed, 5);
-            acceleration = maxSpeed / 10;
-            turnRate = MathF.PI / 15;
-        }
-    }
-
-    public override int Update()
-    {
-        if (!Launched)
-            return 0;
-        int age = Frame - launchFrame;
-        if (age >= ignitionDelay)
-            velocity = Math.Min(maxSpeed, velocity + acceleration);
-
-        var aim = Target is { } target ? target.Position + new Vector3(0, 0, target.Height * 0.5f) : TargetPosition;
-        if (followTarget && travelled >= straightDistance)
-        {
-            var wanted = aim - Owner.Position;
-            if (wanted.LengthSquared() > 0.01f)
-            {
-                wanted = Vector3.Normalize(wanted);
-                // Turn by at most turnRate per frame towards the target.
-                float angle = MathF.Acos(Math.Clamp(Vector3.Dot(heading, wanted), -1, 1));
-                heading = angle <= turnRate || angle < 0.0001f ? wanted : Vector3.Normalize(Vector3.Lerp(heading, wanted, turnRate / angle));
-            }
-        }
-
-        var position = Owner.Position + heading * velocity;
-        travelled += velocity;
-        Owner.SetPosition(position);
-        Owner.SetOrientation(MathF.Atan2(heading.Y, heading.X));
-        Owner.Pitch = MathF.Asin(Math.Clamp(heading.Z, -1, 1));
-
-        float hitDistance = Math.Max(velocity, 3) + (Target?.Radius ?? 0);
-        if (Vector3.Distance(position, aim) <= hitDistance)
-            Detonate(Target);
-        else if (position.Z < Game.Terrain.LayerHeight(position.X, position.Y) && travelled > 10)
-            Detonate(null);
-        else if (age > fuelFrames)
-        {
-            if (detonateOnNoFuel)
-                Detonate(null);
-            else
-            {
-                // Out of fuel: drop to the ground and detonate there.
-                heading = Vector3.Normalize(heading + new Vector3(0, 0, -0.08f));
-            }
-        }
-        return 0;
+        var game = projectile.Game;
+        int vet = (int)(launcher?.Veterancy ?? VeterancyLevel.Regular);
+        game.Events.PlayFx(weapon.ProjectileDetonationFX[vet], projectile.Position);
+        if (weapon.ProjectileDetonationOCL[vet] is { Length: > 0 } ocl)
+            game.ObjectCreation.Run(ocl, launcher ?? projectile, projectile.Position);
+        if (doDamage)
+            game.Damage.DealWeaponDamage(weapon, launcher, directHit, projectile.Position, bonus);
     }
 }

@@ -8,7 +8,6 @@ public sealed class PlayerList
 {
     readonly GameLogic game;
     readonly List<Player> players = new();
-    readonly Dictionary<string, Team> teamsByName = new(StringComparer.OrdinalIgnoreCase);
 
     public Player Neutral { get; }
     public Player? Local { get; set; }
@@ -26,18 +25,25 @@ public sealed class PlayerList
     {
         var player = new Player(game, players.Count, name, factionName, faction);
         players.Add(player);
-        RegisterTeam(player.DefaultTeam);
         if (!player.IsNeutral)
             game.Ranks.CheckRankUp(player); // apply rank 1
         return player;
     }
 
+    /// <summary>A player by its name in the map ("player2", "PlyrCivilian").</summary>
     public Player? Find(string name) =>
-        players.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+        players.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+        ?? (name.Length > 0 ? players.FirstOrDefault(p => p.DisplayName.Equals(name, StringComparison.OrdinalIgnoreCase)) : null);
 
-    public Team? FindTeam(string name) => teamsByName.GetValueOrDefault(name);
+    /// <summary>
+    /// The original's findPlayerWithNameKey: the map name, which a skirmish computer player keeps even
+    /// though its script name becomes its skirmish side's ("SkirmishAmerica2").
+    /// </summary>
+    public Player? FindByNameKey(string name) =>
+        name.Length == 0 ? Neutral : players.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
-    public void RegisterTeam(Team team) => teamsByName[team.Name] = team;
+    /// <summary>The first instance of a team, by name (kept for older callers).</summary>
+    public Team? FindTeam(string name) => game.Teams.FindTeam(name);
 
     /// <summary>
     /// Creates the map's players and teams from its sides list. Multiplayer slots are separate
@@ -51,45 +57,35 @@ public sealed class PlayerList
                 continue; // the neutral player already exists
             var faction = rules.Get("PlayerTemplates", side.Faction);
             var player = Find(side.Name) ?? Add(side.Name, side.Faction, faction);
-            player.IsHuman = side.Properties.TryGetValue("playerIsHuman", out var human) && human is true;
-            if (side.Properties.TryGetValue("playerDisplayName", out var display) && display is string displayName && displayName.Length > 0)
-                player.DisplayName = displayName;
-            if (side.Properties.TryGetValue("playerColor", out var color) && color is int argb)
-                player.Color = (uint)argb & 0xFFFFFF;
+            ApplySideProperties(player, side.Properties);
+            player.BuildList.Clear();
+            player.BuildList.AddRange(side.BuildList.Select(AI.BuildListInfo.From));
         }
 
         // Alliances are lists of player names.
         foreach (var side in sides.Sides)
         {
-            var player = Find(side.Name);
-            if (player == null)
+            if (Find(side.Name) is not { } player)
                 continue;
             ApplyRelations(player, side.Properties, "playerAllies", Relationship.Allies);
             ApplyRelations(player, side.Properties, "playerEnemies", Relationship.Enemies);
         }
 
-        foreach (var teamProperties in sides.Teams)
-        {
-            string name = teamProperties.TryGetValue("teamName", out var n) ? n.ToString() ?? "" : "";
-            string ownerName = teamProperties.TryGetValue("teamOwner", out var o) ? o.ToString() ?? "" : "";
-            var owner = Find(ownerName) ?? Neutral;
-            if (name.Length == 0)
-                continue;
-
-            var team = FindTeam(name);
-            if (team == null)
-            {
-                team = new Team(owner, name);
-                owner.Teams.Add(team);
-                RegisterTeam(team);
-            }
-            foreach (var (key, value) in teamProperties)
-                team.Properties[key] = value;
-            team.IsSingleton = !teamProperties.TryGetValue("teamIsSingleton", out var singleton) || singleton is true;
-        }
+        game.Teams.InitFromSides(sides.Teams);
+        foreach (var player in players)
+            player.SetDefaultTeam();
     }
 
-    void ApplyRelations(Player player, Dictionary<string, object> properties, string key, Relationship relation)
+    public static void ApplySideProperties(Player player, Dictionary<string, object> properties)
+    {
+        player.IsHuman = properties.TryGetValue("playerIsHuman", out var human) && human is true;
+        if (properties.TryGetValue("playerDisplayName", out var display) && display is string displayName && displayName.Length > 0)
+            player.DisplayName = displayName;
+        if (properties.TryGetValue("playerColor", out var color) && color is int argb)
+            player.Color = (uint)argb & 0xFFFFFF;
+    }
+
+    public void ApplyRelations(Player player, Dictionary<string, object> properties, string key, Relationship relation)
     {
         if (!properties.TryGetValue(key, out var value))
             return;
@@ -98,20 +94,38 @@ public sealed class PlayerList
                 player.SetRelationship(other, relation);
     }
 
-    /// <summary>A player is defeated when they have no buildings and no units that count for victory.</summary>
-    public void CheckVictoryConditions()
+    /// <summary>Every player's computer brain and teams' generic scripts run (the original's PlayerList::update).</summary>
+    public void Update()
     {
-        if (game.Scripts is { HandlesVictory: true })
-            return;
-        foreach (var player in Active.Where(p => p.StartPosition != null).ToList())
-        {
-            bool alive = game.ObjectsOwnedBy(player).Any(o =>
-                !o.IsEffectivelyDead && (o.IsKindOf(Core.Kind.Structure) || o.IsKindOf("MP_COUNT_FOR_VICTORY") || o.AI != null && o.IsKindOf(Core.Kind.Selectable)));
-            if (!alive)
-            {
-                player.IsDefeated = true;
-                game.Events.Message($"{player.DisplayName} has been defeated.");
-            }
-        }
+        foreach (var player in players.ToList())
+            player.Update();
     }
+
+    /// <summary>Calls each computer player's NewMap once the map is loaded.</summary>
+    public void NewMap()
+    {
+        foreach (var player in players.ToList())
+            player.AI?.NewMap();
+    }
+
+    /// <summary>The players whose relationship to the given player is one of the allowed kinds, as a mask.</summary>
+    public uint PlayersWithRelationship(int playerIndex, bool enemies, bool neutral, bool allies)
+    {
+        if (playerIndex < 0 || playerIndex >= players.Count)
+            return 0;
+        var me = players[playerIndex];
+        uint mask = 0;
+        foreach (var p in players)
+        {
+            if (p == me)
+                continue;
+            var r = me.RelationshipTo(p.DefaultTeam);
+            if ((enemies && r == Relationship.Enemies) || (neutral && r == Relationship.Neutral) || (allies && r == Relationship.Allies))
+                mask |= p.PlayerMask;
+        }
+        return mask;
+    }
+
+    /// <summary>Victory checks moved to <see cref="VictoryConditions"/>; kept for callers.</summary>
+    public void CheckVictoryConditions() => game.Victory.Update();
 }

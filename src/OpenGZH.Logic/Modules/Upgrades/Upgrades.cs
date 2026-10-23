@@ -224,13 +224,28 @@ public sealed class PowerPlantUpdate : Module, IUpdateModule
 {
     int doneFrame = -1;
 
-    public void ExtendRods()
+    bool extended;
+
+    /// <summary>Rods out (slowly, RodsExtendTime) or back in (at once), as the original's extendRods.</summary>
+    public void ExtendRods(bool extend = true)
     {
-        if (doneFrame >= 0)
-            return;
-        Owner.SetCondition("POWER_PLANT_UPGRADING");
-        doneFrame = Frame + FramesSetting("RodsExtendTime");
-        Owner.WakeUpdate(this);
+        if (extend)
+        {
+            if (extended)
+                return;
+            Owner.SetCondition("POWER_PLANT_UPGRADING");
+            extended = true;
+            doneFrame = Frame + FramesSetting("RodsExtendTime");
+            Owner.WakeUpdate(this);
+        }
+        else
+        {
+            Owner.SetCondition("POWER_PLANT_UPGRADING", false);
+            Owner.SetCondition("POWER_PLANT_UPGRADED", false);
+            extended = false;
+            doneFrame = -1;
+            Owner.SleepUpdate(this);
+        }
     }
 
     public int Update()

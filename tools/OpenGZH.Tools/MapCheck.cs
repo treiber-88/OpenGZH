@@ -23,7 +23,9 @@ static class MapCheck
                 int scripts = map.Sides.Sides.Sum(s => s.Scripts.AllScripts.Count());
                 Console.WriteLine($"{path}: {map.HeightMap.Width}x{map.HeightMap.Height}, {map.Objects.Count} objects, " +
                                   $"{map.Sides.Sides.Count} sides, {map.Sides.Teams.Count} teams, {scripts} scripts, " +
-                                  $"{map.PolygonTriggers.Count} triggers, {map.BlendTiles?.TextureClasses.Count ?? 0} textures");
+                                  $"{map.PolygonTriggers.Count} triggers, {map.BlendTiles?.TextureClasses.Count ?? 0} textures, " +
+                                  $"{map.Objects.Count(o => (o.Flags & 0x10) != 0)} bridges, {map.Objects.Count(o => (o.Flags & 0x2) != 0)} road segments, " +
+                                  $"{map.Objects.Count(o => o.TemplateName.Contains("Bridge", StringComparison.OrdinalIgnoreCase) && (o.Flags & 0x30) == 0)} bridge objects");
                 foreach (string label in map.UnreadChunks)
                     unread.Add(label);
             }

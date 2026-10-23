@@ -48,6 +48,10 @@ public static class SpecialPowerRules
         "SPECIAL_CHANGE_BATTLE_PLANS", "SPECIAL_LAUNCH_BAIKONUR_ROCKET",
     };
 
+    /// <summary>The original's SpecialPowerStore::canUseSpecialPower: the player has the power's required science.</summary>
+    public static bool CanUseSpecialPower(GameObject obj, SpecialPowerTemplate power) =>
+        power.RequiredScience.Length == 0 || obj.Owner.HasScience(power.RequiredScience);
+
     /// <summary>The object's module for this power, if it has one.</summary>
     public static SpecialPowerModule? ModuleFor(GameObject obj, SpecialPowerTemplate power) =>
         obj.FindModules<SpecialPowerModule>().FirstOrDefault(m => m.Power == power);
@@ -71,7 +75,7 @@ public static class SpecialPowerRules
     }
 
     /// <summary>Until the shroud exists every point counts as explored; this is where the shroud plugs in.</summary>
-    static bool IsShrouded(Player player, Vector3 position) => false;
+    static bool IsShrouded(Player player, Vector3 position) => player.Game.Shroud.StatusAt(player, position) == Vision.CellShroud.Shrouded;
 
     static bool IsShroudedForAction(GameObject source, GameObject target, CommandSource commandSource) =>
         source.Owner.IsHuman && commandSource != CommandSource.Script && IsShrouded(source.Owner, target.Position);

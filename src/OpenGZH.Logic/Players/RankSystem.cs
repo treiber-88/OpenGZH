@@ -25,17 +25,21 @@ public sealed class RankSystem
 
     public int MaxRank => ranks.Count;
 
+    /// <summary>Rank <paramref name="level"/> (1-based): skill points needed, purchase points and sciences it gives.</summary>
+    public (int SkillPointsNeeded, int SciencePurchasePointsGranted, string[] SciencesGranted) Rank(int level) =>
+        level >= 1 && level <= ranks.Count ? ranks[level - 1] : (0, 0, []);
+
     public int SkillPointsForRank(int rank) => rank >= 1 && rank <= ranks.Count ? ranks[rank - 1].SkillPointsNeeded : int.MaxValue;
 
     public void CheckRankUp(Player player)
     {
-        while (player.RankLevel < ranks.Count && player.SkillPoints >= ranks[player.RankLevel].SkillPointsNeeded)
+        while (player.RankLevel < ranks.Count && player.RankLevel < game.RankLevelLimit && player.SkillPoints >= ranks[player.RankLevel].SkillPointsNeeded)
         {
             var next = ranks[player.RankLevel];
             player.RankLevel++;
             player.SciencePurchasePoints += next.SciencePurchasePointsGranted;
             foreach (string science in next.SciencesGranted)
-                player.GrantScience(science);
+                player.AddScience(science);
             game.Events.Eva("GeneralLevelUp", player);
         }
     }

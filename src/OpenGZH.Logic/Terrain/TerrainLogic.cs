@@ -15,6 +15,9 @@ public sealed class TerrainLogic
     public const float CliffHeightLimit = 9.8f;
 
     public HeightMap Heights { get; }
+
+    /// <summary>Bridges over the terrain; each is a pathfinding layer above the ground.</summary>
+    public BridgeList Bridges { get; } = new();
     public BlendTileData? Tiles { get; }
     public List<WaterArea> WaterAreas { get; } = new();
 
@@ -24,8 +27,107 @@ public sealed class TerrainLogic
     public int Border => Heights.BorderSize;
 
     /// <summary>Playable area size in world units.</summary>
-    public float WorldWidth { get; }
-    public float WorldHeight { get; }
+    public float WorldWidth { get; private set; }
+    public float WorldHeight { get; private set; }
+
+    readonly List<(int X, int Y)> boundaries = new();
+    int activeBoundary;
+
+    /// <summary>
+    /// The playable area in use (MAP_SWITCH_BORDER): maps define several, scripts grow the map as a
+    /// mission goes on. An undefined or empty boundary is ignored, as in the original.
+    /// </summary>
+    public int ActiveBoundary
+    {
+        get => activeBoundary;
+        set
+        {
+            if (value < 0 || value >= boundaries.Count || value == activeBoundary)
+                return;
+            if (boundaries[value].X == 0 || boundaries[value].Y == 0)
+                return;
+            activeBoundary = value;
+            WorldWidth = boundaries[value].X * MapFile.CellSize;
+            WorldHeight = boundaries[value].Y * MapFile.CellSize;
+            BoundaryChanged?.Invoke();
+        }
+    }
+
+    public event Action? BoundaryChanged;
+
+    // ---- Water levels that scripts change (WATER_CHANGE_HEIGHT ...) ----
+
+    sealed class WaterChange
+    {
+        public required WaterArea Water;
+        public float ChangePerFrame, TargetHeight, DamageAmount, CurrentHeight;
+    }
+
+    const int MaxDynamicWater = 64;
+    readonly List<WaterChange> waterToUpdate = new();
+
+    /// <summary>Raised when water rises: everything under it takes this much WATER damage.</summary>
+    public event Action<WaterArea, float>? WaterDamage;
+    public event Action? WaterChanged;
+
+    public WaterArea? FindWater(string name) => WaterAreas.FirstOrDefault(w => w.Polygon.Name == name);
+
+    /// <summary>The original's setWaterHeight: the area's level moves; rising water damages what it covers.</summary>
+    public void SetWaterHeight(WaterArea water, float height, float damageAmount)
+    {
+        float previous = water.Height;
+        water.Height = height;
+        for (int i = 0; i < water.Polygon.Points.Count; i++)
+            water.Polygon.Points[i] = water.Polygon.Points[i] with { Z = height };
+        if (previous != height)
+            WaterChanged?.Invoke();
+        if (damageAmount > 0 && height > previous)
+            WaterDamage?.Invoke(water, damageAmount);
+    }
+
+    /// <summary>WATER_CHANGE_HEIGHT: at once (with the original's huge damage to anything drowned).</summary>
+    public void SetWaterHeight(string name, float height)
+    {
+        if (FindWater(name) is { } water)
+            SetWaterHeight(water, height, 999999.9f);
+    }
+
+    /// <summary>WATER_CHANGE_HEIGHT_OVER_TIME: the level moves steadily; damage is dealt once a second.</summary>
+    public void ChangeWaterHeightOverTime(string name, float finalHeight, float seconds, float damageAmount)
+    {
+        if (waterToUpdate.Count >= MaxDynamicWater || FindWater(name) is not { } water)
+            return;
+        waterToUpdate.RemoveAll(w => w.Water == water);
+        waterToUpdate.Add(new WaterChange
+        {
+            Water = water,
+            ChangePerFrame = (finalHeight - water.Height) / (Core.LogicTime.FramesPerSecond * Math.Max(0.001f, seconds)),
+            TargetHeight = finalHeight,
+            DamageAmount = damageAmount,
+            CurrentHeight = water.Height,
+        });
+    }
+
+    /// <summary>Moves changing water levels on by a frame (the original's TerrainLogic::update).</summary>
+    public void Update(int frame)
+    {
+        bool doDamageThisFrame = frame % Core.LogicTime.FramesPerSecond == 0;
+        for (int i = waterToUpdate.Count - 1; i >= 0; i--)
+        {
+            var w = waterToUpdate[i];
+            bool final = w.ChangePerFrame > 0 ? w.CurrentHeight + w.ChangePerFrame >= w.TargetHeight : w.CurrentHeight + w.ChangePerFrame <= w.TargetHeight;
+            if (final)
+            {
+                SetWaterHeight(w.Water, w.TargetHeight, w.DamageAmount);
+                waterToUpdate.RemoveAt(i);
+            }
+            else
+            {
+                w.CurrentHeight += w.ChangePerFrame;
+                SetWaterHeight(w.Water, w.CurrentHeight, doDamageThisFrame ? w.DamageAmount : 0);
+            }
+        }
+    }
 
     readonly bool[] cliffCells;
 
@@ -36,6 +138,8 @@ public sealed class TerrainLogic
         var playable = Heights.Boundaries.Count > 0 ? Heights.Boundaries[0] : (Heights.Width - 2 * Border, Heights.Height - 2 * Border);
         WorldWidth = playable.Item1 * MapFile.CellSize;
         WorldHeight = playable.Item2 * MapFile.CellSize;
+        foreach (var b in Heights.Boundaries)
+            boundaries.Add((b.Item1, b.Item2));
 
         cliffCells = new bool[CellsX * CellsY];
         for (int y = 0; y < CellsY; y++)
@@ -44,7 +148,14 @@ public sealed class TerrainLogic
 
         foreach (var trigger in map.PolygonTriggers.Where(t => t.IsWater))
             WaterAreas.Add(new WaterArea(trigger));
+        foreach (var trigger in map.PolygonTriggers)
+            TriggerAreas.Add(new TriggerArea(trigger));
     }
+
+    /// <summary>Every named area on the map (water areas included, as in the original).</summary>
+    public List<TriggerArea> TriggerAreas { get; } = new();
+
+    public TriggerArea? FindTriggerArea(string name) => TriggerAreas.FirstOrDefault(t => t.Name == name);
 
     bool IsSteep(int x, int y)
     {
@@ -222,6 +333,32 @@ public sealed class TerrainLogic
     /// <summary>Height of the surface units stand on: water level if over water, else the ground.</summary>
     public float LayerHeight(float worldX, float worldY) =>
         IsUnderwater(worldX, worldY, out float water) ? water : GroundHeight(worldX, worldY);
+
+    /// <summary>The highest surface at a point: a bridge deck if there is one, else ground or water.</summary>
+    public float HighestLayerHeight(float worldX, float worldY)
+    {
+        float h = LayerHeight(worldX, worldY);
+        var p = new System.Numerics.Vector3(worldX, worldY, 0);
+        foreach (var bridge in Bridges.All)
+            if (bridge.Info.CurDamageState != Modules.BodyDamageState.Rubble && bridge.IsPointOnBridge(p))
+                h = Math.Max(h, bridge.GetBridgeHeight(p));
+        return h;
+    }
+
+    /// <summary>
+    /// Height of a layer's surface (the original's getLayerHeight): a bridge's deck for layers 1 and up
+    /// (only over the deck when <paramref name="clip"/>), otherwise the ground or water.
+    /// </summary>
+    public float LayerHeight(float worldX, float worldY, int layer, bool clip = true)
+    {
+        if (layer > 0 && Bridges.ForLayer(layer) is { } bridge)
+        {
+            var p = new System.Numerics.Vector3(worldX, worldY, 0);
+            if (!clip || bridge.IsPointOnBridge(p))
+                return bridge.GetBridgeHeight(p);
+        }
+        return LayerHeight(worldX, worldY);
+    }
 }
 
 /// <summary>A body of water, defined on the map as a polygon trigger flagged as water.</summary>
@@ -246,4 +383,70 @@ public sealed class WaterArea
 
     public bool Contains(float x, float y) =>
         x >= minX && x <= maxX && y >= minY && y <= maxY && Polygon.Contains(x, y);
+}
+
+/// <summary>
+/// A named area drawn on the map (the original's PolygonTrigger): scripts ask what is inside it,
+/// what entered or left it. Points are whole world units, as the original stores them.
+/// </summary>
+public sealed class TriggerArea
+{
+    readonly (int X, int Y)[] points;
+    readonly int loX, loY, hiX, hiY;
+
+    public string Name { get; }
+    public int Id { get; }
+    public bool IsWater { get; }
+
+    /// <summary>The middle of the bounding box.</summary>
+    public Vector2 Center { get; }
+
+    /// <summary>The original's radius (it adds the y bounds where it means to subtract them; kept).</summary>
+    public float Radius { get; }
+
+    public TriggerArea(Formats.Maps.PolygonTrigger trigger)
+    {
+        Name = trigger.Name;
+        Id = trigger.Id;
+        IsWater = trigger.IsWater;
+        points = trigger.Points.Select(p => ((int)p.X, (int)p.Y)).ToArray();
+        loX = loY = 0x7ffff0;
+        hiX = hiY = -0x7ffff0;
+        foreach (var (x, y) in points)
+        {
+            loX = Math.Min(loX, x); loY = Math.Min(loY, y);
+            hiX = Math.Max(hiX, x); hiY = Math.Max(hiY, y);
+        }
+        Center = new Vector2((loX + hiX) / 2f, (loY + hiY) / 2f);
+        float halfWidth = (hiX - loX) / 2f;
+        float halfHeight = (hiY + loY) / 2f;
+        Radius = MathF.Sqrt(halfHeight * halfHeight + halfWidth * halfWidth);
+    }
+
+    /// <summary>The original's pointInTrigger (even-odd crossing test on whole coordinates).</summary>
+    public bool Contains(int px, int py)
+    {
+        if (px < loX || py < loY || px > hiX || py > hiY)
+            return false;
+        bool inside = false;
+        for (int i = 0; i < points.Length; i++)
+        {
+            var p1 = points[i];
+            var p2 = points[i == points.Length - 1 ? 0 : i + 1];
+            if (p1.Y == p2.Y)
+                continue;
+            if (p1.Y < py && p2.Y < py) continue;
+            if (p1.Y >= py && p2.Y >= py) continue;
+            if (p1.X < px && p2.X < px) continue;
+            int dy = p2.Y - p1.Y, dx = p2.X - p1.X;
+            float intersectionX = p1.X + dx * (py - p1.Y) / (float)dy;
+            if (intersectionX >= px)
+                inside = !inside;
+        }
+        return inside;
+    }
+
+    public bool Contains(Vector3 p) => Contains((int)p.X, (int)p.Y);
+
+    public override string ToString() => Name;
 }

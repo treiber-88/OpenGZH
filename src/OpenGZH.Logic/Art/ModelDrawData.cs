@@ -37,6 +37,9 @@ public sealed class ModelConditionState
     public Dictionary<string, string> MuzzleFlash { get; set; } = new(StringComparer.OrdinalIgnoreCase);
     public Dictionary<string, string> RecoilBone { get; set; } = new(StringComparer.OrdinalIgnoreCase);
     public Dictionary<string, string> FireFxBone { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    /// <summary>Per weapon slot: the bone projectiles leave from (numbered per barrel: WeaponA01, WeaponA02, ...).</summary>
+    public Dictionary<string, string> LaunchBone { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    public float TurretArtPitch { get; set; }
 
     /// <summary>"ParticleSysBone: BoneName ParticleSystem" pairs (smoke stacks, wakes, ...).</summary>
     public List<(string Bone, string ParticleSystem)> ParticleBones { get; set; } = new();
@@ -61,6 +64,7 @@ public sealed class ModelConditionState
         MuzzleFlash = new(MuzzleFlash, StringComparer.OrdinalIgnoreCase),
         RecoilBone = new(RecoilBone, StringComparer.OrdinalIgnoreCase),
         FireFxBone = new(FireFxBone, StringComparer.OrdinalIgnoreCase),
+        LaunchBone = new(LaunchBone, StringComparer.OrdinalIgnoreCase),
         ParticleBones = ParticleBones.ToList(),
         AnimationSpeedRange = AnimationSpeedRange,
     };
@@ -75,6 +79,9 @@ public sealed class ModelDrawData
 {
     public string ClassName { get; }
     public string Tag { get; }
+
+    /// <summary>The draw module's own settings (tread, wheel and dust settings for tank/truck draws).</summary>
+    public RuleNode Settings { get; }
     public List<ModelConditionState> States { get; } = new();
     public FlagSet IgnoreConditions { get; }
     public bool OkToChangeModelColor { get; }
@@ -82,14 +89,13 @@ public sealed class ModelDrawData
     /// <summary>For trees: the model and texture.</summary>
     public string? TreeModel { get; }
 
-    static readonly Dictionary<(string Template, string Tag), ModelDrawData> cache = new();
+    // Shared by every game in the process (tests and AI run games side by side).
+    static readonly System.Collections.Concurrent.ConcurrentDictionary<(string Template, string Tag), ModelDrawData> cache = new();
 
     public static ModelDrawData For(ObjectTemplate template, ModuleDefinition module)
     {
         var key = (template.Name, module.Tag);
-        if (!cache.TryGetValue(key, out var data))
-            cache[key] = data = new ModelDrawData(module);
-        return data;
+        return cache.GetOrAdd(key, _ => new ModelDrawData(module));
     }
 
     ModelDrawData(ModuleDefinition module)
@@ -97,6 +103,7 @@ public sealed class ModelDrawData
         ClassName = module.ClassName;
         Tag = module.Tag;
         var settings = module.Settings;
+        Settings = settings;
         OkToChangeModelColor = RuleValue.Bool(settings.GetString("OkToChangeModelColor"));
         IgnoreConditions = Logic.Core.Flags.ModelCondition.Parse(settings.GetString("IgnoreConditionStates"));
 
@@ -178,6 +185,8 @@ public sealed class ModelDrawData
         ReadPerSlot(node, "WeaponMuzzleFlash", state.MuzzleFlash);
         ReadPerSlot(node, "WeaponRecoilBone", state.RecoilBone);
         ReadPerSlot(node, "WeaponFireFXBone", state.FireFxBone);
+        ReadPerSlot(node, "WeaponLaunchBone", state.LaunchBone);
+        if (node.Has("TurretArtPitch")) state.TurretArtPitch = RuleUnits.Angle(node.GetString("TurretArtPitch"));
         if (node.TryGet("ParticleSysBone", out var particles))
         {
             state.ParticleBones = particles.AsList()

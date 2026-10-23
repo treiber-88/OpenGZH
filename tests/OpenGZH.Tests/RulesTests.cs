@@ -128,3 +128,18 @@ public class BaseGameRulesTests
             Assert.NotNull(rules.Get("PlayerTemplates", faction));
     }
 }
+
+public class RuleValueTests
+{
+    [Theory]
+    [InlineData("100.0f", 100f)]
+    [InlineData("12.5", 12.5f)]
+    [InlineData("50%", 0.5f)]
+    [InlineData("-3", -3f)]
+    [InlineData(".5f", 0.5f)]
+    public void NumbersReadLikeTheOriginal(string text, float expected) =>
+        Assert.Equal(expected, RuleValue.Float(text), 4);
+
+    [Fact]
+    public void JunkFallsBack() => Assert.Equal(7f, RuleValue.Float("abc", 7));
+}

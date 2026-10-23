@@ -41,12 +41,19 @@ public class DozerAIUpdate : AIUpdateInterface
 
     public void Repair(GameObject structure)
     {
+        // (The original ignores a second repair of a tower on the bridge already being repaired.)
+        if (Task == DozerTask.Repair && Game.FindObject(TaskTargetId)?.FindModule<Behaviors.BridgeTowerBehavior>() is { } current
+            && structure.FindModule<Behaviors.BridgeTowerBehavior>() is { } next && current.BridgeId == next.BridgeId)
+            return;
         if (structure.Health >= structure.MaxHealth || structure.IsUnderConstruction)
             return;
         Task = DozerTask.Repair;
         TaskTargetId = structure.Id;
         MoveTo(ApproachPoint(structure), CommandSource.Dozer);
     }
+
+    /// <summary>Drops all building and repair jobs (a hijacked dozer).</summary>
+    public void CancelAllTasks() => EndTask();
 
     public override void Stop(CommandSource source = CommandSource.Player)
     {
@@ -76,7 +83,7 @@ public class DozerAIUpdate : AIUpdateInterface
     public override int Update()
     {
         var target = Game.FindObject(TaskTargetId);
-        if (Task != DozerTask.None && (target == null || target.IsEffectivelyDead))
+        if (Task != DozerTask.None && (target == null || target.IsEffectivelyDead && !target.IsKindOf("BRIDGE_TOWER")))
             EndTask();
 
         if (target != null && Task != DozerTask.None && IsNextTo(target))
@@ -119,6 +126,11 @@ public class DozerAIUpdate : AIUpdateInterface
         else if (Task == DozerTask.Repair)
         {
             target.SetStatus("UNDERGOING_REPAIR");
+            // A bridge is repaired from its towers, once its scaffolding is up (the original's DozerActionDoActionState).
+            var bridge = target.FindModule<Behaviors.BridgeTowerBehavior>() is { } tower ? Game.FindObject(tower.BridgeId)?.FindModule<Behaviors.BridgeBehavior>() : null;
+            bridge?.CreateScaffolding();
+            if (bridge is { IsScaffoldInMotion: true })
+                return;
             target.Body?.AttemptHealing(target.MaxHealth * repairPercentPerFrame, Owner.Id);
             if (target.Health >= target.MaxHealth)
                 EndTask();
@@ -131,6 +143,8 @@ public class DozerAIUpdate : AIUpdateInterface
         {
             target.SetCondition(Condition.ActivelyBeingConstructed, false);
             target.SetStatus("UNDERGOING_REPAIR", false);
+            if (target.FindModule<Behaviors.BridgeTowerBehavior>() is { } tower)
+                Game.FindObject(tower.BridgeId)?.FindModule<Behaviors.BridgeBehavior>()?.RemoveScaffolding();
         }
         Owner.SetCondition(Condition.ActivelyConstructing, false);
         Task = DozerTask.None;
@@ -153,34 +167,53 @@ public class DozerAIUpdate : AIUpdateInterface
 }
 
 /// <summary>
-/// GLA workers: build and repair like a dozer, and gather supplies like a truck when they have nothing
-/// to build (with Worker Shoes they earn UpgradedSupplyBoost extra per trip).
+/// GLA workers (the original's WorkerAIUpdate): a dozer brain for building and repairing and a supply
+/// truck brain, switching to the truck brain when told to dock (or forced to gather) and back once it
+/// is idle and not wanted for supplies. With Worker Shoes they earn UpgradedSupplyBoost extra per trip.
 /// </summary>
 public sealed class WorkerAIUpdate : DozerAIUpdate
 {
     public Supply.SupplyGatherer Gatherer { get; private set; } = null!;
+    bool actingAsSupplyTruck;
 
     protected override void Initialize()
     {
         base.Initialize();
         int boost = IntSetting("UpgradedSupplyBoost");
-        Gatherer = new Supply.SupplyGatherer(this, new Supply.ModuleSettings(this), () => Owner.Owner.HasUpgrade("Upgrade_GLAWorkerShoes") ? boost : 0);
-        Gatherer.Enabled = false; // workers start idle, like the original; ordering them to a supply dock starts gathering
+        Gatherer = new Supply.SupplyGatherer(this, new Supply.ModuleSettings(this),
+            () => Owner.Owner.HasUpgrade("Upgrade_GLAWorkerShoes") ? boost : 0, onIdleEntered: ExitingSupplyTruckState);
     }
 
-    public override void MoveTo(System.Numerics.Vector3 destination, CommandSource source = CommandSource.Player)
+    /// <summary>The truck brain went idle: hand back to the dozer brain.</summary>
+    void ExitingSupplyTruckState()
     {
-        if (source == CommandSource.Player)
-            Gatherer.Pause();
-        base.MoveTo(destination, source);
+        if (!actingAsSupplyTruck)
+            return;
+        Stop(CommandSource.AI);
+        actingAsSupplyTruck = false;
+        Gatherer.Reset();
+    }
+
+    protected override bool OnOrder(AIOrder order, Action replay)
+    {
+        if (order.Source == CommandSource.Player && order.Type == AIOrderType.Dock && order.TargetId != 0)
+            Gatherer.PreferredDockId = order.TargetId;
+        return base.OnOrder(order, replay);
     }
 
     public override int Update()
     {
-        if (Task == DozerTask.None)
+        bool wantsTruck = Gatherer.ForceWanting || IsDocking;
+        if (!actingAsSupplyTruck && wantsTruck)
+            actingAsSupplyTruck = true;
+        else if (actingAsSupplyTruck && !wantsTruck && Gatherer.State == Supply.SupplyGatherer.StateId.Busy)
+        {
+            actingAsSupplyTruck = false;
+            Gatherer.Reset();
+        }
+        if (actingAsSupplyTruck)
             Gatherer.Update();
-        else if (Gatherer.Enabled)
-            Gatherer.Pause();
         return base.Update();
     }
 }
+

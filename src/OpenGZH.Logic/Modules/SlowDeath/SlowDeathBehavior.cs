@@ -7,33 +7,42 @@ using OpenGZH.Logic.Objects;
 namespace OpenGZH.Logic.Modules.SlowDeath;
 
 /// <summary>
-/// A death that takes time: the object plays its dying animation, may be flung into the air, sinks
-/// into the ground, and is removed after DestructionDelay. Effects run at three moments:
-/// INITIAL (at death), MIDPOINT (halfway) and FINAL (when removed).
+/// A death that takes time (the original's SlowDeathBehavior): the object plays its dying animation,
+/// may be flung into the air, sinks into the ground after SinkDelay, and is removed after
+/// DestructionDelay. Effects run at three moments: INITIAL (at death), MIDPOINT (somewhere between
+/// 35% and 65% of the way) and FINAL (when removed).
 ///
 /// An object may have several slow deaths; when it dies, one applicable to the killing blow is picked
-/// at random, weighted by ProbabilityModifier (heavy overkill favours ModifierBonusPerOverkillPercent).
+/// at random, weighted by ProbabilityModifier (heavy overkill adds ModifierBonusPerOverkillPercent).
+/// Jets, helicopters and the battle bus extend this with their own crashes.
 /// </summary>
 public class SlowDeathBehavior : DieModule, IUpdateModule, IDelaysDestruction
 {
     public enum Phase { Initial, Midpoint, Final }
+
+    const float BeginMidpointRatio = 0.35f;
+    const float EndMidpointRatio = 0.65f;
 
     int probabilityModifier;
     float bonusPerOverkillPercent;
     int sinkDelay, sinkDelayVariance;
     float sinkRate;
     int destructionDelay, destructionDelayVariance;
-    float destructionAltitude;
     float flingForce, flingForceVariance, flingPitch, flingPitchVariance;
     readonly Dictionary<Phase, List<string>> fx = new(), ocl = new(), weapons = new();
 
-    bool active;
-    int sinkFrame, midpointFrame, destructionFrame;
-    bool midpointDone;
-    bool flung;
+    bool activated, midpointExecuted, flungIntoAir, bounced;
+    protected int SinkFrame { get; set; }
+    protected int MidpointFrame { get; set; }
+    protected int DestructionFrame { get; set; }
 
-    public bool IsDelayingDestruction => active;
-    public bool IsActive => active;
+    public bool IsDelayingDestruction => activated;
+    public bool IsActive => activated;
+    public bool IsSlowDeathActivated => activated;
+    protected float SinkRate => sinkRate;
+
+    /// <summary>The altitude below the ground a sinking object is gone at (read for compatibility; the original never uses it).</summary>
+    protected float DestructionAltitude { get; private set; }
 
     protected override void InitializeDie()
     {
@@ -44,7 +53,7 @@ public class SlowDeathBehavior : DieModule, IUpdateModule, IDelaysDestruction
         sinkRate = RuleUnits.Velocity(Setting("SinkRate"));
         destructionDelay = FramesSetting("DestructionDelay");
         destructionDelayVariance = FramesSetting("DestructionDelayVariance");
-        destructionAltitude = FloatSetting("DestructionAltitude", -10);
+        DestructionAltitude = FloatSetting("DestructionAltitude", -10);
         flingForce = FloatSetting("FlingForce");
         flingForceVariance = FloatSetting("FlingForceVariance");
         flingPitch = RuleUnits.Angle(Setting("FlingPitch"));
@@ -53,7 +62,10 @@ public class SlowDeathBehavior : DieModule, IUpdateModule, IDelaysDestruction
         ReadPhased("FX", fx);
         ReadPhased("OCL", ocl);
         ReadPhased("Weapon", weapons);
+        InitializeSlowDeath();
     }
+
+    protected virtual void InitializeSlowDeath() { }
 
     /// <summary>Lines such as "FX: INITIAL FX_Something" grouped by phase.</summary>
     void ReadPhased(string key, Dictionary<Phase, List<string>> target)
@@ -79,9 +91,9 @@ public class SlowDeathBehavior : DieModule, IUpdateModule, IDelaysDestruction
 
     protected override void Die(DamageInfo killingBlow)
     {
-        // Only the first slow death to be notified picks one for the whole object.
+        // Only the first slow death to be notified picks one for the whole object (the AI is "dead" after).
         var all = Owner.FindModules<SlowDeathBehavior>().ToList();
-        if (all.Any(s => s.active))
+        if (all.Any(s => s.activated))
             return;
 
         var applicable = all.Where(s => s.IsApplicable(killingBlow)).ToList();
@@ -92,74 +104,136 @@ public class SlowDeathBehavior : DieModule, IUpdateModule, IDelaysDestruction
             roll -= candidate.ProbabilityFor(killingBlow);
             if (roll <= 0)
             {
-                candidate.Begin(killingBlow);
+                candidate.BeginSlowDeath(killingBlow);
                 return;
             }
         }
     }
 
-    protected virtual void Begin(DamageInfo killingBlow)
+    /// <summary>The original's calcRandomForce: a random direction, pitch and size.</summary>
+    Vector3 RandomForce(float minMag, float maxMag, float minPitch, float maxPitch)
     {
-        active = true;
-        int now = Frame;
-        sinkFrame = now + sinkDelay + Game.Random.Int(0, sinkDelayVariance);
-        destructionFrame = now + destructionDelay + Game.Random.Int(0, destructionDelayVariance);
-        midpointFrame = now + (destructionFrame - now) / 2;
+        float angle = Game.Random.Float(-MathF.PI, MathF.PI);
+        float pitch = Game.Random.Float(minPitch, maxPitch);
+        float mag = Game.Random.Float(minMag, maxMag);
+        return new Vector3(MathF.Cos(angle) * MathF.Cos(pitch), MathF.Sin(angle) * MathF.Cos(pitch), MathF.Sin(pitch)) * mag;
+    }
 
-        Owner.SetCondition(Condition.Dying);
-        Owner.SetStatus(Core.Status.Unselectable);
-        Owner.AI?.Stop(Commands.CommandSource.AI);
-
-        if (flingForce > 0 && Owner.FindModule<PhysicsBehavior>() is { } physics)
+    public virtual void BeginSlowDeath(DamageInfo killingBlow)
+    {
+        if (activated)
+            return;
+        var obj = Owner;
+        if (obj.IsKindOf(Kind.Hulk) && Game.HulkMaxLifetimeOverride != -1)
         {
-            float force = flingForce + Game.Random.Float(-flingForceVariance, flingForceVariance);
-            float pitch = flingPitch + Game.Random.Float(-flingPitchVariance, flingPitchVariance);
-            float yaw = Game.Random.Float(0, MathF.Tau);
-            physics.ApplyForce(new Vector3(MathF.Cos(yaw) * MathF.Cos(pitch), MathF.Sin(yaw) * MathF.Cos(pitch), MathF.Sin(pitch)) * force);
-            Owner.SetCondition("EXPLODED_FLAILING");
-            flung = true;
+            SinkFrame = 1;
+            MidpointFrame = LogicTime.FramesPerSecond / 2 + 1;
+            DestructionFrame = LogicTime.FramesPerSecond + 1;
+        }
+        else
+        {
+            SinkFrame = sinkDelay + Game.Random.Int(0, sinkDelayVariance);
+            DestructionFrame = destructionDelay + Game.Random.Int(0, destructionDelayVariance);
+            MidpointFrame = Game.Random.Int((int)(BeginMidpointRatio * DestructionFrame), (int)(EndMidpointRatio * DestructionFrame));
         }
 
-        RunPhase(Phase.Initial);
-        Owner.WakeUpdate(this);
+        obj.SetCondition(Condition.Dying);
+        obj.SetStatus(Core.Status.Unselectable);
+        obj.AI?.Stop(Commands.CommandSource.AI);
+        Game.Events.Deselect(obj);
+
+        int now = Frame;
+        if (flingForce > 0)
+        {
+            if (obj.IsDisabledBy("DISABLED_HELD"))
+                obj.FindModule<Behaviors.ISlavedUpdate>()?.OnSlaverDie(killingBlow);
+            if (obj.FindModule<PhysicsBehavior>() is { } physics)
+            {
+                const float MinAltitude = 1;
+                if (obj.HeightAboveTerrain < MinAltitude)
+                    obj.SetPosition(obj.Position with { Z = obj.Position.Z + MinAltitude });
+                var force = RandomForce(flingForce, flingForce + flingForceVariance, flingPitch, flingPitch + flingPitchVariance);
+                physics.AllowToFall = true;
+                physics.ApplyForce(force);
+                physics.ExtraBounciness = -1;
+                physics.ExtraFriction = -3 * LogicTime.SecondsPerFrame;
+                physics.AllowBouncing = true;
+                obj.SetOrientation(MathF.Atan2(force.Y, force.X));
+                obj.Pitch = 0;
+                obj.Roll = 0;
+                obj.SetCondition("EXPLODED_FLAILING");
+                flungIntoAir = true;
+            }
+            obj.WakeUpdate(this);
+        }
+        else
+            obj.SleepUpdate(this, Math.Max(0, Math.Min(SinkFrame, Math.Min(DestructionFrame, MidpointFrame))));
+
+        SinkFrame += now;
+        DestructionFrame += now;
+        MidpointFrame += now;
+        activated = true;
+        DoPhaseStuff(Phase.Initial);
     }
 
     public FlagSet DisabledTypesToProcess => DisabledMask.All;
 
-    public int Update()
+    public virtual int Update()
     {
-        if (!active)
-            return 1000;
+        if (!activated)
+            return LogicTime.SleepForever;
 
+        var obj = Owner;
         int now = Frame;
-        if (flung && Owner.Position.Z <= Game.Terrain.LayerHeight(Owner.Position.X, Owner.Position.Y) + 0.5f)
+        if (flungIntoAir && !bounced)
         {
-            Owner.SetCondition("EXPLODED_FLAILING", false);
-            Owner.SetCondition("EXPLODED_BOUNCING");
-            flung = false;
+            // In the air the clock stops.
+            SinkFrame++;
+            MidpointFrame++;
+            DestructionFrame++;
+            if (!obj.IsAboveTerrain)
+            {
+                obj.SetCondition("EXPLODED_FLAILING", false);
+                obj.SetCondition("EXPLODED_BOUNCING");
+                bounced = true;
+            }
+            // Caught in a tree: hang there as if parachuting.
+            if (obj.FindModule<PhysicsBehavior>() is { } phys && Game.FindObject(phys.LastCollideeId) is { } tree && tree.IsKindOf(Kind.Shrubbery))
+            {
+                obj.SetDisabled("DISABLED_HELD");
+                obj.SetCondition("EXPLODED_FLAILING", false);
+                obj.SetCondition("EXPLODED_BOUNCING", false);
+                obj.SetCondition("PARACHUTING");
+                obj.SetPosition(obj.Position with { Z = obj.Position.Z - sinkRate * 50 });
+                if (!obj.IsAboveTerrain)
+                {
+                    Game.DestroyObject(obj);
+                    return LogicTime.SleepForever;
+                }
+            }
         }
 
-        if (now >= sinkFrame && sinkRate > 0)
-            Owner.SetPosition(Owner.Position with { Z = Owner.Position.Z - sinkRate });
-
-        if (!midpointDone && now >= midpointFrame)
+        if (now >= SinkFrame && sinkRate > 0)
         {
-            midpointDone = true;
-            RunPhase(Phase.Midpoint);
+            obj.SetDisabled("DISABLED_HELD");
+            obj.SetPosition(obj.Position with { Z = obj.Position.Z - sinkRate });
         }
 
-        bool sunk = sinkRate > 0 && Owner.Position.Z < Game.Terrain.GroundHeight(Owner.Position) + destructionAltitude;
-        if (now >= destructionFrame || sunk)
+        if (now >= MidpointFrame && !midpointExecuted)
         {
-            RunPhase(Phase.Final);
-            active = false;
-            Game.DestroyObject(Owner);
-            return 1000;
+            DoPhaseStuff(Phase.Midpoint);
+            midpointExecuted = true;
+        }
+
+        if (now >= DestructionFrame)
+        {
+            DoPhaseStuff(Phase.Final);
+            Game.DestroyObject(obj);
         }
         return 0;
     }
 
-    protected void RunPhase(Phase phase)
+    protected void DoPhaseStuff(Phase phase)
     {
         if (fx.TryGetValue(phase, out var fxList))
             Game.Events.PlayFx(fxList[Game.Random.Int(0, fxList.Count - 1)], Owner.Position, Owner);

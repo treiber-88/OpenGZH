@@ -15,6 +15,22 @@ public static partial class RuleValue
     [GeneratedRegex(@"([A-Za-z]+)\s*:\s*(-?[0-9]*\.?[0-9]+)")]
     internal static partial Regex NamedNumber();
 
+    /// <summary>The number at the start of a token ("100.0f" -> "100.0").</summary>
+    [GeneratedRegex(@"^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)([eE][+-]?[0-9]+)?")]
+    private static partial Regex LeadingNumber();
+
+    /// <summary>
+    /// Reads a number the way the original's sscanf("%f") does: the leading number counts and any
+    /// trailing letters are ignored (the data has values like "100.0f").
+    /// </summary>
+    static bool TryParseLeading(string token, out float value)
+    {
+        if (float.TryParse(token, NumberStyles.Float, CultureInfo.InvariantCulture, out value))
+            return true;
+        var match = LeadingNumber().Match(token);
+        return match.Success && float.TryParse(match.Value, NumberStyles.Float, CultureInfo.InvariantCulture, out value);
+    }
+
     public static float Float(string? text, float fallback = 0)
     {
         if (string.IsNullOrWhiteSpace(text))
@@ -23,7 +39,7 @@ public static partial class RuleValue
         bool percent = first.EndsWith('%');
         if (percent)
             first = first[..^1];
-        if (!float.TryParse(first, NumberStyles.Float, CultureInfo.InvariantCulture, out float value))
+        if (!TryParseLeading(first, out float value))
             return fallback;
         return percent ? value / 100f : value;
     }
@@ -35,7 +51,7 @@ public static partial class RuleValue
         string first = FirstToken(text);
         if (int.TryParse(first, NumberStyles.Integer, CultureInfo.InvariantCulture, out int value))
             return value;
-        return float.TryParse(first, NumberStyles.Float, CultureInfo.InvariantCulture, out float f) ? (int)f : fallback;
+        return TryParseLeading(first, out float f) ? (int)f : fallback;
     }
 
     public static bool Bool(string? text, bool fallback = false)
@@ -84,6 +100,10 @@ public static partial class RuleValue
 /// <summary>Colors written as "R:200 G:150 B:100 A:255" (0-255 each), returned as 0-1 floats.</summary>
 public static class RuleColor
 {
+    /// <summary>A 0xRRGGBB colour as RGBA 0..1 (opaque).</summary>
+    public static Vector4 FromRgb(uint rgb) =>
+        new(((rgb >> 16) & 0xFF) / 255f, ((rgb >> 8) & 0xFF) / 255f, (rgb & 0xFF) / 255f, 1);
+
     public static Vector4 Parse(string? text, Vector4 fallback)
     {
         if (string.IsNullOrWhiteSpace(text))

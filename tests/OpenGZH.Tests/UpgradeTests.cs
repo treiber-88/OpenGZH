@@ -37,6 +37,7 @@ public class UpgradeTests(BaseGameFixture content, ITestOutputHelper output) : I
         var alice = game.Players.Find("Alice")!;
         var start = game.ObjectsOwnedBy(alice).First().Position + new Vector3(80, 0, 0);
         var humvee = game.CreateObject("AmericaVehicleHumvee", alice, start)!;
+        game.Update(); // the skirmish AI swaps its starting command center for its build list's on the first frame
         int before = game.Objects.Count();
 
         humvee.GiveUpgrade("Upgrade_AmericaScoutDrone");

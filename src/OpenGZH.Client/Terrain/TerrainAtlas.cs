@@ -92,6 +92,44 @@ public sealed class TerrainAtlas
         }
     }
 
+    readonly Dictionary<int, Vector3> averageColors = new();
+
+    /// <summary>
+    /// A tile's colour averaged down to one pixel (as the original's radar reads it from the tile's
+    /// smallest mip), 0..1 per channel. Black for unknown tiles.
+    /// </summary>
+    public Vector3 TileAverageColor(int tileIndex)
+    {
+        int tile = tileIndex >> 2;
+        if (averageColors.TryGetValue(tile, out var cached))
+            return cached;
+        var color = Vector3.Zero;
+        var textureClass = tiles.ClassOfTile(tile);
+        if (textureClass != null && classPositions.TryGetValue(textureClass, out var origin))
+        {
+            int local = tile - textureClass.FirstTile;
+            int column = local % textureClass.Width;
+            int rowFromBottom = local / textureClass.Width;
+            int left = origin.X + column * TilePixels;
+            int top = origin.Y + (textureClass.Width - 1 - rowFromBottom) * TilePixels;
+            double r = 0, g = 0, b = 0;
+            int n = 0;
+            for (int y = top; y < top + TilePixels && y < Image.Height; y++)
+                for (int x = left; x < left + TilePixels && x < Image.Width; x++)
+                {
+                    int i = (y * Image.Width + x) * 4;
+                    r += Image.Pixels[i];
+                    g += Image.Pixels[i + 1];
+                    b += Image.Pixels[i + 2];
+                    n++;
+                }
+            if (n > 0)
+                color = new Vector3((float)(r / n / 255), (float)(g / n / 255), (float)(b / n / 255));
+        }
+        averageColors[tile] = color;
+        return color;
+    }
+
     /// <summary>
     /// UVs for the four corners of a cell showing <paramref name="tileIndex"/>, in corner order
     /// (x,y), (x+1,y), (x+1,y+1), (x,y+1). Returns false if the tile's texture is unknown.

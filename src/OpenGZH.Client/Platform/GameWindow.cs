@@ -16,6 +16,9 @@ public sealed class GameWindow
     IScreen? screen;
     Func<GL, IInputContext, IWindow, IScreen>? createScreen;
 
+    /// <summary>The game's window (screens use it to hand over to the next screen).</summary>
+    public static GameWindow? Current { get; private set; }
+
     public GL? GL { get; private set; }
     public IInputContext? Input { get; private set; }
 
@@ -35,7 +38,15 @@ public sealed class GameWindow
             API = new GraphicsAPI(ContextAPI.OpenGL, ContextProfile.Core, ContextFlags.ForwardCompatible, new APIVersion(3, 3)),
             PreferredDepthBufferBits = 24,
             PreferredStencilBufferBits = 8,
+            Samples = 4, // anti-aliased edges
         };
+        // Inside a single-file executable the native libraries are unpacked where only .NET's own
+        // resolver looks: load them that way first, then Silk.NET finds them already loaded.
+        foreach (string native in new[] { "glfw3", "glfw", "soft_oal", "openal" })
+            System.Runtime.InteropServices.NativeLibrary.TryLoad(native, typeof(GameWindow).Assembly, null, out _);
+        // Register GLFW explicitly: Silk.NET's automatic discovery doesn't work inside a single-file executable.
+        Silk.NET.Windowing.Glfw.GlfwWindowing.RegisterPlatform();
+        Silk.NET.Input.Glfw.GlfwInput.RegisterPlatform();
         window = Window.Create(options);
         window.Load += OnLoad;
         window.Update += dt => screen?.Update((float)dt);
@@ -48,8 +59,19 @@ public sealed class GameWindow
         window.Closing += () => screen?.Dispose();
     }
 
+    /// <summary>Replaces the current screen (menus to a game and back).</summary>
+    public void Switch(IScreen next)
+    {
+        var old = screen;
+        screen = next;
+        old?.Dispose();
+        var size = window.FramebufferSize;
+        next.Resize(size.X, size.Y);
+    }
+
     public void Run(Func<GL, IInputContext, IWindow, IScreen> create)
     {
+        Current = this;
         createScreen = create;
         window.Run();
     }

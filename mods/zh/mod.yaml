@@ -54,4 +54,7 @@ Packages:
 Rules:
   - rules/defaults/*.yaml     # base values every definition starts from
   - rules/*.yaml              # weapons, locomotors, upgrades, sciences, ...
+  # Mapped images: the 512 texture set first, then the hand-made images replace any it also defines (as the original loads them).
+  - rules/ui/mapped-images/texture-size-512/*.yaml
+  - rules/ui/mapped-images/hand-created/*.yaml
   - rules/**/*.yaml           # objects by faction: usa/vehicles.yaml, china/infantry.yaml, ...

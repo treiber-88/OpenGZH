@@ -41,6 +41,10 @@ public sealed class PhysicsBehavior : Module, IUpdateModule, ICreateModule, ICol
     bool wasAirborneLastFrame, updateEverRun;
     uint currentOverlap, previousOverlap, ignoreCollisionsWith;
 
+    /// <summary>What the object is driving over now and last frame (the client rocks tanks over them).</summary>
+    public uint CurrentOverlap => currentOverlap;
+    public uint PreviousOverlap => previousOverlap;
+
     public Turning Turning { get; set; }
     public float ExtraBounciness { get; set; }
     public float ExtraFriction { get; set; }
@@ -166,6 +170,8 @@ public sealed class PhysicsBehavior : Module, IUpdateModule, ICreateModule, ICol
         rollRate += shockMaxRoll * Game.Random.Float(-1, 1);
         Owner.WakeUpdate(this);
     }
+
+    public void ClearAcceleration() => accel = Vector3.Zero;
 
     public void ResetDynamicPhysics()
     {
@@ -362,7 +368,7 @@ public sealed class PhysicsBehavior : Module, IUpdateModule, ICreateModule, ICol
                 obj.SetOrientation(obj.Orientation + yaw);
             }
 
-            float groundZ = Game.Terrain.LayerHeight(position.X, position.Y);
+            float groundZ = Game.Terrain.LayerHeight(position.X, position.Y, obj.Layer);
             gotBounceForce = HandleBounce(oldZ, position.Z, groundZ, out bounceForce);
             activeVelZ = velocity.Z;
             if (position.Z <= groundZ)
@@ -459,7 +465,7 @@ public sealed class PhysicsBehavior : Module, IUpdateModule, ICreateModule, ICol
     public void OnCollide(GameObject? other, Vector3 location, Vector3 normal)
     {
         var obj = Owner;
-        if (obj.FindModule<Projectiles.ProjectileModule>() is { } projectile && projectile.HandleCollision(other))
+        if (obj.FindModule<IProjectile>() is { } projectile && projectile.HandleCollision(other))
             return;
         var containedBy = Game.FindObject(obj.ContainedById);
         if (other == null)

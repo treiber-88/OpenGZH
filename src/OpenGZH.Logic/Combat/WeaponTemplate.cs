@@ -39,6 +39,8 @@ public sealed class WeaponTemplate
     public float ScatterRadius { get; }
     public float ScatterRadiusVsInfantry { get; }
     public float ScatterTargetScalar { get; }
+    /// <summary>Fixed aim offsets, used once each per clip in random order (the Scud Storm's spread), scaled by ScatterTargetScalar.</summary>
+    public IReadOnlyList<System.Numerics.Vector2> ScatterTargets { get; }
 
     // What it can hit
     public bool AntiGround { get; }
@@ -50,6 +52,9 @@ public sealed class WeaponTemplate
     public bool AntiMine { get; }
     public bool AntiParachute { get; }
     public FlagSet ProjectileCollidesWith { get; }
+
+    /// <summary>Melee-range weapons (range under one cell): they don't count as "armed" for the Battle Bus.</summary>
+    public bool IsContactWeapon => AttackRange * 1.05f < Formats.Maps.MapFile.CellSize;
 
     /// <summary>
     /// Whether a projectile of this weapon hits something it touches on the way (the original's
@@ -63,6 +68,9 @@ public sealed class WeaponTemplate
         if (launcher != null && (launcher == thing || launcher.ContainedById == thing.Id))
             return false;
         if ((DamageType == "FLAME" || DamageType == "PARTICLE_BEAM") && thing.HasStatus(Core.Status.Burned))
+            return false;
+        // Something using a sneaky targeting offset is momentarily immune to being hit.
+        if (thing.AI is Modules.AI.JetAIUpdate jet && jet.TryGetSneakyTargetingOffset(out _))
             return false;
         // Planes parked on their own airfield are not hit by shots meant for them.
         if (thing.IsKindOf("FS_AIRFIELD") && thing.FindModules<Modules.IParkingPlace>().Any(p => p.HasReservedSpace(intendedVictimId)))
@@ -91,6 +99,9 @@ public sealed class WeaponTemplate
     public int PreAttackDelay { get; }
     public string PreAttackType { get; }
     public bool AutoReloadsClip { get; }
+
+    /// <summary>RETURN_TO_BASE: the clip only refills at an airfield (jets).</summary>
+    public bool ReloadsAtBase { get; }
     public int AutoReloadWhenIdle { get; }
     public int ContinuousFireOne { get; }
     public int ContinuousFireTwo { get; }
@@ -101,6 +112,9 @@ public sealed class WeaponTemplate
     public float WeaponSpeed { get; }
     public float MinWeaponSpeed { get; }
     public bool ScaleWeaponSpeed { get; }
+
+    /// <summary>The projectile object dies (rather than vanishing) when it goes off.</summary>
+    public bool DieOnDetonate { get; }
     public float WeaponRecoil { get; }
     public string FireSound { get; }
     public string ProjectileStreamName { get; }
@@ -113,6 +127,8 @@ public sealed class WeaponTemplate
 
     /// <summary>Per veterancy level (REGULAR, VETERAN, ELITE, HEROIC).</summary>
     public string[] FireFX { get; } = new string[4];
+    /// <summary>Show the fire FX even when a stealthed shooter fires (most stealthy shooters stay hidden).</summary>
+    public bool PlayFxWhenStealthed { get; }
     public string[] ProjectileDetonationFX { get; } = new string[4];
     public string[] FireOCL { get; } = new string[4];
     public string[] ProjectileDetonationOCL { get; } = new string[4];
@@ -162,6 +178,15 @@ public sealed class WeaponTemplate
         ScatterRadius = F("ScatterRadius");
         ScatterRadiusVsInfantry = F("ScatterRadiusVsInfantry");
         ScatterTargetScalar = F("ScatterTargetScalar");
+        var scatterTargets = new List<System.Numerics.Vector2>();
+        if (rules.TryGet("ScatterTarget", out var targetsNode))
+            foreach (var entry in targetsNode.AsList())
+            {
+                var m = System.Text.RegularExpressions.Regex.Match(entry.Value ?? "", @"X:\s*(-?[\d.]+)\s*Y:\s*(-?[\d.]+)", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                if (m.Success)
+                    scatterTargets.Add(new System.Numerics.Vector2(RuleValue.Float(m.Groups[1].Value), RuleValue.Float(m.Groups[2].Value)));
+            }
+        ScatterTargets = scatterTargets;
 
         AntiGround = B("AntiGround", true);
         AntiAirborneVehicle = B("AntiAirborneVehicle");
@@ -182,7 +207,9 @@ public sealed class WeaponTemplate
         ShotsPerBarrel = Math.Max(1, RuleValue.Int(S("ShotsPerBarrel"), 1));
         PreAttackDelay = RuleUnits.Duration(S("PreAttackDelay"));
         PreAttackType = S("PreAttackType", "PER_SHOT");
-        AutoReloadsClip = !S("AutoReloadsClip", "YES").Equals("NO", StringComparison.OrdinalIgnoreCase);
+        string reload = S("AutoReloadsClip", "YES").ToUpperInvariant();
+        ReloadsAtBase = reload == "RETURN_TO_BASE";
+        AutoReloadsClip = reload is not ("NO" or "RETURN_TO_BASE");
         AutoReloadWhenIdle = RuleUnits.Duration(S("AutoReloadWhenIdle"));
         ContinuousFireOne = RuleValue.Int(S("ContinuousFireOne"));
         ContinuousFireTwo = RuleValue.Int(S("ContinuousFireTwo"));
@@ -192,6 +219,7 @@ public sealed class WeaponTemplate
         WeaponSpeed = RuleUnits.Velocity(S("WeaponSpeed"), 999999);
         MinWeaponSpeed = RuleUnits.Velocity(S("MinWeaponSpeed"), 999999);
         ScaleWeaponSpeed = B("ScaleWeaponSpeed");
+        DieOnDetonate = B("DieOnDetonate");
         WeaponRecoil = RuleUnits.Angle(S("WeaponRecoil"));
         FireSound = S("FireSound");
         ProjectileStreamName = S("ProjectileStreamName");
@@ -203,6 +231,7 @@ public sealed class WeaponTemplate
         MissileCallsOnDie = B("MissileCallsOnDie");
 
         ReadPerLevel(rules, "FireFX", "VeterancyFireFX", FireFX);
+        PlayFxWhenStealthed = B("PlayFXWhenStealthed");
         ReadPerLevel(rules, "ProjectileDetonationFX", "VeterancyProjectileDetonationFX", ProjectileDetonationFX);
         ReadPerLevel(rules, "FireOCL", "VeterancyFireOCL", FireOCL);
         ReadPerLevel(rules, "ProjectileDetonationOCL", "VeterancyProjectileDetonationOCL", ProjectileDetonationOCL);

@@ -70,4 +70,37 @@ public sealed class Geometry
 
     /// <summary>The same shape with different radii (used by collision tests that treat a circle as a square).</summary>
     public Geometry WithRadii(float major, float minor) => new(Type, major, minor, Height, IsSmall);
+
+    /// <summary>The original's makeRandomOffsetWithinFootprint: a random point inside the footprint.</summary>
+    public System.Numerics.Vector3 RandomOffsetWithinFootprint(GameRandom random)
+    {
+        if (Type == GeometryType.Box)
+            return new System.Numerics.Vector3(random.Float(-MajorRadius, MajorRadius), random.Float(-MinorRadius, MinorRadius), 0);
+        float x, y;
+        do
+        {
+            x = random.Float(-MajorRadius, MajorRadius);
+            y = random.Float(-MajorRadius, MajorRadius);
+        } while (x * x + y * y > MajorRadius * MajorRadius);
+        return new System.Numerics.Vector3(x, y, 0);
+    }
+
+    /// <summary>The original's makeRandomOffsetOnPerimeter: a random point on a box's edge (the centre for round shapes).</summary>
+    public System.Numerics.Vector3 RandomOffsetOnPerimeter(GameRandom random)
+    {
+        if (Type != GeometryType.Box)
+            return default;
+        float x, y;
+        if (random.Float(0, 1) < 0.5f)
+        {
+            x = random.Float(-MajorRadius, MajorRadius);
+            y = random.Float(0, 1) < 0.5f ? -MinorRadius : MinorRadius;
+        }
+        else
+        {
+            y = random.Float(-MinorRadius, MinorRadius);
+            x = random.Float(0, 1) < 0.5f ? -MajorRadius : MajorRadius;
+        }
+        return new System.Numerics.Vector3(x, y, 0);
+    }
 }

@@ -22,14 +22,151 @@ public sealed class Drawable
 
     const float MuzzleFlashSeconds = 0.08f;
 
-    public Drawable(GameObject obj)
+    /// <summary>Vehicle body motion on springs (the original's client physics transform).</summary>
+    readonly ClientPhysics clientPhysics = new();
+
+    /// <summary>Finds another object's drawable (an Overlord add-on rides its carrier's bone).</summary>
+    public Func<GameObject, Drawable?>? FindDrawable { get; set; }
+
+    /// <summary>The player watching (science-only models show only to players with the science).</summary>
+    public Func<Logic.Players.Player?>? LocalPlayer { get; set; }
+
+    /// <summary>The transform used last frame.</summary>
+    public Matrix4x4 LastWorld { get; private set; } = Matrix4x4.Identity;
+
+    // Tints (the original's color tint and selection flash envelopes), stepped 30 times a second.
+    readonly TintEnvelope tintEnvelope = new(), selectionFlash = new();
+    Logic.Objects.TintStatus prevTintStatus;
+    Vector3? prevDrawColorTint;
+    float tintStepTime;
+
+    static readonly Vector3 DarkGrayDisabledColor = new(-0.5f, -0.5f, -0.5f);
+    static readonly Vector3 SubdualDamageColor = new(-0.2f, -0.2f, 0.8f);
+    static readonly Vector3 FrenzyColor = new(0.2f, -0.2f, -0.2f);
+    static readonly Vector3 FrenzyColorInfantry = new(0, -0.7f, -0.7f);
+
+    /// <summary>A short flash when selected (white, darkened by SelectionFlashSaturationFactor).</summary>
+    public void FlashAsSelected(float saturation = 0.5f)
+    {
+        float c = 1 * saturation - saturation * 0.5f;
+        selectionFlash.Play(new Vector3(c, c, c), 0, 4);
+    }
+
+    /// <summary>Starts or ends tints when the object's tint status changes, then steps the envelopes.</summary>
+    Vector3 UpdateTint(float seconds)
+    {
+        var status = Object.Tint;
+        if (status != prevTintStatus)
+        {
+            if (status.HasFlag(Logic.Objects.TintStatus.Disabled))
+                tintEnvelope.Play(DarkGrayDisabledColor, 30, 30, TintEnvelope.SustainIndefinitely);
+            else if (status.HasFlag(Logic.Objects.TintStatus.GainingSubdualDamage))
+                tintEnvelope.Play(SubdualDamageColor, 150, 150, TintEnvelope.SustainIndefinitely);
+            else if (status.HasFlag(Logic.Objects.TintStatus.Frenzy))
+                tintEnvelope.Play(Object.IsKindOf("INFANTRY") ? FrenzyColorInfantry : FrenzyColor, 30, 30, TintEnvelope.SustainIndefinitely);
+            else
+                tintEnvelope.Release();
+            prevTintStatus = status;
+        }
+        // A color the logic sets directly (an EMP pulse) holds while it is set.
+        if (Object.DrawColorTint != prevDrawColorTint)
+        {
+            if (Object.DrawColorTint is { } color)
+                tintEnvelope.Play(color, 0, 0, TintEnvelope.SustainIndefinitely);
+            else
+                tintEnvelope.Release();
+            prevDrawColorTint = Object.DrawColorTint;
+        }
+        tintStepTime += seconds;
+        for (int i = 0; tintStepTime >= 1f / 30 && i < 4; i++)
+        {
+            tintStepTime -= 1f / 30;
+            tintEnvelope.Update();
+            selectionFlash.Update();
+        }
+        if (tintStepTime > 1f / 30)
+            tintStepTime = 0;
+        var tint = Vector3.Zero;
+        if (tintEnvelope.IsEffective)
+            tint += tintEnvelope.Color;
+        if (selectionFlash.IsEffective)
+            tint += selectionFlash.Color;
+        return tint;
+    }
+
+    // W3DSupplyDraw: boxes currently hidden; W3DPoliceCarDraw: light bar frame.
+    readonly HashSet<string> supplyHidden = new(StringComparer.OrdinalIgnoreCase);
+    float policeFrame = Random.Shared.NextSingle() * 10;
+
+    /// <summary>A bone's current world transform in any of this drawable's models.</summary>
+    public bool TryGetBoneWorld(string bone, out Matrix4x4 world)
+    {
+        foreach (var part in Parts)
+        {
+            if (part.Hidden || part.FindPivot(bone) is not int pivot)
+                continue;
+            world = part.Instance!.Pose.Transforms[Math.Min(pivot, part.Instance.Pose.Transforms.Length - 1)];
+            return true;
+        }
+        world = default;
+        return false;
+    }
+
+    /// <summary>
+    /// W3DDependencyModelDraw: an add-on sitting on an open container (an Overlord's gattling cannon,
+    /// bunker or propaganda tower) is drawn at the container's AttachToBoneInContainer bone, so it
+    /// moves with the container's model, body motion included.
+    /// </summary>
+    bool TryAttachToContainer(out Matrix4x4 world)
+    {
+        world = default;
+        if (Object.ContainedById == 0 || FindDrawable == null)
+            return false;
+        var container = Object.Game.FindObject(Object.ContainedById);
+        if (container?.Contain is not { } contain || contain.IsEnclosingContainerFor(Object))
+            return false;
+        foreach (var part in Parts)
+        {
+            if (part.Data.ClassName != "W3DDependencyModelDraw" || part.Data.Settings.GetString("AttachToBoneInContainer") is not { Length: > 0 } bone)
+                continue;
+            if (FindDrawable(container) is not { } theirs)
+                return false;
+            world = theirs.TryGetBoneWorld(bone, out var boneWorld) ? boneWorld : theirs.LastWorld;
+            return true;
+        }
+        return false;
+    }
+
+    readonly SwayClientUpdate? sway;
+    readonly StealthLookState stealthLook = new();
+
+    /// <summary>Hidden from the local player by stealth this frame.</summary>
+    public bool HiddenByStealth => stealthLook.HiddenByStealth;
+
+    /// <summary>GameData StealthFriendlyOpacity, set by the world view.</summary>
+    public float StealthFriendlyOpacity { get; set; } = 0.5f;
+    readonly BeaconClientUpdate? beacon;
+    readonly Effects.ParticleSystemManager? particles;
+
+    public Drawable(GameObject obj, Effects.ParticleSystemManager? particles = null)
     {
         Object = obj;
+        this.particles = particles;
+        foreach (var module in obj.Template.ModulesOfType("ClientUpdate"))
+        {
+            if (module.ClassName == "SwayClientUpdate")
+                sway = new SwayClientUpdate();
+            else if (module.ClassName == "BeaconClientUpdate")
+                beacon = new BeaconClientUpdate(module.Settings);
+        }
         foreach (var module in obj.Template.ModulesOfType("Draw"))
         {
             if (module.ClassName is "W3DDefaultDraw" or "W3DLaserDraw" or "W3DTracerDraw" or "W3DRopeDraw" or "W3DProjectileStreamDraw")
                 continue;
-            Parts.Add(new DrawPart(ModelDrawData.For(obj.Template, module)));
+            var part = new DrawPart(ModelDrawData.For(obj.Template, module));
+            if (VehicleDraw.Handles(module.ClassName))
+                part.Vehicle = new VehicleDraw(module.ClassName, module.Settings, particles);
+            Parts.Add(part);
         }
     }
 
@@ -44,6 +181,17 @@ public sealed class Drawable
     {
         clock += seconds;
         var world = WorldTransform();
+        if (clientPhysics.Update(Object, seconds))
+            world = clientPhysics.LocalTransform() * world;
+        if (TryAttachToContainer(out var attached))
+            world = attached;
+        LastWorld = world;
+        var tint = UpdateTint(seconds);
+        stealthLook.Update(Object, LocalPlayer?.Invoke(), StealthFriendlyOpacity, seconds);
+        bool hidden = Object.DrawableHidden || Object.IsHiddenInContainer;
+        if (sway != null)
+            world = sway.Update(Object, seconds, !hidden) * world;
+        beacon?.Update(Object, particles, hidden);
         uint houseColor = Object.Owner.IsNeutral ? 0 : Object.Owner.Color;
 
         foreach (var part in Parts)
@@ -60,9 +208,41 @@ public sealed class Drawable
                 continue;
 
             part.Instance.World = world;
+            part.Instance.Tint = tint;
+            part.Instance.Opacity = stealthLook.EffectiveOpacity;
+            part.Instance.HeatVision = stealthLook.SecondMaterialPassOpacity;
+            part.Instance.HeatVisionOnly = stealthLook.HeatVisionOnly;
             part.Instance.HouseColor = houseColor;
             ApplyTurrets(part);
             ApplyMuzzleFlashes(part);
+            part.Vehicle?.Update(part, Object, clientPhysics, seconds, hidden);
+            switch (part.Data.ClassName)
+            {
+                case "W3DScienceModelDraw":
+                {
+                    // Shown only to a player who has RequiredScience.
+                    string science = part.Data.Settings.GetString("RequiredScience");
+                    var viewer = LocalPlayer?.Invoke();
+                    part.Hidden = science.Length == 0 || science.Equals("None", StringComparison.OrdinalIgnoreCase)
+                        || viewer != null && !viewer.HasScience(science);
+                    break;
+                }
+                case "W3DSupplyDraw":
+                    ApplySupplyBoxes(part);
+                    break;
+                case "W3DPoliceCarDraw":
+                    if (part.Instance.Animation is { } anim)
+                    {
+                        // The light bar runs at its own pace: a quarter frame per drawn frame.
+                        policeFrame += 0.25f * seconds * 30;
+                        if (policeFrame > anim.FrameCount - 1)
+                            policeFrame = 0;
+                        part.Instance.Frame = policeFrame;
+                        part.Instance.UpdatePose();
+                        continue;
+                    }
+                    break;
+            }
             part.Advance(seconds, Object);
         }
     }
@@ -70,14 +250,46 @@ public sealed class Drawable
     Matrix4x4 WorldTransform()
     {
         var position = Object.Position;
+        position.Z += Object.DrawHeightOffset;
         // Buildings rise out of the ground as they are built.
         if (Object.IsUnderConstruction)
             position.Z -= (1 - Object.ConstructionPercent / 100f) * Object.Height;
 
-        return Matrix4x4.CreateRotationY(-Object.Pitch)
+        position += Object.DrawJitter;
+        return Matrix4x4.CreateScale(Object.DrawScale) * Matrix4x4.CreateFromQuaternion(Object.Tilt) * Matrix4x4.CreateRotationY(-Object.Pitch)
              * Matrix4x4.CreateRotationX(Object.Roll)
              * Matrix4x4.CreateRotationZ(Object.Orientation)
              * Matrix4x4.CreateTranslation(position);
+    }
+
+    /// <summary>
+    /// W3DSupplyDraw: a supply pile shows as many of its SupplyBonePrefix01.. boxes as its share of
+    /// boxes left (rounded up).
+    /// </summary>
+    void ApplySupplyBoxes(DrawPart part)
+    {
+        if (Object.FindModule<Logic.Modules.Supply.SupplyWarehouseDockUpdate>() is not { StartingBoxes: > 0 } dock)
+            return;
+        string prefix = part.Data.Settings.GetString("SupplyBonePrefix");
+        if (prefix.Length == 0 || part.Instance?.Model.Hierarchy is not { } hierarchy)
+            return;
+        int total = 0;
+        while (hierarchy.FindPivot($"{prefix}{total + 1:00}") >= 0)
+            total++;
+        int show = Math.Min(total, (int)MathF.Ceiling(total * (dock.Boxes / (float)dock.StartingBoxes)));
+        for (int i = 1; i <= total; i++)
+        {
+            string name = $"{prefix}{i:00}";
+            if (i > show)
+            {
+                if (supplyHidden.Add(name))
+                    part.Instance.HiddenSubObjects.Add(name);
+                else
+                    part.Instance.HiddenSubObjects.Add(name);   // (a model state change resets the set)
+            }
+            else if (supplyHidden.Remove(name))
+                part.Instance.HiddenSubObjects.Remove(name);
+        }
     }
 
     void ApplyTurrets(DrawPart part)
@@ -142,6 +354,12 @@ public sealed class DrawPart
     float animationSpeed = 1;
     bool playingIdle;
     readonly Dictionary<string, List<string>> flashMeshCache = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>Treads, wheels and dust for tank and truck draws.</summary>
+    public VehicleDraw? Vehicle { get; set; }
+
+    /// <summary>Not drawn this frame (a science-only model the viewer cannot see).</summary>
+    public bool Hidden { get; set; }
 
     public DrawPart(ModelDrawData data) => Data = data;
 

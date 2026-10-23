@@ -139,6 +139,9 @@ public sealed class StealthUpdate : Module, IUpdateModule, ICreateModule
     int SleepTime => enabled ? 0 : LogicTime.SleepForever;
 
     /// <summary>Stealth given for a while by a power (e.g. GPS Scrambler); a player order ends it early.</summary>
+    /// <summary>Stealth only lent for a while (the original's isTemporaryGrant).</summary>
+    public bool IsTemporaryGrant => framesGranted > 0;
+
     public void ReceiveGrant(bool active, int frames = 0)
     {
         if (CanDisguise)
@@ -281,21 +284,21 @@ public sealed class StealthUpdate : Module, IUpdateModule, ICreateModule
             if (stealthAllowedFrame > Frame)
                 return SleepTime;
             if (!self.HasStatus(Status.Stealthed))
-                Game.Events.PlaySound(self.Template.Rules.GetString("SoundStealthOn"), self.Position);
+                Game.Events.PlaySound(self.Template.Rules.GetString("SoundStealthOn"), self.Position, source: self);
             self.SetStatus(Status.Stealthed);
         }
         else
         {
             stealthAllowedFrame = Frame + delay;
             if (self.HasStatus(Status.Stealthed))
-                Game.Events.PlaySound(self.Template.Rules.GetString("SoundStealthOn"), self.Position);
+                Game.Events.PlaySound(self.Template.Rules.GetString("SoundStealthOn"), self.Position, source: self);
             self.SetStatus(Status.Stealthed, false);
         }
 
         if (detectionExpiresFrame > Frame)
         {
             if (!self.HasStatus(Status.Detected))
-                Game.Events.PlaySound(self.Template.Rules.GetString("SoundStealthOff"), self.Position);
+                Game.Events.PlaySound(self.Template.Rules.GetString("SoundStealthOff"), self.Position, source: self);
             self.SetStatus(Status.Detected);
         }
         else
@@ -362,7 +365,7 @@ public sealed class StealthUpdate : Module, IUpdateModule, ICreateModule
     {
         if (DisguiseTemplate != null)
         {
-            Game.Events.PlaySound(Owner.Template.UnitSound("DisguiseStarted"), Owner.Position);
+            Game.Events.PlaySound(Owner.Template.UnitSound("DisguiseStarted"), Owner.Position, source: Owner);
             Game.Events.PlayFx(disguiseFx, Owner.Position);
             IsDisguised = true;
             Owner.SetStatus(Status.Disguised);
@@ -372,7 +375,7 @@ public sealed class StealthUpdate : Module, IUpdateModule, ICreateModule
         {
             DisguisePlayerIndex = -1;
             bool hadTarget = Owner.AI?.TargetId is > 0;
-            Game.Events.PlaySound(Owner.Template.UnitSound(hadTarget ? "DisguiseRevealedSuccess" : "DisguiseRevealedFailure"), Owner.Position);
+            Game.Events.PlaySound(Owner.Template.UnitSound(hadTarget ? "DisguiseRevealedSuccess" : "DisguiseRevealedFailure"), Owner.Position, source: Owner);
             Game.Events.PlayFx(disguiseRevealFx, Owner.Position);
             IsDisguised = false;
             Owner.SetStatus(Status.Disguised, false);
@@ -380,12 +383,18 @@ public sealed class StealthUpdate : Module, IUpdateModule, ICreateModule
         }
     }
 
+    /// <summary>Stealth is running (the client pulses the see-through look only then).</summary>
+    public bool Enabled => enabled;
+
+    /// <summary>Fading into or out of a disguise (the client uses <see cref="DisguiseOpacity"/> then).</summary>
+    public bool IsDisguiseTransitioning => disguiseFramesLeft > 0;
+
     /// <summary>How the object should look to <paramref name="player"/>.</summary>
     public StealthLook LookFor(Player player)
     {
         if (Owner.IsEffectivelyDead || !Owner.HasStatus(Status.Stealthed))
             return StealthLook.None;
-        bool allied = Owner.Owner.IsAllyOf(player) || player.IsDefeated;
+        bool allied = Owner.Owner == player || Owner.Owner.IsAllyOf(player) || player.IsDefeated;
         if (CanDisguise)
             return !allied && IsDisguised ? StealthLook.DisguisedEnemy : StealthLook.None;
         if (Owner.HasStatus(Status.Detected))
@@ -500,7 +509,7 @@ public sealed class StealthDetectorUpdate : Module, IUpdateModule, ICreateModule
         {
             Game.Events.ParticleSystem(Setting(foundSomeone ? "IRBrightParticleSysName" : "IRParticleSysName"), self.Position, self);
             Game.Events.ParticleSystem(Setting("IRBeaconParticleSysName"), self.Position, self);
-            Game.Events.PlaySound(Setting(foundSomeone ? "LoudPingSound" : "PingSound"), self.Position);
+            Game.Events.PlaySound(Setting(foundSomeone ? "LoudPingSound" : "PingSound"), self.Position, source: self);
         }
         return rate;
     }

@@ -23,6 +23,30 @@ public sealed class TemplateStore
     /// <summary>Every object name defined in the rules.</summary>
     public IEnumerable<string> ObjectNames => rules.Section("Objects").Keys.Where(k => k != DefaultTemplateName);
 
+    HashSet<string>? buildFacilities;
+
+    /// <summary>
+    /// The original's isBuildFacility: anything named in another object's Object prerequisites, and
+    /// every command center (computer players count these to see who is still in the game).
+    /// </summary>
+    public bool IsBuildFacility(ObjectTemplate template)
+    {
+        if (buildFacilities == null)
+        {
+            var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (string name in ObjectNames)
+            {
+                if (Find(name) is not { } t || !t.Rules.TryGet("Prerequisites", out var pre) || !pre.IsMapping || !pre.TryGet("Object", out var lines))
+                    continue;
+                foreach (var line in lines.AsList())
+                    foreach (string w in RuleValue.Words(line.Value))
+                        set.Add(w);
+            }
+            buildFacilities = set;
+        }
+        return template.Is("COMMANDCENTER") || buildFacilities.Contains(template.Name);
+    }
+
     public ObjectTemplate? Find(string name)
     {
         if (string.IsNullOrEmpty(name))

@@ -39,4 +39,26 @@ static class FileTools
         File.WriteAllBytes(args[1], fileSystem.ReadAllBytes(args[0]));
         return 0;
     }
+
+    /// <summary>texture-png &lt;path&gt; &lt;out.png&gt;: decodes a TGA/DDS texture; also writes the alpha channel as out_alpha.png.</summary>
+    public static int TexturePng(VirtualFileSystem fileSystem, string[] args)
+    {
+        if (args.Length < 2)
+        {
+            Console.WriteLine("texture-png <path> <out.png>");
+            return 1;
+        }
+        var image = OpenGZH.Formats.Images.Image.Load(fileSystem.ReadAllBytes(args[0]), args[0]);
+        OpenGZH.Formats.Images.PngWriter.Save(image, args[1]);
+        var alpha = new OpenGZH.Formats.Images.Image(image.Width, image.Height);
+        for (int i = 0; i < image.Width * image.Height; i++)
+        {
+            byte a = image.Pixels[i * 4 + 3];
+            alpha.Pixels[i * 4] = alpha.Pixels[i * 4 + 1] = alpha.Pixels[i * 4 + 2] = a;
+            alpha.Pixels[i * 4 + 3] = 255;
+        }
+        OpenGZH.Formats.Images.PngWriter.Save(alpha, Path.ChangeExtension(args[1], null) + "_alpha.png");
+        Console.WriteLine($"{image.Width}x{image.Height}");
+        return 0;
+    }
 }

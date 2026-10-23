@@ -174,6 +174,7 @@ public static class Status
     public static readonly int Stealthed = Flags.ObjectStatus.IndexOf("STEALTHED");
     public static readonly int Detected = Flags.ObjectStatus.IndexOf("DETECTED");
     public static readonly int Sold = Flags.ObjectStatus.IndexOf("SOLD");
+    public static readonly int Deployed = Flags.ObjectStatus.IndexOf("DEPLOYED");
     public static readonly int IsFiringWeapon = Flags.ObjectStatus.IndexOf("IS_FIRING_WEAPON");
     public static readonly int IsAttacking = Flags.ObjectStatus.IndexOf("IS_ATTACKING");
     public static readonly int Reconstructing = Flags.ObjectStatus.IndexOf("RECONSTRUCTING");

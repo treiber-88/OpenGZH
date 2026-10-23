@@ -18,6 +18,14 @@ public interface ISpecialPowerUpdate
     bool IsPowerCurrentlyInUse => false;
     bool PassesScienceTest() => true;
     bool InitiateIntentToDoSpecialPower(SpecialPowerTemplate power, GameObject? target, Vector3? position, uint options);
+
+    /// <summary>Can the player steer the power after firing it (the Particle Cannon's beam)?</summary>
+    bool DoesSpecialPowerHaveOverridableDestination => false;
+
+    /// <summary>Is it steerable right now (while the beam is firing)?</summary>
+    bool DoesSpecialPowerHaveOverridableDestinationActive => false;
+
+    void SetSpecialPowerOverridableDestination(Vector3 location) { }
 }
 
 /// <summary>
@@ -79,6 +87,9 @@ public class SpecialPowerModule : Module, ICreateModule
     }
 
     public bool IsModuleFor(SpecialPowerTemplate power) => Power == power;
+
+    /// <summary>The object a power makes (the original's getReferenceThingTemplate: OCLSpecialPower's ReferenceObject).</summary>
+    public Templates.ObjectTemplate? ReferenceThingTemplate => Game.Templates.Find(Setting("ReferenceObject"));
 
     // ---- Countdown ----
 
@@ -173,6 +184,18 @@ public class SpecialPowerModule : Module, ICreateModule
         return false;
     }
 
+    /// <summary>Steers a power that is already working (right-clicking while the Particle Cannon fires).</summary>
+    public void SetSpecialPowerOverridableDestination(Vector3 location)
+    {
+        foreach (var update in Owner.FindModules<ISpecialPowerUpdate>().ToList())
+            if (update.DoesSpecialPowerHaveOverridableDestination)
+                update.SetSpecialPowerOverridableDestination(location);
+    }
+
+    /// <summary>Is one of its update modules steerable right now?</summary>
+    public bool HasOverridableDestinationActive =>
+        Owner.FindModules<ISpecialPowerUpdate>().Any(u => u.DoesSpecialPowerHaveOverridableDestinationActive);
+
     /// <summary>The power has been used: notify scripts, play sounds, reveal the target area, start recharging.</summary>
     public void TriggerSpecialPower(Vector3? location)
     {
@@ -181,13 +204,16 @@ public class SpecialPowerModule : Module, ICreateModule
         StartPowerRecharge();
     }
 
+    /// <summary>The original's markSpecialPowerTriggered (a full trigger, recharge included).</summary>
+    public void MarkSpecialPowerTriggered(Vector3? location) => TriggerSpecialPower(location);
+
     void AboutToDoSpecialPower(Vector3? location)
     {
         if (Power == null)
             return;
         Game.Scripts?.NotifyOfTriggeredSpecialPower(Owner.Owner.Index, Power.Name, Owner.Id);
         AnnounceSuperweapon();
-        Game.Events.PlaySound(Power.InitiateSound, Owner.Position);
+        Game.Events.PlaySound(Power.InitiateSound, Owner.Position, source: Owner);
         if (location is { } at)
             Game.Events.PlaySound(Power.InitiateAtLocationSound, at, null);
     }

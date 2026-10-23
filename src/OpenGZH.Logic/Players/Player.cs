@@ -10,7 +10,7 @@ public enum Relationship { Enemies = 0, Neutral = 1, Allies = 2 }
 /// A player: human, computer, or the map's built-in players (civilians, neutral).
 /// Owns money, power, upgrades, sciences and teams.
 /// </summary>
-public sealed class Player
+public sealed partial class Player
 {
     public GameLogic Game { get; }
     public int Index { get; }
@@ -35,10 +35,76 @@ public sealed class Player
     public uint Color { get; set; } = 0xFFFFFF;
 
     public Money Money { get; } = new();
+
+    bool brownedOut;
+
+    /// <summary>
+    /// Low power (or sabotage) switches off POWERED buildings (DISABLED_UNDERPOWERED); restored power
+    /// switches them back on. Checked whenever power changes, and every second as a catch-all.
+    /// </summary>
+    public void UpdatePowerBrownOut(bool force = false)
+    {
+        bool now = !Energy.HasSufficientPower;
+        if (now == brownedOut && !force)
+            return;
+        brownedOut = now;
+        foreach (var obj in Game.ObjectsOwnedBy(this).ToList())
+        {
+            if (!obj.IsKindOf("POWERED") || obj.IsUnderConstruction)
+                continue;
+            if (obj.IsDisabledBy("DISABLED_UNDERPOWERED") != now)
+                obj.SetDisabled("DISABLED_UNDERPOWERED", now);
+        }
+    }
+
+    /// <summary>The player's tunnel network (GLA): one set of occupants shared by all tunnels.</summary>
+    public Modules.Contain.TunnelTracker Tunnels { get; }
     public Energy Energy { get; } = new();
 
-    public Team DefaultTeam { get; }
-    public List<Team> Teams { get; } = new();
+    public Team DefaultTeam { get; private set; }
+
+    /// <summary>The player's team definitions (the original's player team list).</summary>
+    public List<TeamPrototype> TeamPrototypes { get; } = new();
+
+    /// <summary>Every team instance the player owns.</summary>
+    public IEnumerable<Team> Teams => TeamPrototypes.SelectMany(p => p.Instances);
+
+    /// <summary>The team named "team" + script name becomes the default team (the original's setDefaultTeam).</summary>
+    public void SetDefaultTeam()
+    {
+        if (Game.Teams.FindTeam("team" + ScriptName) is { } team)
+        {
+            DefaultTeam = team;
+            team.SetActive();
+        }
+    }
+
+    /// <summary>
+    /// The name scripts know the player by: a skirmish computer player becomes e.g. "SkirmishAmerica2"
+    /// (its side's skirmish template plus start index) while <see cref="Name"/> stays "player2".
+    /// </summary>
+    public string ScriptName { get; set; }
+
+    /// <summary>The multiplayer start position (0-based; waypoint Player_N_Start is N = index + 1).</summary>
+    public int MpStartIndex { get; set; }
+
+    /// <summary>The AI's difficulty (skirmish players have their own; others use the mission's).</summary>
+    public Scripting.Difficulty Difficulty { get; set; } = Scripting.Difficulty.Normal;
+
+    /// <summary>A computer player run by the skirmish AI.</summary>
+    public bool IsSkirmishAIPlayer { get; set; }
+
+    /// <summary>The computer player's chosen enemy (the AI picks one; scripts can set it).</summary>
+    public Player? CurrentEnemy { get; set; }
+
+    /// <summary>Has this player been attacked by player N (skirmish AI conditions)?</summary>
+    public bool[] AttackedBy { get; } = new bool[16];
+
+    /// <summary>The AI player brain (skirmish or campaign computer), if any.</summary>
+    public AI.AIPlayer? AI { get; set; }
+
+    /// <summary>The map's build list for this side (the campaign AI rebuilds it).</summary>
+    public List<AI.BuildListInfo> BuildList { get; } = new();
 
     public bool IsDefeated { get; set; }
 
@@ -81,27 +147,24 @@ public sealed class Player
     // Relationships override the default (players are enemies unless allied).
     readonly Dictionary<Player, Relationship> playerRelations = new();
 
-    // Score.
-    public int MoneyEarned { get; set; }
-    public int UnitsBuilt { get; set; }
-    public int UnitsLost { get; set; }
-    public int UnitsKilled { get; set; }
-    public int BuildingsBuilt { get; set; }
-    public int BuildingsLost { get; set; }
-    public int BuildingsKilled { get; set; }
+    /// <summary>This player's statistics for the score screen.</summary>
+    public ScoreKeeper Score { get; }
 
     public Player(GameLogic game, int index, string name, string factionName, RuleNode? faction)
     {
         Game = game;
         Index = index;
+        Score = new ScoreKeeper(game, index);
         Name = name;
         DisplayName = name;
         FactionName = factionName;
         Faction = faction;
         Side = faction?.GetString("Side", "Civilian") ?? "Civilian";
         BaseSide = faction?.GetString("BaseSide", Side) ?? Side;
-        DefaultTeam = new Team(this, $"team{name}", isDefault: true);
-        Teams.Add(DefaultTeam);
+        ScriptName = name;
+        DefaultTeam = game.Teams.CreateTeam(game.Teams.AddPrototype($"team{name}", this, isSingleton: true).Name);
+        Tunnels = new Modules.Contain.TunnelTracker(game);
+        Energy.Clock = () => game.Frame;
 
         if (faction != null)
         {
@@ -124,9 +187,8 @@ public sealed class Player
             return Relationship.Allies;
         if (playerRelations.TryGetValue(other, out var relation))
             return relation;
-        if (IsNeutral || other.IsNeutral)
-            return Relationship.Neutral;
-        return Relationship.Enemies;
+        // (As the original: players are neutral to each other unless the map or the game setup says otherwise.)
+        return Relationship.Neutral;
     }
 
     public void SetRelationship(Player other, Relationship relation) => playerRelations[other] = relation;
@@ -153,16 +215,14 @@ public sealed class Player
     public bool HasScience(string science) => sciences.Contains(science);
     public IEnumerable<string> Sciences => sciences;
 
-    public void GrantScience(string science)
-    {
-        if (sciences.Add(science))
-            Game.Events.ScienceGranted(this, science);
-    }
-
     /// <summary>Generals' experience: skill points raise the rank, which gives points to buy generals' powers.</summary>
     public void AddSkillPoints(int points)
     {
-        SkillPoints += points;
+        points = (int)MathF.Ceiling(SkillPointsModifier * points);
+        if (points == 0)
+            return;
+        int levelCap = Math.Min(Game.RankLevelLimit, Game.Ranks.MaxRank);
+        SkillPoints = Math.Min(Game.Ranks.SkillPointsForRank(Math.Max(1, levelCap)), SkillPoints + points);
         Game.Ranks.CheckRankUp(this);
     }
 
@@ -183,12 +243,16 @@ public sealed class Player
 
     // ---- Score ----
 
-    public void ScoreKill(GameObject victim)
+    /// <summary>A unit was finished and is ready to control (the original's onUnitCreated).</summary>
+    public void OnUnitCreated(GameObject? factory, GameObject unit)
     {
-        if (victim.Owner == this)
-            return;
-        if (victim.IsKindOf(Core.Kind.Structure)) BuildingsKilled++;
-        else UnitsKilled++;
+        Score.AddObjectBuilt(unit);
+        AI?.OnUnitProduced(factory, unit);
+    }
+
+    /// <summary>Skill points (general's promotion) for killing an enemy (the original's addSkillPointsForKill).</summary>
+    public void AddSkillPointsForKill(GameObject victim)
+    {
         int skill = RuleValue.Int(victim.Template.Rules.GetString("SkillPointValue"), -1);
         AddSkillPoints(skill >= 0 ? skill : victim.ExperienceValue);
     }
@@ -202,7 +266,6 @@ public sealed class Player
         if (bounty <= 0)
             return;
         Money.Deposit(bounty);
-        MoneyEarned += bounty;
         Game.Events.MoneyEarned(killer, bounty);
     }
 }
@@ -247,7 +310,18 @@ public sealed class Energy
     /// <summary>Extra power from upgrades on power plants (PowerPlantUpgrade adds the plant's EnergyBonus).</summary>
     public int Bonus { get; private set; }
 
-    public bool HasSufficientPower => (Production + Bonus) * ProductionBonus >= Consumption;
+    /// <summary>A saboteur blacked out the power plants until this frame.</summary>
+    public int SabotagedUntilFrame { get; set; }
+
+    /// <summary>The game's frame counter (for sabotage timing).</summary>
+    public Func<int> Clock { get; set; } = () => 0;
+
+    /// <summary>Production over consumption (1 = enough; the original's getEnergySupplyRatio).</summary>
+    public float SupplyRatio =>
+        Clock() < SabotagedUntilFrame ? 0 : Consumption == 0 ? (Production + Bonus) * ProductionBonus : (Production + Bonus) * ProductionBonus / Consumption;
+
+    public bool HasSufficientPower =>
+        SabotagedUntilFrame <= Clock() && (Production + Bonus) * ProductionBonus >= Consumption;
 
     public void AdjustBonus(int amount, bool adding) => Bonus += adding ? amount : -amount;
 

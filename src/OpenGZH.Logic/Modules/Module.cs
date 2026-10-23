@@ -104,6 +104,12 @@ public interface IOwnershipModule
     void OnDelete() { }
 }
 
+/// <summary>Dropped minefield layers (GenerateMinefieldBehavior) told where to lay their mines.</summary>
+public interface IMinefieldTarget
+{
+    void SetMinefieldTarget(Vector3 position);
+}
+
 /// <summary>An airfield's parking spots (projectiles aimed at a parked plane don't hit the airfield).</summary>
 public interface IParkingPlace
 {
@@ -213,6 +219,15 @@ public abstract class UpgradeModule : Module
         OnUpgrade();
     }
 
+    /// <summary>Activates the module without any upgrade (the original's giveSelfUpgrade, e.g. StartsActive).</summary>
+    protected void ActivateWithoutUpgrade()
+    {
+        if (IsActive)
+            return;
+        IsActive = true;
+        OnUpgrade();
+    }
+
     /// <summary>The upgrade happened: apply the effect.</summary>
     protected abstract void OnUpgrade();
 
@@ -243,3 +258,9 @@ public abstract class UpgradeModule : Module
 
 /// <summary>The object's health. Exactly one per object.</summary>
 public enum BodyDamageState { Pristine = 0, Damaged = 1, ReallyDamaged = 2, Rubble = 3 }
+
+/// <summary>A train that a script can hold in its station (the original's RailroadBehavior::setHeld).</summary>
+public interface IRailroadBehavior
+{
+    void SetHeld(bool held);
+}

@@ -77,15 +77,23 @@ public sealed class UndeadBody : ActiveBody
         return 0;
     }
 
+    /// <summary>The original's startSecondLife: full health on the new maximum, the second-life armor, and a slow death begun without dying (the battle bus's flip).</summary>
     void StartSecondLife(DamageInfo damage)
     {
-        foreach (var die in Owner.Modules.OfType<IDieModule>())
-            if (die is SlowDeath.SlowDeathBehavior slowDeath && slowDeath.IsApplicable(damage))
-                slowDeath.OnDie(damage);
+        SetMaxHealth(secondLifeMaxHealth, MaxHealthChange.FullyHeal);
         Owner.SetArmorSetFlag("SECOND_LIFE");
-        Owner.SetCondition("SECOND_LIFE");
-        SetMaxHealth(secondLifeMaxHealth, MaxHealthChange.PreserveRatio);
-        SetHealth(secondLifeMaxHealth);
+        var deaths = Owner.FindModules<SlowDeath.SlowDeathBehavior>().Where(s => s.IsApplicable(damage)).ToList();
+        int total = deaths.Sum(s => s.ProbabilityFor(damage));
+        int roll = Game.Random.Int(1, Math.Max(1, total));
+        foreach (var death in deaths)
+        {
+            roll -= death.ProbabilityFor(damage);
+            if (roll <= 0)
+            {
+                death.BeginSlowDeath(damage);
+                return;
+            }
+        }
     }
 }
 

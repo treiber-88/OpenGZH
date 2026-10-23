@@ -27,7 +27,7 @@ public sealed class ObjectCreationSystem
     /// false, DeliverPayload uses the source itself as the delivery vehicle (the original's USE_OWNER_OBJECT).
     /// </summary>
     public List<GameObject> Run(string oclName, GameObject? source, Vector3 position, GameObject? target = null,
-        Vector3? secondary = null, bool createOwner = true)
+        Vector3? secondary = null, bool createOwner = true, int lifetimeFrames = 0)
     {
         var created = new List<GameObject>();
         var ocl = game.Catalog.ObjectCreationList(oclName);
@@ -46,13 +46,14 @@ public sealed class ObjectCreationSystem
             switch (nugget.GetString("Type"))
             {
                 case "CreateObject":
-                    created.AddRange(CreateObjects(nugget, source, position, isDebris: false));
+                    created.AddRange(CreateObjects(nugget, source, position, isDebris: false, lifetimeFrames));
                     break;
                 case "CreateDebris":
-                    created.AddRange(CreateObjects(nugget, source, position, isDebris: true));
+                    created.AddRange(CreateObjects(nugget, source, position, isDebris: true, lifetimeFrames));
                     break;
                 case "FireWeapon":
-                    game.Damage.FireTemporaryWeapon(nugget.GetString("Weapon"), source, position);
+                    // The original fires at the secondary position (the power's target).
+                    game.Damage.FireTemporaryWeapon(nugget.GetString("Weapon"), source, secondary ?? position);
                     break;
                 case "ApplyRandomForce":
                     ApplyRandomForce(nugget, source);
@@ -68,7 +69,7 @@ public sealed class ObjectCreationSystem
         return created;
     }
 
-    IEnumerable<GameObject> CreateObjects(RuleNode nugget, GameObject? source, Vector3 position, bool isDebris)
+    IEnumerable<GameObject> CreateObjects(RuleNode nugget, GameObject? source, Vector3 position, bool isDebris, int lifetimeFrames = 0)
     {
         if (RuleValue.Bool(nugget.GetString("RequiresLivePlayer")) && source != null && source.Owner.IsDefeated)
             yield break;
@@ -106,18 +107,24 @@ public sealed class ObjectCreationSystem
             if (RuleValue.Bool(nugget.GetString("InheritsVeterancy")) && source != null)
                 obj.SetVeterancy(source.Veterancy);
 
-            ApplyLifetime(nugget, obj);
+            ApplyLifetime(nugget, obj, lifetimeFrames);
             ApplyDisposition(nugget, disposition, intensity, source, obj, basePosition, orientation);
 
-            if (RuleValue.Bool(nugget.GetString("ContainInsideSourceObject")) && source?.FindModule<Modules.Contain.ContainModule>() is { } contain)
-                contain.AddPassenger(obj);
+            if (RuleValue.Bool(nugget.GetString("ContainInsideSourceObject")) && source?.Contain is { } contain && contain.IsValidContainerFor(obj, true))
+                contain.AddToContain(obj);
 
             yield return obj;
         }
     }
 
-    void ApplyLifetime(RuleNode nugget, GameObject obj)
+    void ApplyLifetime(RuleNode nugget, GameObject obj, int lifetimeFrames)
     {
+        // A caller-given lifetime wins (FireOCLAfterWeaponCooldownUpdate's lingering fire).
+        if (lifetimeFrames > 0)
+        {
+            obj.FindModule<LifetimeUpdate>()?.SetLifetime(lifetimeFrames);
+            return;
+        }
         if (!nugget.Has("MinLifetime") && !nugget.Has("MaxLifetime"))
             return;
         int min = RuleUnits.Duration(nugget.GetString("MinLifetime"));

@@ -55,6 +55,12 @@ public sealed class WndWindow
     /// <summary>Gadget-specific settings (LISTBOXDATA, SLIDERDATA, STATICTEXTDATA, ...) as key/value text.</summary>
     public Dictionary<string, Dictionary<string, string>> GadgetData { get; } = new(StringComparer.OrdinalIgnoreCase);
 
+    /// <summary>Other draw data blocks by name (e.g. COMBOBOXLISTBOXENABLEDDRAWDATA, SLIDERTHUMBENABLEDDRAWDATA).</summary>
+    public Dictionary<string, List<WndDrawData>> ExtraDrawData { get; } = new(StringComparer.OrdinalIgnoreCase);
+
+    public WndDrawData? Extra(string block, int index) =>
+        ExtraDrawData.TryGetValue(block, out var list) && index < list.Count ? list[index] : null;
+
     public List<WndWindow> Children { get; } = new();
 
     public string? Data(string block, string key) =>
@@ -191,7 +197,14 @@ public static partial class WndFile
             case "DISABLEDDRAWDATA": ParseDrawData(window.Disabled, value); break;
             case "HILITEDRAWDATA": ParseDrawData(window.Hilite, value); break;
             default:
-                if (key.EndsWith("DATA"))
+                if (key.EndsWith("DRAWDATA"))
+                {
+                    // Sub-gadget looks: combo box edit box / drop-down button / list, list box arrows, slider thumbs.
+                    var list = new List<WndDrawData>();
+                    ParseDrawData(list, value);
+                    window.ExtraDrawData[key] = list;
+                }
+                else if (key.EndsWith("DATA"))
                     window.GadgetData[key] = ParseKeyValues(value);
                 break;
         }

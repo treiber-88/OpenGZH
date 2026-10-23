@@ -42,6 +42,28 @@ public sealed class WaypointList
 
     public Waypoint? Find(string name) => byName.GetValueOrDefault(name);
 
+    /// <summary>The original's getClosestWaypointOnPath: the nearest (2D) waypoint carrying the label.</summary>
+    public Waypoint? ClosestOnPath(Vector3 pos, string label)
+    {
+        if (label.Length == 0)
+            return null;
+        Waypoint? closest = null;
+        float best = 0;
+        foreach (var way in byId.Values.OrderBy(w => w.Id))
+        {
+            if (!way.PathLabels.Contains(label, StringComparer.OrdinalIgnoreCase))
+                continue;
+            float dx = way.Position.X - pos.X, dy = way.Position.Y - pos.Y;
+            float d = dx * dx + dy * dy;
+            if (closest == null || d < best)
+            {
+                closest = way;
+                best = d;
+            }
+        }
+        return closest;
+    }
+
     /// <summary>
     /// The route starting at a waypoint, following links until the end (or a loop). Where a path
     /// branches, <paramref name="pickBranch"/> chooses (scripts use the game's random generator).

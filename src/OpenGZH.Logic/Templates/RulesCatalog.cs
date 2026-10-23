@@ -55,8 +55,23 @@ public sealed class RulesCatalog
     }
 
     public RuleNode? Upgrade(string name) => rules.Get("Upgrades", name);
+
+    /// <summary>A sound named in MiscAudio (wheel screech, lock-on tick...), or "".</summary>
+    public string MiscAudio(string key) => rules.Section("MiscAudio").GetString(key);
     public RuleNode? CommandSet(string name) => rules.Get("CommandSets", name);
     public RuleNode? CommandButton(string name) => rules.Get("CommandButtons", name);
+
+    readonly Dictionary<string, CommandButton?> commandButtons = new(StringComparer.Ordinal);
+
+    /// <summary>A command button by name (the original's ControlBar::findCommandButton).</summary>
+    public CommandButton? CommandButtonTemplate(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+            return null;
+        if (!commandButtons.TryGetValue(name, out var button))
+            commandButtons[name] = button = CommandButton(name) is { } node ? Templates.CommandButton.FromRules(name, node) : null;
+        return button;
+    }
     public RuleNode? ObjectCreationList(string name) => rules.Get("ObjectCreationLists", name);
     public SpecialPowerTemplate? SpecialPower(string name)
     {
@@ -68,5 +83,6 @@ public sealed class RulesCatalog
     }
     public RuleNode? Science(string name) => rules.Get("Sciences", name);
     public RuleNode? FxList(string name) => rules.Get("FXLists", name);
+    public RuleNode? ParticleSystem(string name) => rules.Get("ParticleSystems", name);
     public RuleNode? Faction(string name) => rules.Get("PlayerTemplates", name);
 }

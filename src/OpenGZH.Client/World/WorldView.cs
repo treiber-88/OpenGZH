@@ -5,6 +5,8 @@ using OpenGZH.Formats.Maps;
 using OpenGZH.Logic;
 using OpenGZH.Logic.Core;
 using OpenGZH.Logic.Objects;
+using OpenGZH.Logic.Players;
+using OpenGZH.Logic.Vision;
 using Silk.NET.OpenGL;
 
 namespace OpenGZH.Client.World;
@@ -21,6 +23,8 @@ public sealed class WorldView : IDisposable
     readonly ModelCache models;
     readonly TerrainRenderer terrain;
     readonly WaterRenderer water;
+    readonly BridgeView bridges;
+    readonly Terrain.RoadRenderer roads;
     readonly Dictionary<GameObject, Drawable> drawables = new();
     readonly List<ModelInstance> visibleInstances = new();
     float logicTimeAccumulator;
@@ -39,6 +43,57 @@ public sealed class WorldView : IDisposable
 
     public IReadOnlyDictionary<GameObject, Drawable> Drawables => drawables;
 
+    public TerrainAtlas TerrainAtlas => terrain.Atlas;
+
+    /// <summary>Particles, FX, beams, tracers, scorch marks and camera shake.</summary>
+    public Effects.EffectsView Effects { get; }
+
+    ShroudTexture? shroud;
+
+    /// <summary>
+    /// Whose fog of war to show (null = everything visible, e.g. the map viewer or an observer).
+    /// Enemy units are only drawn where that player can see; enemy buildings once they have been seen.
+    /// </summary>
+    public Player? Viewer
+    {
+        get => viewer;
+        set
+        {
+            viewer = value;
+            if (value == null)
+            {
+                terrain.Shroud = null;
+                modelRenderer.Shroud = null;
+                roads.Shroud = null;
+                return;
+            }
+            shroud ??= new ShroudTexture(gl, Game, value.Index);
+            shroud.PlayerIndex = value.Index;
+            terrain.Shroud = shroud;
+            roads.Shroud = shroud;
+            modelRenderer.Shroud = shroud;
+        }
+    }
+    Player? viewer;
+    readonly HashSet<uint> seenStructures = new();
+
+    /// <summary>Whether the viewer may see this object now.</summary>
+    public bool IsVisibleToViewer(GameObject obj)
+    {
+        if (viewer == null || obj.Owner == viewer || obj.Owner.IsAllyOf(viewer))
+            return true;
+        var status = Game.Shroud.StatusOf(obj, viewer);
+        bool visible = status is ObjectShroud.Clear or ObjectShroud.PartialClear;
+        if (obj.IsKindOf(Kind.Structure) || obj.IsKindOf("SHRUBBERY") || obj.IsKindOf("PROP"))
+        {
+            // Buildings and scenery stay drawn in the fog once seen (the original's ghost objects).
+            if (visible)
+                seenStructures.Add(obj.Id);
+            return visible || (status == ObjectShroud.Fogged && seenStructures.Contains(obj.Id));
+        }
+        return visible;
+    }
+
     public WorldView(GL gl, GameContent content, GameLogic game, MapFile map, TextureCache textures)
     {
         this.gl = gl;
@@ -49,12 +104,20 @@ public sealed class WorldView : IDisposable
         models = new ModelCache(gl, content.Models);
         terrain = new TerrainRenderer(gl, map, new TerrainAtlas(map.BlendTiles!, content.Rules, content.FileSystem));
         water = new WaterRenderer(gl, map, content.Rules, textures);
+        bridges = new BridgeView(gl, game);
+        roads = new Terrain.RoadRenderer(gl, map, content.Rules, textures, game.Terrain);
         ApplyLighting(map.Lighting);
+
+        Effects = new Effects.EffectsView(gl, this, textures);
 
         foreach (var obj in game.Objects)
             Add(obj);
         game.Events.OnObjectCreated += Add;
         game.Events.OnObjectDestroyed += obj => drawables.Remove(obj);
+        string friendly = game.Catalog.GameData.Get("StealthFriendlyOpacity") ?? "";
+        stealthFriendlyOpacity = Core.Rules.RuleValue.Float(friendly, 50) / (friendly.Contains('%') ? 100 : 1);
+        SelectionFlashSaturation = Core.Rules.RuleValue.Float(game.Catalog.GameData.Get("SelectionFlashSaturationFactor"), 0.5f);
+        game.Events.OnFlashAsSelected += FlashAsSelected;
         game.Events.OnWeaponFired += (shooter, _, slot) =>
         {
             if (drawables.TryGetValue(shooter, out var drawable))
@@ -67,10 +130,27 @@ public sealed class WorldView : IDisposable
         Camera.FarPlane = 6000;
     }
 
+    float stealthFriendlyOpacity = 0.5f;
+
+    /// <summary>SelectionFlashSaturationFactor from the game data.</summary>
+    public float SelectionFlashSaturation { get; private set; } = 0.5f;
+
+    /// <summary>The quick flash a unit gives when it is selected.</summary>
+    public void FlashAsSelected(GameObject obj)
+    {
+        if (drawables.TryGetValue(obj, out var drawable))
+            drawable.FlashAsSelected(SelectionFlashSaturation);
+    }
+
     void Add(GameObject obj)
     {
         if (obj.Template.ModulesOfType("Draw").Any())
-            drawables[obj] = new Drawable(obj);
+            drawables[obj] = new Drawable(obj, Effects.Particles)
+            {
+                FindDrawable = other => drawables.GetValueOrDefault(other),
+                LocalPlayer = () => Viewer,
+                StealthFriendlyOpacity = stealthFriendlyOpacity,
+            };
     }
 
     void ApplyLighting(MapLighting lighting)
@@ -109,27 +189,60 @@ public sealed class WorldView : IDisposable
                 logicTimeAccumulator = 0; // too slow to catch up: drop time rather than spiral
         }
         water.Update(seconds);
+        Effects.Update(seconds);
     }
 
     public void Render(float seconds, float aspectRatio)
     {
         Camera.AspectRatio = aspectRatio;
+        // Camera shake moves the view for this frame only.
+        var unshaken = Camera.Target;
+        Camera.Target += new Vector3(Effects.ShakeOffset, 0);
         var viewProjection = Camera.ViewProjection;
+        shroud?.Refresh();
         terrain.Draw(viewProjection, TerrainLighting);
+        roads.Draw(viewProjection, TerrainLighting);
+        Effects.RenderGround(viewProjection);
 
         var frustum = new Frustum(viewProjection);
         visibleInstances.Clear();
-        foreach (var (obj, drawable) in drawables)
+        // Objects riding on others (Overlord add-ons) go after their carriers, whose bones they sit on.
+        foreach (bool riders in new[] { false, true })
         {
-            if (obj.IsContained || !frustum.Intersects(obj.Position, Math.Max(40, obj.Radius * 2)))
-                continue;
-            drawable.Update(seconds, models);
-            foreach (var part in drawable.Parts)
-                if (part.Instance != null)
-                    visibleInstances.Add(part.Instance);
+            foreach (var (obj, drawable) in drawables)
+            {
+                if ((obj.ContainedById != 0) != riders)
+                    continue;
+                if (obj.IsHiddenInContainer || obj.DrawableHidden || !frustum.Intersects(obj.Position, Math.Max(40, obj.Radius * 2)))
+                    continue;
+                if (!IsVisibleToViewer(obj))
+                    continue;
+                drawable.Update(seconds, models);
+                if (drawable.HiddenByStealth)
+                    continue;
+                foreach (var part in drawable.Parts)
+                    if (part.Instance != null && !part.Hidden)
+                        visibleInstances.Add(part.Instance);
+            }
         }
-        modelRenderer.Draw(visibleInstances, viewProjection, Camera.Position, ObjectLighting);
+        visibleInstances.AddRange(bridges.Instances());
+        modelRenderer.Draw(visibleInstances, viewProjection, Camera.Position, ObjectLighting, Camera.View);
         water.Draw(viewProjection);
+        Effects.Render(viewProjection);
+        Camera.Target = unshaken;
+    }
+
+    /// <summary>The size of the 3D view in pixels (set by the screen each frame).</summary>
+    public Vector2 ViewportSize { get; set; } = new(800, 600);
+
+    /// <summary>Where a screen pixel's ray meets a flat plane at height <paramref name="z"/> (sky pixels hit far away).</summary>
+    public Vector3 PlanePointAt(Vector2 pixel, Vector2 viewport, float z)
+    {
+        var (origin, direction) = Camera.ScreenRay(pixel, viewport);
+        if (direction.Z >= -0.0001f)
+            return origin + direction * Camera.FarPlane;
+        float t = (z - origin.Z) / direction.Z;
+        return origin + direction * Math.Min(t, Camera.FarPlane);
     }
 
     /// <summary>The ground point under a screen pixel (for orders and building placement).</summary>
@@ -164,7 +277,9 @@ public sealed class WorldView : IDisposable
         float bestDistance = float.MaxValue;
         foreach (var obj in drawables.Keys)
         {
-            if (obj.IsContained || obj.IsEffectivelyDead || filter != null && !filter(obj))
+            if (obj.IsHiddenInContainer || obj.IsEffectivelyDead || filter != null && !filter(obj))
+                continue;
+            if (!IsVisibleToViewer(obj))
                 continue;
             // Test the ray against a sphere around the object's middle.
             var center = obj.Position + new Vector3(0, 0, obj.Height / 2);
@@ -195,6 +310,7 @@ public sealed class WorldView : IDisposable
 
     public void Dispose()
     {
+        Effects.Dispose();
         terrain.Dispose();
         water.Dispose();
         models.Dispose();

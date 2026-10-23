@@ -70,5 +70,8 @@ MultiplayerColors:
     RGBNightColor: R:255 G:130 B:248
     TooltipName: Color:Pink
 MultiplayerStartingMoneyChoice:
-  Value: 50000
+- Value: 5000
+- Value: 10000
   Default: Yes
+- Value: 20000
+- Value: 50000
