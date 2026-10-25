@@ -65,7 +65,17 @@ public sealed class ShellScreen : IScreen
         foreach (var m in input.Mice)
         {
             Action<IMouse, Vector2> move = (_, p) => OnMouseMove(p);
-            Action<IMouse, MouseButton> down = (_, b) => { if (b == MouseButton.Left) Gui.MouseDown(mouse); };
+            Action<IMouse, MouseButton> down = (_, b) =>
+            {
+                if (b != MouseButton.Left)
+                    return;
+                if (TiberianDawnButtonVisible && tdButton.Contains(mouse))
+                {
+                    OpenTiberianDawn();
+                    return;
+                }
+                Gui.MouseDown(mouse);
+            };
             Action<IMouse, MouseButton> up = (_, b) => { if (b == MouseButton.Left) Gui.MouseUp(mouse); };
             Action<IMouse, ScrollWheel> scroll = (_, w) => Gui.Scroll(mouse, w.Y);
             m.MouseMove += move;
@@ -159,6 +169,9 @@ public sealed class ShellScreen : IScreen
     public void SwitchTo(IScreen next)
     {
         Shell.Reset();
+        // The shell map and its music end before the game starts.
+        ShowShellMap(false);
+        Ui.Audio.StopAllAudio();
         GameWindow.Current?.Switch(next);
     }
 
@@ -256,6 +269,7 @@ public sealed class ShellScreen : IScreen
             list.SelectedIndex = Math.Max(0, maps.FindIndex(m => m.FileName.Equals(Logic.Multiplayer.MapCache.Key(currentMap), StringComparison.OrdinalIgnoreCase)));
             if (maps.Count > 0)
                 selected = maps[list.SelectedIndex].FileName;
+            list.ScrollToSelected();
             list.Clicked += _ =>
             {
                 if (list.SelectedIndex >= 0 && list.SelectedIndex < maps.Count)
@@ -337,6 +351,9 @@ public sealed class ShellScreen : IScreen
             Ui.Audio.Update();
         Shell.Update(seconds);
         Transitions.Update(seconds);
+        var cursors = Ui.CursorsFor(input);
+        cursors.Set("Arrow");
+        cursors.Update(seconds);
         debugClock += seconds;
         while (DebugClicks.Count > 0 && DebugClicks.Peek().At <= debugClock)
         {
@@ -357,7 +374,39 @@ public sealed class ShellScreen : IScreen
         batch.Begin(width, height);
         Gui.Draw(Ui.Gui);
         Transitions.Draw(Ui.Gui);
+        DrawTiberianDawnButton(batch);
         batch.End();
+    }
+
+    // ---- Tiberian Dawn: a button on the main menu leads to its skirmish setup ----
+
+    Rect tdButton;
+
+    bool TiberianDawnButtonVisible =>
+        TiberianDawnContent.Available && Shell.StackFiles.Count > 0 && Shell.StackFiles[^1] == "Menus/MainMenu.wnd";
+
+    void DrawTiberianDawnButton(UI.SpriteBatch batch)
+    {
+        if (!TiberianDawnButtonVisible)
+            return;
+        var font = Ui.Fonts.Get("Arial", 11, bold: true);
+        const string label = "COMMAND & CONQUER: TIBERIAN DAWN";
+        float w = font.Measure(label) + 32;
+        tdButton = new Rect(20, height - 64, w, 40);
+        bool hover = tdButton.Contains(mouse);
+        batch.FillRect(tdButton, hover ? new Vector4(0.35f, 0.3f, 0.08f, 0.95f) : new Vector4(0.1f, 0.1f, 0.08f, 0.85f));
+        batch.DrawRect(tdButton, new Vector4(0.9f, 0.75f, 0.25f, 1), 2);
+        font.Draw(batch, label, new Vector2(tdButton.X + 16, tdButton.Y + (tdButton.Height - font.LineHeight) / 2), new Vector4(1, 0.9f, 0.5f, 1));
+    }
+
+    void OpenTiberianDawn()
+    {
+        var td = TiberianDawnContent.Get();
+        if (td == null)
+            return;
+        var campaigns = Campaigns;
+        GameWindow.Current?.Switch(new TiberianDawn.TdSkirmishSetupScreen(gl, input, td,
+            () => new ShellScreen(gl, input, window, Ui, campaigns)));
     }
 
     public void Dispose()

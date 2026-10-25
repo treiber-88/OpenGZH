@@ -21,6 +21,11 @@ public sealed class UiResources : IDisposable
     /// <summary>Sound, speech and music for the whole session.</summary>
     public Audio.AudioManager Audio { get; }
 
+    Cursors? cursors;
+
+    /// <summary>The mouse cursors (shared by the menus and the game; made on first use).</summary>
+    public Cursors CursorsFor(Silk.NET.Input.IInputContext input) => cursors ??= new Cursors(Content.Rules, Content.FileSystem, input);
+
     public UiResources(GL gl, GameContent content)
     {
         Content = content;

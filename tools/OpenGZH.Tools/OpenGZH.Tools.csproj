@@ -1,9 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\OpenGZH.Core\OpenGZH.Core.csproj" />
     <ProjectReference Include="..\..\src\OpenGZH.Formats\OpenGZH.Formats.csproj" />
     <ProjectReference Include="..\..\src\OpenGZH.Logic\OpenGZH.Logic.csproj" />
+    <ProjectReference Include="..\..\src\OpenGZH.TiberianDawn\OpenGZH.TiberianDawn.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

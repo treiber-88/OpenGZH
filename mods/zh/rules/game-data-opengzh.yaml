@@ -1,0 +1,8 @@
+# OpenGZH ADDITIONS to GameData (hand-written, not converted from the original data).
+# These merge into the GameData entry from game-data.yaml.
+GameData:
+  # Human players may only place buildings within this distance (world units; 10 per terrain cell)
+  # of one of their Command Centers. With no Command Center left, a new one may go anywhere.
+  # Shipyards are exempt (they need a usable shore, which can be far from the base).
+  # 0 turns the limit off (as in the original game).
+  MaxBuildDistanceFromCommandCenter: 900.0

@@ -50,6 +50,13 @@ public sealed class WorldView : IDisposable
 
     ShroudTexture? shroud;
 
+    /// <summary>The FX name prefix of a Tiberian Dawn animation (TD weapons' FireFX and ProjectileDetonationFX).</summary>
+    public const string TdFxPrefix = "TDFX:";
+
+    /// <summary>Tiberian Dawn objects' sprites (made when the first one appears).</summary>
+    TiberianDawn.TdSpriteRenderer? tdSprites;
+    bool tdSpritesTried;
+
     /// <summary>
     /// Whose fog of war to show (null = everything visible, e.g. the map viewer or an observer).
     /// Enemy units are only drawn where that player can see; enemy buildings once they have been seen.
@@ -64,6 +71,8 @@ public sealed class WorldView : IDisposable
             {
                 terrain.Shroud = null;
                 modelRenderer.Shroud = null;
+                if (tdSprites != null)
+                    tdSprites.Shroud = null;
                 roads.Shroud = null;
                 return;
             }
@@ -72,6 +81,8 @@ public sealed class WorldView : IDisposable
             terrain.Shroud = shroud;
             roads.Shroud = shroud;
             modelRenderer.Shroud = shroud;
+            if (tdSprites != null)
+                tdSprites.Shroud = shroud;
         }
     }
     Player? viewer;
@@ -111,13 +122,37 @@ public sealed class WorldView : IDisposable
         Effects = new Effects.EffectsView(gl, this, textures);
 
         foreach (var obj in game.Objects)
-            Add(obj);
-        game.Events.OnObjectCreated += Add;
-        game.Events.OnObjectDestroyed += obj => drawables.Remove(obj);
+            Add(obj, atStart: true);
+        game.Events.OnObjectCreated += obj => Add(obj, atStart: false);
+        game.Events.OnObjectDestroyed += obj =>
+        {
+            drawables.Remove(obj);
+            tdSprites?.OnDestroyed(obj);
+        };
         string friendly = game.Catalog.GameData.Get("StealthFriendlyOpacity") ?? "";
         stealthFriendlyOpacity = Core.Rules.RuleValue.Float(friendly, 50) / (friendly.Contains('%') ? 100 : 1);
         SelectionFlashSaturation = Core.Rules.RuleValue.Float(game.Catalog.GameData.Get("SelectionFlashSaturationFactor"), 0.5f);
         game.Events.OnFlashAsSelected += FlashAsSelected;
+        // Tiberian Dawn weapons name their muzzle flash and explosion "TDFX:<TD animation>".
+        game.Events.OnFx += fx =>
+        {
+            if (fx.Name.StartsWith(TdFxPrefix, StringComparison.OrdinalIgnoreCase))
+                foreach (string anim in fx.Name[TdFxPrefix.Length..].Split('|'))
+                    tdSprites?.PlayAnim(anim, fx.Position);
+        };
+        game.Events.OnWeaponFireFx += fx =>
+        {
+            if (!fx.Name.StartsWith(TdFxPrefix, StringComparison.OrdinalIgnoreCase) || tdSprites == null || !IsVisibleToViewer(fx.Shooter))
+                return;
+            var from = fx.Shooter.Position;
+            float towards = MathF.Atan2(fx.Target.Y - from.Y, fx.Target.X - from.X);
+            // At the muzzle: out from the shooter's middle towards the target.
+            var muzzle = from + new Vector3(MathF.Cos(towards), MathF.Sin(towards), 0) * fx.Shooter.Radius + new Vector3(0, 0, fx.Shooter.Height / 2);
+            var parts = fx.Name[TdFxPrefix.Length..].Split('|');
+            tdSprites.PlayAnim(parts[0], muzzle, towards, Camera);
+            if (parts.Length > 1)
+                tdSprites.PlayAnim(parts[1], fx.Target with { Z = Game.Terrain.GroundHeight(fx.Target) + 4 });
+        };
         game.Events.OnWeaponFired += (shooter, _, slot) =>
         {
             if (drawables.TryGetValue(shooter, out var drawable))
@@ -142,8 +177,19 @@ public sealed class WorldView : IDisposable
             drawable.FlashAsSelected(SelectionFlashSaturation);
     }
 
-    void Add(GameObject obj)
+    void Add(GameObject obj, bool atStart)
     {
+        if (TiberianDawn.TdSpriteRenderer.Handles(obj))
+        {
+            if (!tdSpritesTried)
+            {
+                tdSpritesTried = true;
+                tdSprites = TiberianDawn.TdSpriteRenderer.TryCreate(gl);
+                if (tdSprites != null)
+                    tdSprites.Shroud = viewer != null ? shroud : null;
+            }
+            tdSprites?.OnCreated(obj, atStart);
+        }
         if (obj.Template.ModulesOfType("Draw").Any())
             drawables[obj] = new Drawable(obj, Effects.Particles)
             {
@@ -182,14 +228,20 @@ public sealed class WorldView : IDisposable
             int frames = 0;
             while (logicTimeAccumulator >= LogicTime.SecondsPerFrame && frames++ < 5)
             {
+                long tl = GameProfiler.Enabled ? System.Diagnostics.Stopwatch.GetTimestamp() : 0;
                 Game.Update();
+                if (GameProfiler.Enabled) GameProfiler.Add("#logic frame (total)", tl);
                 logicTimeAccumulator -= LogicTime.SecondsPerFrame;
             }
             if (frames >= 5)
                 logicTimeAccumulator = 0; // too slow to catch up: drop time rather than spiral
         }
+        long t0 = GameProfiler.Enabled ? System.Diagnostics.Stopwatch.GetTimestamp() : 0;
         water.Update(seconds);
+        if (GameProfiler.Enabled) GameProfiler.Add("#client water", t0);
+        t0 = GameProfiler.Enabled ? System.Diagnostics.Stopwatch.GetTimestamp() : 0;
         Effects.Update(seconds);
+        if (GameProfiler.Enabled) GameProfiler.Add("#client effects", t0);
     }
 
     public void Render(float seconds, float aspectRatio)
@@ -218,6 +270,8 @@ public sealed class WorldView : IDisposable
                 if (!IsVisibleToViewer(obj))
                     continue;
                 drawable.Update(seconds, models);
+                if (tdSprites != null && !drawable.HiddenByStealth && TiberianDawn.TdSpriteRenderer.Handles(obj))
+                    tdSprites.Add(obj, drawable, Camera);
                 if (drawable.HiddenByStealth)
                     continue;
                 foreach (var part in drawable.Parts)
@@ -226,6 +280,8 @@ public sealed class WorldView : IDisposable
             }
         }
         visibleInstances.AddRange(bridges.Instances());
+        tdSprites?.AddAnims(seconds, Camera);
+        tdSprites?.Draw(viewProjection, Camera);
         modelRenderer.Draw(visibleInstances, viewProjection, Camera.Position, ObjectLighting, Camera.View);
         water.Draw(viewProjection);
         Effects.Render(viewProjection);
@@ -311,6 +367,7 @@ public sealed class WorldView : IDisposable
     public void Dispose()
     {
         Effects.Dispose();
+        tdSprites?.Dispose();
         terrain.Dispose();
         water.Dispose();
         models.Dispose();

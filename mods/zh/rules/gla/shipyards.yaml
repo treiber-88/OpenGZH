@@ -1,6 +1,6 @@
 # OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
 #
-# The GLA Shipyard: built by workers on a shoreline, produces the ships in rules/gla/ships.yaml.
+# The GLA Shipyard: built by workers on the water next to the shore, produces the ships in rules/gla/ships.yaml.
 # Placement and orientation work like the USA Shipyard (see rules/usa/shipyards.yaml).
 #
 # ART: no shipyard art exists in the original game; "PMDock01" (an original concrete pier) is a

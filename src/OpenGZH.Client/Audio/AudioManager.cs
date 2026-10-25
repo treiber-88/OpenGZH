@@ -31,6 +31,8 @@ public sealed unsafe class AudioManager : IDisposable
         public bool RequestStop, CleanupEvent = true, HasFile;
         public int FramesFaded;
         public MusicStream? Stream;
+        /// <summary>How many times this playing stream has played through (counts from its start).</summary>
+        public int Completions;
     }
 
     sealed class Request
@@ -159,10 +161,13 @@ public sealed unsafe class AudioManager : IDisposable
 
     public AudioEventInfo? FindInfo(string name) => infos.GetValueOrDefault(name);
 
-    readonly Dictionary<string, int> musicCompletions = new(StringComparer.OrdinalIgnoreCase);
 
-    /// <summary>The original's hasMusicTrackCompleted: the track has played through this many times.</summary>
-    public bool HasMusicTrackCompleted(string track, int times) => musicCompletions.GetValueOrDefault(track) >= times;
+    /// <summary>
+    /// The original's hasMusicTrackCompleted: the track has played through this many times. Only the
+    /// track playing now counts, from when it started (a track that played earlier doesn't).
+    /// </summary>
+    public bool HasMusicTrackCompleted(string track, int times) =>
+        playingStreams.Any(s => s.Event.Info.Kind == AudioType.Music && s.Event.EventName.Equals(track, StringComparison.OrdinalIgnoreCase) && s.Completions >= times);
 
     // ---- Script controls ----
 
@@ -209,6 +214,18 @@ public sealed unsafe class AudioManager : IDisposable
                     Release(list[i]);
                     list.RemoveAt(i--);
                 }
+    }
+
+    /// <summary>Stops every sound, speech and music track, and drops pending ones (a game or the shell map is ending).</summary>
+    public void StopAllAudio()
+    {
+        requests.Clear();
+        foreach (var list in new[] { playingSounds, playing3DSounds, playingStreams, fading })
+        {
+            foreach (var p in list)
+                Release(p);
+            list.Clear();
+        }
     }
 
     /// <summary>Stops everything muted to volume 0.</summary>
@@ -511,6 +528,11 @@ public sealed unsafe class AudioManager : IDisposable
             }
             if (e.HandleToKill != 0 && !replace)
                 return;
+            if (Logic.GameProfiler.Enabled && info.Kind == AudioType.Music)
+                Console.WriteLine($"[perf] music start {e.EventName} ({playingStreams.Count} streams playing)");
+            // Only one music track plays at a time: a new one replaces the current one.
+            if (info.Kind == AudioType.Music && !replace)
+                StopMusic(fade: false);
             var stream = OpenStream(e);
             if (stream == null)
                 return;
@@ -715,7 +737,7 @@ public sealed unsafe class AudioManager : IDisposable
             return;
         if (p.Type == PlayingType.Stream && e.Info.Kind == AudioType.Music && !p.RequestStop)
         {
-            musicCompletions[e.Info.Name] = musicCompletions.GetValueOrDefault(e.Info.Name) + 1;
+            p.Completions++;
             p.Stream?.Restart(al, p.Source);
             return;
         }
@@ -783,6 +805,8 @@ public sealed unsafe class AudioManager : IDisposable
     /// <summary>Fades out and stops the music (AHSV_StopTheMusicFade).</summary>
     public void StopMusic(bool fade)
     {
+        // Music asked for but not started yet is dropped too.
+        requests.RemoveAll(r => r.Play && r.Event?.Info.Kind == AudioType.Music);
         foreach (var s in playingStreams.Where(s => s.Event.Info.Kind == AudioType.Music).ToList())
         {
             playingStreams.Remove(s);

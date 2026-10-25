@@ -1,0 +1,30 @@
+# OpenGZH: Command & Conquer (Tiberian Dawn), Westwood's 1995 original.
+#
+# The game files are the freeware release's .mix archives, copied into content/tiberiandawn.
+# Its rules (rules/*.yaml) were converted from the type tables in EA's released source code
+# (the C++ ...DATA.CPP files) by 'OpenGZH.Tools import-td-rules', and can be edited freely.
+
+Id: tiberiandawn
+Title: "Command & Conquer: Tiberian Dawn"
+Version: "1.0"
+Game: TiberianDawn
+
+# .mix archives keep only hashes of their file names; these are the names to look for
+# (recovered from the original source).
+MixNames: "{mod}/filenames.txt"
+
+# Priority order: the FIRST package that contains a file wins.
+Packages:
+  - "{mod}/assets?"
+  - content/tiberiandawn/general.mix
+  - content/tiberiandawn/conquer.mix
+  - content/tiberiandawn/temperat.mix
+  - content/tiberiandawn/desert.mix
+  - content/tiberiandawn/winter.mix
+  - content/tiberiandawn/tempicnh.mix
+  - content/tiberiandawn/sounds.mix
+  - content/tiberiandawn/speech.mix
+  - content/tiberiandawn/transit.mix
+
+Rules:
+  - rules/*.yaml

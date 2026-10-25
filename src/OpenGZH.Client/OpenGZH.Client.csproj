@@ -4,6 +4,7 @@
     <ProjectReference Include="..\OpenGZH.Core\OpenGZH.Core.csproj" />
     <ProjectReference Include="..\OpenGZH.Formats\OpenGZH.Formats.csproj" />
     <ProjectReference Include="..\OpenGZH.Logic\OpenGZH.Logic.csproj" />
+    <ProjectReference Include="..\OpenGZH.TiberianDawn\OpenGZH.TiberianDawn.csproj" />
   </ItemGroup>
 
   <ItemGroup>

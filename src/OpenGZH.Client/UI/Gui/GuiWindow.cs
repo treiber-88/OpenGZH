@@ -423,8 +423,12 @@ public sealed class GuiListBox : GuiWindow
     public string? SelectedItem => SelectedIndex >= 0 && SelectedIndex < Items.Count ? Items[SelectedIndex] : null;
 
     GameFont? lastFont;
+    bool scrollToSelected;
 
     public GuiListBox(WndWindow definition) : base(definition) { }
+
+    /// <summary>Scrolls so the selected item is in view (done at the next draw, once row height is known).</summary>
+    public void ScrollToSelected() => scrollToSelected = true;
 
     protected override void DrawSelf(GuiContext context)
     {
@@ -437,6 +441,13 @@ public sealed class GuiListBox : GuiWindow
                 context.Batch.FillRect(r, background.Color);
         }
         var font = lastFont = context.Font(Definition);
+        if (scrollToSelected)
+        {
+            scrollToSelected = false;
+            int rows = Math.Max(1, (int)((r.Height - 4) / font.LineHeight));
+            if (SelectedIndex >= 0 && (SelectedIndex < ScrollOffset || SelectedIndex >= ScrollOffset + rows))
+                ScrollOffset = Math.Clamp(SelectedIndex - rows / 2, 0, Math.Max(0, Items.Count - rows));
+        }
         var previousClip = context.Batch.Clip;
         context.Batch.SetClip(r);
         float y = r.Y + 2;

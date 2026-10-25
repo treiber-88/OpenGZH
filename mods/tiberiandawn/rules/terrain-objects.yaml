@@ -1,0 +1,739 @@
+# GENERATED from Tiberian Dawn's TDATA.CPP (EA's GPL source release) by 'OpenGZH.Tools import-td-rules'.
+# Each key is the class member the original constructor argument sets.
+# This file is now the source of truth for these rules: edit it freely.
+TerrainObjects:
+  T01:
+    Name: 38
+    IniName: T01
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE1
+    Id: 0
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 11,41
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree1Class
+  T02:
+    Name: 38
+    IniName: T02
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE2
+    Id: 1
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 11,44
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree2Class
+  T03:
+    Name: 38
+    IniName: T03
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE3
+    Id: 2
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 12,45
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree3Class
+  T04:
+    Name: 38
+    IniName: T04
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE4
+    Id: 3
+    Theater: THEATERF_DESERT
+    CenterBase: 8,9
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [0, 32767]
+    SourceName: Tree4Class
+  T05:
+    Name: 38
+    IniName: T05
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE5
+    Id: 4
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 15,41
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree5Class
+  T06:
+    Name: 38
+    IniName: T06
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE6
+    Id: 5
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 16,37
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree6Class
+  T07:
+    Name: 38
+    IniName: T07
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE7
+    Id: 6
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 15,41
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree7Class
+  T08:
+    Name: 38
+    IniName: T08
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE8
+    Id: 7
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE THEATERF_DESERT
+    CenterBase: 14,22
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [0, 32767]
+    Overlap: [1, 32767]
+    SourceName: Tree8Class
+  T09:
+    Name: 38
+    IniName: T09
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE9
+    Id: 8
+    Theater: THEATERF_DESERT
+    CenterBase: 11,22
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [0, 32767]
+    Overlap: [1, 32767]
+    SourceName: Tree9Class
+  T10:
+    Name: 38
+    IniName: T10
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE10
+    Id: 9
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 25,43
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 65, 32767]
+    Overlap: [0, 1, 32767]
+    SourceName: Tree10Class
+  T11:
+    Name: 38
+    IniName: T11
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE11
+    Id: 10
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 23,44
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 65, 32767]
+    Overlap: [0, 1, 32767]
+    SourceName: Tree11Class
+  T12:
+    Name: 38
+    IniName: T12
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE12
+    Id: 11
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 14,36
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree12Class
+  T13:
+    Name: 38
+    IniName: T13
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE13
+    Id: 12
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 19,40
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 1, 65, 32767]
+    SourceName: Tree13Class
+  T14:
+    Name: 38
+    IniName: T14
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE14
+    Id: 13
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 19,40
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 65, 32767]
+    Overlap: [0, 1, 32767]
+    SourceName: Tree14Class
+  T15:
+    Name: 38
+    IniName: T15
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE15
+    Id: 14
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 19,40
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 65, 32767]
+    Overlap: [0, 1, 32767]
+    SourceName: Tree15Class
+  T16:
+    Name: 38
+    IniName: T16
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE16
+    Id: 15
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 13,36
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree16Class
+  T17:
+    Name: 38
+    IniName: T17
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE17
+    Id: 16
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 18,44
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [64, 32767]
+    Overlap: [0, 65, 32767]
+    SourceName: Tree17Class
+  T18:
+    Name: 38
+    IniName: T18
+    IsSentient: 1
+    IsFlammable: 1
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 0
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_TREE18
+    Id: 17
+    Theater: THEATERF_DESERT
+    CenterBase: 33,40
+    IsTiberiumSpawn: 0
+    IsDestroyable: 1
+    IsTransformable: 0
+    Occupy: [65, 32767]
+    Overlap: [0, 1, 2, 64, 66, 32767]
+    SourceName: Tree18Class
+  SPLIT2:
+    Name: 635
+    IniName: SPLIT2
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_BLOSSOMTREE1
+    Id: 18
+    Theater: THEATERF_TEMPERATE THEATERF_WINTER
+    CenterBase: 18,44
+    IsTiberiumSpawn: 1
+    IsDestroyable: 0
+    IsTransformable: 1
+    Occupy: [64, 32767]
+    Overlap: [0, 1, 65, 32767]
+    SourceName: Split1Class
+  SPLIT3:
+    Name: 635
+    IniName: SPLIT3
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_BLOSSOMTREE2
+    Id: 19
+    Theater: THEATERF_TEMPERATE THEATERF_WINTER THEATERF_DESERT
+    CenterBase: 18,44
+    IsTiberiumSpawn: 1
+    IsDestroyable: 0
+    IsTransformable: 1
+    Occupy: [64, 32767]
+    Overlap: [0, 1, 65, 32767]
+    SourceName: Split2Class
+  TC01:
+    Name: 38
+    IniName: TC01
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_CLUMP1
+    Id: 20
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 28,41
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [64, 65, 32767]
+    Overlap: [0, 1, 66, 32767]
+    SourceName: Clump1Class
+  TC02:
+    Name: 38
+    IniName: TC02
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_CLUMP2
+    Id: 21
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 38,41
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [1, 64, 65, 32767]
+    Overlap: [0, 2, 66, 32767]
+    SourceName: Clump2Class
+  TC03:
+    Name: 38
+    IniName: TC03
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_CLUMP3
+    Id: 22
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 33,35
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [0, 1, 64, 65, 32767]
+    Overlap: [2, 32767]
+    SourceName: Clump3Class
+  TC04:
+    Name: 38
+    IniName: TC04
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_CLUMP4
+    Id: 23
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 44,49
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [64, 65, 66, 128, 32767]
+    Overlap: [0, 1, 2, 67, 129, 130, 32767]
+    SourceName: Clump4Class
+  TC05:
+    Name: 38
+    IniName: TC05
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_WOOD
+    MaxStrength: 600
+    Type: TERRAIN_CLUMP5
+    Id: 24
+    Theater: THEATERF_WINTER THEATERF_TEMPERATE
+    CenterBase: 49,58
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [2, 64, 65, 66, 129, 130, 32767]
+    Overlap: [0, 1, 67, 128, 131, 32767]
+    SourceName: Clump5Class
+  ROCK1:
+    Name: 28
+    IniName: ROCK1
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_STEEL
+    MaxStrength: 1000
+    Type: TERRAIN_ROCK1
+    Id: 25
+    Theater: THEATERF_DESERT
+    CenterBase: 33,41
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [64, 65, 32767]
+    Overlap: [0, 1, 2, 66, 32767]
+    SourceName: Rock1Class
+  ROCK2:
+    Name: 28
+    IniName: ROCK2
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_STEEL
+    MaxStrength: 1000
+    Type: TERRAIN_ROCK2
+    Id: 26
+    Theater: THEATERF_DESERT
+    CenterBase: 24,23
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [0, 1, 32767]
+    Overlap: [2, 32767]
+    SourceName: Rock2Class
+  ROCK3:
+    Name: 28
+    IniName: ROCK3
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_STEEL
+    MaxStrength: 1000
+    Type: TERRAIN_ROCK3
+    Id: 27
+    Theater: THEATERF_DESERT
+    CenterBase: 20,39
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [64, 65, 32767]
+    Overlap: [0, 1, 66, 32767]
+    SourceName: Rock3Class
+  ROCK4:
+    Name: 28
+    IniName: ROCK4
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_STEEL
+    MaxStrength: 1000
+    Type: TERRAIN_ROCK4
+    Id: 28
+    Theater: THEATERF_DESERT
+    CenterBase: 12,20
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [0, 32767]
+    Overlap: [1, 32767]
+    SourceName: Rock4Class
+  ROCK5:
+    Name: 28
+    IniName: ROCK5
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_STEEL
+    MaxStrength: 1000
+    Type: TERRAIN_ROCK5
+    Id: 29
+    Theater: THEATERF_DESERT
+    CenterBase: 17,19
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [0, 32767]
+    Overlap: [1, 32767]
+    SourceName: Rock5Class
+  ROCK6:
+    Name: 28
+    IniName: ROCK6
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_STEEL
+    MaxStrength: 1000
+    Type: TERRAIN_ROCK6
+    Id: 30
+    Theater: THEATERF_DESERT
+    CenterBase: 28,40
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [64, 65, 66, 32767]
+    Overlap: [0, 1, 32767]
+    SourceName: Rock6Class
+  ROCK7:
+    Name: 28
+    IniName: ROCK7
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 0
+    IsStealthy: 1
+    IsSelectable: 0
+    IsLegalTarget: 0
+    IsInsignificant: 1
+    IsImmune: 1
+    Armor: ARMOR_STEEL
+    MaxStrength: 1000
+    Type: TERRAIN_ROCK7
+    Id: 31
+    Theater: THEATERF_DESERT
+    CenterBase: 57,22
+    IsTiberiumSpawn: 0
+    IsDestroyable: 0
+    IsTransformable: 0
+    Occupy: [0, 1, 2, 3, 32767]
+    Overlap: [4, 32767]
+    SourceName: Rock7Class

@@ -77,7 +77,17 @@ public sealed class GameInfo
         rules.Section("PlayerTemplates").Entries.Select((e, i) => (i, e.Key, e.Value)).ToList();
 
     public static bool IsPlayableTemplate(RuleNode template) =>
-        template.GetString("StartingBuilding").Length > 0 && RuleValue.Bool(template.GetString("PlayableSide"), true);
+        IsLobbyFaction(template) && RuleValue.Bool(template.GetString("PlayableSide"), true);
+
+    /// <summary>
+    /// A faction a lobby slot can pick: one with a starting building (the original's test), or (OpenGZH)
+    /// a Tiberian Dawn faction, which starts with only an MCV.
+    /// </summary>
+    public static bool IsLobbyFaction(RuleNode template) =>
+        template.GetString("StartingBuilding").Length > 0 || IsTdFaction(template);
+
+    /// <summary>OpenGZH: Tiberian Dawn's GDI or Nod (mods/zh/rules/td).</summary>
+    public static bool IsTdFaction(RuleNode template) => RuleValue.Bool(template.GetString("TdFaction"));
 
     public static List<(string Name, uint Rgb, string TooltipName)> Colors(RuleSet rules) =>
         rules.Section("MultiplayerColors").Entries.Select(e => (e.Key, ParseRgb(e.Value.GetString("RGBColor")), e.Value.GetString("TooltipName"))).ToList();
@@ -132,7 +142,8 @@ public sealed class GameInfo
 
     void PopulateRandomSideAndColor(GameRandom random, List<(int Index, string Name, RuleNode Rules)> templates, int colorCount, Func<string, bool>? isGeneralLocked)
     {
-        // The playable factions a random pick may land on (locked challenge generals excluded).
+        // The playable factions a random pick may land on (locked challenge generals excluded; as in the
+        // original, only factions with a starting building, so "Random" never picks a Tiberian Dawn faction).
         var startSlots = templates.Where(t => t.Rules.GetString("StartingBuilding").Length > 0 && !(isGeneralLocked?.Invoke(t.Name) ?? false))
             .Select(t => t.Index).ToList();
         for (int i = 0; i < MaxSlots; i++)

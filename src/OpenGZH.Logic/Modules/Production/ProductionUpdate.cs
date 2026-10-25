@@ -31,6 +31,9 @@ public sealed class ProductionUpdate : Module, IUpdateModule
         public int Door { get; set; } = ProductionDoor.NoneNeeded;
 
         public bool IsUnit => Unit != null;
+
+        /// <summary>A finished structure waiting for its owner to place it (TD's Construction Yard).</summary>
+        public bool ReadyToPlace { get; set; }
         public string Name => Unit?.Name ?? Upgrade ?? "";
     }
 
@@ -43,6 +46,16 @@ public sealed class ProductionUpdate : Module, IUpdateModule
 
     public IReadOnlyList<Entry> Queue => queue;
 
+    /// <summary>
+    /// OpenGZH addition for Tiberian Dawn factions (PlacesStructures: Yes): structures are built here
+    /// first and then placed by the player next to their base, as TD's Construction Yard does,
+    /// instead of being put down for a dozer to build.
+    /// </summary>
+    public bool PlacesStructures { get; private set; }
+
+    /// <summary>The finished structure waiting to be placed, if any.</summary>
+    public Entry? ReadyStructure => queue.FirstOrDefault(e => e.ReadyToPlace);
+
     /// <summary>Factories keep producing only through the disable types listed (default: just DISABLED_HELD).</summary>
     public FlagSet DisabledTypesToProcess { get; private set; }
 
@@ -51,6 +64,7 @@ public sealed class ProductionUpdate : Module, IUpdateModule
         DisabledTypesToProcess = Definition.Settings.Has("DisabledTypesToProcess")
             ? Flags.Disabled.Parse(Setting("DisabledTypesToProcess")) : DisabledMask.Held;
         maxQueueEntries = IntSetting("MaxQueueEntries", 9);
+        PlacesStructures = BoolSetting("PlacesStructures");
         doorOpeningFrames = FramesSetting("DoorOpeningTime");
         doorWaitOpenFrames = FramesSetting("DoorWaitOpenTime");
         doorCloseFrames = FramesSetting("DoorCloseTime");
@@ -177,6 +191,8 @@ public sealed class ProductionUpdate : Module, IUpdateModule
             return 5;
 
         var entry = queue[0];
+        if (entry.ReadyToPlace)
+            return 15;   // the next item waits until this structure is placed
         float rate = Owner.Owner.Energy.HasSufficientPower ? 1f : Game.Catalog.GameData.LowEnergyPenaltyModifier;
         if (entry.Progress < 1f)
             entry.Progress = Math.Min(1f, entry.Progress + rate / entry.TotalFrames);
@@ -203,6 +219,13 @@ public sealed class ProductionUpdate : Module, IUpdateModule
             return;
         }
 
+        if (PlacesStructures && entry.Unit!.Is("STRUCTURE"))
+        {
+            entry.ReadyToPlace = true;
+            Game.Events.Eva("TdConstructionComplete", Owner.Owner);
+            return;
+        }
+
         var exit = Owner.FindModule<IProductionExit>();
         if (exit != null && !exit.CanExitNow)
             return; // wait for the door / parking space
@@ -221,6 +244,35 @@ public sealed class ProductionUpdate : Module, IUpdateModule
         entry.Produced++;
         if (entry.Produced >= entry.Quantity)
             queue.Remove(entry);
+    }
+
+    /// <summary>
+    /// Puts the finished structure down (TD style): it must be a legal spot next to the owner's base.
+    /// It appears complete (the client plays its build-up animation). Returns null if it can't go there.
+    /// </summary>
+    public GameObject? PlaceReadyStructure(uint entryId, Vector3 position, float angle)
+    {
+        var entry = queue.FirstOrDefault(e => e.Id == entryId && e.ReadyToPlace);
+        if (entry?.Unit is not { } template)
+            return null;
+        var player = Owner.Owner;
+        if (Game.Building.CheckLocation(template, position, angle, player, Owner) != Construction.BuildLocation.Ok)
+            return null;
+        position.Z = Game.Terrain.GroundHeight(position);
+        var structure = Game.CreateObject(template, player, position, angle);
+        structure.ProducerId = Owner.Id;
+        Game.TreatAsBuilt(structure);
+        player.Score.AddObjectBuilt(structure);
+        player.Score.AddMoneySpent(entry.Cost);
+        queue.Remove(entry);
+        player.AI?.OnStructureProduced(Owner, structure);
+
+        // Units of the owner standing there make way.
+        foreach (var unit in Game.ObjectsInRadius(position, structure.Radius))
+            if (unit.AI != null && unit.IsMobile && unit.Owner == player)
+                unit.AI.MoveTo(position + MathUtil.Forward(Game.Random.Float(0, MathF.Tau)) * (structure.Radius + unit.Radius + 10), Commands.CommandSource.AI);
+        Owner.WakeUpdate(this);
+        return structure;
     }
 
     /// <summary>With no exit module, the unit appears beside the building.</summary>

@@ -1,0 +1,1624 @@
+# GENERATED from Tiberian Dawn's IDATA.CPP (EA's GPL source release) by 'OpenGZH.Tools import-td-rules'.
+# Each key is the class member the original constructor argument sets.
+# This file is now the source of truth for these rules: edit it freely.
+Infantry:
+  E1:
+    Name: 101
+    IniName: E1
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 50
+    Level: 1
+    Pre: 0
+    IsLeader: 1
+    IsScanner: 1
+    IsNominal: 0
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: -1
+    MaxSpeed: MPH_SLOW
+    SightRange: 1
+    Cost: 100
+    Scenario: 1
+    Reward: 10
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD
+    Primary: WEAPON_M16
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_E1
+    Id: 0
+    IsFemale: 0
+    IsCrawling: 1
+    IsCivilian: 0
+    IsFraidyCat: 0
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [8, 1, 1]
+      DO_PRONE: [192, 1, 8]
+      DO_WALK: [16, 6, 6]
+      DO_FIRE_WEAPON: [64, 8, 8]
+      DO_LIE_DOWN: [128, 2, 2]
+      DO_CRAWL: [144, 4, 4]
+      DO_GET_UP: [176, 2, 2]
+      DO_FIRE_PRONE: [192, 6, 8]
+      DO_IDLE1: [256, 16, 0]
+      DO_IDLE2: [272, 16, 0]
+      DO_ON_GUARD: [288, 13, 0]
+      DO_FIGHT_READY: [292, 10, 0]
+      DO_PUNCH: [301, 2, 0]
+      DO_KICK: [303, 6, 0]
+      DO_PUNCH_HIT1: [309, 2, 0]
+      DO_PUNCH_HIT2: [311, 4, 0]
+      DO_PUNCH_DEATH: [315, 5, 0]
+      DO_KICK_HIT1: [319, 2, 0]
+      DO_KICK_HIT2: [321, 4, 0]
+      DO_KICK_DEATH: [325, 5, 0]
+      DO_READY_WEAPON: [330, 5, 0]
+      DO_GUN_DEATH: [382, 8, 0]
+      DO_EXPLOSION_DEATH: [398, 8, 0]
+      DO_EXPLOSION2_DEATH: [398, 8, 0]
+      DO_GRENADE_DEATH: [406, 12, 0]
+      DO_FIRE_DEATH: [418, 18, 0]
+      DO_GESTURE1: [436, 3, 3]
+      DO_SALUTE1: [460, 3, 3]
+      DO_GESTURE2: [484, 3, 3]
+      DO_SALUTE2: [508, 3, 3]
+      DO_PULL_GUN: [0, 1, 1]
+      DO_PLEAD: [0, 1, 1]
+      DO_PLEAD_DEATH: [0, 1, 1]
+    FireLaunch: 2
+    ProneLaunch: 2
+    IsAvoidingTiberium: 0
+    SourceName: E1
+  E2:
+    Name: 102
+    IniName: E2
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 50
+    Level: 1
+    Pre: 0
+    IsLeader: 1
+    IsScanner: 1
+    IsNominal: 0
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: -1
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 1
+    Cost: 160
+    Scenario: 3
+    Reward: 10
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD
+    Primary: WEAPON_GRENADE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_E2
+    Id: 1
+    IsFemale: 0
+    IsCrawling: 1
+    IsCivilian: 0
+    IsFraidyCat: 0
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [8, 1, 1]
+      DO_PRONE: [288, 1, 12]
+      DO_WALK: [16, 6, 6]
+      DO_FIRE_WEAPON: [64, 20, 20]
+      DO_LIE_DOWN: [224, 2, 2]
+      DO_CRAWL: [240, 4, 4]
+      DO_GET_UP: [272, 2, 2]
+      DO_FIRE_PRONE: [288, 8, 12]
+      DO_IDLE1: [384, 16, 0]
+      DO_IDLE2: [400, 16, 0]
+      DO_ON_GUARD: [416, 13, 0]
+      DO_FIGHT_READY: [420, 10, 0]
+      DO_PUNCH: [429, 2, 0]
+      DO_KICK: [431, 6, 0]
+      DO_PUNCH_HIT1: [437, 2, 0]
+      DO_PUNCH_HIT2: [439, 4, 0]
+      DO_PUNCH_DEATH: [443, 4, 0]
+      DO_KICK_HIT1: [447, 2, 0]
+      DO_KICK_HIT2: [449, 4, 0]
+      DO_KICK_DEATH: [453, 5, 0]
+      DO_READY_WEAPON: [458, 5, 0]
+      DO_GUN_DEATH: [510, 8, 0]
+      DO_EXPLOSION_DEATH: [526, 8, 0]
+      DO_EXPLOSION2_DEATH: [526, 8, 0]
+      DO_GRENADE_DEATH: [534, 12, 0]
+      DO_FIRE_DEATH: [546, 18, 0]
+      DO_GESTURE1: [564, 3, 3]
+      DO_SALUTE1: [588, 3, 3]
+      DO_GESTURE2: [612, 3, 3]
+      DO_SALUTE2: [636, 3, 3]
+      DO_PULL_GUN: [0, 1, 1]
+      DO_PLEAD: [0, 1, 1]
+      DO_PLEAD_DEATH: [0, 1, 1]
+    FireLaunch: 14
+    ProneLaunch: 6
+    IsAvoidingTiberium: 0
+    SourceName: E2
+  E3:
+    Name: 103
+    IniName: E3
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 25
+    Level: 2
+    Pre: 0
+    IsLeader: 1
+    IsScanner: 1
+    IsNominal: 0
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: -1
+    MaxSpeed: MPH_KINDA_SLOW
+    SightRange: 2
+    Cost: 300
+    Scenario: 3
+    Reward: 10
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD
+    Primary: WEAPON_DRAGON
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_E3
+    Id: 2
+    IsFemale: 0
+    IsCrawling: 1
+    IsCivilian: 0
+    IsFraidyCat: 0
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [8, 1, 1]
+      DO_PRONE: [192, 1, 10]
+      DO_WALK: [16, 6, 6]
+      DO_FIRE_WEAPON: [64, 8, 8]
+      DO_LIE_DOWN: [128, 2, 2]
+      DO_CRAWL: [144, 4, 4]
+      DO_GET_UP: [176, 2, 2]
+      DO_FIRE_PRONE: [192, 10, 10]
+      DO_IDLE1: [272, 16, 0]
+      DO_IDLE2: [288, 16, 0]
+      DO_ON_GUARD: [304, 13, 0]
+      DO_FIGHT_READY: [308, 10, 0]
+      DO_PUNCH: [307, 2, 0]
+      DO_KICK: [319, 6, 0]
+      DO_PUNCH_HIT1: [325, 2, 0]
+      DO_PUNCH_HIT2: [327, 4, 0]
+      DO_PUNCH_DEATH: [331, 4, 0]
+      DO_KICK_HIT1: [335, 2, 0]
+      DO_KICK_HIT2: [337, 4, 0]
+      DO_KICK_DEATH: [341, 5, 0]
+      DO_READY_WEAPON: [346, 5, 0]
+      DO_GUN_DEATH: [398, 8, 0]
+      DO_EXPLOSION_DEATH: [414, 8, 0]
+      DO_EXPLOSION2_DEATH: [414, 8, 0]
+      DO_GRENADE_DEATH: [422, 12, 0]
+      DO_FIRE_DEATH: [434, 18, 0]
+      DO_GESTURE1: [452, 3, 3]
+      DO_SALUTE1: [476, 3, 3]
+      DO_GESTURE2: [500, 3, 3]
+      DO_SALUTE2: [524, 3, 3]
+      DO_PULL_GUN: [0, 1, 1]
+      DO_PLEAD: [0, 1, 1]
+      DO_PLEAD_DEATH: [0, 1, 1]
+    FireLaunch: 3
+    ProneLaunch: 3
+    IsAvoidingTiberium: 0
+    SourceName: E3
+  E4:
+    Name: 104
+    IniName: E4
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 70
+    Level: 1
+    Pre: 0
+    IsLeader: 1
+    IsScanner: 1
+    IsNominal: 0
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: -1
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 1
+    Cost: 200
+    Scenario: 5
+    Reward: 10
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_BAD
+    Primary: WEAPON_FLAMETHROWER
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_E4
+    Id: 3
+    IsFemale: 0
+    IsCrawling: 1
+    IsCivilian: 0
+    IsFraidyCat: 0
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [8, 1, 1]
+      DO_PRONE: [256, 1, 16]
+      DO_WALK: [16, 6, 6]
+      DO_FIRE_WEAPON: [64, 16, 16]
+      DO_LIE_DOWN: [192, 2, 2]
+      DO_CRAWL: [208, 4, 4]
+      DO_GET_UP: [240, 2, 2]
+      DO_FIRE_PRONE: [256, 16, 16]
+      DO_IDLE1: [384, 16, 0]
+      DO_IDLE2: [400, 16, 0]
+      DO_ON_GUARD: [416, 13, 0]
+      DO_FIGHT_READY: [420, 10, 0]
+      DO_PUNCH: [429, 2, 0]
+      DO_KICK: [431, 6, 0]
+      DO_PUNCH_HIT1: [437, 2, 0]
+      DO_PUNCH_HIT2: [439, 4, 0]
+      DO_PUNCH_DEATH: [443, 4, 0]
+      DO_KICK_HIT1: [447, 2, 0]
+      DO_KICK_HIT2: [449, 4, 0]
+      DO_KICK_DEATH: [453, 5, 0]
+      DO_READY_WEAPON: [458, 5, 0]
+      DO_GUN_DEATH: [510, 8, 0]
+      DO_EXPLOSION_DEATH: [526, 8, 0]
+      DO_EXPLOSION2_DEATH: [526, 8, 0]
+      DO_GRENADE_DEATH: [534, 12, 0]
+      DO_FIRE_DEATH: [546, 18, 0]
+      DO_GESTURE1: [564, 3, 3]
+      DO_SALUTE1: [588, 3, 3]
+      DO_GESTURE2: [612, 3, 3]
+      DO_SALUTE2: [636, 3, 3]
+      DO_PULL_GUN: [0, 1, 1]
+      DO_PLEAD: [0, 1, 1]
+      DO_PLEAD_DEATH: [0, 1, 1]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: E4
+  E5:
+    Name: 105
+    IniName: E5
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 70
+    Level: 7
+    Pre: STRUCTF_EYE
+    IsLeader: 1
+    IsScanner: 1
+    IsNominal: 0
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: -1
+    MaxSpeed: MPH_SLOW
+    SightRange: 1
+    Cost: 300
+    Scenario: 98
+    Reward: 10
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_BAD
+    Primary: WEAPON_CHEMSPRAY
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_E5
+    Id: 4
+    IsFemale: 0
+    IsCrawling: 1
+    IsCivilian: 0
+    IsFraidyCat: 0
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [8, 1, 1]
+      DO_PRONE: [256, 1, 16]
+      DO_WALK: [16, 6, 6]
+      DO_FIRE_WEAPON: [64, 16, 16]
+      DO_LIE_DOWN: [192, 2, 2]
+      DO_CRAWL: [208, 4, 4]
+      DO_GET_UP: [240, 2, 2]
+      DO_FIRE_PRONE: [256, 16, 16]
+      DO_IDLE1: [384, 16, 0]
+      DO_IDLE2: [400, 16, 0]
+      DO_ON_GUARD: [416, 13, 0]
+      DO_FIGHT_READY: [420, 10, 0]
+      DO_PUNCH: [429, 2, 0]
+      DO_KICK: [431, 6, 0]
+      DO_PUNCH_HIT1: [437, 2, 0]
+      DO_PUNCH_HIT2: [439, 4, 0]
+      DO_PUNCH_DEATH: [443, 4, 0]
+      DO_KICK_HIT1: [447, 2, 0]
+      DO_KICK_HIT2: [449, 4, 0]
+      DO_KICK_DEATH: [453, 5, 0]
+      DO_READY_WEAPON: [458, 5, 0]
+      DO_GUN_DEATH: [510, 8, 0]
+      DO_EXPLOSION_DEATH: [526, 8, 0]
+      DO_EXPLOSION2_DEATH: [526, 8, 0]
+      DO_GRENADE_DEATH: [534, 12, 0]
+      DO_FIRE_DEATH: [546, 18, 0]
+      DO_GESTURE1: [564, 3, 3]
+      DO_SALUTE1: [588, 3, 3]
+      DO_GESTURE2: [612, 3, 3]
+      DO_SALUTE2: [636, 3, 3]
+      DO_PULL_GUN: [0, 1, 1]
+      DO_PLEAD: [0, 1, 1]
+      DO_PLEAD_DEATH: [0, 1, 1]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: E5
+  E6:
+    Name: 599
+    IniName: E6
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 25
+    Level: 3
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 0
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: -1
+    MaxSpeed: MPH_SLOW
+    SightRange: 2
+    Cost: 500
+    Scenario: 2
+    Reward: 75
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_BAD HOUSEF_GOOD
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_E7
+    Id: 5
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 0
+    IsFraidyCat: 0
+    IsCapture: 1
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [8, 1, 1]
+      DO_PRONE: [82, 1, 4]
+      DO_WALK: [16, 6, 6]
+      DO_FIRE_WEAPON: [0, 0, 0]
+      DO_LIE_DOWN: [67, 2, 2]
+      DO_CRAWL: [82, 4, 4]
+      DO_GET_UP: [114, 2, 2]
+      DO_FIRE_PRONE: [0, 0, 0]
+      DO_IDLE1: [130, 16, 0]
+      DO_IDLE2: [0, 0, 0]
+      DO_ON_GUARD: [0, 0, 0]
+      DO_FIGHT_READY: [0, 0, 0]
+      DO_PUNCH: [0, 0, 0]
+      DO_KICK: [0, 0, 0]
+      DO_PUNCH_HIT1: [0, 0, 0]
+      DO_PUNCH_HIT2: [0, 0, 0]
+      DO_PUNCH_DEATH: [0, 0, 0]
+      DO_KICK_HIT1: [0, 0, 0]
+      DO_KICK_HIT2: [0, 0, 0]
+      DO_KICK_DEATH: [0, 0, 0]
+      DO_READY_WEAPON: [0, 0, 0]
+      DO_GUN_DEATH: [146, 8, 0]
+      DO_EXPLOSION_DEATH: [154, 8, 0]
+      DO_EXPLOSION2_DEATH: [162, 8, 0]
+      DO_GRENADE_DEATH: [170, 12, 0]
+      DO_FIRE_DEATH: [182, 18, 0]
+      DO_GESTURE1: [200, 3, 3]
+      DO_SALUTE1: [224, 3, 3]
+      DO_GESTURE2: [200, 3, 3]
+      DO_SALUTE2: [224, 3, 3]
+      DO_PULL_GUN: [0, 1, 1]
+      DO_PLEAD: [0, 1, 1]
+      DO_PLEAD_DEATH: [0, 1, 1]
+    FireLaunch: 3
+    ProneLaunch: 3
+    IsAvoidingTiberium: 0
+    SourceName: E7
+  RMBO:
+    Name: 106
+    IniName: RMBO
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 80
+    Level: 7
+    Pre: STRUCTF_EYE
+    IsLeader: 1
+    IsScanner: 1
+    IsNominal: 0
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: -1
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 5
+    Cost: 1000
+    Scenario: 98
+    Reward: 75
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD
+    Primary: WEAPON_RIFLE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_RAMBO
+    Id: 6
+    IsFemale: 0
+    IsCrawling: 1
+    IsCivilian: 0
+    IsFraidyCat: 0
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [8, 1, 1]
+      DO_PRONE: [160, 1, 4]
+      DO_WALK: [16, 6, 6]
+      DO_FIRE_WEAPON: [64, 4, 4]
+      DO_LIE_DOWN: [96, 2, 2]
+      DO_CRAWL: [112, 4, 4]
+      DO_GET_UP: [144, 2, 2]
+      DO_FIRE_PRONE: [160, 4, 4]
+      DO_IDLE1: [192, 16, 0]
+      DO_IDLE2: [208, 16, 0]
+      DO_ON_GUARD: [224, 13, 0]
+      DO_FIGHT_READY: [228, 9, 0]
+      DO_PUNCH: [237, 2, 0]
+      DO_KICK: [239, 6, 0]
+      DO_PUNCH_HIT1: [245, 2, 0]
+      DO_PUNCH_HIT2: [247, 4, 0]
+      DO_PUNCH_DEATH: [251, 4, 0]
+      DO_KICK_HIT1: [255, 2, 0]
+      DO_KICK_HIT2: [257, 4, 0]
+      DO_KICK_DEATH: [261, 5, 0]
+      DO_READY_WEAPON: [266, 5, 0]
+      DO_GUN_DEATH: [318, 8, 0]
+      DO_EXPLOSION_DEATH: [334, 8, 0]
+      DO_EXPLOSION2_DEATH: [334, 8, 0]
+      DO_GRENADE_DEATH: [342, 12, 0]
+      DO_FIRE_DEATH: [354, 18, 0]
+      DO_GESTURE1: [372, 3, 3]
+      DO_SALUTE1: [396, 3, 3]
+      DO_GESTURE2: [420, 3, 3]
+      DO_SALUTE2: [444, 3, 3]
+      DO_PULL_GUN: [0, 1, 1]
+      DO_PLEAD: [0, 1, 1]
+      DO_PLEAD_DEATH: [0, 1, 1]
+    FireLaunch: 2
+    ProneLaunch: 2
+    IsAvoidingTiberium: 0
+    SourceName: Commando
+  C1:
+    Name: 218
+    IniName: C1
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 25
+    Level: 99
+    Pre: 0
+    IsLeader: 1
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 10
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_PISTOL
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C1
+    Id: 7
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C1
+  C2:
+    Name: 219
+    IniName: C2
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 5
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C2
+    Id: 8
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C2
+  C3:
+    Name: 220
+    IniName: C3
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 5
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C3
+    Id: 9
+    IsFemale: 1
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C3
+  C4:
+    Name: 221
+    IniName: C4
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 5
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C4
+    Id: 10
+    IsFemale: 1
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C4
+  C5:
+    Name: 222
+    IniName: C5
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 5
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C5
+    Id: 11
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C5
+  C6:
+    Name: 223
+    IniName: C6
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 5
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C6
+    Id: 12
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C6
+  C7:
+    Name: 224
+    IniName: C7
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 5
+    Level: 99
+    Pre: 0
+    IsLeader: 1
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 10
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_PISTOL
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C7
+    Id: 13
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C7
+  C8:
+    Name: 225
+    IniName: C8
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 5
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C8
+    Id: 14
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C8
+  C9:
+    Name: 226
+    IniName: C9
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 5
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C9
+    Id: 15
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C9
+  C10:
+    Name: 643
+    IniName: C10
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 50
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_C10
+    Id: 16
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: C10
+  MOEBIUS:
+    Name: 227
+    IniName: MOEBIUS
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 50
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 0
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 10
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_BAD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_MOEBIUS
+    Id: 17
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [0, 0, 0]
+      DO_IDLE1: [104, 16, 0]
+      DO_IDLE2: [120, 20, 0]
+      DO_ON_GUARD: [0, 0, 0]
+      DO_FIGHT_READY: [0, 0, 0]
+      DO_PUNCH: [0, 0, 0]
+      DO_KICK: [0, 0, 0]
+      DO_PUNCH_HIT1: [0, 0, 0]
+      DO_PUNCH_HIT2: [0, 0, 0]
+      DO_PUNCH_DEATH: [0, 0, 0]
+      DO_KICK_HIT1: [0, 0, 0]
+      DO_KICK_HIT2: [0, 0, 0]
+      DO_KICK_DEATH: [0, 0, 0]
+      DO_READY_WEAPON: [0, 0, 0]
+      DO_GUN_DEATH: [212, 8, 0]
+      DO_EXPLOSION_DEATH: [220, 8, 0]
+      DO_EXPLOSION2_DEATH: [228, 12, 0]
+      DO_GRENADE_DEATH: [228, 12, 0]
+      DO_FIRE_DEATH: [240, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [0, 0, 0]
+      DO_PLEAD: [120, 31, 0]
+      DO_PLEAD_DEATH: [151, 14, 0]
+    FireLaunch: 0
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: Moebius
+  DELPHI:
+    Name: 655
+    IniName: DELPHI
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 25
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 10
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 0
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_NEUTRAL
+    Primary: WEAPON_PISTOL
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_DELPHI
+    Id: 18
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [205, 4, 4]
+      DO_IDLE1: [189, 10, 0]
+      DO_IDLE2: [199, 6, 0]
+      DO_ON_GUARD: [104, 3, 0]
+      DO_FIGHT_READY: [107, 7, 0]
+      DO_PUNCH: [114, 2, 0]
+      DO_KICK: [116, 6, 0]
+      DO_PUNCH_HIT1: [122, 2, 0]
+      DO_PUNCH_HIT2: [124, 4, 0]
+      DO_PUNCH_DEATH: [128, 4, 0]
+      DO_KICK_HIT1: [133, 2, 0]
+      DO_KICK_HIT2: [135, 4, 0]
+      DO_KICK_DEATH: [139, 5, 0]
+      DO_READY_WEAPON: [144, 3, 0]
+      DO_GUN_DEATH: [329, 8, 0]
+      DO_EXPLOSION_DEATH: [337, 8, 0]
+      DO_EXPLOSION2_DEATH: [337, 8, 0]
+      DO_GRENADE_DEATH: [345, 12, 0]
+      DO_FIRE_DEATH: [357, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [199, 6, 0]
+      DO_PLEAD: [237, 40, 0]
+      DO_PLEAD_DEATH: [277, 6, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: Delphi
+  CHAN:
+    Name: 672
+    IniName: CHAN
+    IsSentient: 1
+    IsFlammable: 0
+    IsCrushable: 1
+    IsStealthy: 1
+    IsSelectable: 1
+    IsLegalTarget: 1
+    IsInsignificant: 0
+    IsImmune: 0
+    Armor: ARMOR_NONE
+    MaxStrength: 25
+    Level: 99
+    Pre: 0
+    IsLeader: 0
+    IsScanner: 1
+    IsNominal: 1
+    IsTransporter: 0
+    IsTheater: 0
+    IsTwoShooter: 0
+    IsTurretEquipped: 0
+    IsRepairable: 0
+    IsBuildable: 1
+    IsCrew: 0
+    MaxAmmo: 10
+    MaxSpeed: MPH_SLOW_ISH
+    SightRange: 0
+    Cost: 10
+    Scenario: 99
+    Reward: 1
+    Ownable: HOUSEF_MULTI1 HOUSEF_MULTI2 HOUSEF_MULTI3 HOUSEF_MULTI4 HOUSEF_MULTI5 HOUSEF_MULTI6 HOUSEF_JP HOUSEF_GOOD HOUSEF_NEUTRAL
+    Primary: WEAPON_NONE
+    Secondary: WEAPON_NONE
+    Risk: 0
+    Type: INFANTRY_CHAN
+    Id: 19
+    IsFemale: 0
+    IsCrawling: 0
+    IsCivilian: 1
+    IsFraidyCat: 1
+    IsCapture: 0
+    DoTable:
+      DO_STAND_READY: [0, 1, 1]
+      DO_STAND_GUARD: [0, 1, 1]
+      DO_PRONE: [0, 1, 1]
+      DO_WALK: [56, 6, 6]
+      DO_FIRE_WEAPON: [205, 4, 4]
+      DO_LIE_DOWN: [0, 1, 1]
+      DO_CRAWL: [8, 6, 6]
+      DO_GET_UP: [0, 1, 1]
+      DO_FIRE_PRONE: [0, 0, 0]
+      DO_IDLE1: [104, 16, 0]
+      DO_IDLE2: [120, 20, 0]
+      DO_ON_GUARD: [0, 0, 0]
+      DO_FIGHT_READY: [0, 0, 0]
+      DO_PUNCH: [0, 0, 0]
+      DO_KICK: [0, 0, 0]
+      DO_PUNCH_HIT1: [0, 0, 0]
+      DO_PUNCH_HIT2: [0, 0, 0]
+      DO_PUNCH_DEATH: [0, 0, 0]
+      DO_KICK_HIT1: [0, 0, 0]
+      DO_KICK_HIT2: [0, 0, 0]
+      DO_KICK_DEATH: [0, 0, 0]
+      DO_READY_WEAPON: [0, 0, 0]
+      DO_GUN_DEATH: [212, 8, 0]
+      DO_EXPLOSION_DEATH: [220, 8, 0]
+      DO_EXPLOSION2_DEATH: [228, 12, 0]
+      DO_GRENADE_DEATH: [228, 12, 0]
+      DO_FIRE_DEATH: [240, 18, 0]
+      DO_GESTURE1: [0, 0, 0]
+      DO_SALUTE1: [0, 0, 0]
+      DO_GESTURE2: [0, 0, 0]
+      DO_SALUTE2: [0, 0, 0]
+      DO_PULL_GUN: [0, 0, 0]
+      DO_PLEAD: [120, 31, 0]
+      DO_PLEAD_DEATH: [151, 14, 0]
+    FireLaunch: 2
+    ProneLaunch: 0
+    IsAvoidingTiberium: 0
+    SourceName: DrChan

@@ -1,4 +1,4 @@
-﻿using OpenGZH.Client;
+using OpenGZH.Client;
 using OpenGZH.Client.Platform;
 using OpenGZH.Client.Screens;
 
@@ -14,6 +14,10 @@ using OpenGZH.Client.Screens;
 //   --open-menu <Menus/X.wnd>                 start at this shell menu
 //   --click "<Menus/X.wnd:Button>@<seconds>;..." press shell buttons at those times
 //   --end-game <VICTORY|DEFEAT>@<seconds>     end the game that way (to see the score screen)
+//   --perf                                    print frame timings and the slowest logic parts every 5 s
+//   --td-map <SCG01EA>                        show a Tiberian Dawn scenario (PageUp/PageDown: next ones)
+//   --td-skirmish [SCM01EA] [--side gdi|nod] [--enemy gdi|nod] [--opponents n]
+//                                             Tiberian Dawn skirmish (setup screen, or straight into a map)
 //   --screenshot <file.png>                   render a few frames, save a screenshot and quit
 //   --screenshot-frames <n>                   ... after n rendered frames instead of 5
 //   --reveal                                  (skirmish) no shroud
@@ -21,13 +25,74 @@ using OpenGZH.Client.Screens;
 //   --demo-fx <FXList>                        (skirmish) keep playing an FX list at the screen centre
 
 var options = CommandLine.Parse(args);
+
+// Tiberian Dawn: --td-map SCG01EA shows one of its original scenarios (PageUp/PageDown for the others).
+if (options.Get("td-map") is { } tdMap)
+{
+    using var td = OpenGZH.TiberianDawn.TdContent.Load(GameContent.FindRoot());
+    var tdWindow = new GameWindow("OpenGZH - Tiberian Dawn", visible: !options.Has("hidden"))
+    {
+        ScreenshotPath = options.Get("screenshot"),
+        ScreenshotAfterFrames = int.TryParse(options.Get("screenshot-frames"), out int tdFrames) ? tdFrames : 5,
+    };
+    tdWindow.Run((gl, input, _) => new OpenGZH.Client.TiberianDawn.TdMapScreen(gl, input, td, tdMap));
+    return;
+}
+
+// Tiberian Dawn skirmish: --td-skirmish opens its setup; --td-skirmish SCM01EA [--side gdi|nod] [--enemy gdi|nod]
+// [--opponents n] starts that map at once.
+if (options.Has("td-skirmish"))
+{
+    var td = TiberianDawnContent.Get() ?? throw new InvalidOperationException("Tiberian Dawn's files are not in content/tiberiandawn.");
+    var tdWindow = new GameWindow("OpenGZH - Tiberian Dawn", visible: !options.Has("hidden"))
+    {
+        ScreenshotPath = options.Get("screenshot"),
+        ScreenshotAfterFrames = int.TryParse(options.Get("screenshot-frames"), out int tdFrames) ? tdFrames : 5,
+    };
+    tdWindow.Run((gl, input, _) =>
+    {
+        if (options.Get("td-skirmish") is not { } tdMap)
+            return new OpenGZH.Client.TiberianDawn.TdSkirmishSetupScreen(gl, input, td);
+        static OpenGZH.TiberianDawn.Logic.HousesType Side(string? s, OpenGZH.TiberianDawn.Logic.HousesType fallback) =>
+            s?.ToLowerInvariant() switch { "gdi" => OpenGZH.TiberianDawn.Logic.HousesType.HOUSE_GOOD, "nod" => OpenGZH.TiberianDawn.Logic.HousesType.HOUSE_BAD, _ => fallback };
+        var side = Side(options.Get("side"), OpenGZH.TiberianDawn.Logic.HousesType.HOUSE_GOOD);
+        var enemy = Side(options.Get("enemy"), side == OpenGZH.TiberianDawn.Logic.HousesType.HOUSE_GOOD ? OpenGZH.TiberianDawn.Logic.HousesType.HOUSE_BAD : OpenGZH.TiberianDawn.Logic.HousesType.HOUSE_GOOD);
+        int opponents = int.TryParse(options.Get("opponents"), out int n) ? Math.Clamp(n, 1, 5) : 1;
+        var game = new OpenGZH.TiberianDawn.Logic.TdGame(new OpenGZH.TiberianDawn.Logic.Types.TdTypes(td.Rules));
+        var players = new List<OpenGZH.TiberianDawn.Logic.TdSkirmishPlayer> { new("Player", side, OpenGZH.TiberianDawn.Logic.PlayerColorType.REMAP_GOLD, false, 0) };
+        for (int i = 0; i < opponents; i++)
+            players.Add(new($"Computer {i + 1}", enemy, (OpenGZH.TiberianDawn.Logic.PlayerColorType)(1 + i), true, i + 1));
+        game.Set_Multiplayer_Data(new OpenGZH.TiberianDawn.Logic.TdSkirmishOptions(), players);
+        string ini = System.Text.Encoding.Latin1.GetString(td.Files.ReadAllBytes(tdMap + ".INI"));
+        byte[]? bin = td.Files.Exists(tdMap + ".BIN") ? td.Files.ReadAllBytes(tdMap + ".BIN") : null;
+        game.Start_Skirmish(tdMap.ToUpperInvariant(), ini, bin, uint.TryParse(options.Get("seed"), out uint seed) ? seed : (uint)Environment.TickCount);
+        // Debug: --reveal shows the whole map; --deploy deploys the player's MCV at once;
+        // --fast <seconds> runs the logic that long before showing the game.
+        game.DebugUnshroud = options.Has("reveal");
+        if (options.Has("deploy"))
+            foreach (var mcv in game.Units.Active.Where(u => u.House == game.PlayerPtr && u.Class.Type == OpenGZH.TiberianDawn.Logic.UnitType.UNIT_MCV).ToList())
+                game.Queue_Mission(mcv.As_Target(), OpenGZH.TiberianDawn.Logic.MissionType.MISSION_UNLOAD, 0, 0);
+        if (int.TryParse(options.Get("fast"), out int fastSeconds))
+            for (int f = 0; f < fastSeconds * 15; f++)
+                game.Main_Loop();
+        var tdScreen = new OpenGZH.Client.TiberianDawn.TdGameScreen(gl, input, td, game,
+            () => new OpenGZH.Client.TiberianDawn.TdSkirmishSetupScreen(gl, input, td, null, tdMap));
+        if (options.Get("look-at") is { } who && who == "enemy")
+            tdScreen.LookAtEnemy();
+        return tdScreen;
+    });
+    return;
+}
+
 using var content = GameContent.Load(options.Get("mod"));
 
 var window = new GameWindow("OpenGZH", visible: !options.Has("hidden"))
 {
     ScreenshotPath = options.Get("screenshot"),
     ScreenshotAfterFrames = int.TryParse(options.Get("screenshot-frames"), out int shotFrames) ? shotFrames : 5,
+    PerfReport = options.Has("perf"),
 };
+OpenGZH.Logic.GameProfiler.Enabled = options.Has("perf");
 
 window.Run((gl, input, osWindow) =>
 {
@@ -67,8 +132,38 @@ window.Run((gl, input, osWindow) =>
     if (options.Has("reveal"))
         foreach (var player in game.Players.All)
             game.Shroud.RevealMapForPlayerPermanently(player);
+    // Debug: --deploy unfolds a Tiberian Dawn player's MCV at once; --fast N plays N seconds first.
+    if (options.Has("deploy"))
+        foreach (var mcv in game.Objects.Where(o => o.Owner == game.Players.Find("Player")).ToList())
+            mcv.FindModule<OpenGZH.Logic.Modules.Behaviors.TdDeployToStructure>()?.Deploy();
+    // Debug: --fight "TDGDI_MTNK,ChinaTankBattleMaster" puts the player's and the enemy's units face to face
+    // in the middle of the map (a few of each) and the camera on them.
+    System.Numerics.Vector3? fightAt = null;
+    if (options.Get("fight") is { } fight && fight.Split(',') is [var mineName, var theirsName])
+    {
+        var middle = new System.Numerics.Vector3(game.Terrain.WorldWidth / 2, game.Terrain.WorldHeight / 2, 0);
+        for (int i = 0; i < 3; i++)
+        {
+            var a = middle + new System.Numerics.Vector3(-70, (i - 1) * 40, 0);
+            var b = middle + new System.Numerics.Vector3(70, (i - 1) * 40, 0);
+            game.CreateObject(mineName.Trim(), game.Players.Find("Player")!, a with { Z = game.Terrain.GroundHeight(a) });
+            game.CreateObject(theirsName.Trim(), game.Players.Find("Enemy")!, b with { Z = game.Terrain.GroundHeight(b) });
+        }
+        fightAt = middle;
+    }
+    if (int.TryParse(options.Get("fast"), out int fastSeconds))
+        for (int i = 0; i < fastSeconds * OpenGZH.Logic.Core.LogicTime.FramesPerSecond; i++)
+            game.Update();
     var ui = new OpenGZH.Client.UI.UiResources(gl, content);
     var screen = new OpenGZH.Client.InGame.GameScreen(gl, input, ui, game, map);
+    if (fightAt is { } fightPoint)
+        screen.LookAt(fightPoint);
+    if (options.Get("look-at") is "player" or "enemy")
+    {
+        var who = game.Players.Find(options.Get("look-at") == "player" ? "Player" : "Enemy");
+        if (who?.StartPosition is { } start)
+            screen.LookAt(start);
+    }
     if (options.Get("select") is { } selectTemplate)
         screen.SelectFirst(selectTemplate);
     if (options.Get("look-at") is { } lookAt && lookAt.Split(',') is [var lx, var ly]

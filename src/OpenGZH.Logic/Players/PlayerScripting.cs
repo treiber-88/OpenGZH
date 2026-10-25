@@ -394,7 +394,8 @@ public sealed partial class Player
         IsHuman = human;
         AI = null;
         if (!human)
-            AI = skirmish || Game.AIData.ForceSkirmishAI ? new AI.AISkirmishPlayer(this) : new AI.AIPlayer(this);
+            AI = OpenGZH.Core.Rules.RuleValue.Bool(Faction?.GetString("TdFaction") ?? "") ? new AI.TdFactionAI(this) // OpenGZH: a Tiberian Dawn faction
+                : skirmish || Game.AIData.ForceSkirmishAI ? new AI.AISkirmishPlayer(this) : new AI.AIPlayer(this);
     }
 
     /// <summary>The original's Player::update: the brain thinks, then every team's generic scripts run.</summary>

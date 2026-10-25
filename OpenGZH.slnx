@@ -6,6 +6,7 @@
     <Project Path="src/OpenGZH.Formats/OpenGZH.Formats.csproj" />
     <Project Path="src/OpenGZH.Game/OpenGZH.Game.csproj" />
     <Project Path="src/OpenGZH.Logic/OpenGZH.Logic.csproj" />
+    <Project Path="src/OpenGZH.TiberianDawn/OpenGZH.TiberianDawn.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/OpenGZH.Tests/OpenGZH.Tests.csproj" />

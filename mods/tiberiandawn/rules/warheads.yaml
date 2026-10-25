@@ -1,0 +1,88 @@
+# GENERATED from Tiberian Dawn's CONST.CPP (EA's GPL source release) by 'OpenGZH.Tools import-td-rules'.
+# Each key is the class member the original constructor argument sets.
+# This file is now the source of truth for these rules: edit it freely.
+Warheads:
+  SA:
+    Id: 0
+    SpreadFactor: 2
+    IsWallDestroyer: 0
+    IsWoodDestroyer: 0
+    IsTiberiumDestroyer: 0
+    Modifier: [256, 128, 144, 64, 64]
+  HE:
+    Id: 1
+    SpreadFactor: 6
+    IsWallDestroyer: 1
+    IsWoodDestroyer: 1
+    IsTiberiumDestroyer: 1
+    Modifier: [224, 192, 144, 64, 256]
+  AP:
+    Id: 2
+    SpreadFactor: 6
+    IsWallDestroyer: 1
+    IsWoodDestroyer: 1
+    IsTiberiumDestroyer: 0
+    Modifier: [64, 192, 192, 256, 128]
+  FIRE:
+    Id: 3
+    SpreadFactor: 8
+    IsWallDestroyer: 0
+    IsWoodDestroyer: 1
+    IsTiberiumDestroyer: 1
+    Modifier: [224, 256, 176, 64, 128]
+  LASER:
+    Id: 4
+    SpreadFactor: 4
+    IsWallDestroyer: 0
+    IsWoodDestroyer: 0
+    IsTiberiumDestroyer: 0
+    Modifier: [256, 256, 256, 256, 256]
+  PB:
+    Id: 5
+    SpreadFactor: 7
+    IsWallDestroyer: 1
+    IsWoodDestroyer: 1
+    IsTiberiumDestroyer: 1
+    Modifier: [256, 256, 192, 192, 192]
+  FIST:
+    Id: 6
+    SpreadFactor: 4
+    IsWallDestroyer: 0
+    IsWoodDestroyer: 0
+    IsTiberiumDestroyer: 0
+    Modifier: [256, 32, 32, 16, 16]
+  FOOT:
+    Id: 7
+    SpreadFactor: 4
+    IsWallDestroyer: 0
+    IsWoodDestroyer: 0
+    IsTiberiumDestroyer: 0
+    Modifier: [256, 32, 32, 16, 16]
+  HOLLOW_POINT:
+    Id: 8
+    SpreadFactor: 4
+    IsWallDestroyer: 0
+    IsWoodDestroyer: 0
+    IsTiberiumDestroyer: 0
+    Modifier: [256, 8, 8, 8, 8]
+  SPORE:
+    Id: 9
+    SpreadFactor: 255
+    IsWallDestroyer: 0
+    IsWoodDestroyer: 0
+    IsTiberiumDestroyer: 0
+    Modifier: [256, 1, 1, 1, 1]
+  HEADBUTT:
+    Id: 10
+    SpreadFactor: 1
+    IsWallDestroyer: 1
+    IsWoodDestroyer: 1
+    IsTiberiumDestroyer: 0
+    Modifier: [256, 192, 128, 32, 8]
+  FEEDME:
+    Id: 11
+    SpreadFactor: 1
+    IsWallDestroyer: 1
+    IsWoodDestroyer: 1
+    IsTiberiumDestroyer: 0
+    Modifier: [256, 192, 128, 32, 8]

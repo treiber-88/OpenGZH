@@ -146,13 +146,17 @@ public class AIPlayer
         info.DesiredGatherers = desired + 1;
     }
 
-    static SupplyTruckAIUpdate? SupplyTruckAI(GameObject obj) => obj.AI as SupplyTruckAIUpdate;
+    /// <summary>
+    /// The object's supply-gathering brain (the original's getSupplyTruckAIInterface): supply trucks and
+    /// Chinooks, and GLA workers too, which gather as well as build.
+    /// </summary>
+    static SupplyGatherer? Gatherer(GameObject obj) => SupplyGatherer.Of(obj);
 
     void QueueSupplyTruck()
     {
         if (teamBuildQueue.Any(t => t.WorkOrders.Any(o => o.IsResourceGatherer)))
             return;
-        int totalHarvesters = PlayerMembers().Count(o => o.IsKindOf(Kind.Harvester) && SupplyTruckAI(o) != null);
+        int totalHarvesters = PlayerMembers().Count(o => o.IsKindOf(Kind.Harvester) && Gatherer(o) != null);
         foreach (var info in BuildList.ToList())
         {
             if (!info.IsSupplyBuilding)
@@ -181,13 +185,13 @@ public class AIPlayer
                 int current = 0;
                 foreach (var obj in PlayerMembers())
                 {
-                    if (!obj.IsKindOf(Kind.Harvester) || SupplyTruckAI(obj) is not { } truck)
+                    if (!obj.IsKindOf(Kind.Harvester) || Gatherer(obj) is not { } gatherer)
                         continue;
-                    if (truck.Gatherer.PreferredCenterId == supplyCenter.Id)
+                    if (gatherer.PreferredCenterId == supplyCenter.Id)
                     {
                         current++;
-                        if (!truck.Gatherer.IsCurrentlyFerryingSupplies)
-                            truck.Dock(supplyCenter, CommandSource.Player);
+                        if (!gatherer.IsCurrentlyFerryingSupplies)
+                            obj.AI!.Dock(supplyCenter, CommandSource.Player);
                     }
                 }
                 info.CurrentGatherers = current;
@@ -196,16 +200,16 @@ public class AIPlayer
             {
                 foreach (var obj in PlayerMembers())
                 {
-                    if (!obj.IsKindOf(Kind.Harvester) || SupplyTruckAI(obj) is not { } truck)
+                    if (!obj.IsKindOf(Kind.Harvester) || Gatherer(obj) is not { } gatherer)
                         continue;
-                    if (game.FindObject(truck.Gatherer.PreferredCenterId) != null)
+                    if (game.FindObject(gatherer.PreferredCenterId) != null)
                         continue;
-                    if (truck.Gatherer.IsCurrentlyFerryingSupplies || truck.Gatherer.ForceWanting)
+                    if (gatherer.IsCurrentlyFerryingSupplies || gatherer.ForceWanting)
                     {
                         if (game.FindObject(info.ObjectId) is { } center)
                         {
                             info.CurrentGatherers++;
-                            truck.Dock(center, CommandSource.Player);
+                            obj.AI!.Dock(center, CommandSource.Player);
                             return;
                         }
                     }
@@ -539,17 +543,17 @@ public class AIPlayer
                 if (team.Team?.Prototype.TemplateInfo is { HasHomeLocation: true } info && ai != null)
                     ai.FollowExitProductionPath([ai.Destination, info.HomeLocation], factory);
                 order.FactoryId = 0;
-                if (ai is SupplyTruckAIUpdate truck)
+                if (ai != null && Gatherer(unit) is { } gatherer)
                 {
                     supplyTruck = order.IsResourceGatherer;
-                    truck.Gatherer.ForceWanting = supplyTruck;
+                    gatherer.ForceWanting = supplyTruck;
                     if (supplyTruck)
                         foreach (var bl in BuildList)
                             if (bl.IsSupplyBuilding && bl.DesiredGatherers > 0 && bl.DesiredGatherers > bl.CurrentGatherers
                                 && game.FindObject(bl.ObjectId) is { } center)
                             {
                                 bl.CurrentGatherers++;
-                                truck.Dock(center, CommandSource.Player);
+                                ai.Dock(center, CommandSource.Player);
                             }
                 }
                 found = true;
@@ -1509,7 +1513,7 @@ public class AIPlayer
             if (obj.Owner != player || !obj.IsKindOf(Kind.Dozer) || obj.AI is not DozerAIUpdate dozerAI)
                 continue;
             bool anyTask = dozerAI.Task != DozerAIUpdate.DozerTask.None;
-            if (!anyTask && obj.AI is SupplyTruckAIUpdate truck && (truck.Gatherer.IsCurrentlyFerryingSupplies || truck.Gatherer.ForceWanting))
+            if (!anyTask && Gatherer(obj) is { } gatherer && (gatherer.IsCurrentlyFerryingSupplies || gatherer.ForceWanting))
                 continue;
             if (obj.Id == repairDozer)
                 continue;

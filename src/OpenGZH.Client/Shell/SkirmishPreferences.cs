@@ -54,7 +54,7 @@ public sealed class SkirmishPreferences
             if (!values.TryGetValue("PlayerTemplate", out var v) || !int.TryParse(v, out int t))
                 return GameSlot.PlayerTemplateRandom;
             var templates = GameInfo.PlayerTemplates(rules);
-            if (t < 0 || t >= templates.Count || templates[t].Rules.GetString("StartingBuilding").Length == 0)
+            if (t < 0 || t >= templates.Count || !GameInfo.IsLobbyFaction(templates[t].Rules))
                 return GameSlot.PlayerTemplateRandom;
             return t;
         }

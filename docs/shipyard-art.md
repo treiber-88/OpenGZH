@@ -1,7 +1,7 @@
 # Shipyard artwork: what the engine expects
 
 The shipyard is the one OpenGZH building with no original art. The engine side is done: every
-faction's dozer or worker can build a shipyard on a shoreline, and the shipyard builds that
+faction's dozer or worker can build a shipyard on the water next to the shore, and the shipyard builds that
 faction's ships. Until the new art exists, the shipyards use the original concrete pier
 `PMDock01` as a stand-in. This document lists what to make so the real art can replace it.
 
@@ -43,14 +43,14 @@ night `_N`, `_DN`, `_EN`; snow `_S`, `_DS`, `_ES`; night+snow `_NS`, `_DNS`, `_E
 * Footprint the rules currently use: **110 units along X × 120 units along Y**, about
   35 units tall (`GeometryMajorRadius: 55`, `GeometryMinorRadius: 60`, `GeometryHeight: 35`).
   If your model ends up a different size, tell me the size and I'll update these numbers.
-* Model origin (0,0,0) is the building's center, at ground level. Z is up.
-* **+X faces the water; −X is the land side.** The shipyard straddles the shore: at least 15% of
-  its footprint must be on buildable land and at least 15% on water.
+* Model origin (0,0,0) is the building's center, **at the water surface**. Z is up.
+* **The whole shipyard stands on the water**, next to the shore (the dozer builds it from the
+  land nearby). **+X faces open water**, where ships launch.
 * Ships appear at **X = +90, Y = 0** (just beyond the water side) and sail to X = +170.
   If your design has a launch slipway or dock gate somewhere else, tell me where and I'll
   move these points (`UnitCreatePoint` / `NaturalRallyPoint` in the rules file).
-* The water level is often below the ground, so give the water side pilings or a seawall going
-  down about 15 units below the origin, so the building never looks like it's floating.
+* Give it pilings or a hull going down about 15 units below the origin (below the waterline), so
+  it never looks like it's hovering over shallow water.
 
 ## Player (team) colour
 

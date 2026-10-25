@@ -1,8 +1,8 @@
 # OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
 #
-# The China Shipyard: built by dozers on a shoreline, produces the ships in rules/china/ships.yaml.
+# The China Shipyard: built by dozers on the water next to the shore, produces the ships in rules/china/ships.yaml.
 # Placement and orientation work like the USA Shipyard (see rules/usa/shipyards.yaml):
-# footprint on land and water, +X faces the water, ships launch at UnitCreatePoint.
+# footprint wholly on water, +X faces open water, ships launch at UnitCreatePoint.
 #
 # ART: no shipyard art exists in the original game; "PMDock01" (an original concrete pier) is a
 # stand-in until the new China shipyard model (NBShipyard) exists. See docs/shipyard-art.md.

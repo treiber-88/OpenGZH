@@ -170,6 +170,9 @@ public sealed class Drawable
         }
     }
 
+    /// <summary>Seconds since any of its weapons last fired (sprite art shows recoil and firing frames).</summary>
+    public float SecondsSinceFired => clock - Math.Max(lastFireTime[0], Math.Max(lastFireTime[1], lastFireTime[2]));
+
     public void OnWeaponFired(int slot)
     {
         if (slot >= 0 && slot < lastFireTime.Length)
@@ -352,6 +355,8 @@ public sealed class DrawPart
 
     W3dLibrary? library;
     float animationSpeed = 1;
+    /// <summary>How far the object moves in one play of the current animation (its "Animation = name distance"), or 0.</summary>
+    float distanceCovered;
     bool playingIdle;
     readonly Dictionary<string, List<string>> flashMeshCache = new(StringComparer.OrdinalIgnoreCase);
 
@@ -422,6 +427,7 @@ public sealed class DrawPart
         // The original picks one of the listed animations at random (cosmetic, so not the game's random).
         var choice = choices[Random.Shared.Next(choices.Count)];
         Instance!.Animation = library.GetAnimation(choice.Name);
+        distanceCovered = choice.DistanceCovered;
         Instance.Loop = state.AnimationMode is AnimationMode.Loop or AnimationMode.LoopBackwards or AnimationMode.LoopPingPong;
         int frames = Instance.Animation?.FrameCount ?? 1;
         Instance.Frame = state.Flags.Contains("START_FRAME_LAST") ? frames - 1
@@ -442,13 +448,27 @@ public sealed class DrawPart
         }
         else
         {
-            Instance.Advance(seconds * animationSpeed);
+            Instance.Advance(seconds * SpeedFor(obj));
         }
 
         // Idle animations: pick another one when the current one finishes.
         if (playingIdle && State != null && State.IdleAnimations.Count > 1 && Instance.Animation != null
             && Instance.Frame >= Instance.Animation.FrameCount - 1.5f)
             StartAnimation(State, obj);
+    }
+
+    /// <summary>
+    /// The original's W3DModelDraw::adjustAnimSpeedToMovementSpeed: an animation that says how far it
+    /// carries the object (walking and running infantry) plays at the rate that covers that distance at
+    /// the object's current speed, so feet step instead of sliding. Other animations keep their own rate.
+    /// </summary>
+    float SpeedFor(GameObject obj)
+    {
+        if (distanceCovered <= 0 || Instance?.Animation is not { FrameCount: > 1, FrameRate: > 0 } animation
+            || obj.FindModule<Logic.Modules.Updates.PhysicsBehavior>() is not { } physics)
+            return animationSpeed;
+        float framesPerLogicFrame = physics.VelocityMagnitude * animation.FrameCount / distanceCovered;
+        return framesPerLogicFrame * Logic.Core.LogicTime.FramesPerSecond / animation.FrameRate;
     }
 
     public int? FindPivot(string? boneName)

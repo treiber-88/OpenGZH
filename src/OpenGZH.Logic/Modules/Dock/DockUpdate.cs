@@ -1,4 +1,5 @@
 using System.Numerics;
+using OpenGZH.Core.Rules;
 using OpenGZH.Logic.Core;
 using OpenGZH.Logic.Objects;
 
@@ -291,6 +292,17 @@ public abstract class DockUpdate : Module, IUpdateModule
         }
         else
             numberApproachPositionBones = 0;
+
+        // OpenGZH addition for objects without model bones (Tiberian Dawn sprites): the dock points come
+        // from DockActionOffset (and DockStartOffset / DockEndOffset, which default to it) in object space.
+        if (enterPosition == Vector3.Zero && Setting("DockActionOffset") is { Length: > 0 } actionOffset)
+        {
+            dockPosition = RuleValue.Coord(actionOffset);
+            enterPosition = Setting("DockStartOffset") is { Length: > 0 } start ? RuleValue.Coord(start) : dockPosition;
+            exitPosition = Setting("DockEndOffset") is { Length: > 0 } end ? RuleValue.Coord(end) : dockPosition;
+            if (enterPosition == Vector3.Zero)
+                enterPosition = new Vector3(0.01f, 0, 0); // zero means "no dock point"
+        }
         positionsLoaded = true;
     }
 }

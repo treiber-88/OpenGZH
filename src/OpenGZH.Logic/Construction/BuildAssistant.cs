@@ -11,6 +11,7 @@ namespace OpenGZH.Logic.Construction;
 public enum BuildLocation
 {
     Ok, RestrictedTerrain, NotFlatEnough, ObjectsInTheWay, TooCloseToSupplies, NoClearPath, Shroud, NeedsShoreline,
+    TooFarFromCommandCenter,
 }
 
 /// <summary>
@@ -35,6 +36,10 @@ public sealed class BuildAssistant
         float margin = game.Catalog.GameData.MinDistanceFromMapEdgeForStructures;
         if (position.X < margin || position.Y < margin || position.X > terrain.WorldWidth - margin || position.Y > terrain.WorldHeight - margin)
             return BuildLocation.RestrictedTerrain;
+
+        bool tdStructure = RuleValue.Bool(building.Rules.GetString("TdBuiltByYard"));
+        if (tdStructure ? !IsNextToOwnBase(building, position, angle, player) : !IsWithinCommandCenterRange(building, position, player))
+            return BuildLocation.TooFarFromCommandCenter;
 
         bool shipyard = building.Is("SHIPYARD");
         int landCells = 0, waterCells = 0, totalCells = 0;
@@ -69,12 +74,13 @@ public sealed class BuildAssistant
 
         // Other buildings (and immobile objects) may not overlap; units will move out of the way.
         float radius = Math.Max(building.GeometryMajorRadius, building.GeometryMinorRadius);
-        foreach (var other in game.ObjectsInRadius(position, radius))
+        foreach (var other in game.ObjectsInRadius(position, tdStructure ? radius + 150 : radius))
         {
             if (other == builder || other.IsEffectivelyDead)
                 continue;
-            bool blocking = other.IsKindOf(Kind.Structure) || other.IsKindOf(Kind.Immobile) && !other.IsKindOf(Kind.Shrubbery) && !other.IsKindOf("CLEARED_BY_BUILD");
-            if (blocking && Overlaps(building, position, angle, other))
+            bool blocking = tdStructure ? TdBlocks(other, deploying: builder?.FindModule<Modules.Behaviors.TdDeployToStructure>() != null)
+                : other.IsKindOf(Kind.Structure) || other.IsKindOf(Kind.Immobile) && !other.IsKindOf(Kind.Shrubbery) && !other.IsKindOf("CLEARED_BY_BUILD");
+            if (blocking && (tdStructure ? TdOverlaps(building, position, angle, other) : Overlaps(building, position, angle, other)))
                 return BuildLocation.ObjectsInTheWay;
         }
 
@@ -90,25 +96,131 @@ public sealed class BuildAssistant
     }
 
     /// <summary>
-    /// Dry, open ground just outside a shipyard's edge, where a dozer can stand to build it (the
-    /// dozer works from within about its own size of the building's edge).
+    /// OpenGZH addition (GameData MaxBuildDistanceFromCommandCenter): a human player builds only near
+    /// one of their Command Centers. With none left, a new Command Center may go anywhere. Shipyards
+    /// are exempt: they can only go where the map has a usable shore, which may be far from any base.
+    /// </summary>
+    bool IsWithinCommandCenterRange(ObjectTemplate building, Vector3 position, Player player)
+    {
+        float limit = game.Catalog.GameData.MaxBuildDistanceFromCommandCenter;
+        if (limit <= 0 || !player.IsHuman || building.Is("SHIPYARD"))
+            return true;
+        bool anyCommandCenter = false;
+        foreach (var obj in game.ObjectsOwnedBy(player))
+        {
+            if (obj.IsEffectivelyDead || !obj.IsKindOf("COMMANDCENTER"))
+                continue;
+            anyCommandCenter = true;
+            if (MathUtil.Distance2D(obj.Position, position) <= limit)
+                return true;
+        }
+        return !anyCommandCenter && building.Is("COMMANDCENTER");
+    }
+
+    /// <summary>
+    /// Tiberian Dawn's adjacency rule (BuildingTypeClass::Legal_Placement / MapClass::Passes_Proximity_Check):
+    /// a structure must touch, within one TD cell, a structure the player already owns. TD measures this on
+    /// the footprint plus a one-cell border, so here: the boxes (grown by one TD cell = 36 units) overlap.
+    /// A Construction Yard (COMMANDCENTER) comes from an MCV and is exempt.
+    /// </summary>
+    bool IsNextToOwnBase(ObjectTemplate building, Vector3 position, float angle, Player player)
+    {
+        if (building.Is("COMMANDCENTER"))
+            return true;
+        const float TdCell = 36;
+        var mine = TdFootprint(building, position, angle);
+        foreach (var obj in game.ObjectsInRadius(position, Math.Max(mine.HalfX, mine.HalfY) + TdCell + 200))
+        {
+            if (obj.Owner != player || obj.IsEffectivelyDead || !obj.IsKindOf(Kind.Structure))
+                continue;
+            var theirs = TdFootprint(obj.Template, obj.Position, obj.Orientation, obj.Geometry);
+            if (RectsOverlap(mine.Center, angle, mine.HalfX + TdCell, mine.HalfY + TdCell, theirs.Center, obj.Orientation, theirs.HalfX, theirs.HalfY))
+                return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// The rectangle an object keeps clear of TD structures: a TD structure's TdFootprint (its cells
+    /// with the bib, which other buildings may not cover though units drive over it), else its box.
+    /// </summary>
+    static (Vector3 Center, float HalfX, float HalfY) TdFootprint(ObjectTemplate template, Vector3 position, float angle, Core.Geometry? geometry = null)
+    {
+        var words = RuleValue.Words(template.Rules.GetString("TdFootprint"));
+        if (words.Length == 4)
+        {
+            var offset = Vector3.Transform(new Vector3(RuleValue.Float(words[0]), RuleValue.Float(words[1]), 0), Matrix4x4.CreateRotationZ(angle));
+            return (position + offset, RuleValue.Float(words[2]), RuleValue.Float(words[3]));
+        }
+        var g = geometry ?? template.Geometry;
+        return (position, g.MajorRadius, g.MinorRadius);
+    }
+
+    /// <summary>
+    /// What stands in a TD structure's way: buildings, and solid scenery that can be hit (it has a body).
+    /// Things with no body (sound emitters, markers) never do. An MCV unfolding clears the scenery under
+    /// its yard instead (see <see cref="ClearSceneryFor"/>): Zero Hour's start spots are laid out for a
+    /// Command Center, and trees or props near one would otherwise keep the MCV from deploying at all.
+    /// </summary>
+    public static bool TdBlocks(GameObject other, bool deploying)
+    {
+        if (other.IsKindOf(Kind.Structure))
+            return true;
+        if (!other.IsKindOf(Kind.Immobile) || other.Body == null)
+            return false;
+        if (other.IsKindOf(Kind.Shrubbery) || other.IsKindOf("CLEARED_BY_BUILD"))
+            return false;
+        return !deploying;
+    }
+
+    /// <summary>Removes the scenery (immobile, not a building, with a body) under a structure that is going up.</summary>
+    public void ClearSceneryFor(ObjectTemplate building, Vector3 position, float angle, GameObject? except = null)
+    {
+        var area = TdFootprint(building, position, angle);
+        foreach (var other in game.ObjectsInRadius(area.Center, Math.Max(area.HalfX, area.HalfY) + 40).ToList())
+        {
+            if (other == except || other.IsEffectivelyDead || other.IsKindOf(Kind.Structure) || !other.IsKindOf(Kind.Immobile) || other.Body == null)
+                continue;
+            if (RectsOverlap(area.Center, angle, area.HalfX, area.HalfY, other.Position, other.Orientation, other.Radius, other.Radius))
+                game.DestroyObject(other);
+        }
+    }
+
+    /// <summary>Overlap for a TD structure being placed: footprints against other structures, its box against everything else.</summary>
+    static bool TdOverlaps(ObjectTemplate building, Vector3 position, float angle, GameObject other)
+    {
+        if (other.IsKindOf(Kind.Structure))
+        {
+            var mine = TdFootprint(building, position, angle);
+            var theirs = TdFootprint(other.Template, other.Position, other.Orientation, other.Geometry);
+            return RectsOverlap(mine.Center, angle, mine.HalfX - 0.5f, mine.HalfY - 0.5f, theirs.Center, other.Orientation, theirs.HalfX - 0.5f, theirs.HalfY - 0.5f);
+        }
+        if (other.Geometry.Type == Core.GeometryType.Box)
+            return RectsOverlap(position, angle, building.GeometryMajorRadius - 0.5f, building.GeometryMinorRadius - 0.5f,
+                other.Position, other.Orientation, other.Geometry.MajorRadius - 0.5f, other.Geometry.MinorRadius - 0.5f);
+        return Overlaps(building, position, angle, other);
+    }
+
+    /// <summary>The ground, or the water surface for a building on water (a shipyard floats).</summary>
+    float SurfaceHeight(Vector3 position) =>
+        game.Terrain.IsUnderwater(position.X, position.Y, out float water) ? Math.Max(water, game.Terrain.GroundHeight(position)) : game.Terrain.GroundHeight(position);
+
+    /// <summary>
+    /// Drivable ground near a shipyard where a dozer can stand to build it: within the dozer's working
+    /// reach (DozerAIUpdate.IsNextTo: the building's radius plus the dozer's plus 15, so at least radius + 25).
     /// </summary>
     bool HasDozerFooting(ObjectTemplate building, Vector3 position)
     {
-        var terrain = game.Terrain;
         float radius = Math.Max(building.GeometryMajorRadius, building.GeometryMinorRadius);
-        for (int i = 0; i < 24; i++)
-        {
-            float a = i * MathF.Tau / 24;
-            var direction = new Vector3(MathF.Cos(a), MathF.Sin(a), 0);
-            foreach (float extra in new[] { 6f, 12f })
+        float inner = Math.Min(building.GeometryMajorRadius, building.GeometryMinorRadius);
+        for (float r = inner + 5; r <= radius + 25; r += 5)
+            for (int i = 0; i < 32; i++)
             {
-                var p = position + direction * (radius + extra);
-                var (cx, cy) = terrain.CellAt(p.X, p.Y);
-                if (!terrain.IsWaterCell(cx, cy) && !terrain.IsCliffCell(cx, cy))
+                float angle = i * MathF.Tau / 32;
+                var p = position + new Vector3(MathF.Cos(angle), MathF.Sin(angle), 0) * r;
+                if (game.Pathfinder.IsPassable(p, Locomotion.Surfaces.Ground))
                     return true;
             }
-        }
         return false;
     }
 
@@ -128,6 +240,25 @@ public sealed class BuildAssistant
         return MathUtil.Distance2D(position, other.Position) < a + other.Radius * 0.8f;
     }
 
+    /// <summary>Whether two rotated rectangles (centre, angle, half extents along X and Y) overlap (separating axes).</summary>
+    static bool RectsOverlap(Vector3 aPos, float aAngle, float aHalfX, float aHalfY, Vector3 bPos, float bAngle, float bHalfX, float bHalfY)
+    {
+        var d = new Vector2(bPos.X - aPos.X, bPos.Y - aPos.Y);
+        Span<Vector2> axes =
+        [
+            new(MathF.Cos(aAngle), MathF.Sin(aAngle)), new(-MathF.Sin(aAngle), MathF.Cos(aAngle)),
+            new(MathF.Cos(bAngle), MathF.Sin(bAngle)), new(-MathF.Sin(bAngle), MathF.Cos(bAngle)),
+        ];
+        foreach (var axis in axes)
+        {
+            float ra = aHalfX * MathF.Abs(Vector2.Dot(axes[0], axis)) + aHalfY * MathF.Abs(Vector2.Dot(axes[1], axis));
+            float rb = bHalfX * MathF.Abs(Vector2.Dot(axes[2], axis)) + bHalfY * MathF.Abs(Vector2.Dot(axes[3], axis));
+            if (MathF.Abs(Vector2.Dot(d, axis)) >= ra + rb)
+                return false;
+        }
+        return true;
+    }
+
     /// <summary>
     /// Places a building to be constructed: pays for it, creates it "under construction" and tells
     /// the builder to start. Returns null if the location is illegal or the player can't afford it.
@@ -140,7 +271,7 @@ public sealed class BuildAssistant
         if (!player.Money.TryWithdraw(cost))
             return null;
 
-        position.Z = game.Terrain.GroundHeight(position);
+        position.Z = SurfaceHeight(position);
         var structure = game.CreateObject(building, player, position, angle, underConstruction: true);
         structure.BuilderId = builder?.Id ?? 0;
         structure.ConstructionCost = cost;
@@ -196,7 +327,7 @@ public sealed class BuildAssistant
             builder.AI?.Stop(Commands.CommandSource.AI);
             return StartConstruction(what, position, angle, owner, builder);
         }
-        position.Z = game.Terrain.GroundHeight(position);
+        position.Z = SurfaceHeight(position);
         var obj = game.CreateObject(what, owner, position, angle);
         obj.ProducerId = builder?.Id ?? 0;
         if (obj.IsKindOf(Kind.Structure))

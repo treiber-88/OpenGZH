@@ -17,6 +17,9 @@ public sealed class ModManifest
     /// <summary>Another mod this one builds on. Its packages and rules load after (i.e. below) this mod's.</summary>
     public string? Inherits { get; set; }
 
+    /// <summary>Which game's engine runs this mod: "ZeroHour" (default) or "TiberianDawn".</summary>
+    public string Game { get; set; } = "ZeroHour";
+
     /// <summary>
     /// Packages in priority order: the FIRST entry wins when two packages contain the same file.
     /// Paths are relative to the OpenGZH root folder. Entries ending in ".big" are archives;
@@ -26,6 +29,12 @@ public sealed class ModManifest
 
     /// <summary>Rules files (YAML), loaded in order. Later files may override or extend earlier ones.</summary>
     public List<string> Rules { get; set; } = new();
+
+    /// <summary>
+    /// For Westwood ".mix" packages (which store only hashes of their file names): a text file
+    /// listing the names to look for, one per line ("{mod}" is this mod's folder).
+    /// </summary>
+    public string? MixNames { get; set; }
 
     /// <summary>The folder this manifest was loaded from. Set by the loader.</summary>
     [YamlIgnore] public string Folder { get; set; } = "";
@@ -87,6 +96,20 @@ public sealed class ModManifest
             fullPath = fullPath[..^1];
         }
 
+        if (fullPath.EndsWith(".mix", StringComparison.OrdinalIgnoreCase))
+        {
+            if (File.Exists(fullPath))
+            {
+                string? namesFile = mod.MixNames?.Replace("{mod}", mod.Folder);
+                var names = namesFile != null && File.Exists(Path.IsPathRooted(namesFile) ? namesFile : Path.Combine(gameRoot, namesFile))
+                    ? File.ReadAllLines(Path.IsPathRooted(namesFile) ? namesFile : Path.Combine(gameRoot, namesFile)).Select(l => l.Trim()).Where(l => l.Length > 0)
+                    : [];
+                fileSystem.Mount(new MixArchive(fullPath, names));
+            }
+            else if (!optional)
+                throw new FileNotFoundException($"Mod '{mod.Id}' needs package '{entry}', which is missing.", fullPath);
+            return;
+        }
         if (fullPath.EndsWith(".big", StringComparison.OrdinalIgnoreCase))
         {
             if (File.Exists(fullPath))

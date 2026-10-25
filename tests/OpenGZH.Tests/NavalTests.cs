@@ -48,7 +48,7 @@ public class NavalTests(BaseGameFixture content, ITestOutputHelper output) : ICl
         var dozer = game.ObjectsOwnedBy(alice).First(o => o.Template.Name == "AmericaVehicleDozer");
         var shipyard = game.Templates.Find("AmericaShipyard")!;
 
-        // Search outward from the dozer for the nearest legal shoreline spot, facing each direction.
+        // Search outward from the dozer for the nearest legal spot on the water by the shore, facing each direction.
         (Vector3 Position, float Angle)? site = null;
         for (float radius = 50; radius < 3000 && site == null; radius += 25)
             for (float a = 0; a < MathF.Tau && site == null; a += 0.2f)
@@ -75,7 +75,7 @@ public class NavalTests(BaseGameFixture content, ITestOutputHelper output) : ICl
                 }
             output.WriteLine(string.Join(", ", reasons.Select(kv => $"{kv.Key}={kv.Value}")));
         }
-        Assert.True(site != null, "no legal shoreline location found");
+        Assert.True(site != null, "no legal location on the water found");
         output.WriteLine($"shipyard site {site!.Value.Position} facing {site.Value.Angle}");
 
         // A shipyard may not be placed fully on land (the dozer starts inland, next to its base).
@@ -90,7 +90,7 @@ public class NavalTests(BaseGameFixture content, ITestOutputHelper output) : ICl
         int frames = 0;
         while (structure.IsUnderConstruction && frames++ < 30 * 180)
             game.Update();
-        output.WriteLine($"shipyard built in {frames / 30f:F1}s");
+        output.WriteLine($"shipyard built in {frames / 30f:F1}s; dozer at {dozer.Position}, {Logic.Core.MathUtil.Distance2D(dozer.Position, structure.Position):F0} from it (radius {structure.Radius:F0}), {structure.ConstructionPercent:F0}% built");
         Assert.False(structure.IsUnderConstruction);
 
         var production = structure.FindModule<ProductionUpdate>()!;

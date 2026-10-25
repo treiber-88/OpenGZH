@@ -1,0 +1,39 @@
+# GENERATED from Tiberian Dawn's CONST.CPP (EA's GPL source release) by 'OpenGZH.Tools import-td-rules'.
+# Each key is the class member the original constructor argument sets.
+# This file is now the source of truth for these rules: edit it freely.
+Ground:
+  CLEAR:
+    Id: 0
+    Color: 66
+    Cost: [112, 112, 112, 160, 255, 192, 0]
+    Build: 1
+  ROAD:
+    Id: 1
+    Color: 68
+    Cost: [192, 160, 160, 160, 255, 192, 0]
+    Build: 1
+  WATER:
+    Id: 2
+    Color: BLUE
+    Cost: [0, 0, 0, 0, 255, 192, 255]
+    Build: 0
+  ROCK:
+    Id: 3
+    Color: DKGREY
+    Cost: [0, 0, 0, 0, 255, 0, 0]
+    Build: 0
+  WALL:
+    Id: 4
+    Color: DKGREY
+    Cost: [0, 0, 0, 0, 255, 0, 0]
+    Build: 0
+  TIBERIUM:
+    Id: 5
+    Color: 143
+    Cost: [112, 112, 112, 160, 255, 192, 0]
+    Build: 0
+  BEACH:
+    Id: 6
+    Color: 66
+    Cost: [112, 112, 112, 160, 255, 192, 0]
+    Build: 0

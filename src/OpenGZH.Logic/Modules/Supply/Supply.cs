@@ -245,7 +245,8 @@ public sealed class SupplyGatherer
         if (!IsAvailableForSupplying)
             return false;
         // A human player can't use what is still hidden in the shroud (fog is fine).
-        if (Owner.Owner.IsHuman && Game.Shroud.StatusOf(dest, Owner.Owner) == Vision.ObjectShroud.Shrouded)
+        // (OpenGZH: a Tiberian Dawn harvester finds its field through the shroud, as UnitClass::Harvesting does.)
+        if (Owner.Owner.IsHuman && !Owner.IsKindOf("TD_OBJECT") && Game.Shroud.StatusOf(dest, Owner.Owner) == Vision.ObjectShroud.Shrouded)
             return false;
         return true;
     }

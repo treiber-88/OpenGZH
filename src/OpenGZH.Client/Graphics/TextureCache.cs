@@ -30,6 +30,15 @@ public sealed class TextureCache : IDisposable
         White = new Texture(gl, white, mipmaps: false);
     }
 
+    /// <summary>A texture made in code (e.g. from Tiberian Dawn art), cached under this name like a file's.</summary>
+    public Texture? GetOrCreate(string name, Func<Image?> make)
+    {
+        if (textures.TryGetValue(name, out var cached))
+            return cached;
+        var image = make();
+        return textures[name] = image != null ? new Texture(gl, image, repeat: false, mipmaps: false) : null;
+    }
+
     /// <summary>Returns the texture, or null if no file with that name exists.</summary>
     public Texture? Get(string name, bool repeat = true)
     {

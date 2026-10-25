@@ -313,7 +313,9 @@ public static class GameSetup
         if (d.ContainsKey("playerIsSkirmish"))
         {
             skirmish = skirmishSides.Any(s => FactionSide(rules, s.Faction) == player.Side);
-            if (!skirmish)
+            // OpenGZH: a Tiberian Dawn faction has no skirmish scripts; its computer player is TdFactionAI.
+            bool tdFaction = OpenGZH.Core.Rules.RuleValue.Bool(player.Faction?.GetString("TdFaction") ?? "");
+            if (!skirmish && !tdFaction)
                 forceHuman = true;
         }
         bool isHuman = (d.TryGetValue("playerIsHuman", out var h) && h is true) || forceHuman;
@@ -445,7 +447,13 @@ public static class GameSetup
         player.StartPosition = pos;
         string building = faction.GetString("StartingBuilding");
         if (building.Length == 0 || game.Templates.Find(building) is not { } buildingTemplate)
+        {
+            // OpenGZH: a Tiberian Dawn faction starts with no building, only its units (an MCV),
+            // gathered on the start position.
+            PlaceStartingUnits(game, player, faction, pos, 0, 60);
+            player.DefaultTeam.SetActive();
             return;
+        }
         var conYard = game.CreateObject(buildingTemplate, player, pos, buildingTemplate.PlacementViewAngle, player.DefaultTeam);
         game.TreatAsBuilt(conYard);
         player.DefaultTeam.SetActive();
@@ -461,6 +469,22 @@ public static class GameSetup
             if (Spatial.PositionFinder.FindPositionAround(game, pos, conYard.BoundingSphereRadius * 0.7f, conYard.BoundingSphereRadius * 1.3f) is not { } at)
                 continue;
             var obj = game.CreateObject(unitTemplate, player, at, unitTemplate.PlacementViewAngle, player.DefaultTeam);
+            game.TreatAsBuilt(obj);
+            player.OnUnitCreated(null, obj);
+        }
+    }
+
+    static void PlaceStartingUnits(GameLogic game, Player player, OpenGZH.Core.Rules.RuleNode faction, System.Numerics.Vector3 pos, float minRadius, float maxRadius)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            string unit = faction.GetString($"StartingUnit{i}");
+            if (unit.Length == 0 || game.Templates.Find(unit) is not { } unitTemplate)
+                continue;
+            var at = i == 0 ? pos : Spatial.PositionFinder.FindPositionAround(game, pos, minRadius + 30, maxRadius + 30);
+            if (at is not { } spot)
+                continue;
+            var obj = game.CreateObject(unitTemplate, player, spot, unitTemplate.PlacementViewAngle, player.DefaultTeam);
             game.TreatAsBuilt(obj);
             player.OnUnitCreated(null, obj);
         }

@@ -51,6 +51,10 @@ public sealed class GameScreen : IScreen
     float placingAngle;
     bool attackMoveMode;
 
+    // Tiberian Dawn factions: TD's sidebar, and the finished structure being placed (factory, queue entry).
+    readonly TiberianDawn.TdSidebarPanel? tdSidebar;
+    (uint Factory, uint Entry)? placingReady;
+
     // A special power waiting for its target click (e.g. an airstrike's target area).
     (CommandButton Button, GameObject Source)? pendingPower;
     string? message;
@@ -68,6 +72,11 @@ public sealed class GameScreen : IScreen
         world.Viewer = player;
         audio = new Audio.GameAudio(ui.Audio, game, world, player);
         controlBar = new ControlBar(ui, game, player);
+        if (TiberianDawn.TdSidebarPanel.IsTdPlayer(player))
+        {
+            tdSidebar = new TiberianDawn.TdSidebarPanel(game, player, ui);
+            tdSidebar.Layout(width, height);
+        }
         radar = new Radar(gl, game, player, world);
         radar.Message += label => ShowMessage(ui.Strings.Get(label));
         radar.Sound += sound => game.Events.PlaySound(sound, null, player);
@@ -138,6 +147,7 @@ public sealed class GameScreen : IScreen
         ui.Resize(width, height);
         controlBar.Layout.Layout(ui.Gui.Scale);
         messageWindow?.Layout(ui.Gui.Scale);
+        tdSidebar?.Layout(width, height);
     }
 
     /// <summary>Debug: run the VICTORY or DEFEAT script action after this many seconds of play.</summary>
@@ -158,6 +168,12 @@ public sealed class GameScreen : IScreen
             return;
         }
         debugClock += seconds;
+        // Debug (--perf): which objects there are most of, every 5 seconds.
+        if (GameProfiler.Enabled && (int)(debugClock / 5) != (int)((debugClock - seconds) / 5))
+        {
+            var top = Game.Objects.GroupBy(o => o.Template.Name).OrderByDescending(g => g.Count()).Take(8).Select(g => $"{g.Key}={g.Count()}");
+            Console.WriteLine($"[perf] frame {Game.Frame}: {Game.Objects.Count()} objects; {string.Join(", ", top)}");
+        }
         if (DebugEndGame is { } end && debugClock >= end.At && Game.Scripts != null)
         {
             DebugEndGame = null;
@@ -165,13 +181,23 @@ public sealed class GameScreen : IScreen
         }
         world.ViewportSize = Viewport;
         world.Update(seconds);
+        long t0 = GameProfiler.Enabled ? System.Diagnostics.Stopwatch.GetTimestamp() : 0;
         audio.Update();
+        if (GameProfiler.Enabled) GameProfiler.Add("#client audio", t0);
         UpdateDemoFx(seconds);
         selection.RemoveAll(o => o.IsDestroyed || o.IsEffectivelyDead);
+        t0 = GameProfiler.Enabled ? System.Diagnostics.Stopwatch.GetTimestamp() : 0;
         controlBar.Update(selection);
+        if (GameProfiler.Enabled) GameProfiler.Add("#client control bar", t0);
         if (director.InputEnabled && !director.Camera.IsBusy)
             ScrollCamera(seconds);
         director.Update(seconds);
+        cursors ??= ui.CursorsFor(input);
+        if (!director.InputEnabled || director.Camera.IsBusy)
+            edgeScroll = null;
+        var (cursorName, cursorDirection) = ChooseCursor();
+        cursors.Set(cursorName, cursorDirection);
+        cursors.Update(seconds);
         if (messageTime > 0)
             messageTime -= seconds;
     }
@@ -183,6 +209,13 @@ public sealed class GameScreen : IScreen
         Vector3 move = Vector3.Zero;
         // Edge scrolling only once the mouse has really been in the window (not its (0,0) start).
         bool edges = mouseSeen;
+        // Screen direction of mouse edge scrolling (x right, y down), for the Scroll cursor.
+        var edge = Vector2.Zero;
+        if (edges && mouse.X <= 2) edge.X -= 1;
+        if (edges && mouse.X >= width - 3) edge.X += 1;
+        if (edges && mouse.Y <= 2) edge.Y -= 1;
+        if (edges && mouse.Y >= height - 3) edge.Y += 1;
+        edgeScroll = edge == Vector2.Zero ? null : edge;
         if (Held(Key.Left) || edges && mouse.X <= 2) move -= camera.ScreenRight;
         if (Held(Key.Right) || edges && mouse.X >= width - 3) move += camera.ScreenRight;
         if (Held(Key.Up) || edges && mouse.Y <= 2) move += camera.ScreenUp;
@@ -199,6 +232,8 @@ public sealed class GameScreen : IScreen
     // ---- Input ----
 
     bool mouseSeen;
+    Vector2? edgeScroll;
+    UI.Cursors? cursors;
 
     void OnMouseMove(Vector2 position)
     {
@@ -289,6 +324,20 @@ public sealed class GameScreen : IScreen
             lastMiddle = mouse;
             return;
         }
+        if (button is MouseButton.Left or MouseButton.Right && tdSidebar != null && tdSidebar.Contains(mouse))
+        {
+            var ready = tdSidebar.Click(mouse, button == MouseButton.Right, out string? why);
+            if (why != null)
+                ShowMessage(why);
+            if (ready is { } place)
+            {
+                placing = place.Template;
+                placingBuilder = place.Factory;
+                placingReady = (place.Factory.Id, place.EntryId);
+                placingAngle = 0;
+            }
+            return;
+        }
         if (button == MouseButton.Left)
         {
             if (uiManager.MouseDown(mouse))
@@ -318,6 +367,7 @@ public sealed class GameScreen : IScreen
             if (placing != null || attackMoveMode || pendingPower != null)
             {
                 placing = null;
+                placingReady = null;
                 attackMoveMode = false;
                 pendingPower = null;
                 return;
@@ -346,6 +396,10 @@ public sealed class GameScreen : IScreen
         dragStart = null;
 
         bool additive = Held(Key.ShiftLeft) || Held(Key.ShiftRight);
+        // TD: clicking the MCV you have selected deploys it.
+        if (!additive && Vector2.Distance(start, mouse) < 6 && selection.Count == 1
+            && world.ObjectAt(mouse, Viewport, IsSelectable) is { } again && again == selection[0] && DeploySelectedMcvs())
+            return;
         if (!additive)
             selection.Clear();
 
@@ -395,6 +449,11 @@ public sealed class GameScreen : IScreen
     {
         if (!director.InputEnabled)
             return;
+        if (tdSidebar != null && tdSidebar.Contains(mouse))
+        {
+            tdSidebar.Scroll(mouse, amount);
+            return;
+        }
         if (uiManager.Scroll(mouse, amount))
             return;
         if (Held(Key.ControlLeft) || Held(Key.ControlRight))
@@ -404,7 +463,8 @@ public sealed class GameScreen : IScreen
         }
         if (placing != null)
         {
-            placingAngle += amount * MathF.PI / 8;
+            if (placingReady == null) // TD structures always face the same way
+                placingAngle += amount * MathF.PI / 8;
             return;
         }
         var data = Game.Catalog.GameData;
@@ -422,11 +482,15 @@ public sealed class GameScreen : IScreen
         {
             case Key.Escape:
                 placing = null;
+                placingReady = null;
                 attackMoveMode = false;
                 pendingPower = null;
                 break;
             case Key.S:
                 Game.Commands.Enqueue(new StopCommand(player.Index, SelectedIds()));
+                break;
+            case Key.D:
+                DeploySelectedMcvs();
                 break;
             case Key.A:
                 attackMoveMode = selection.Any(o => o.AI != null);
@@ -436,6 +500,21 @@ public sealed class GameScreen : IScreen
                     world.LookAt(first.Position);
                 break;
         }
+    }
+
+    /// <summary>Tiberian Dawn: the selected MCVs unfold into Construction Yards (D, or clicking a selected MCV).</summary>
+    bool DeploySelectedMcvs()
+    {
+        var mcvs = selection.Where(o => o.Owner == player && o.FindModule<Logic.Modules.Behaviors.TdDeployToStructure>() != null).ToList();
+        if (mcvs.Count == 0)
+            return false;
+        if (!mcvs.Any(o => o.FindModule<Logic.Modules.Behaviors.TdDeployToStructure>()!.CanDeploy()))
+        {
+            ShowMessage("Cannot deploy here.");
+            return true;
+        }
+        Game.Commands.Enqueue(new DeployCommand(player.Index, mcvs.Select(o => o.Id).ToArray()));
+        return true;
     }
 
     /// <summary>Selects the player's first object of a template and centres on it (used for testing and tutorials).</summary>
@@ -470,81 +549,170 @@ public sealed class GameScreen : IScreen
     uint[] SelectedIds() => selection.Where(o => o.Owner == player).Select(o => o.Id).ToArray();
 
     /// <summary>A right click does whatever makes sense for the selection and what is under the cursor.</summary>
-    void IssueContextOrder()
+    /// <summary>What a right-click would do here: the cursor to show for it, and the order (null = nothing).</summary>
+    readonly record struct ContextOrder(string Cursor, Action? Execute);
+
+    void IssueContextOrder() => EvaluateContext().Execute?.Invoke();
+
+    enum AttackResult { NotPossible, Invalid, PossibleAfterMoving, Possible }
+
+    /// <summary>
+    /// The original's getCanSelectedObjectsAttack: Possible if any selected unit can hit the target
+    /// from where it is, PossibleAfterMoving if one could after moving, Invalid if units with weapons
+    /// can't hit it at all, NotPossible if none of them has a weapon.
+    /// </summary>
+    static AttackResult CanAttack(IEnumerable<GameObject> units, GameObject target)
     {
+        var result = AttackResult.NotPossible;
+        foreach (var unit in units)
+        {
+            if (!unit.Weapons.HasAnyWeapon || unit == target)
+                continue;
+            if (unit.Weapons.ChooseFor(target) is null)
+            {
+                if (result == AttackResult.NotPossible)
+                    result = AttackResult.Invalid;
+                continue;
+            }
+            float range = unit.Weapons.MaxRangeAgainst(target) + target.BoundingCircleRadius;
+            if (MathUtil.Distance2D(unit.Position, target.Position) <= range)
+                return AttackResult.Possible;
+            if (unit.AI != null && unit.IsMobile)
+                result = AttackResult.PossibleAfterMoving;
+            else if (result == AttackResult.NotPossible)
+                result = AttackResult.Invalid;
+        }
+        return result;
+    }
+
+    /// <summary>
+    /// The original's evaluateContextCommand with the cursor from createCommandHint: one decision
+    /// gives both the hint cursor while hovering and the order on a right-click.
+    /// </summary>
+    ContextOrder EvaluateContext()
+    {
+        var target = world.ObjectAt(mouse, Viewport, o => !o.IsEffectivelyDead);
+        bool targetSelectable = target != null && IsSelectable(target);
         var mine = selection.Where(o => o.Owner == player).ToList();
         if (mine.Count == 0)
-            return;
-        var target = world.ObjectAt(mouse, Viewport, o => !o.IsEffectivelyDead);
+            return new(targetSelectable && target!.Owner == player ? "Select" : "Arrow", null);
         var ids = mine.Select(o => o.Id).ToArray();
 
         // A firing Particle Cannon: right-click steers its beam (the original's override destination).
         if (mine.Count == 1 && world.GroundPointAt(mouse, Viewport) is { } steerTo
             && mine[0].FindModules<Logic.Modules.SpecialPowers.SpecialPowerModule>().FirstOrDefault(m => m.HasOverridableDestinationActive) is { Power: { } steered })
-        {
-            Game.Commands.Enqueue(new SpecialPowerOverrideDestinationCommand(player.Index, steered.Name, mine[0].Id, steerTo));
-            return;
-        }
+            return new("ParticleUplinkCannon", () => Game.Commands.Enqueue(new SpecialPowerOverrideDestinationCommand(player.Index, steered.Name, mine[0].Id, steerTo)));
 
         // Factories: right-click the ground to set a rally point.
         if (mine.All(o => o.IsKindOf(Kind.Structure)))
         {
-            if (world.GroundPointAt(mouse, Viewport) is { } rally)
-                foreach (var factory in mine)
+            if (targetSelectable)
+                return new("Select", null);
+            var factories = mine.Where(o => o.FindModule<Logic.Modules.Production.IProductionExit>() != null).ToList();
+            if (factories.Count == 0 || world.GroundPointAt(mouse, Viewport) is not { } rally)
+                return new("GenericInvalid", null);
+            return new("SetRallyPoint", () =>
+            {
+                foreach (var factory in factories)
                     Game.Commands.Enqueue(new SetRallyPointCommand(player.Index, factory.Id, rally));
-            return;
+            });
         }
 
         if (target != null && target.Owner.IsEnemyOf(player) && !target.IsKindOf(Kind.Prop) && !target.IsKindOf(Kind.Shrubbery))
         {
-            Game.Commands.Enqueue(new AttackObjectCommand(player.Index, ids, target.Id));
-            PlayVoice("VoiceAttack");
-            return;
+            switch (CanAttack(mine, target))
+            {
+                case AttackResult.Possible:
+                    return new("AttackObj", () => { Game.Commands.Enqueue(new AttackObjectCommand(player.Index, ids, target.Id)); PlayVoice("VoiceAttack"); });
+                case AttackResult.PossibleAfterMoving:
+                    return new("OutRange", () => { Game.Commands.Enqueue(new AttackObjectCommand(player.Index, ids, target.Id)); PlayVoice("VoiceAttack"); });
+                case AttackResult.Invalid:
+                    if (!mine.Any(o => !o.Weapons.HasAnyWeapon && o.FindModules<OpenGZH.Logic.Modules.Collide.CrateCollide>().Any(c => c.IsValidToExecute(target))))
+                        return new("GenericInvalid", null);
+                    break;
+            }
         }
         if (target != null && target.Owner == player && target.IsKindOf(Kind.Structure) && mine.Any(o => o.IsKindOf(Kind.Dozer))
             && (target.IsUnderConstruction || target.Health < target.MaxHealth))
         {
-            Game.Commands.Enqueue(new RepairCommand(player.Index, mine.Where(o => o.IsKindOf(Kind.Dozer)).Select(o => o.Id).ToArray(), target.Id));
-            return;
+            var dozers = mine.Where(o => o.IsKindOf(Kind.Dozer)).Select(o => o.Id).ToArray();
+            return new(target.IsUnderConstruction ? "ResumeConstruction" : "DoRepair",
+                () => Game.Commands.Enqueue(new RepairCommand(player.Index, dozers, target.Id)));
         }
         // Damaged vehicles right-clicked onto our repair bay go in for repairs.
         if (target != null && mine.Where(o => Logic.Modules.AI.AIUpdateInterface.CanGetRepairedAt(o, target)).Select(o => o.Id).ToArray() is { Length: > 0 } damaged)
-        {
-            Game.Commands.Enqueue(new GetRepairedCommand(player.Index, damaged, target.Id));
-            return;
-        }
+            return new(target.IsKindOf("HEAL_PAD") ? "GetHealed" : "GetRepaired", () => Game.Commands.Enqueue(new GetRepairedCommand(player.Index, damaged, target.Id)));
         // Harvesters right-clicked onto a supply dock or our supply center go and use it (canTransferSuppliesAt).
         if (target != null && mine.Where(o => OpenGZH.Logic.Modules.Supply.SupplyGatherer.Of(o) is { } g && g.CanTransferSuppliesAt(target))
                 .Select(o => o.Id).ToArray() is { Length: > 0 } harvesters)
-        {
-            Game.Commands.Enqueue(new DockCommand(player.Index, harvesters, target.Id));
-            return;
-        }
+            return new("Dock", () => Game.Commands.Enqueue(new DockCommand(player.Index, harvesters, target.Id)));
         // Infantry and vehicles right-clicked onto a ferry board it (the original's canDockAt).
         if (target != null && target.FindModule<OpenGZH.Logic.Modules.Contain.RailedTransportDockUpdate>() != null
             && mine.Where(o => o != target && (o.IsKindOf("INFANTRY") || o.IsKindOf("VEHICLE"))).Select(o => o.Id).ToArray() is { Length: > 0 } boarders)
-        {
-            Game.Commands.Enqueue(new DockCommand(player.Index, boarders, target.Id));
-            return;
-        }
+            return new("Dock", () => Game.Commands.Enqueue(new DockCommand(player.Index, boarders, target.Id)));
         // Hijackers, terrorists and saboteurs go for a target they can act on.
         if (target != null && mine.Where(o => o.FindModules<OpenGZH.Logic.Modules.Collide.CrateCollide>().Any(c => c.IsValidToExecute(target))).Select(o => o.Id).ToArray() is { Length: > 0 } agents)
-        {
-            Game.Commands.Enqueue(new EnterCommand(player.Index, agents, target.Id));
-            return;
-        }
+            return new("EnterAggressive", () => Game.Commands.Enqueue(new EnterCommand(player.Index, agents, target.Id)));
         // Right-clicking our own transport, a garrisonable building or a tunnel: get in.
         if (target?.Contain is { } contain && target.Owner.IsEnemyOf(player) == false
-            && mine.Any(o => o != target && o.AI != null && contain.IsValidContainerFor(o, false)))
-        {
-            Game.Commands.Enqueue(new EnterCommand(player.Index, mine.Where(o => o != target && contain.IsValidContainerFor(o, false)).Select(o => o.Id).ToArray(), target.Id));
-            return;
-        }
+            && mine.Where(o => o != target && o.AI != null && contain.IsValidContainerFor(o, false)).Select(o => o.Id).ToArray() is { Length: > 0 } riders)
+            return new("EnterFriendly", () => Game.Commands.Enqueue(new EnterCommand(player.Index, riders, target.Id)));
+
+        // One of ours under the cursor: a left-click would select it, so no order.
+        if (targetSelectable && target!.Owner == player && !target.IsKindOf("MINE"))
+            return new("Select", null);
         if (world.GroundPointAt(mouse, Viewport) is { } point)
         {
-            Game.Commands.Enqueue(new MoveCommand(player.Index, ids, point));
-            PlayVoice("VoiceMove");
+            // The original's quick path check: somewhere at least one of them can go.
+            var movers = mine.Where(o => o.AI != null && o.IsMobile).ToList();
+            if (movers.Count == 0 || !movers.Any(o => Game.Pathfinder.IsPassable(point, o.AI!.Surfaces) || o.AI!.Surfaces.HasFlag(Logic.Locomotion.Surfaces.Air)))
+                return new("GenericInvalid", null);
+            return new("Move", () => { Game.Commands.Enqueue(new MoveCommand(player.Index, ids, point)); PlayVoice("VoiceMove"); });
         }
+        return new("Arrow", null);
+    }
+
+    /// <summary>The cursor for where the mouse is now (the original's InGameUI hint cursors).</summary>
+    (string Name, int Direction) ChooseCursor()
+    {
+        if (edgeScroll is { } scroll)
+        {
+            // Frame 0 points right and the frames go clockwise (W3DMouse::setCursorDirection).
+            float theta = MathF.Atan2(scroll.Y, scroll.X);
+            theta = (theta + MathF.Tau) % MathF.Tau;
+            int frame = (int)(theta / (MathF.Tau / 8) + 0.5f) % 8;
+            return ("Scroll", frame);
+        }
+        if (!director.InputEnabled)
+            return ("Arrow", 0);
+        if (uiManager.IsOverInterface(mouse))
+            return ("Arrow", 0);
+        if (placing != null)
+            return ("Arrow", 0);
+        if (attackMoveMode)
+            return ("AttackMove", 0);
+        if (pendingPower is { } power)
+        {
+            var button = power.Button;
+            bool wantsObject = button.HasOption("NEED_TARGET_ENEMY_OBJECT") || button.HasOption("NEED_TARGET_NEUTRAL_OBJECT") || button.HasOption("NEED_TARGET_ALLY_OBJECT");
+            bool valid = !wantsObject || PowerTargetValid(button, world.ObjectAt(mouse, Viewport, o => !o.IsEffectivelyDead));
+            string name = valid ? button.CursorName : button.InvalidCursorName;
+            return (name.Length > 0 ? name : "Target", 0);
+        }
+        return (EvaluateContext().Cursor, 0);
+    }
+
+    /// <summary>Whether a power that targets an object can be used on this one (enemy / neutral / ally, as the button asks).</summary>
+    bool PowerTargetValid(CommandButton button, GameObject? target)
+    {
+        if (target == null)
+            return false;
+        var relation = player.RelationshipTo(target.Owner);
+        if (target.Owner == player)
+            relation = Logic.Players.Relationship.Allies;
+        return button.HasOption("NEED_TARGET_ENEMY_OBJECT") && relation == Logic.Players.Relationship.Enemies
+            || button.HasOption("NEED_TARGET_NEUTRAL_OBJECT") && relation == Logic.Players.Relationship.Neutral
+            || button.HasOption("NEED_TARGET_ALLY_OBJECT") && relation == Logic.Players.Relationship.Allies;
     }
 
     /// <summary>Command buttons whose power needs a target on the map or an object.</summary>
@@ -662,19 +830,28 @@ public sealed class GameScreen : IScreen
 
     void TryPlaceBuilding()
     {
-        if (placing == null || placingBuilder == null || world.GroundPointAt(mouse, Viewport) is not { } point)
+        if (placing == null || placingBuilder == null || PlacementPoint() is not { } point)
             return;
-        var result = Game.Building.CheckLocation(placing, point, placingAngle, player, placingBuilder);
+        var result = Game.Building.CheckLocation(placing, point, placingAngle, player, placingReady != null ? null : placingBuilder);
         if (result != BuildLocation.Ok)
         {
             ShowMessage(result switch
             {
                 BuildLocation.NeedsShoreline => "A shipyard must be built on the water, right next to the shore.",
+                BuildLocation.TooFarFromCommandCenter => placingReady != null ? "Must be placed next to one of your buildings." : "Too far from your Command Center.",
                 BuildLocation.NotFlatEnough => ui.Strings.Get("GUI:CantBuildNotFlatEnough"),
                 BuildLocation.ObjectsInTheWay => ui.Strings.Get("GUI:CantBuildObjectsInTheWay"),
                 BuildLocation.TooCloseToSupplies => ui.Strings.Get("GUI:CantBuildTooCloseToSupplies"),
                 _ => ui.Strings.Get("GUI:CantBuildRestrictedTerrain"),
             });
+            return;
+        }
+        if (placingReady is { } ready)
+        {
+            // Tiberian Dawn: the structure is paid for and finished; it only needs a place.
+            Game.Commands.Enqueue(new PlaceReadyStructureCommand(player.Index, ready.Factory, ready.Entry, point, 0));
+            placing = null;
+            placingReady = null;
             return;
         }
         if (player.Money.Amount < Game.Costs.BuildCost(player, placing))
@@ -711,6 +888,7 @@ public sealed class GameScreen : IScreen
         if (!director.Letterbox)
         {
             uiManager.Draw(ui.Gui);
+            tdSidebar?.Draw(batch);
             DrawTooltip(batch);
         }
         director.Draw(batch, width, height);
@@ -723,7 +901,9 @@ public sealed class GameScreen : IScreen
     {
         foreach (var obj in selection)
         {
-            if (world.ToScreen(obj.Position + new Vector3(0, 0, obj.Height + 6), Viewport) is not { } top)
+            // Infantry are short: their bar goes a little higher, clear of the head (and of TD soldiers' sprites).
+            float lift = obj.IsKindOf(Kind.Infantry) ? 16 : 6;
+            if (world.ToScreen(obj.Position + new Vector3(0, 0, obj.Height + lift), Viewport) is not { } top)
                 continue;
             float barWidth = Math.Clamp(obj.Radius * 1.4f, 20, 90) * world.Camera.FieldOfView / MathF.Max(0.3f, world.Camera.Distance / 420f);
             barWidth = Math.Clamp(barWidth, 18, 100);
@@ -740,14 +920,21 @@ public sealed class GameScreen : IScreen
     /// <summary>While placing a building, show its footprint, green when legal and red when not.</summary>
     void DrawPlacementGhost(SpriteBatch batch)
     {
-        if (placing == null || world.GroundPointAt(mouse, Viewport) is not { } point)
+        if (placing == null || PlacementPoint() is not { } point)
             return;
-        bool legal = Game.Building.CheckLocation(placing, point, placingAngle, player, placingBuilder) == BuildLocation.Ok;
+        bool legal = Game.Building.CheckLocation(placing, point, placingAngle, player, placingReady != null ? null : placingBuilder) == BuildLocation.Ok;
         var color = legal ? new Vector4(0.2f, 1, 0.2f, 0.9f) : new Vector4(1, 0.2f, 0.2f, 0.9f);
         float a = placing.GeometryMajorRadius, b = placing.GeometryMinorRadius;
+        var footprintCenter = point;
+        if (TdFootprint(placing) is { } td)
+        {
+            // TD shows the whole footprint, bib included.
+            footprintCenter = point + td.Offset;
+            (a, b) = (td.HalfX, td.HalfY);
+        }
         var corners = new[] { new Vector3(a, b, 0), new Vector3(-a, b, 0), new Vector3(-a, -b, 0), new Vector3(a, -b, 0) }
-            .Select(c => Vector3.Transform(c, Matrix4x4.CreateRotationZ(placingAngle)) + point)
-            .Select(c => c with { Z = Game.Terrain.LayerHeight(c.X, c.Y) + 1 })
+            .Select(c => Vector3.Transform(c, Matrix4x4.CreateRotationZ(placingAngle)) + footprintCenter)
+            .Select(c => c with { Z = (Game.Terrain.IsUnderwater(c.X, c.Y, out float water) ? Math.Max(water, Game.Terrain.LayerHeight(c.X, c.Y)) : Game.Terrain.LayerHeight(c.X, c.Y)) + 1 })
             .Select(c => world.ToScreen(c, Viewport))
             .ToList();
         if (corners.Any(c => c == null))
@@ -759,8 +946,41 @@ public sealed class GameScreen : IScreen
             batch.DrawLine(center, front, color, 2);
     }
 
+    /// <summary>A TD structure's placement footprint (TdFootprint: centre offset and half sizes), if it has one.</summary>
+    static (Vector3 Offset, float HalfX, float HalfY)? TdFootprint(ObjectTemplate template)
+    {
+        var words = Core.Rules.RuleValue.Words(template.Rules.GetString("TdFootprint"));
+        if (words.Length != 4)
+            return null;
+        return (new Vector3(Core.Rules.RuleValue.Float(words[0]), Core.Rules.RuleValue.Float(words[1]), 0),
+            Core.Rules.RuleValue.Float(words[2]), Core.Rules.RuleValue.Float(words[3]));
+    }
+
+    /// <summary>Where the building would go: the ground under the mouse; TD structures snap to TD's 36-unit cells.</summary>
+    Vector3? PlacementPoint()
+    {
+        if (world.GroundPointAt(mouse, Viewport) is not { } point || placing == null)
+            return null;
+        if (TdFootprint(placing) is not { } td)
+            return point;
+        const float Cell = 36;
+        var corner = point + td.Offset - new Vector3(td.HalfX, td.HalfY, 0);
+        var snapped = new Vector3(MathF.Round(corner.X / Cell) * Cell, MathF.Round(corner.Y / Cell) * Cell, 0);
+        var result = snapped + new Vector3(td.HalfX, td.HalfY, 0) - td.Offset;
+        return result with { Z = Game.Terrain.GroundHeight(result) };
+    }
+
     void DrawTooltip(SpriteBatch batch)
     {
+        if (tdSidebar != null && tdSidebar.TooltipAt(mouse) is { } tdTip)
+        {
+            var tipFont = ui.Fonts.Get("Arial", 10, bold: true);
+            float tw = tipFont.Measure(tdTip);
+            var at = new Vector2(Math.Max(4, tdSidebar.Area.X - tw - 10), mouse.Y);
+            batch.FillRect(new Rect(at.X - 4, at.Y - 2, tw + 8, 18), new Vector4(0, 0, 0, 0.8f));
+            tipFont.Draw(batch, tdTip, at, Vector4.One);
+            return;
+        }
         if (controlBar.Tooltip is not { } tooltip)
             return;
         var font = ui.Fonts.Get("Arial", 10);
@@ -792,6 +1012,7 @@ public sealed class GameScreen : IScreen
     {
         foreach (var action in unsubscribe)
             action();
+        ui.Audio.StopAllAudio(); // the game's sounds and music end with it
         world.Dispose();
     }
 }

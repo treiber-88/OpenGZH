@@ -1,0 +1,204 @@
+# GENERATED from Tiberian Dawn's CONST.CPP (EA's GPL source release) by 'OpenGZH.Tools import-td-rules'.
+# Each key is the class member the original constructor argument sets.
+# This file is now the source of truth for these rules: edit it freely.
+Weapons:
+  RIFLE:
+    Id: 0
+    Fires: BULLET_SNIPER
+    Attack: 125
+    ROF: 40
+    Range: 1408
+    Sound: VOC_SNIPER
+    Anim: ANIM_NONE
+  CHAIN_GUN:
+    Id: 1
+    Fires: BULLET_SPREADFIRE
+    Attack: 25
+    ROF: 50
+    Range: 1024
+    Sound: VOC_MINI
+    Anim: ANIM_GUN_N
+  PISTOL:
+    Id: 2
+    Fires: BULLET_BULLET
+    Attack: 1
+    ROF: 7
+    Range: 448
+    Sound: VOC_RIFLE
+    Anim: ANIM_NONE
+  M16:
+    Id: 3
+    Fires: BULLET_BULLET
+    Attack: 15
+    ROF: 20
+    Range: 512
+    Sound: VOC_MGUN2
+    Anim: ANIM_NONE
+  DRAGON:
+    Id: 4
+    Fires: BULLET_TOW
+    Attack: 30
+    ROF: 60
+    Range: 1024
+    Sound: VOC_BAZOOKA
+    Anim: ANIM_NONE
+  FLAMETHROWER:
+    Id: 5
+    Fires: BULLET_FLAME
+    Attack: 35
+    ROF: 50
+    Range: 512
+    Sound: VOC_FLAMER1
+    Anim: ANIM_FLAME_N
+  FLAME_TONGUE:
+    Id: 6
+    Fires: BULLET_FLAME
+    Attack: 50
+    ROF: 50
+    Range: 512
+    Sound: VOC_FLAMER1
+    Anim: ANIM_FLAME_N
+  CHEMSPRAY:
+    Id: 7
+    Fires: BULLET_CHEMSPRAY
+    Attack: 80
+    ROF: 70
+    Range: 512
+    Sound: VOC_FLAMER1
+    Anim: ANIM_CHEM_N
+  GRENADE:
+    Id: 8
+    Fires: BULLET_GRENADE
+    Attack: 50
+    ROF: 60
+    Range: 832
+    Sound: VOC_TOSS
+    Anim: ANIM_NONE
+  75MM:
+    Id: 9
+    Fires: BULLET_APDS
+    Attack: 25
+    ROF: 60
+    Range: 1024
+    Sound: VOC_TANK2
+    Anim: ANIM_MUZZLE_FLASH
+  105MM:
+    Id: 10
+    Fires: BULLET_APDS
+    Attack: 30
+    ROF: 50
+    Range: 1216
+    Sound: VOC_TANK3
+    Anim: ANIM_MUZZLE_FLASH
+  120MM:
+    Id: 11
+    Fires: BULLET_APDS
+    Attack: 40
+    ROF: 80
+    Range: 1216
+    Sound: VOC_TANK4
+    Anim: ANIM_MUZZLE_FLASH
+  TURRET_GUN:
+    Id: 12
+    Fires: BULLET_APDS
+    Attack: 40
+    ROF: 60
+    Range: 1536
+    Sound: VOC_TANK4
+    Anim: ANIM_MUZZLE_FLASH
+  MAMMOTH_TUSK:
+    Id: 13
+    Fires: BULLET_SSM
+    Attack: 75
+    ROF: 80
+    Range: 1280
+    Sound: VOC_ROCKET1
+    Anim: ANIM_NONE
+  MLRS:
+    Id: 14
+    Fires: BULLET_SSM2
+    Attack: 75
+    ROF: 80
+    Range: 1536
+    Sound: VOC_ROCKET1
+    Anim: ANIM_NONE
+  155MM:
+    Id: 15
+    Fires: BULLET_HE
+    Attack: 150
+    ROF: 65
+    Range: 1536
+    Sound: VOC_TANK1
+    Anim: ANIM_MUZZLE_FLASH
+  M60MG:
+    Id: 16
+    Fires: BULLET_BULLET
+    Attack: 15
+    ROF: 30
+    Range: 1024
+    Sound: VOC_MGUN11
+    Anim: ANIM_GUN_N
+  TOMAHAWK:
+    Id: 17
+    Fires: BULLET_SSM
+    Attack: 60
+    ROF: 35
+    Range: 1920
+    Sound: VOC_ROCKET2
+    Anim: ANIM_NONE
+  TOW_TWO:
+    Id: 18
+    Fires: BULLET_SSM
+    Attack: 60
+    ROF: 40
+    Range: 1664
+    Sound: VOC_ROCKET2
+    Anim: ANIM_NONE
+  NAPALM:
+    Id: 19
+    Fires: BULLET_NAPALM
+    Attack: 100
+    ROF: 20
+    Range: 1152
+    Sound: VOC_NONE
+    Anim: ANIM_NONE
+  OBELISK_LASER:
+    Id: 20
+    Fires: BULLET_LASER
+    Attack: 200
+    ROF: 90
+    Range: 1920
+    Sound: VOC_LASER
+    Anim: ANIM_NONE
+  NIKE:
+    Id: 21
+    Fires: BULLET_SAM
+    Attack: 50
+    ROF: 50
+    Range: 1920
+    Sound: VOC_ROCKET2
+    Anim: ANIM_NONE
+  HONEST_JOHN:
+    Id: 22
+    Fires: BULLET_HONEST_JOHN
+    Attack: 100
+    ROF: 200
+    Range: 2560
+    Sound: VOC_ROCKET1
+    Anim: ANIM_NONE
+  STEG:
+    Id: 23
+    Fires: BULLET_HEADBUTT
+    Attack: 100
+    ROF: 30
+    Range: 384
+    Sound: VOC_DINOATK1
+    Anim: ANIM_NONE
+  TREX:
+    Id: 24
+    Fires: BULLET_TREXBITE
+    Attack: 155
+    ROF: 30
+    Range: 384
+    Sound: VOC_DINOATK1
+    Anim: ANIM_NONE

@@ -1,10 +1,11 @@
 # OpenGZH NAVAL ADDITION (hand-written, not converted from the original data).
 #
-# The USA Shipyard: built by dozers on a shoreline, produces the ships in rules/usa/ships.yaml.
+# The USA Shipyard: built by dozers on the water next to the shore, produces the ships in rules/usa/ships.yaml.
 #
-# Placement: KindOf SHIPYARD makes the building straddle the shore. Its footprint must cover both
-# land and water, and the ship launch point (UnitCreatePoint) must be on water.
-# Orientation convention: the model's +X side faces the water, the -X side is on land.
+# Placement: KindOf SHIPYARD makes the building stand wholly on water (it floats at the water level).
+# There must be dry ground within a dozer's reach of it for the dozer to build from, and the ship
+# launch point (UnitCreatePoint) must be on water.
+# Orientation convention: the model's +X side faces open water (ships launch there).
 #
 # ART: there is no shipyard art in the original game. Until the new model exists the building
 # uses the original concrete pier "PMDock01" as a stand-in. When the shipyard art is ready,

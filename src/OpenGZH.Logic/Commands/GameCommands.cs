@@ -113,8 +113,33 @@ public sealed record ProduceUnitCommand(int PlayerIndex, uint Factory, string Un
         var template = game.Templates.Find(Unit);
         if (factory == null || template == null)
             return;
-        if (factory.QueueUnit(template) == null)
+        // Only a lack of money is announced; a full queue (or anything else) quietly does nothing.
+        string? reason = factory.CanQueueUnit(template);
+        if (reason == "NotEnoughMoney")
             game.Events.Eva("InsufficientFunds", Player(game)!);
+        else if (reason == null)
+            factory.QueueUnit(template);
+    }
+}
+
+/// <summary>Places a structure finished by a Tiberian Dawn Construction Yard (OpenGZH addition).</summary>
+public sealed record PlaceReadyStructureCommand(int PlayerIndex, uint Factory, uint EntryId, Vector3 Position, float Angle) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        var factory = Owned(game, [Factory]).FirstOrDefault()?.FindModule<ProductionUpdate>();
+        if (factory?.PlaceReadyStructure(EntryId, Position, Angle) == null && Player(game) is { } player)
+            game.Events.Eva("TdCannotDeployHere", player);
+    }
+}
+
+/// <summary>A Tiberian Dawn MCV unfolds into its Construction Yard where it stands (OpenGZH addition).</summary>
+public sealed record DeployCommand(int PlayerIndex, uint[] Units) : GameCommand(PlayerIndex)
+{
+    public override void Execute(GameLogic game)
+    {
+        foreach (var unit in Owned(game, Units).ToList())
+            unit.FindModule<Modules.Behaviors.TdDeployToStructure>()?.Deploy();
     }
 }
 

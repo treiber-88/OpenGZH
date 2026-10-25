@@ -31,6 +31,7 @@ public sealed class GameData
         StructureBuildSpeedRate = Float("BuildSpeed", 1f);
         MinDistanceFromMapEdgeForStructures = Float("MinDistFromEdgeOfMapForBuild", 0f);
         SupplyBuildBorder = Float("SupplyBuildBorder", 0f);
+        MaxBuildDistanceFromCommandCenter = Float("MaxBuildDistanceFromCommandCenter", 0f);
         GroundStiffness = Float("GroundStiffness", 0.5f);
         StructureStiffness = Float("StructureStiffness", 0.5f);
         MaxTunnelCapacity = (int)Float("MaxTunnelCapacity", 10);
@@ -65,6 +66,9 @@ public sealed class GameData
     public float StructureBuildSpeedRate { get; }
     public float MinDistanceFromMapEdgeForStructures { get; }
     public float SupplyBuildBorder { get; }
+
+    /// <summary>OpenGZH addition: how far from a Command Center human players may build (0 = anywhere).</summary>
+    public float MaxBuildDistanceFromCommandCenter { get; }
     public float GroundStiffness { get; }
     public float StructureStiffness { get; }
     public int MaxTunnelCapacity { get; }

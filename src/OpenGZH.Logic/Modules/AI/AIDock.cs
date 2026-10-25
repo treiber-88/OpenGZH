@@ -26,6 +26,9 @@ public partial class AIUpdateInterface
     public bool IsDocking => State == AIState.Docking;
     public uint DockTargetId => State == AIState.Docking ? dockId : 0;
 
+    /// <summary>Where in the docking sequence it is (for diagnostics).</summary>
+    public string DockStepName => State == AIState.Docking ? $"{dockStep} approach {dockApproachIndex} moving {dockMoving} goal {goalType} path {(path == null ? "none" : "yes")} direct {directPath} dest {Destination} blocked {blockedFrames}" : "";
+
     /// <summary>Dock with a building (the original's aiDock).</summary>
     public void Dock(GameObject dockObject, CommandSource source = CommandSource.Player)
     {

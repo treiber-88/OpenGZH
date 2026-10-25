@@ -1277,12 +1277,42 @@ public partial class AIUpdateInterface : Module, IUpdateModule, ICreateModule
         return false;
     }
 
+    Vector3 tdProgressPosition;
+    int tdProgressFrame;
+
+    /// <summary>
+    /// OpenGZH addition for Tiberian Dawn units (KindOf TD_OBJECT): Zero Hour's bumping rules can leave two
+    /// units that meet head-on both waiting at zero speed for good (each is blocked by the other, which is
+    /// "moving"). TD units get past each other (DriveClass waits, then shuffles round), so a TD unit that
+    /// has made no headway along its path for three seconds ignores collisions for two seconds.
+    /// </summary>
+    void BreakTdDeadlock()
+    {
+        if (goalType != LocomotorGoal.PositionOnPath || !Owner.IsKindOf("TD_OBJECT"))
+        {
+            tdProgressFrame = Frame;
+            tdProgressPosition = Owner.Position;
+            return;
+        }
+        if (MathUtil.DistanceSquared2D(Owner.Position, tdProgressPosition) > 4 * 4)
+        {
+            tdProgressFrame = Frame;
+            tdProgressPosition = Owner.Position;
+        }
+        else if (Frame - tdProgressFrame > 3 * LogicTime.FramesPerSecond)
+        {
+            SetIgnoreCollisionTime(2 * LogicTime.FramesPerSecond);
+            tdProgressFrame = Frame;
+        }
+    }
+
     /// <summary>Applies this frame's locomotor goal (the original's AIUpdateInterface::doLocomotor).</summary>
     void DoLocomotor()
     {
         if (Owner.IsKindOf(Kind.Immobile))
             return;
         ChooseGoodLocomotorFromCurrentSet();
+        BreakTdDeadlock();
         if (isBlocked)
             blockedFrames++;
         else

@@ -48,8 +48,15 @@ public sealed class GameWindow
         Silk.NET.Windowing.Glfw.GlfwWindowing.RegisterPlatform();
         Silk.NET.Input.Glfw.GlfwInput.RegisterPlatform();
         window = Window.Create(options);
+        window.Load += () => NativeWindow = window.Native?.Glfw;
         window.Load += OnLoad;
-        window.Update += dt => screen?.Update((float)dt);
+        window.Update += dt =>
+        {
+            long t0 = System.Diagnostics.Stopwatch.GetTimestamp();
+            screen?.Update((float)dt);
+            if (PerfReport)
+                updateTicks.Add(System.Diagnostics.Stopwatch.GetTimestamp() - t0);
+        };
         window.Render += OnRender;
         window.FramebufferResize += size =>
         {
@@ -58,6 +65,9 @@ public sealed class GameWindow
         };
         window.Closing += () => screen?.Dispose();
     }
+
+    /// <summary>The GLFW window handle (the cursors are set on it directly), once the window exists.</summary>
+    public static nint? NativeWindow { get; private set; }
 
     /// <summary>Replaces the current screen (menus to a game and back).</summary>
     public void Switch(IScreen next)
@@ -86,9 +96,41 @@ public sealed class GameWindow
         screen.Resize(size.X, size.Y);
     }
 
+    /// <summary>Debug (--perf): every few seconds, print frame rate, update/render times and the slowest logic parts.</summary>
+    public bool PerfReport { get; set; }
+    readonly List<long> updateTicks = new(), renderTicks = new();
+    double perfClock;
+
+    void ReportPerf(double dt)
+    {
+        perfClock += dt;
+        if (perfClock < 5)
+            return;
+        static string Stats(List<long> ticks)
+        {
+            if (ticks.Count == 0)
+                return "-";
+            var ms = ticks.Select(t => t * 1000.0 / System.Diagnostics.Stopwatch.Frequency).OrderBy(v => v).ToList();
+            return $"avg {ms.Average():F1} ms, 95% {ms[(int)(ms.Count * 0.95)]:F1}, worst {ms[^1]:F1}";
+        }
+        Console.WriteLine($"[perf] {renderTicks.Count / perfClock:F0} fps | update {Stats(updateTicks)} | render {Stats(renderTicks)}");
+        foreach (var (name, ms) in Logic.GameProfiler.Report().Take(12))
+            Console.WriteLine($"[perf]   {name,-45} {ms / perfClock:F1} ms/s");
+        Logic.GameProfiler.Reset();
+        updateTicks.Clear();
+        renderTicks.Clear();
+        perfClock = 0;
+    }
+
     void OnRender(double dt)
     {
+        long t0 = System.Diagnostics.Stopwatch.GetTimestamp();
         screen?.Render((float)dt);
+        if (PerfReport)
+        {
+            renderTicks.Add(System.Diagnostics.Stopwatch.GetTimestamp() - t0);
+            ReportPerf(dt);
+        }
         renderedFrames++;
         if (ScreenshotPath != null && renderedFrames == ScreenshotAfterFrames)
         {

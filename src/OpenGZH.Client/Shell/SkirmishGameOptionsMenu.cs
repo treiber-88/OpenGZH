@@ -216,12 +216,13 @@ public sealed class SkirmishGameOptionsMenu : ShellMenu
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
         foreach (var (index, name, rules) in templates)
         {
-            if (rules.GetString("StartingBuilding").Length == 0 || locked.Contains(name))
+            if (!GameInfo.IsLobbyFaction(rules) || locked.Contains(name))
                 continue;
             string side = $"SIDE:{rules.GetString("Side")}";
             if (!seenSides.Add(side))
                 continue;
-            combo.AddEntry(Text(side), RandomColor, index);
+            // Tiberian Dawn factions have no entry in the game's string table: they show their DisplayName.
+            combo.AddEntry(GameInfo.IsTdFaction(rules) ? rules.GetString("DisplayName", name) : Text(side), RandomColor, index);
         }
         combo.SetSelectedPos(0);
     }
@@ -419,6 +420,7 @@ public sealed class SkirmishGameOptionsMenu : ShellMenu
     void OpenMapSelect()
     {
         CloseMapSelect();
+        ShowUnderlyingGuiElements(false);
         mapSelectLayout = Screen.OpenSkirmishMapSelect(Info.Map, map =>
         {
             Info.Map = map;
@@ -432,8 +434,30 @@ public sealed class SkirmishGameOptionsMenu : ShellMenu
     void CloseMapSelect()
     {
         if (mapSelectLayout != null)
+        {
             Screen.Gui.Remove(mapSelectLayout);
+            ShowUnderlyingGuiElements(true);
+        }
         mapSelectLayout = null;
+    }
+
+    /// <summary>
+    /// The original's showSkirmishGameOptionsUnderlyingGUIElements: while the map list is open, the
+    /// columns, map preview and buttons it covers are hidden (Reset and Back are only disabled).
+    /// </summary>
+    void ShowUnderlyingGuiElements(bool show)
+    {
+        var hidden = new List<string> { "MapWindow", "StaticTextTeam", "StaticTextFaction", "StaticTextColor" };
+        foreach (string column in new[] { "ComboBoxTeam", "ComboBoxColor", "ComboBoxPlayerTemplate" })
+            for (int i = 0; i < Logic.Multiplayer.GameInfo.MaxSlots; i++)
+                hidden.Add(column + i);
+        hidden.AddRange(["TextEntryMapDisplay", "ButtonSelectMap", "ButtonStart", "StaticTextMapPreview"]);
+        foreach (string name in hidden)
+            if (Window("SkirmishGameOptionsMenu.wnd:" + name) is { } w)
+                w.Hidden = !show;
+        foreach (string name in new[] { "ButtonReset", "ButtonBack" })
+            if (Window("SkirmishGameOptionsMenu.wnd:" + name) is { } w)
+                w.Enabled = show;
     }
 
     // ---- Update / shutdown ----

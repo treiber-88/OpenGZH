@@ -57,6 +57,14 @@ public sealed class ImageCatalog
         if (images.TryGetValue(name, out var image))
             return image;
 
+        // OpenGZH: "TDCAMEO:NAME" is a Tiberian Dawn sidebar cameo, from the original TD files.
+        if (name.StartsWith(TiberianDawn.TdCameos.Prefix, StringComparison.OrdinalIgnoreCase))
+        {
+            if (textures.GetOrCreate(name, () => TiberianDawn.TdCameos.Image(name[TiberianDawn.TdCameos.Prefix.Length..])) is not { } cameo)
+                return null;
+            return images[name] = new MappedImage(name, name, 0, 0, 1, 1, cameo.Width, cameo.Height, false);
+        }
+
         // A plain texture file with this name works as a whole-image "mapped image".
         if (textures.Get(name + ".tga", repeat: false) is { } texture)
         {

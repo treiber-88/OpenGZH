@@ -32,6 +32,8 @@ public static class Flags
         "CONSERVATIVE_BUILDING", "IGNORE_DOCKING_BONES",
         // OpenGZH additions (naval): structures that must be placed at the shoreline.
         "SHIPYARD",
+        // OpenGZH addition: Tiberian Dawn objects in Zero Hour engine matches (mods/zh/rules/td).
+        "TD_OBJECT",
     ]);
 
     public static readonly FlagNames ModelCondition = new("ModelCondition",
